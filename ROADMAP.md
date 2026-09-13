@@ -18,15 +18,18 @@ GAP         Nobody has checked, on one small model that has a thinking ON/OFF sw
             is TRAINING it to think shorter better than just switching thinking OFF?
    ↓
 QUESTION    Can we train the model to think shorter, keep its accuracy,
-            beat the OFF switch, and still do well on math?
+            and beat the free options (OFF, a length limit, "think briefly")?
    ↓
 EXPERIMENT  Same model, same test problems, 5 ways of answering:
             OFF · budget · "think briefly" · ON · ON + our training
    ↓
 RESULTS     Accuracy vs thinking length, with error bars
    ↓
-CONCLUSION  When training is worth it, how much data it needs, whether it carries over
+CONCLUSION  Is training worth it for code on a small model?
 ```
+
+**One question only.** On 2026-09-13 we cut the thesis down to this single question,
+the one with the best chance of a positive result (DECISIONS #25).
 
 **Everyday example.** A student writes 5 pages for every exam question, even "2 + 2".
 We teach them to write short when short is enough, without more wrong answers.
@@ -40,6 +43,7 @@ We also check whether just saying "don't think, just answer" works as well.
 ┌─────────────────────────────────────────────────────────┐
 │  ✅ Topic chosen, gaps found, plan written (2026-09-13)  │
 │  ✅ Proposal PDF written → proposal/ (2026-09-13)        │
+│  ✅ Cut to one question, 4-page B&W proposal (09-13)     │
 │  ⬜ Part 1: learn what AI is          ← YOU ARE HERE     │
 │  ⬜ Part 2: learn the tools                              │
 │  ⬜ Part 3: research skills                              │
@@ -110,9 +114,8 @@ Nothing has been run yet. $0 spent.
 | ⬜ 18 | Fine-tuning and LoRA | Training a small add-on instead of the whole model |
 | ⬜ 19 | Making training data | Keep the shortest correct answer |
 | ⬜ 20 | Training with Unsloth | Running the training on a free GPU |
-| ⬜ 21 | The learning curve | 100 → 2,000 examples: how much data is enough? |
-| ⬜ 22 | Fresh test + math transfer | Unseen problems, and does it work on math too? |
-| ⬜ 23 | (stretch) GRPO | Reinforcement learning with a length reward |
+| ⬜ 21 | Reading the result | The accuracy-vs-tokens chart: did training beat the free options? |
+| ~~22~~ | ~~The learning curve · Fresh test + math transfer · GRPO~~ | Dropped 2026-09-13: future work, not part of the thesis |
 
 ### Part 6 — The thesis
 | # | Lesson | One line |
@@ -127,11 +130,11 @@ Nothing has been run yet. $0 spent.
 ## 5. The research plan in 6 lines
 
 1. **Model:** Gemma-4-E4B (2026, thinking switch, cutoff Jan 2025). Backup: Qwen3.5-4B.
-2. **Problems:** easy + medium code. Training ≈ thousands; testing ≈ 1,000–2,000; plus math for the transfer test.
-3. **Method:** the model answers 4 times → keep the shortest correct answer → train a LoRA add-on on those.
+2. **Problems:** easy + medium code. Training ≈ thousands; testing ≈ 1,000+ (HumanEval+, MBPP+, LiveCodeBench).
+3. **Method:** the model answers 4 times → keep the shortest correct answer → train one LoRA add-on on those.
 4. **Compare:** thinking OFF · budget · "think briefly" · ON · ON + LoRA.
-5. **Gates first:** does it fit in memory? Is there something to learn (short answers ≥25% shorter)?
-6. **Contributions:** training vs switch (G-A) · how much data (G-B) · code → math transfer (G-C).
+5. **Checks first:** does it fit in memory? Is there something to learn (short answers ≥25% shorter)? If not, sample 8 answers instead of 4.
+6. **Contribution:** one fair answer: is training better than the free options (G-A)?
 
 Details: [PLAN.md](PLAN.md).
 

@@ -105,8 +105,8 @@ Numbers must match everywhere. When one changes, grep for the old value.
   prompts (except the one being tested), the same seeds.
 - **Store raw model outputs verbatim** (the thinking + the answer). Re-grading is then
   free; re-generating costs GPU days.
-- **Pre-set gates decide, not wishes.** The memory gate, the headroom gate and the
-  hard-problems rule are in PLAN.md §7. Check a gate before scaling up.
+- **Pre-set gates decide, not wishes.** The memory gate and the headroom gate
+  (with its sample-8 fix) are in PLAN.md §7. Check a gate before scaling up.
 - **`.env`, tokens and API keys are never committed.**
 
 ---
