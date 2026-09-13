@@ -12,7 +12,7 @@ simply switching its thinking OFF. Everything runs for $0 on free Colab/Kaggle G
 |---|---|
 | `ROADMAP.md` | Front door: the thesis in one picture, the course, where we are |
 | `PLAN.md` | The research design |
-| `proposal/` | The thesis proposal (PDF + its HTML source) |
+| `proposal/` | The thesis proposal: [Markdown](proposal/proposal.md) (read here) · PDF (hand in) · HTML (source of the PDF) |
 | `DECISIONS.md` | Every choice and its reason |
 | `PAPERS.md` | Related work |
 | `research/` | Full search notes |

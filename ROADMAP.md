@@ -47,6 +47,7 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ✅ Proposal PDF written → proposal/ (2026-09-13)        │
 │  ✅ Cut to one question, 4-page B&W proposal (09-13)     │
 │  ✅ Title changed (DECISIONS #28, 2026-09-13)            │
+│  ✅ Proposal in md + html + pdf (#29, 2026-09-13)        │
 │  ⬜ Part 1: learn what AI is          ← YOU ARE HERE     │
 │  ⬜ Part 2: learn the tools                              │
 │  ⬜ Part 3: research skills                              │
