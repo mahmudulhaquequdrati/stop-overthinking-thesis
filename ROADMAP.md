@@ -39,6 +39,7 @@ We also check whether just saying "don't think, just answer" works as well.
 ```text
 ┌─────────────────────────────────────────────────────────┐
 │  ✅ Topic chosen, gaps found, plan written (2026-09-13)  │
+│  ✅ Proposal PDF written → proposal/ (2026-09-13)        │
 │  ⬜ Part 1: learn what AI is          ← YOU ARE HERE     │
 │  ⬜ Part 2: learn the tools                              │
 │  ⬜ Part 3: research skills                              │

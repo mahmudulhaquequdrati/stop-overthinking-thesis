@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Think Less, Code Just as Well — Thesis Proposal</title>
+<style>
+  @page { size: A4; margin: 20mm 20mm 20mm 20mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10.8pt; line-height: 1.5; color: #1c1c1c; margin: 0;
+  }
+  h1, h2, h3, .label, th, .flow, .kicker {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .kicker { text-transform: uppercase; letter-spacing: .12em; font-size: 9pt; color: #555; margin: 0 0 6pt; }
+  h1 { font-size: 19pt; line-height: 1.25; margin: 0 0 8pt; color: #0f2a44; }
+  .subtitle { font-size: 12pt; font-style: italic; color: #333; margin: 0 0 10pt; }
+  .meta { font-size: 9.5pt; color: #555; border-top: 1px solid #ccd; padding-top: 6pt; margin-bottom: 14pt; }
+  h2 { break-before: auto;
+    font-size: 13.5pt; color: #0f2a44; margin: 18pt 0 6pt;
+    padding-bottom: 3pt; border-bottom: 1.5px solid #0f2a44;
+    break-after: avoid;
+  }
+  h3 { font-size: 11pt; color: #0f2a44; margin: 12pt 0 4pt; break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  ul, ol { margin: 0 0 8pt; padding-left: 18pt; }
+  li { margin-bottom: 3pt; }
+  .simple {
+    background: #eef4fa; border-left: 4px solid #3b6ea5;
+    padding: 6pt 10pt; margin: 4pt 0 9pt; break-inside: avoid;
+  }
+  .simple .label { font-size: 8.5pt; font-weight: bold; color: #3b6ea5; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 2pt; }
+  .example {
+    background: #fbf6ea; border-left: 4px solid #c99a2e;
+    padding: 6pt 10pt; margin: 4pt 0 9pt; break-inside: avoid;
+  }
+  .example .label { font-size: 8.5pt; font-weight: bold; color: #9a7218; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 2pt; }
+  .note {
+    border: 1px dashed #999; padding: 5pt 9pt; margin: 4pt 0 9pt; font-size: 9.8pt; color: #333; break-inside: avoid;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 10pt; font-size: 9.4pt; line-height: 1.35; }
+  th { background: #0f2a44; color: #fff; text-align: left; padding: 4pt 6pt; font-size: 9pt; font-weight: 600; }
+  td { border-bottom: 1px solid #d5d9df; padding: 4pt 6pt; vertical-align: top; }
+  tr { break-inside: avoid; }
+  h3 + table, h3 + p { break-before: avoid; }
+  .simple { break-after: avoid; }
+  tbody tr:nth-child(even) td { background: #f6f8fa; }
+  .flow { display: flex; flex-direction: column; align-items: center; margin: 6pt 0 10pt; break-inside: avoid; }
+  .flow .step { border: 1.5px solid #3b6ea5; background: #f3f7fb; border-radius: 4px; padding: 4pt 10pt; width: 80%; text-align: center; font-size: 9.6pt; }
+  .flow .step b { color: #0f2a44; }
+  .flow .arrow { color: #3b6ea5; font-size: 11pt; line-height: 1.1; }
+  .chain { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 8.6pt; text-align: center; margin: 4pt 0 10pt; color: #333; }
+  .chain span { display: inline-block; border: 1px solid #9bb3cc; border-radius: 3px; padding: 1pt 4pt; margin: 1pt 0; background: #fff; }
+  .chain span.on { background: #0f2a44; color: #fff; border-color: #0f2a44; }
+  .hyp td:first-child { font-weight: bold; white-space: nowrap; font-family: "Helvetica Neue", Arial, sans-serif; }
+  .refs li { font-size: 9.4pt; margin-bottom: 2pt; }
+  .gloss td:first-child { font-weight: bold; width: 24%; }
+  .pb { break-before: page; }
+  .small { font-size: 9.2pt; color: #444; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 8.8pt; background: #f1f1f1; padding: 0 2pt; }
+</style>
+</head>
+<body>
+
+<p class="kicker">Thesis Project Proposal</p>
+<h1>Think Less, Code Just as Well: Training a Small Reasoning Model to Think Shorter on Code, Compared with Simply Switching Its Thinking Off</h1>
+<p class="subtitle">Short title: Think Less, Code Just as Well</p>
+<div class="meta">September 2026 · Planned duration: 12 weeks · Budget: $0 (free Colab / Kaggle GPUs and free Hugging Face models and datasets)</div>
+
+<div class="simple">
+  <span class="label">This proposal in simple words</span>
+  Some new AI models "think" (write hidden notes) before they answer. On code questions they often think far too long, even for easy questions. This costs time and computer power.
+  We will teach one small, free AI model to think <b>shorter</b> on code questions <b>without</b> getting more answers wrong. Then we check a simple question: is this training really better than just pressing the model's built-in "thinking OFF" switch?
+</div>
+
+<div class="chain">
+  <span>PROBLEM</span> → <span>GAP</span> → <span>QUESTION</span> → <span>HYPOTHESIS</span> → <span>EXPERIMENT</span> → <span>DATA / CODE</span> → <span>RESULTS</span> → <span>ANALYSIS</span> → <span>CONCLUSION</span>
+</div>
+<p class="small" style="text-align:center;margin-top:-4pt">The research chain this proposal follows. Sections 2–3 cover the problem and gap, Section 4 the questions and hypotheses, Sections 5–7 the experiment.</p>
+
+<h2>1. Abstract</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Small "thinking" models waste words on code. We train one to use fewer words, and we test it fairly against the free, easy options (thinking OFF, a word limit, and a "think briefly" instruction).
+</div>
+<p>A <b>large language model (LLM)</b> is a computer program that has learned to write text by guessing the next word, again and again. <b>Reasoning models</b> are LLMs that first write a hidden "thinking" part and then give the answer. Thinking often improves accuracy, but it is long: every extra <b>token</b> (a small piece of text, about ¾ of a word) costs time and computing power. Research calls this problem <b>overthinking</b>: long thinking where a short one would do.</p>
+<p>Many 2026 small models have a built-in <b>thinking switch</b>: thinking can be turned ON or OFF. This gives a cheap way to save tokens without any training. Past work has trained models to think shorter, but mostly on math, mostly on older 7-billion-parameter models without a switch, and not against the switch itself.</p>
+<p>This thesis uses one small, free 2026 model with a thinking switch (Gemma-4-E4B, with Qwen3.5-4B as a backup). The method is simple: the model answers each training code problem 4 times; we grade every answer with the problem's real tests; we keep the <b>shortest correct answer</b>; and we train a small add-on (<b>LoRA</b>) on these short correct answers. We then compare five ways of answering on the same test problems: thinking OFF, a thinking budget, a "think briefly" prompt, normal thinking ON, and thinking ON with our trained add-on.</p>
+<p>We expect (as hypotheses, not results) that the trained model will use at least 25% fewer thinking tokens while staying within 3 accuracy points of normal thinking, and will beat the no-training options. We also measure how many training examples are needed (100 to 2,000) and whether shorter thinking learned on code carries over to math. All work runs on free GPUs. Code, raw model outputs and trained add-ons will be released openly.</p>
+
+<h2>2. Motivation and Problem Statement</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Long thinking costs money and time. A free switch already exists. We found no study that checks whether training is worth the effort compared with that switch, on code, on a small new model.
+</div>
+<div class="example">
+  <span class="label">Everyday example</span>
+  A student writes five pages for every exam question, even "2 + 2". We want to teach the student to write short answers when short is enough, without getting more questions wrong. We also check whether simply telling the student "don't think, just answer" works just as well. If it does, the teaching was not needed.
+</div>
+<p>Code generation is one of the most used applications of LLMs. Reasoning models help on coding problems, but their thinking can be thousands of tokens long, even for easy problems. For a small model running on cheap hardware, this makes answers slow and expensive.</p>
+<p>Our reading of the literature (Section 3, checked on 13 September 2026) shows three open gaps and two smaller ones:</p>
+<table>
+  <thead><tr><th style="width:9%">Gap</th><th style="width:48%">What is missing</th><th>What this thesis does</th></tr></thead>
+  <tbody>
+    <tr><td><b>G-A</b> (main)</td><td>On one small model with a thinking switch, no study found compares thinking OFF, a thinking budget, a "think briefly" prompt, thinking ON, and thinking ON + shortest-correct training, on code.</td><td>The main experiment: <i>is training better than flipping the switch?</i></td></tr>
+    <tr><td><b>G-B</b></td><td>No learning curve found showing how many examples shortest-correct training needs.</td><td>Train on 100 / 250 / 500 / 1,000 / 2,000 examples and draw the curve.</td></tr>
+    <tr><td><b>G-C</b></td><td>Shorter thinking learned on math has been shown to carry over to code. The opposite direction (code → math) was not found.</td><td>Train on code, test on math.</td></tr>
+    <tr><td>G-D (small)</td><td>One study found LoRA lost about 7 points compared with full training.</td><td>Compare LoRA rank 8 with rank 32.</td></tr>
+    <tr><td>G-E (small)</td><td>Little evidence on whether savings differ on problems the model may have seen before vs truly new problems, for a 2026 model.</td><td>Compare savings on problems from before and after the model's training cutoff date.</td></tr>
+  </tbody>
+</table>
+<p class="small">"Not found" means we did not find such a paper in our search. It does not prove that none exists. The search will be repeated before the related-work chapter is written.</p>
+
+<h2>3. Related Work and Gap Analysis</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Others have already made models think shorter. But they worked mainly on math, on older models, and did not compare against the thinking switch. That empty space is where this thesis sits.
+</div>
+<p>The table lists the works closest to this thesis. The last column is the important one: what each work does <i>not</i> do.</p>
+<table>
+  <thead><tr><th style="width:23%">Work</th><th style="width:40%">What it did</th><th>What it does not do (our gap)</th></tr></thead>
+  <tbody>
+    <tr><td><b>Self-Training Elicits Concise Reasoning</b> (Munkhbat et al., ACL Findings 2025)</td><td>Our exact method on math: sample many answers, keep the shortest correct one, fine-tune on it. Fewer tokens with accuracy about the same.</td><td>Math only. Full fine-tuning on large GPUs. The number of training examples was not varied, so there is no data-size curve (G-B).</td></tr>
+    <tr><td><b>SEER</b> (arXiv 2509.14093, 2025)</td><td>Closest to us: shortest-correct answers plus a length filter, on software-engineering code data, with a 7B model. About 40% shorter reasoning. Found LoRA reached 67.7% vs 74.9% for full fine-tuning.</td><td>Older always-thinking 7B model with no switch, so no comparison with thinking OFF (G-A). No code → math test (G-C). The LoRA gap motivates G-D.</td></tr>
+    <tr><td><b>ASAP</b> (arXiv 2508.05988, 2025)</td><td>Cuts unneeded steps out of code reasoning, then trains on them. 23.5% fewer tokens on LiveCodeBench.</td><td>Older 7–8B models without a switch; full fine-tuning; no switch baseline.</td></tr>
+    <tr><td><b>NoThinking</b> (arXiv 2504.09858, 2025)</td><td>Showed that skipping thinking can beat thinking with a small budget, including on coding.</td><td>No training for shorter thinking. It shows why thinking OFF is a serious baseline we must beat.</td></tr>
+    <tr><td><b>HRBench</b> (arXiv 2605.28398, 2026)</td><td>Compares ways of using the thinking switch on models from Qwen3.5-2B upwards; no single way wins.</td><td>Compares switch strategies, not a model trained on its own shortest correct answers against the switch (G-A).</td></tr>
+    <tr><td><b>One-Domain-to-All</b> (arXiv 2601.06052, 2026); also HAPO, LC-R1</td><td>Shorter thinking trained on math carries over to code.</td><td>Only math → code. Code → math not found (G-C).</td></tr>
+  </tbody>
+</table>
+<p><b>A warning we build in.</b> S3-CoT (arXiv 2602.01982) reports that training only on the very shortest answers can hurt accuracy. For this reason our selection rule does not pick answers shorter than half of the typical correct length (Section 5.3). The paper "The Art of Efficient Reasoning" (arXiv 2602.20945) warns of a similar "short-is-correct trap".</p>
+<p><b>What this thesis does NOT claim.</b> To stay honest, we do not claim to be the first to shorten reasoning on code (SEER and ASAP did this), the first to do it on cheap GPUs (TokenSkip used LoRA on two consumer GPUs), or the first to show transfer between math and code (math → code is already shown). Our claim is narrower and checkable: a fair, same-model comparison against the thinking switch, a data-size curve, and the code → math direction.</p>
+
+<h2>4. Research Questions and Hypotheses</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Four questions: Is training better than the switch? How much data is needed? Does it work on math too? Does it still work on brand-new problems, and does the model still think longer when a problem is harder?
+</div>
+<h3>4.1 Research questions</h3>
+<ol>
+  <li><b>RQ1 (Training vs switch):</b> Does training a small hybrid-thinking model on its own shortest correct code answers give a better accuracy-for-tokens trade-off than thinking OFF, a thinking budget, or a "think briefly" prompt?</li>
+  <li><b>RQ2 (How much data):</b> How do token savings and accuracy change as the number of training examples grows from 100 to 2,000?</li>
+  <li><b>RQ3 (Transfer):</b> Does shorter thinking learned on code carry over to math problems?</li>
+  <li><b>RQ4 (Fresh problems and adaptivity):</b> Do the savings also hold on problems published after the model's training cutoff, and does the trained model still think longer on medium problems than on easy ones?</li>
+</ol>
+<h3>4.2 Hypotheses</h3>
+<p>A <b>hypothesis</b> is a clear guess that the experiment can prove wrong. Each one below has a number, so there is no room to "wish" a result. "Thinking ON" means the normal, untrained model with thinking switched on. <b>pass@1</b> means the share of problems solved on a single try (we average over 4 tries).</p>
+<table class="hyp">
+  <thead><tr><th style="width:9%">ID</th><th style="width:61%">Hypothesis</th><th>Answers</th></tr></thead>
+  <tbody>
+    <tr><td>H1</td><td>The trained model uses at least <b>25% fewer</b> thinking tokens than thinking ON on the code test set.</td><td>RQ1</td></tr>
+    <tr><td>H2</td><td>Its accuracy (pass@1) stays within <b>3 points</b> of thinking ON, measured on the same problems (paired).</td><td>RQ1</td></tr>
+    <tr><td>H3</td><td>It is more accurate than thinking OFF, the thinking budget and the "think briefly" prompt, at equal or fewer tokens.</td><td>RQ1</td></tr>
+    <tr><td>H4</td><td>(Exploratory) Token savings level off by about <b>1,000</b> training examples.</td><td>RQ2</td></tr>
+    <tr><td>H5</td><td>On math, thinking tokens also fall, with an accuracy loss of no more than 3 points.</td><td>RQ3</td></tr>
+    <tr><td>H6</td><td>The token savings point the same way on problems published after the model's cutoff.</td><td>RQ4</td></tr>
+    <tr><td>H7′</td><td>The trained model still thinks longer on medium than on easy problems, and its medium-problem accuracy stays within 3 points.</td><td>RQ4</td></tr>
+  </tbody>
+</table>
+<p><b>What supports the main claim:</b> H1, H2 and H3 all hold on the code test set.<br>
+<b>What contradicts it:</b> thinking OFF or the "think briefly" prompt does as well as the trained model, or accuracy drops by more than 3 points. This would still be a useful, honest result: it would tell practitioners that training is not worth the effort.</p>
+
+<h2>5. Proposed Method</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Let the model answer each practice problem 4 times. Check which answers really work. Keep the shortest one that works. Teach the model with those short, working answers. Then test it fairly against the free options.
+</div>
+<h3>5.1 The pipeline</h3>
+<div class="flow">
+  <div class="step"><b>1. Sample.</b> The base model answers each training problem 4 times (thinking ON).</div>
+  <div class="arrow">▼</div>
+  <div class="step"><b>2. Grade.</b> Every answer is run against the problem's real tests, inside a <b>sandbox</b> (a safe, separate process with time limits).</div>
+  <div class="arrow">▼</div>
+  <div class="step"><b>3. Select.</b> Per problem, keep the shortest correct answer, but not shorter than half of the median correct length.</div>
+  <div class="arrow">▼</div>
+  <div class="step"><b>4. Train.</b> Train a small LoRA add-on on (problem → short correct answer).</div>
+  <div class="arrow">▼</div>
+  <div class="step"><b>5. Test.</b> Compare all five ways of answering on the same held-out problems, with the same limits and seeds.</div>
+  <div class="arrow">▼</div>
+  <div class="step"><b>6. Repeat &amp; extend.</b> Repeat step 4 with 100 / 250 / 500 / 1,000 / 2,000 examples (learning curve); test on math and on post-cutoff problems.</div>
+</div>
+<p><b>Fine-tuning</b> means giving an already-trained model a little extra training to teach it a new habit. <b>LoRA</b> (Low-Rank Adaptation) is a cheap way to fine-tune: instead of changing all of the model's numbers, we train a small add-on and leave the original model frozen. This fits on a free GPU and keeps the model's original abilities intact.</p>
+
+<h3>5.2 The five ways of answering (the "policies")</h3>
+<table>
+  <thead><tr><th style="width:28%">Policy</th><th style="width:44%">What it means</th><th>Why it is included</th></tr></thead>
+  <tbody>
+    <tr><td>1. Thinking OFF</td><td>The built-in switch is turned off; the model answers directly.</td><td>The cheapest free option. Prior work shows it can be strong.</td></tr>
+    <tr><td>2. Thinking budget</td><td>Thinking is stopped after a fixed number of tokens, then the model must answer.</td><td>A free, simple way to force shorter thinking.</td></tr>
+    <tr><td>3. "Think briefly" prompt</td><td>Thinking ON, with an instruction to keep thinking short.</td><td>A free option that uses only words, no training.</td></tr>
+    <tr><td>4. Thinking ON</td><td>The normal, untrained model.</td><td>The main reference point for accuracy and tokens.</td></tr>
+    <tr><td>5. Thinking ON + our LoRA</td><td>The model with our trained add-on.</td><td>Our method.</td></tr>
+  </tbody>
+</table>
+<h3>5.3 Why the selection rule has a lower limit</h3>
+<p>If we only ever show the model the very shortest answers, it may learn "always stop early", even on problems that need more thinking (the S3-CoT warning in Section 3). Three protections are built in: (1) LoRA changes only a small add-on, so the model's long-thinking ability stays; (2) the selection rule skips answers shorter than half of the median correct length, so training shows a range of lengths; (3) hypothesis H7′ checks directly whether the model still thinks longer on harder problems.</p>
+<h3>5.4 Stretch goal (only if time allows)</h3>
+<p>A second training method, <b>GRPO</b> (a kind of reinforcement learning, where the model is rewarded for good answers), with a length penalty applied <b>only to correct answers</b>. A 2026 study (Acoer, arXiv 2606.22716) reports that also penalising the length of wrong answers made training collapse, so we follow that warning. This is optional and not needed to answer RQ1–RQ4.</p>
+
+<h2>6. Experimental Design</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  One small free model. Thousands of practice code problems. About 1,000–2,000 test problems it never trains on. Math problems for the transfer test. Clear rules so every policy is tested the same way.
+</div>
+<h3>6.1 Model</h3>
+<table>
+  <thead><tr><th style="width:26%">Role</th><th style="width:30%">Model</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Main model</td><td><code>google/gemma-4-E4B-it</code> (March 2026)</td><td>Has a thinking ON/OFF switch; Apache-2.0 licence; its training data cutoff is published as January 2025, so problems from 2025 onwards are provably new to it; a free-GPU training notebook exists.</td></tr>
+    <tr><td>Backup (if the memory check fails)</td><td><code>Qwen/Qwen3.5-4B</code> (February 2026)</td><td>Thinking switch, Apache-2.0, lower measured training memory. Downside: no published cutoff date.</td></tr>
+  </tbody>
+</table>
+<p><b>How a 16 GB model fits on a 15 GB GPU.</b> A model is a very long list of numbers. Gemma-4-E4B has about 8 billion of them. Stored at 16-bit (2 bytes each) the file is about 16 GB, too big for a free T4 GPU (15 GB). We load a <b>4-bit</b> version instead, where part of the numbers are stored in a squeezed form, like saving a photo as a JPEG: a little less detail, much smaller. That file is about 11 GB, and training on short examples has been measured at about 10.7 GB peak memory on a T4.</p>
+<div class="note">⚠ To be re-checked in weeks 1–2: the model's cutoff date on its model card, and whether the fast generation software (vLLM) runs this model on a T4. A known Gemma-4 number-overflow issue on T4 affects the audio part, so we use text only.</div>
+
+<h3>6.2 Data</h3>
+<table>
+  <thead><tr><th style="width:20%">Role</th><th style="width:44%">Dataset</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><b>Training (code)</b></td><td>DeepCoder-Preview-Dataset (primeintellect and taco parts, MIT) and APPS introductory problems (MIT)</td><td>Thousands of problems with tests. The <code>lcbv5</code> part of DeepCoder is removed because it overlaps our test set. Training examples are kept at ≤3,500 tokens.</td></tr>
+    <tr><td><b>Test (code, standard)</b></td><td>HumanEval+ (164), MBPP+ (378), LiveCodeBench easy + medium problems from before the cutoff</td><td>About 1,000+ problems in total (LiveCodeBench counts to be verified). The model may have seen some, but the base and trained models are compared on the same problems, so the comparison stays fair.</td></tr>
+    <tr><td><b>Test (code, fresh)</b></td><td>LiveCodeBench easy + medium problems dated after the model's cutoff</td><td>Provably unseen if the cutoff date is correct. Used for H6.</td></tr>
+    <tr><td><b>Transfer (math)</b></td><td>MATH-500, AIME 2026, HMMT February 2026</td><td>About 560 problems. Used for H5.</td></tr>
+  </tbody>
+</table>
+<p><b>Overlap check.</b> Before any training, every training problem that matches a test problem, exactly or nearly, is removed. A <b>benchmark</b> is a fixed set of test problems that many researchers use, so results can be compared. <b>Contamination</b> means test problems leaked into training data, which would make results look better than they are.</p>
+<p><b>Why 1,000–2,000 test problems?</b> A 2–3 point accuracy change is small. When the same problems are compared before and after training, roughly 1,250–1,900 problems are needed to see a 2.5-point change reliably. A large token change (−25%) is visible with a few hundred problems.</p>
+
+<h3>6.3 Scope: easy and medium problems</h3>
+<p>We train and test on easy and medium code problems. Hard problems are a stated limitation, for four reasons: hard-problem thinking is often 10,000–15,000 tokens, but training on a free T4 fits about 3,500; a 4-billion-parameter model solves few hard problems, so there are few correct answers to learn from; generating long answers for thousands of problems is too slow on free GPUs; and if the base model scores near 0% on hard problems, "did accuracy drop?" cannot be measured.</p>
+<p><b>Pre-set exception:</b> the first pilot also tries 50 hard problems. If the base model solves at least 15% of them, a small hard-problem check is added at the end. Otherwise hard problems stay a limitation.</p>
+
+<h3>6.4 Metrics</h3>
+<ul>
+  <li><b>pass@1</b> (main accuracy measure): share of problems solved, averaged over 4 tries per problem.</li>
+  <li><b>Thinking tokens</b> (main cost measure): average length of the thinking part.</li>
+  <li><b>Limit-hit rate:</b> share of answers that run into the thinking limit.</li>
+  <li><b>Statistics:</b> paired <b>bootstrap</b> 95% confidence intervals, clustered by problem (bootstrap = re-sampling the results many times to see how much the numbers could vary by chance), with fixed random seeds.</li>
+  <li><b>Pareto chart:</b> accuracy vs thinking tokens for all policies on one chart. A policy is better if it is higher (more accurate) and further left (fewer tokens).</li>
+</ul>
+
+<h3>6.5 Fairness rules (the same for every policy)</h3>
+<ul>
+  <li>The same thinking limit at test time (for example 8,000 tokens) for every policy. The 3,500-token cap applies only to <i>training examples</i>.</li>
+  <li>The same prompts (except the "think briefly" prompt being tested), the same seeds, the same problems.</li>
+  <li>Answers are graded only with the benchmark's real tests, run in a sandbox, never by eye.</li>
+  <li>All raw model outputs (thinking and answer) are stored, so any result can be re-graded later without re-running the model.</li>
+</ul>
+
+<h3>6.6 Gates: checks before spending GPU days</h3>
+<p>No one can promise in advance that training will help. But we can check <i>before</i> the expensive steps whether there is something to learn. These gates are fixed now, so the data decides, not our wishes.</p>
+<table>
+  <thead><tr><th style="width:18%">Gate</th><th style="width:46%">Test</th><th>If it fails</th></tr></thead>
+  <tbody>
+    <tr><td><b>1. Memory</b></td><td>Train on 50 examples up to 3,500 tokens long. Peak GPU memory must be ≤14 GB.</td><td>Switch to the backup model, Qwen3.5-4B. H6 then becomes "likely unseen" instead of "provably unseen".</td></tr>
+    <tr><td><b>2. Headroom</b></td><td>The base model answers 200 training problems 4 times each. <b>Coverage</b> (share of problems with at least one correct answer) must be ≥40%. <b>Headroom</b> (shortest correct ÷ average correct length) must be ≤0.75, meaning short answers are at least 25% shorter.</td><td>Change problem difficulty or the method <i>before</i> scaling up.</td></tr>
+    <tr><td><b>3. Hard problems</b></td><td>Same pilot, 50 hard problems. Base model must solve ≥15%.</td><td>Hard problems stay a written limitation.</td></tr>
+  </tbody>
+</table>
+
+<h2>7. Implementation Plan and Deliverables</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Twelve weeks: set up and check, run the gates, measure the free options, build the training data, train, test on new problems and math, then write.
+</div>
+<h3>7.1 Deliverables</h3>
+<ol>
+  <li><b>Notebooks</b> (Colab / Kaggle) for sampling, sandboxed grading, data selection, training and testing, each step explained.</li>
+  <li><b>Dataset of raw outputs:</b> every model answer (thinking and final answer), its grade and its token count.</li>
+  <li><b>Trained LoRA add-ons</b> for each data size (100 to 2,000) and both ranks (8 and 32).</li>
+  <li><b>Results:</b> tables (CSV), the Pareto chart, the learning curve, and the transfer and fresh-problem results, each with a short written explanation.</li>
+  <li><b>Thesis document</b> with method, results, discussion and limitations.</li>
+</ol>
+
+<h3>7.2 Timeline (12 weeks)</h3>
+<table>
+  <thead><tr><th style="width:12%">Weeks</th><th style="width:58%">Activity</th><th>Output</th></tr></thead>
+  <tbody>
+    <tr><td>1–2</td><td>Set up free Colab/Kaggle environment. Re-check the model, its cutoff date and all dataset ids. Build the sandboxed grading step. First model call with thinking ON vs OFF. Finish the literature search.</td><td>Working pipeline on a few problems; verified model and data list</td></tr>
+    <tr><td>3</td><td>Run the gates: memory gate, headroom pilot (200 problems × 4 answers), 50 hard problems.</td><td>Gate report: go / switch model / adjust</td></tr>
+    <tr><td>4–5</td><td>Measure the baselines on the code test set: thinking OFF, thinking budget, "think briefly" prompt, thinking ON.</td><td>Baseline results table and first Pareto chart</td></tr>
+    <tr><td>6–7</td><td>Build the training data: sample 4 answers per training problem, grade, apply the selection rule. Run the overlap check.</td><td>Clean training set of short correct answers</td></tr>
+    <tr><td>8–9</td><td>Train LoRA add-ons on 100 / 250 / 500 / 1,000 / 2,000 examples; compare rank 8 vs 32; test each on the code test set.</td><td>Main comparison (H1–H3), learning curve (H4)</td></tr>
+    <tr><td>10</td><td>Test the best add-on on post-cutoff code problems and on math (MATH-500, AIME 2026, HMMT Feb 2026). Check adaptivity by difficulty.</td><td>Results for H5, H6, H7′</td></tr>
+    <tr><td>11–12</td><td>Statistical analysis, charts, writing, and final checks that all numbers match.</td><td>Final thesis and released materials</td></tr>
+  </tbody>
+</table>
+
+<h3>7.3 Resources and cost</h3>
+<p><b>Total cost: $0.</b> All computing uses free GPUs: Google Colab (sessions of up to about 12 hours) and Kaggle (about 30 GPU-hours per week on 2 × T4). Models and datasets come free from Hugging Face. No paid APIs, paid GPUs or subscriptions are used. A rough early estimate is many tens of GPU-hours in total (about 40 million tokens to build training data, plus testing about 7 policy settings on about 1,500 problems × 4 answers). This estimate will be replaced by measured numbers after the week-3 pilot. Work is saved to Google Drive about every 20 problems, because free sessions can end without warning.</p>
+
+<h2>8. Risks and Mitigations</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  Things can go wrong. For each one, we already have a plan B, and a "bad" result still answers the research question.
+</div>
+<table>
+  <thead><tr><th style="width:32%">Risk</th><th style="width:10%">Impact</th><th>Mitigation</th></tr></thead>
+  <tbody>
+    <tr><td>Main model does not fit in free GPU memory</td><td>Medium</td><td>Memory gate in week 3; switch to Qwen3.5-4B (measured at 9.6 GB on a T4).</td></tr>
+    <tr><td>Not enough headroom (short correct answers are not much shorter)</td><td>High</td><td>Headroom gate before scaling up; change problem difficulty or method first.</td></tr>
+    <tr><td>Thinking OFF or the prompt does as well as training</td><td>Medium</td><td>This is a valid, honest answer to RQ1 ("training is not worth it"). The learning curve and transfer results still stand.</td></tr>
+    <tr><td>Model learns to "always stop early" and fails on medium problems</td><td>Medium</td><td>Selection rule with a lower limit; LoRA keeps the base ability; H7′ checks this directly and any failure is reported.</td></tr>
+    <tr><td>LoRA is weaker than full fine-tuning (as seen in SEER)</td><td>Medium</td><td>Compare rank 8 vs 32; report the gap as a limitation of free-GPU training.</td></tr>
+    <tr><td>Free GPU sessions end or limits change</td><td>Medium</td><td>Save to Google Drive about every 20 problems; split work across Kaggle and Colab.</td></tr>
+    <tr><td>Software issues on the T4 (Gemma-4 16-bit overflow in the audio part; vLLM support)</td><td>Low–Medium</td><td>Text-only use; fall back to Unsloth or the <code>transformers</code> library (slower but works).</td></tr>
+    <tr><td>Test problems leaked into training data</td><td>Medium</td><td>Overlap check before training; separate test on post-cutoff problems.</td></tr>
+    <tr><td>Running model-written code is unsafe</td><td>Low</td><td>Code runs only inside a sandbox (separate process, time limits), never directly in the notebook.</td></tr>
+  </tbody>
+</table>
+
+<h2>9. Expected Contribution and Conclusion</h2>
+<div class="simple">
+  <span class="label">In simple words</span>
+  At the end we will know, with fair numbers: whether training is better than the free switch, how much data it needs, and whether it also works on math.
+</div>
+<p>This thesis is expected to contribute:</p>
+<ol>
+  <li><b>A fair comparison (G-A):</b> on one small 2026 hybrid-thinking model, shortest-correct LoRA training vs thinking OFF, a thinking budget and a "think briefly" prompt, on code, under identical rules.</li>
+  <li><b>A learning curve (G-B):</b> how accuracy and token savings change from 100 to 2,000 training examples, which tells others how much data this method needs.</li>
+  <li><b>Code → math transfer (G-C):</b> whether shorter thinking learned on code carries over to math.</li>
+</ol>
+<p>The whole study runs on free hardware and all materials will be released, so anyone can repeat it. The result is useful in either direction: if training wins, it shows a cheap way to make small models faster on code; if the free switch wins, it saves others from training that is not needed. In both cases, the question is answered with evidence, and the limits (easy and medium problems, one small model, LoRA instead of full training) are stated clearly.</p>
+
+<h2 class="pb">Glossary</h2>
+<table class="gloss">
+  <tbody>
+    <tr><td>LLM (large language model)</td><td>A program that learned to write text by guessing the next word from huge amounts of text.</td></tr>
+    <tr><td>Token</td><td>A small piece of text, about ¾ of a word. Models read and write tokens; more tokens means more time and cost.</td></tr>
+    <tr><td>Reasoning / thinking</td><td>Hidden notes a model writes before its final answer.</td></tr>
+    <tr><td>Overthinking</td><td>Writing long thinking where a short one would give the same answer.</td></tr>
+    <tr><td>Thinking switch (hybrid model)</td><td>A setting that turns the model's thinking ON or OFF.</td></tr>
+    <tr><td>Thinking budget</td><td>A hard limit on thinking tokens, after which the model must answer.</td></tr>
+    <tr><td>Fine-tuning</td><td>Extra training that teaches an existing model a new habit.</td></tr>
+    <tr><td>LoRA</td><td>A cheap fine-tuning method that trains a small add-on and leaves the main model unchanged. "Rank" is the size of the add-on.</td></tr>
+    <tr><td>GRPO</td><td>A reinforcement-learning method: the model tries answers and is rewarded for good ones.</td></tr>
+    <tr><td>Benchmark</td><td>A standard set of test problems used to compare models.</td></tr>
+    <tr><td>pass@1</td><td>The share of problems solved correctly on one try.</td></tr>
+    <tr><td>Sandbox</td><td>A safe, separate place with time limits where model-written code is run and tested.</td></tr>
+    <tr><td>Training cutoff</td><td>The date after which the model saw no training data. Problems published later are new to it.</td></tr>
+    <tr><td>Contamination</td><td>Test problems appearing in training data, which makes results look better than they are.</td></tr>
+    <tr><td>Transfer</td><td>A skill learned on one kind of problem (code) also working on another kind (math).</td></tr>
+    <tr><td>Learning curve</td><td>A chart of results against the amount of training data.</td></tr>
+    <tr><td>Pareto chart</td><td>A chart of accuracy against cost. The best options are those no other option beats on both.</td></tr>
+    <tr><td>Paired bootstrap / confidence interval</td><td>A way to measure how sure we are about a difference, by comparing the same problems and re-sampling the results many times.</td></tr>
+    <tr><td>GPU / T4</td><td>A GPU is a chip that runs AI models fast. The T4 is the free 15 GB GPU on Colab and Kaggle.</td></tr>
+    <tr><td>16-bit / 4-bit</td><td>How many bits store each of the model's numbers. 4-bit uses less memory with a small loss of detail.</td></tr>
+  </tbody>
+</table>
+
+<h2>References</h2>
+<ol class="refs">
+  <li>Sui et al. "Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models." TMLR, 2025. arXiv:2503.16419.</li>
+  <li>Munkhbat et al. "Self-Training Elicits Concise Reasoning in Large Language Models." ACL Findings, 2025. arXiv:2502.20122.</li>
+  <li>SEER: adaptive chain-of-thought compression for efficient reasoning in software-engineering tasks. 2025. arXiv:2509.14093.</li>
+  <li>"Pruning the Unsurprising: Efficient Code Reasoning via First-Token Surprisal" (ASAP). 2025. arXiv:2508.05988.</li>
+  <li>"Reasoning Models Can Be Effective Without Thinking" (NoThinking). 2025. arXiv:2504.09858.</li>
+  <li>HRBench: benchmarking hybrid reasoning (thinking-switch) strategies. 2026. arXiv:2605.28398.</li>
+  <li>S3-CoT: self-sampled variable-length chain-of-thought. 2026. arXiv:2602.01982.</li>
+  <li>"The Art of Efficient Reasoning." 2026. arXiv:2602.20945.</li>
+  <li>One-Domain-to-All: cross-domain transfer of efficient reasoning. 2026. arXiv:2601.06052.</li>
+  <li>HAPO: history-aware policy optimization for concise reasoning. 2025. arXiv:2505.11225.</li>
+  <li>LC-R1: length compression for reasoning models. 2025. arXiv:2506.14755.</li>
+  <li>TokenSkip: controllable chain-of-thought compression. EMNLP, 2025. arXiv:2502.12067.</li>
+  <li>Acoer: GRPO with LoRA for concise reasoning. 2026. arXiv:2606.22716.</li>
+  <li>"Demystifying Hybrid Thinking." 2025. arXiv:2510.12680.</li>
+  <li>Reasoning steps in thinking code LLMs. 2025. arXiv:2511.05874.</li>
+  <li>Gemma 4 Technical Report. 2026. arXiv:2607.02770.</li>
+  <li>Miller. "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations." 2024. arXiv:2411.00640.</li>
+  <li>Jain et al. "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code." livecodebench.github.io.</li>
+</ol>
+<p class="small">Note: some titles above are shortened descriptions taken from our search notes. Full titles, authors and every claim will be re-checked against the original papers before the related-work chapter is written.</p>
+
+</body>
+</html>
