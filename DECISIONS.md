@@ -1,0 +1,31 @@
+# DECISIONS — every choice, with its reason
+
+> Append only. When a decision changes, **don't delete the old row**. Strike it
+> through (`~~like this~~`) and add a new row below saying why it changed.
+> That way we always know *why* the project looks the way it does.
+
+| # | Date | Decision | Why | Evidence |
+|---|---|---|---|---|
+| 1 | 2026-09-13 | **Start a new thesis, separate from CARR.** New folder `~/stop-overthinking/`. CARR (`~/thesis`) stays untouched. | The user wants to *build an improvement*, not only measure. CARR's router added +0.0 points. The user wants to learn from zero in a clean project. | User request |
+| 2 | 2026-09-13 | **$0 only.** Free Colab / Kaggle GPU, Hugging Face data and models. | User requirement. | — |
+| 3 | 2026-09-13 | **Topic: teach a small reasoning model to think shorter without losing accuracy** ("stop overthinking"). | Out of 4 free ideas (stop overthinking, self-repair, early-failure alarm, prompt shrinker), it has the clearest before/after number, produces a real trained model, and is an active research topic. | Conversation, 2026-09-13 |
+| 4 | 2026-09-13 | **Code is the main domain; math is the transfer test.** | Math is crowded (dozens of papers). Code has only ~3 training papers, all on older 7B always-thinking models. Code → math transfer: no paper found; math → code is already done. | [research/gaps.md](research/gaps.md) |
+| 5 | 2026-09-13 | ~~Math first, code as a transfer test~~ → replaced by #4. | The user asked "which is better?" The gap search showed code is where the open gaps are. | [research/gaps.md](research/gaps.md) |
+| 6 | 2026-09-13 | **Not Qwen3-1.7B.** | Too small and from 2025. We have a 15 GB GPU, so we can use a newer, bigger model. (The user caught this.) | [research/models-and-gpu.md](research/models-and-gpu.md) |
+| 7 | 2026-09-13 | **Not a 9B model** (e.g. Qwen3.5-9B). | Running it fits in 15 GB, but training it with 16-bit LoRA needs ~22 GB, and Unsloth advises against 4-bit training for Qwen3.5. | Unsloth Qwen3.5 fine-tune guide |
+| 8 | 2026-09-13 | **Main model: `google/gemma-4-E4B-it`** (4-bit, Unsloth). | March 2026, thinking switch, Apache-2.0, **published training cutoff Jan 2025**, so 2025–26 test problems are provably unseen. Unsloth has a free T4 notebook (10.7 GB peak measured). | HF API + Unsloth docs |
+| 9 | 2026-09-13 | **Fallback model: `Qwen/Qwen3.5-4B`**, used if the memory gate fails. | 9.3 GB file, 16-bit LoRA measured 9.6 GB on a T4, very small memory growth per token. Downside: no published cutoff. | HF API + Unsloth docs |
+| 10 | 2026-09-13 | **16 GB vs 15 GB explained:** we load the 4-bit version (11.0 GB file), not the 16-bit one (16.0 GB). | Only 3.5B of the 8.0B numbers are squeezed to 4-bit; lookup tables and image/audio parts stay 16-bit. Verified on the HF API. | HF API sizes |
+| 11 | 2026-09-13 | **Train and test on easy + medium code problems only.** Hard problems are a written limitation. | Training fits ~3.5k tokens on a T4, but hard thinking is 10–15k. A 4B model solves few hard problems, so there's nothing to learn from and nothing to measure. (The user proposed this.) | Conversation |
+| 12 | 2026-09-13 | **Hard-problem rule, set in advance:** the pilot tries 50 hard problems. ≥15% solved → add a small hard check (H7). Otherwise not. | Let the data decide instead of guessing. | — |
+| 13 | 2026-09-13 | **Training examples capped at ~3,500 tokens; test thinking limit is the same for every policy (e.g. 8k).** | The cap is a memory limit for training only. Giving every policy the same test limit keeps the comparison fair. | Conversation |
+| 14 | 2026-09-13 | **Selection rule: shortest correct answer, but not below half the median correct length.** | S3-CoT (2602.01982) warns that training only on the very shortest answers hurts accuracy. It also stops the model learning "always stop early". | [research/data-size-and-test-size.md](research/data-size-and-test-size.md) |
+| 15 | 2026-09-13 | **Adaptivity check H7':** the trained model must still think longer on medium than easy. | Paper 2511.05874 found that cutting reasoning hurts harder tasks. We check whether our model cuts corners where it shouldn't. | [research/gaps.md](research/gaps.md) |
+| 16 | 2026-09-13 | **Gates before scaling:** memory gate (≤14 GB) and headroom gate (coverage ≥40%, shortest ÷ average ≤0.75). | Nobody can guarantee an improvement. We can check *before* spending GPU days whether there is something to learn. | [research/data-size-and-test-size.md](research/data-size-and-test-size.md) |
+| 17 | 2026-09-13 | **Learning curve at 100 / 250 / 500 / 1k / 2k examples** instead of guessing one data size. | Papers used 400–8,000 examples, and none published this curve for shortest-correct training. The curve is our contribution (gap G-B). | [research/data-size-and-test-size.md](research/data-size-and-test-size.md) |
+| 18 | 2026-09-13 | **Test set ~1,000–2,000 code problems, paired design.** | A 2–3 point accuracy change needs ~1,250–1,900 problems to see with a paired test. A 30-problem contest set can't show it. | [research/data-size-and-test-size.md](research/data-size-and-test-size.md) |
+| 19 | 2026-09-13 | **Baselines: thinking OFF, thinking budget, "think briefly" prompt, thinking ON.** | If a free switch or prompt does as well, training adds nothing. That's the honest test (gap G-A). NoThinking (2504.09858) showed OFF can beat a small thinking budget. | [research/gaps.md](research/gaps.md) |
+| 20 | 2026-09-13 | **Don't claim:** first to shorten code reasoning, first on cheap GPUs, or math → code transfer. | SEER + ASAP, TokenSkip, and HAPO/LC-R1 already did these. Claiming them would fail a viva. | [research/gaps.md](research/gaps.md) |
+| 21 | 2026-09-13 | **Never commit unless the user asks.** | User instruction. | CLAUDE.md §3 |
+| 22 | 2026-09-13 | **Every session updates the docs** (ROADMAP, DECISIONS, PLAN, PAPERS, research/). | The user asked that everything said in chat is saved. | CLAUDE.md §2 |
+| 23 | 2026-09-13 | **Teach first, then do.** One lesson at a time with an explain-back test, starting at "What is an LLM?". | The user is a beginner and wants to know what, why and how at every step. | CLAUDE.md §1 |

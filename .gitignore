@@ -1,0 +1,12 @@
+# secrets
+.env
+*.token
+# big or rebuildable things
+data/
+*.safetensors
+*.bin
+outputs/
+checkpoints/
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
