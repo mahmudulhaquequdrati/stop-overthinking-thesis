@@ -1,4 +1,4 @@
-# PLAN — "Think Less, Code Just as Well"
+# PLAN — "Stop Overthinking, Keep Passing the Tests"
 
 > The research design, in easy English. If you're new, read
 > [ROADMAP.md](ROADMAP.md) first. This file is the "what exactly are we going to

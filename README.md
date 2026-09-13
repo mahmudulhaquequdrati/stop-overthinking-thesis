@@ -1,4 +1,6 @@
-# Think Less, Code Just as Well
+# Stop Overthinking, Keep Passing the Tests
+
+**Shortest-Correct LoRA Fine-Tuning versus the Thinking Switch in a Small Code Model (Gemma-4-E4B)**
 
 A beginner-built thesis: teach a small 2026 reasoning model (Gemma-4-E4B) to think
 shorter on code problems without losing accuracy, and check whether that beats

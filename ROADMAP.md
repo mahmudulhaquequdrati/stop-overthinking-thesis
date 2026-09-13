@@ -8,7 +8,9 @@
 
 ## 1. The thesis in one picture
 
-Working title: **"Think Less, Code Just as Well"**
+Working title: **"Stop Overthinking, Keep Passing the Tests"**
+
+Full title: *Stop Overthinking, Keep Passing the Tests: Shortest-Correct LoRA Fine-Tuning versus the Thinking Switch in a Small Code Model (Gemma-4-E4B)*
 
 ```text
 PROBLEM     Small AI models "think" a lot before answering code questions, even easy ones.
@@ -44,6 +46,7 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ✅ Topic chosen, gaps found, plan written (2026-09-13)  │
 │  ✅ Proposal PDF written → proposal/ (2026-09-13)        │
 │  ✅ Cut to one question, 4-page B&W proposal (09-13)     │
+│  ✅ Title changed (DECISIONS #28, 2026-09-13)            │
 │  ⬜ Part 1: learn what AI is          ← YOU ARE HERE     │
 │  ⬜ Part 2: learn the tools                              │
 │  ⬜ Part 3: research skills                              │
