@@ -1,12 +1,12 @@
-# Lesson 01 — What an LLM is, and why it exists
+# Lesson 01: What an LLM is, and why it exists
 
-⬅️ [Lesson 00](00-what-is-a-thesis.md) · [ROADMAP](../ROADMAP.md) · ➡️ Lesson 02 (Tokens, written when you get there)
+⬅️ [Lesson 00](00-what-is-a-thesis.md) · [ROADMAP](../ROADMAP.md) · ➡️ Lesson 02 (Tokens, written when you get there) · Hard word? See [GLOSSARY](../GLOSSARY.md)
 
 ---
 
 ## 1. In one sentence
 
-**An LLM is a program that read a huge amount of text and learned one skill: guess the next word. Done again and again, that one skill writes answers, code and explanations.**
+**An LLM is a program that read a huge amount of text and learned one skill: guess the next word. It does this again and again, and that one skill writes answers, code and explanations.**
 
 ---
 
@@ -31,7 +31,7 @@ An LLM:           "See you"  →  tomorrow        (learned from a huge part of t
                                                   books, and code)
 ```
 
-An LLM is that same idea, but **enormously bigger**, so its guesses are good enough to:
+An LLM is that same idea, but **much, much bigger**. So its guesses are good enough to:
 - answer questions
 - write working code
 - explain things
@@ -48,6 +48,7 @@ An LLM is that same idea, but **enormously bigger**, so its guesses are good eno
 **Why we need it in our thesis:** our whole thesis is about **one LLM**
 (Gemma-4-E4B) and how much it writes *before* its answer. To understand
 "overthinking", you first need to see that an LLM writes **one piece at a time**.
+(A piece is called a *token*: a small piece of text, about ¾ of a word. Lesson 02 is about tokens.)
 Every extra piece costs time.
 
 ---
@@ -100,6 +101,7 @@ After enough practice, those numbers hold patterns of language, facts, and code.
 
 Some newer LLMs are **reasoning models**. Before the answer, they first write
 **thinking**: notes to themselves, like working on scrap paper.
+Many new models have a **switch**: thinking ON or thinking OFF.
 
 ```text
 Question: "Is 91 a prime number?"
@@ -121,11 +123,29 @@ Easy question, LONG thinking:     ███████████████�
 
 **That's our thesis problem.**
 
+### ⚠️ A common mix-up: "thinking = searching for information"
+
+It is easy to think the model **searches** or **collects** information while it thinks.
+**It does not.**
+
+```text
+❌ Wrong picture:  a librarian running to the shelves to find facts   (slow because of searching)
+✅ Right picture:  a person writing a long draft by hand, word by word (slow because of writing)
+```
+
+- Everything the model knows is **already inside its numbers**, from training.
+  While answering, it does not look anything up. (Our Gemma model in the notebook has no internet.)
+- Its thinking notes often **do** check the answer ("let me test this with 91…").
+  But checking is just **more text it writes**.
+- So the time comes from **how many pieces it writes**, not from searching.
+
+Some chat websites add a separate web-search tool. That is an extra tool, not the model's thinking.
+
 ---
 
 ## 5. Try it (free, 5 minutes)
 
-1. Open any free AI chat in your browser (e.g. gemini.google.com, chatgpt.com or claude.ai).
+1. Open any free AI chat in your browser (for example gemini.google.com, chatgpt.com or claude.ai).
 2. Type: **"Write a Python function that checks if a number is even."**
 3. **Watch the answer appear.** Notice it comes in **word by word** (or small chunks), not all at once. That's the loop.
 4. Now type: **"Is 97 a prime number? Think step by step."**
@@ -162,8 +182,8 @@ means many extra loop turns before the answer, even if the answer itself is one 
 <details><summary>Answer</summary>
 On some problems, thinking is what makes the answer correct, like scrap paper for a
 hard sum. Switching it OFF may cause wrong answers. We want short thinking where
-short is enough, and that's exactly what our experiment tests (thinking OFF is one
-of the baselines).
+short is enough. That's exactly what our experiment tests. (Thinking OFF is one
+of the things we compare against.)
 </details>
 
 ---
@@ -175,7 +195,7 @@ PART 0 ✅  →  PART 1: What AI is  [01 ✅ LLM] → 02 Tokens → 03 Learning 
                                       ↑ you just finished this
 ```
 
-**Research chain:** we are still before **PROBLEM**. We're learning the words needed
+**Research chain:** in this lesson we are before **PROBLEM**. We're learning the words we need
 to understand the problem.
 
 **Explain-back test:** tell me in your own words: *what is an LLM, and why does thinking cost time?*

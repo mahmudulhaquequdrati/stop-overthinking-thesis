@@ -19,10 +19,27 @@ The user is a **beginner, learning from zero**. They said: explain *what* we are
 doing, *why*, and *how*, starting from "what is an LLM?". This section beats any
 other style habit.
 
-**Language**
-- **Easy English.** Short sentences. One idea per sentence.
-- Every technical word gets a one-line meaning the first time it appears
-  ("a *token* is a small piece of text, about ¾ of a word").
+**Language: very simple English, in chat AND in every doc**
+
+The user said (2026-09-17) the old docs were too hard: "use simple language like
+ChatGPT". English is not their first language. Write so a smart 15-year-old can follow.
+- **Short sentences:** about 15 words or fewer. One idea per sentence.
+- **Everyday words.** "use", not "utilize"; "check", not "verify"; "about", not "approximately".
+- **Say it in plain words, not project jargon:**
+  | Don't write | Write |
+  |---|---|
+  | policy | way of answering |
+  | baseline (alone) | what we compare against |
+  | headroom | room to shorten |
+  | coverage | share of problems solved at least once |
+  | pass@1 (alone) | how often the first try passes the tests |
+  | paired bootstrap CI, clustered | error bars from comparing the same problems before and after |
+  | resumable job | a job that can stop and continue later |
+  | append-only JSONL, fsync | a results file we only add to; make sure it is really saved |
+  | FLOPs, SFT, ablation, contamination | explain in plain words (see GLOSSARY.md) |
+- Every technical word that must stay gets a one-line meaning the first time it appears
+  in each file or answer ("a *token* is a small piece of text, about ¾ of a word").
+  Add new words to **GLOSSARY.md**.
 - No walls of text. Many small numbered headings, one idea each.
 
 **Shape of an answer**
@@ -71,6 +88,8 @@ every session, before reporting back, update:
 | File | What |
 |---|---|
 | **ROADMAP.md** | The "You are here" box + the next step |
+| **`qa/NN-step-name.md`** | **One Q&A file per finished step — mandatory.** "What we did and why", so the user can answer the teacher. Template: The step in 2 sentences · Questions a teacher may ask (what, why, what else, why not) · Hard questions · Checked vs. assumed · Where it is written. Add it to the table in `qa/README.md` |
+| **GLOSSARY.md** | Every new hard word, with a simple meaning |
 | **DECISIONS.md** | One dated row per choice made, **with its reason**. Append only; don't delete old rows, strike them through |
 | **PLAN.md** | When the research design changes (hypotheses, data, model, gates) |
 | **PAPERS.md** | When a related paper is found or checked |
