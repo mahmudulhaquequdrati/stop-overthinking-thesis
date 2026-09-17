@@ -1,6 +1,6 @@
 # CLAUDE.md — working rules for this thesis
 
-Thesis (working title): **"Think Less, Code Just as Well"**. We teach a small 2026
+Thesis (working title): **"Stop Overthinking, Keep Passing the Tests"**. We teach a small 2026
 reasoning model to think shorter on code problems without losing accuracy, and we
 check whether that is better than just switching its thinking OFF.
 
