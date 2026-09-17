@@ -1,6 +1,6 @@
 # Lesson 02: Tokens
 
-⬅️ [Lesson 01](01-what-is-an-llm.md) · [ROADMAP](../ROADMAP.md) · ➡️ Lesson 03 (How a model learns, written when you get there) · Hard word? See [GLOSSARY](../GLOSSARY.md)
+⬅️ [Lesson 01](01-what-is-an-llm.md) · [ROADMAP](../ROADMAP.md) · ➡️ [Lesson 03: How a model learns](03-how-a-model-learns.md) · Hard word? See [GLOSSARY](../GLOSSARY.md)
 
 ---
 
@@ -193,3 +193,5 @@ PART 1: What AI is  →  01 ✅ LLM  →  [02 ✅ Tokens]  →  03 Learning  →
 3. Why do we count tokens instead of seconds?
 
 When you can, we write **Lesson 03: How a model learns**.
+
+➡️ Lesson 03 is written: [How a model learns](03-how-a-model-learns.md). Its explain-back test also includes the questions from this lesson.

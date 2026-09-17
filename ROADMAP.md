@@ -58,7 +58,8 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ⬜ Part 1: learn what AI is          ← YOU ARE HERE          │
 │       ✅ Lessons 00–01 explained back (2026-09-17)            │
 │       ✅ Lesson 02 Tokens written + qa/11                     │
-│       ⬜ You explain lesson 02 back in your own words         │
+│       ✅ Lesson 03 How a model learns written + qa/12         │
+│       ⬜ You explain lessons 02–03 back in your own words     │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
 │  ⬜ Part 4: measure (compare the free options + the checks)   │
@@ -104,7 +105,7 @@ The first four boxes are written down. They are only on paper; nothing is tested
 |---|---|---|
 | ✅ [01](lessons/01-what-is-an-llm.md) | What an LLM is, and why | A machine that learned to guess the next word from a huge amount of text |
 | ✅ [02](lessons/02-tokens.md) | Tokens | The small pieces of text a model reads and writes |
-| ⬜ 03 | How a model learns | Training, and fine-tuning: teaching an existing model a new habit |
+| ✅ [03](lessons/03-how-a-model-learns.md) | How a model learns | Training, and fine-tuning: teaching an existing model a new habit |
 | ⬜ 04 | Reasoning models and "thinking" | Writing notes before the answer; the ON/OFF switch |
 | ⬜ 05 | Overthinking | Our problem: long thinking where short would do |
 | ⬜ 06 | Cutoff dates | "Has the model already seen the test?" |
@@ -166,10 +167,12 @@ Details: [PLAN.md](PLAN.md). Teacher questions: [qa/](qa/).
 
 ## What to do next
 
-**Read [lesson 02: Tokens](lessons/02-tokens.md)** and do the 5-minute "Try it".
+**Read [lesson 02: Tokens](lessons/02-tokens.md) and [lesson 03: How a model learns](lessons/03-how-a-model-learns.md).**
+Do the 5-minute "Try it" in lesson 03 (watch a tiny model learn in your browser).
 Then tell me in your own words:
 1. What is a token?
-2. Why does writing more tokens take more time? (Not because the model searches: see lesson 01, "A common mix-up".)
-3. Why do we count tokens instead of seconds?
+2. Why does writing more tokens take more time?
+3. How does a model learn? (The darts example helps.)
+4. What is fine-tuning, and how will our model learn to think shorter?
 
-When you can explain all three, we write **Lesson 03: How a model learns**.
+When you can, we write **Lesson 04: Reasoning models and "thinking"**.

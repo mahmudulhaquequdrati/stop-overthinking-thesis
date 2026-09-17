@@ -91,6 +91,10 @@ A range that shows how sure we are about a number.
 *Example:* "accuracy 80% ± 2" means the true value is probably between 78% and 82%.
 Small error bar = we are sure. Big error bar = we are not sure.
 
+**Error score** (also: **loss**)
+During training: how wrong the model's guess was. Big = very wrong. Training tries to make it smaller.
+See [lesson 03](lessons/03-how-a-model-learns.md).
+
 ---
 
 ## F
@@ -102,6 +106,9 @@ Taking a model that is already trained and training it a little more, to teach i
 **FLOPs**
 A count of the small math steps (additions, multiplications) a computer does.
 We use it to **estimate** how fast training will be.
+
+**Forgetting**
+When fine-tuning damages skills the model had before. LoRA lowers this risk.
 
 ---
 
@@ -152,6 +159,9 @@ It can keep running when your browser is closed.
 
 ## L
 
+**Learning rate**
+How big each nudge to the model's numbers is during training. Too big → it breaks. Too small → it learns very slowly.
+
 **LLM** (Large Language Model)
 A program that learned to guess the next piece of text from a huge amount of text.
 See [lesson 01](lessons/01-what-is-an-llm.md).
@@ -161,6 +171,8 @@ A cheap way to fine-tune. We don't change the whole model. We train a **small ad
 that sits on top of it.
 *Example:* instead of rewriting a whole book, you add sticky notes to some pages.
 Good for us: it needs little GPU memory, and the original model stays unchanged.
+
+**Loss** → see **Error score**.
 
 ---
 
@@ -196,11 +208,18 @@ It is fairer than using different students, and we need fewer problems to see a 
 **Paper**
 A written report of a research study.
 
+**Parameters** (also: **weights**)
+The numbers inside the model. Gemma-4-E4B has 8.0 billion. Learning = changing these numbers.
+*Example:* 8 billion small knobs on a huge mixing desk.
+
 **pass@1** (first-try pass rate)
 How often the model's first answer passes all the tests.
 We ask 4 times and take the average, so the number is more stable.
 
 **Policy** → we now say **way of answering**. See **W**.
+
+**Pre-training**
+The first, giant stage of training: the model reads huge amounts of text and learns to guess the next token. Done by big companies, not by us.
 
 **Prompt**
 The text we give the model: the question plus any instructions.
@@ -266,6 +285,10 @@ This is the kind of training we do.
 **T4**
 The free GPU on Colab and Kaggle. It is a 16 GB card, and Colab shows 14.56 GB usable.
 In our docs we round this to "a 15 GB GPU".
+
+**Training**
+Teaching a model: it guesses the next token, sees the right one, and its numbers get a tiny nudge. Repeated for all examples.
+See [lesson 03](lessons/03-how-a-model-learns.md).
 
 **Test set**
 Problems used **only** to measure the model, never to train it.

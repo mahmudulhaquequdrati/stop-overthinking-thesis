@@ -46,5 +46,6 @@
 | [09](09-gpu-time-and-free-sessions.md) | GPU time, and working with free 12-hour sessions | 2026-09-17 |
 | [10](10-proposal-and-title.md) | The proposal and the title | 2026-09-13 |
 | [11](11-measuring-thinking-in-tokens.md) | Measuring thinking length in tokens (lesson 02) | 2026-09-17 |
+| [12](12-how-our-training-works.md) | How our training works: fine-tuning (lesson 03) | 2026-09-17 |
 
 **Nothing has been run yet.** All steps so far are planning.
