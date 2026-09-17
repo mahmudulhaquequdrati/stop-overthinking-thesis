@@ -188,8 +188,55 @@ the image and audio parts stay 16-bit. That's why the file is 11 GB, not 4 GB.
 
 ## 10. Rough free-GPU budget (estimates, to be measured in the pilot)
 
-- Making training data: ~4,000 problems × 4 answers × ~2,500 tokens ≈ 40M tokens.
-- Testing: 5 policies × ~1,000 problems × 4 answers.
-- One LoRA training run.
+⚠️ Estimates, not measurements. Full arithmetic and sources:
+[research/gpu-time-budget.md](research/gpu-time-budget.md) (2026-09-17).
+
+| Stage | How much text | GPU-hours (T4) |
+|---|---|---|
+| Making training data: ~4,000 problems × 4 answers × ~2,500 tokens | ~40M tokens generated | 15–40 |
+| Testing: 5 policies × ~1,000 problems × 4 answers | ~30M tokens generated | 10–30 |
+| Gates and pilots (50 training examples; 200 problems × 4 answers) | ~2M tokens | 2–5 |
+| **One LoRA training run** (~2,000 examples × ~1,800 tokens, **1 epoch**) | 3.6M tokens seen | **3–7 (plan ~4)** |
+
+- **Training is the cheapest stage.** One run fits in one free session (Colab ≤12 h,
+  Kaggle ~12 h/session and 30 GPU-h/week). Generating and grading cost far more.
+- Speed assumed: **~250 training tokens/s** (band 150–350), from FLOP arithmetic —
+  **unverified**. Measure it during the week-3 memory gate and redo this table.
+- **Pack or length-sort the training examples.** Padding a 400-token example out to
+  3,500 can double the training time.
 - Many tens of GPU-hours in total, spread over weeks on Kaggle (2 GPUs = 2 workers) and Colab.
-- Save results to Google Drive every ~20 problems.
+- Save results to Google Drive every ~20 problems, and a training checkpoint every ~30 minutes.
+- Calendar time ≈ 3–5× GPU time on a first attempt (crashes, re-runs, disconnects).
+
+---
+
+## 11. Working inside a 12-hour session limit
+
+A free session is short (Colab "at most 12 h", Kaggle ~12 h, both can die early),
+but we need tens of hours. **We never run one long job.** Every job is *resumable*.
+
+```text
+start → mount Google Drive → read "done" list → skip finished items
+      → work → append results every ~20 problems → session dies → repeat
+```
+
+| Stage | Needs one unbroken run? | How it survives |
+|---|---|---|
+| Making training data (15–40 h) | No — problems are independent | done-list + append-only JSONL on Drive |
+| Testing the 5 policies (10–30 h) | No | same |
+| LoRA training (3–7 h) | Fits one session | checkpoint every ~30 min (adapter + optimizer + scheduler + step + data order + RNG) |
+
+**Rules:** append-only files; a stable key (`problem_id + sample_index + policy`);
+flush and `fsync` after each write; a fixed per-item seed so the same item gives the
+same output in any session; raw outputs stored verbatim so re-grading is free.
+
+**Which GPU for what:** Kaggle is the workhorse — its "Save & Run All" commit runs
+**without the browser open**, and it has 2 T4s (≈2 workers). Colab needs the tab
+alive, so it is the second worker and the debugging machine.
+
+⚠️ **Unverified (check in week 1):** whether a 2×T4 Kaggle session spends 1 or 2 hours
+of the ~30 GPU-h weekly quota per wall-clock hour.
+
+**Cut the work before buying more sessions.** Batched generation (vLLM, 32–64 prompts
+at once) is worth **2–5×** and costs nothing scientifically — do it first.
+Full detail: [research/gpu-time-budget.md](research/gpu-time-budget.md) §8.
