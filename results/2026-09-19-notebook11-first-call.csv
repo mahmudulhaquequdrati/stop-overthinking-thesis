@@ -1,0 +1,5 @@
+policy,sample_index,seed,thinking_tokens,total_new_tokens,hit_limit,seconds,tokens_per_second,has_thinking_block
+thinking_on,0,3407,307,337,False,105.9,3.2,True
+thinking_on,1,3408,0,30,False,6.7,4.5,False
+thinking_off,0,3407,0,28,False,6.3,4.4,False
+thinking_off,1,3408,0,28,False,6.5,4.3,False

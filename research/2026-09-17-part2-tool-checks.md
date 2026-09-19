@@ -22,7 +22,7 @@
 
 Its saved outputs show a real run on a **free Tesla T4**:
 - "Max memory: 14.563 GB", "Bfloat16 = FALSE" (the T4 has no bf16).
-- Loaded `unsloth/gemma-4-E4B-it` with `load_in_4bit=True`: **9.891 GB reserved** after loading.
+- Loaded `unsloth/gemma-4-E4B-it` with `load_in_4bit=True`: **9.891 GB reserved** after loading. *(Update 2026-09-19: did not hold for us with Unsloth 2026.9.7; see `results/2026-09-19-notebook11-out-of-memory.md`.)*
 - Short training demo (60 steps, max_seq_length 1024, LoRA r=8): **10.715 GB peak**, 368 seconds.
   "Trainable parameters = 18,350,080 of 8,014,506,528".
 - Install cell pins `transformers==5.5.0`.

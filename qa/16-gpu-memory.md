@@ -33,7 +33,7 @@ While writing: notes about every earlier token (the KV cache), so memory grows w
 While training: also in-between results for the nudges, plus the LoRA add-on and its training notes.
 
 **Q: What numbers have been measured?**
-Unsloth measured on a free T4: 9.891 GB after loading Gemma 4-bit, and 10.715 GB peak in a short LoRA training with examples up to 1,024 tokens.
+Unsloth measured on a free T4: 9.891 GB after loading Gemma 4-bit, and 10.715 GB peak in a short LoRA training with examples up to 1,024 tokens. (Update 2026-09-19: with the newer Unsloth, our own load ran out of memory; see [qa/20](20-first-model-load-out-of-memory.md).)
 
 ---
 

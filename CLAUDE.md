@@ -112,8 +112,10 @@ Numbers must match everywhere. When one changes, grep for the old value.
 
 ## 4. Hard rules
 
-- **$0 only.** Free Colab / Kaggle GPUs, Hugging Face downloads. No paid APIs, no
-  paid GPU, no Colab Pro. If something would cost money, stop and say so.
+- **Almost free.** ~~$0 only~~ Changed 2026-09-20 (DECISIONS #48): a small paid **Colab
+  GPU package** (Pro or Pay As You Go, about $10–20) is allowed, because of the one-week
+  deadline. Everything else stays free: Kaggle, Hugging Face, no paid APIs. Before any
+  **other** spending, stop and ask. Write the GPU type used for every run.
 - **Run model-written code only inside a sandbox** (evalplus or the LiveCodeBench
   runner: separate process, timeouts). Never `exec` it in the notebook itself.
 - **Grade with the benchmark's real tests**, never with `==` on printed output by hand.

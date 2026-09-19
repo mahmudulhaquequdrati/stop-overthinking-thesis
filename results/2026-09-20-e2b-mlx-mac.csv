@@ -1,0 +1,7 @@
+setting,batch,policy,sample_index,thinking_tokens,total_new_tokens,seconds,tokens_per_second,peak_memory_gb
+single,1,thinking_on,0,620,710,56.0,33.6,3.62
+single,1,thinking_on,1,726,843,27.0,34.5,3.64
+single,1,thinking_off,0,0,520,24.5,22.6,3.64
+single,1,thinking_off,1,0,244,36.0,35.0,3.64
+batch4,4,thinking_on,-,-,1981,42.7,46.4,3.74
+batch8,8,thinking_on,-,-,3307,56.1,59.0,3.84

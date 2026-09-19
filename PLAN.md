@@ -166,6 +166,13 @@ Only 3.5 of the 8 billion numbers get squeezed to 4-bit. The word lookup tables 
 the image and audio parts stay 16-bit. That's why the file is 11 GB, not 4 GB.
 *Everyday example:* a big photo saved as a JPEG. A bit less detail, much smaller.
 
+**First real try (2026-09-19): loading crashed on a free Colab T4.** The biggest 16-bit part is
+the *per-layer word table* (5.25 GiB). The T4 has no bf16, so Unsloth converts it to float16
+on the GPU, which needs a second copy for a moment: 10.22 + 5.25 > 14.56 GiB.
+**Fix:** keep that table in CPU memory, and run on Kaggle (more CPU memory). Backup: split over
+Kaggle's 2 GPUs. From now on the memory check reports **GPU and CPU memory, and the load mode**.
+Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-notebook11-out-of-memory.md), DECISIONS #43.
+
 ### The two checks (week 3, before spending GPU days)
 
 1. **Memory check.** Train on 50 examples, each up to 3,500 tokens long.
@@ -182,6 +189,7 @@ the image and audio parts stay 16-bit. That's why the file is 11 GB, not 4 GB.
 ### Risks we have not checked yet (checked in weeks 1–3)
 
 - A Gemma-4 bug on the T4: a number gets too big in the audio part in 16-bit mode. We use text only.
+- Speed on the T4: Unsloth runs Gemma 4 in a float32/float16 mix there (no bf16), and our per-layer table sits in CPU memory. Both may slow it down. Measured in notebook 11.
 - Whether vLLM (software that writes answers fast) runs Gemma-4 on a T4. Backup: Unsloth or `transformers` (slower).
 - Free GPU limits change. Colab: up to 12 h per session, no published weekly limit. Kaggle: ~30 GPU-hours per week on 2×T4.
 
@@ -217,6 +225,10 @@ the image and audio parts stay 16-bit. That's why the file is 11 GB, not 4 GB.
 ---
 
 ## 10. Rough free-GPU budget (estimates, to be measured in the trial run)
+
+❌ **2026-09-20: measured writing speed is ~4.4 tokens per second** (one answer at a time, notebook 11).
+At that speed the table below is **60–170× too optimistic**. It stays here as the goal. A speed test
+with many questions at once comes before Part 4 (DECISIONS #46, [results](results/2026-09-19-notebook11-first-call.md)).
 
 ⚠️ Estimates, not measurements. Full calculation and sources:
 [research/gpu-time-budget.md](research/gpu-time-budget.md) (2026-09-17).

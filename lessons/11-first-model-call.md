@@ -121,15 +121,19 @@ Why raw text: re-counting or re-grading later is then **free**. Re-generating wo
 
 ## 5. Try it (free, 20–40 minutes, needs a GPU)
 
-1. Open Colab → **Runtime → Change runtime type → T4 GPU**.
-2. **File → Upload notebook** → [`notebooks/11_first_model_call.ipynb`](../notebooks/11_first_model_call.ipynb).
-3. Run the cells from top to bottom. The model download (about 11 GB) is the slow part.
+⚠️ **Update 2026-09-19: use Kaggle, not Colab.** On a free Colab T4, loading ran out of memory. The fix needs more CPU memory than free Colab has ([qa/20](../qa/20-first-model-load-out-of-memory.md)).
+
+1. Open Kaggle → **New Notebook → File → Import Notebook** → [`notebooks/11_first_model_call.ipynb`](../notebooks/11_first_model_call.ipynb).
+2. In **Settings**: **Accelerator → GPU T4 x2**, **Internet → On** (Kaggle checks your phone number once).
+   If "GPU T4 x2" is **grey**, your phone is not verified yet: profile picture → **Settings** → **Phone verification**, then reload the notebook.
+3. Run the cells from top to bottom, **once each**. The model download (about 11 GB) is the slow part.
 4. Write down these numbers:
 
 | What | Your number |
 |---|---|
 | GPU name | |
-| Memory after loading (Unsloth measured 9.891 GB) | |
+| GPU memory after loading (Unsloth's older 9.891 GB did not hold, see qa/20) | |
+| CPU memory after loading | |
 | Average thinking tokens, thinking ON | |
 | Average thinking tokens, thinking OFF | |
 | Writing speed (tokens per second) | |

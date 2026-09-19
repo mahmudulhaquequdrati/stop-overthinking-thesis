@@ -54,6 +54,8 @@
 | [17](17-free-gpus-and-notebooks.md) | Free GPUs and notebooks: Colab, Kaggle, Python (lessons 08–09) | 2026-09-17 |
 | [18](18-hugging-face-and-our-data.md) | Hugging Face, and checking our data (lesson 10) | 2026-09-17 |
 | [19](19-first-model-call.md) | The first model call: thinking ON vs OFF (lesson 11) | 2026-09-17 |
+| [20](20-first-model-load-out-of-memory.md) | The first model load ran out of memory, and the fix | 2026-09-19 |
+| [21](21-first-real-numbers.md) | The first real numbers: thinking ON vs OFF, and the speed problem | 2026-09-20 |
 
-**What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 needs a free GPU session and is **not run yet**.
+**What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 ran out of memory on Colab ([qa/20](20-first-model-load-out-of-memory.md)), then **ran on Kaggle** (2026-09-19): it works, but it writes only ~4.4 tokens per second ([qa/21](21-first-real-numbers.md)).
 No model has been trained. $0 spent.

@@ -120,6 +120,23 @@ That's why training examples have a lower limit (3,500 tokens) than answering (e
 
 Our examples are longer (up to 3,500 tokens), so our peak will be higher. **How much higher is the memory check** (week 3, rule: ≤ 14 GB).
 
+⚠️ **Update 2026-09-19:** the 9.891 GB came from an older Unsloth. With Unsloth 2026.9.7, loading crashed on our T4. See §4.6.
+
+### 4.6 What really happened on our T4 (2026-09-19)
+
+Two lessons from our first real run:
+
+1. **A "4-bit model" still has big 16-bit parts.** Gemma's *per-layer word table* stays 16-bit:
+   262,144 words × 42 layers × 256 numbers × 2 bytes = **5.25 GB**.
+2. **Changing a number's format needs double space for a moment.** The T4 can't compute in bf16, so the loader converts that table to float16. While it converts, the old and the new copy both exist:
+
+```text
+10.22 GB (model) + 5.25 GB (new copy of the table) = 15.47 GB  >  14.56 GB  → crash
+```
+
+**The fix:** keep that one table in normal computer memory (CPU memory), and everything else on the GPU.
+Full story: [results/2026-09-19-notebook11-out-of-memory.md](../results/2026-09-19-notebook11-out-of-memory.md) · [qa/20](../qa/20-first-model-load-out-of-memory.md).
+
 ### 4.5 A small warning about "GB"
 
 Computers count memory in two slightly different ways (1,000 × 1,000 × 1,000 bytes, or 1,024 × 1,024 × 1,024 bytes).

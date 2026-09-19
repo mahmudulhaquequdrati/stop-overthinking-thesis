@@ -49,6 +49,11 @@ Ours: HumanEval+, MBPP+, LiveCodeBench.
 A limit on how long the model may think. When it reaches the limit, we stop its thinking.
 *Example:* "you have 5 minutes of scrap paper, then write your answer."
 
+**bf16, float16, float32** (number formats)
+Ways to store one number in the computer. bf16 and float16 use 2 bytes; float32 uses 4 bytes.
+The free T4 GPU **cannot compute in bf16**, so the loader converts some parts to float16.
+*Example:* the same price written as "€1.50" or "1 euro 50 cents": the same value, a different way to write it, a different amount of space.
+
 ---
 
 ## C
@@ -80,6 +85,10 @@ We ask the model each problem 4 times. Coverage = the share of problems where
 The date when the model's training text ends. The model knows nothing after it.
 Gemma-4-E4B's published cutoff is January 2025 (for its pre-training data; checked on the model card).
 See [lesson 06](lessons/06-cutoff-dates.md).
+
+**CPU memory** (also: **RAM**)
+The computer's normal memory, separate from the GPU's memory. Slower for the model's math, but often bigger.
+Free Colab has about 12.7 GB; Kaggle about 29 GB (not checked yet).
 
 ---
 
@@ -162,6 +171,10 @@ One GPU working for one hour.
 **GRPO**
 A type of **reinforcement learning** (see R). We do **not** use it. It is future work.
 
+**GGUF**
+A file format for models that the program **llama.cpp** reads. It squeezes the whole model, including big word tables.
+Our Gemma-4-E4B as GGUF (Q4_K_M) is 4.98 GB; as bnb-4bit it is 10.95 GB.
+
 ---
 
 ## H
@@ -176,6 +189,10 @@ A one-line way to download a single file from Hugging Face. We use it for LiveCo
 
 **Hypothesis**
 A guess we write down **before** testing. The data can prove it wrong.
+
+**Hook**
+A small piece of code that runs automatically just before or after one part of the model.
+We use two hooks to move data between CPU memory and the GPU (notebook 11).
 
 ---
 
@@ -204,6 +221,10 @@ Good for us: it needs little GPU memory, and the original model stays unchanged.
 
 **Loss** → see **Error score**.
 
+**llama.cpp**
+A free program that makes a model write answers fast, also many at once. It runs on NVIDIA GPUs and reads GGUF files.
+We plan to test it for writing answers (DECISIONS #47).
+
 ---
 
 ## M
@@ -219,6 +240,10 @@ The middle value when you sort numbers.
 The space on the GPU where the model and its work must fit.
 A free T4 has about 15 GB. If it doesn't fit, the program crashes.
 
+**Mixture of experts (MoE)**
+A model built from many small "expert" parts, where only a few are used for each token.
+*Example:* a hospital with 128 doctors, where each patient only sees 8. Gemma-4-26B-A4B works like this.
+
 ---
 
 ## O
@@ -232,6 +257,13 @@ See [lesson 05](lessons/05-overthinking.md).
 
 **Overlap check**
 Making sure no test problem is also in the training data. If it is, we remove it from training.
+
+**Offload**
+Putting part of a model in CPU memory instead of on the GPU, to save GPU memory.
+We offload Gemma's per-layer word table (DECISIONS #43).
+
+**Out of memory** (also: **OOM**)
+The error you get when something must be put on the GPU but there is no room left. The program stops.
 
 ---
 
@@ -266,6 +298,10 @@ The programming language all our notebooks use. See [lesson 08](lessons/08-pytho
 
 **Prompt**
 The text we give the model: the question plus any instructions.
+
+**Per-layer word table**
+A special big table in Gemma's small "E" models. For every word, it holds a small piece of information for each of the 42 layers.
+It is 5.25 GB and stays 16-bit even in the "4-bit" model. It caused our first out-of-memory crash (qa/20).
 
 ---
 

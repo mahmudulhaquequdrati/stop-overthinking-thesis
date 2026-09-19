@@ -62,8 +62,8 @@ The record has `hit_limit: true`. In the real experiment we report how often eac
 | We checked | We assume (until the run) |
 |---|---|
 | Gemma's card: `<\|think\|>` turns thinking on; thinking sits between `<\|channel>thought` and `<channel\|>` | That `enable_thinking` passes through Unsloth's chat template (the notebook checks it with an `assert`) |
-| Gemma's recommended sampling settings | That the 4-bit model loads inside 15 GB in our own session |
-| Unsloth's T4 run: 9.891 GB after loading | The writing speed (tokens per second) on a free T4 |
+| Gemma's recommended sampling settings | That the 4-bit model loads inside 15 GB in our own session (**first try failed**, fix in [qa/20](20-first-model-load-out-of-memory.md)) |
+| Unsloth's T4 run: 9.891 GB after loading (**older Unsloth; did not hold for us on 2026-09-19**, see [qa/20](20-first-model-load-out-of-memory.md)) | The writing speed (tokens per second) on a free T4 |
 | The notebook's Python has no syntax errors | |
 
 ---

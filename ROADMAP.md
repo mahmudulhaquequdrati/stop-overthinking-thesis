@@ -55,7 +55,7 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ✅ Title changed (DECISIONS #28, 2026-09-13)                │
 │  ✅ GPU time estimated (DECISIONS #30–31, 2026-09-17)        │
 │  ✅ All docs in simple English + teacher Q&A (2026-09-17)    │
-│  ⬜ Part 1: learn what AI is          ← YOU ARE HERE          │
+│  ⬜ Part 1: learn what AI is                                  │
 │       ✅ Lessons 00–01 explained back (2026-09-17)            │
 │       ✅ Lesson 02 Tokens written + qa/11                     │
 │       ✅ Lesson 03 How a model learns written + qa/12         │
@@ -64,7 +64,10 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ⬜ Part 2: the tools (all written 2026-09-17)                │
 │       ✅ Lessons 07–11 + qa/16–19                             │
 │       ✅ Notebook 08 (Python) and 10 (data): RUN, they work   │
-│       ⬜ Notebook 11 (first model call): needs YOUR free GPU  │
+│       ✅ Notebook 11 (first model call): RUN on Kaggle        │
+│           ✅ Loads (table in CPU memory), switch works        │
+│           ❌ Writes only ~4.4 tokens/s: far too slow (#46)    │
+│       ⬜ Speed test: many questions at once ← YOU ARE HERE    │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
@@ -72,7 +75,8 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ⬜ Part 5: improve (train + test)                            │
 │  ⬜ Part 6: write + defend                                    │
 └──────────────────────────────────────────────────────────────┘
-Notebooks 08 and 10 have been run (no GPU needed). No model trained yet. $0 spent.
+Notebooks 08, 10 and 11 have been run. Notebook 11: Colab ran out of memory (qa/20); Kaggle worked,
+but the model writes only ~4.4 tokens per second (qa/21). No model trained yet. $0 spent.
 ```
 
 **Where we are in the research chain:**
@@ -173,9 +177,9 @@ Details: [PLAN.md](PLAN.md). Teacher questions: [qa/](qa/).
 
 ## What to do next
 
-**Part 2 is written.** The one step only you can do: **run [notebook 11](notebooks/11_first_model_call.ipynb) on a free Colab T4**
-(lesson [11](lessons/11-first-model-call.md) explains every cell). It loads Gemma, asks one question with thinking ON and OFF,
-and gives us our first real numbers: memory, thinking tokens, speed.
+**Notebook 11 worked on Kaggle** ([results](results/2026-09-19-notebook11-first-call.md), [qa/21](qa/21-first-real-numbers.md)).
+The model loads, and the thinking switch works. But it writes only **~4.4 tokens per second**,
+which is far too slow for the plan (DECISIONS #46).
 
-Bring back: the GPU name, memory after loading, average thinking tokens ON vs OFF, tokens per second, and any error.
-Then we write them into `results/` and DECISIONS.md, and start **Part 3: Reading papers**.
+Next: **a speed test**. Ask many questions at once, and try vLLM. Then we decide with real numbers.
+Also still open: you explain Parts 1–2 back in your own words.
