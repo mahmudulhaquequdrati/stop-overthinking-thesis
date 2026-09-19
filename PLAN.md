@@ -123,6 +123,14 @@ Full reading list: [PAPERS.md](PAPERS.md). Full search notes: [research/gaps.md]
 | **Train (code)** | `agentica-org/DeepCoder-Preview-Dataset` (primeintellect + taco parts, MIT) · `codeparrot/apps` introductory (MIT) | Thousands | Has tests. **Drop DeepCoder's `lcbv5` part** (it overlaps with our test set). Keep examples ≤3,500 tokens. |
 | **Test (code)** | HumanEval+ (164) + MBPP+ (378) + `livecodebench/code_generation_lite` easy + medium | ~1,000+ (LiveCodeBench counts still to check) | Never used for training. The base model and the trained model see the same problems, so the comparison stays fair. |
 
+**How we load LiveCodeBench** (checked 2026-09-17): it uses a Python loading script that Hugging Face
+refuses to run, so we download its `.jsonl` files directly. Each problem has a date (`contest_date`)
+and a difficulty.
+
+**How many problems are fresh** (counted 2026-09-17): from February 2025 on there are 131 problems:
+**31 easy + 39 medium** + 61 hard. So only **70 fresh easy/medium problems**. That is too few to carry the
+main result, so the fresh set is a side note; the main comparison uses the full paired test set (DECISIONS #41).
+
 **Overlap check** (before any training): remove every training problem that matches
 a test problem, exactly or nearly.
 
@@ -141,7 +149,7 @@ Details: [research/data-size-and-test-size.md](research/data-size-and-test-size.
 ### The model
 
 - **Main: `google/gemma-4-E4B-it`.** Released March 2026. Has a thinking ON/OFF switch. Apache-2.0 licence.
-  Published training cutoff: January 2025 (re-check on the model card).
+  Published cutoff: January 2025 (✅ checked on the model card 2026-09-17: it is the cutoff of the **pre-training** data; later training stages have no published date).
 - **Backup: `Qwen/Qwen3.5-4B`.** February 2026. Thinking switch. Apache-2.0.
 
 ### How a 16 GB model fits in a 15 GB GPU

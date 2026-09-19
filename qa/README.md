@@ -47,5 +47,13 @@
 | [10](10-proposal-and-title.md) | The proposal and the title | 2026-09-13 |
 | [11](11-measuring-thinking-in-tokens.md) | Measuring thinking length in tokens (lesson 02) | 2026-09-17 |
 | [12](12-how-our-training-works.md) | How our training works: fine-tuning (lesson 03) | 2026-09-17 |
+| [13](13-thinking-and-the-switch.md) | Reasoning models, thinking, and the ON/OFF switch (lesson 04) | 2026-09-17 |
+| [14](14-overthinking.md) | Overthinking: our problem, and how to measure it (lesson 05) | 2026-09-17 |
+| [15](15-cutoff-dates-and-seen-tests.md) | Cutoff dates, and "has the model seen the test?" (lesson 06) | 2026-09-17 |
+| [16](16-gpu-memory.md) | GPU memory: does the model fit? (lesson 07) | 2026-09-17 |
+| [17](17-free-gpus-and-notebooks.md) | Free GPUs and notebooks: Colab, Kaggle, Python (lessons 08–09) | 2026-09-17 |
+| [18](18-hugging-face-and-our-data.md) | Hugging Face, and checking our data (lesson 10) | 2026-09-17 |
+| [19](19-first-model-call.md) | The first model call: thinking ON vs OFF (lesson 11) | 2026-09-17 |
 
-**Nothing has been run yet.** All steps so far are planning.
+**What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 needs a free GPU session and is **not run yet**.
+No model has been trained. $0 spent.

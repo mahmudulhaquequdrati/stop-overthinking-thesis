@@ -33,6 +33,9 @@ The normal way, which we compare our idea against.
 Without something to compare with, "better" means nothing.
 *Example:* to show a new medicine works, you compare it to people who got no medicine.
 
+**Assert**
+A line in a notebook that says "stop with an error if this is not true". We use it to check the thinking switch really worked.
+
 **Batch**
 A group of items processed together, at the same time.
 *Example:* washing 10 plates at once instead of one by one.
@@ -49,6 +52,12 @@ A limit on how long the model may think. When it reaches the limit, we stop its 
 ---
 
 ## C
+
+**Cell**
+One block in a notebook: a text cell (explanation) or a code cell (Python you can run with Shift+Enter).
+
+**Chat template**
+The rules that wrap our question in special tokens before the model reads it. It also decides if thinking is ON or OFF.
 
 **Checkpoint**
 A saved copy of the training, taken while training is running.
@@ -69,11 +78,17 @@ We ask the model each problem 4 times. Coverage = the share of problems where
 
 **Cutoff date (training cutoff)**
 The date when the model's training text ends. The model knows nothing after it.
-Gemma-4-E4B's published cutoff is January 2025.
+Gemma-4-E4B's published cutoff is January 2025 (for its pre-training data; checked on the model card).
+See [lesson 06](lessons/06-cutoff-dates.md).
 
 ---
 
 ## D
+
+**Colab / Kaggle** → see **Colab** and **KV cache**
+The notes the model keeps about every token written so far, so it doesn't redo work. It grows with the answer, and it uses GPU memory.
+
+**Kaggle**.
 
 **Dataset**
 A collection of examples, such as code problems with their tests.
@@ -81,6 +96,9 @@ A collection of examples, such as code problems with their tests.
 ---
 
 ## E
+
+**Drive (Google Drive)**
+Your own free online storage. We save results there, so they survive when a free session ends.
 
 **Epoch**
 One full pass through all the training examples.
@@ -99,6 +117,9 @@ See [lesson 03](lessons/03-how-a-model-learns.md).
 
 ## F
 
+**Fresh problem**
+A test problem published **after** the model's cutoff date, so the model cannot have seen it.
+
 **Fine-tuning**
 Taking a model that is already trained and training it a little more, to teach it a new habit.
 *Example:* a trained cook takes a short course in baking.
@@ -114,6 +135,9 @@ When fine-tuning damages skills the model had before. LoRA lowers this risk.
 
 ## G
 
+**Gated (model or dataset)**
+You must accept a form before downloading. Gemma-4-E4B and our datasets are **not** gated (checked).
+
 **Gap (research gap)**
 A question that nobody has answered yet. A thesis must fill a gap.
 
@@ -127,7 +151,10 @@ Our main model, made by Google, released March 2026. It has a thinking ON/OFF sw
 
 **GPU**
 A computer chip that does many math steps at the same time. AI models need it to run fast.
-Ours is a free **T4** GPU with about 15 GB of memory.
+Ours is a free **Split**
+A named part of a dataset, like `train` or `test`. HumanEval+ has one split: `test` (164 problems).
+
+**T4** GPU with about 15 GB of memory.
 
 **GPU-hour**
 One GPU working for one hour.
@@ -143,6 +170,9 @@ A type of **reinforcement learning** (see R). We do **not** use it. It is future
 
 **Hugging Face** (HF)
 A free website that stores AI models and datasets. We download everything from there.
+
+**hf_hub_download**
+A one-line way to download a single file from Hugging Face. We use it for LiveCodeBench.
 
 **Hypothesis**
 A guess we write down **before** testing. The data can prove it wrong.
@@ -178,6 +208,9 @@ Good for us: it needs little GPU memory, and the original model stays unchanged.
 
 ## M
 
+**load_dataset**
+A one-line way to download and open a dataset from Hugging Face.
+
 **Median**
 The middle value when you sort numbers.
 *Example:* lengths 100, 200, 900 → the median is 200.
@@ -190,8 +223,12 @@ A free T4 has about 15 GB. If it doesn't fit, the program crashes.
 
 ## O
 
+**Notebook**
+A page of cells you run step by step in the browser (Colab, Kaggle). Our experiments are notebooks.
+
 **Overthinking**
 Long thinking where short thinking would give the same answer. **This is our thesis problem.**
+See [lesson 05](lessons/05-overthinking.md).
 
 **Overlap check**
 Making sure no test problem is also in the training data. If it is, we remove it from training.
@@ -204,6 +241,9 @@ Making sure no test problem is also in the training data. If it is, we remove it
 We compare two ways of answering **on the same problems**.
 *Example:* the same 100 students take a test before and after a course.
 It is fairer than using different students, and we need fewer problems to see a small change.
+
+**pip**
+The free installer for Python libraries. In a notebook: `!pip install datasets`.
 
 **Paper**
 A written report of a research study.
@@ -220,6 +260,9 @@ We ask 4 times and take the average, so the number is more stable.
 
 **Pre-training**
 The first, giant stage of training: the model reads huge amounts of text and learns to guess the next token. Done by big companies, not by us.
+
+**Python**
+The programming language all our notebooks use. See [lesson 08](lessons/08-python-basics.md).
 
 **Prompt**
 The text we give the model: the question plus any instructions.
@@ -242,6 +285,7 @@ Our backup model (from Alibaba, February 2026). We use it only if Gemma doesn't 
 
 **Reasoning model**
 An LLM that writes **thinking** (notes to itself) before its answer.
+See [lesson 04](lessons/04-reasoning-models-and-thinking.md).
 
 **Reinforcement learning (RL)**
 Training by rewards: the model tries, gets points for good answers, and changes to get more points.
@@ -259,6 +303,15 @@ continues where it stopped, instead of starting again.
 ---
 
 ## S
+
+**Special token**
+A token with a job, not normal text. For example: "thinking starts here", "thinking ends here", "I'm done".
+
+**safetensors**
+The file format that stores a model's numbers on Hugging Face.
+
+**Sampling (temperature, top_p, top_k)**
+Settings that decide how random the model's writing is. Gemma's recommended values: temperature 1.0, top_p 0.95, top_k 64. We use the same ones everywhere.
 
 **Sandbox**
 A safe, closed box where we run code the model wrote. If the code is bad, it can't harm anything.

@@ -1,6 +1,6 @@
 # Lesson 03: How a model learns (training and fine-tuning)
 
-⬅️ [Lesson 02](02-tokens.md) · [ROADMAP](../ROADMAP.md) · ➡️ Lesson 04 (Reasoning models and "thinking", written when you get there) · Hard word? See [GLOSSARY](../GLOSSARY.md)
+⬅️ [Lesson 02](02-tokens.md) · [ROADMAP](../ROADMAP.md) · ➡️ [Lesson 04: Reasoning models and "thinking"](04-reasoning-models-and-thinking.md) · Hard word? See [GLOSSARY](../GLOSSARY.md)
 
 ---
 

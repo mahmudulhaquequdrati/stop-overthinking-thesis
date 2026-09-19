@@ -59,14 +59,20 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Lessons 00–01 explained back (2026-09-17)            │
 │       ✅ Lesson 02 Tokens written + qa/11                     │
 │       ✅ Lesson 03 How a model learns written + qa/12         │
-│       ⬜ You explain lessons 02–03 back in your own words     │
+│       ✅ Lesson 04 Reasoning models + thinking + qa/13        │
+│       ✅ Lessons 05–06 + qa/14–15 (Part 1 all written)        │
+│  ⬜ Part 2: the tools (all written 2026-09-17)                │
+│       ✅ Lessons 07–11 + qa/16–19                             │
+│       ✅ Notebook 08 (Python) and 10 (data): RUN, they work   │
+│       ⬜ Notebook 11 (first model call): needs YOUR free GPU  │
+│       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
 │  ⬜ Part 4: measure (compare the free options + the checks)   │
 │  ⬜ Part 5: improve (train + test)                            │
 │  ⬜ Part 6: write + defend                                    │
 └──────────────────────────────────────────────────────────────┘
-Nothing has been run yet. $0 spent.
+Notebooks 08 and 10 have been run (no GPU needed). No model trained yet. $0 spent.
 ```
 
 **Where we are in the research chain:**
@@ -106,18 +112,18 @@ The first four boxes are written down. They are only on paper; nothing is tested
 | ✅ [01](lessons/01-what-is-an-llm.md) | What an LLM is, and why | A machine that learned to guess the next word from a huge amount of text |
 | ✅ [02](lessons/02-tokens.md) | Tokens | The small pieces of text a model reads and writes |
 | ✅ [03](lessons/03-how-a-model-learns.md) | How a model learns | Training, and fine-tuning: teaching an existing model a new habit |
-| ⬜ 04 | Reasoning models and "thinking" | Writing notes before the answer; the ON/OFF switch |
-| ⬜ 05 | Overthinking | Our problem: long thinking where short would do |
-| ⬜ 06 | Cutoff dates | "Has the model already seen the test?" |
+| ✅ [04](lessons/04-reasoning-models-and-thinking.md) | Reasoning models and "thinking" | Writing notes before the answer; the ON/OFF switch |
+| ✅ [05](lessons/05-overthinking.md) | Overthinking | Our problem: long thinking where short would do |
+| ✅ [06](lessons/06-cutoff-dates.md) | Cutoff dates | "Has the model already seen the test?" |
 
 ### Part 2: The tools
 | # | Lesson | One line |
 |---|---|---|
-| ⬜ 07 | GPU memory | Why a 16 GB model fits in a 15 GB GPU (16-bit vs. 4-bit) |
-| ⬜ 08 | Python basics | Just enough to read and run notebooks |
-| ⬜ 09 | Colab and Kaggle | Free computers with GPUs, in the browser |
-| ⬜ 10 | Hugging Face | The free library of models and datasets |
-| ⬜ 11 | First model call | Ask Gemma one question, thinking ON vs. OFF, count the tokens |
+| ✅ [07](lessons/07-gpu-memory.md) | GPU memory | Why a 16 GB model fits in a 15 GB GPU (16-bit vs. 4-bit) |
+| ✅ [08](lessons/08-python-basics.md) | Python basics | Just enough to read and run notebooks |
+| ✅ [09](lessons/09-colab-and-kaggle.md) | Colab and Kaggle | Free computers with GPUs, in the browser |
+| ✅ [10](lessons/10-hugging-face.md) | Hugging Face | The free library of models and datasets |
+| ✅ [11](lessons/11-first-model-call.md) | First model call | Ask Gemma one question, thinking ON vs. OFF, count the tokens |
 
 ### Part 3: Research skills
 | # | Lesson | One line |
@@ -167,12 +173,9 @@ Details: [PLAN.md](PLAN.md). Teacher questions: [qa/](qa/).
 
 ## What to do next
 
-**Read [lesson 02: Tokens](lessons/02-tokens.md) and [lesson 03: How a model learns](lessons/03-how-a-model-learns.md).**
-Do the 5-minute "Try it" in lesson 03 (watch a tiny model learn in your browser).
-Then tell me in your own words:
-1. What is a token?
-2. Why does writing more tokens take more time?
-3. How does a model learn? (The darts example helps.)
-4. What is fine-tuning, and how will our model learn to think shorter?
+**Part 2 is written.** The one step only you can do: **run [notebook 11](notebooks/11_first_model_call.ipynb) on a free Colab T4**
+(lesson [11](lessons/11-first-model-call.md) explains every cell). It loads Gemma, asks one question with thinking ON and OFF,
+and gives us our first real numbers: memory, thinking tokens, speed.
 
-When you can, we write **Lesson 04: Reasoning models and "thinking"**.
+Bring back: the GPU name, memory after loading, average thinking tokens ON vs OFF, tokens per second, and any error.
+Then we write them into `results/` and DECISIONS.md, and start **Part 3: Reading papers**.

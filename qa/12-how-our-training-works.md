@@ -63,8 +63,9 @@ Training needs much more GPU memory than answering, because it keeps in-between 
 The memory check in week 3 tests if 3,500 fits.
 
 **Q: When you train on an example, does the error score count the question tokens too?**
-Not decided yet. Normally the error score is counted only on the answer part, because we don't want
-the model to learn to write questions. We will set this when we build the training notebook (lesson 20).
+No, only the answer part (decided 2026-09-17, DECISIONS #42). We don't want the model to learn to write
+questions; we want it to learn short correct answers. Unsloth's official Gemma-4 notebook does the same
+(`train_on_responses_only`). We re-check it when we build the training notebook (lesson 20).
 
 ---
 

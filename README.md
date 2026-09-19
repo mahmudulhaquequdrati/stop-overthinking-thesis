@@ -20,5 +20,5 @@ switching its thinking OFF. Everything runs for $0 on free Colab and Kaggle GPUs
 | `PAPERS.md` | Papers by other researchers on the same topic |
 | `research/` | Full search notes |
 | `lessons/` | The course, one lesson at a time |
-| `notebooks/` | Colab/Kaggle notebooks (coming) |
+| `notebooks/` | Colab/Kaggle notebooks: [08 Python](notebooks/08_python_basics.ipynb) · [10 the data](notebooks/10_look_at_the_data.ipynb) · [11 first model call](notebooks/11_first_model_call.ipynb) |
 | `results/` | Numbers from runs (coming) |

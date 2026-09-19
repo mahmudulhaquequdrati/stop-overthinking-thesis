@@ -21,6 +21,11 @@
 >
 > Decisions that came from this note: [DECISIONS.md](../DECISIONS.md) #6–#10.
 
+>
+> **Update 2026-09-17 (checked on the Gemma model card, `huggingface.co/google/gemma-4-E4B-it`):**
+> - "Our pre-training dataset … with a cutoff date of January 2025." The date is for *pre-training* data only.
+> - Thinking ON = special token `<|think|>` at the start of the system prompt; the thinking comes between `<|channel>thought` and `<channel|>`.
+
 ---
 
 ## Bottom line (from the search)
