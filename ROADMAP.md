@@ -67,7 +67,10 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 11 (first model call): RUN on Kaggle        │
 │           ✅ Loads (table in CPU memory), switch works        │
 │           ❌ Writes only ~4.4 tokens/s: far too slow (#46)    │
-│       ⬜ Speed test: many questions at once ← YOU ARE HERE    │
+│       ✅ Speed fixed: E2B on the Mac, 59 tokens/s (#49)       │
+│       ✅ PILOT: 30 HumanEval problems graded (#50, #51)       │
+│           OFF 93% · ON 83% (4 answers cut off) · 5.5× tokens │
+│       ⬜ Fair re-run (4,096 limit) + medium problems ← HERE   │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │

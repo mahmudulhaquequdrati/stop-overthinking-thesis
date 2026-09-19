@@ -1,6 +1,9 @@
 # secrets
 .env
 *.token
+# tools installed on this Mac (rebuildable: see scripts/README.md)
+.venv/
+
 # big or rebuildable things
 data/
 *.safetensors
