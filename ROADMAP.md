@@ -67,10 +67,14 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 11 (first model call): RUN on Kaggle        │
 │           ✅ Loads (table in CPU memory), switch works        │
 │           ❌ Writes only ~4.4 tokens/s: far too slow (#46)    │
-│       ✅ Speed fixed: E2B on the Mac, 59 tokens/s (#49)       │
+│       ✅ Tried the Mac: fast on easy, too slow on medium      │
+│           easy 52 tok/s · medium 21 tok/s = 250 s/problem     │
 │       ✅ PILOT: 30 HumanEval problems graded (#50, #51)       │
 │           OFF 93% · ON 83% (4 answers cut off) · 5.5× tokens │
-│       ⬜ Fair re-run (4,096 limit) + medium problems ← HERE   │
+│       ✅ MOVED to Google Colab + Qwen3.5-2B (#52, #53)        │
+│           Mac scripts deleted · notebook 12 written           │
+│           thinking-counter bug found and fixed (#56)          │
+│       ⬜ RUN notebook 12 on a free T4: the 3 gates ← HERE     │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
@@ -78,8 +82,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ⬜ Part 5: improve (train + test)                            │
 │  ⬜ Part 6: write + defend                                    │
 └──────────────────────────────────────────────────────────────┘
-Notebooks 08, 10 and 11 have been run. Notebook 11: Colab ran out of memory (qa/20); Kaggle worked,
-but the model writes only ~4.4 tokens per second (qa/21). No model trained yet. $0 spent.
+Notebooks 08, 10 and 11 have been run. The Mac pilot worked but medium problems were too slow,
+so everything moved to Google Colab with a smaller model (Qwen3.5-2B). Notebook 12 is written and
+tested as far as it can be without a GPU. No model trained yet. $0 spent.
 ```
 
 **Where we are in the research chain:**
@@ -167,8 +172,8 @@ The first four boxes are written down. They are only on paper; nothing is tested
 
 ## 5. The research plan in 6 lines
 
-1. **Model:** Gemma-4-E4B (2026, thinking switch, training cutoff Jan 2025). Backup: Qwen3.5-4B.
-2. **Problems:** easy + medium code. Training ≈ thousands. Testing ≈ 1,000+ (HumanEval+, MBPP+, LiveCodeBench).
+1. **Model:** Qwen3.5-2B (2026, thinking switch, runs fully on a free Colab T4). Backup: Qwen3.5-4B. *(Was Gemma-4-E4B until 2026-09-20 — DECISIONS #53.)*
+2. **Problems:** easy + medium code. Training ≈ thousands. Testing = **234** (HumanEval+ 164 + LiveCodeBench easy/medium 70), cut to fit free Colab in one week (DECISIONS #58).
 3. **Method:** the model answers 4 times → keep the shortest correct answer → train one LoRA add-on on those.
 4. **Compare 5 ways of answering:** thinking OFF · limit · "think briefly" · ON · ON + LoRA.
 5. **Checks first:** does it fit in memory? Is there room to shorten (short answers ≥25% shorter)? If not, ask 8 times instead of 4.
@@ -180,9 +185,26 @@ Details: [PLAN.md](PLAN.md). Teacher questions: [qa/](qa/).
 
 ## What to do next
 
-**Notebook 11 worked on Kaggle** ([results](results/2026-09-19-notebook11-first-call.md), [qa/21](qa/21-first-real-numbers.md)).
-The model loads, and the thinking switch works. But it writes only **~4.4 tokens per second**,
-which is far too slow for the plan (DECISIONS #46).
+**Everything now runs on Google Colab, with Qwen3.5-2B** (DECISIONS #52, #53). The Mac was fast
+on easy problems (52 tokens/s) but slow on the medium ones we actually need: **250 seconds for a
+single problem**. A free T4 answers 16 at once, and the whole 2B model fits on it.
 
-Next: **a speed test**. Ask many questions at once, and try vLLM. Then we decide with real numbers.
+Done already, without a GPU:
+- the Mac scripts are deleted and the reusable parts saved in `scripts/prompts.py`
+- a real bug was caught: Qwen keeps `<think>` in the *prompt*, so our old counter would have
+  reported **0 thinking tokens on every answer** and never complained (DECISIONS #56).
+  `scripts/test_prompts.py` now checks this — 13 out of 13 checks pass.
+
+**Next, and it is one thing:** open [notebooks/12_qwen_colab.ipynb](notebooks/12_qwen_colab.ipynb)
+in Google Colab, set the runtime to **T4 GPU**, and run the cells in order. It ends by printing
+three numbers:
+
+| Gate | Must be | In plain words |
+|---|---|---|
+| Solved at least once | ≥ 40% | is the model good enough to have anything to learn from? |
+| Room to shorten | ≤ 0.75 | **will fine-tuning really cut tokens?** |
+| Cost | tokens per answer | can we finish inside free Colab? |
+
+Those three numbers decide the model, and the answer goes in `DECISIONS.md` the same day.
+
 Also still open: you explain Parts 1–2 back in your own words.

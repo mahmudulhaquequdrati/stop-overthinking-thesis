@@ -30,7 +30,7 @@ We keep only training examples of 3,500 tokens or less.
 | HumanEval+ | 164 problems |
 | MBPP+ | 378 problems |
 | LiveCodeBench (`livecodebench/code_generation_lite`), easy + medium | to be counted |
-| **Total** | about 1,000+ |
+| **Total** | ~~about 1,000+~~ **234** (changed 2026-09-20, DECISIONS #58: cut to fit free Colab in one week) |
 
 **Q: Why must every problem have tests?**
 We grade answers by **running the benchmark's real tests** in a safe sandbox.

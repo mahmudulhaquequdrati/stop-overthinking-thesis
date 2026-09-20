@@ -7,7 +7,7 @@
 > Research chain: `EXPERIMENT` → the room-to-shorten check (PLAN §7), first real data.
 
 Files: [answers](2026-09-20-pilot-e2b-humanevalplus.jsonl) · [graded CSV](2026-09-20-pilot-e2b-humanevalplus-graded.csv)
-Code: [scripts/mac_pilot_generate.py](../scripts/mac_pilot_generate.py) · [scripts/grade_humaneval.py](../scripts/grade_humaneval.py)
+Code: `scripts/mac_pilot_generate.py` *(deleted 2026-09-20, DECISIONS #52 — still in git history)* · [scripts/grade_humaneval.py](../scripts/grade_humaneval.py)
 
 ---
 

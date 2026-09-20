@@ -67,4 +67,4 @@ For HumanEval, yes: it is a well-known, fairly easy benchmark, and modern small 
 
 - [results/2026-09-20-pilot-e2b-humaneval.md](../results/2026-09-20-pilot-e2b-humaneval.md) · [graded CSV](../results/2026-09-20-pilot-e2b-humanevalplus-graded.csv)
 - [DECISIONS.md](../DECISIONS.md) rows #50 (the pilot and the two fixes) and #51 (our own grader)
-- Code: [scripts/mac_pilot_generate.py](../scripts/mac_pilot_generate.py) · [scripts/grade_humaneval.py](../scripts/grade_humaneval.py)
+- Code: `scripts/mac_pilot_generate.py` *(deleted 2026-09-20 when we moved to Colab, DECISIONS #52 — still in git history)* · [scripts/grade_humaneval.py](../scripts/grade_humaneval.py)

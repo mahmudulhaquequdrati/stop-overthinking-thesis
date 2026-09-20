@@ -4,7 +4,8 @@
    solved, judged by the benchmark's tests, not by eye.
 2. Why do we need it?  PLAN §7: the model must solve ≥40% of problems at least once,
    or there are no correct answers to shorten.
-3. What goes in?   The raw answers from scripts/mac_pilot_generate.py.
+3. What goes in?   The raw answers from scripts/gen_colab.py (before 2026-09-20: the deleted
+   scripts/mac_pilot_generate.py).
 4. What comes out? results/<name>-graded.csv (one row per answer) and a printed summary:
    how often the first try passed the tests, and how long the thinking was.
 5. Why this way?   evalplus runs the model's code in separate processes with time limits

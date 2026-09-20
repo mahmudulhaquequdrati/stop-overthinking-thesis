@@ -121,7 +121,7 @@ Full reading list: [PAPERS.md](PAPERS.md). Full search notes: [research/gaps.md]
 | Role | Dataset (Hugging Face id) | Size | Notes |
 |---|---|---|---|
 | **Train (code)** | `agentica-org/DeepCoder-Preview-Dataset` (primeintellect + taco parts, MIT) · `codeparrot/apps` introductory (MIT) | Thousands | Has tests. **Drop DeepCoder's `lcbv5` part** (it overlaps with our test set). Keep examples ≤3,500 tokens. |
-| **Test (code)** | HumanEval+ (164) + MBPP+ (378) + `livecodebench/code_generation_lite` easy + medium | ~1,000+ (LiveCodeBench counts still to check) | Never used for training. The base model and the trained model see the same problems, so the comparison stays fair. |
+| **Test (code)** | HumanEval+ (164) + `livecodebench/code_generation_lite` easy + medium, fresh (70) | **234** (fixed 2026-09-20, DECISIONS #58) | Never used for training. The base model and the trained model see the same problems, so the comparison stays fair. ~~MBPP+ (378)~~ and the rest were cut to fit free Colab in one week: 1,000 problems × 5 ways × 4 tries ≈ 13+ GPU hours, 234 problems ≈ 3–4 hours. **Chosen before any result was seen.** Cost, to state in the thesis: fewer problems means wider error bars. |
 
 **How we load LiveCodeBench** (checked 2026-09-17): it uses a Python loading script that Hugging Face
 refuses to run, so we download its `.jsonl` files directly. Each problem has a date (`contest_date`)
@@ -148,9 +148,18 @@ Details: [research/data-size-and-test-size.md](research/data-size-and-test-size.
 
 ### The model
 
-- **Main: `google/gemma-4-E4B-it`.** Released March 2026. Has a thinking ON/OFF switch. Apache-2.0 licence.
-  Published cutoff: January 2025 (✅ checked on the model card 2026-09-17: it is the cutoff of the **pre-training** data; later training stages have no published date).
-- **Backup: `Qwen/Qwen3.5-4B`.** February 2026. Thinking switch. Apache-2.0.
+- **Main: `unsloth/Qwen3.5-2B`.** Released February 2026. Thinking ON/OFF switch. Apache-2.0 licence.
+  4.58 GB in 16-bit, so the **whole model fits on a free Colab T4** (~15 GB) with plenty of room
+  for the answers. ✅ Checked 2026-09-20 by downloading its own `chat_template.jinja`:
+  `enable_thinking` is on line 149, thinking is OFF by default, and the markers are
+  `<think>` … `</think>`.
+  ❌ **No published training cutoff date.** We give up the proof that the test problems are new
+  to the model (DECISIONS #54). The thesis must say so plainly.
+- **Backup: `unsloth/Qwen3.5-4B`** (3.06 GB squeezed), used only if the 2B fails the ≥40% gate.
+- ~~**Was: `google/gemma-4-E4B-it`**, with Qwen3.5-4B as backup.~~ Changed 2026-09-20, DECISIONS
+  #52, #53: Gemma-4-E4B did not fit a free T4 (its 5.25 GB per-layer word table had to sit in CPU
+  memory, which is why it wrote at 4.4 tokens/s), and the Mac that ran Gemma-4-E2B needed
+  **250 seconds for one medium problem**.
 
 ### How a 16 GB model fits in a 15 GB GPU
 
@@ -181,7 +190,11 @@ Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-not
 2. **Room-to-shorten check.** The base model answers 200 training problems, 4 times each.
    - **Share of problems solved at least once** must be **≥40%**.
    - **Room to shorten** (shortest correct length ÷ average correct length) must be **≤0.75**.
-     This means short answers are at least 25% shorter.
+     This means short answers are at least 25% shorter. **This is the number that answers
+     "will fine-tuning really cut tokens?"** If every correct answer is the same length, there is
+     nothing to cut and the training cannot help.
+   - Both are printed by `scripts/check_gates.py`. A short version runs on 30 problems first,
+     in notebook 12, so we find out in one afternoon instead of after a week of GPU time.
    - Fails → **ask each problem 8 times instead of 4** (more chances for a short correct answer), then check again.
 3. **Selection rule.** Keep the shortest correct answer, but not shorter than half the median correct length
    (the S3-CoT paper warns that the very shortest answers hurt accuracy).
@@ -190,7 +203,7 @@ Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-not
 
 - A Gemma-4 bug on the T4: a number gets too big in the audio part in 16-bit mode. We use text only.
 - Speed on the T4: Unsloth runs Gemma 4 in a float32/float16 mix there (no bf16), and our per-layer table sits in CPU memory. Both may slow it down. Measured in notebook 11.
-- Whether vLLM (software that writes answers fast) runs Gemma-4 on a T4. Backup: Unsloth or `transformers` (slower).
+- ~~Whether vLLM runs Gemma-4 on a T4.~~ **Closed 2026-09-20 (DECISIONS #57): we do not use vLLM.** It has known bugs loading LoRA adapters on a T4, and our fifth way of answering *is* a LoRA. We use plain `transformers` to answer and Unsloth to train.
 - Free GPU limits change. Colab: up to 12 h per session, no published weekly limit. Kaggle: ~30 GPU-hours per week on 2×T4.
 
 ---
