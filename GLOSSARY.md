@@ -256,8 +256,8 @@ A one-line way to download and open a dataset from Hugging Face.
 
 **MBPP+**
 378 easy Python problems, each with real tests (the "+" means extra, harder tests).
-We cut it from our final test set, so we use it for the mini-thesis instead: 100 to train on,
-100 other ones to test on (DECISIONS #60).
+We cut it from our final test set, so we use it for the mini-thesis instead: 50 to train on,
+50 other ones to test on (DECISIONS #60, #62).
 
 **Mini-thesis**
 The whole method, run once, small and free: answer, keep the shortest correct answer, train a

@@ -16,6 +16,9 @@ whether more training data would help.
 100 MBPP+ TEST  ─► OFF · ON · "think briefly" · LoRA 25% · LoRA 50% · LoRA 100%
 ```
 
+> **Update 2026-09-22 (DECISIONS #62):** cut to **50 train / 50 test** problems and 2 LoRAs
+> (50% and 100%), because 100 problems were too slow on a free T4. The rules did not change.
+
 ---
 
 ## 2. Questions a teacher may ask
@@ -66,6 +69,11 @@ than its error bars is treated as noise. A big token cut (like 30%) can still sh
 Then rule R3 says so, and it's still a useful result: it tells us easy problems can't show the
 value of thinking, so the thesis must lean on medium problems. That's why notebook 12's medium
 check comes next.
+
+**Q: Why did you cut from 100 to 50 problems in the middle of the run?**
+The free T4 was too slow: after a long wait only 16 of 400 training answers were done. 50/50 needs
+about 55% less time. It is not cherry-picking: nothing had been graded yet, the 50 are fixed by the
+same seed, and the rules stayed the same. The price is wider error bars, so only big differences show.
 
 **Q: How do you know the trained LoRA really loaded? You said that could fail silently.**
 A trained LoRA has non-zero numbers in its "B" parts; an empty one has only zeros. The answering

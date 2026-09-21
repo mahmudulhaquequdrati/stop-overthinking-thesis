@@ -77,7 +77,7 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 12 = free go/no-go test (#59, 2026-09-21)   │
 │           + float16 check · + medium problems · + vLLM try   │
 │       ✅ Notebook 13 = free mini-thesis (#60, 2026-09-22)     │
-│           MBPP+ 100 train / 100 test · LoRA 25/50/100%       │
+│           MBPP+ 50 train / 50 test · LoRA 50/100% (#62)    │
 │       ⬜ RUN notebook 13 on a free T4 ← HERE                  │
 │       ⬜ Then notebook 12: the medium-problem check           │
 │       ⬜ You explain Parts 1–2 back in your own words         │
@@ -205,12 +205,12 @@ Done already, without a GPU:
 passes.** If the plan fails on the free T4, we lost nothing.
 
 **Next, and it is one thing:** open [notebooks/13_mini_thesis.ipynb](notebooks/13_mini_thesis.ipynb)
-in Google Colab, set the runtime to **T4 GPU**, and run the cells in order (about 2–4 hours,
+in Google Colab, set the runtime to **T4 GPU**, and run the cells in order (cut to 50/50 problems, #62;
 not measured yet). It runs the **whole method, small and free** (DECISIONS #60):
 
 ~~~text
-100 MBPP+ train problems ─► answer 4× ─► keep shortest correct ─► train LoRA (25%, 50%, 100%)
-100 OTHER MBPP+ problems ─► test 6 ways ─► 5 verdicts (rules written before the run)
+ 50 MBPP+ train problems ─► answer 4× ─► keep shortest correct ─► train LoRA (50%, 100%)
+ 50 OTHER MBPP+ problems ─► test 5 ways ─► 5 verdicts (rules written before the run)
 ~~~
 
 | Verdict | Question it answers |

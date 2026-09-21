@@ -51,9 +51,22 @@ def add_adapter(model, adapter_dir):
     can create EMPTY LoRA layers, and the "trained" model silently answers like the base
     model. Trained LoRA layers have non-zero B matrices; empty ones are all zero. So we check.
     """
-    from peft import PeftModel
+    from peft import PeftConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict
+    from safetensors.torch import load_file
 
-    model = PeftModel.from_pretrained(model, adapter_dir)
+    # Unsloth trains Qwen3.5 as a vision-language model, so it saves the LoRA under longer
+    # names (seen on Colab 2026-09-22: PeftModel.from_pretrained found NONE of them). The
+    # LoRA layers are the same; only the path in front of "layers.N." differs. So we match
+    # each saved weight to this model's LoRA weight by the part from "layers." on.
+    model = get_peft_model(model, PeftConfig.from_pretrained(adapter_dir))
+    expected = {k[k.index("layers."):]: k for k in get_peft_model_state_dict(model)}
+    saved = load_file(os.path.join(adapter_dir, "adapter_model.safetensors"))
+    renamed = {expected[k[k.index("layers."):]]: v for k, v in saved.items()
+               if "layers." in k and "visual" not in k and k[k.index("layers."):] in expected}
+    if len(renamed) != len(expected):
+        raise SystemExit(f"STOP: only {len(renamed)} of {len(expected)} LoRA weights matched. "
+                         f"Saved names look like: {list(saved)[:3]}")
+    set_peft_model_state_dict(model, renamed)
     b_sum = sum(p.detach().abs().sum().item() for n, p in model.named_parameters() if "lora_B" in n)
     n_layers = sum(1 for n, _ in model.named_parameters() if "lora_B" in n)
     if n_layers == 0 or b_sum == 0:
