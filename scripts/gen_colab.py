@@ -77,7 +77,12 @@ def add_adapter(model, adapter_dir):
 
 
 def generate(model, tok, texts, max_new_tokens, profile, seed):
-    """Answer a whole batch at once. Returns the NEW text only, without the prompt."""
+    """Answer a whole batch at once. Returns (the NEW text only, cut-off flag per answer).
+
+    "Cut off" is read from the model's own tokens: the answer used every allowed token and did
+    not end with a stop token. Counting the tokens again from the decoded text can be off by
+    one (seen 2026-09-22: a looping answer counted 4,095 of 4,096 and was not marked cut off).
+    """
     import torch
     from transformers import set_seed
 
@@ -87,7 +92,27 @@ def generate(model, tok, texts, max_new_tokens, profile, seed):
         out = model.generate(**batch, max_new_tokens=max_new_tokens, do_sample=True,
                              pad_token_id=tok.pad_token_id, **profile["gen"])
     grown = out[:, batch["input_ids"].shape[1]:]          # drop the prompt part
-    return tok.batch_decode(grown, skip_special_tokens=True), grown.shape[1]
+    eos = model.generation_config.eos_token_id
+    stop = {tok.pad_token_id, *(eos if isinstance(eos, list) else [eos])}
+    cut = [grown.shape[1] >= max_new_tokens and t not in stop for t in grown[:, -1].tolist()]
+    return tok.batch_decode(grown, skip_special_tokens=True), cut
+
+
+def generate_safe(fn, texts, *args):
+    """Run fn(texts, *args); if the GPU runs out of memory, do the batch in two halves.
+    So a too-big batch size slows a run down instead of stopping it."""
+    import torch
+    try:
+        return fn(texts, *args)
+    except torch.cuda.OutOfMemoryError:
+        if len(texts) == 1:
+            raise
+        torch.cuda.empty_cache()
+        half = len(texts) // 2
+        print(f"  out of GPU memory with {len(texts)} at once -> splitting in two", flush=True)
+        a_txt, a_cut = generate_safe(fn, texts[:half], *args)
+        b_txt, b_cut = generate_safe(fn, texts[half:], *args)
+        return a_txt + b_txt, a_cut + b_cut
 
 
 def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, seed):
@@ -108,8 +133,8 @@ def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, see
         heads.append(head)
         seconds_texts.append(prompt_text + head)
 
-    rest, _ = generate(model, tok, seconds_texts, max_new_tokens - budget, profile, seed)
-    return [h + r for h, r in zip(heads, rest)]
+    rest, cut = generate(model, tok, seconds_texts, max_new_tokens - budget, profile, seed)
+    return [h + r for h, r in zip(heads, rest)], cut
 
 
 def pick_problems(all_problems, source, n, difficulty="any", split="any"):
@@ -138,6 +163,7 @@ def main():
     ap.add_argument("--difficulty", choices=["any", "easy", "medium"], default="any")
     ap.add_argument("--split", choices=["any", "train", "test"], default="any",
                     help="MBPP only: the mini-thesis trains on 'train' and tests on 'test'")
+    ap.add_argument("--only-ids", default=None, help="a .json list of task_ids to answer (and no others)")
     ap.add_argument("--adapter", default=None, help="a trained LoRA folder (the 5th way)")
     ap.add_argument("--label", default=None,
                     help="a name for this way of answering, e.g. lora50 (default: the policy)")
@@ -158,6 +184,9 @@ def main():
     profile = models.get(args.model)
     problems = pick_problems(load_all(args.problems), args.source, args.n, args.difficulty,
                              args.split)
+    if args.only_ids:                                    # e.g. only the answers that were cut off
+        keep = set(json.load(open(args.only_ids)))
+        problems = [p for p in problems if p["task_id"] in keep]
     import torch
     dtype = None if args.dtype == "auto" else getattr(torch, args.dtype)
     model, tok = load_model(profile, dtype)
@@ -182,14 +211,16 @@ def main():
 
         t0 = time.time()
         if args.policy == "limit":
-            answers = generate_with_budget(model, tok, texts, args.think_budget,
-                                           args.max_tokens, profile, seed)
+            answers, cut = generate_safe(
+                lambda t: generate_with_budget(model, tok, t, args.think_budget,
+                                               args.max_tokens, profile, seed), texts)
         else:
-            answers, _ = generate(model, tok, texts, args.max_tokens, profile, seed)
+            answers, cut = generate_safe(
+                lambda t: generate(model, tok, t, args.max_tokens, profile, seed), texts)
         secs = time.time() - t0
 
         new_tokens = 0
-        for (p, sample_index), raw in zip(chunk, answers):
+        for (p, sample_index), raw, was_cut in zip(chunk, answers, cut):
             n_all = prompts.n_tokens(tok, raw)
             new_tokens += n_all
             thinking_tokens, answer_text = prompts.split_thinking(tok, raw, args.policy, profile)
@@ -201,7 +232,7 @@ def main():
                 max_new_tokens=args.max_tokens,
                 think_budget=args.think_budget if args.policy == "limit" else None,
                 thinking_tokens=thinking_tokens, total_new_tokens=n_all,
-                hit_limit=n_all >= args.max_tokens, batch_size=len(chunk),
+                hit_limit=was_cut, batch_size=len(chunk),
                 batch_seconds=round(secs, 1), raw_output=raw, answer_text=answer_text,
                 timestamp=time.strftime("%Y-%m-%d %H:%M:%S"))) + "\n")
         out.flush(); os.fsync(out.fileno())        # really on disk, even if Colab dies now

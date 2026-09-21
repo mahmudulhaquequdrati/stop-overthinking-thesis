@@ -61,6 +61,7 @@
 | [24](24-free-go-no-go-test.md) | The free "go / no-go" test, before any money is spent | 2026-09-21 |
 | [25](25-mini-thesis-and-learning-curve.md) | The mini-thesis, and how we'll know if more training data helps | 2026-09-22 |
 | [26](26-mini-thesis-results.md) | The mini-thesis results: training worked on easy problems | 2026-09-22 |
+| [27](27-the-real-thesis-run.md) | The real thesis run (notebook 14): the rules, fixed before the run | 2026-09-22 |
 
 **What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 ran out of memory on Colab ([qa/20](20-first-model-load-out-of-memory.md)), then **ran on Kaggle** (2026-09-19): it works, but it writes only ~4.4 tokens per second ([qa/21](21-first-real-numbers.md)). A pilot on the user's Mac then solved 30 real problems ([qa/22](22-pilot-on-the-mac.md)), but medium problems took 250 seconds each, so on 2026-09-20 everything moved to Google Colab with a smaller model ([qa/23](23-moving-to-colab-and-qwen.md)).
-**Next:** the mini-thesis ran on an A100 and training worked on easy problems ([qa/26](26-mini-thesis-results.md)). Next is notebook 14, the real run on the 234 test problems (not built yet).
+**Next:** the mini-thesis ran on an A100 and training worked on easy problems ([qa/26](26-mini-thesis-results.md)). Next: run notebook 14 on the A100 ([qa/27](27-the-real-thesis-run.md)).

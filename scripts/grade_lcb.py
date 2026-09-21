@@ -85,18 +85,25 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--answers", required=True)
     ap.add_argument("--files", default="test6.jsonl")
+    ap.add_argument("--problems", default=None,
+                    help="read problems from our own file (data/problems.json, data/lcb_train.json) "
+                         "instead of downloading --files")
     ap.add_argument("--show", action="store_true", help="print every test: input, wanted, got")
     args = ap.parse_args()
 
-    problems = {p["task_id"]: p for p in load_problems(files=tuple(args.files.split(",")))}
+    if args.problems:
+        from build_problem_set import load_all
+        problems = {p["task_id"]: p for p in load_all(args.problems) if p["source"] == "lcb"}
+    else:
+        problems = {p["task_id"]: p for p in load_problems(files=tuple(args.files.split(",")))}
     rows = [json.loads(l) for l in open(args.answers)]
     out_csv = args.answers.replace(".jsonl", "-graded.csv")
 
     graded = []
     with tempfile.TemporaryDirectory(prefix="grade-lcb-") as workdir, open(out_csv, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["policy", "task_id", "difficulty", "passed", "why_not", "thinking_tokens",
-                    "total_new_tokens", "hit_limit"])
+        w.writerow(["policy", "task_id", "sample_index", "difficulty", "passed", "why_not",
+                    "thinking_tokens", "total_new_tokens", "hit_limit"])
         for i, r in enumerate(rows, 1):
             problem = problems[r["task_id"]]
             if args.show:
@@ -104,7 +111,7 @@ def main():
                       f"thinking {r['thinking_tokens']} tokens{' · CUT OFF' if r['hit_limit'] else ''}")
                 print("    problem:", " ".join(problem["title"].split())[:90])
             ok, why, _tests = run_one(extract_code(r["answer_text"]), problem, workdir, show=args.show)
-            w.writerow([r["policy"], r["task_id"], problem["difficulty"], ok, why,
+            w.writerow([r["policy"], r["task_id"], r.get("sample_index", 0), problem["difficulty"], ok, why,
                         r["thinking_tokens"], r["total_new_tokens"], r["hit_limit"]])
             graded.append((r, problem, ok))
             print(f"{i}/{len(rows)} {r['task_id']:<16}{problem['difficulty']:<8}{r['policy']:<13}"

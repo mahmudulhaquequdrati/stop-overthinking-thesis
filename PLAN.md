@@ -120,7 +120,7 @@ Full reading list: [PAPERS.md](PAPERS.md). Full search notes: [research/gaps.md]
 
 | Role | Dataset (Hugging Face id) | Size | Notes |
 |---|---|---|---|
-| **Train (code)** | `agentica-org/DeepCoder-Preview-Dataset` (primeintellect + taco parts, MIT) · `codeparrot/apps` introductory (MIT) | Thousands | Has tests. **Drop DeepCoder's `lcbv5` part** (it overlaps with our test set). Keep examples ≤3,500 tokens. |
+| **Train (code)** | **Since 2026-09-22: 200 MBPP+ problems (`evalplus/mbppplus`) + 80 older LiveCodeBench problems (release v1, 40 easy + 40 medium, all before 2025-02)** (DECISIONS #65, #66). ~~`agentica-org/DeepCoder-Preview-Dataset` · `codeparrot/apps` introductory~~ | 280 | Loaded and graded by code already proven in the mini-thesis. The LiveCodeBench part adds medium, read-input-print-output problems like our test set. `scripts/overlap_check.py` removes any training problem close to a test problem. |
 | **Test (code)** | HumanEval+ (164) + `livecodebench/code_generation_lite` easy + medium, fresh (70) | **234** (fixed 2026-09-20, DECISIONS #58) | Never used for training. The base model and the trained model see the same problems, so the comparison stays fair. ~~MBPP+ (378)~~ and the rest were cut to fit free Colab in one week: 1,000 problems × 5 ways × 4 tries ≈ 13+ GPU hours, 234 problems ≈ 3–4 hours. **Chosen before any result was seen.** Cost, to state in the thesis: fewer problems means wider error bars. |
 
 **How we load LiveCodeBench** (checked 2026-09-17): it uses a Python loading script that Hugging Face
@@ -246,31 +246,46 @@ and whether more training data would help (the learning curve).
 
 ---
 
-## 10. Rough free-GPU budget (estimates, to be measured in the trial run)
+## 10. The compute budget: 69 Colab units (DECISIONS #65, 2026-09-22)
 
-❌ **2026-09-20: measured writing speed is ~4.4 tokens per second** (one answer at a time, notebook 11).
-At that speed the table below is **60–170× too optimistic**. It stays here as the goal. A speed test
-with many questions at once comes before Part 4 (DECISIONS #46, [results](results/2026-09-19-notebook11-first-call.md)).
+**The hard limit:** 69 compute units must finish the whole thesis. The A100 costs **5.3 units per
+hour** (shown by Colab), so 69 units = **13.0 A100-hours**. 1 unit = about 11 minutes of A100.
 
-⚠️ Estimates, not measurements. Full calculation and sources:
-[research/gpu-time-budget.md](research/gpu-time-budget.md) (2026-09-17).
+**The measured cost unit** (notebook 13, A100, batch 64, 4,096-token limit): one batch of thinking
+answers takes about **230 seconds = 0.34 units**. A batch waits for its slowest answer, and the
+4,096 limit caps that, so this is also the cost for medium problems (estimate).
 
-| Stage | How much text | GPU-hours (T4) |
+| Stage | What (notebook 14, all on the A100) | Units |
 |---|---|---|
-| Making training data: ~4,000 problems × 4 answers × ~2,500 tokens | ~40M tokens written | 15–40 |
-| Testing: 5 ways of answering × ~1,000 problems × 4 answers | ~30M tokens written | 10–30 |
-| Checks and small trial runs (50 training examples; 200 problems × 4 answers) | ~2M tokens | 2–5 |
-| **One LoRA training run** (~2,000 examples × ~1,800 tokens, **1 epoch** = one pass through the data) | 3.6M tokens seen | **3–7 (plan ~4)** |
+| smoke | Every way on 2 problems per dataset, tiny limit: does every code path work? | 0.7 |
+| **A** | **Must.** 234 test problems × OFF, ON, brief, limit, LoRA-1 × 1 try | 10.3 |
+| B1 | Training answers: 200 MBPP+ + 80 older LiveCodeBench × 4 tries | 7.2 |
+| B2 | Train LoRA-2 (3 epochs) | 1.0 |
+| B3 | Test LoRA-2, 1 try | 2.5 |
+| C | A second try for every way | 12.8 |
+| D | The cut-off thinking-ON answers again at 16,384 tokens | 2.7 |
+| | **Planned total** (+ ~2–3 for setup and model loading) | **~37–40** |
+| | **Floor** that is never spent (fixes, re-runs) | **20** |
 
-- **Training is the cheapest part.** One run fits in one free session (Colab ≤12 h,
-  Kaggle ~12 h per session and 30 GPU-hours per week). Making and grading answers costs far more.
-- **Speed we assume: ~250 training tokens per second** (range 150–350). It comes from a calculation of how much
-  math the GPU can do. **Not checked yet.** We measure it during the week-3 memory check, then redo this table.
-- **Sort training examples by length, or pack them together.** Padding a 400-token example
-  up to 3,500 tokens can make training up to 2× slower.
-- In total: many tens of GPU-hours, spread over weeks on Kaggle (2 GPUs = 2 workers) and Colab.
-- Save results to Google Drive every ~20 problems. Save a training checkpoint (a save point) every ~30 minutes.
-- Calendar time ≈ 3–5× GPU time on a first attempt (crashes, re-runs, disconnects).
+Token limits (DECISIONS #66): **4,096** for HumanEval+, **8,192** for LiveCodeBench, the same for every way.
+The "limit" way cuts thinking at **1,024** tokens.
+
+**Rules that protect the budget:**
+1. **Debug on the T4 or CPU, produce on the A100.** New code runs on 2–3 problems first.
+2. **Disconnect the A100 when nothing runs** (Runtime → Disconnect and delete runtime). Idle still costs.
+3. **Grade on a CPU runtime.** Grading doesn't need a GPU; the answers are on Drive.
+4. **Before each stage, write down the units left.** Start a stage only if *units left − its cost ≥ 20*.
+   If not, skip stages from the end: 4 first, then 3, then 2. Stage 1 always runs.
+5. **Try batch 128 once** in stage 1. If a batch takes less than 1.6× as long as batch 64, keep 128
+   (it saves 30–40%). Measured, not assumed.
+6. **Everything resumes:** a crash costs at most the batch in progress.
+
+⚠️ Estimates built on one measured number (230 s per batch). Setup time, model loading and the
+T4 and CPU unit prices are **not measured yet**. The stage 1 numbers will be checked against the
+units actually used, and this table redone.
+
+~~The old free-GPU table (40M + 30M tokens, tens of T4 hours) is replaced: the free T4 measured
+26–30 tokens/s (DECISIONS #62–63).~~
 
 ---
 

@@ -80,7 +80,8 @@ We also check whether just saying "don't think, just answer" works as well.
 │           MBPP+ · 100 test problems · LoRA 25/50/100%      │
 │       ✅ Notebook 13 RUN on A100 (#63, #64)                   │
 │           LoRA 65% vs ON 50%, 41% fewer tokens: R1 YES       │
-│       ⬜ Notebook 14: the real run on the 234 problems ← HERE │
+│       ✅ Notebook 14 written: the real run (#66, 2026-09-22)  │
+│       ⬜ RUN notebook 14 on the A100 ← HERE                   │
 │           (its first step = notebook 12's medium check)     │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
@@ -219,8 +220,14 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: notebook 14, the real thesis run** on the fixed 234 test problems
-(HumanEval+ 164 + LiveCodeBench easy/medium 70). Its first step, thinking ON vs OFF, also answers
-the open medium-problem question from notebook 12. It is not built yet.
+**Next, and it is one thing: run [notebooks/14_thesis_run.ipynb](notebooks/14_thesis_run.ipynb) on the A100.**
+Runtime → A100 → **Run all**. Type the units left once. Paste back only the last cell.
+
+~~~text
+smoke (0.7) → A: 5 ways × 234 problems (10.3, must) → B: LoRA-2 (10.7) → C: 2nd try (12.8) → D: 16k check (2.7)
+every stage checks the budget first: it runs only if  units left − its cost ≥ 20
+~~~
+
+Token limits: 4,096 (HumanEval+) · 8,192 (LiveCodeBench) · the same for every way (DECISIONS #66).
 
 Also still open: you explain Parts 1–2 back in your own words.

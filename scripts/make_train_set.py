@@ -29,18 +29,26 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--answers", required=True)
     ap.add_argument("--problems", default="data/mbpp.json")
+    ap.add_argument("--splits", default="train",
+                    help="which splits may be trained on (the real thesis uses all of MBPP+)")
+    ap.add_argument("--exclude", default=None,
+                    help="a .json list of task_ids to leave out (from scripts/overlap_check.py)")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
     problems = {p["task_id"]: p for p in load_all(args.problems)}
+    splits = set(args.splits.split(","))
+    excluded = set(json.load(open(args.exclude))) if args.exclude else set()
     answers = {(r["task_id"], r["sample_index"]): r for r in map(json.loads, open(args.answers))}
     graded = csv.DictReader(open(args.answers.replace(".jsonl", "-graded.csv")))
 
     correct = {}                              # task_id -> the correct answers
     for g in graded:
         r = answers[(g["task_id"], int(g["sample_index"]))]
-        if problems[g["task_id"]]["split"] != "train":
+        if problems[g["task_id"]].get("split") not in splits:
             raise SystemExit(f"STOP: {g['task_id']} is not a training problem.")
+        if g["task_id"] in excluded:                  # too close to a test problem
+            continue
         if g["passed"] == "True" and not r["hit_limit"]:
             correct.setdefault(g["task_id"], []).append(r)
 
@@ -62,7 +70,8 @@ def main():
     target = statistics.mean(ratios)
     with open(args.out.replace(".jsonl", "-stats.json"), "w") as f:
         json.dump(dict(kept=len(kept), problems=n_problems, target=round(target, 3)), f)
-    print(f"kept {len(kept)} of {n_problems} training problems (the others were never solved)")
+    print(f"kept {len(kept)} of {n_problems} training problems (the others were never solved"
+          f"{', or too close to a test problem' if excluded else ''})")
     print(f"median tokens of a kept answer: {statistics.median(k['tokens'] for k in kept):.0f}")
     print(f"TARGET = {target:.3f}  (kept answer / average correct answer; lower = more to learn)")
     print(f"         {sum(1 for k in kept if k['n_correct'] == 1)} problems had only one correct "

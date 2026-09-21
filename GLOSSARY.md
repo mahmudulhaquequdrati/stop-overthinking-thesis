@@ -61,6 +61,10 @@ compares the two on 10 problems before trusting float16 (DECISIONS #59).
 
 ## C
 
+**Compute unit** (Colab)
+What paid Colab time is counted in. The A100 costs **5.3 units per hour**, even when it sits idle.
+We have 69 units for the whole thesis (DECISIONS #65).
+
 **Cell**
 One block in a notebook: a text cell (explanation) or a code cell (Python you can run with Shift+Enter).
 
@@ -128,6 +132,10 @@ See [lesson 03](lessons/03-how-a-model-learns.md).
 ---
 
 ## F
+
+**Fast path**
+The quick code for Qwen3.5's special layers. It needs two extra libraries (`flash-linear-attention`, `causal-conv1d`).
+Without them the model still works, but runs slow backup code. Notebook 14 builds them once and keeps them on Drive.
 
 **Fresh problem**
 A test problem published **after** the model's cutoff date, so the model cannot have seen it.
@@ -371,6 +379,10 @@ continues where it stopped, instead of starting again.
 ---
 
 ## S
+
+**Smoke test**
+A tiny first run that only checks that everything **works**, not how good the answers are.
+*Example:* turning a new oven on for a minute before baking. Notebook 14 runs every way on 2 problems first.
 
 **Special token**
 A token with a job, not normal text. For example: "thinking starts here", "thinking ends here", "I'm done".

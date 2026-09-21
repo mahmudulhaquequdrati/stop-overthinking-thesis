@@ -22,6 +22,10 @@ OUT = "data/problems.json"
 
 def humaneval_problems():
     from evalplus.data import get_human_eval_plus
+    from datasets import load_dataset
+    # The HF copy of HumanEval+ ships the harder "plus" tests as one ready test program
+    # (like MBPP+). `test` stays HumanEval's original tests; `test_plus` is what we grade with.
+    plus = {r["task_id"]: r for r in load_dataset("evalplus/humanevalplus", split="test")}
     out = []
     for task_id, p in get_human_eval_plus().items():
         out.append(dict(
@@ -30,6 +34,8 @@ def humaneval_problems():
             question=("Complete this Python function. Answer with one Python code block only, "
                       "containing the complete function.\n\n```python\n" + p["prompt"] + "```"),
             entry_point=p["entry_point"], test=p["test"], n_tests=p["test"].count("assert"),
+            test_plus=plus[task_id]["test"],
+            canonical_solution=p["prompt"] + p["canonical_solution"],
         ))
     return out
 
