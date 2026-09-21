@@ -77,9 +77,11 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 12 = free go/no-go test (#59, 2026-09-21)   │
 │           + float16 check · + medium problems · + vLLM try   │
 │       ✅ Notebook 13 = free mini-thesis (#60, 2026-09-22)     │
-│           MBPP+ 50 train / 50 test · LoRA 50/100% (#62)    │
-│       ⬜ RUN notebook 13 on a free T4 ← HERE                  │
-│       ⬜ Then notebook 12: the medium-problem check           │
+│           MBPP+ · 100 test problems · LoRA 25/50/100%      │
+│       ✅ Notebook 13 RUN on A100 (#63, #64)                   │
+│           LoRA 65% vs ON 50%, 41% fewer tokens: R1 YES       │
+│       ⬜ Notebook 14: the real run on the 234 problems ← HERE │
+│           (its first step = notebook 12's medium check)     │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
@@ -90,7 +92,8 @@ We also check whether just saying "don't think, just answer" works as well.
 Notebooks 08, 10 and 11 have been run. The Mac pilot worked but medium problems were too slow,
 so everything moved to Google Colab with a smaller model (Qwen3.5-2B). Notebook 12 is now a free
 go/no-go test: we pay for nothing until it passes (#59). Notebook 13 runs the whole method small
-and free first (#60). No model trained yet. $0 spent.
+and free first (#60). It ran on a paid A100: training cut tokens 41% AND raised accuracy 50% → 65%
+on easy problems (#64). Paid Colab units are now in use.
 ```
 
 **Where we are in the research chain:**
@@ -204,25 +207,20 @@ Done already, without a GPU:
 **The rule since 2026-09-21 (DECISIONS #59): test everything for free first, pay only after it
 passes.** If the plan fails on the free T4, we lost nothing.
 
-**Next, and it is one thing:** open [notebooks/13_mini_thesis.ipynb](notebooks/13_mini_thesis.ipynb)
-in Google Colab, set the runtime to **T4 GPU**, and run the cells in order (cut to 50/50 problems, #62;
-not measured yet). It runs the **whole method, small and free** (DECISIONS #60):
+**Done (2026-09-22): the mini-thesis ran on a paid A100** ([results](results/2026-09-22-mini-thesis-first-results.md), DECISIONS #64):
 
 ~~~text
- 50 MBPP+ train problems ─► answer 4× ─► keep shortest correct ─► train LoRA (50%, 100%)
- 50 OTHER MBPP+ problems ─► test 5 ways ─► 5 verdicts (rules written before the run)
+thinking ON     50%   1,936 tokens   27 never finished
+LoRA (ours)     65%   1,145 tokens   15 never finished   ← +15 points AND 41% fewer tokens
+thinking OFF    56%     100 tokens
+think briefly    3%   4,056 tokens   (the model loops on the instruction)
 ~~~
 
-| Verdict | Question it answers |
-|---|---|
-| R1 | Does training cut thinking without losing accuracy? |
-| R2 | Does it beat just asking to "think briefly"? |
-| R3 | Is thinking OFF already enough on easy problems? |
-| R4 | **Would more training data help?** (the learning curve) |
-| R5 | Did the LoRA reach how short its examples were? |
+On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
+same data is unlikely to help much.
 
-The notebook's step 12 says what each verdict means. Paste the printed numbers back, and the
-answer goes in `DECISIONS.md` the same day. **After that:** notebook 12's medium-problem check
-([#59](DECISIONS.md)).
+**Next, and it is one thing: notebook 14, the real thesis run** on the fixed 234 test problems
+(HumanEval+ 164 + LiveCodeBench easy/medium 70). Its first step, thinking ON vs OFF, also answers
+the open medium-problem question from notebook 12. It is not built yet.
 
 Also still open: you explain Parts 1–2 back in your own words.
