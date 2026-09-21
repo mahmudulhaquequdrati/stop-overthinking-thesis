@@ -193,8 +193,11 @@ Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-not
      This means short answers are at least 25% shorter. **This is the number that answers
      "will fine-tuning really cut tokens?"** If every correct answer is the same length, there is
      nothing to cut and the training cannot help.
-   - Both are printed by `scripts/check_gates.py`. A short version runs on 30 problems first,
-     in notebook 12, so we find out in one afternoon instead of after a week of GPU time.
+   - Both are printed by `scripts/check_gates.py`. A short version runs first in notebook 12, so
+     we find out in one afternoon instead of after a week of GPU time. Since 2026-09-21
+     (DECISIONS #59) that short version is a **free go/no-go test**: 30 easy (HumanEval) + 20
+     **medium** (LiveCodeBench) problems, gates checked **separately** for easy and medium, plus a
+     float16-vs-float32 check and a speed check. **No money is spent until it passes.**
    - Fails → **ask each problem 8 times instead of 4** (more chances for a short correct answer), then check again.
 3. **Selection rule.** Keep the shortest correct answer, but not shorter than half the median correct length
    (the S3-CoT paper warns that the very shortest answers hurt accuracy).
@@ -203,7 +206,8 @@ Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-not
 
 - A Gemma-4 bug on the T4: a number gets too big in the audio part in 16-bit mode. We use text only.
 - Speed on the T4: Unsloth runs Gemma 4 in a float32/float16 mix there (no bf16), and our per-layer table sits in CPU memory. Both may slow it down. Measured in notebook 11.
-- ~~Whether vLLM runs Gemma-4 on a T4.~~ **Closed 2026-09-20 (DECISIONS #57): we do not use vLLM.** It has known bugs loading LoRA adapters on a T4, and our fifth way of answering *is* a LoRA. We use plain `transformers` to answer and Unsloth to train.
+- ~~Whether vLLM runs Gemma-4 on a T4.~~ **Closed 2026-09-20 (DECISIONS #57): we do not use vLLM.** It has known bugs loading LoRA adapters on a T4, and our fifth way of answering *is* a LoRA. We use plain `transformers` to answer and Unsloth to train. Notebook 12 still runs a small vLLM **speed try** on the base model (no LoRA), only to know whether paying for a faster GPU would help (DECISIONS #59).
+- float16 on the T4 may make Qwen write garbage (no bf16 on a T4). Checked for free in notebook 12, step 6b, against float32 (DECISIONS #59).
 - Free GPU limits change. Colab: up to 12 h per session, no published weekly limit. Kaggle: ~30 GPU-hours per week on 2×T4.
 
 ---
@@ -221,6 +225,11 @@ Details: [results/2026-09-19-notebook11-out-of-memory.md](results/2026-09-19-not
           │
 5. Test all 5 ways of answering on the same test problems, same limits, same seeds
 ```
+
+**First, small and free (DECISIONS #60):** the same 5 steps run once as a **mini-thesis** in
+notebook 13, on MBPP+ (100 train / 100 other test problems, not our final test set), with LoRAs
+on 25%, 50% and 100% of the examples. It tells us early whether training cuts thinking at all,
+and whether more training data would help (the learning curve).
 
 ---
 

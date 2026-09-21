@@ -74,7 +74,12 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ MOVED to Google Colab + Qwen3.5-2B (#52, #53)        │
 │           Mac scripts deleted · notebook 12 written           │
 │           thinking-counter bug found and fixed (#56)          │
-│       ⬜ RUN notebook 12 on a free T4: the 3 gates ← HERE     │
+│       ✅ Notebook 12 = free go/no-go test (#59, 2026-09-21)   │
+│           + float16 check · + medium problems · + vLLM try   │
+│       ✅ Notebook 13 = free mini-thesis (#60, 2026-09-22)     │
+│           MBPP+ 100 train / 100 test · LoRA 25/50/100%       │
+│       ⬜ RUN notebook 13 on a free T4 ← HERE                  │
+│       ⬜ Then notebook 12: the medium-problem check           │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │
@@ -83,8 +88,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │  ⬜ Part 6: write + defend                                    │
 └──────────────────────────────────────────────────────────────┘
 Notebooks 08, 10 and 11 have been run. The Mac pilot worked but medium problems were too slow,
-so everything moved to Google Colab with a smaller model (Qwen3.5-2B). Notebook 12 is written and
-tested as far as it can be without a GPU. No model trained yet. $0 spent.
+so everything moved to Google Colab with a smaller model (Qwen3.5-2B). Notebook 12 is now a free
+go/no-go test: we pay for nothing until it passes (#59). Notebook 13 runs the whole method small
+and free first (#60). No model trained yet. $0 spent.
 ```
 
 **Where we are in the research chain:**
@@ -195,16 +201,28 @@ Done already, without a GPU:
   reported **0 thinking tokens on every answer** and never complained (DECISIONS #56).
   `scripts/test_prompts.py` now checks this — 13 out of 13 checks pass.
 
-**Next, and it is one thing:** open [notebooks/12_qwen_colab.ipynb](notebooks/12_qwen_colab.ipynb)
-in Google Colab, set the runtime to **T4 GPU**, and run the cells in order. It ends by printing
-three numbers:
+**The rule since 2026-09-21 (DECISIONS #59): test everything for free first, pay only after it
+passes.** If the plan fails on the free T4, we lost nothing.
 
-| Gate | Must be | In plain words |
-|---|---|---|
-| Solved at least once | ≥ 40% | is the model good enough to have anything to learn from? |
-| Room to shorten | ≤ 0.75 | **will fine-tuning really cut tokens?** |
-| Cost | tokens per answer | can we finish inside free Colab? |
+**Next, and it is one thing:** open [notebooks/13_mini_thesis.ipynb](notebooks/13_mini_thesis.ipynb)
+in Google Colab, set the runtime to **T4 GPU**, and run the cells in order (about 2–4 hours,
+not measured yet). It runs the **whole method, small and free** (DECISIONS #60):
 
-Those three numbers decide the model, and the answer goes in `DECISIONS.md` the same day.
+~~~text
+100 MBPP+ train problems ─► answer 4× ─► keep shortest correct ─► train LoRA (25%, 50%, 100%)
+100 OTHER MBPP+ problems ─► test 6 ways ─► 5 verdicts (rules written before the run)
+~~~
+
+| Verdict | Question it answers |
+|---|---|
+| R1 | Does training cut thinking without losing accuracy? |
+| R2 | Does it beat just asking to "think briefly"? |
+| R3 | Is thinking OFF already enough on easy problems? |
+| R4 | **Would more training data help?** (the learning curve) |
+| R5 | Did the LoRA reach how short its examples were? |
+
+The notebook's step 12 says what each verdict means. Paste the printed numbers back, and the
+answer goes in `DECISIONS.md` the same day. **After that:** notebook 12's medium-problem check
+([#59](DECISIONS.md)).
 
 Also still open: you explain Parts 1–2 back in your own words.

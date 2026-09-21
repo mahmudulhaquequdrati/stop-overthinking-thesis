@@ -58,6 +58,8 @@
 | [21](21-first-real-numbers.md) | The first real numbers: thinking ON vs OFF, and the speed problem | 2026-09-20 |
 | [22](22-pilot-on-the-mac.md) | The pilot on the Mac: 30 real problems, and what it changed | 2026-09-20 |
 | [23](23-moving-to-colab-and-qwen.md) | Moving to Google Colab, and changing the model to Qwen3.5-2B | 2026-09-20 |
+| [24](24-free-go-no-go-test.md) | The free "go / no-go" test, before any money is spent | 2026-09-21 |
+| [25](25-mini-thesis-and-learning-curve.md) | The mini-thesis, and how we'll know if more training data helps | 2026-09-22 |
 
 **What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 ran out of memory on Colab ([qa/20](20-first-model-load-out-of-memory.md)), then **ran on Kaggle** (2026-09-19): it works, but it writes only ~4.4 tokens per second ([qa/21](21-first-real-numbers.md)). A pilot on the user's Mac then solved 30 real problems ([qa/22](22-pilot-on-the-mac.md)), but medium problems took 250 seconds each, so on 2026-09-20 everything moved to Google Colab with a smaller model ([qa/23](23-moving-to-colab-and-qwen.md)).
-**Next:** run [notebook 12](../notebooks/12_qwen_colab.ipynb) on a free T4. No model has been trained. $0 spent.
+**Next:** run [notebook 13](../notebooks/13_mini_thesis.ipynb) on a free T4: the whole method, small and free ([qa/25](25-mini-thesis-and-learning-curve.md)). Then [notebook 12](../notebooks/12_qwen_colab.ipynb)'s medium check ([qa/24](24-free-go-no-go-test.md)). We pay only if they pass. No model has been trained. $0 spent.

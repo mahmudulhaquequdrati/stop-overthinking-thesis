@@ -65,6 +65,23 @@ supports it? · What result contradicts it?
 - Always separate **"we checked this"** from **"we assume this"**. Model names,
   dataset ids, GPU limits and paper claims are unverified until checked, so say so.
 
+**After EVERY change: the change report (mandatory, user rule 2026-09-22)**
+
+Every time you change, add or delete files, end with a report the user can **see**.
+It has these 5 parts, in this order:
+
+1. **What I did.** A picture first (an ASCII map of the files or the flow, with ✚ new /
+   ✎ changed / ✖ deleted), then a table: file · what changed · about how many lines.
+2. **How I did it.** The key steps in plain words. Show the important bit of code or the
+   before → after, not the whole file.
+3. **Why I did it.** The reason for each change, linked to the DECISIONS row.
+4. **How to run it and what you will see.** The exact steps (which notebook, which cells,
+   which GPU) and what the output should look like, e.g. a sample of the printed table.
+5. **What to do next.** One recommendation.
+
+Also say what is **checked** and what is **not run yet**. Never commit or push as part of
+this report (§3).
+
 ---
 
 ## 1. How we teach

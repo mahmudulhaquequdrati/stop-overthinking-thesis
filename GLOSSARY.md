@@ -52,6 +52,9 @@ A limit on how long the model may think. When it reaches the limit, we stop its 
 **bf16, float16, float32** (number formats)
 Ways to store one number in the computer. bf16 and float16 use 2 bytes; float32 uses 4 bytes.
 The free T4 GPU **cannot compute in bf16**, so the loader converts some parts to float16.
+Risk: float16 cannot hold very big numbers. If one "overflows", the model can write garbage
+(like `!!!!!!`). float32 cannot overflow, but it needs twice the memory and is slower. Notebook 12
+compares the two on 10 problems before trusting float16 (DECISIONS #59).
 *Example:* the same price written as "€1.50" or "1 euro 50 cents": the same value, a different way to write it, a different amount of space.
 
 ---
@@ -155,6 +158,11 @@ A test we do **before** the big work. If the test fails, we change the plan firs
 *Example:* checking the car has fuel before a long trip.
 We have two: the **memory check** and the **room-to-shorten check** (PLAN.md §7).
 
+**Go / no-go test**
+A small, cheap test that decides whether to go on with a big, expensive plan.
+*Example:* testing one dish on friends before you open a restaurant.
+Ours is notebook 12: it runs free, and only if it passes do we spend money (DECISIONS #59).
+
 **Gemma-4-E4B**
 Our **old** main model, made by Google, released March 2026. It has a thinking ON/OFF switch.
 We stopped using it on 2026-09-20 because it did not fit on a free Colab GPU (DECISIONS #53).
@@ -213,6 +221,13 @@ It can keep running when your browser is closed.
 
 ## L
 
+**Learning curve**
+Train the same way on more and more data (25%, 50%, 100%) and test each time.
+If results still get better at the end, more data should help. If they stop changing, it won't.
+*Example:* a runner timing themselves after 1, 2 and 4 weeks of practice. If 2→4 weeks still
+helped a lot, keep practising; if not, practice more of the same won't help.
+We use it in the mini-thesis (notebook 13, DECISIONS #60).
+
 **Learning rate**
 How big each nudge to the model's numbers is during training. Too big → it breaks. Too small → it learns very slowly.
 
@@ -238,6 +253,15 @@ We plan to test it for writing answers (DECISIONS #47).
 
 **load_dataset**
 A one-line way to download and open a dataset from Hugging Face.
+
+**MBPP+**
+378 easy Python problems, each with real tests (the "+" means extra, harder tests).
+We cut it from our final test set, so we use it for the mini-thesis instead: 100 to train on,
+100 other ones to test on (DECISIONS #60).
+
+**Mini-thesis**
+The whole method, run once, small and free: answer, keep the shortest correct answer, train a
+LoRA, test. It shows whether training works at all before we spend a week on it (notebook 13).
 
 **Median**
 The middle value when you sort numbers.
@@ -406,6 +430,11 @@ In our docs we round this to "a 15 GB GPU".
 Teaching a model: it guesses the next token, sees the right one, and its numbers get a tiny nudge. Repeated for all examples.
 See [lesson 03](lessons/03-how-a-model-learns.md).
 
+**TARGET** (in the mini-thesis)
+How short our training answers are, compared with a normal correct answer. 0.70 means 30% shorter.
+A LoRA can't be expected to cut more than its examples show, so we compare the LoRA's result with it.
+Printed by `scripts/make_train_set.py`.
+
 **Test set**
 Problems used **only** to measure the model, never to train it.
 
@@ -442,6 +471,8 @@ We have not checked it ourselves yet. We only read it somewhere, or calculated i
 
 **vLLM**
 Free software that makes the model write answers fast, by doing many prompts at the same time.
+We don't use it for the thesis runs yet (DECISIONS #57: a bug with LoRA add-ons). Notebook 12
+only tests whether it runs, and how fast, before we decide anything (DECISIONS #59).
 
 ---
 

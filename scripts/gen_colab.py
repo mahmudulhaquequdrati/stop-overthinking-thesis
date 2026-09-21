@@ -43,6 +43,26 @@ def load_model(profile, dtype=None):
     return model, tok
 
 
+def add_adapter(model, adapter_dir):
+    """Put our trained LoRA into the model, then merge it in, so it answers at the same speed,
+    through the same code, as every other way of answering.
+
+    The danger (DECISIONS #57): if the adapter's layer names do not match this model's, PEFT
+    can create EMPTY LoRA layers, and the "trained" model silently answers like the base
+    model. Trained LoRA layers have non-zero B matrices; empty ones are all zero. So we check.
+    """
+    from peft import PeftModel
+
+    model = PeftModel.from_pretrained(model, adapter_dir)
+    b_sum = sum(p.detach().abs().sum().item() for n, p in model.named_parameters() if "lora_B" in n)
+    n_layers = sum(1 for n, _ in model.named_parameters() if "lora_B" in n)
+    if n_layers == 0 or b_sum == 0:
+        raise SystemExit(f"STOP: the LoRA in {adapter_dir} did not load ({n_layers} layers, "
+                         f"weight sum {b_sum}). The answers would silently be the base model's.")
+    print(f"LoRA loaded: {n_layers} layers, weight sum {b_sum:.1f}", flush=True)
+    return model.merge_and_unload()
+
+
 def generate(model, tok, texts, max_new_tokens, profile, seed):
     """Answer a whole batch at once. Returns the NEW text only, without the prompt."""
     import torch
@@ -79,8 +99,11 @@ def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, see
     return [h + r for h, r in zip(heads, rest)]
 
 
-def pick_problems(all_problems, source, n):
+def pick_problems(all_problems, source, n, difficulty="any", split="any"):
     ps = [p for p in all_problems if source == "all" or p["source"] == source]
+    # Without this, the easy-first sort below means "--source lcb --n 20" gives only easy ones.
+    ps = [p for p in ps if difficulty == "any" or p["difficulty"] == difficulty]
+    ps = [p for p in ps if split == "any" or p.get("split") == split]
     ps.sort(key=lambda p: (p["difficulty"] != "easy", p["task_id"]))
     return ps[:n] if n else ps
 
@@ -98,8 +121,17 @@ def already_done(path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--policy", choices=prompts.POLICIES, required=True)
-    ap.add_argument("--source", choices=["humaneval", "lcb", "all"], default="humaneval")
+    ap.add_argument("--source", choices=["humaneval", "lcb", "mbpp", "all"], default="humaneval")
+    ap.add_argument("--difficulty", choices=["any", "easy", "medium"], default="any")
+    ap.add_argument("--split", choices=["any", "train", "test"], default="any",
+                    help="MBPP only: the mini-thesis trains on 'train' and tests on 'test'")
+    ap.add_argument("--adapter", default=None, help="a trained LoRA folder (the 5th way)")
+    ap.add_argument("--label", default=None,
+                    help="a name for this way of answering, e.g. lora50 (default: the policy)")
     ap.add_argument("--n", type=int, default=0, help="how many problems (0 = all)")
+    ap.add_argument("--dtype", choices=["auto", "float16", "float32"], default="auto",
+                    help="auto = bfloat16 if the GPU has it, else float16. A T4 has no bfloat16, "
+                         "and float16 can overflow; float32 is the safe, slower check.")
     ap.add_argument("--samples", type=int, default=1, help="how many tries per problem")
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--max-tokens", type=int, default=4096,
@@ -111,8 +143,14 @@ def main():
     args = ap.parse_args()
 
     profile = models.get(args.model)
-    problems = pick_problems(load_all(args.problems), args.source, args.n)
-    model, tok = load_model(profile)
+    problems = pick_problems(load_all(args.problems), args.source, args.n, args.difficulty,
+                             args.split)
+    import torch
+    dtype = None if args.dtype == "auto" else getattr(torch, args.dtype)
+    model, tok = load_model(profile, dtype)
+    if args.adapter:
+        model = add_adapter(model, args.adapter)
+    dtype_name = str(model.dtype).replace("torch.", "")
     prompts.check_prompt_has_switch(tok, profile)        # stop now if the switch does nothing
 
     done = already_done(args.out)
@@ -143,9 +181,10 @@ def main():
             new_tokens += n_all
             thinking_tokens, answer_text = prompts.split_thinking(tok, raw, args.policy, profile)
             out.write(json.dumps(dict(
-                task_id=p["task_id"], policy=args.policy, sample_index=sample_index,
+                task_id=p["task_id"], policy=args.policy, way=args.label or args.policy,
+                adapter=args.adapter, sample_index=sample_index,
                 seed=seed, model_id=profile["hf_id"], model_profile=args.model,
-                dataset=p["source"], difficulty=p["difficulty"],
+                dataset=p["source"], difficulty=p["difficulty"], dtype=dtype_name,
                 max_new_tokens=args.max_tokens,
                 think_budget=args.think_budget if args.policy == "limit" else None,
                 thinking_tokens=thinking_tokens, total_new_tokens=n_all,
