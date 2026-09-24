@@ -19,7 +19,7 @@ Short title: **"Stop Overthinking, Keep Passing the Tests"**
 
 Full title: *Stop Overthinking, Keep Passing the Tests: Shortest-Correct LoRA Fine-Tuning versus Free Thinking Controls in a Small Code Model (Qwen3.5-2B)* (updated 2026-09-25, DECISIONS #70; was "…versus the Thinking Switch… (Gemma-4-E4B)")
 
-**📖 The complete thesis: [thesis/THESIS.md](thesis/THESIS.md)**
+**📖 The complete thesis: [thesis/THESIS.md](thesis/THESIS.md) · 🖨️ print: [thesis/Stop-Overthinking-Thesis.pdf](thesis/Stop-Overthinking-Thesis.pdf)**
 
 ```text
 PROBLEM     Small AI models "think" a lot before answering code questions, even easy ones.

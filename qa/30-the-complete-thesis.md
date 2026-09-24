@@ -66,7 +66,16 @@ unfinished answers), showed that shortest-correct training does **not** fix it, 
 
 ---
 
-## 5. Where it is written
+## 5. The printable PDF (added the same day)
+
+**Q: Is there a version to print?**
+Yes: [thesis/Stop-Overthinking-Thesis.pdf](../thesis/Stop-Overthinking-Thesis.pdf), A4, 56 pages. It is made from the same
+chapters, so it always says the same as THESIS.md. It also prints the full lists of all 234 test problems and all 280
+training problems (appendices E and F), because links don't work on paper (DECISIONS #71).
+
+---
+
+## 6. Where it is written
 
 - The whole thesis: [thesis/THESIS.md](../thesis/THESIS.md), chapters in [thesis/](../thesis/README.md)
 - Built by: `node scripts/build_thesis.js`

@@ -2,6 +2,15 @@
 
 **Read the whole thesis in one file: [THESIS.md](THESIS.md)** (open it in VS Code and press **Ctrl+Shift+V** to see the charts).
 
+**🖨️ To print or hand in: [Stop-Overthinking-Thesis.pdf](Stop-Overthinking-Thesis.pdf)** (A4, 56 pages, with page numbers).
+It also contains the full lists of every test and training problem (printed appendices E and F).
+Rebuild it after any change:
+
+```text
+npm install --prefix <any-folder> marked@12        (once)
+MARKED=<any-folder>/node_modules/marked node scripts/build_thesis_pdf.js
+```
+
 | File | Chapter |
 |---|---|
 | [00-front-matter.md](00-front-matter.md) | Title, abstract, **the thesis in one page (for everyone)**, key facts |
