@@ -318,6 +318,14 @@ The error you get when something must be put on the GPU but there is no room lef
 
 ## P
 
+**Threats to validity**
+The honest list of reasons a result could be wrong, or might not hold in other settings.
+*Example:* "we tested only one model" is a threat to validity: a bigger model may behave differently.
+
+**Percentage point ("point")**
+The plain difference between two percentages.
+*Example:* 49.8% − 42.1% = **7.7 points**. That is not "7.7 percent better": relative to 42.1%, it is 18% better.
+
 **Paired comparison**
 We compare two ways of answering **on the same problems**.
 *Example:* the same 100 students take a test before and after a course.
@@ -462,6 +470,11 @@ Problems used **only** to measure the model, never to train it.
 
 **Thinking (thinking tokens)**
 The notes a reasoning model writes before its answer. We count their length in tokens.
+
+**Thinking limit (thinking budget, budget forcing)**
+Let the model think, but stop its thinking after a fixed number of tokens and make it answer.
+*Example:* an exam rule "one page of rough work, then write your answer". In our thesis the limit was 1,024 tokens,
+and it was the most accurate way (49.8%), because it cuts loops.
 
 **Thinking switch (ON/OFF)**
 A setting in some new models. ON = the model thinks first. OFF = it answers directly.

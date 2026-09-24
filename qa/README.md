@@ -63,6 +63,8 @@
 | [26](26-mini-thesis-results.md) | The mini-thesis results: training worked on easy problems | 2026-09-22 |
 | [27](27-the-real-thesis-run.md) | The real thesis run (notebook 14): the rules, fixed before the run | 2026-09-22 |
 | [28](28-thesis-run-results.md) | The real thesis run: the results, and what they mean | 2026-09-25 |
+| [29](29-results-and-analysis-chapter.md) | The results and analysis chapter (first draft) | 2026-09-25 |
+| [30](30-the-complete-thesis.md) | The complete thesis, from top to bottom | 2026-09-25 |
 
 **What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 ran out of memory on Colab ([qa/20](20-first-model-load-out-of-memory.md)), then **ran on Kaggle** (2026-09-19): it works, but it writes only ~4.4 tokens per second ([qa/21](21-first-real-numbers.md)). A pilot on the user's Mac then solved 30 real problems ([qa/22](22-pilot-on-the-mac.md)), but medium problems took 250 seconds each, so on 2026-09-20 everything moved to Google Colab with a smaller model ([qa/23](23-moving-to-colab-and-qwen.md)).
-**Next:** notebook 14 ran on the A100 (2026-09-24). LoRA-2 did not think shorter; a plain thinking limit did best, because most long answers are loops ([qa/28](28-thesis-run-results.md)). Next: write the results and analysis chapter.
+**Next:** notebook 14 ran on the A100 (2026-09-24). LoRA-2 did not think shorter; a plain thinking limit did best, because most long answers are loops ([qa/28](28-thesis-run-results.md)). The results and analysis chapter is drafted ([qa/29](29-results-and-analysis-chapter.md)), and so is the **complete thesis** ([qa/30](30-the-complete-thesis.md), [thesis/THESIS.md](../thesis/THESIS.md)). Next: read it and fill in the name, supervisor and university.

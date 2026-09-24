@@ -403,6 +403,18 @@ const briefEx = briefHe.find(r => r.raw_output.includes(BRIEF_KEY)) || briefHe[0
 const around = (t, key, n = 700) => { const i = Math.max(0, t.lastIndexOf(key) - 450); return t.slice(i, i + n) };
 const clean = s => s.replace(/~~~/g, "~ ~ ~").trim();
 
+// paired bootstrap over problems (points), like compare_thesis.py; mulberry32 so the seed is fixed
+function boot(a, b, g) {
+  let seed = 3407;
+  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296 };
+  const d = probs.filter(p => inGroup(p, g)).map(p => ((p.s[a] || 0) - (p.s[b] || 0)) / 2 * 100);
+  const m = mean(d), bs = [];
+  for (let k = 0; k < 2000; k++) { let t = 0; for (let i = 0; i < d.length; i++) t += d[Math.floor(rnd() * d.length)]; bs.push(t / d.length) }
+  bs.sort((x, y) => x - y);
+  const sg = v => (v >= 0 ? "+" : "") + v.toFixed(1);
+  return `${sg(m)} [${sg(bs[50])}, ${sg(bs[1949])}]`;
+}
+
 // ---------- the report ----------
 const md = [];
 const line = s => md.push(s);
@@ -606,6 +618,9 @@ line("");
 tbl(["Way", "Better than ON (problems)", "Worse than ON", "Same"], WAYS.filter(w => w !== "on").map(w => { const x = wins(w); return [NAME[w], x.win, x.loss, x.same] }));
 line(`"Better" = the way solved more of its 2 tries than ON on that problem.`);
 line("");
+line(`**Extra paired comparisons** (not printed by the notebook). Same method as the notebook: resample the problems 2,000 times, fixed seed 3407. This JavaScript version gives LoRA-2 − limit = ${boot("lora2", "limit", "All")}, against the notebook's −4.7 [−9.0, −0.2], so it agrees within rounding noise.`);
+line("");
+tbl(["Comparison", ...GROUPS], [["limit", "off"], ["limit", "lora2"], ["lora2", "lora1"], ["off", "lora2"]].map(([a, b]) => [`${NAME[a]} − ${NAME[b]}`, ...GROUPS.map(g => boot(a, b, g))]));
 
 line(`## 12. Stage D: was the token limit unfair to thinking ON?`);
 line("");

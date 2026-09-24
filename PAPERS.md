@@ -140,6 +140,20 @@ Everyday example: you learn to drive a car. Does that help you drive a van?
 
 ---
 
+## D2. Loops and model size (found 2026-09-25, for the analysis and future work)
+
+Full notes: [research/2026-09-25-bigger-models-and-loops-evidence.md](research/2026-09-25-bigger-models-and-loops-evidence.md).
+
+| Source | What it says | Mark |
+|---|---|---|
+| **Qwen3.5-2B model card** — [huggingface.co/Qwen/Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B) | *"Qwen3.5-2B is more prone to entering thinking loops compared to other Qwen3.5 models"*. Coding settings = ours (temp 0.6, top-p 0.95, top-k 20, no penalty) | ✔ |
+| **Wait, Wait, Wait... Why Do Reasoning Models Loop?** — Pipis et al. — [2512.12895](https://arxiv.org/abs/2512.12895) | *"Larger models tend to loop less"*; higher temperature reduces looping | ✔ |
+| **Small Models Struggle to Learn from Strong Reasoners** — Li et al. — [2502.12143](https://arxiv.org/abs/2502.12143) | Models ≤3B *"do not consistently benefit from long chain-of-thought"* | ✔ |
+| **s1: Simple test-time scaling** — [2501.19393](https://arxiv.org/abs/2501.19393) | "Budget forcing": stop thinking at a budget (or lengthen it). Mainly used to make thinking longer | ⚠️ helper-checked |
+| **Qwen3 Technical Report** — [2505.09388](https://arxiv.org/abs/2505.09388) | One model with thinking and non-thinking modes, plus a "thinking budget mechanism" | ⚠️ helper-checked |
+
+---
+
 ## E. Contamination and statistics (for the method chapter)
 
 - *Contamination* = the model may have already seen the test problems during training.

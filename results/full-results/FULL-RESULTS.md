@@ -300,6 +300,15 @@ On HumanEval+, answers that **finish** think about the same amount with or witho
 
 "Better" = the way solved more of its 2 tries than ON on that problem.
 
+**Extra paired comparisons** (not printed by the notebook). Same method as the notebook: resample the problems 2,000 times, fixed seed 3407. This JavaScript version gives LoRA-2 − limit = -4.7 [-9.0, -0.2], against the notebook's −4.7 [−9.0, −0.2], so it agrees within rounding noise.
+
+| Comparison | All | HumanEval+ | LCB easy | LCB medium |
+|---|---|---|---|---|
+| Limit 1,024 − Thinking OFF | +9.0 [+3.8, +14.3] | +13.1 [+6.4, +19.2] | +9.7 [-4.8, +24.2] | -9.0 [-16.7, -2.6] |
+| Limit 1,024 − LoRA-2 (main) | +4.7 [+0.2, +9.0] | +4.0 [-1.5, +9.5] | +17.7 [+1.6, +33.9] | -2.6 [-6.4, +0.0] |
+| LoRA-2 (main) − LoRA-1 | -0.4 [-4.5, +3.8] | +0.0 [-5.5, +5.2] | -3.2 [-16.1, +9.7] | +0.0 [-3.8, +3.8] |
+| Thinking OFF − LoRA-2 (main) | -4.3 [-9.4, +0.9] | -9.1 [-15.5, -2.1] | +8.1 [-3.2, +21.0] | +6.4 [+1.3, +12.8] |
+
 ## 12. Stage D: was the token limit unfair to thinking ON?
 
 We re-ran only thinking ON's **cut-off** answers of try 1 with **16,384** tokens (4× more room).
