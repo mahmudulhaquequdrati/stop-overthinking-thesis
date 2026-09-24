@@ -1,0 +1,3 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,HumanEval/0,0,easy,False,AssertionError,0,177,False
+thinking_off,HumanEval/1,0,easy,False,AssertionError,0,256,True

@@ -1,0 +1,3 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+brief,HumanEval/0,0,easy,False,NameError: name 'has_close_elements' is not defined,256,256,True
+brief,HumanEval/1,0,easy,False,NameError: name 'separate_paren_groups' is not defined,256,256,True

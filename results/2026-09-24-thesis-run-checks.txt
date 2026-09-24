@@ -1,0 +1,32 @@
+1. Cut-off answers that are loops
+   test-brief-he.jsonl      answers  328  cut off  313  looping   91 (29%)
+   test-brief-lcb.jsonl     answers  140  cut off  119  looping   83 (70%)
+   test-limit-he.jsonl      answers  328  cut off   25  looping   18 (72%)
+   test-limit-lcb.jsonl     answers  140  cut off   96  looping   75 (78%)
+   test-lora1-he.jsonl      answers  328  cut off   68  looping   54 (79%)
+   test-lora1-lcb.jsonl     answers  140  cut off  100  looping   87 (87%)
+   test-lora2-he.jsonl      answers  328  cut off   82  looping   74 (90%)
+   test-lora2-lcb.jsonl     answers  140  cut off  110  looping   96 (87%)
+   test-off-he.jsonl        answers  328  cut off    1  looping    1 (100%)
+   test-off-lcb.jsonl       answers  140  cut off   32  looping   26 (81%)
+   test-on-he.jsonl         answers  328  cut off   73  looping   48 (66%)
+   test-on-lcb.jsonl        answers  140  cut off  117  looping   84 (72%)
+   x16k-on16k-he.jsonl      answers   36  cut off   13  looping   12 (92%)
+   x16k-on16k-lcb.jsonl     answers   60  cut off   50  looping   48 (96%)
+
+2. Stage D: thinking ON, try 1, when the cut-off answers get 16,384 tokens
+   he: ON try 1 88/164 (53.7%). 36 cut-off answers re-run: 23 finished, 9 correct -> 59.1%
+   lcb: ON try 1 7/70 (10.0%). 60 cut-off answers re-run: 10 finished, 5 correct -> 17.1%
+
+3. Middle (median) thinking of answers that FINISHED, both tries
+   on      he: median   672, finished 255/328  lcb: median  3028, finished 23/140
+   brief   he: median  2833, finished 15/328  lcb: median  3732, finished 21/140
+   limit   he: median   800, finished 303/328  lcb: median  1024, finished 44/140
+   lora1   he: median   711, finished 260/328  lcb: median  1066, finished 40/140
+   lora2   he: median   695, finished 246/328  lcb: median  3974, finished 30/140
+
+4. LoRA-2 training data
+   train-mbpp-graded.csv: problems 200 | >=1 correct 134 | >=2 correct (a real choice) 111 | passed: easy 357/800, medium 0/0
+   train-lcb-graded.csv: problems 80 | >=1 correct 24 | >=2 correct (a real choice) 12 | passed: easy 43/160, medium 1/160
+   train-set-mbpp.jsonl: 133 examples, median thinking 515
+   train-set-lcb.jsonl: 24 examples, median thinking 4709

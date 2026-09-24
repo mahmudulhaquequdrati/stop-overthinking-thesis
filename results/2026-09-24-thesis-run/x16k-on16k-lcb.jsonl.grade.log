@@ -1,0 +1,66 @@
+1/60 lcb/3705        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+2/60 lcb/3709        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+3/60 lcb/3723        easy    thinking_on  fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+4/60 lcb/3736        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+5/60 lcb/3753        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+6/60 lcb/3768        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+7/60 lcb/3773        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+8/60 lcb/3778        easy    thinking_on  fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+9/60 lcb/3799        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+10/60 lcb/3817        easy    thinking_on  PASS
+11/60 lcb/3832        easy    thinking_on  fail: NameError: name 'Solution' is not defined
+12/60 lcb/abc391_b    easy    thinking_on  fail: wrong answer on test 1
+13/60 lcb/abc392_a    easy    thinking_on  fail: wrong answer on test 1
+14/60 lcb/abc392_b    easy    thinking_on  PASS
+15/60 lcb/abc393_a    easy    thinking_on  PASS
+16/60 lcb/abc393_b    easy    thinking_on  fail: wrong answer on test 1
+17/60 lcb/abc395_b    easy    thinking_on  fail: wrong answer on test 1
+18/60 lcb/abc396_b    easy    thinking_on  fail: wrong answer on test 1
+19/60 lcb/abc398_a    easy    thinking_on  fail: wrong answer on test 1
+20/60 lcb/abc399_a    easy    thinking_on  PASS
+21/60 lcb/abc399_b    easy    thinking_on  fail: wrong answer on test 1
+22/60 lcb/abc400_a    easy    thinking_on  PASS
+23/60 lcb/abc400_b    easy    thinking_on  fail: wrong answer on test 1
+24/60 lcb/3722        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+25/60 lcb/3743        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+26/60 lcb/3748        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+27/60 lcb/3750        medium  thinking_on  fail: wrong answer on test 1
+28/60 lcb/3754        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+29/60 lcb/3759        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+30/60 lcb/3763        medium  thinking_on  fail: wrong answer on test 1
+31/60 lcb/3771        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+32/60 lcb/3776        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+33/60 lcb/3779        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+34/60 lcb/3785        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+35/60 lcb/3786        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+36/60 lcb/3791        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+37/60 lcb/3793        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+38/60 lcb/3794        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+39/60 lcb/3795        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+40/60 lcb/3805        medium  thinking_on  fail: NameError: name 'Solution' is not defined
+41/60 lcb/3809        medium  thinking_on  fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+42/60 lcb/abc391_d    medium  thinking_on  fail: wrong answer on test 1
+43/60 lcb/abc392_c    medium  thinking_on  fail: wrong answer on test 1
+44/60 lcb/abc392_d    medium  thinking_on  fail: wrong answer on test 1
+45/60 lcb/abc394_c    medium  thinking_on  fail: wrong answer on test 1
+46/60 lcb/abc394_d    medium  thinking_on  fail: wrong answer on test 1
+47/60 lcb/abc395_c    medium  thinking_on  fail: wrong answer on test 1
+48/60 lcb/abc396_c    medium  thinking_on  fail: wrong answer on test 1
+49/60 lcb/abc396_d    medium  thinking_on  fail: wrong answer on test 1
+50/60 lcb/abc397_b    medium  thinking_on  fail: wrong answer on test 1
+51/60 lcb/abc397_c    medium  thinking_on  fail: wrong answer on test 1
+52/60 lcb/abc398_b    medium  thinking_on  fail: wrong answer on test 1
+53/60 lcb/abc398_c    medium  thinking_on  fail: wrong answer on test 1
+54/60 lcb/abc399_c    medium  thinking_on  fail: wrong answer on test 1
+55/60 lcb/abc399_d    medium  thinking_on  fail: wrong answer on test 1
+56/60 lcb/abc400_c    medium  thinking_on  fail: wrong answer on test 1
+57/60 lcb/abc400_d    medium  thinking_on  fail: wrong answer on test 1
+58/60 lcb/arc192_a    medium  thinking_on  fail: wrong answer on test 1
+59/60 lcb/arc194_a    medium  thinking_on  fail: wrong answer on test 1
+60/60 lcb/arc195_a    medium  thinking_on  fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_on  easy     passed 5/23 (22%) | median thinking 16384 | median all tokens 16384 | hit the limit 16
+thinking_on  medium   passed 0/37 (0%) | median thinking 16384 | median all tokens 16384 | hit the limit 34
+
+saved /content/drive/MyDrive/stop-overthinking/results/thesis/x16k-on16k-lcb-graded.csv

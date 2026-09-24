@@ -1,0 +1,329 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_on,HumanEval/0,0,easy,True,,310,490,False
+thinking_on,HumanEval/1,0,easy,False,NameError: name 'separate_paren_groups' is not defined,4096,4096,True
+thinking_on,HumanEval/10,0,easy,False,NameError: name 'make_palindrome' is not defined,4096,4096,True
+thinking_on,HumanEval/100,0,easy,False,NameError: name 'make_a_pile' is not defined,4096,4096,True
+thinking_on,HumanEval/101,0,easy,False,NameError: name 'words_string' is not defined,4095,4095,True
+thinking_on,HumanEval/102,0,easy,True,,644,874,False
+thinking_on,HumanEval/103,0,easy,False,AssertionError,643,903,False
+thinking_on,HumanEval/104,0,easy,True,,693,906,False
+thinking_on,HumanEval/105,0,easy,True,,2287,2528,False
+thinking_on,HumanEval/106,0,easy,True,,1218,1419,False
+thinking_on,HumanEval/107,0,easy,False,AssertionError,866,1192,False
+thinking_on,HumanEval/108,0,easy,False,AssertionError,660,900,False
+thinking_on,HumanEval/109,0,easy,True,,1154,1551,False
+thinking_on,HumanEval/11,0,easy,True,,400,542,False
+thinking_on,HumanEval/110,0,easy,False,NameError: name 'exchange' is not defined,4096,4096,True
+thinking_on,HumanEval/111,0,easy,False,AssertionError,1257,1518,False
+thinking_on,HumanEval/112,0,easy,False,AssertionError,572,826,False
+thinking_on,HumanEval/113,0,easy,True,,1136,1403,False
+thinking_on,HumanEval/114,0,easy,False,AssertionError,830,1049,False
+thinking_on,HumanEval/115,0,easy,False,AssertionError,1330,1380,False
+thinking_on,HumanEval/116,0,easy,False,NameError: name 'sort_array' is not defined,4096,4096,True
+thinking_on,HumanEval/117,0,easy,False,AssertionError,1382,1680,False
+thinking_on,HumanEval/118,0,easy,False,NameError: name 'get_closest_vowel' is not defined,4096,4096,True
+thinking_on,HumanEval/119,0,easy,False,AssertionError,1208,1488,False
+thinking_on,HumanEval/12,0,easy,True,,702,881,False
+thinking_on,HumanEval/120,0,easy,True,,638,919,False
+thinking_on,HumanEval/121,0,easy,True,,1227,1402,False
+thinking_on,HumanEval/122,0,easy,False,AssertionError,753,960,False
+thinking_on,HumanEval/123,0,easy,False,AssertionError,517,873,False
+thinking_on,HumanEval/124,0,easy,False,AssertionError,1322,1821,False
+thinking_on,HumanEval/125,0,easy,False,NameError: name 'split_words' is not defined,4096,4096,True
+thinking_on,HumanEval/126,0,easy,False,NameError: name 'is_sorted' is not defined. Did you mean: 'sorted'?,4096,4096,True
+thinking_on,HumanEval/127,0,easy,True,,935,1433,False
+thinking_on,HumanEval/128,0,easy,True,,1516,1735,False
+thinking_on,HumanEval/129,0,easy,False,AssertionError,907,1499,False
+thinking_on,HumanEval/13,0,easy,True,,558,670,False
+thinking_on,HumanEval/130,0,easy,False,AssertionError,948,4096,True
+thinking_on,HumanEval/131,0,easy,False,AssertionError,969,1175,False
+thinking_on,HumanEval/132,0,easy,False,AssertionError,528,4096,True
+thinking_on,HumanEval/133,0,easy,True,,536,723,False
+thinking_on,HumanEval/134,0,easy,False,NameError: name 'check_if_last_char_is_a_letter' is not defined,4096,4096,True
+thinking_on,HumanEval/135,0,easy,False,NameError: name 'can_arrange' is not defined,4096,4096,True
+thinking_on,HumanEval/136,0,easy,True,,573,818,False
+thinking_on,HumanEval/137,0,easy,True,,816,1225,False
+thinking_on,HumanEval/138,0,easy,True,,816,920,False
+thinking_on,HumanEval/139,0,easy,True,,503,657,False
+thinking_on,HumanEval/14,0,easy,True,,326,423,False
+thinking_on,HumanEval/140,0,easy,False,AssertionError,880,1106,False
+thinking_on,HumanEval/141,0,easy,False,AssertionError,1096,1510,False
+thinking_on,HumanEval/142,0,easy,True,,3026,3114,False
+thinking_on,HumanEval/143,0,easy,True,,614,878,False
+thinking_on,HumanEval/144,0,easy,True,,892,1213,False
+thinking_on,HumanEval/145,0,easy,False,NameError: name 'order_by_points' is not defined,4096,4096,True
+thinking_on,HumanEval/146,0,easy,True,,3524,3791,False
+thinking_on,HumanEval/147,0,easy,False,NameError: name 'get_max_triples' is not defined,4096,4096,True
+thinking_on,HumanEval/148,0,easy,True,,1553,1940,False
+thinking_on,HumanEval/149,0,easy,True,,1167,1430,False
+thinking_on,HumanEval/15,0,easy,True,,254,309,False
+thinking_on,HumanEval/150,0,easy,True,,711,912,False
+thinking_on,HumanEval/151,0,easy,True,,641,869,False
+thinking_on,HumanEval/152,0,easy,True,,383,642,False
+thinking_on,HumanEval/153,0,easy,True,,1363,1744,False
+thinking_on,HumanEval/154,0,easy,False,AssertionError,1035,1233,False
+thinking_on,HumanEval/155,0,easy,True,,513,681,False
+thinking_on,HumanEval/156,0,easy,False,NameError: name 'int_to_mini_roman' is not defined,4096,4096,True
+thinking_on,HumanEval/157,0,easy,True,,924,1142,False
+thinking_on,HumanEval/158,0,easy,True,,595,809,False
+thinking_on,HumanEval/159,0,easy,False,AssertionError,942,1286,False
+thinking_on,HumanEval/16,0,easy,True,,281,386,False
+thinking_on,HumanEval/160,0,easy,False,NameError: name 'do_algebra' is not defined,4095,4095,True
+thinking_on,HumanEval/161,0,easy,True,,615,873,False
+thinking_on,HumanEval/162,0,easy,True,,427,544,False
+thinking_on,HumanEval/163,0,easy,False,NameError: name 'generate_integers' is not defined,4096,4096,True
+thinking_on,HumanEval/17,0,easy,True,,732,987,False
+thinking_on,HumanEval/18,0,easy,True,,899,1052,False
+thinking_on,HumanEval/19,0,easy,False,KeyError: 3,1789,2084,False
+thinking_on,HumanEval/2,0,easy,True,,598,697,False
+thinking_on,HumanEval/20,0,easy,False,AssertionError,1589,1905,False
+thinking_on,HumanEval/21,0,easy,True,,601,785,False
+thinking_on,HumanEval/22,0,easy,False,AssertionError,593,707,False
+thinking_on,HumanEval/23,0,easy,True,,192,247,False
+thinking_on,HumanEval/24,0,easy,True,,2267,2362,False
+thinking_on,HumanEval/25,0,easy,True,,944,1225,False
+thinking_on,HumanEval/26,0,easy,False,AssertionError,347,480,False
+thinking_on,HumanEval/27,0,easy,True,,400,475,False
+thinking_on,HumanEval/28,0,easy,True,,239,311,False
+thinking_on,HumanEval/29,0,easy,True,,257,366,False
+thinking_on,HumanEval/3,0,easy,True,,436,595,False
+thinking_on,HumanEval/30,0,easy,True,,201,342,False
+thinking_on,HumanEval/31,0,easy,True,,491,686,False
+thinking_on,HumanEval/32,0,easy,False,NameError: name 'find_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/33,0,easy,False,NameError: name 'sort_third' is not defined,4096,4096,True
+thinking_on,HumanEval/34,0,easy,True,,227,316,False
+thinking_on,HumanEval/35,0,easy,True,,209,308,False
+thinking_on,HumanEval/36,0,easy,False,NameError: name 'fizz_buzz' is not defined,4096,4096,True
+thinking_on,HumanEval/37,0,easy,False,NameError: name 'sort_even' is not defined,4096,4096,True
+thinking_on,HumanEval/38,0,easy,False,AssertionError,590,717,False
+thinking_on,HumanEval/39,0,easy,False,IndexError: list index out of range,1573,1795,False
+thinking_on,HumanEval/4,0,easy,True,,454,651,False
+thinking_on,HumanEval/40,0,easy,False,AssertionError,2314,2625,False
+thinking_on,HumanEval/41,0,easy,False,NameError: name 'car_race_collision' is not defined,4096,4096,True
+thinking_on,HumanEval/42,0,easy,True,,282,416,False
+thinking_on,HumanEval/43,0,easy,False,NameError: name 'pairs_sum_to_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/44,0,easy,False,NameError: name 'change_base' is not defined,4096,4096,True
+thinking_on,HumanEval/45,0,easy,True,,151,213,False
+thinking_on,HumanEval/46,0,easy,True,,719,1060,False
+thinking_on,HumanEval/47,0,easy,True,,740,886,False
+thinking_on,HumanEval/48,0,easy,True,,517,606,False
+thinking_on,HumanEval/49,0,easy,True,,482,618,False
+thinking_on,HumanEval/5,0,easy,True,,786,942,False
+thinking_on,HumanEval/50,0,easy,True,,407,542,False
+thinking_on,HumanEval/51,0,easy,True,,426,594,False
+thinking_on,HumanEval/52,0,easy,True,,315,427,False
+thinking_on,HumanEval/53,0,easy,True,,168,233,False
+thinking_on,HumanEval/54,0,easy,False,NameError: name 'same_chars' is not defined,4096,4096,True
+thinking_on,HumanEval/55,0,easy,True,,400,547,False
+thinking_on,HumanEval/56,0,easy,True,,431,589,False
+thinking_on,HumanEval/57,0,easy,False,AssertionError,631,775,False
+thinking_on,HumanEval/58,0,easy,True,,491,635,False
+thinking_on,HumanEval/59,0,easy,True,,612,832,False
+thinking_on,HumanEval/6,0,easy,True,,970,1181,False
+thinking_on,HumanEval/60,0,easy,True,,403,530,False
+thinking_on,HumanEval/61,0,easy,True,,580,738,False
+thinking_on,HumanEval/62,0,easy,False,NameError: name 'derivative' is not defined,4096,4096,True
+thinking_on,HumanEval/63,0,easy,False,AssertionError,767,989,False
+thinking_on,HumanEval/64,0,easy,False,AssertionError,801,985,False
+thinking_on,HumanEval/65,0,easy,False,AssertionError,886,4096,True
+thinking_on,HumanEval/66,0,easy,True,,1014,1171,False
+thinking_on,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: 'apples',1025,1334,False
+thinking_on,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",625,1049,False
+thinking_on,HumanEval/69,0,easy,True,,977,1204,False
+thinking_on,HumanEval/7,0,easy,True,,294,408,False
+thinking_on,HumanEval/70,0,easy,False,AssertionError,867,1305,False
+thinking_on,HumanEval/71,0,easy,True,,434,674,False
+thinking_on,HumanEval/72,0,easy,True,,413,732,False
+thinking_on,HumanEval/73,0,easy,True,,595,807,False
+thinking_on,HumanEval/74,0,easy,True,,741,1025,False
+thinking_on,HumanEval/75,0,easy,False,AssertionError,857,1136,False
+thinking_on,HumanEval/76,0,easy,False,AssertionError,1169,1594,False
+thinking_on,HumanEval/77,0,easy,False,TypeError: type complex doesn't define __round__ method,1228,1422,False
+thinking_on,HumanEval/78,0,easy,True,,1120,1520,False
+thinking_on,HumanEval/79,0,easy,True,,587,796,False
+thinking_on,HumanEval/8,0,easy,True,,370,546,False
+thinking_on,HumanEval/80,0,easy,True,,514,710,False
+thinking_on,HumanEval/81,0,easy,False,AssertionError,1541,2201,False
+thinking_on,HumanEval/82,0,easy,True,,354,504,False
+thinking_on,HumanEval/83,0,easy,False,NameError: name 'starts_one_ends' is not defined,4096,4096,True
+thinking_on,HumanEval/84,0,easy,True,,1929,2130,False
+thinking_on,HumanEval/85,0,easy,True,,522,625,False
+thinking_on,HumanEval/86,0,easy,False,NameError: name 'anti_shuffle' is not defined,4096,4096,True
+thinking_on,HumanEval/87,0,easy,True,,1226,1604,False
+thinking_on,HumanEval/88,0,easy,False,IndexError: list index out of range,574,889,False
+thinking_on,HumanEval/89,0,easy,True,,871,1094,False
+thinking_on,HumanEval/9,0,easy,True,,585,750,False
+thinking_on,HumanEval/90,0,easy,True,,729,911,False
+thinking_on,HumanEval/91,0,easy,False,AssertionError,840,2292,False
+thinking_on,HumanEval/92,0,easy,True,,852,1070,False
+thinking_on,HumanEval/93,0,easy,False,AssertionError,1086,1346,False
+thinking_on,HumanEval/94,0,easy,False,NameError: name 'skjkasdkd' is not defined,4096,4096,True
+thinking_on,HumanEval/95,0,easy,True,,1055,1334,False
+thinking_on,HumanEval/96,0,easy,True,,683,995,False
+thinking_on,HumanEval/97,0,easy,True,,519,664,False
+thinking_on,HumanEval/98,0,easy,True,,1530,1660,False
+thinking_on,HumanEval/99,0,easy,True,,1842,2037,False
+thinking_on,HumanEval/0,1,easy,True,,652,827,False
+thinking_on,HumanEval/1,1,easy,False,NameError: name 'separate_paren_groups' is not defined,4095,4095,True
+thinking_on,HumanEval/10,1,easy,False,NameError: name 'make_palindrome' is not defined,4096,4096,True
+thinking_on,HumanEval/100,1,easy,True,,3520,3704,False
+thinking_on,HumanEval/101,1,easy,False,NameError: name 'words_string' is not defined,4096,4096,True
+thinking_on,HumanEval/102,1,easy,True,,857,1045,False
+thinking_on,HumanEval/103,1,easy,True,,1949,2183,False
+thinking_on,HumanEval/104,1,easy,True,,628,808,False
+thinking_on,HumanEval/105,1,easy,True,,710,1162,False
+thinking_on,HumanEval/106,1,easy,False,NameError: name 'factorial' is not defined,442,4096,True
+thinking_on,HumanEval/107,1,easy,True,,2630,2946,False
+thinking_on,HumanEval/108,1,easy,False,NameError: name 'count_nums' is not defined,4096,4096,True
+thinking_on,HumanEval/109,1,easy,False,NameError: name 'move_one_ball' is not defined,4096,4096,True
+thinking_on,HumanEval/11,1,easy,True,,529,668,False
+thinking_on,HumanEval/110,1,easy,True,,1157,1435,False
+thinking_on,HumanEval/111,1,easy,False,NameError: name 'Counter' is not defined,848,1094,False
+thinking_on,HumanEval/112,1,easy,False,AssertionError,467,701,False
+thinking_on,HumanEval/113,1,easy,False,AssertionError,655,925,False
+thinking_on,HumanEval/114,1,easy,True,,684,863,False
+thinking_on,HumanEval/115,1,easy,True,,958,1025,False
+thinking_on,HumanEval/116,1,easy,False,NameError: name 'sort_array' is not defined,4096,4096,True
+thinking_on,HumanEval/117,1,easy,False,NameError: name 'select_words' is not defined,4096,4096,True
+thinking_on,HumanEval/118,1,easy,False,NameError: name 'get_closest_vowel' is not defined,4095,4095,True
+thinking_on,HumanEval/119,1,easy,True,,1458,1755,False
+thinking_on,HumanEval/12,1,easy,True,,653,815,False
+thinking_on,HumanEval/120,1,easy,False,NameError: name 'maximum' is not defined,4096,4096,True
+thinking_on,HumanEval/121,1,easy,False,NameError: name 'solution' is not defined,4096,4096,True
+thinking_on,HumanEval/122,1,easy,False,AssertionError,792,1014,False
+thinking_on,HumanEval/123,1,easy,True,,636,986,False
+thinking_on,HumanEval/124,1,easy,False,NameError: name 're' is not defined. Did you forget to import 're'?,801,1507,False
+thinking_on,HumanEval/125,1,easy,False,AssertionError,1187,1378,False
+thinking_on,HumanEval/126,1,easy,False,AssertionError,1227,1579,False
+thinking_on,HumanEval/127,1,easy,False,NameError: name 'intersection' is not defined,4096,4096,True
+thinking_on,HumanEval/128,1,easy,False,AssertionError,1014,1174,False
+thinking_on,HumanEval/129,1,easy,False,NameError: name 'minPath' is not defined,4096,4096,True
+thinking_on,HumanEval/13,1,easy,True,,420,529,False
+thinking_on,HumanEval/130,1,easy,False,NameError: name 'tri' is not defined,4096,4096,True
+thinking_on,HumanEval/131,1,easy,False,AssertionError,894,1034,False
+thinking_on,HumanEval/132,1,easy,False,NameError: name 'is_nested' is not defined,4096,4096,True
+thinking_on,HumanEval/133,1,easy,True,,2368,2565,False
+thinking_on,HumanEval/134,1,easy,False,AssertionError,638,930,False
+thinking_on,HumanEval/135,1,easy,True,,1266,1431,False
+thinking_on,HumanEval/136,1,easy,True,,564,836,False
+thinking_on,HumanEval/137,1,easy,True,,1072,1316,False
+thinking_on,HumanEval/138,1,easy,True,,950,1045,False
+thinking_on,HumanEval/139,1,easy,True,,661,815,False
+thinking_on,HumanEval/14,1,easy,True,,570,656,False
+thinking_on,HumanEval/140,1,easy,False,NameError: name 'fix_spaces' is not defined,4096,4096,True
+thinking_on,HumanEval/141,1,easy,True,,816,1206,False
+thinking_on,HumanEval/142,1,easy,False,NameError: name 'sum_squares' is not defined,4096,4096,True
+thinking_on,HumanEval/143,1,easy,True,,541,832,False
+thinking_on,HumanEval/144,1,easy,True,,1143,1429,False
+thinking_on,HumanEval/145,1,easy,False,NameError: name 'order_by_points' is not defined,4096,4096,True
+thinking_on,HumanEval/146,1,easy,False,NameError: name 'specialFilter' is not defined,4096,4096,True
+thinking_on,HumanEval/147,1,easy,True,,2239,2672,False
+thinking_on,HumanEval/148,1,easy,False,TypeError: unhashable type: 'dict_keys',910,1384,False
+thinking_on,HumanEval/149,1,easy,True,,1085,1348,False
+thinking_on,HumanEval/15,1,easy,True,,355,449,False
+thinking_on,HumanEval/150,1,easy,True,,396,597,False
+thinking_on,HumanEval/151,1,easy,True,,750,948,False
+thinking_on,HumanEval/152,1,easy,True,,434,693,False
+thinking_on,HumanEval/153,1,easy,True,,956,1337,False
+thinking_on,HumanEval/154,1,easy,False,NameError: name 'cycpattern_check' is not defined,4096,4096,True
+thinking_on,HumanEval/155,1,easy,True,,634,806,False
+thinking_on,HumanEval/156,1,easy,False,AssertionError,1080,1374,False
+thinking_on,HumanEval/157,1,easy,True,,641,886,False
+thinking_on,HumanEval/158,1,easy,False,NameError: name 'find_max' is not defined,4096,4096,True
+thinking_on,HumanEval/159,1,easy,False,NameError: name 'eat' is not defined,4096,4096,True
+thinking_on,HumanEval/16,1,easy,True,,385,468,False
+thinking_on,HumanEval/160,1,easy,False,NameError: name 'do_algebra' is not defined,4096,4096,True
+thinking_on,HumanEval/161,1,easy,True,,1075,1316,False
+thinking_on,HumanEval/162,1,easy,False,NameError: name 'hashlib' is not defined. Did you forget to import 'hashlib'?,533,647,False
+thinking_on,HumanEval/163,1,easy,False,AssertionError,1182,1384,False
+thinking_on,HumanEval/17,1,easy,True,,914,1159,False
+thinking_on,HumanEval/18,1,easy,True,,804,967,False
+thinking_on,HumanEval/19,1,easy,False,KeyError: 3,797,1059,False
+thinking_on,HumanEval/2,1,easy,True,,418,528,False
+thinking_on,HumanEval/20,1,easy,False,AssertionError,1023,1314,False
+thinking_on,HumanEval/21,1,easy,True,,494,675,False
+thinking_on,HumanEval/22,1,easy,True,,2819,2940,False
+thinking_on,HumanEval/23,1,easy,True,,144,199,False
+thinking_on,HumanEval/24,1,easy,True,,1157,1250,False
+thinking_on,HumanEval/25,1,easy,True,,531,808,False
+thinking_on,HumanEval/26,1,easy,False,NameError: name 'remove_duplicates' is not defined,4096,4096,True
+thinking_on,HumanEval/27,1,easy,True,,349,409,False
+thinking_on,HumanEval/28,1,easy,True,,295,367,False
+thinking_on,HumanEval/29,1,easy,True,,256,365,False
+thinking_on,HumanEval/3,1,easy,True,,493,652,False
+thinking_on,HumanEval/30,1,easy,True,,223,364,False
+thinking_on,HumanEval/31,1,easy,True,,727,922,False
+thinking_on,HumanEval/32,1,easy,False,NameError: name 'find_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/33,1,easy,True,,1377,1649,False
+thinking_on,HumanEval/34,1,easy,True,,389,479,False
+thinking_on,HumanEval/35,1,easy,True,,424,537,False
+thinking_on,HumanEval/36,1,easy,False,AttributeError: 'int' object has no attribute 'count',1149,1291,False
+thinking_on,HumanEval/37,1,easy,False,IndexError: list index out of range,1342,1561,False
+thinking_on,HumanEval/38,1,easy,False,AssertionError,552,821,False
+thinking_on,HumanEval/39,1,easy,False,NameError: name 'prime_fib' is not defined,4096,4096,True
+thinking_on,HumanEval/4,1,easy,True,,398,573,False
+thinking_on,HumanEval/40,1,easy,False,AssertionError,1568,1928,False
+thinking_on,HumanEval/41,1,easy,True,,2479,2644,False
+thinking_on,HumanEval/42,1,easy,True,,256,390,False
+thinking_on,HumanEval/43,1,easy,True,,813,1016,False
+thinking_on,HumanEval/44,1,easy,False,"TypeError: sequence item 0: expected str instance, int found",534,734,False
+thinking_on,HumanEval/45,1,easy,True,,190,252,False
+thinking_on,HumanEval/46,1,easy,False,NameError: name 'fib4' is not defined,4096,4096,True
+thinking_on,HumanEval/47,1,easy,False,NameError: name 'median' is not defined,4096,4096,True
+thinking_on,HumanEval/48,1,easy,False,AssertionError,585,711,False
+thinking_on,HumanEval/49,1,easy,True,,736,872,False
+thinking_on,HumanEval/5,1,easy,True,,804,955,False
+thinking_on,HumanEval/50,1,easy,False,NameError: name 'decode_shift' is not defined,4096,4096,True
+thinking_on,HumanEval/51,1,easy,True,,506,684,False
+thinking_on,HumanEval/52,1,easy,True,,253,365,False
+thinking_on,HumanEval/53,1,easy,True,,160,225,False
+thinking_on,HumanEval/54,1,easy,False,AssertionError,535,703,False
+thinking_on,HumanEval/55,1,easy,True,,430,558,False
+thinking_on,HumanEval/56,1,easy,True,,448,607,False
+thinking_on,HumanEval/57,1,easy,True,,811,1004,False
+thinking_on,HumanEval/58,1,easy,True,,285,429,False
+thinking_on,HumanEval/59,1,easy,True,,726,934,False
+thinking_on,HumanEval/6,1,easy,True,,625,872,False
+thinking_on,HumanEval/60,1,easy,True,,270,397,False
+thinking_on,HumanEval/61,1,easy,True,,380,536,False
+thinking_on,HumanEval/62,1,easy,False,NameError: name 'derivative' is not defined,4096,4096,True
+thinking_on,HumanEval/63,1,easy,False,AssertionError,1143,1378,False
+thinking_on,HumanEval/64,1,easy,False,AssertionError,842,1033,False
+thinking_on,HumanEval/65,1,easy,False,AssertionError,636,828,False
+thinking_on,HumanEval/66,1,easy,True,,705,847,False
+thinking_on,HumanEval/67,1,easy,True,,967,1315,False
+thinking_on,HumanEval/68,1,easy,True,,898,1333,False
+thinking_on,HumanEval/69,1,easy,True,,798,1034,False
+thinking_on,HumanEval/7,1,easy,True,,275,389,False
+thinking_on,HumanEval/70,1,easy,False,NameError: name 'strange_sort_list' is not defined,4096,4096,True
+thinking_on,HumanEval/71,1,easy,True,,702,946,False
+thinking_on,HumanEval/72,1,easy,True,,493,633,False
+thinking_on,HumanEval/73,1,easy,True,,1802,2014,False
+thinking_on,HumanEval/74,1,easy,True,,566,848,False
+thinking_on,HumanEval/75,1,easy,False,NameError: name 'is_multiply_prime' is not defined,4096,4096,True
+thinking_on,HumanEval/76,1,easy,False,AssertionError,1593,1869,False
+thinking_on,HumanEval/77,1,easy,False,AssertionError,713,901,False
+thinking_on,HumanEval/78,1,easy,True,,2159,2574,False
+thinking_on,HumanEval/79,1,easy,True,,450,635,False
+thinking_on,HumanEval/8,1,easy,True,,639,815,False
+thinking_on,HumanEval/80,1,easy,True,,506,689,False
+thinking_on,HumanEval/81,1,easy,False,AssertionError,806,1248,False
+thinking_on,HumanEval/82,1,easy,True,,382,585,False
+thinking_on,HumanEval/83,1,easy,False,NameError: name 'starts_one_ends' is not defined,4096,4096,True
+thinking_on,HumanEval/84,1,easy,False,NameError: name 'solve' is not defined,4096,4096,True
+thinking_on,HumanEval/85,1,easy,True,,505,586,False
+thinking_on,HumanEval/86,1,easy,False,NameError: name 'anti_shuffle' is not defined,4096,4096,True
+thinking_on,HumanEval/87,1,easy,False,NameError: name 'get_row' is not defined,4096,4096,True
+thinking_on,HumanEval/88,1,easy,False,IndexError: list index out of range,963,1185,False
+thinking_on,HumanEval/89,1,easy,False,ValueError: substring not found,1240,1410,False
+thinking_on,HumanEval/9,1,easy,True,,660,846,False
+thinking_on,HumanEval/90,1,easy,False,IndexError: list index out of range,914,1076,False
+thinking_on,HumanEval/91,1,easy,False,AssertionError,852,1015,False
+thinking_on,HumanEval/92,1,easy,False,AssertionError,1406,1627,False
+thinking_on,HumanEval/93,1,easy,False,AssertionError,706,4096,True
+thinking_on,HumanEval/94,1,easy,True,,2426,2595,False
+thinking_on,HumanEval/95,1,easy,True,,1007,1327,False
+thinking_on,HumanEval/96,1,easy,False,AssertionError,1226,1536,False
+thinking_on,HumanEval/97,1,easy,False,AssertionError,880,1035,False
+thinking_on,HumanEval/98,1,easy,False,AssertionError,579,705,False
+thinking_on,HumanEval/99,1,easy,True,,1149,1278,False

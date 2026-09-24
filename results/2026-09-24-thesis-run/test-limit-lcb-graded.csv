@@ -1,0 +1,141 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,lcb/3705,0,easy,False,IndentationError: expected an indented block after function definition on line 3,1024,8193,True
+limit,lcb/3709,0,easy,True,,1024,1258,False
+limit,lcb/3723,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,974,1147,False
+limit,lcb/3736,0,easy,True,,1024,1218,False
+limit,lcb/3753,0,easy,True,,1024,8193,True
+limit,lcb/3768,0,easy,False,timeout on test 1,1024,8193,True
+limit,lcb/3773,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,718,7887,True
+limit,lcb/3778,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3788,0,easy,False,AttributeError: 'list' object has no attribute 'is_unique',898,1016,False
+limit,lcb/3799,0,easy,False,wrong answer on test 1,639,7808,True
+limit,lcb/3811,0,easy,True,,1024,1158,False
+limit,lcb/3817,0,easy,True,,975,1022,False
+limit,lcb/3832,0,easy,False,IndentationError: expected an indented block after 'for' statement on line 11,1024,8193,True
+limit,lcb/abc391_a,0,easy,True,,1024,1169,False
+limit,lcb/abc391_b,0,easy,True,,1024,1439,False
+limit,lcb/abc392_a,0,easy,True,,1024,1270,False
+limit,lcb/abc392_b,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc393_a,0,easy,True,,1024,4371,False
+limit,lcb/abc393_b,0,easy,True,,1024,7005,False
+limit,lcb/abc394_a,0,easy,True,,1024,1162,False
+limit,lcb/abc394_b,0,easy,True,,1021,1196,False
+limit,lcb/abc395_a,0,easy,True,,1024,1234,False
+limit,lcb/abc395_b,0,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc396_a,0,easy,True,,1024,4557,False
+limit,lcb/abc396_b,0,easy,False,wrong answer on test 1,1024,1658,False
+limit,lcb/abc397_a,0,easy,True,,1024,1145,False
+limit,lcb/abc398_a,0,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc399_a,0,easy,True,,1024,4496,False
+limit,lcb/abc399_b,0,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc400_a,0,easy,True,,1024,1192,False
+limit,lcb/abc400_b,0,easy,True,,1024,6829,False
+limit,lcb/3722,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3743,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3748,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3750,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3754,0,medium,False,IndentationError: expected an indented block after function definition on line 3,1024,8193,True
+limit,lcb/3759,0,medium,False,wrong answer on test 1,1024,8192,True
+limit,lcb/3760,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,740,1229,False
+limit,lcb/3763,0,medium,False,IndentationError: expected an indented block after function definition on line 7,1024,8193,True
+limit,lcb/3764,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3771,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3776,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3779,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3785,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3786,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3791,0,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8193,True
+limit,lcb/3793,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3794,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3795,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3805,0,medium,False,SyntaxError: unterminated string literal (detected at line 1),1024,8193,True
+limit,lcb/3809,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,1274,False
+limit,lcb/abc391_d,0,medium,False,SyntaxError: unterminated string literal (detected at line 13),1024,8193,True
+limit,lcb/abc392_c,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc392_d,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc394_c,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc394_d,0,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8187,True
+limit,lcb/abc395_c,0,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8193,True
+limit,lcb/abc396_c,0,medium,False,wrong answer on test 1,1009,8178,True
+limit,lcb/abc396_d,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc397_b,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc397_c,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc398_b,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc398_c,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc399_c,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc399_d,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc400_c,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc400_d,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/arc192_a,0,medium,False,IndentationError: unexpected indent,1024,8193,True
+limit,lcb/arc194_a,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/arc195_a,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3705,1,easy,False,wrong answer on test 10,1024,8193,True
+limit,lcb/3709,1,easy,True,,1024,1263,False
+limit,lcb/3723,1,easy,True,,939,1091,False
+limit,lcb/3736,1,easy,True,,1024,1151,False
+limit,lcb/3753,1,easy,True,,1024,1234,False
+limit,lcb/3768,1,easy,True,,1024,1165,False
+limit,lcb/3773,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3778,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,1147,False
+limit,lcb/3788,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3799,1,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3811,1,easy,False,wrong answer on test 1,948,1039,False
+limit,lcb/3817,1,easy,True,,1024,1724,False
+limit,lcb/3832,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/abc391_a,1,easy,True,,1024,1699,False
+limit,lcb/abc391_b,1,easy,False,IndentationError: expected an indented block after 'for' statement on line 49,1024,2250,False
+limit,lcb/abc392_a,1,easy,True,,1024,1194,False
+limit,lcb/abc392_b,1,easy,True,,1024,1291,False
+limit,lcb/abc393_a,1,easy,True,,1024,5845,False
+limit,lcb/abc393_b,1,easy,False,NameError: name 'n' is not defined,1024,8193,True
+limit,lcb/abc394_a,1,easy,True,,1024,1126,False
+limit,lcb/abc394_b,1,easy,True,,1024,1197,False
+limit,lcb/abc395_a,1,easy,True,,1024,1243,False
+limit,lcb/abc395_b,1,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc396_a,1,easy,True,,1024,1261,False
+limit,lcb/abc396_b,1,easy,False,IndentationError: expected an indented block after 'else' statement on line 379,1024,8193,True
+limit,lcb/abc397_a,1,easy,True,,1024,1428,False
+limit,lcb/abc398_a,1,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc399_a,1,easy,False,SyntaxError: unterminated string literal (detected at line 2),1024,8193,True
+limit,lcb/abc399_b,1,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc400_a,1,easy,True,,1024,1194,False
+limit,lcb/abc400_b,1,easy,True,,908,1076,False
+limit,lcb/3722,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3743,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3748,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3750,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3754,1,medium,False,IndentationError: expected an indented block after function definition on line 3,1024,8193,True
+limit,lcb/3759,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3760,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,815,988,False
+limit,lcb/3763,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3764,1,medium,False,IndentationError: expected an indented block after 'for' statement on line 788,1012,8181,True
+limit,lcb/3771,1,medium,False,UnboundLocalError: cannot access local variable 'Counter' where it is not associated with a value,1024,8193,True
+limit,lcb/3776,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3779,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3785,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3786,1,medium,False,SyntaxError: unterminated string literal (detected at line 10),1024,8193,True
+limit,lcb/3791,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3793,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3794,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3795,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3805,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3809,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/abc391_d,1,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc392_c,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc392_d,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc394_c,1,medium,False,SyntaxError: unterminated string literal (detected at line 47),1024,8193,True
+limit,lcb/abc394_d,1,medium,False,SyntaxError: invalid syntax,1023,8192,True
+limit,lcb/abc395_c,1,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8193,True
+limit,lcb/abc396_c,1,medium,False,wrong answer on test 1,1024,1490,False
+limit,lcb/abc396_d,1,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc397_b,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc397_c,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc398_b,1,medium,False,IndentationError: expected an indented block after 'if' statement on line 43,1024,8193,True
+limit,lcb/abc398_c,1,medium,False,NameError: name 'Counter' is not defined,1024,8193,True
+limit,lcb/abc399_c,1,medium,False,SyntaxError: unterminated string literal (detected at line 7),1024,8193,True
+limit,lcb/abc399_d,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc400_c,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc400_d,1,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/arc192_a,1,medium,False,SyntaxError: unmatched ')',1024,8193,True
+limit,lcb/arc194_a,1,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8193,True
+limit,lcb/arc195_a,1,medium,False,SyntaxError: unterminated string literal (detected at line 5),1024,8193,True

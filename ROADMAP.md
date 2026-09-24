@@ -81,8 +81,14 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 13 RUN on A100 (#63, #64)                   │
 │           LoRA 65% vs ON 50%, 41% fewer tokens: R1 YES       │
 │       ✅ Notebook 14 written: the real run (#66, 2026-09-22)  │
-│       ⬜ RUN notebook 14 on the A100 ← HERE                   │
-│           (its first step = notebook 12's medium check)     │
+│       ✅ Notebook 14 RUN on the A100 (2026-09-24)             │
+│           all stages ran · LoRA-2: NOT shorter (H1 NO)      │
+│           limit 49.8% beats ON 42.1% (proven, #67)          │
+│       ✅ Raw files checked (2026-09-25) + qa/28               │
+│           long answers = LOOPS · brief = prompt clash       │
+│       ✅ Full results page: 10 charts + every problem         │
+│           results/full-results/FULL-RESULTS.md (#68)        │
+│       ⬜ Write the results + analysis chapter ← HERE          │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │

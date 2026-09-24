@@ -1,0 +1,37 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_on,HumanEval/1,0,easy,False,NameError: name 'separate_paren_groups' is not defined,16384,16384,True
+thinking_on,HumanEval/10,0,easy,False,NameError: name 'make_palindrome' is not defined,16384,16384,True
+thinking_on,HumanEval/100,0,easy,False,AssertionError,776,977,False
+thinking_on,HumanEval/118,0,easy,False,AssertionError,919,1058,False
+thinking_on,HumanEval/119,0,easy,False,AssertionError,987,1280,False
+thinking_on,HumanEval/120,0,easy,False,NameError: name 'maximum' is not defined,16384,16384,True
+thinking_on,HumanEval/126,0,easy,True,,3949,4336,False
+thinking_on,HumanEval/129,0,easy,False,NameError: name 'minPath' is not defined,16384,16384,True
+thinking_on,HumanEval/132,0,easy,False,AssertionError,1014,1277,False
+thinking_on,HumanEval/134,0,easy,False,AssertionError,597,868,False
+thinking_on,HumanEval/137,0,easy,False,AssertionError,1013,1373,False
+thinking_on,HumanEval/147,0,easy,False,KeyError: 2,1222,1806,False
+thinking_on,HumanEval/154,0,easy,False,AssertionError,1174,1348,False
+thinking_on,HumanEval/157,0,easy,True,,640,819,False
+thinking_on,HumanEval/159,0,easy,False,AssertionError,985,1329,False
+thinking_on,HumanEval/160,0,easy,False,NameError: name 'do_algebra' is not defined,16384,16384,True
+thinking_on,HumanEval/163,0,easy,False,NameError: name 'generate_integers' is not defined,16384,16384,True
+thinking_on,HumanEval/24,0,easy,True,,3646,3741,False
+thinking_on,HumanEval/27,0,easy,True,,658,725,False
+thinking_on,HumanEval/32,0,easy,False,"TypeError: Value after * must be an iterable, not float",1158,1750,False
+thinking_on,HumanEval/36,0,easy,False,NameError: name 'fizz_buzz' is not defined,16384,16384,True
+thinking_on,HumanEval/37,0,easy,False,AssertionError,791,987,False
+thinking_on,HumanEval/38,0,easy,False,AssertionError,2144,2280,False
+thinking_on,HumanEval/39,0,easy,False,NameError: name 'prime_fib' is not defined,16384,16384,True
+thinking_on,HumanEval/4,0,easy,True,,421,596,False
+thinking_on,HumanEval/40,0,easy,False,NameError: name 'triples_sum_to_zero' is not defined,16384,16384,True
+thinking_on,HumanEval/6,0,easy,True,,1254,1478,False
+thinking_on,HumanEval/62,0,easy,False,AssertionError,1764,1935,False
+thinking_on,HumanEval/65,0,easy,False,NameError: name 'circular_shift' is not defined,16384,16384,True
+thinking_on,HumanEval/77,0,easy,False,NameError: name 'iscube' is not defined,16384,16384,True
+thinking_on,HumanEval/78,0,easy,True,,1015,1437,False
+thinking_on,HumanEval/83,0,easy,False,NameError: name 'starts_one_ends' is not defined,16384,16384,True
+thinking_on,HumanEval/86,0,easy,False,NameError: name 'anti_shuffle' is not defined,16332,16332,True
+thinking_on,HumanEval/91,0,easy,False,AssertionError,1001,1170,False
+thinking_on,HumanEval/94,0,easy,True,,4817,5311,False
+thinking_on,HumanEval/99,0,easy,True,,1801,2031,False

@@ -1,0 +1,141 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_on,lcb/3705,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3709,0,easy,False,NameError: name 'Solution' is not defined,8191,8191,True
+thinking_on,lcb/3723,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3736,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3753,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3768,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3773,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3778,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3788,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,3172,3288,False
+thinking_on,lcb/3799,0,easy,False,wrong answer on test 1,1670,8192,True
+thinking_on,lcb/3811,0,easy,True,,1113,1232,False
+thinking_on,lcb/3817,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3832,0,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/abc391_a,0,easy,True,,5992,6100,False
+thinking_on,lcb/abc391_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_a,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc393_a,0,easy,False,SyntaxError: unterminated string literal (detected at line 52),7523,8192,True
+thinking_on,lcb/abc393_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_a,0,easy,True,,5690,5823,False
+thinking_on,lcb/abc394_b,0,easy,True,,6372,6587,False
+thinking_on,lcb/abc395_a,0,easy,True,,7855,8098,False
+thinking_on,lcb/abc395_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_a,0,easy,True,,5854,6144,False
+thinking_on,lcb/abc396_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_a,0,easy,True,,4879,4998,False
+thinking_on,lcb/abc398_a,0,easy,False,wrong answer on test 1,8191,8191,True
+thinking_on,lcb/abc399_a,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_a,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_b,0,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/3722,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3743,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3748,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3750,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3754,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3759,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3760,0,medium,False,wrong answer on test 1,661,851,False
+thinking_on,lcb/3763,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3764,0,medium,False,IndexError: list index out of range,622,1068,False
+thinking_on,lcb/3771,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3776,0,medium,False,wrong answer on test 1,646,8192,True
+thinking_on,lcb/3779,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3785,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3786,0,medium,False,wrong answer on test 1,728,8192,True
+thinking_on,lcb/3791,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3793,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3794,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3795,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3805,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3809,0,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/abc391_d,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_d,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_d,0,medium,False,wrong answer on test 1,8191,8191,True
+thinking_on,lcb/abc395_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_d,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_b,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc398_b,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc398_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_d,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_c,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_d,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc192_a,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc194_a,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc195_a,0,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/3705,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3709,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3723,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,939,1129,False
+thinking_on,lcb/3736,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3753,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3768,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3773,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3778,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3788,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3799,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3811,1,easy,True,,948,1060,False
+thinking_on,lcb/3817,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3832,1,easy,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/abc391_a,1,easy,True,,3028,3150,False
+thinking_on,lcb/abc391_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_a,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc393_a,1,easy,False,wrong answer on test 1,7905,8192,True
+thinking_on,lcb/abc393_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_a,1,easy,True,,5130,5237,False
+thinking_on,lcb/abc394_b,1,easy,False,wrong answer on test 1,8169,8169,True
+thinking_on,lcb/abc395_a,1,easy,False,SyntaxError: invalid syntax,8027,8192,True
+thinking_on,lcb/abc395_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_a,1,easy,True,,6084,6328,False
+thinking_on,lcb/abc396_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_a,1,easy,True,,1322,1456,False
+thinking_on,lcb/abc398_a,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_a,1,easy,True,,5197,5340,False
+thinking_on,lcb/abc399_b,1,easy,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_a,1,easy,True,,5457,5633,False
+thinking_on,lcb/abc400_b,1,easy,True,,908,1047,False
+thinking_on,lcb/3722,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1734,2157,False
+thinking_on,lcb/3743,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3748,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3750,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3754,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3759,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3760,1,medium,False,timeout on test 6,815,1035,False
+thinking_on,lcb/3763,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3764,1,medium,True,,1012,1311,False
+thinking_on,lcb/3771,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3776,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3779,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3785,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3786,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3791,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3793,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3794,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3795,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3805,1,medium,False,NameError: name 'Solution' is not defined,8192,8192,True
+thinking_on,lcb/3809,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,2715,2939,False
+thinking_on,lcb/abc391_d,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc392_d,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc394_d,1,medium,False,wrong answer on test 1,8191,8191,True
+thinking_on,lcb/abc395_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc396_d,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_b,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc397_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc398_b,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc398_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc399_d,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_c,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/abc400_d,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc192_a,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc194_a,1,medium,False,wrong answer on test 1,8192,8192,True
+thinking_on,lcb/arc195_a,1,medium,False,wrong answer on test 1,8192,8192,True

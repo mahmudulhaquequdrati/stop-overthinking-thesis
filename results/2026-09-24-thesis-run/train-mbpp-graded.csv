@@ -1,0 +1,801 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_on,Mbpp/100,0,easy,False,NameError: name 'next_smallest_palindrome' is not defined,4096,4096,True
+thinking_on,Mbpp/101,0,easy,True,,300,357,False
+thinking_on,Mbpp/106,0,easy,False,NameError: name 'add_lists' is not defined,4096,4096,True
+thinking_on,Mbpp/111,0,easy,True,,635,753,False
+thinking_on,Mbpp/116,0,easy,True,,412,438,False
+thinking_on,Mbpp/123,0,easy,False,NameError: name 'amicable_numbers_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/135,0,easy,True,,226,270,False
+thinking_on,Mbpp/142,0,easy,False,IndexError: list index out of range,1034,1098,False
+thinking_on,Mbpp/165,0,easy,False,IndexError: string index out of range,990,1068,False
+thinking_on,Mbpp/17,0,easy,True,,113,145,False
+thinking_on,Mbpp/232,0,easy,True,,1591,1635,False
+thinking_on,Mbpp/235,0,easy,False,NameError: name 'even_bit_set_number' is not defined,4096,4096,True
+thinking_on,Mbpp/238,0,easy,True,,234,270,False
+thinking_on,Mbpp/242,0,easy,True,,2163,2183,False
+thinking_on,Mbpp/253,0,easy,True,,259,288,False
+thinking_on,Mbpp/260,0,easy,False,NameError: name 'newman_prime' is not defined,4096,4096,True
+thinking_on,Mbpp/267,0,easy,False,TypeError: 'float' object cannot be interpreted as an integer,555,627,False
+thinking_on,Mbpp/268,0,easy,False,NameError: name 'find_star_num' is not defined,4096,4096,True
+thinking_on,Mbpp/276,0,easy,False,NameError: name 'volume_cylinder' is not defined,4096,4096,True
+thinking_on,Mbpp/277,0,easy,True,,549,584,False
+thinking_on,Mbpp/282,0,easy,True,,253,291,False
+thinking_on,Mbpp/283,0,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',3460,3594,False
+thinking_on,Mbpp/297,0,easy,True,,633,805,False
+thinking_on,Mbpp/305,0,easy,False,NameError: name 'start_withp' is not defined,4096,4096,True
+thinking_on,Mbpp/312,0,easy,True,,433,469,False
+thinking_on,Mbpp/388,0,easy,True,,1411,1456,False
+thinking_on,Mbpp/389,0,easy,False,"AssertionError: out: 123, exp: 76",852,930,False
+thinking_on,Mbpp/390,0,easy,False,NameError: name 'add_string' is not defined,4096,4096,True
+thinking_on,Mbpp/398,0,easy,False,"AssertionError: out: [1, 2, 11], exp: 14",576,644,False
+thinking_on,Mbpp/413,0,easy,False,NameError: name 'extract_nth_element' is not defined,4096,4096,True
+thinking_on,Mbpp/419,0,easy,True,,1921,2092,False
+thinking_on,Mbpp/421,0,easy,False,NameError: name 'concatenate_tuple' is not defined,4101,4101,True
+thinking_on,Mbpp/422,0,easy,True,,708,768,False
+thinking_on,Mbpp/425,0,easy,True,,495,586,False
+thinking_on,Mbpp/430,0,easy,False,NameError: name 'parabola_directrix' is not defined,4096,4096,True
+thinking_on,Mbpp/435,0,easy,False,NameError: name 'last_Digit' is not defined,4096,4096,True
+thinking_on,Mbpp/437,0,easy,False,NameError: name 'remove_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/439,0,easy,True,,2569,2595,False
+thinking_on,Mbpp/450,0,easy,True,,396,429,False
+thinking_on,Mbpp/454,0,easy,True,,3682,3705,False
+thinking_on,Mbpp/457,0,easy,True,,937,963,False
+thinking_on,Mbpp/465,0,easy,True,,531,565,False
+thinking_on,Mbpp/471,0,easy,True,,1020,1064,False
+thinking_on,Mbpp/478,0,easy,True,,602,642,False
+thinking_on,Mbpp/554,0,easy,False,NameError: name 'Split' is not defined,4096,4096,True
+thinking_on,Mbpp/556,0,easy,False,TypeError: find_Odd_Pair() takes 1 positional argument but 2 were given,1688,1762,False
+thinking_on,Mbpp/558,0,easy,True,,3445,3528,False
+thinking_on,Mbpp/56,0,easy,True,,606,656,False
+thinking_on,Mbpp/568,0,easy,False,NameError: name 'empty_list' is not defined,4096,4096,True
+thinking_on,Mbpp/572,0,easy,False,NameError: name 'two_unique_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/100,1,easy,False,NameError: name 'next_smallest_palindrome' is not defined,4096,4096,True
+thinking_on,Mbpp/101,1,easy,False,NameError: name 'kth_element' is not defined,4096,4096,True
+thinking_on,Mbpp/106,1,easy,False,"TypeError: can only concatenate tuple (not ""list"") to tuple",783,804,False
+thinking_on,Mbpp/111,1,easy,False,NameError: name 'common_in_nested_lists' is not defined,4096,4096,True
+thinking_on,Mbpp/116,1,easy,False,NameError: name 'tuple_to_int' is not defined,4096,4096,True
+thinking_on,Mbpp/123,1,easy,False,NameError: name 'amicable_numbers_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/135,1,easy,True,,3926,3967,False
+thinking_on,Mbpp/142,1,easy,False,IndexError: list index out of range,611,730,False
+thinking_on,Mbpp/165,1,easy,True,,2223,2292,False
+thinking_on,Mbpp/17,1,easy,True,,448,471,False
+thinking_on,Mbpp/232,1,easy,True,,683,725,False
+thinking_on,Mbpp/235,1,easy,False,NameError: name 'even_bit_set_number' is not defined,4096,4096,True
+thinking_on,Mbpp/238,1,easy,True,,883,916,False
+thinking_on,Mbpp/242,1,easy,True,,2671,2691,False
+thinking_on,Mbpp/253,1,easy,True,,429,473,False
+thinking_on,Mbpp/260,1,easy,False,NameError: name 'newman_prime' is not defined,4096,4096,True
+thinking_on,Mbpp/267,1,easy,False,TypeError: 'float' object cannot be interpreted as an integer,538,597,False
+thinking_on,Mbpp/268,1,easy,False,NameError: name 'find_star_num' is not defined,4096,4096,True
+thinking_on,Mbpp/276,1,easy,True,,1217,1248,False
+thinking_on,Mbpp/277,1,easy,True,,908,943,False
+thinking_on,Mbpp/282,1,easy,True,,1684,1720,False
+thinking_on,Mbpp/283,1,easy,True,,667,783,False
+thinking_on,Mbpp/297,1,easy,False,NameError: name 'flatten_list' is not defined,4096,4096,True
+thinking_on,Mbpp/305,1,easy,False,NameError: name 'start_withp' is not defined,4096,4096,True
+thinking_on,Mbpp/312,1,easy,True,,511,547,False
+thinking_on,Mbpp/388,1,easy,False,NameError: name 'highest_Power_of_2' is not defined,4096,4096,True
+thinking_on,Mbpp/389,1,easy,True,,722,823,False
+thinking_on,Mbpp/390,1,easy,False,NameError: name 'add_string' is not defined,4096,4096,True
+thinking_on,Mbpp/398,1,easy,False,NameError: name 'sum_of_digits' is not defined,4096,4096,True
+thinking_on,Mbpp/413,1,easy,True,,750,778,False
+thinking_on,Mbpp/419,1,easy,False,NameError: name 'round_and_sum' is not defined,4094,4094,False
+thinking_on,Mbpp/421,1,easy,False,"TypeError: sequence item 2: expected str instance, int found",597,620,False
+thinking_on,Mbpp/422,1,easy,True,,340,400,False
+thinking_on,Mbpp/425,1,easy,True,,571,619,False
+thinking_on,Mbpp/430,1,easy,False,NameError: name 'parabola_directrix' is not defined,4096,4096,True
+thinking_on,Mbpp/435,1,easy,True,,1055,1079,False
+thinking_on,Mbpp/437,1,easy,False,NameError: name 'remove_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/439,1,easy,True,,3573,3599,False
+thinking_on,Mbpp/450,1,easy,True,,367,398,False
+thinking_on,Mbpp/454,1,easy,True,,2867,2890,False
+thinking_on,Mbpp/457,1,easy,False,SyntaxError: invalid syntax,814,905,False
+thinking_on,Mbpp/465,1,easy,False,NameError: name 'drop_empty' is not defined,4096,4096,True
+thinking_on,Mbpp/471,1,easy,True,,665,709,False
+thinking_on,Mbpp/478,1,easy,True,,537,565,False
+thinking_on,Mbpp/554,1,easy,True,,182,212,False
+thinking_on,Mbpp/556,1,easy,False,"AssertionError: out: 30, exp: 25",632,713,False
+thinking_on,Mbpp/558,1,easy,False,"AssertionError: out: 14, exp: 8",524,687,False
+thinking_on,Mbpp/56,1,easy,True,,1135,1186,False
+thinking_on,Mbpp/568,1,easy,True,,208,232,False
+thinking_on,Mbpp/572,1,easy,False,NameError: name 'two_unique_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/100,2,easy,False,NameError: name 'next_smallest_palindrome' is not defined,4096,4096,True
+thinking_on,Mbpp/101,2,easy,True,,405,429,False
+thinking_on,Mbpp/106,2,easy,False,"TypeError: can only concatenate list (not ""tuple"") to list",268,293,False
+thinking_on,Mbpp/111,2,easy,False,"AssertionError: out: {2, 3, 4, 5}, exp: {4, 5}",1177,1294,False
+thinking_on,Mbpp/116,2,easy,False,NameError: name 'tuple_to_int' is not defined,4096,4096,True
+thinking_on,Mbpp/123,2,easy,False,NameError: name 'amicable_numbers_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/135,2,easy,False,NameError: name 'hexagonal_num' is not defined,4096,4096,True
+thinking_on,Mbpp/142,2,easy,False,IndexError: list index out of range,855,925,False
+thinking_on,Mbpp/165,2,easy,False,NameError: name 'count_char_position' is not defined,4096,4096,True
+thinking_on,Mbpp/17,2,easy,True,,155,178,False
+thinking_on,Mbpp/232,2,easy,True,,2699,2750,False
+thinking_on,Mbpp/235,2,easy,False,NameError: name 'even_bit_set_number' is not defined,4096,4096,True
+thinking_on,Mbpp/238,2,easy,True,,426,467,False
+thinking_on,Mbpp/242,2,easy,False,NameError: name 'count_charac' is not defined,4096,4096,True
+thinking_on,Mbpp/253,2,easy,True,,350,379,False
+thinking_on,Mbpp/260,2,easy,False,NameError: name 'newman_prime' is not defined,4096,4096,True
+thinking_on,Mbpp/267,2,easy,False,TypeError: 'float' object cannot be interpreted as an integer,609,665,False
+thinking_on,Mbpp/268,2,easy,False,"AssertionError: out: 81, exp: 73",3725,3752,False
+thinking_on,Mbpp/276,2,easy,True,,1580,1611,False
+thinking_on,Mbpp/277,2,easy,True,,2637,2672,False
+thinking_on,Mbpp/282,2,easy,False,NameError: name 'sub_list' is not defined,4096,4096,True
+thinking_on,Mbpp/283,2,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',558,619,False
+thinking_on,Mbpp/297,2,easy,True,,1775,1831,False
+thinking_on,Mbpp/305,2,easy,False,NameError: name 'start_withp' is not defined,4096,4096,True
+thinking_on,Mbpp/312,2,easy,True,,324,360,False
+thinking_on,Mbpp/388,2,easy,False,NameError: name 'highest_Power_of_2' is not defined,4096,4096,True
+thinking_on,Mbpp/389,2,easy,False,NameError: name 'find_lucas' is not defined,4096,4096,True
+thinking_on,Mbpp/390,2,easy,False,NameError: name 'add_string' is not defined,4096,4096,True
+thinking_on,Mbpp/398,2,easy,False,TypeError: '>' not supported between instances of 'list' and 'int',593,685,False
+thinking_on,Mbpp/413,2,easy,True,,1426,1457,False
+thinking_on,Mbpp/419,2,easy,True,,1203,1250,False
+thinking_on,Mbpp/421,2,easy,False,NameError: name 'concatenate_tuple' is not defined,4093,4093,False
+thinking_on,Mbpp/422,2,easy,True,,564,652,False
+thinking_on,Mbpp/425,2,easy,True,,447,494,False
+thinking_on,Mbpp/430,2,easy,False,NameError: name 'parabola_directrix' is not defined,4096,4096,True
+thinking_on,Mbpp/435,2,easy,True,,473,497,False
+thinking_on,Mbpp/437,2,easy,True,,614,651,False
+thinking_on,Mbpp/439,2,easy,False,NameError: name 'multiple_to_single' is not defined,4096,4096,True
+thinking_on,Mbpp/450,2,easy,True,,218,279,False
+thinking_on,Mbpp/454,2,easy,True,,3587,3610,False
+thinking_on,Mbpp/457,2,easy,True,,671,760,False
+thinking_on,Mbpp/465,2,easy,False,"AssertionError: out: {'a': {'b': None, 'c': 'Yellow'}, 'e': {'f': None, 'g': 'Blue'}}, exp: {'a': {'b': None, 'c': 'Yellow'}, 'd': {}, 'e': {'f': None, 'g': 'Blue'}}",532,583,False
+thinking_on,Mbpp/471,2,easy,True,,2975,3015,False
+thinking_on,Mbpp/478,2,easy,False,NameError: name 'remove_lowercase' is not defined,4092,4092,False
+thinking_on,Mbpp/554,2,easy,False,NameError: name 'Split' is not defined,4096,4096,True
+thinking_on,Mbpp/556,2,easy,False,TypeError: find_Odd_Pair() takes 1 positional argument but 2 were given,986,1060,False
+thinking_on,Mbpp/558,2,easy,False,"AssertionError: out: 14, exp: 8",916,1074,False
+thinking_on,Mbpp/56,2,easy,False,NameError: name 'check' is not defined,4096,4096,True
+thinking_on,Mbpp/568,2,easy,False,NameError: name 'empty_list' is not defined,4096,4096,True
+thinking_on,Mbpp/572,2,easy,False,NameError: name 'two_unique_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/100,3,easy,False,NameError: name 'next_smallest_palindrome' is not defined,4096,4096,True
+thinking_on,Mbpp/101,3,easy,True,,225,273,False
+thinking_on,Mbpp/106,3,easy,False,NameError: name 'add_lists' is not defined,4096,4096,True
+thinking_on,Mbpp/111,3,easy,False,NameError: name 'common_in_nested_lists' is not defined,4096,4096,True
+thinking_on,Mbpp/116,3,easy,False,NameError: name 'tuple_to_int' is not defined,4096,4096,True
+thinking_on,Mbpp/123,3,easy,False,NameError: name 'amicable_numbers_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/135,3,easy,False,ValueError: n must be a positive integer,497,636,False
+thinking_on,Mbpp/142,3,easy,False,IndexError: list index out of range,644,708,False
+thinking_on,Mbpp/165,3,easy,False,IndexError: list index out of range,2644,2814,False
+thinking_on,Mbpp/17,3,easy,False,NameError: name 'square_perimeter' is not defined,4096,4096,True
+thinking_on,Mbpp/232,3,easy,False,NameError: name 'larg_nnum' is not defined,4096,4096,True
+thinking_on,Mbpp/235,3,easy,False,NameError: name 'even_bit_set_number' is not defined,4096,4096,True
+thinking_on,Mbpp/238,3,easy,True,,1304,1340,False
+thinking_on,Mbpp/242,3,easy,True,,3157,3177,False
+thinking_on,Mbpp/253,3,easy,True,,337,381,False
+thinking_on,Mbpp/260,3,easy,False,NameError: name 'newman_prime' is not defined,4096,4096,True
+thinking_on,Mbpp/267,3,easy,False,TypeError: 'float' object cannot be interpreted as an integer,967,1018,False
+thinking_on,Mbpp/268,3,easy,False,NameError: name 'find_star_num' is not defined,4096,4096,True
+thinking_on,Mbpp/276,3,easy,False,NameError: name 'volume_cylinder' is not defined,4096,4096,True
+thinking_on,Mbpp/277,3,easy,True,,488,523,False
+thinking_on,Mbpp/282,3,easy,True,,3466,3502,False
+thinking_on,Mbpp/283,3,easy,True,,1011,1087,False
+thinking_on,Mbpp/297,3,easy,False,NameError: name 'flatten_list' is not defined,4096,4096,True
+thinking_on,Mbpp/305,3,easy,False,IndexError: list index out of range,832,877,False
+thinking_on,Mbpp/312,3,easy,True,,267,303,False
+thinking_on,Mbpp/388,3,easy,False,NameError: name 'highest_Power_of_2' is not defined,4096,4096,True
+thinking_on,Mbpp/389,3,easy,True,,714,794,False
+thinking_on,Mbpp/390,3,easy,False,NameError: name 'add_string' is not defined,4096,4096,True
+thinking_on,Mbpp/398,3,easy,False,ValueError: invalid literal for int() with base 10: '[',3563,3597,False
+thinking_on,Mbpp/413,3,easy,False,NameError: name 'extract_nth_element' is not defined,4096,4096,True
+thinking_on,Mbpp/419,3,easy,False,NameError: name 'round_and_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/421,3,easy,False,NameError: name 'concatenate_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/422,3,easy,True,,4003,4057,False
+thinking_on,Mbpp/425,3,easy,True,,474,523,False
+thinking_on,Mbpp/430,3,easy,False,NameError: name 'parabola_directrix' is not defined,4096,4096,True
+thinking_on,Mbpp/435,3,easy,False,"AssertionError: out: 3, exp: 7",224,263,False
+thinking_on,Mbpp/437,3,easy,True,,431,468,False
+thinking_on,Mbpp/439,3,easy,False,NameError: name 'multiple_to_single' is not defined,4096,4096,True
+thinking_on,Mbpp/450,3,easy,True,,499,530,False
+thinking_on,Mbpp/454,3,easy,False,NameError: name 'text_match_wordz' is not defined,4096,4096,True
+thinking_on,Mbpp/457,3,easy,True,,639,731,False
+thinking_on,Mbpp/465,3,easy,True,,440,474,False
+thinking_on,Mbpp/471,3,easy,True,,442,486,False
+thinking_on,Mbpp/478,3,easy,True,,433,462,False
+thinking_on,Mbpp/554,3,easy,True,,325,355,False
+thinking_on,Mbpp/556,3,easy,False,"AssertionError: out: 30, exp: 25",623,898,False
+thinking_on,Mbpp/558,3,easy,False,"AssertionError: out: 14, exp: 8",510,688,False
+thinking_on,Mbpp/56,3,easy,True,,501,547,False
+thinking_on,Mbpp/568,3,easy,True,,531,551,False
+thinking_on,Mbpp/572,3,easy,False,"AssertionError: out: [1, 2, 3, 4, 5], exp: [1, 4, 5]",597,696,False
+thinking_on,Mbpp/581,0,easy,False,NameError: name 'surface_Area' is not defined,4096,4096,True
+thinking_on,Mbpp/587,0,easy,False,NameError: name 'list_tuple' is not defined. Did you mean: 'list_to_tuple'?,210,276,False
+thinking_on,Mbpp/589,0,easy,False,NameError: name 'perfect_squares' is not defined,4096,4096,True
+thinking_on,Mbpp/592,0,easy,False,NameError: name 'comb' is not defined,1194,1278,False
+thinking_on,Mbpp/596,0,easy,True,,385,409,False
+thinking_on,Mbpp/602,0,easy,True,,527,576,False
+thinking_on,Mbpp/607,0,easy,False,NameError: name 'find_literals' is not defined,4096,4096,True
+thinking_on,Mbpp/608,0,easy,True,,1865,2105,False
+thinking_on,Mbpp/615,0,easy,False,NameError: name 'average_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/619,0,easy,False,NameError: name 'move_num' is not defined,4103,4103,True
+thinking_on,Mbpp/620,0,easy,False,NameError: name 'largest_subset' is not defined,4096,4096,True
+thinking_on,Mbpp/623,0,easy,False,NameError: name 'nth_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/63,0,easy,False,"AssertionError: out: 6, exp: 7",2043,2103,False
+thinking_on,Mbpp/635,0,easy,False,IndexError: list index out of range,1156,1325,False
+thinking_on,Mbpp/643,0,easy,False,NameError: name 'text_match_wordz_middle' is not defined,4096,4096,True
+thinking_on,Mbpp/65,0,easy,False,TypeError: unsupported operand type(s) for +=: 'int' and 'NoneType',612,690,False
+thinking_on,Mbpp/7,0,easy,False,NameError: name 'find_char_long' is not defined,4096,4096,True
+thinking_on,Mbpp/726,0,easy,True,,1698,1735,False
+thinking_on,Mbpp/734,0,easy,False,NameError: name 'sum_Of_Subarray_Prod' is not defined. Did you mean: 'sum_of_subarray_prods'?,566,639,False
+thinking_on,Mbpp/737,0,easy,True,,424,464,False
+thinking_on,Mbpp/739,0,easy,False,NameError: name 'find_Index' is not defined,4096,4096,True
+thinking_on,Mbpp/74,0,easy,False,"AssertionError: out: True, exp: False",2034,2067,False
+thinking_on,Mbpp/742,0,easy,False,NameError: name 'area_tetrahedron' is not defined,4096,4096,True
+thinking_on,Mbpp/749,0,easy,False,"AssertionError: out: ['-500', '-12', '0', '4', '7', '12', '45', '100', '200'], exp: [-500, -12, 0, 4, 7, 12, 45, 100, 200]",438,465,False
+thinking_on,Mbpp/75,0,easy,True,,377,430,False
+thinking_on,Mbpp/757,0,easy,False,NameError: name 'count_reverse_pairs' is not defined,4096,4096,True
+thinking_on,Mbpp/762,0,easy,True,,4027,4075,False
+thinking_on,Mbpp/763,0,easy,False,NameError: name 'find_min_diff' is not defined,4096,4096,True
+thinking_on,Mbpp/766,0,easy,False,NameError: name 'pair_wise' is not defined,4096,4096,True
+thinking_on,Mbpp/767,0,easy,True,,916,1079,False
+thinking_on,Mbpp/770,0,easy,True,,458,647,False
+thinking_on,Mbpp/771,0,easy,False,"AssertionError: out: True, exp: False",598,739,False
+thinking_on,Mbpp/772,0,easy,True,,436,485,False
+thinking_on,Mbpp/773,0,easy,False,NameError: name 'occurance_substring' is not defined,4144,4144,True
+thinking_on,Mbpp/778,0,easy,False,NameError: name 'pack_consecutive_duplicates' is not defined,4096,4096,True
+thinking_on,Mbpp/785,0,easy,False,NameError: name 'tuple_str_int' is not defined,4096,4096,True
+thinking_on,Mbpp/786,0,easy,False,"AssertionError: out: 0, exp: 2",901,989,False
+thinking_on,Mbpp/787,0,easy,False,NameError: name 'text_match_three' is not defined,4096,4096,True
+thinking_on,Mbpp/794,0,easy,False,NameError: name 'text_starta_endb' is not defined,4096,4096,True
+thinking_on,Mbpp/796,0,easy,False,NameError: name 'return_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/87,0,easy,False,NameError: name 'merge_dictionaries_three' is not defined,4096,4096,True
+thinking_on,Mbpp/88,0,easy,True,,435,461,False
+thinking_on,Mbpp/9,0,easy,False,NameError: name 'find_Rotations' is not defined,4096,4096,True
+thinking_on,Mbpp/90,0,easy,False,NameError: name 'len_log' is not defined,4096,4096,True
+thinking_on,Mbpp/91,0,easy,False,NameError: name 'find_substring' is not defined,4096,4096,True
+thinking_on,Mbpp/92,0,easy,False,NameError: name 'is_undulating' is not defined,4096,4096,True
+thinking_on,Mbpp/94,0,easy,True,,670,701,False
+thinking_on,Mbpp/95,0,easy,True,,638,681,False
+thinking_on,Mbpp/98,0,easy,True,,754,797,False
+thinking_on,Mbpp/99,0,easy,False,"AssertionError: out: b101, exp: -101",345,381,False
+thinking_on,Mbpp/581,1,easy,False,NameError: name 'surface_Area' is not defined,4096,4096,True
+thinking_on,Mbpp/587,1,easy,True,,3611,3685,False
+thinking_on,Mbpp/589,1,easy,False,NameError: name 'perfect_squares' is not defined,4096,4096,True
+thinking_on,Mbpp/592,1,easy,False,NameError: name 'sum_Of_product' is not defined. Did you mean: 'sum_of_product'?,1091,1191,False
+thinking_on,Mbpp/596,1,easy,True,,449,473,False
+thinking_on,Mbpp/602,1,easy,False,NameError: name 'first_repeated_char' is not defined,4096,4096,True
+thinking_on,Mbpp/607,1,easy,False,NameError: name 'find_literals' is not defined,4096,4096,True
+thinking_on,Mbpp/608,1,easy,False,NameError: name 'bell_Number' is not defined. Did you mean: 'bell_number'?,1823,2095,False
+thinking_on,Mbpp/615,1,easy,False,AssertionError,1036,1170,False
+thinking_on,Mbpp/619,1,easy,False,NameError: name 'move_num' is not defined,4099,4099,True
+thinking_on,Mbpp/620,1,easy,False,NameError: name 'largest_subset' is not defined,4096,4096,True
+thinking_on,Mbpp/623,1,easy,False,NameError: name 'nth_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/63,1,easy,False,"AssertionError: out: 0, exp: 15",1916,1976,False
+thinking_on,Mbpp/635,1,easy,True,,958,1172,False
+thinking_on,Mbpp/643,1,easy,False,NameError: name 'text_match_wordz_middle' is not defined,4096,4096,True
+thinking_on,Mbpp/65,1,easy,False,NameError: name 'recursive_list_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/7,1,easy,False,"AssertionError: out: {'least', 'This', 'long', 'string', 'words', 'long.', 'with', 'characters', 'that', 'very'}, exp: {'least', 'This', 'long', 'string', 'words', 'with', 'characters', 'that', 'very'",3591,3624,False
+thinking_on,Mbpp/726,1,easy,True,,3940,3977,False
+thinking_on,Mbpp/734,1,easy,False,NameError: name 'sum_Of_Subarray_Prod' is not defined,4096,4096,True
+thinking_on,Mbpp/737,1,easy,True,,539,595,False
+thinking_on,Mbpp/739,1,easy,False,NameError: name 'find_Index' is not defined,4096,4096,True
+thinking_on,Mbpp/74,1,easy,False,NameError: name 'is_samepatterns' is not defined,4096,4096,True
+thinking_on,Mbpp/742,1,easy,False,NameError: name 'area_tetrahedron' is not defined,4096,4096,True
+thinking_on,Mbpp/749,1,easy,False,"AssertionError: out: ['-500', '-12', '0', '4', '7', '12', '45', '100', '200'], exp: [-500, -12, 0, 4, 7, 12, 45, 100, 200]",1098,1125,False
+thinking_on,Mbpp/75,1,easy,False,NameError: name 'find_tuples' is not defined,4096,4096,True
+thinking_on,Mbpp/757,1,easy,False,NameError: name 'count_reverse_pairs' is not defined,4090,4090,True
+thinking_on,Mbpp/762,1,easy,True,,3716,3862,False
+thinking_on,Mbpp/763,1,easy,False,NameError: name 'find_min_diff' is not defined,4096,4096,True
+thinking_on,Mbpp/766,1,easy,True,,3271,3308,False
+thinking_on,Mbpp/767,1,easy,True,,526,599,False
+thinking_on,Mbpp/770,1,easy,True,,456,497,False
+thinking_on,Mbpp/771,1,easy,False,KeyError: ')',1765,1867,False
+thinking_on,Mbpp/772,1,easy,True,,1227,1276,False
+thinking_on,Mbpp/773,1,easy,False,"AssertionError: out: None, exp: ('', 0, 0)",487,551,False
+thinking_on,Mbpp/778,1,easy,False,NameError: name 'pack_consecutive_duplicates' is not defined,4096,4096,True
+thinking_on,Mbpp/785,1,easy,False,NameError: name 'tuple_str_int' is not defined,4096,4096,True
+thinking_on,Mbpp/786,1,easy,False,NameError: name 'right_insertion' is not defined,4096,4096,True
+thinking_on,Mbpp/787,1,easy,True,,631,678,False
+thinking_on,Mbpp/794,1,easy,False,AssertionError,720,880,False
+thinking_on,Mbpp/796,1,easy,True,,261,281,False
+thinking_on,Mbpp/87,1,easy,True,,1291,1343,False
+thinking_on,Mbpp/88,1,easy,True,,377,501,False
+thinking_on,Mbpp/9,1,easy,False,NameError: name 'find_Rotations' is not defined,4096,4096,True
+thinking_on,Mbpp/90,1,easy,True,,264,300,False
+thinking_on,Mbpp/91,1,easy,True,,384,448,False
+thinking_on,Mbpp/92,1,easy,False,"AssertionError: out: True, exp: False",807,905,False
+thinking_on,Mbpp/94,1,easy,True,,758,850,False
+thinking_on,Mbpp/95,1,easy,True,,456,493,False
+thinking_on,Mbpp/98,1,easy,False,NameError: name 'multiply_num' is not defined,4096,4096,True
+thinking_on,Mbpp/99,1,easy,False,"AssertionError: out: b101, exp: -101",446,487,False
+thinking_on,Mbpp/581,2,easy,False,NameError: name 'surface_Area' is not defined,4096,4096,True
+thinking_on,Mbpp/587,2,easy,True,,2309,2328,False
+thinking_on,Mbpp/589,2,easy,False,NameError: name 'perfect_squares' is not defined,4096,4096,True
+thinking_on,Mbpp/592,2,easy,False,NameError: name 'sum_Of_product' is not defined. Did you mean: 'sum_of_product'?,591,2153,False
+thinking_on,Mbpp/596,2,easy,False,NameError: name 'sys' is not defined. Did you forget to import 'sys'?,360,381,False
+thinking_on,Mbpp/602,2,easy,True,,395,444,False
+thinking_on,Mbpp/607,2,easy,False,NameError: name 'find_literals' is not defined,4096,4096,True
+thinking_on,Mbpp/608,2,easy,False,NameError: name 'bell_Number' is not defined,4096,4096,True
+thinking_on,Mbpp/615,2,easy,False,AssertionError,693,814,False
+thinking_on,Mbpp/619,2,easy,False,NameError: name 'move_num' is not defined,4096,4096,True
+thinking_on,Mbpp/620,2,easy,False,SyntaxError: '[' was never closed,4010,4096,True
+thinking_on,Mbpp/623,2,easy,False,NameError: name 'nth_nums' is not defined,4096,4096,True
+thinking_on,Mbpp/63,2,easy,False,"AssertionError: out: 0, exp: 15",1462,1554,False
+thinking_on,Mbpp/635,2,easy,True,,599,810,False
+thinking_on,Mbpp/643,2,easy,False,NameError: name 'text_match_wordz_middle' is not defined,4096,4096,True
+thinking_on,Mbpp/65,2,easy,False,NameError: name 'recursive_list_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/7,2,easy,False,"AssertionError: out: {'characters', 'long.', 'words', 'with', 'least', 'very', 'This', 'long', 'string', 'that'}, exp: {'characters', 'words', 'with', 'least', 'very', 'This', 'long', 'string', 'that'",700,738,False
+thinking_on,Mbpp/726,2,easy,False,NameError: name 'multiply_elements' is not defined,4096,4096,True
+thinking_on,Mbpp/734,2,easy,False,NameError: name 'sum_Of_Subarray_Prod' is not defined,4096,4096,True
+thinking_on,Mbpp/737,2,easy,True,,466,505,False
+thinking_on,Mbpp/739,2,easy,False,NameError: name 'find_Index' is not defined,4096,4096,True
+thinking_on,Mbpp/74,2,easy,False,NameError: name 'is_samepatterns' is not defined,4096,4096,True
+thinking_on,Mbpp/742,2,easy,False,NameError: name 'area_tetrahedron' is not defined,4096,4096,True
+thinking_on,Mbpp/749,2,easy,False,"AssertionError: out: ['-500', '-12', '0', '4', '7', '12', '45', '100', '200'], exp: [-500, -12, 0, 4, 7, 12, 45, 100, 200]",673,696,False
+thinking_on,Mbpp/75,2,easy,True,,423,466,False
+thinking_on,Mbpp/757,2,easy,False,NameError: name 'count_reverse_pairs' is not defined,4096,4096,True
+thinking_on,Mbpp/762,2,easy,True,,504,537,False
+thinking_on,Mbpp/763,2,easy,False,TypeError: find_min_diff() takes 1 positional argument but 2 were given,413,503,False
+thinking_on,Mbpp/766,2,easy,True,,2491,2528,False
+thinking_on,Mbpp/767,2,easy,True,,586,659,False
+thinking_on,Mbpp/770,2,easy,True,,477,548,False
+thinking_on,Mbpp/771,2,easy,False,NameError: name 'check_expression' is not defined,4096,4096,True
+thinking_on,Mbpp/772,2,easy,True,,611,660,False
+thinking_on,Mbpp/773,2,easy,False,NameError: name 'occurance_substring' is not defined,4096,4096,True
+thinking_on,Mbpp/778,2,easy,False,NameError: name 'pack_consecutive_duplicates' is not defined,4096,4096,True
+thinking_on,Mbpp/785,2,easy,False,NameError: name 'tuple_str_int' is not defined,4096,4096,True
+thinking_on,Mbpp/786,2,easy,False,NameError: name 'right_insertion' is not defined,4096,4096,True
+thinking_on,Mbpp/787,2,easy,False,NameError: name 'text_match_three' is not defined,4096,4096,True
+thinking_on,Mbpp/794,2,easy,False,NameError: name 'text_starta_endb' is not defined,4096,4096,True
+thinking_on,Mbpp/796,2,easy,True,,161,181,False
+thinking_on,Mbpp/87,2,easy,True,,1052,1137,False
+thinking_on,Mbpp/88,2,easy,True,,1443,1488,False
+thinking_on,Mbpp/9,2,easy,False,NameError: name 'find_Rotations' is not defined,4096,4096,True
+thinking_on,Mbpp/90,2,easy,True,,2989,3025,False
+thinking_on,Mbpp/91,2,easy,False,NameError: name 'find_substring' is not defined,4096,4096,True
+thinking_on,Mbpp/92,2,easy,False,"AssertionError: out: True, exp: False",986,1053,False
+thinking_on,Mbpp/94,2,easy,False,NameError: name 'index_minimum' is not defined,4096,4096,True
+thinking_on,Mbpp/95,2,easy,False,TypeError: '<' not supported between instances of 'int' and 'list',950,1015,False
+thinking_on,Mbpp/98,2,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,286,378,False
+thinking_on,Mbpp/99,2,easy,False,"AssertionError: out: , exp: -101",642,707,False
+thinking_on,Mbpp/581,3,easy,False,NameError: name 'surface_Area' is not defined,4096,4096,True
+thinking_on,Mbpp/587,3,easy,False,NameError: name 'list_tuple' is not defined,4097,4097,True
+thinking_on,Mbpp/589,3,easy,False,NameError: name 'perfect_squares' is not defined,4096,4096,True
+thinking_on,Mbpp/592,3,easy,False,"AssertionError: out: 12, exp: 15",1510,1570,False
+thinking_on,Mbpp/596,3,easy,False,NameError: name 'sys' is not defined. Did you forget to import 'sys'?,603,624,False
+thinking_on,Mbpp/602,3,easy,True,,466,515,False
+thinking_on,Mbpp/607,3,easy,False,"AssertionError: out: (None, None, None), exp: None",1026,1083,False
+thinking_on,Mbpp/608,3,easy,False,NameError: name 'bell_Number' is not defined,4096,4096,True
+thinking_on,Mbpp/615,3,easy,False,NameError: name 'average_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/619,3,easy,False,NameError: name 'move_num' is not defined,4096,4096,True
+thinking_on,Mbpp/620,3,easy,False,NameError: name 'largest_subset' is not defined,4096,4096,True
+thinking_on,Mbpp/623,3,easy,True,,2906,2933,False
+thinking_on,Mbpp/63,3,easy,False,"AssertionError: out: 0, exp: 15",2034,2094,False
+thinking_on,Mbpp/635,3,easy,True,,2374,2600,False
+thinking_on,Mbpp/643,3,easy,False,"AssertionError: out: False, exp: True",551,632,False
+thinking_on,Mbpp/65,3,easy,True,,628,741,False
+thinking_on,Mbpp/7,3,easy,False,NameError: name 'find_char_long' is not defined,4096,4096,True
+thinking_on,Mbpp/726,3,easy,True,,515,564,False
+thinking_on,Mbpp/734,3,easy,False,NameError: name 'sum_Of_Subarray_Prod' is not defined. Did you mean: 'sum_of_subarray_prod'?,1229,1341,False
+thinking_on,Mbpp/737,3,easy,True,,630,663,False
+thinking_on,Mbpp/739,3,easy,False,NameError: name 'find_Index' is not defined,4096,4096,True
+thinking_on,Mbpp/74,3,easy,False,NameError: name 'is_samepatterns' is not defined,4096,4096,True
+thinking_on,Mbpp/742,3,easy,False,NameError: name 'area_tetrahedron' is not defined,4096,4096,True
+thinking_on,Mbpp/749,3,easy,False,"AssertionError: out: ['-500', '-12', '0', '4', '7', '12', '45', '100', '200'], exp: [-500, -12, 0, 4, 7, 12, 45, 100, 200]",532,559,False
+thinking_on,Mbpp/75,3,easy,True,,480,520,False
+thinking_on,Mbpp/757,3,easy,False,"AssertionError: out: 0, exp: 1",577,894,False
+thinking_on,Mbpp/762,3,easy,True,,729,779,False
+thinking_on,Mbpp/763,3,easy,False,TypeError: find_min_diff() takes 1 positional argument but 2 were given,2020,2086,False
+thinking_on,Mbpp/766,3,easy,False,NameError: name 'pair_wise' is not defined,4096,4096,True
+thinking_on,Mbpp/767,3,easy,True,,456,531,False
+thinking_on,Mbpp/770,3,easy,True,,918,979,False
+thinking_on,Mbpp/771,3,easy,False,"AssertionError: out: True, exp: False",613,714,False
+thinking_on,Mbpp/772,3,easy,True,,623,672,False
+thinking_on,Mbpp/773,3,easy,False,NameError: name 'occurance_substring' is not defined. Did you mean: 'occurrence_substring'?,678,758,False
+thinking_on,Mbpp/778,3,easy,False,NameError: name 'pack_consecutive_duplicates' is not defined,4096,4096,True
+thinking_on,Mbpp/785,3,easy,False,ValueError: invalid literal for int() with base 10: '(7',500,578,False
+thinking_on,Mbpp/786,3,easy,False,NameError: name 'right_insertion' is not defined,4096,4096,True
+thinking_on,Mbpp/787,3,easy,True,,541,564,False
+thinking_on,Mbpp/794,3,easy,False,NameError: name 'text_starta_endb' is not defined,4096,4096,True
+thinking_on,Mbpp/796,3,easy,True,,1335,1355,False
+thinking_on,Mbpp/87,3,easy,False,NameError: name 'merge_dictionaries_three' is not defined,4096,4096,True
+thinking_on,Mbpp/88,3,easy,True,,501,527,False
+thinking_on,Mbpp/9,3,easy,False,NameError: name 'find_Rotations' is not defined,4096,4096,True
+thinking_on,Mbpp/90,3,easy,True,,400,425,False
+thinking_on,Mbpp/91,3,easy,False,NameError: name 'find_substring' is not defined,4096,4096,True
+thinking_on,Mbpp/92,3,easy,False,NameError: name 'is_undulating' is not defined,4096,4096,True
+thinking_on,Mbpp/94,3,easy,True,,661,702,False
+thinking_on,Mbpp/95,3,easy,True,,714,757,False
+thinking_on,Mbpp/98,3,easy,False,NameError: name 'multiply_num' is not defined,4096,4096,True
+thinking_on,Mbpp/99,3,easy,False,NameError: name 'decimal_to_binary' is not defined,4096,4096,True
+thinking_on,Mbpp/118,0,easy,True,,369,390,False
+thinking_on,Mbpp/119,0,easy,False,"AssertionError: out: None, exp: 0",934,1010,False
+thinking_on,Mbpp/12,0,easy,True,,527,581,False
+thinking_on,Mbpp/126,0,easy,False,TypeError: 'int' object is not iterable,477,552,False
+thinking_on,Mbpp/130,0,easy,True,,3702,3746,False
+thinking_on,Mbpp/133,0,easy,True,,396,478,False
+thinking_on,Mbpp/137,0,easy,False,NameError: name 'zero_count' is not defined,459,537,False
+thinking_on,Mbpp/14,0,easy,False,NameError: name 'find_Volume' is not defined,4096,4096,True
+thinking_on,Mbpp/140,0,easy,False,NameError: name 'extract_singly' is not defined,4096,4096,True
+thinking_on,Mbpp/145,0,easy,False,ValueError: Array must contain at least 2 elements,382,432,False
+thinking_on,Mbpp/16,0,easy,False,"AssertionError: out: True, exp: False",3758,3779,False
+thinking_on,Mbpp/161,0,easy,True,,360,396,False
+thinking_on,Mbpp/170,0,easy,True,,523,630,False
+thinking_on,Mbpp/171,0,easy,True,,2801,2825,False
+thinking_on,Mbpp/222,0,easy,True,,1463,1521,False
+thinking_on,Mbpp/224,0,easy,True,,393,418,False
+thinking_on,Mbpp/227,0,easy,True,,2518,2546,False
+thinking_on,Mbpp/233,0,easy,False,NameError: name 'lateralsuface_cylinder' is not defined,4096,4096,True
+thinking_on,Mbpp/234,0,easy,True,,2289,2309,False
+thinking_on,Mbpp/237,0,easy,False,NameError: name 'check_occurences' is not defined,4096,4096,True
+thinking_on,Mbpp/244,0,easy,False,"AssertionError: out: 1, exp: 0",724,798,False
+thinking_on,Mbpp/252,0,easy,True,,371,411,False
+thinking_on,Mbpp/265,0,easy,False,NameError: name 'list_split' is not defined,4096,4096,True
+thinking_on,Mbpp/272,0,easy,True,,2353,2380,False
+thinking_on,Mbpp/280,0,easy,True,,392,486,False
+thinking_on,Mbpp/294,0,easy,False,NameError: name 'max_val' is not defined,4095,4095,True
+thinking_on,Mbpp/309,0,easy,True,,1736,1758,False
+thinking_on,Mbpp/311,0,easy,False,"AssertionError: out: 10, exp: 14",631,722,False
+thinking_on,Mbpp/391,0,easy,False,NameError: name 'convert_list_dictionary' is not defined,4096,4096,True
+thinking_on,Mbpp/405,0,easy,False,NameError: name 'check_tuplex' is not defined,4096,4096,True
+thinking_on,Mbpp/406,0,easy,True,,220,244,False
+thinking_on,Mbpp/409,0,easy,False,NameError: name 'min_product_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/412,0,easy,True,,2351,2382,False
+thinking_on,Mbpp/414,0,easy,True,,365,467,False
+thinking_on,Mbpp/418,0,easy,True,,471,545,False
+thinking_on,Mbpp/420,0,easy,True,,723,789,False
+thinking_on,Mbpp/424,0,easy,True,,296,324,False
+thinking_on,Mbpp/426,0,easy,False,NameError: name 'filter_oddnumbers' is not defined,4095,4095,True
+thinking_on,Mbpp/428,0,easy,True,,583,702,False
+thinking_on,Mbpp/447,0,easy,True,,2533,2559,False
+thinking_on,Mbpp/455,0,easy,False,NameError: name 'check_monthnumb_number' is not defined,4096,4096,True
+thinking_on,Mbpp/459,0,easy,True,,930,961,False
+thinking_on,Mbpp/460,0,easy,False,NameError: name 'Extract' is not defined,4096,4096,True
+thinking_on,Mbpp/462,0,easy,False,NameError: name 'combinations_list' is not defined,4096,4096,True
+thinking_on,Mbpp/470,0,easy,True,,515,549,False
+thinking_on,Mbpp/472,0,easy,True,,710,776,False
+thinking_on,Mbpp/475,0,easy,False,"AssertionError: out: [('key', 81), ('key', 83), ('key', 87)], exp: [('Chemistry', 87), ('Physics', 83), ('Math', 81)]",437,475,False
+thinking_on,Mbpp/476,0,easy,True,,236,284,False
+thinking_on,Mbpp/477,0,easy,False,NameError: name 'is_lower' is not defined,89,155,False
+thinking_on,Mbpp/479,0,easy,True,,867,897,False
+thinking_on,Mbpp/559,0,easy,False,NameError: name 'max_sub_array_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/569,0,easy,True,,899,926,False
+thinking_on,Mbpp/573,0,easy,True,,441,532,False
+thinking_on,Mbpp/577,0,easy,False,"TypeError: list indices must be integers or slices, not float",2804,2858,False
+thinking_on,Mbpp/580,0,easy,False,NameError: name 'extract_even' is not defined,4096,4096,True
+thinking_on,Mbpp/585,0,easy,True,,1755,1797,False
+thinking_on,Mbpp/59,0,easy,False,NameError: name 'is_octagonal' is not defined,4096,4096,True
+thinking_on,Mbpp/591,0,easy,False,NameError: name 'swap_List' is not defined,4096,4096,True
+thinking_on,Mbpp/599,0,easy,True,,416,500,False
+thinking_on,Mbpp/603,0,easy,False,NameError: name 'get_ludic' is not defined,4096,4096,True
+thinking_on,Mbpp/604,0,easy,False,"AssertionError: out: nohtyp margorp, exp: program python",516,561,False
+thinking_on,Mbpp/606,0,easy,True,,221,285,False
+thinking_on,Mbpp/612,0,easy,True,,2173,2214,False
+thinking_on,Mbpp/616,0,easy,True,,390,427,False
+thinking_on,Mbpp/629,0,easy,True,,860,910,False
+thinking_on,Mbpp/632,0,easy,False,NameError: name 'move_zero' is not defined,4096,4096,True
+thinking_on,Mbpp/633,0,easy,False,"AssertionError: out: 235, exp: 202",776,870,False
+thinking_on,Mbpp/66,0,easy,True,,1935,1964,False
+thinking_on,Mbpp/67,0,easy,False,NameError: name 'bell_number' is not defined,4096,4096,True
+thinking_on,Mbpp/68,0,easy,True,,1861,2029,False
+thinking_on,Mbpp/721,0,easy,False,NameError: name 'maxAverageOfPath' is not defined,4096,4096,True
+thinking_on,Mbpp/723,0,easy,True,,2626,2682,False
+thinking_on,Mbpp/725,0,easy,True,,1253,1283,False
+thinking_on,Mbpp/728,0,easy,True,,304,340,False
+thinking_on,Mbpp/732,0,easy,False,NameError: name 'replace_specialchar' is not defined,4096,4096,True
+thinking_on,Mbpp/733,0,easy,True,,656,768,False
+thinking_on,Mbpp/735,0,easy,False,NameError: name 'toggle_middle_bits' is not defined,4096,4096,True
+thinking_on,Mbpp/736,0,easy,False,timeout,985,1068,False
+thinking_on,Mbpp/741,0,easy,True,,605,646,False
+thinking_on,Mbpp/744,0,easy,True,,251,276,False
+thinking_on,Mbpp/745,0,easy,False,ZeroDivisionError: integer modulo by zero,1397,1501,False
+thinking_on,Mbpp/753,0,easy,False,"AssertionError: out: [('Amer', 11)], exp: [('Ayesha', 9)]",828,948,False
+thinking_on,Mbpp/754,0,easy,True,,1011,1119,False
+thinking_on,Mbpp/758,0,easy,False,NameError: name 'unique_sublists' is not defined,568,643,False
+thinking_on,Mbpp/760,0,easy,False,NameError: name 'unique_Element' is not defined. Did you mean: 'unique_element'?,397,430,False
+thinking_on,Mbpp/775,0,easy,False,NameError: name 'odd_position' is not defined,508,558,False
+thinking_on,Mbpp/780,0,easy,False,NameError: name 'find_combinations' is not defined,4096,4096,True
+thinking_on,Mbpp/784,0,easy,False,TypeError: unsupported operand type(s) for *: 'NoneType' and 'int',1916,1999,False
+thinking_on,Mbpp/79,0,easy,True,,415,440,False
+thinking_on,Mbpp/790,0,easy,False,"AssertionError: out: True, exp: False",549,598,False
+thinking_on,Mbpp/793,0,easy,True,,1439,1558,False
+thinking_on,Mbpp/798,0,easy,True,,91,129,False
+thinking_on,Mbpp/8,0,easy,True,,301,327,False
+thinking_on,Mbpp/807,0,easy,True,,294,333,False
+thinking_on,Mbpp/808,0,easy,True,,326,348,False
+thinking_on,Mbpp/82,0,easy,True,,341,372,False
+thinking_on,Mbpp/84,0,easy,False,NameError: name 'sequence' is not defined,4096,4096,True
+thinking_on,Mbpp/85,0,easy,True,,250,280,False
+thinking_on,Mbpp/93,0,easy,False,NameError: name 'power' is not defined,4096,4096,True
+thinking_on,Mbpp/96,0,easy,True,,2861,2951,False
+thinking_on,Mbpp/118,1,easy,False,"AssertionError: out: [], exp: ['']",441,461,False
+thinking_on,Mbpp/119,1,easy,False,NameError: name 'search' is not defined,4096,4096,True
+thinking_on,Mbpp/12,1,easy,True,,669,769,False
+thinking_on,Mbpp/126,1,easy,False,TypeError: 'int' object is not iterable,806,862,False
+thinking_on,Mbpp/130,1,easy,True,,1106,1207,False
+thinking_on,Mbpp/133,1,easy,True,,1516,1546,False
+thinking_on,Mbpp/137,1,easy,False,NameError: name 'zero_count' is not defined,4096,4096,True
+thinking_on,Mbpp/14,1,easy,False,NameError: name 'find_Volume' is not defined,4096,4096,True
+thinking_on,Mbpp/140,1,easy,True,,677,721,False
+thinking_on,Mbpp/145,1,easy,False,NameError: name 'max_Abs_Diff' is not defined,4096,4096,True
+thinking_on,Mbpp/16,1,easy,False,"AssertionError: out: True, exp: False",498,531,False
+thinking_on,Mbpp/161,1,easy,True,,559,670,False
+thinking_on,Mbpp/170,1,easy,False,NameError: name 'sum_range_list' is not defined,4096,4096,True
+thinking_on,Mbpp/171,1,easy,True,,2067,2091,False
+thinking_on,Mbpp/222,1,easy,False,NameError: name 'check_type' is not defined,4096,4096,True
+thinking_on,Mbpp/224,1,easy,True,,435,460,False
+thinking_on,Mbpp/227,1,easy,True,,314,342,False
+thinking_on,Mbpp/233,1,easy,True,,2266,2300,False
+thinking_on,Mbpp/234,1,easy,True,,1771,1791,False
+thinking_on,Mbpp/237,1,easy,False,"AssertionError: out: {(3, 1): 1, (1, 3): 1, (2, 5): 1, (5, 2): 1, (6, 3): 1}, exp: {(1, 3): 2, (2, 5): 2, (3, 6): 1}",616,670,False
+thinking_on,Mbpp/244,1,easy,False,ValueError: Input must be a non-negative integer,569,659,False
+thinking_on,Mbpp/252,1,easy,False,NameError: name 'convert' is not defined,4096,4096,True
+thinking_on,Mbpp/265,1,easy,False,NameError: name 'list_split' is not defined,4096,4096,True
+thinking_on,Mbpp/272,1,easy,False,IndexError: tuple index out of range,323,352,False
+thinking_on,Mbpp/280,1,easy,True,,302,351,False
+thinking_on,Mbpp/294,1,easy,False,NameError: name 'max_val' is not defined,4096,4096,True
+thinking_on,Mbpp/309,1,easy,True,,208,232,False
+thinking_on,Mbpp/311,1,easy,False,NameError: name 'set_left_most_unset_bit' is not defined,4096,4096,True
+thinking_on,Mbpp/391,1,easy,False,NameError: name 'convert_list_dictionary' is not defined,4096,4096,True
+thinking_on,Mbpp/405,1,easy,False,"TypeError: 'in <string>' requires string as left operand, not tuple",247,270,False
+thinking_on,Mbpp/406,1,easy,True,,261,285,False
+thinking_on,Mbpp/409,1,easy,True,,1185,1248,False
+thinking_on,Mbpp/412,1,easy,True,,392,423,False
+thinking_on,Mbpp/414,1,easy,True,,411,451,False
+thinking_on,Mbpp/418,1,easy,True,,511,585,False
+thinking_on,Mbpp/420,1,easy,True,,754,806,False
+thinking_on,Mbpp/424,1,easy,True,,317,344,False
+thinking_on,Mbpp/426,1,easy,False,NameError: name 'filter_oddnumbers' is not defined,4096,4096,True
+thinking_on,Mbpp/428,1,easy,False,timeout,1307,1423,False
+thinking_on,Mbpp/447,1,easy,True,,2063,2089,False
+thinking_on,Mbpp/455,1,easy,True,,1069,1144,False
+thinking_on,Mbpp/459,1,easy,False,"AssertionError: out: castyourfavoritetvshows, exp: cstyoravoitshos",437,464,False
+thinking_on,Mbpp/460,1,easy,True,,627,655,False
+thinking_on,Mbpp/462,1,easy,False,NameError: name 'combinations_list' is not defined,4096,4096,True
+thinking_on,Mbpp/470,1,easy,False,TypeError: 'int' object is not iterable,341,385,False
+thinking_on,Mbpp/472,1,easy,True,,623,689,False
+thinking_on,Mbpp/475,1,easy,True,,389,486,False
+thinking_on,Mbpp/476,1,easy,True,,246,310,False
+thinking_on,Mbpp/477,1,easy,True,,214,233,False
+thinking_on,Mbpp/479,1,easy,False,"AssertionError: out: 1, exp: 1",765,788,False
+thinking_on,Mbpp/559,1,easy,False,NameError: name 'max_sub_array_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/569,1,easy,True,,1506,1533,False
+thinking_on,Mbpp/573,1,easy,True,,513,610,False
+thinking_on,Mbpp/577,1,easy,False,TypeError: 'float' object cannot be interpreted as an integer,552,619,False
+thinking_on,Mbpp/580,1,easy,False,"AssertionError: out: (4, 5, 6, 8), exp: (4, (6, (2, 4)), 6, 8)",657,747,False
+thinking_on,Mbpp/585,1,easy,True,,362,418,False
+thinking_on,Mbpp/59,1,easy,True,,581,608,False
+thinking_on,Mbpp/591,1,easy,False,NameError: name 'swap_List' is not defined,4096,4096,True
+thinking_on,Mbpp/599,1,easy,True,,735,797,False
+thinking_on,Mbpp/603,1,easy,False,"AssertionError: out: [1, 2, 3, 5, 7, 11, 13, 17, 19, 23], exp: [1, 2, 3, 5, 7, 11, 13, 17, 23, 25]",2144,2294,False
+thinking_on,Mbpp/604,1,easy,True,,410,440,False
+thinking_on,Mbpp/606,1,easy,True,,166,225,False
+thinking_on,Mbpp/612,1,easy,False,NameError: name 'merge' is not defined,4096,4096,True
+thinking_on,Mbpp/616,1,easy,True,,345,382,False
+thinking_on,Mbpp/629,1,easy,True,,369,399,False
+thinking_on,Mbpp/632,1,easy,True,,437,489,False
+thinking_on,Mbpp/633,1,easy,False,TypeError: pair_xor_Sum() takes 1 positional argument but 2 were given,714,773,False
+thinking_on,Mbpp/66,1,easy,True,,3232,3261,False
+thinking_on,Mbpp/67,1,easy,False,"AssertionError: out: 0, exp: 1",653,886,False
+thinking_on,Mbpp/68,1,easy,False,"AssertionError: out: False, exp: True",633,753,False
+thinking_on,Mbpp/721,1,easy,False,NameError: name 'maxAverageOfPath' is not defined,4096,4096,True
+thinking_on,Mbpp/723,1,easy,False,NameError: name 'count_same_pair' is not defined,4096,4096,True
+thinking_on,Mbpp/725,1,easy,False,NameError: name 'extract_quotation' is not defined,4096,4096,True
+thinking_on,Mbpp/728,1,easy,False,NameError: name 'sum_list' is not defined,4096,4096,True
+thinking_on,Mbpp/732,1,easy,True,,640,671,False
+thinking_on,Mbpp/733,1,easy,False,NameError: name 'find_first_occurrence' is not defined,4096,4096,True
+thinking_on,Mbpp/735,1,easy,False,NameError: name 'toggle_middle_bits' is not defined,4096,4096,True
+thinking_on,Mbpp/736,1,easy,True,,589,667,False
+thinking_on,Mbpp/741,1,easy,True,,569,610,False
+thinking_on,Mbpp/744,1,easy,True,,323,348,False
+thinking_on,Mbpp/745,1,easy,False,ZeroDivisionError: integer modulo by zero,744,888,False
+thinking_on,Mbpp/753,1,easy,True,,420,485,False
+thinking_on,Mbpp/754,1,easy,False,NameError: name 'extract_index_list' is not defined,4096,4096,True
+thinking_on,Mbpp/758,1,easy,False,NameError: name 'unique_sublists' is not defined,704,739,False
+thinking_on,Mbpp/760,1,easy,True,,664,697,False
+thinking_on,Mbpp/775,1,easy,True,,627,692,False
+thinking_on,Mbpp/780,1,easy,False,ValueError: too many values to unpack (expected 2),663,4096,True
+thinking_on,Mbpp/784,1,easy,False,NameError: name 'mul_even_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/79,1,easy,True,,954,989,False
+thinking_on,Mbpp/790,1,easy,False,"AssertionError: out: True, exp: False",388,439,False
+thinking_on,Mbpp/793,1,easy,True,,493,528,False
+thinking_on,Mbpp/798,1,easy,True,,2587,2606,False
+thinking_on,Mbpp/8,1,easy,True,,412,512,False
+thinking_on,Mbpp/807,1,easy,False,NameError: name 'first_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/808,1,easy,True,,2887,2909,False
+thinking_on,Mbpp/82,1,easy,True,,543,574,False
+thinking_on,Mbpp/84,1,easy,False,NameError: name 'sequence' is not defined,4096,4096,True
+thinking_on,Mbpp/85,1,easy,False,NameError: name 'surfacearea_sphere' is not defined,4096,4096,True
+thinking_on,Mbpp/93,1,easy,False,NameError: name 'power' is not defined,4096,4096,True
+thinking_on,Mbpp/96,1,easy,True,,1269,1359,False
+thinking_on,Mbpp/118,2,easy,True,,436,457,False
+thinking_on,Mbpp/119,2,easy,False,"AssertionError: out: 2, exp: 3",718,4096,True
+thinking_on,Mbpp/12,2,easy,True,,824,850,False
+thinking_on,Mbpp/126,2,easy,False,TypeError: 'int' object is not iterable,1666,1768,False
+thinking_on,Mbpp/130,2,easy,False,NameError: name 'max_occurrences' is not defined,4095,4095,True
+thinking_on,Mbpp/133,2,easy,True,,3054,3084,False
+thinking_on,Mbpp/137,2,easy,False,NameError: name 'zero_count' is not defined,713,875,False
+thinking_on,Mbpp/14,2,easy,True,,432,491,False
+thinking_on,Mbpp/140,2,easy,False,NameError: name 'extract_singly' is not defined,4096,4096,True
+thinking_on,Mbpp/145,2,easy,True,,254,291,False
+thinking_on,Mbpp/16,2,easy,False,"AssertionError: out: False, exp: True",1123,1215,False
+thinking_on,Mbpp/161,2,easy,True,,683,719,False
+thinking_on,Mbpp/170,2,easy,False,NameError: name 'sum_range_list' is not defined,4096,4096,True
+thinking_on,Mbpp/171,2,easy,False,NameError: name 'perimeter_pentagon' is not defined,4096,4096,True
+thinking_on,Mbpp/222,2,easy,True,,597,659,False
+thinking_on,Mbpp/224,2,easy,True,,237,262,False
+thinking_on,Mbpp/227,2,easy,True,,104,132,False
+thinking_on,Mbpp/233,2,easy,True,,1152,1186,False
+thinking_on,Mbpp/234,2,easy,True,,1202,1235,False
+thinking_on,Mbpp/237,2,easy,False,NameError: name 'check_occurences' is not defined,4096,4096,True
+thinking_on,Mbpp/244,2,easy,False,"AssertionError: out: 1, exp: 0",913,1009,False
+thinking_on,Mbpp/252,2,easy,True,,743,827,False
+thinking_on,Mbpp/265,2,easy,False,NameError: name 'list_split' is not defined,4096,4096,True
+thinking_on,Mbpp/272,2,easy,True,,2477,2504,False
+thinking_on,Mbpp/280,2,easy,True,,393,442,False
+thinking_on,Mbpp/294,2,easy,False,NameError: name 'max_val' is not defined,4096,4096,True
+thinking_on,Mbpp/309,2,easy,True,,181,203,False
+thinking_on,Mbpp/311,2,easy,False,NameError: name 'set_left_most_unset_bit' is not defined,4096,4096,True
+thinking_on,Mbpp/391,2,easy,False,AssertionError,654,860,False
+thinking_on,Mbpp/405,2,easy,True,,220,244,False
+thinking_on,Mbpp/406,2,easy,True,,169,193,False
+thinking_on,Mbpp/409,2,easy,False,NameError: name 'min_product_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/412,2,easy,True,,592,623,False
+thinking_on,Mbpp/414,2,easy,True,,672,712,False
+thinking_on,Mbpp/418,2,easy,True,,657,741,False
+thinking_on,Mbpp/420,2,easy,True,,927,964,False
+thinking_on,Mbpp/424,2,easy,False,NameError: name 'extract_rear' is not defined,4096,4096,True
+thinking_on,Mbpp/426,2,easy,True,,1370,1402,False
+thinking_on,Mbpp/428,2,easy,False,NameError: name 'shell_sort' is not defined,4096,4096,True
+thinking_on,Mbpp/447,2,easy,True,,340,446,False
+thinking_on,Mbpp/455,2,easy,True,,494,621,False
+thinking_on,Mbpp/459,2,easy,False,NameError: name 'remove_uppercase' is not defined,4096,4096,True
+thinking_on,Mbpp/460,2,easy,False,"AssertionError: out: [1, 2, 3, 4, 5, 6, 7, 8, 9], exp: [1, 3, 6]",249,277,False
+thinking_on,Mbpp/462,2,easy,False,"AssertionError: out: [[], ['orange'], ['red'], ['green'], ['blue'], ['orange', 'red'], ['orange', 'green'], ['orange', 'blue'], ['red', 'green'], ['red', 'blue'], ['green', 'blue'], ['orange', 'red', ",996,1110,False
+thinking_on,Mbpp/470,2,easy,False,NameError: name 'add_pairwise' is not defined,4096,4096,True
+thinking_on,Mbpp/472,2,easy,True,,952,1017,False
+thinking_on,Mbpp/475,2,easy,False,"AssertionError: out: [('Math', 81), ('Physics', 83), ('Chemistry', 87)], exp: [('Chemistry', 87), ('Physics', 83), ('Math', 81)]",3196,3224,False
+thinking_on,Mbpp/476,2,easy,True,,2414,2437,False
+thinking_on,Mbpp/477,2,easy,True,,211,230,False
+thinking_on,Mbpp/479,2,easy,False,NameError: name 'first_Digit' is not defined,4096,4096,True
+thinking_on,Mbpp/559,2,easy,False,NameError: name 'max_sub_array_sum' is not defined,4096,4096,True
+thinking_on,Mbpp/569,2,easy,False,"AssertionError: out: [[['green', 'orange'], ['black', 'white'], ['black', 'orange', 'white']]], exp: [['green', 'orange'], ['black', 'white'], ['black', 'orange', 'white']]",634,664,False
+thinking_on,Mbpp/573,2,easy,True,,704,835,False
+thinking_on,Mbpp/577,2,easy,False,TypeError: 'float' object cannot be interpreted as an integer,1148,1223,False
+thinking_on,Mbpp/580,2,easy,False,NameError: name 'extract_even' is not defined,4096,4096,True
+thinking_on,Mbpp/585,2,easy,True,,197,257,False
+thinking_on,Mbpp/59,2,easy,False,NameError: name 'is_octagonal' is not defined,4096,4096,True
+thinking_on,Mbpp/591,2,easy,False,NameError: name 'swap_List' is not defined,4096,4096,True
+thinking_on,Mbpp/599,2,easy,False,NameError: name 'sum_average' is not defined,4096,4096,True
+thinking_on,Mbpp/603,2,easy,False,"AssertionError: out: [1, 2, 3, 5, 7, 11, 13, 17, 19, 23], exp: [1, 2, 3, 5, 7, 11, 13, 17, 23, 25]",1214,1328,False
+thinking_on,Mbpp/604,2,easy,True,,423,453,False
+thinking_on,Mbpp/606,2,easy,True,,228,260,False
+thinking_on,Mbpp/612,2,easy,False,"AssertionError: out: [['x', 'a'], ['y', 'b']], exp: [['x', 'a', 'm'], ['y', 'b', 'n']]",942,1009,False
+thinking_on,Mbpp/616,2,easy,True,,2910,2947,False
+thinking_on,Mbpp/629,2,easy,False,NameError: name 'Split' is not defined,4096,4096,True
+thinking_on,Mbpp/632,2,easy,False,"AssertionError: out: [1, 2, 3, 4, 0, 0, 0, 0, 0, 0], exp: [1, 2, 3, 4, 0, 0]",318,366,False
+thinking_on,Mbpp/633,2,easy,False,TypeError: pair_xor_Sum() takes 1 positional argument but 2 were given,773,837,False
+thinking_on,Mbpp/66,2,easy,True,,306,350,False
+thinking_on,Mbpp/67,2,easy,True,,1100,1473,False
+thinking_on,Mbpp/68,2,easy,False,NameError: name 'is_Monotonic' is not defined,4096,4096,True
+thinking_on,Mbpp/721,2,easy,False,NameError: name 'maxAverageOfPath' is not defined,4096,4096,True
+thinking_on,Mbpp/723,2,easy,True,,2912,2953,False
+thinking_on,Mbpp/725,2,easy,False,NameError: name 'extract_quotation' is not defined,4096,4096,True
+thinking_on,Mbpp/728,2,easy,True,,309,374,False
+thinking_on,Mbpp/732,2,easy,False,NameError: name 'replace_specialchar' is not defined,4096,4096,True
+thinking_on,Mbpp/733,2,easy,True,,684,803,False
+thinking_on,Mbpp/735,2,easy,False,NameError: name 'toggle_middle_bits' is not defined,4096,4096,True
+thinking_on,Mbpp/736,2,easy,True,,471,585,False
+thinking_on,Mbpp/741,2,easy,False,"AssertionError: out: False, exp: True",478,519,False
+thinking_on,Mbpp/744,2,easy,True,,352,377,False
+thinking_on,Mbpp/745,2,easy,False,ZeroDivisionError: integer modulo by zero,1634,1759,False
+thinking_on,Mbpp/753,2,easy,True,,633,764,False
+thinking_on,Mbpp/754,2,easy,True,,647,730,False
+thinking_on,Mbpp/758,2,easy,False,NameError: name 'unique_sublists' is not defined,443,485,False
+thinking_on,Mbpp/760,2,easy,True,,405,442,False
+thinking_on,Mbpp/775,2,easy,True,,652,701,False
+thinking_on,Mbpp/780,2,easy,False,NameError: name 'find_combinations' is not defined,4096,4096,True
+thinking_on,Mbpp/784,2,easy,False,NameError: name 'mul_even_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/79,2,easy,False,NameError: name 'word_len' is not defined,4096,4096,True
+thinking_on,Mbpp/790,2,easy,False,"AssertionError: out: True, exp: False",607,656,False
+thinking_on,Mbpp/793,2,easy,True,,882,1132,False
+thinking_on,Mbpp/798,2,easy,True,,161,180,False
+thinking_on,Mbpp/8,2,easy,True,,216,242,False
+thinking_on,Mbpp/807,2,easy,True,,400,439,False
+thinking_on,Mbpp/808,2,easy,True,,3439,3460,False
+thinking_on,Mbpp/82,2,easy,True,,347,378,False
+thinking_on,Mbpp/84,2,easy,False,NameError: name 'sequence' is not defined,4093,4093,True
+thinking_on,Mbpp/85,2,easy,True,,598,628,False
+thinking_on,Mbpp/93,2,easy,True,,172,192,False
+thinking_on,Mbpp/96,2,easy,True,,615,701,False
+thinking_on,Mbpp/118,3,easy,True,,411,453,False
+thinking_on,Mbpp/119,3,easy,False,NameError: name 'search' is not defined,4096,4096,True
+thinking_on,Mbpp/12,3,easy,True,,1052,1158,False
+thinking_on,Mbpp/126,3,easy,False,TypeError: 'int' object is not iterable,1335,1427,False
+thinking_on,Mbpp/130,3,easy,True,,2218,2272,False
+thinking_on,Mbpp/133,3,easy,True,,391,467,False
+thinking_on,Mbpp/137,3,easy,False,NameError: name 'zero_count' is not defined,687,767,False
+thinking_on,Mbpp/14,3,easy,True,,414,445,False
+thinking_on,Mbpp/140,3,easy,True,,588,632,False
+thinking_on,Mbpp/145,3,easy,True,,226,263,False
+thinking_on,Mbpp/16,3,easy,False,NameError: name 'text_lowercase_underscore' is not defined,4096,4096,True
+thinking_on,Mbpp/161,3,easy,True,,2969,3001,False
+thinking_on,Mbpp/170,3,easy,False,NameError: name 'sum_range_list' is not defined,4093,4093,True
+thinking_on,Mbpp/171,3,easy,True,,161,184,False
+thinking_on,Mbpp/222,3,easy,False,NameError: name 'check_type' is not defined,4096,4096,True
+thinking_on,Mbpp/224,3,easy,True,,502,570,False
+thinking_on,Mbpp/227,3,easy,True,,1931,1959,False
+thinking_on,Mbpp/233,3,easy,False,NameError: name 'lateralsuface_cylinder' is not defined,4096,4096,True
+thinking_on,Mbpp/234,3,easy,True,,1228,1248,False
+thinking_on,Mbpp/237,3,easy,False,NameError: name 'check_occurences' is not defined,4096,4096,True
+thinking_on,Mbpp/244,3,easy,False,NameError: name 'next_Perfect_Square' is not defined,4096,4096,True
+thinking_on,Mbpp/252,3,easy,True,,555,583,False
+thinking_on,Mbpp/265,3,easy,False,"AssertionError: out: [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']], exp: [['a', 'd', 'g', 'j', 'm'], ['b', 'e', 'h', 'k', 'n'], ['c', 'f', 'i', 'l']]",828,877,False
+thinking_on,Mbpp/272,3,easy,False,NameError: name 'rear_extract' is not defined,4096,4096,True
+thinking_on,Mbpp/280,3,easy,True,,314,364,False
+thinking_on,Mbpp/294,3,easy,False,NameError: name 'max_val' is not defined,4096,4096,True
+thinking_on,Mbpp/309,3,easy,True,,2286,2308,False
+thinking_on,Mbpp/311,3,easy,False,"AssertionError: out: 26, exp: 14",3180,3239,False
+thinking_on,Mbpp/391,3,easy,False,IndexError: list index out of range,1192,1267,False
+thinking_on,Mbpp/405,3,easy,True,,261,297,False
+thinking_on,Mbpp/406,3,easy,False,NameError: name 'find_Parity' is not defined,4096,4096,True
+thinking_on,Mbpp/409,3,easy,False,NameError: name 'min_product_tuple' is not defined,4096,4096,True
+thinking_on,Mbpp/412,3,easy,True,,1295,1326,False
+thinking_on,Mbpp/414,3,easy,True,,399,429,False
+thinking_on,Mbpp/418,3,easy,True,,491,643,False
+thinking_on,Mbpp/420,3,easy,True,,993,1029,False
+thinking_on,Mbpp/424,3,easy,True,,655,683,False
+thinking_on,Mbpp/426,3,easy,False,NameError: name 'filter_oddnumbers' is not defined,4090,4095,True
+thinking_on,Mbpp/428,3,easy,True,,712,831,False
+thinking_on,Mbpp/447,3,easy,True,,334,360,False
+thinking_on,Mbpp/455,3,easy,True,,934,1066,False
+thinking_on,Mbpp/459,3,easy,False,NameError: name 'remove_uppercase' is not defined,4096,4096,True
+thinking_on,Mbpp/460,3,easy,False,NameError: name 'Extract' is not defined,4096,4096,True
+thinking_on,Mbpp/462,3,easy,False,IndexError: list index out of range,832,4096,True
+thinking_on,Mbpp/470,3,easy,False,NameError: name 'add_pairwise' is not defined,4096,4096,True
+thinking_on,Mbpp/472,3,easy,True,,758,830,False
+thinking_on,Mbpp/475,3,easy,True,,588,619,False
+thinking_on,Mbpp/476,3,easy,True,,115,149,False
+thinking_on,Mbpp/477,3,easy,False,NameError: name 'is_lower' is not defined,4096,4096,True
+thinking_on,Mbpp/479,3,easy,True,,776,825,False
+thinking_on,Mbpp/559,3,easy,False,ValueError: List cannot be empty,1983,2233,False
+thinking_on,Mbpp/569,3,easy,True,,535,562,False
+thinking_on,Mbpp/573,3,easy,True,,462,506,False
+thinking_on,Mbpp/577,3,easy,False,TypeError: 'float' object cannot be interpreted as an integer,1899,1979,False
+thinking_on,Mbpp/580,3,easy,False,NameError: name 'extract_even' is not defined,4096,4096,True
+thinking_on,Mbpp/585,3,easy,True,,458,513,False
+thinking_on,Mbpp/59,3,easy,False,NameError: name 'is_octagonal' is not defined,4096,4096,True
+thinking_on,Mbpp/591,3,easy,False,TypeError: unsupported operand type(s) for +: 'int' and 'list',452,498,False
+thinking_on,Mbpp/599,3,easy,False,NameError: name 'sum_average' is not defined,4096,4096,True
+thinking_on,Mbpp/603,3,easy,False,SyntaxError: '(' was never closed,3984,4096,True
+thinking_on,Mbpp/604,3,easy,False,NameError: name 'reverse_words' is not defined,4096,4096,True
+thinking_on,Mbpp/606,3,easy,True,,180,210,False
+thinking_on,Mbpp/612,3,easy,False,NameError: name 'merge' is not defined,4096,4096,True
+thinking_on,Mbpp/616,3,easy,True,,303,340,False
+thinking_on,Mbpp/629,3,easy,True,,471,521,False
+thinking_on,Mbpp/632,3,easy,False,NameError: name 'move_zero' is not defined. Did you mean: 'move_zeroes'?,596,653,False
+thinking_on,Mbpp/633,3,easy,False,"AssertionError: out: 235, exp: 202",3777,3859,False
+thinking_on,Mbpp/66,3,easy,True,,250,294,False
+thinking_on,Mbpp/67,3,easy,False,"AssertionError: out: 1, exp: 2",3259,3463,False
+thinking_on,Mbpp/68,3,easy,False,NameError: name 'is_Monotonic' is not defined,4096,4096,True
+thinking_on,Mbpp/721,3,easy,False,NameError: name 'maxAverageOfPath' is not defined,4096,4096,True
+thinking_on,Mbpp/723,3,easy,False,NameError: name 'count_same_pair' is not defined,4096,4096,True
+thinking_on,Mbpp/725,3,easy,False,NameError: name 'extract_quotation' is not defined,4096,4096,True
+thinking_on,Mbpp/728,3,easy,True,,1448,1480,False
+thinking_on,Mbpp/732,3,easy,False,NameError: name 'replace_specialchar' is not defined,4095,4095,True
+thinking_on,Mbpp/733,3,easy,False,NameError: name 'find_first_occurrence' is not defined,4096,4096,True
+thinking_on,Mbpp/735,3,easy,False,TypeError: unsupported operand type(s) for ^: 'str' and 'str',731,4096,True
+thinking_on,Mbpp/736,3,easy,True,,483,562,False
+thinking_on,Mbpp/741,3,easy,True,,538,612,False
+thinking_on,Mbpp/744,3,easy,True,,362,381,False
+thinking_on,Mbpp/745,3,easy,False,NameError: name 'divisible_by_digits' is not defined,4096,4096,True
+thinking_on,Mbpp/753,3,easy,True,,1145,1217,False
+thinking_on,Mbpp/754,3,easy,False,NameError: name 'extract_index_list' is not defined,4096,4096,True
+thinking_on,Mbpp/758,3,easy,False,NameError: name 'unique_sublists' is not defined,655,720,False
+thinking_on,Mbpp/760,3,easy,True,,273,296,False
+thinking_on,Mbpp/775,3,easy,False,"AssertionError: out: False, exp: True",563,621,False
+thinking_on,Mbpp/780,3,easy,False,NameError: name 'find_combinations' is not defined,4096,4096,True
+thinking_on,Mbpp/784,3,easy,False,NameError: name 'mul_even_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/79,3,easy,False,NameError: name 'word_len' is not defined,249,276,False
+thinking_on,Mbpp/790,3,easy,False,"AssertionError: out: True, exp: False",589,672,False
+thinking_on,Mbpp/793,3,easy,False,NameError: name 'last' is not defined. Did you mean: 'list'?,4096,4096,True
+thinking_on,Mbpp/798,3,easy,True,,108,190,False
+thinking_on,Mbpp/8,3,easy,True,,2287,2313,False
+thinking_on,Mbpp/807,3,easy,False,NameError: name 'first_odd' is not defined,4096,4096,True
+thinking_on,Mbpp/808,3,easy,True,,177,275,False
+thinking_on,Mbpp/82,3,easy,True,,296,366,False
+thinking_on,Mbpp/84,3,easy,False,NameError: name 'sequence' is not defined,4096,4096,True
+thinking_on,Mbpp/85,3,easy,False,NameError: name 'surfacearea_sphere' is not defined,4096,4096,True
+thinking_on,Mbpp/93,3,easy,True,,200,233,False
+thinking_on,Mbpp/96,3,easy,True,,636,688,False

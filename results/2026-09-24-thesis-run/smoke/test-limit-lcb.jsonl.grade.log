@@ -1,0 +1,7 @@
+1/2 lcb/3705        easy    limit        fail: IndentationError: expected an indented block after function definition on line 5
+2/2 lcb/3709        easy    limit        fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 0/2 (0%) | median thinking 128 | median all tokens 257 | hit the limit 2
+
+saved /content/drive/MyDrive/stop-overthinking/results/thesis/smoke/test-limit-lcb-graded.csv

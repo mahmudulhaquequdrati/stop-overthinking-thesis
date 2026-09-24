@@ -1,0 +1,146 @@
+1/140 lcb/3705        easy    thinking_off fail: wrong answer on test 1
+2/140 lcb/3709        easy    thinking_off fail: wrong answer on test 1
+3/140 lcb/3723        easy    thinking_off fail: wrong answer on test 1
+4/140 lcb/3736        easy    thinking_off fail: wrong answer on test 1
+5/140 lcb/3753        easy    thinking_off fail: wrong answer on test 4
+6/140 lcb/3768        easy    thinking_off PASS
+7/140 lcb/3773        easy    thinking_off fail: timeout on test 1
+8/140 lcb/3778        easy    thinking_off PASS
+9/140 lcb/3788        easy    thinking_off fail: IndexError: list index out of range
+10/140 lcb/3799        easy    thinking_off fail: wrong answer on test 1
+11/140 lcb/3811        easy    thinking_off fail: wrong answer on test 1
+12/140 lcb/3817        easy    thinking_off fail: wrong answer on test 1
+13/140 lcb/3832        easy    thinking_off fail: IndexError: list index out of range
+14/140 lcb/abc391_a    easy    thinking_off PASS
+15/140 lcb/abc391_b    easy    thinking_off fail: wrong answer on test 2
+16/140 lcb/abc392_a    easy    thinking_off PASS
+17/140 lcb/abc392_b    easy    thinking_off PASS
+18/140 lcb/abc393_a    easy    thinking_off fail: wrong answer on test 1
+19/140 lcb/abc393_b    easy    thinking_off PASS
+20/140 lcb/abc394_a    easy    thinking_off PASS
+21/140 lcb/abc394_b    easy    thinking_off PASS
+22/140 lcb/abc395_a    easy    thinking_off PASS
+23/140 lcb/abc395_b    easy    thinking_off fail: IndexError: list assignment index out of range
+24/140 lcb/abc396_a    easy    thinking_off PASS
+25/140 lcb/abc396_b    easy    thinking_off PASS
+26/140 lcb/abc397_a    easy    thinking_off PASS
+27/140 lcb/abc398_a    easy    thinking_off fail: wrong answer on test 1
+28/140 lcb/abc399_a    easy    thinking_off PASS
+29/140 lcb/abc399_b    easy    thinking_off fail: wrong answer on test 1
+30/140 lcb/abc400_a    easy    thinking_off PASS
+31/140 lcb/abc400_b    easy    thinking_off PASS
+32/140 lcb/3722        medium  thinking_off fail: IndexError: list index out of range
+33/140 lcb/3743        medium  thinking_off fail: wrong answer on test 1
+34/140 lcb/3748        medium  thinking_off fail: AttributeError: 'int' object has no attribute 'sort'
+35/140 lcb/3750        medium  thinking_off fail: wrong answer on test 1
+36/140 lcb/3754        medium  thinking_off fail: wrong answer on test 1
+37/140 lcb/3759        medium  thinking_off fail: wrong answer on test 1
+38/140 lcb/3760        medium  thinking_off fail: timeout on test 6
+39/140 lcb/3763        medium  thinking_off fail: wrong answer on test 1
+40/140 lcb/3764        medium  thinking_off fail: wrong answer on test 1
+41/140 lcb/3771        medium  thinking_off fail: IndentationError: expected an indented block after 'if' statement on line 160
+42/140 lcb/3776        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+43/140 lcb/3779        medium  thinking_off fail: wrong answer on test 1
+44/140 lcb/3785        medium  thinking_off fail: KeyError: 1
+45/140 lcb/3786        medium  thinking_off fail: IndexError: list index out of range
+46/140 lcb/3791        medium  thinking_off fail: wrong answer on test 1
+47/140 lcb/3793        medium  thinking_off fail: wrong answer on test 1
+48/140 lcb/3794        medium  thinking_off fail: wrong answer on test 1
+49/140 lcb/3795        medium  thinking_off fail: wrong answer on test 1
+50/140 lcb/3805        medium  thinking_off fail: wrong answer on test 1
+51/140 lcb/3809        medium  thinking_off PASS
+52/140 lcb/abc391_d    medium  thinking_off fail: wrong answer on test 1
+53/140 lcb/abc392_c    medium  thinking_off fail: IndexError: list index out of range
+54/140 lcb/abc392_d    medium  thinking_off fail: wrong answer on test 1
+55/140 lcb/abc394_c    medium  thinking_off fail: wrong answer on test 1
+56/140 lcb/abc394_d    medium  thinking_off fail: wrong answer on test 1
+57/140 lcb/abc395_c    medium  thinking_off fail: wrong answer on test 1
+58/140 lcb/abc396_c    medium  thinking_off fail: wrong answer on test 1
+59/140 lcb/abc396_d    medium  thinking_off PASS
+60/140 lcb/abc397_b    medium  thinking_off fail: wrong answer on test 1
+61/140 lcb/abc397_c    medium  thinking_off fail: wrong answer on test 1
+62/140 lcb/abc398_b    medium  thinking_off PASS
+63/140 lcb/abc398_c    medium  thinking_off fail: wrong answer on test 1
+64/140 lcb/abc399_c    medium  thinking_off PASS
+65/140 lcb/abc399_d    medium  thinking_off fail: SyntaxError: invalid syntax
+66/140 lcb/abc400_c    medium  thinking_off PASS
+67/140 lcb/abc400_d    medium  thinking_off fail: wrong answer on test 1
+68/140 lcb/arc192_a    medium  thinking_off fail: wrong answer on test 6
+69/140 lcb/arc194_a    medium  thinking_off fail: wrong answer on test 1
+70/140 lcb/arc195_a    medium  thinking_off fail: wrong answer on test 1
+71/140 lcb/3705        easy    thinking_off fail: wrong answer on test 1
+72/140 lcb/3709        easy    thinking_off PASS
+73/140 lcb/3723        easy    thinking_off fail: wrong answer on test 1
+74/140 lcb/3736        easy    thinking_off fail: UnboundLocalError: cannot access local variable 'digit' where it is not associated with a value
+75/140 lcb/3753        easy    thinking_off fail: wrong answer on test 3
+76/140 lcb/3768        easy    thinking_off PASS
+77/140 lcb/3773        easy    thinking_off fail: IndexError: list index out of range
+78/140 lcb/3778        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+79/140 lcb/3788        easy    thinking_off fail: UnboundLocalError: cannot access local variable 'dp' where it is not associated with a value
+80/140 lcb/3799        easy    thinking_off fail: wrong answer on test 1
+81/140 lcb/3811        easy    thinking_off fail: wrong answer on test 1
+82/140 lcb/3817        easy    thinking_off PASS
+83/140 lcb/3832        easy    thinking_off fail: wrong answer on test 1
+84/140 lcb/abc391_a    easy    thinking_off PASS
+85/140 lcb/abc391_b    easy    thinking_off fail: IndexError: string index out of range
+86/140 lcb/abc392_a    easy    thinking_off PASS
+87/140 lcb/abc392_b    easy    thinking_off PASS
+88/140 lcb/abc393_a    easy    thinking_off PASS
+89/140 lcb/abc393_b    easy    thinking_off PASS
+90/140 lcb/abc394_a    easy    thinking_off PASS
+91/140 lcb/abc394_b    easy    thinking_off PASS
+92/140 lcb/abc395_a    easy    thinking_off PASS
+93/140 lcb/abc395_b    easy    thinking_off fail: IndexError: list index out of range
+94/140 lcb/abc396_a    easy    thinking_off PASS
+95/140 lcb/abc396_b    easy    thinking_off fail: wrong answer on test 1
+96/140 lcb/abc397_a    easy    thinking_off PASS
+97/140 lcb/abc398_a    easy    thinking_off fail: wrong answer on test 1
+98/140 lcb/abc399_a    easy    thinking_off PASS
+99/140 lcb/abc399_b    easy    thinking_off fail: wrong answer on test 1
+100/140 lcb/abc400_a    easy    thinking_off fail: wrong answer on test 1
+101/140 lcb/abc400_b    easy    thinking_off fail: wrong answer on test 1
+102/140 lcb/3722        medium  thinking_off fail: TypeError: 'int' object is not subscriptable
+103/140 lcb/3743        medium  thinking_off fail: wrong answer on test 1
+104/140 lcb/3748        medium  thinking_off fail: IndexError: list assignment index out of range
+105/140 lcb/3750        medium  thinking_off fail: wrong answer on test 1
+106/140 lcb/3754        medium  thinking_off fail: IndentationError: expected an indented block after 'if' statement on line 27
+107/140 lcb/3759        medium  thinking_off fail: IndentationError: expected an indented block after 'if' statement on line 98
+108/140 lcb/3760        medium  thinking_off fail: timeout on test 6
+109/140 lcb/3763        medium  thinking_off fail: timeout on test 1
+110/140 lcb/3764        medium  thinking_off fail: IndexError: deque index out of range
+111/140 lcb/3771        medium  thinking_off fail: wrong answer on test 1
+112/140 lcb/3776        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+113/140 lcb/3779        medium  thinking_off fail: wrong answer on test 1
+114/140 lcb/3785        medium  thinking_off fail: IndexError: list index out of range
+115/140 lcb/3786        medium  thinking_off fail: wrong answer on test 1
+116/140 lcb/3791        medium  thinking_off fail: wrong answer on test 1
+117/140 lcb/3793        medium  thinking_off fail: wrong answer on test 2
+118/140 lcb/3794        medium  thinking_off fail: wrong answer on test 1
+119/140 lcb/3795        medium  thinking_off fail: IndexError: list index out of range
+120/140 lcb/3805        medium  thinking_off fail: IndexError: list index out of range
+121/140 lcb/3809        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+122/140 lcb/abc391_d    medium  thinking_off fail: wrong answer on test 1
+123/140 lcb/abc392_c    medium  thinking_off fail: wrong answer on test 1
+124/140 lcb/abc392_d    medium  thinking_off fail: wrong answer on test 1
+125/140 lcb/abc394_c    medium  thinking_off fail: wrong answer on test 1
+126/140 lcb/abc394_d    medium  thinking_off fail: wrong answer on test 3
+127/140 lcb/abc395_c    medium  thinking_off fail: wrong answer on test 1
+128/140 lcb/abc396_c    medium  thinking_off fail: wrong answer on test 1
+129/140 lcb/abc396_d    medium  thinking_off PASS
+130/140 lcb/abc397_b    medium  thinking_off fail: wrong answer on test 2
+131/140 lcb/abc397_c    medium  thinking_off PASS
+132/140 lcb/abc398_b    medium  thinking_off fail: wrong answer on test 5
+133/140 lcb/abc398_c    medium  thinking_off fail: wrong answer on test 1
+134/140 lcb/abc399_c    medium  thinking_off fail: UnboundLocalError: cannot access local variable 'components' where it is not associated with a value
+135/140 lcb/abc399_d    medium  thinking_off fail: SyntaxError: invalid syntax
+136/140 lcb/abc400_c    medium  thinking_off fail: IndentationError: expected an indented block after 'for' statement on line 35
+137/140 lcb/abc400_d    medium  thinking_off fail: wrong answer on test 1
+138/140 lcb/arc192_a    medium  thinking_off fail: SyntaxError: invalid decimal literal
+139/140 lcb/arc194_a    medium  thinking_off fail: SyntaxError: unterminated string literal (detected at line 14)
+140/140 lcb/arc195_a    medium  thinking_off fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 29/62 (47%) | median thinking 0 | median all tokens 196 | hit the limit 2
+thinking_off medium   passed 7/78 (9%) | median thinking 0 | median all tokens 963 | hit the limit 30
+
+saved /content/drive/MyDrive/stop-overthinking/results/thesis/test-off-lcb-graded.csv

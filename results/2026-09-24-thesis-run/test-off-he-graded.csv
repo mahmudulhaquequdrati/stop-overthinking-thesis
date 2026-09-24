@@ -1,0 +1,329 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,HumanEval/0,0,easy,False,AssertionError,0,178,False
+thinking_off,HumanEval/1,0,easy,False,AssertionError,0,247,False
+thinking_off,HumanEval/10,0,easy,False,AssertionError,0,563,False
+thinking_off,HumanEval/100,0,easy,False,AssertionError,0,223,False
+thinking_off,HumanEval/101,0,easy,False,AssertionError,0,129,False
+thinking_off,HumanEval/102,0,easy,False,AssertionError,0,164,False
+thinking_off,HumanEval/103,0,easy,False,AssertionError,0,293,False
+thinking_off,HumanEval/104,0,easy,True,,0,182,False
+thinking_off,HumanEval/105,0,easy,True,,0,506,False
+thinking_off,HumanEval/106,0,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,194,False
+thinking_off,HumanEval/107,0,easy,False,AssertionError,0,323,False
+thinking_off,HumanEval/108,0,easy,False,AssertionError,0,221,False
+thinking_off,HumanEval/109,0,easy,True,,0,431,False
+thinking_off,HumanEval/11,0,easy,True,,0,116,False
+thinking_off,HumanEval/110,0,easy,True,,0,352,False
+thinking_off,HumanEval/111,0,easy,True,,0,249,False
+thinking_off,HumanEval/112,0,easy,False,AssertionError,0,227,False
+thinking_off,HumanEval/113,0,easy,False,AssertionError,0,250,False
+thinking_off,HumanEval/114,0,easy,False,AssertionError,0,171,False
+thinking_off,HumanEval/115,0,easy,False,AssertionError,0,388,False
+thinking_off,HumanEval/116,0,easy,True,,0,215,False
+thinking_off,HumanEval/117,0,easy,False,AssertionError,0,291,False
+thinking_off,HumanEval/118,0,easy,False,AssertionError,0,323,False
+thinking_off,HumanEval/119,0,easy,True,,0,356,False
+thinking_off,HumanEval/12,0,easy,True,,0,168,False
+thinking_off,HumanEval/120,0,easy,False,AssertionError,0,291,False
+thinking_off,HumanEval/121,0,easy,False,AssertionError,0,168,False
+thinking_off,HumanEval/122,0,easy,False,AssertionError,0,183,False
+thinking_off,HumanEval/123,0,easy,False,timeout,0,342,False
+thinking_off,HumanEval/124,0,easy,False,AssertionError,0,799,False
+thinking_off,HumanEval/125,0,easy,False,AssertionError,0,200,False
+thinking_off,HumanEval/126,0,easy,False,AssertionError,0,286,False
+thinking_off,HumanEval/127,0,easy,False,AssertionError,0,508,False
+thinking_off,HumanEval/128,0,easy,False,AssertionError,0,205,False
+thinking_off,HumanEval/129,0,easy,False,TypeError: object of type 'int' has no len(),0,942,False
+thinking_off,HumanEval/13,0,easy,True,,0,57,False
+thinking_off,HumanEval/130,0,easy,False,IndexError: list index out of range,0,471,False
+thinking_off,HumanEval/131,0,easy,False,AssertionError,0,155,False
+thinking_off,HumanEval/132,0,easy,False,AssertionError,0,345,False
+thinking_off,HumanEval/133,0,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,182,False
+thinking_off,HumanEval/134,0,easy,False,AssertionError,0,264,False
+thinking_off,HumanEval/135,0,easy,True,,0,200,False
+thinking_off,HumanEval/136,0,easy,False,AssertionError,0,226,False
+thinking_off,HumanEval/137,0,easy,False,TypeError: slice indices must be integers or None or have an __index__ method,0,414,False
+thinking_off,HumanEval/138,0,easy,False,AssertionError,0,184,False
+thinking_off,HumanEval/139,0,easy,False,AssertionError,0,150,False
+thinking_off,HumanEval/14,0,easy,True,,0,84,False
+thinking_off,HumanEval/140,0,easy,False,AssertionError,0,314,False
+thinking_off,HumanEval/141,0,easy,False,AssertionError,0,487,False
+thinking_off,HumanEval/142,0,easy,False,AssertionError,0,261,False
+thinking_off,HumanEval/143,0,easy,False,AssertionError,0,268,False
+thinking_off,HumanEval/144,0,easy,False,AssertionError,0,259,False
+thinking_off,HumanEval/145,0,easy,False,AttributeError: 'int' object has no attribute 'index',0,204,False
+thinking_off,HumanEval/146,0,easy,True,,0,249,False
+thinking_off,HumanEval/147,0,easy,False,AssertionError,0,314,False
+thinking_off,HumanEval/148,0,easy,True,,0,375,False
+thinking_off,HumanEval/149,0,easy,False,AssertionError,0,311,False
+thinking_off,HumanEval/15,0,easy,True,,0,92,False
+thinking_off,HumanEval/150,0,easy,True,,0,199,False
+thinking_off,HumanEval/151,0,easy,True,,0,190,False
+thinking_off,HumanEval/152,0,easy,True,,0,257,False
+thinking_off,HumanEval/153,0,easy,True,,0,378,False
+thinking_off,HumanEval/154,0,easy,False,AssertionError,0,180,False
+thinking_off,HumanEval/155,0,easy,True,,0,180,False
+thinking_off,HumanEval/156,0,easy,False,AssertionError,0,293,False
+thinking_off,HumanEval/157,0,easy,True,,0,152,False
+thinking_off,HumanEval/158,0,easy,True,,0,198,False
+thinking_off,HumanEval/159,0,easy,False,AssertionError,0,349,False
+thinking_off,HumanEval/16,0,easy,True,,0,103,False
+thinking_off,HumanEval/160,0,easy,False,ValueError: All elements in operand list must be integers.,0,459,False
+thinking_off,HumanEval/161,0,easy,False,AssertionError,0,177,False
+thinking_off,HumanEval/162,0,easy,False,NameError: name 'hashlib' is not defined. Did you forget to import 'hashlib'?,0,116,False
+thinking_off,HumanEval/163,0,easy,False,AssertionError,0,204,False
+thinking_off,HumanEval/17,0,easy,False,AssertionError,0,361,False
+thinking_off,HumanEval/18,0,easy,True,,0,177,False
+thinking_off,HumanEval/19,0,easy,True,,0,231,False
+thinking_off,HumanEval/2,0,easy,True,,0,97,False
+thinking_off,HumanEval/20,0,easy,False,AssertionError,0,275,False
+thinking_off,HumanEval/21,0,easy,True,,0,187,False
+thinking_off,HumanEval/22,0,easy,False,AssertionError,0,112,False
+thinking_off,HumanEval/23,0,easy,True,,0,53,False
+thinking_off,HumanEval/24,0,easy,True,,0,104,False
+thinking_off,HumanEval/25,0,easy,True,,0,278,False
+thinking_off,HumanEval/26,0,easy,False,AssertionError,0,131,False
+thinking_off,HumanEval/27,0,easy,False,AssertionError,0,73,False
+thinking_off,HumanEval/28,0,easy,True,,0,70,False
+thinking_off,HumanEval/29,0,easy,True,,0,107,False
+thinking_off,HumanEval/3,0,easy,True,,0,157,False
+thinking_off,HumanEval/30,0,easy,True,,0,139,False
+thinking_off,HumanEval/31,0,easy,True,,0,193,False
+thinking_off,HumanEval/32,0,easy,False,"TypeError: Value after * must be an iterable, not float",0,980,False
+thinking_off,HumanEval/33,0,easy,False,"TypeError: list indices must be integers or slices, not list",0,276,False
+thinking_off,HumanEval/34,0,easy,True,,0,87,False
+thinking_off,HumanEval/35,0,easy,True,,0,116,False
+thinking_off,HumanEval/36,0,easy,False,AssertionError,0,147,False
+thinking_off,HumanEval/37,0,easy,False,"TypeError: list indices must be integers or slices, not list",0,221,False
+thinking_off,HumanEval/38,0,easy,False,AssertionError,0,111,False
+thinking_off,HumanEval/39,0,easy,False,timeout,0,403,False
+thinking_off,HumanEval/4,0,easy,True,,0,174,False
+thinking_off,HumanEval/40,0,easy,True,,0,237,False
+thinking_off,HumanEval/41,0,easy,True,,0,162,False
+thinking_off,HumanEval/42,0,easy,True,,0,132,False
+thinking_off,HumanEval/43,0,easy,True,,0,201,False
+thinking_off,HumanEval/44,0,easy,True,,0,234,False
+thinking_off,HumanEval/45,0,easy,True,,0,60,False
+thinking_off,HumanEval/46,0,easy,True,,0,304,False
+thinking_off,HumanEval/47,0,easy,True,,0,168,False
+thinking_off,HumanEval/48,0,easy,True,,0,87,False
+thinking_off,HumanEval/49,0,easy,True,,0,134,False
+thinking_off,HumanEval/5,0,easy,False,IndexError: list index out of range,0,146,False
+thinking_off,HumanEval/50,0,easy,True,,0,69,False
+thinking_off,HumanEval/51,0,easy,True,,0,166,False
+thinking_off,HumanEval/52,0,easy,True,,0,100,False
+thinking_off,HumanEval/53,0,easy,True,,0,63,False
+thinking_off,HumanEval/54,0,easy,False,AssertionError,0,161,False
+thinking_off,HumanEval/55,0,easy,True,,0,126,False
+thinking_off,HumanEval/56,0,easy,True,,0,155,False
+thinking_off,HumanEval/57,0,easy,True,,0,217,False
+thinking_off,HumanEval/58,0,easy,True,,0,142,False
+thinking_off,HumanEval/59,0,easy,False,AssertionError,0,137,False
+thinking_off,HumanEval/6,0,easy,False,AssertionError,0,237,False
+thinking_off,HumanEval/60,0,easy,True,,0,125,False
+thinking_off,HumanEval/61,0,easy,True,,0,154,False
+thinking_off,HumanEval/62,0,easy,True,,0,179,False
+thinking_off,HumanEval/63,0,easy,True,,0,277,False
+thinking_off,HumanEval/64,0,easy,False,AssertionError,0,268,False
+thinking_off,HumanEval/65,0,easy,True,,0,205,False
+thinking_off,HumanEval/66,0,easy,True,,0,140,False
+thinking_off,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: 'and 6 oranges',0,331,False
+thinking_off,HumanEval/68,0,easy,True,,0,435,False
+thinking_off,HumanEval/69,0,easy,True,,0,234,False
+thinking_off,HumanEval/7,0,easy,True,,0,112,False
+thinking_off,HumanEval/70,0,easy,False,AssertionError,0,228,False
+thinking_off,HumanEval/71,0,easy,False,AssertionError,0,195,False
+thinking_off,HumanEval/72,0,easy,True,,0,291,False
+thinking_off,HumanEval/73,0,easy,False,AssertionError,0,309,False
+thinking_off,HumanEval/74,0,easy,False,AssertionError,0,289,False
+thinking_off,HumanEval/75,0,easy,False,AssertionError,0,820,False
+thinking_off,HumanEval/76,0,easy,False,AssertionError,0,206,False
+thinking_off,HumanEval/77,0,easy,False,AssertionError,0,150,False
+thinking_off,HumanEval/78,0,easy,True,,0,394,False
+thinking_off,HumanEval/79,0,easy,True,,0,212,False
+thinking_off,HumanEval/8,0,easy,True,,0,175,False
+thinking_off,HumanEval/80,0,easy,True,,0,175,False
+thinking_off,HumanEval/81,0,easy,False,KeyError: 3.5,0,478,False
+thinking_off,HumanEval/82,0,easy,True,,0,201,False
+thinking_off,HumanEval/83,0,easy,False,AssertionError,0,343,False
+thinking_off,HumanEval/84,0,easy,False,AssertionError,0,205,False
+thinking_off,HumanEval/85,0,easy,True,,0,105,False
+thinking_off,HumanEval/86,0,easy,False,AssertionError,0,155,False
+thinking_off,HumanEval/87,0,easy,False,AssertionError,0,324,False
+thinking_off,HumanEval/88,0,easy,True,,0,318,False
+thinking_off,HumanEval/89,0,easy,False,AssertionError,0,200,False
+thinking_off,HumanEval/9,0,easy,True,,0,184,False
+thinking_off,HumanEval/90,0,easy,False,AssertionError,0,202,False
+thinking_off,HumanEval/91,0,easy,False,AssertionError,0,240,False
+thinking_off,HumanEval/92,0,easy,True,,0,196,False
+thinking_off,HumanEval/93,0,easy,False,AssertionError,0,291,False
+thinking_off,HumanEval/94,0,easy,True,,0,479,False
+thinking_off,HumanEval/95,0,easy,True,,0,281,False
+thinking_off,HumanEval/96,0,easy,True,,0,309,False
+thinking_off,HumanEval/97,0,easy,False,AssertionError,0,139,False
+thinking_off,HumanEval/98,0,easy,True,,0,127,False
+thinking_off,HumanEval/99,0,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,304,False
+thinking_off,HumanEval/0,1,easy,False,AssertionError,0,207,False
+thinking_off,HumanEval/1,1,easy,False,IndexError: list index out of range,0,525,False
+thinking_off,HumanEval/10,1,easy,False,AssertionError,0,268,False
+thinking_off,HumanEval/100,1,easy,False,AssertionError,0,336,False
+thinking_off,HumanEval/101,1,easy,False,AssertionError,0,129,False
+thinking_off,HumanEval/102,1,easy,True,,0,157,False
+thinking_off,HumanEval/103,1,easy,False,AssertionError,0,254,False
+thinking_off,HumanEval/104,1,easy,False,TypeError: not all arguments converted during string formatting,0,166,False
+thinking_off,HumanEval/105,1,easy,True,,0,471,False
+thinking_off,HumanEval/106,1,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,194,False
+thinking_off,HumanEval/107,1,easy,False,AssertionError,0,137,False
+thinking_off,HumanEval/108,1,easy,False,AssertionError,0,240,False
+thinking_off,HumanEval/109,1,easy,False,AssertionError,0,440,False
+thinking_off,HumanEval/11,1,easy,True,,0,122,False
+thinking_off,HumanEval/110,1,easy,False,AssertionError,0,287,False
+thinking_off,HumanEval/111,1,easy,True,,0,253,False
+thinking_off,HumanEval/112,1,easy,True,,0,248,False
+thinking_off,HumanEval/113,1,easy,False,AssertionError,0,259,False
+thinking_off,HumanEval/114,1,easy,False,AssertionError,0,173,False
+thinking_off,HumanEval/115,1,easy,False,AssertionError,0,372,False
+thinking_off,HumanEval/116,1,easy,True,,0,225,False
+thinking_off,HumanEval/117,1,easy,False,AssertionError,0,355,False
+thinking_off,HumanEval/118,1,easy,False,AssertionError,0,163,False
+thinking_off,HumanEval/119,1,easy,False,AssertionError,0,361,False
+thinking_off,HumanEval/12,1,easy,True,,0,179,False
+thinking_off,HumanEval/120,1,easy,True,,0,256,False
+thinking_off,HumanEval/121,1,easy,True,,0,173,False
+thinking_off,HumanEval/122,1,easy,False,AssertionError,0,190,False
+thinking_off,HumanEval/123,1,easy,False,AssertionError,0,332,False
+thinking_off,HumanEval/124,1,easy,False,NameError: name 're' is not defined. Did you forget to import 're'?,0,667,False
+thinking_off,HumanEval/125,1,easy,False,AssertionError,0,245,False
+thinking_off,HumanEval/126,1,easy,True,,0,345,False
+thinking_off,HumanEval/127,1,easy,False,AssertionError,0,535,False
+thinking_off,HumanEval/128,1,easy,False,AssertionError,0,204,False
+thinking_off,HumanEval/129,1,easy,False,AssertionError,0,676,False
+thinking_off,HumanEval/13,1,easy,False,NameError: name 'gcd' is not defined,0,114,False
+thinking_off,HumanEval/130,1,easy,False,timeout,0,2747,False
+thinking_off,HumanEval/131,1,easy,False,AssertionError,0,149,False
+thinking_off,HumanEval/132,1,easy,False,AssertionError,0,275,False
+thinking_off,HumanEval/133,1,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,183,False
+thinking_off,HumanEval/134,1,easy,False,AssertionError,0,271,False
+thinking_off,HumanEval/135,1,easy,False,AssertionError,0,174,False
+thinking_off,HumanEval/136,1,easy,False,AssertionError,0,232,False
+thinking_off,HumanEval/137,1,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',0,247,False
+thinking_off,HumanEval/138,1,easy,False,AssertionError,0,109,False
+thinking_off,HumanEval/139,1,easy,False,AssertionError,0,132,False
+thinking_off,HumanEval/14,1,easy,True,,0,95,False
+thinking_off,HumanEval/140,1,easy,False,AssertionError,0,260,False
+thinking_off,HumanEval/141,1,easy,False,AssertionError,0,502,False
+thinking_off,HumanEval/142,1,easy,False,AssertionError,0,230,False
+thinking_off,HumanEval/143,1,easy,False,AssertionError,0,260,False
+thinking_off,HumanEval/144,1,easy,True,,0,217,False
+thinking_off,HumanEval/145,1,easy,False,TypeError: order_by_points.<locals>.compare() missing 1 required positional argument: 'b',0,221,False
+thinking_off,HumanEval/146,1,easy,True,,0,258,False
+thinking_off,HumanEval/147,1,easy,False,AssertionError,0,558,False
+thinking_off,HumanEval/148,1,easy,False,AssertionError,0,387,False
+thinking_off,HumanEval/149,1,easy,True,,0,267,False
+thinking_off,HumanEval/15,1,easy,True,,0,89,False
+thinking_off,HumanEval/150,1,easy,True,,0,209,False
+thinking_off,HumanEval/151,1,easy,True,,0,190,False
+thinking_off,HumanEval/152,1,easy,True,,0,257,False
+thinking_off,HumanEval/153,1,easy,True,,0,386,False
+thinking_off,HumanEval/154,1,easy,False,AssertionError,0,183,False
+thinking_off,HumanEval/155,1,easy,True,,0,163,False
+thinking_off,HumanEval/156,1,easy,False,AssertionError,0,332,False
+thinking_off,HumanEval/157,1,easy,True,,0,181,False
+thinking_off,HumanEval/158,1,easy,True,,0,229,False
+thinking_off,HumanEval/159,1,easy,False,AssertionError,0,351,False
+thinking_off,HumanEval/16,1,easy,True,,0,81,False
+thinking_off,HumanEval/160,1,easy,False,SyntaxError: invalid syntax,0,288,False
+thinking_off,HumanEval/161,1,easy,False,AssertionError,0,175,False
+thinking_off,HumanEval/162,1,easy,True,,0,117,False
+thinking_off,HumanEval/163,1,easy,False,AssertionError,0,196,False
+thinking_off,HumanEval/17,1,easy,False,AssertionError,0,377,False
+thinking_off,HumanEval/18,1,easy,True,,0,177,False
+thinking_off,HumanEval/19,1,easy,False,KeyError: 3,0,260,False
+thinking_off,HumanEval/2,1,easy,True,,0,97,False
+thinking_off,HumanEval/20,1,easy,False,AssertionError,0,329,False
+thinking_off,HumanEval/21,1,easy,False,AssertionError,0,220,False
+thinking_off,HumanEval/22,1,easy,False,AssertionError,0,114,False
+thinking_off,HumanEval/23,1,easy,True,,0,53,False
+thinking_off,HumanEval/24,1,easy,False,AssertionError,0,130,False
+thinking_off,HumanEval/25,1,easy,True,,0,286,False
+thinking_off,HumanEval/26,1,easy,False,AssertionError,0,131,False
+thinking_off,HumanEval/27,1,easy,False,AssertionError,0,71,False
+thinking_off,HumanEval/28,1,easy,True,,0,70,False
+thinking_off,HumanEval/29,1,easy,True,,0,107,False
+thinking_off,HumanEval/3,1,easy,True,,0,157,False
+thinking_off,HumanEval/30,1,easy,True,,0,139,False
+thinking_off,HumanEval/31,1,easy,True,,0,213,False
+thinking_off,HumanEval/32,1,easy,False,"TypeError: Value after * must be an iterable, not NoneType",0,4096,True
+thinking_off,HumanEval/33,1,easy,True,,0,297,False
+thinking_off,HumanEval/34,1,easy,True,,0,87,False
+thinking_off,HumanEval/35,1,easy,True,,0,111,False
+thinking_off,HumanEval/36,1,easy,True,,0,159,False
+thinking_off,HumanEval/37,1,easy,False,IndexError: list index out of range,0,195,False
+thinking_off,HumanEval/38,1,easy,False,AssertionError,0,83,False
+thinking_off,HumanEval/39,1,easy,False,ValueError: Not enough prime Fibonacci numbers found up to the limit.,0,400,False
+thinking_off,HumanEval/4,1,easy,True,,0,174,False
+thinking_off,HumanEval/40,1,easy,False,AssertionError,0,218,False
+thinking_off,HumanEval/41,1,easy,True,,0,162,False
+thinking_off,HumanEval/42,1,easy,True,,0,132,False
+thinking_off,HumanEval/43,1,easy,True,,0,201,False
+thinking_off,HumanEval/44,1,easy,True,,0,215,False
+thinking_off,HumanEval/45,1,easy,True,,0,60,False
+thinking_off,HumanEval/46,1,easy,True,,0,335,False
+thinking_off,HumanEval/47,1,easy,True,,0,170,False
+thinking_off,HumanEval/48,1,easy,True,,0,130,False
+thinking_off,HumanEval/49,1,easy,True,,0,134,False
+thinking_off,HumanEval/5,1,easy,False,AssertionError,0,156,False
+thinking_off,HumanEval/50,1,easy,False,"TypeError: can only concatenate str (not ""int"") to str",0,74,False
+thinking_off,HumanEval/51,1,easy,True,,0,160,False
+thinking_off,HumanEval/52,1,easy,True,,0,100,False
+thinking_off,HumanEval/53,1,easy,True,,0,63,False
+thinking_off,HumanEval/54,1,easy,False,AssertionError,0,161,False
+thinking_off,HumanEval/55,1,easy,True,,0,126,False
+thinking_off,HumanEval/56,1,easy,True,,0,156,False
+thinking_off,HumanEval/57,1,easy,False,AssertionError,0,164,False
+thinking_off,HumanEval/58,1,easy,True,,0,142,False
+thinking_off,HumanEval/59,1,easy,True,,0,224,False
+thinking_off,HumanEval/6,1,easy,False,AssertionError,0,207,False
+thinking_off,HumanEval/60,1,easy,True,,0,125,False
+thinking_off,HumanEval/61,1,easy,True,,0,154,False
+thinking_off,HumanEval/62,1,easy,False,AssertionError,0,202,False
+thinking_off,HumanEval/63,1,easy,True,,0,260,False
+thinking_off,HumanEval/64,1,easy,False,AssertionError,0,196,False
+thinking_off,HumanEval/65,1,easy,False,AssertionError,0,175,False
+thinking_off,HumanEval/66,1,easy,True,,0,140,False
+thinking_off,HumanEval/67,1,easy,False,ValueError: invalid literal for int() with base 10: '5 apples',0,347,False
+thinking_off,HumanEval/68,1,easy,True,,0,458,False
+thinking_off,HumanEval/69,1,easy,True,,0,234,False
+thinking_off,HumanEval/7,1,easy,True,,0,112,False
+thinking_off,HumanEval/70,1,easy,False,AssertionError,0,201,False
+thinking_off,HumanEval/71,1,easy,False,AssertionError,0,199,False
+thinking_off,HumanEval/72,1,easy,True,,0,298,False
+thinking_off,HumanEval/73,1,easy,False,AssertionError,0,305,False
+thinking_off,HumanEval/74,1,easy,False,NameError: name 'lst' is not defined. Did you mean: 'lst1'?,0,230,False
+thinking_off,HumanEval/75,1,easy,False,AssertionError,0,362,False
+thinking_off,HumanEval/76,1,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,0,258,False
+thinking_off,HumanEval/77,1,easy,False,AssertionError,0,151,False
+thinking_off,HumanEval/78,1,easy,True,,0,383,False
+thinking_off,HumanEval/79,1,easy,True,,0,227,False
+thinking_off,HumanEval/8,1,easy,True,,0,161,False
+thinking_off,HumanEval/80,1,easy,True,,0,198,False
+thinking_off,HumanEval/81,1,easy,False,AssertionError,0,463,False
+thinking_off,HumanEval/82,1,easy,True,,0,195,False
+thinking_off,HumanEval/83,1,easy,False,AssertionError,0,651,False
+thinking_off,HumanEval/84,1,easy,False,AssertionError,0,214,False
+thinking_off,HumanEval/85,1,easy,False,AssertionError,0,76,False
+thinking_off,HumanEval/86,1,easy,False,AssertionError,0,183,False
+thinking_off,HumanEval/87,1,easy,False,AssertionError,0,365,False
+thinking_off,HumanEval/88,1,easy,True,,0,301,False
+thinking_off,HumanEval/89,1,easy,True,,0,240,False
+thinking_off,HumanEval/9,1,easy,True,,0,174,False
+thinking_off,HumanEval/90,1,easy,True,,0,180,False
+thinking_off,HumanEval/91,1,easy,False,AssertionError,0,196,False
+thinking_off,HumanEval/92,1,easy,True,,0,237,False
+thinking_off,HumanEval/93,1,easy,False,AssertionError,0,246,False
+thinking_off,HumanEval/94,1,easy,False,AssertionError,0,521,False
+thinking_off,HumanEval/95,1,easy,True,,0,239,False
+thinking_off,HumanEval/96,1,easy,True,,0,309,False
+thinking_off,HumanEval/97,1,easy,False,AssertionError,0,151,False
+thinking_off,HumanEval/98,1,easy,True,,0,125,False
+thinking_off,HumanEval/99,1,easy,True,,0,212,False

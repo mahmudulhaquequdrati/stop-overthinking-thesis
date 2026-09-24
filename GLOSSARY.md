@@ -243,6 +243,11 @@ How big each nudge to the model's numbers is during training. Too big → it bre
 A program that learned to guess the next piece of text from a huge amount of text.
 See [lesson 01](lessons/01-what-is-an-llm.md).
 
+**Loop (repetition loop)**
+When the model writes the same lines again and again and never finishes.
+*Example:* a student who keeps writing "wait, let me check again" until the exam time ends.
+In our real run, most answers that hit the token limit were loops (results/2026-09-24-thesis-run.md).
+
 **LoRA**
 A cheap way to fine-tune. We don't change the whole model. We train a **small add-on**
 that sits on top of it.
@@ -250,6 +255,11 @@ that sits on top of it.
 Good for us: it needs little GPU memory, and the original model stays unchanged.
 
 **Loss** → see **Error score**.
+
+**Loss curve**
+A chart of the error score during training, step by step. Going down = the model is learning its
+training examples. It does **not** tell you whether those examples teach the right thing.
+*Example:* LoRA-2's loss went down, but its examples taught long thinking (FULL-RESULTS §13).
 
 **llama.cpp**
 A free program that makes a model write answers fast, also many at once. It runs on NVIDIA GPUs and reads GGUF files.

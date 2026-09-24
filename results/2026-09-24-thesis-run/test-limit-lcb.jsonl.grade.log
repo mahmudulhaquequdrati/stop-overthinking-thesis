@@ -1,0 +1,146 @@
+1/140 lcb/3705        easy    limit        fail: IndentationError: expected an indented block after function definition on line 3
+2/140 lcb/3709        easy    limit        PASS
+3/140 lcb/3723        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+4/140 lcb/3736        easy    limit        PASS
+5/140 lcb/3753        easy    limit        PASS
+6/140 lcb/3768        easy    limit        fail: timeout on test 1
+7/140 lcb/3773        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+8/140 lcb/3778        easy    limit        fail: SyntaxError: invalid syntax
+9/140 lcb/3788        easy    limit        fail: AttributeError: 'list' object has no attribute 'is_unique'
+10/140 lcb/3799        easy    limit        fail: wrong answer on test 1
+11/140 lcb/3811        easy    limit        PASS
+12/140 lcb/3817        easy    limit        PASS
+13/140 lcb/3832        easy    limit        fail: IndentationError: expected an indented block after 'for' statement on line 11
+14/140 lcb/abc391_a    easy    limit        PASS
+15/140 lcb/abc391_b    easy    limit        PASS
+16/140 lcb/abc392_a    easy    limit        PASS
+17/140 lcb/abc392_b    easy    limit        fail: SyntaxError: invalid syntax
+18/140 lcb/abc393_a    easy    limit        PASS
+19/140 lcb/abc393_b    easy    limit        PASS
+20/140 lcb/abc394_a    easy    limit        PASS
+21/140 lcb/abc394_b    easy    limit        PASS
+22/140 lcb/abc395_a    easy    limit        PASS
+23/140 lcb/abc395_b    easy    limit        fail: wrong answer on test 1
+24/140 lcb/abc396_a    easy    limit        PASS
+25/140 lcb/abc396_b    easy    limit        fail: wrong answer on test 1
+26/140 lcb/abc397_a    easy    limit        PASS
+27/140 lcb/abc398_a    easy    limit        fail: wrong answer on test 1
+28/140 lcb/abc399_a    easy    limit        PASS
+29/140 lcb/abc399_b    easy    limit        fail: wrong answer on test 1
+30/140 lcb/abc400_a    easy    limit        PASS
+31/140 lcb/abc400_b    easy    limit        PASS
+32/140 lcb/3722        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+33/140 lcb/3743        medium  limit        fail: wrong answer on test 1
+34/140 lcb/3748        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+35/140 lcb/3750        medium  limit        fail: wrong answer on test 1
+36/140 lcb/3754        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+37/140 lcb/3759        medium  limit        fail: wrong answer on test 1
+38/140 lcb/3760        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+39/140 lcb/3763        medium  limit        fail: IndentationError: expected an indented block after function definition on line 7
+40/140 lcb/3764        medium  limit        fail: wrong answer on test 1
+41/140 lcb/3771        medium  limit        fail: wrong answer on test 1
+42/140 lcb/3776        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+43/140 lcb/3779        medium  limit        fail: wrong answer on test 1
+44/140 lcb/3785        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+45/140 lcb/3786        medium  limit        fail: wrong answer on test 1
+46/140 lcb/3791        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+47/140 lcb/3793        medium  limit        fail: wrong answer on test 1
+48/140 lcb/3794        medium  limit        fail: wrong answer on test 1
+49/140 lcb/3795        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+50/140 lcb/3805        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+51/140 lcb/3809        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+52/140 lcb/abc391_d    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 13)
+53/140 lcb/abc392_c    medium  limit        fail: wrong answer on test 1
+54/140 lcb/abc392_d    medium  limit        fail: wrong answer on test 1
+55/140 lcb/abc394_c    medium  limit        fail: wrong answer on test 1
+56/140 lcb/abc394_d    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+57/140 lcb/abc395_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+58/140 lcb/abc396_c    medium  limit        fail: wrong answer on test 1
+59/140 lcb/abc396_d    medium  limit        fail: wrong answer on test 1
+60/140 lcb/abc397_b    medium  limit        fail: wrong answer on test 1
+61/140 lcb/abc397_c    medium  limit        fail: SyntaxError: invalid syntax
+62/140 lcb/abc398_b    medium  limit        fail: wrong answer on test 1
+63/140 lcb/abc398_c    medium  limit        fail: wrong answer on test 1
+64/140 lcb/abc399_c    medium  limit        fail: wrong answer on test 1
+65/140 lcb/abc399_d    medium  limit        fail: SyntaxError: invalid syntax
+66/140 lcb/abc400_c    medium  limit        fail: SyntaxError: invalid syntax
+67/140 lcb/abc400_d    medium  limit        fail: wrong answer on test 1
+68/140 lcb/arc192_a    medium  limit        fail: IndentationError: unexpected indent
+69/140 lcb/arc194_a    medium  limit        fail: SyntaxError: invalid syntax
+70/140 lcb/arc195_a    medium  limit        fail: wrong answer on test 1
+71/140 lcb/3705        easy    limit        fail: wrong answer on test 10
+72/140 lcb/3709        easy    limit        PASS
+73/140 lcb/3723        easy    limit        PASS
+74/140 lcb/3736        easy    limit        PASS
+75/140 lcb/3753        easy    limit        PASS
+76/140 lcb/3768        easy    limit        PASS
+77/140 lcb/3773        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+78/140 lcb/3778        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+79/140 lcb/3788        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+80/140 lcb/3799        easy    limit        fail: wrong answer on test 1
+81/140 lcb/3811        easy    limit        fail: wrong answer on test 1
+82/140 lcb/3817        easy    limit        PASS
+83/140 lcb/3832        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+84/140 lcb/abc391_a    easy    limit        PASS
+85/140 lcb/abc391_b    easy    limit        fail: IndentationError: expected an indented block after 'for' statement on line 49
+86/140 lcb/abc392_a    easy    limit        PASS
+87/140 lcb/abc392_b    easy    limit        PASS
+88/140 lcb/abc393_a    easy    limit        PASS
+89/140 lcb/abc393_b    easy    limit        fail: NameError: name 'n' is not defined
+90/140 lcb/abc394_a    easy    limit        PASS
+91/140 lcb/abc394_b    easy    limit        PASS
+92/140 lcb/abc395_a    easy    limit        PASS
+93/140 lcb/abc395_b    easy    limit        fail: wrong answer on test 1
+94/140 lcb/abc396_a    easy    limit        PASS
+95/140 lcb/abc396_b    easy    limit        fail: IndentationError: expected an indented block after 'else' statement on line 379
+96/140 lcb/abc397_a    easy    limit        PASS
+97/140 lcb/abc398_a    easy    limit        fail: wrong answer on test 1
+98/140 lcb/abc399_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+99/140 lcb/abc399_b    easy    limit        fail: wrong answer on test 1
+100/140 lcb/abc400_a    easy    limit        PASS
+101/140 lcb/abc400_b    easy    limit        PASS
+102/140 lcb/3722        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+103/140 lcb/3743        medium  limit        fail: wrong answer on test 1
+104/140 lcb/3748        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+105/140 lcb/3750        medium  limit        fail: wrong answer on test 1
+106/140 lcb/3754        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+107/140 lcb/3759        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+108/140 lcb/3760        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+109/140 lcb/3763        medium  limit        fail: wrong answer on test 1
+110/140 lcb/3764        medium  limit        fail: IndentationError: expected an indented block after 'for' statement on line 788
+111/140 lcb/3771        medium  limit        fail: UnboundLocalError: cannot access local variable 'Counter' where it is not associated with a value
+112/140 lcb/3776        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+113/140 lcb/3779        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+114/140 lcb/3785        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+115/140 lcb/3786        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 10)
+116/140 lcb/3791        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+117/140 lcb/3793        medium  limit        fail: wrong answer on test 1
+118/140 lcb/3794        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+119/140 lcb/3795        medium  limit        fail: wrong answer on test 1
+120/140 lcb/3805        medium  limit        fail: wrong answer on test 1
+121/140 lcb/3809        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+122/140 lcb/abc391_d    medium  limit        fail: SyntaxError: invalid syntax
+123/140 lcb/abc392_c    medium  limit        fail: wrong answer on test 1
+124/140 lcb/abc392_d    medium  limit        fail: wrong answer on test 1
+125/140 lcb/abc394_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 47)
+126/140 lcb/abc394_d    medium  limit        fail: SyntaxError: invalid syntax
+127/140 lcb/abc395_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+128/140 lcb/abc396_c    medium  limit        fail: wrong answer on test 1
+129/140 lcb/abc396_d    medium  limit        fail: SyntaxError: invalid syntax
+130/140 lcb/abc397_b    medium  limit        fail: wrong answer on test 1
+131/140 lcb/abc397_c    medium  limit        fail: wrong answer on test 1
+132/140 lcb/abc398_b    medium  limit        fail: IndentationError: expected an indented block after 'if' statement on line 43
+133/140 lcb/abc398_c    medium  limit        fail: NameError: name 'Counter' is not defined
+134/140 lcb/abc399_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 7)
+135/140 lcb/abc399_d    medium  limit        fail: wrong answer on test 1
+136/140 lcb/abc400_c    medium  limit        fail: wrong answer on test 1
+137/140 lcb/abc400_d    medium  limit        fail: wrong answer on test 1
+138/140 lcb/arc192_a    medium  limit        fail: SyntaxError: unmatched ')'
+139/140 lcb/arc194_a    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+140/140 lcb/arc195_a    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 35/62 (56%) | median thinking 1024 | median all tokens 1678 | hit the limit 22
+limit        medium   passed 0/78 (0%) | median thinking 1024 | median all tokens 8193 | hit the limit 74
+
+saved /content/drive/MyDrive/stop-overthinking/results/thesis/test-limit-lcb-graded.csv

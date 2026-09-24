@@ -1,0 +1,146 @@
+1/140 lcb/3705        easy    brief        fail: NameError: name 'Solution' is not defined
+2/140 lcb/3709        easy    brief        fail: NameError: name 'Solution' is not defined
+3/140 lcb/3723        easy    brief        fail: NameError: name 'Solution' is not defined
+4/140 lcb/3736        easy    brief        fail: NameError: name 'Solution' is not defined
+5/140 lcb/3753        easy    brief        fail: NameError: name 'Solution' is not defined
+6/140 lcb/3768        easy    brief        fail: NameError: name 'Solution' is not defined
+7/140 lcb/3773        easy    brief        fail: NameError: name 'Solution' is not defined
+8/140 lcb/3778        easy    brief        PASS
+9/140 lcb/3788        easy    brief        fail: NameError: name 'Solution' is not defined
+10/140 lcb/3799        easy    brief        fail: NameError: name 'Solution' is not defined
+11/140 lcb/3811        easy    brief        fail: NameError: name 'Solution' is not defined
+12/140 lcb/3817        easy    brief        PASS
+13/140 lcb/3832        easy    brief        fail: NameError: name 'Solution' is not defined
+14/140 lcb/abc391_a    easy    brief        fail: wrong answer on test 2
+15/140 lcb/abc391_b    easy    brief        fail: wrong answer on test 1
+16/140 lcb/abc392_a    easy    brief        PASS
+17/140 lcb/abc392_b    easy    brief        PASS
+18/140 lcb/abc393_a    easy    brief        fail: wrong answer on test 1
+19/140 lcb/abc393_b    easy    brief        fail: wrong answer on test 1
+20/140 lcb/abc394_a    easy    brief        PASS
+21/140 lcb/abc394_b    easy    brief        fail: wrong answer on test 1
+22/140 lcb/abc395_a    easy    brief        PASS
+23/140 lcb/abc395_b    easy    brief        fail: wrong answer on test 1
+24/140 lcb/abc396_a    easy    brief        PASS
+25/140 lcb/abc396_b    easy    brief        fail: wrong answer on test 1
+26/140 lcb/abc397_a    easy    brief        fail: wrong answer on test 1
+27/140 lcb/abc398_a    easy    brief        fail: wrong answer on test 1
+28/140 lcb/abc399_a    easy    brief        PASS
+29/140 lcb/abc399_b    easy    brief        fail: wrong answer on test 1
+30/140 lcb/abc400_a    easy    brief        PASS
+31/140 lcb/abc400_b    easy    brief        fail: wrong answer on test 1
+32/140 lcb/3722        medium  brief        fail: NameError: name 'Solution' is not defined
+33/140 lcb/3743        medium  brief        fail: NameError: name 'Solution' is not defined
+34/140 lcb/3748        medium  brief        fail: NameError: name 'Solution' is not defined
+35/140 lcb/3750        medium  brief        fail: NameError: name 'Solution' is not defined
+36/140 lcb/3754        medium  brief        fail: NameError: name 'Solution' is not defined
+37/140 lcb/3759        medium  brief        fail: NameError: name 'Solution' is not defined
+38/140 lcb/3760        medium  brief        fail: NameError: name 'Solution' is not defined
+39/140 lcb/3763        medium  brief        fail: NameError: name 'Solution' is not defined
+40/140 lcb/3764        medium  brief        fail: NameError: name 'Solution' is not defined
+41/140 lcb/3771        medium  brief        fail: NameError: name 'Solution' is not defined
+42/140 lcb/3776        medium  brief        fail: NameError: name 'Solution' is not defined
+43/140 lcb/3779        medium  brief        fail: NameError: name 'Solution' is not defined
+44/140 lcb/3785        medium  brief        fail: NameError: name 'Solution' is not defined
+45/140 lcb/3786        medium  brief        fail: NameError: name 'Solution' is not defined
+46/140 lcb/3791        medium  brief        fail: NameError: name 'Solution' is not defined
+47/140 lcb/3793        medium  brief        fail: NameError: name 'Solution' is not defined
+48/140 lcb/3794        medium  brief        fail: NameError: name 'Solution' is not defined
+49/140 lcb/3795        medium  brief        fail: NameError: name 'Solution' is not defined
+50/140 lcb/3805        medium  brief        fail: NameError: name 'Solution' is not defined
+51/140 lcb/3809        medium  brief        fail: NameError: name 'Solution' is not defined
+52/140 lcb/abc391_d    medium  brief        fail: wrong answer on test 1
+53/140 lcb/abc392_c    medium  brief        fail: wrong answer on test 1
+54/140 lcb/abc392_d    medium  brief        fail: wrong answer on test 1
+55/140 lcb/abc394_c    medium  brief        fail: wrong answer on test 1
+56/140 lcb/abc394_d    medium  brief        fail: wrong answer on test 1
+57/140 lcb/abc395_c    medium  brief        fail: wrong answer on test 1
+58/140 lcb/abc396_c    medium  brief        fail: wrong answer on test 1
+59/140 lcb/abc396_d    medium  brief        fail: wrong answer on test 1
+60/140 lcb/abc397_b    medium  brief        fail: wrong answer on test 1
+61/140 lcb/abc397_c    medium  brief        fail: wrong answer on test 1
+62/140 lcb/abc398_b    medium  brief        fail: wrong answer on test 1
+63/140 lcb/abc398_c    medium  brief        fail: wrong answer on test 1
+64/140 lcb/abc399_c    medium  brief        fail: wrong answer on test 1
+65/140 lcb/abc399_d    medium  brief        fail: wrong answer on test 1
+66/140 lcb/abc400_c    medium  brief        fail: wrong answer on test 1
+67/140 lcb/abc400_d    medium  brief        fail: wrong answer on test 1
+68/140 lcb/arc192_a    medium  brief        fail: wrong answer on test 1
+69/140 lcb/arc194_a    medium  brief        fail: wrong answer on test 1
+70/140 lcb/arc195_a    medium  brief        fail: wrong answer on test 1
+71/140 lcb/3705        easy    brief        fail: NameError: name 'Solution' is not defined
+72/140 lcb/3709        easy    brief        fail: NameError: name 'Solution' is not defined
+73/140 lcb/3723        easy    brief        fail: NameError: name 'Solution' is not defined
+74/140 lcb/3736        easy    brief        PASS
+75/140 lcb/3753        easy    brief        fail: NameError: name 'Solution' is not defined
+76/140 lcb/3768        easy    brief        fail: NameError: name 'Solution' is not defined
+77/140 lcb/3773        easy    brief        fail: NameError: name 'Solution' is not defined
+78/140 lcb/3778        easy    brief        fail: NameError: name 'Solution' is not defined
+79/140 lcb/3788        easy    brief        fail: NameError: name 'Solution' is not defined
+80/140 lcb/3799        easy    brief        fail: NameError: name 'Solution' is not defined
+81/140 lcb/3811        easy    brief        PASS
+82/140 lcb/3817        easy    brief        fail: NameError: name 'Solution' is not defined
+83/140 lcb/3832        easy    brief        fail: NameError: name 'Solution' is not defined
+84/140 lcb/abc391_a    easy    brief        fail: wrong answer on test 1
+85/140 lcb/abc391_b    easy    brief        fail: wrong answer on test 1
+86/140 lcb/abc392_a    easy    brief        PASS
+87/140 lcb/abc392_b    easy    brief        fail: wrong answer on test 1
+88/140 lcb/abc393_a    easy    brief        PASS
+89/140 lcb/abc393_b    easy    brief        fail: wrong answer on test 1
+90/140 lcb/abc394_a    easy    brief        PASS
+91/140 lcb/abc394_b    easy    brief        PASS
+92/140 lcb/abc395_a    easy    brief        PASS
+93/140 lcb/abc395_b    easy    brief        fail: wrong answer on test 1
+94/140 lcb/abc396_a    easy    brief        PASS
+95/140 lcb/abc396_b    easy    brief        fail: wrong answer on test 1
+96/140 lcb/abc397_a    easy    brief        PASS
+97/140 lcb/abc398_a    easy    brief        fail: wrong answer on test 1
+98/140 lcb/abc399_a    easy    brief        fail: wrong answer on test 1
+99/140 lcb/abc399_b    easy    brief        fail: wrong answer on test 1
+100/140 lcb/abc400_a    easy    brief        PASS
+101/140 lcb/abc400_b    easy    brief        fail: wrong answer on test 1
+102/140 lcb/3722        medium  brief        fail: NameError: name 'Solution' is not defined
+103/140 lcb/3743        medium  brief        fail: NameError: name 'Solution' is not defined
+104/140 lcb/3748        medium  brief        fail: NameError: name 'Solution' is not defined
+105/140 lcb/3750        medium  brief        fail: NameError: name 'Solution' is not defined
+106/140 lcb/3754        medium  brief        fail: NameError: name 'Solution' is not defined
+107/140 lcb/3759        medium  brief        fail: NameError: name 'Solution' is not defined
+108/140 lcb/3760        medium  brief        fail: NameError: name 'Solution' is not defined
+109/140 lcb/3763        medium  brief        fail: NameError: name 'Solution' is not defined
+110/140 lcb/3764        medium  brief        fail: NameError: name 'Solution' is not defined
+111/140 lcb/3771        medium  brief        fail: NameError: name 'Solution' is not defined
+112/140 lcb/3776        medium  brief        fail: NameError: name 'Solution' is not defined
+113/140 lcb/3779        medium  brief        fail: NameError: name 'Solution' is not defined
+114/140 lcb/3785        medium  brief        fail: NameError: name 'Solution' is not defined
+115/140 lcb/3786        medium  brief        fail: NameError: name 'Solution' is not defined
+116/140 lcb/3791        medium  brief        fail: NameError: name 'Solution' is not defined
+117/140 lcb/3793        medium  brief        fail: wrong answer on test 2
+118/140 lcb/3794        medium  brief        fail: NameError: name 'Solution' is not defined
+119/140 lcb/3795        medium  brief        fail: NameError: name 'Solution' is not defined
+120/140 lcb/3805        medium  brief        fail: NameError: name 'Solution' is not defined
+121/140 lcb/3809        medium  brief        fail: NameError: name 'Solution' is not defined
+122/140 lcb/abc391_d    medium  brief        fail: wrong answer on test 1
+123/140 lcb/abc392_c    medium  brief        fail: wrong answer on test 1
+124/140 lcb/abc392_d    medium  brief        fail: wrong answer on test 1
+125/140 lcb/abc394_c    medium  brief        fail: wrong answer on test 1
+126/140 lcb/abc394_d    medium  brief        fail: wrong answer on test 1
+127/140 lcb/abc395_c    medium  brief        fail: wrong answer on test 1
+128/140 lcb/abc396_c    medium  brief        fail: wrong answer on test 1
+129/140 lcb/abc396_d    medium  brief        fail: wrong answer on test 1
+130/140 lcb/abc397_b    medium  brief        fail: wrong answer on test 1
+131/140 lcb/abc397_c    medium  brief        fail: wrong answer on test 1
+132/140 lcb/abc398_b    medium  brief        fail: wrong answer on test 1
+133/140 lcb/abc398_c    medium  brief        fail: wrong answer on test 1
+134/140 lcb/abc399_c    medium  brief        fail: wrong answer on test 1
+135/140 lcb/abc399_d    medium  brief        fail: wrong answer on test 1
+136/140 lcb/abc400_c    medium  brief        fail: wrong answer on test 1
+137/140 lcb/abc400_d    medium  brief        fail: wrong answer on test 1
+138/140 lcb/arc192_a    medium  brief        fail: wrong answer on test 1
+139/140 lcb/arc194_a    medium  brief        fail: wrong answer on test 1
+140/140 lcb/arc195_a    medium  brief        fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+brief        easy     passed 19/62 (31%) | median thinking 8192 | median all tokens 8192 | hit the limit 42
+brief        medium   passed 0/78 (0%) | median thinking 8192 | median all tokens 8192 | hit the limit 77
+
+saved /content/drive/MyDrive/stop-overthinking/results/thesis/test-brief-lcb-graded.csv

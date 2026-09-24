@@ -1,0 +1,281 @@
+task_id,pool,difficulty,tries,correct,kept,kept_thinking_tokens,question_start
+lcb/abc301_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc302_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc302_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc303_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc303_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc307_a,LiveCodeBench (older),easy,4,2,true,4862,Takahashi has recorded the number of steps he walked for N weeks. He w
+lcb/abc308_a,LiveCodeBench (older),easy,4,1,true,7198,"Given eight integers S_1,S_2,\dots, and S_8, print Yes if they satisfy"
+lcb/abc308_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc309_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc309_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc311_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc312_a,LiveCodeBench (older),easy,4,4,true,3516,"Given a length-3 string S consisting of uppercase English letters, pri"
+lcb/abc312_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc313_a,LiveCodeBench (older),easy,4,1,true,6224,There are N people numbered 1 through N. Each person has a integer sco
+lcb/abc314_a,LiveCodeBench (older),easy,4,1,true,7596,The number pi to the 100-th decimal place is 3.14159265358979323846264
+lcb/abc314_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc315_a,LiveCodeBench (older),easy,4,3,true,2233,You are given a string S consisting of lowercase English letters. Remo
+lcb/abc318_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc319_b,LiveCodeBench (older),easy,4,1,true,5837,"You are given a positive integer N. Print a string of length (N+1), s_"
+lcb/abc320_a,LiveCodeBench (older),easy,4,2,true,5094,You are given positive integers A and B. Print the value A^B+B^A. Inpu
+lcb/abc321_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc322_a,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc322_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc325_b,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc326_b,LiveCodeBench (older),easy,4,1,true,1962,A 326-like number is a three-digit positive integer where the product 
+lcb/abc327_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc329_a,LiveCodeBench (older),easy,4,2,true,4613,You are given a string S consisting of uppercase English letters. Sepa
+lcb/abc329_b,LiveCodeBench (older),easy,4,3,true,5548,"You are given N integers A_1, A_2, \ldots, A_N. Find the largest among"
+lcb/abc331_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc333_a,LiveCodeBench (older),easy,4,1,true,4709,"You are given an integer N between 1 and 9, inclusive, as input. Conca"
+lcb/abc333_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc334_a,LiveCodeBench (older),easy,4,4,true,1310,"Takahashi, a young baseball enthusiast, has been a very good boy this "
+lcb/abc334_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc335_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc336_b,LiveCodeBench (older),easy,4,2,true,6833,"For a positive integer X, let \text{ctz}(X) be the (maximal) number of"
+lcb/abc336_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc337_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc339_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc339_d,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc340_a,LiveCodeBench (older),easy,4,3,true,7006,"Print an arithmetic sequence with first term A, last term B, and commo"
+lcb/abc340_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc341_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc341_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/abc342_a,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc342_b,LiveCodeBench (older),easy,4,0,false,,
+lcb/abc342_c,LiveCodeBench (older),medium,4,0,false,,
+lcb/1873_D,LiveCodeBench (older),easy,4,0,false,,
+lcb/2730,LiveCodeBench (older),medium,4,0,false,,
+lcb/2791,LiveCodeBench (older),easy,4,0,false,,
+lcb/2792,LiveCodeBench (older),medium,4,0,false,,
+lcb/2811,LiveCodeBench (older),medium,4,0,false,,
+lcb/2844,LiveCodeBench (older),easy,4,1,true,5772,You are given a 1-indexed integer array nums of length n. An element n
+lcb/2850,LiveCodeBench (older),medium,4,0,false,,
+lcb/2854,LiveCodeBench (older),medium,4,0,false,,
+lcb/2857,LiveCodeBench (older),easy,4,0,false,,
+lcb/2866,LiveCodeBench (older),easy,4,0,false,,
+lcb/2868,LiveCodeBench (older),medium,4,0,false,,
+lcb/2869,LiveCodeBench (older),medium,4,0,false,,
+lcb/2872,LiveCodeBench (older),medium,4,0,false,,
+lcb/2886,LiveCodeBench (older),easy,4,1,true,1253,"Your laptop keyboard is faulty, and whenever you type a character 'i' "
+lcb/2998,LiveCodeBench (older),easy,4,1,true,1117,You are given two positive integers low and high. An integer x consist
+lcb/3018,LiveCodeBench (older),medium,4,0,false,,
+lcb/3033,LiveCodeBench (older),medium,4,0,false,,
+lcb/3080,LiveCodeBench (older),medium,4,0,false,,
+lcb/3093,LiveCodeBench (older),easy,4,2,true,688,You are given a 0-indexed integer array nums and an integer k. Return 
+lcb/3164,LiveCodeBench (older),easy,4,0,false,,
+lcb/3176,LiveCodeBench (older),easy,4,1,true,755,You are given a 0-indexed array nums of integers. A triplet of indices
+lcb/3190,LiveCodeBench (older),medium,4,0,false,,
+lcb/3194,LiveCodeBench (older),easy,4,2,true,7574,You are given a 0-indexed array of strings words and a character x. Re
+lcb/3213,LiveCodeBench (older),medium,4,0,false,,
+lcb/3225,LiveCodeBench (older),medium,4,0,false,,
+lcb/3226,LiveCodeBench (older),easy,4,0,false,,
+lcb/3230,LiveCodeBench (older),medium,4,0,false,,
+lcb/3249,LiveCodeBench (older),medium,4,0,false,,
+lcb/3251,LiveCodeBench (older),easy,4,3,true,726,You are given a 2D 0-indexed integer array dimensions. For all indices
+lcb/3263,LiveCodeBench (older),easy,4,0,false,,
+lcb/3269,LiveCodeBench (older),medium,4,1,true,822,"You are given a 0-indexed integer array nums of size n, and a 0-indexe"
+lcb/3292,LiveCodeBench (older),medium,4,0,false,,
+lcb/3312,LiveCodeBench (older),easy,4,1,true,1039,You are given a 0-indexed string s typed by a user. Changing a key is 
+lcb/3331,LiveCodeBench (older),easy,4,0,false,,
+Mbpp/7,MBPP+,easy,4,0,false,,
+Mbpp/8,MBPP+,easy,4,4,true,216,Write a function to find squares of individual elements in a list. You
+Mbpp/9,MBPP+,easy,4,0,false,,
+Mbpp/12,MBPP+,easy,4,4,true,527,Write a function to sort a given matrix in ascending order according t
+Mbpp/14,MBPP+,easy,4,2,true,414,Write a python function to find the volume of a triangular prism. Your
+Mbpp/16,MBPP+,easy,4,0,false,,
+Mbpp/17,MBPP+,easy,4,3,true,113,Write a function that returns the perimeter of a square given its side
+Mbpp/56,MBPP+,easy,4,3,true,501,Write a python function to check if a given number is one less than tw
+Mbpp/59,MBPP+,easy,4,1,true,581,Write a function to find the nth octagonal number. Your code must pass
+Mbpp/63,MBPP+,easy,4,0,false,,
+Mbpp/65,MBPP+,easy,4,1,true,628,Write a function to flatten a list and sum all of its elements. Your c
+Mbpp/66,MBPP+,easy,4,4,true,1935,Write a python function to count the number of positive numbers in a l
+Mbpp/67,MBPP+,easy,4,1,true,1100,Write a function to find the number of ways to partition a set of Bell
+Mbpp/68,MBPP+,easy,4,1,true,1861,Write a python function to check whether the given array is monotonic 
+Mbpp/74,MBPP+,easy,4,0,false,,
+Mbpp/75,MBPP+,easy,4,3,true,377,Write a function to find tuples which have all elements divisible by k
+Mbpp/79,MBPP+,easy,4,2,true,415,Write a python function to check whether the length of the word is odd
+Mbpp/82,MBPP+,easy,4,4,true,296,Write a function to find the volume of a sphere. Your code must pass t
+Mbpp/84,MBPP+,easy,4,0,false,,
+Mbpp/85,MBPP+,easy,4,2,true,250,Write a function to find the surface area of a sphere. Your code must 
+Mbpp/87,MBPP+,easy,4,2,true,1052,Write a function to merge three dictionaries into a single dictionary.
+Mbpp/88,MBPP+,easy,4,4,true,435,"Write a function to get the frequency of all the elements in a list, r"
+Mbpp/90,MBPP+,easy,4,3,true,264,Write a python function to find the length of the longest word. Your c
+Mbpp/91,MBPP+,easy,4,1,true,384,Write a function to check if a string is present as a substring in a g
+Mbpp/92,MBPP+,easy,4,0,false,,
+Mbpp/93,MBPP+,easy,4,2,true,172,Write a function to calculate the value of 'a' to the power 'b'. Your 
+Mbpp/94,MBPP+,easy,4,3,true,670,"Given a list of tuples, write a function that returns the first value "
+Mbpp/95,MBPP+,easy,4,3,true,456,Write a python function to find the length of the smallest list in a l
+Mbpp/96,MBPP+,easy,4,4,true,636,Write a python function to find the number of divisors of a given inte
+Mbpp/98,MBPP+,easy,4,1,true,754,Write a function to multiply all the numbers in a list and divide with
+Mbpp/99,MBPP+,easy,4,0,false,,
+Mbpp/100,MBPP+,easy,4,0,false,,
+Mbpp/101,MBPP+,easy,4,3,true,225,Write a function to find the kth element in the given array using 1-ba
+Mbpp/106,MBPP+,easy,4,0,false,,
+Mbpp/111,MBPP+,easy,4,1,true,635,Write a function to find the common elements in given nested lists. Yo
+Mbpp/116,MBPP+,easy,4,1,true,412,Write a function to convert a given tuple of positive integers into a 
+Mbpp/118,MBPP+,easy,4,3,true,369,Write a function to convert a string to a list of strings split on the
+Mbpp/119,MBPP+,easy,4,0,false,,
+Mbpp/123,MBPP+,easy,4,0,false,,
+Mbpp/126,MBPP+,easy,4,0,false,,
+Mbpp/130,MBPP+,easy,4,3,true,1106,Write a function to find the item with maximum frequency in a given li
+Mbpp/133,MBPP+,easy,4,4,true,1516,Write a function to calculate the sum of the negative numbers of a giv
+Mbpp/135,MBPP+,easy,4,2,true,3926,Write a function to find the nth hexagonal number. Your code must pass
+Mbpp/137,MBPP+,easy,4,0,false,,
+Mbpp/140,MBPP+,easy,4,2,true,588,Write a function to flatten the list of lists into a single set of num
+Mbpp/142,MBPP+,easy,4,0,false,,
+Mbpp/145,MBPP+,easy,4,2,true,226,Write a python function to find the maximum difference between any two
+Mbpp/161,MBPP+,easy,4,4,true,360,Write a function to remove all elements from a given list present in a
+Mbpp/165,MBPP+,easy,4,1,true,2223,Write a function to count the number of characters in a string that oc
+Mbpp/170,MBPP+,easy,4,1,true,523,Write a function to find the sum of numbers in a list within a range s
+Mbpp/171,MBPP+,easy,4,3,true,2067,Write a function to find the perimeter of a regular pentagon from the 
+Mbpp/222,MBPP+,easy,4,2,true,597,Write a function to check if all the elements in tuple have same data 
+Mbpp/224,MBPP+,easy,4,4,true,237,Write a python function to count the number of set bits (binary digits
+Mbpp/227,MBPP+,easy,4,4,true,1931,Write a function to find minimum of three numbers. Your code must pass
+Mbpp/232,MBPP+,easy,4,3,true,1591,Write a function that takes in a list and an integer n and returns a l
+Mbpp/233,MBPP+,easy,4,2,true,1152,Write a function to find the lateral surface area of a cylinder. Your 
+Mbpp/234,MBPP+,easy,4,4,true,1202,Write a function to find the volume of a cube given its side length. Y
+Mbpp/235,MBPP+,easy,4,0,false,,
+Mbpp/237,MBPP+,easy,4,0,false,,
+Mbpp/238,MBPP+,easy,4,4,true,426,Write a python function to count the number of non-empty substrings of
+Mbpp/242,MBPP+,easy,4,3,true,2163,Write a function to count the total number of characters in a string. 
+Mbpp/244,MBPP+,easy,4,0,false,,
+Mbpp/252,MBPP+,easy,4,3,true,371,Write a python function to convert complex numbers to polar coordinate
+Mbpp/253,MBPP+,easy,4,4,true,259,Write a python function that returns the number of integer elements in
+Mbpp/260,MBPP+,easy,4,0,false,,
+Mbpp/265,MBPP+,easy,4,0,false,,
+Mbpp/267,MBPP+,easy,4,0,false,,
+Mbpp/268,MBPP+,easy,4,0,false,,
+Mbpp/272,MBPP+,easy,4,2,true,2353,Write a function that takes in a list of tuples and returns a list con
+Mbpp/276,MBPP+,easy,4,2,true,1217,Write a function that takes in the radius and height of a cylinder and
+Mbpp/277,MBPP+,easy,4,4,true,488,Write a function that takes in a dictionary and integer n and filters 
+Mbpp/280,MBPP+,easy,4,4,true,302,Write a function that takes in an array and element and returns a tupl
+Mbpp/282,MBPP+,easy,4,3,true,1684,Write a function to subtract two lists element-wise. Your code must pa
+Mbpp/283,MBPP+,easy,4,2,true,667,Write a python function takes in an integer and check whether the freq
+Mbpp/294,MBPP+,easy,4,0,false,,
+Mbpp/297,MBPP+,easy,4,2,true,633,Write a function to flatten a given nested list structure. Your code m
+Mbpp/305,MBPP+,easy,4,0,false,,
+Mbpp/309,MBPP+,easy,4,4,false,,
+Mbpp/311,MBPP+,easy,4,0,false,,
+Mbpp/312,MBPP+,easy,4,4,true,267,Write a function to find the volume of a cone. Your code must pass thi
+Mbpp/388,MBPP+,easy,4,1,true,1411,Write a python function to find the highest power of 2 that is less th
+Mbpp/389,MBPP+,easy,4,2,true,714,Write a function to find the n'th lucas number. Your code must pass th
+Mbpp/390,MBPP+,easy,4,0,false,,
+Mbpp/391,MBPP+,easy,4,0,false,,
+Mbpp/398,MBPP+,easy,4,0,false,,
+Mbpp/405,MBPP+,easy,4,2,true,220,Write a function to check whether an element exists within a tuple. Yo
+Mbpp/406,MBPP+,easy,4,3,true,169,Write a python function to find whether the parity of a given number i
+Mbpp/409,MBPP+,easy,4,1,true,1185,Write a function to find the minimum product from the pairs of tuples 
+Mbpp/412,MBPP+,easy,4,4,true,592,Write a python function to remove odd numbers from a given list. Your 
+Mbpp/413,MBPP+,easy,4,2,true,750,Write a function to extract the nth element from a given list of tuple
+Mbpp/414,MBPP+,easy,4,4,true,399,Write a python function to check whether any value in a sequence exist
+Mbpp/418,MBPP+,easy,4,4,true,471,Write a python function to find the element of a list having maximum l
+Mbpp/419,MBPP+,easy,4,2,true,1203,Write a function to round every number of a given list of numbers and 
+Mbpp/420,MBPP+,easy,4,4,true,723,Write a python function to find the cube sum of first n even natural n
+Mbpp/421,MBPP+,easy,4,0,false,,
+Mbpp/422,MBPP+,easy,4,4,true,340,Write a python function to find the average of cubes of first n natura
+Mbpp/424,MBPP+,easy,4,3,true,296,Write a function to extract only the rear index element of each string
+Mbpp/425,MBPP+,easy,4,4,true,447,Write a function to count the number of sublists containing a particul
+Mbpp/426,MBPP+,easy,4,1,true,1370,Write a function to filter odd numbers. Your code must pass this test:
+Mbpp/428,MBPP+,easy,4,2,true,583,Write a function to sort the given array by using shell sort. Your cod
+Mbpp/430,MBPP+,easy,4,0,false,,
+Mbpp/435,MBPP+,easy,4,2,true,473,Write a python function to find the last digit of a given number. Your
+Mbpp/437,MBPP+,easy,4,2,true,431,Write a function to remove odd characters in a string. Your code must 
+Mbpp/439,MBPP+,easy,4,2,true,2569,Write a function to join a list of multiple integers into a single int
+Mbpp/447,MBPP+,easy,4,4,true,2063,Write a function to find cubes of individual elements in a list. Your 
+Mbpp/450,MBPP+,easy,4,4,true,218,Write a function to extract specified size of strings from a given lis
+Mbpp/454,MBPP+,easy,4,3,true,2867,Write a function that matches a word containing 'z'. Your code must pa
+Mbpp/455,MBPP+,easy,4,3,true,494,Write a function to check whether the given month number contains 31 d
+Mbpp/457,MBPP+,easy,4,3,true,639,Write a python function to find the sublist having minimum length. You
+Mbpp/459,MBPP+,easy,4,1,true,930,Write a function to remove uppercase substrings from a given string. Y
+Mbpp/460,MBPP+,easy,4,1,true,627,Write a python function to get the first element of each sublist. Your
+Mbpp/462,MBPP+,easy,4,0,false,,
+Mbpp/465,MBPP+,easy,4,2,true,440,Write a function to drop empty items from a given dictionary. Your cod
+Mbpp/470,MBPP+,easy,4,1,true,515,Write a function to find the pairwise addition of the neighboring elem
+Mbpp/471,MBPP+,easy,4,4,true,442,Write a python function to find the product of the array multiplicatio
+Mbpp/472,MBPP+,easy,4,4,true,623,Write a python function to check whether the given list contains conse
+Mbpp/475,MBPP+,easy,4,2,true,389,Write a function to sort a dictionary by value. Your code must pass th
+Mbpp/476,MBPP+,easy,4,4,true,115,Write a python function to find the sum of the largest and smallest va
+Mbpp/477,MBPP+,easy,4,2,true,211,Write a python function to convert the given string to lower case. You
+Mbpp/478,MBPP+,easy,4,3,true,433,Write a function to remove lowercase substrings from a given string. Y
+Mbpp/479,MBPP+,easy,4,2,true,776,Write a python function to find the first digit of a given number. You
+Mbpp/554,MBPP+,easy,4,2,true,182,Write a python function which takes a list of integers and only return
+Mbpp/556,MBPP+,easy,4,0,false,,
+Mbpp/558,MBPP+,easy,4,1,true,3445,Write a python function to find the sum of the per-digit difference be
+Mbpp/559,MBPP+,easy,4,0,false,,
+Mbpp/568,MBPP+,easy,4,2,true,208,Write a function to create a list of N empty dictionaries. Your code m
+Mbpp/569,MBPP+,easy,4,3,true,535,Write a function to sort each sublist of strings in a given list of li
+Mbpp/572,MBPP+,easy,4,0,false,,
+Mbpp/573,MBPP+,easy,4,4,true,462,Write a python function to calculate the product of the unique numbers
+Mbpp/577,MBPP+,easy,4,0,false,,
+Mbpp/580,MBPP+,easy,4,0,false,,
+Mbpp/581,MBPP+,easy,4,0,false,,
+Mbpp/585,MBPP+,easy,4,4,true,197,Write a function to find the n most expensive items in a given dataset
+Mbpp/587,MBPP+,easy,4,2,true,2309,Write a function to convert a list to a tuple. Your code must pass thi
+Mbpp/589,MBPP+,easy,4,0,false,,
+Mbpp/591,MBPP+,easy,4,0,false,,
+Mbpp/592,MBPP+,easy,4,0,false,,
+Mbpp/596,MBPP+,easy,4,2,true,385,Write a function to find the size in bytes of the given tuple. Your co
+Mbpp/599,MBPP+,easy,4,2,true,416,Write a function to find sum and average of first n natural numbers. Y
+Mbpp/602,MBPP+,easy,4,3,true,395,Write a python function to find the first repeated character in a give
+Mbpp/603,MBPP+,easy,4,0,false,,
+Mbpp/604,MBPP+,easy,4,2,true,410,Write a function to reverse words seperated by spaces in a given strin
+Mbpp/606,MBPP+,easy,4,4,true,180,Write a function to convert degrees to radians. Your code must pass th
+Mbpp/607,MBPP+,easy,4,0,false,,
+Mbpp/608,MBPP+,easy,4,1,true,1865,Write a python function to find nth bell number. Your code must pass t
+Mbpp/612,MBPP+,easy,4,1,true,2173,"Write a python function which takes a list of lists, where each sublis"
+Mbpp/615,MBPP+,easy,4,0,false,,
+Mbpp/616,MBPP+,easy,4,4,true,303,Write a function which takes two tuples of the same length and perform
+Mbpp/619,MBPP+,easy,4,0,false,,
+Mbpp/620,MBPP+,easy,4,0,false,,
+Mbpp/623,MBPP+,easy,4,1,true,2906,Write a function to compute the n-th power of each number in a list. Y
+Mbpp/629,MBPP+,easy,4,3,true,369,Write a python function to find even numbers from a list of numbers. Y
+Mbpp/632,MBPP+,easy,4,1,true,437,Write a python function to move all zeroes to the end of the given lis
+Mbpp/633,MBPP+,easy,4,0,false,,
+Mbpp/635,MBPP+,easy,4,3,true,599,Write a function to sort the given list. Your code must pass this test
+Mbpp/643,MBPP+,easy,4,0,false,,
+Mbpp/721,MBPP+,easy,4,0,false,,
+Mbpp/723,MBPP+,easy,4,2,true,2626,The input is defined as two lists of the same length. Write a function
+Mbpp/725,MBPP+,easy,4,1,true,1253,"Write a function to extract values between quotation marks "" "" of the "
+Mbpp/726,MBPP+,easy,4,3,true,1698,"Write a function that takes as input a tuple of numbers (t_1,...,t_{N+"
+Mbpp/728,MBPP+,easy,4,3,true,304,"Write a function takes as input two lists [a_1,...,a_n], [b_1,...,b_n]"
+Mbpp/732,MBPP+,easy,4,1,true,640,"Write a function to replace all occurrences of spaces, commas, or dots"
+Mbpp/733,MBPP+,easy,4,2,true,656,Write a function to find the index of the first occurrence of a given 
+Mbpp/734,MBPP+,easy,4,0,false,,
+Mbpp/735,MBPP+,easy,4,0,false,,
+Mbpp/736,MBPP+,easy,4,3,true,483,Write a function to locate the left insertion point for a specified va
+Mbpp/737,MBPP+,easy,4,4,true,424,Write a function to check whether the given string is starting with a 
+Mbpp/739,MBPP+,easy,4,0,false,,
+Mbpp/741,MBPP+,easy,4,3,true,569,Write a python function to check whether all the characters are same o
+Mbpp/742,MBPP+,easy,4,0,false,,
+Mbpp/744,MBPP+,easy,4,4,true,251,Write a function to check if the given tuple has any none value or not
+Mbpp/745,MBPP+,easy,4,0,false,,
+Mbpp/749,MBPP+,easy,4,0,false,,
+Mbpp/753,MBPP+,easy,4,3,true,420,Write a function to find minimum k records from tuple list. https://ww
+Mbpp/754,MBPP+,easy,4,2,true,647,"We say that an element is common for lists l1, l2, l3 if it appears in"
+Mbpp/757,MBPP+,easy,4,0,false,,
+Mbpp/758,MBPP+,easy,4,0,false,,
+Mbpp/760,MBPP+,easy,4,3,true,273,Write a python function to check whether a list of numbers contains on
+Mbpp/762,MBPP+,easy,4,4,true,3716,Write a function to check whether the given month number contains 30 d
+Mbpp/763,MBPP+,easy,4,0,false,,
+Mbpp/766,MBPP+,easy,4,2,true,2491,Write a function to return a list of all pairs of consecutive items in
+Mbpp/767,MBPP+,easy,4,4,true,456,Write a python function to count the number of pairs whose sum is equa
+Mbpp/770,MBPP+,easy,4,4,true,456,Write a python function to find the sum of fourth power of first n odd
+Mbpp/771,MBPP+,easy,4,0,false,,
+Mbpp/772,MBPP+,easy,4,4,true,436,Write a function to remove all the words with k length in the given st
+Mbpp/773,MBPP+,easy,4,0,false,,
+Mbpp/775,MBPP+,easy,4,2,true,627,Write a python function to check whether every odd index contains odd 
+Mbpp/778,MBPP+,easy,4,0,false,,
+Mbpp/780,MBPP+,easy,4,0,false,,
+Mbpp/784,MBPP+,easy,4,0,false,,
+Mbpp/785,MBPP+,easy,4,0,false,,
+Mbpp/786,MBPP+,easy,4,0,false,,
+Mbpp/787,MBPP+,easy,4,2,true,541,Write a function that matches a string that has an a followed by three
+Mbpp/790,MBPP+,easy,4,0,false,,
+Mbpp/793,MBPP+,easy,4,3,true,882,Write a python function to find the last position of an element in a s
+Mbpp/794,MBPP+,easy,4,0,false,,
+Mbpp/796,MBPP+,easy,4,3,true,161,Write function to find the sum of all items in the given dictionary. Y
+Mbpp/798,MBPP+,easy,4,4,true,91,Write a python function to find the sum of an array. Your code must pa
+Mbpp/807,MBPP+,easy,4,2,true,294,Write a python function to find the first odd number in a given list o
+Mbpp/808,MBPP+,easy,4,4,true,2887,Write a function to check if the given tuples contain the k or not. Yo
