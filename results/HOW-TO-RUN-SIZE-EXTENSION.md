@@ -1,26 +1,18 @@
-# How to run: size × limit extension
-
-## Order
+# Size extension — Run all checklist
 
 ```text
-1. Colab A100 → notebooks/15b_qwen35_4b.ipynb     (4B first)
-2. Colab A100 → notebooks/15a_qwen35_0_8b.ipynb   (0.8B second, leftover hours)
-3. Laptop     → copy Drive folders → make_size_summary + make_all_results
+1. Copy repo → Drive:  MyDrive/stop-overthinking/code/
+2. Colab A100 (80GB best) → open 15b → Runtime → Run all
+3. Wait for FAST PATH ON ✓ · smoke · Stage A/B/C
+4. New Colab → open 15a → Run all
+5. Laptop: make_size_summary + make_all_results
 ```
 
-Details: [results/4b/RUN.md](4b/RUN.md) · [results/0.8b/RUN.md](0.8b/RUN.md)
+| GPU | 4B batch | 0.8B batch |
+|---|---|---|
+| A100 **80GB** | 64 | 128 |
+| A100 **40GB** | 32 | 64 |
 
-## Shared budget
+**Must see** `FAST PATH ON ✓` before Stage A. Without it, speed is ~40 tok/s — stop.
 
-≤ **150 hours** for both. Ledger: `MyDrive/stop-overthinking/results/shared/hours_budget.json`
-
-## Folders (do not mix)
-
-| Path | What |
-|---|---|
-| `results/2026-09-24-thesis-run/` | 2B — **do not touch** |
-| `results/4b/` | 4B only |
-| `results/0.8b/` | 0.8B only |
-| `results/ALL-RESULTS.md` | join page |
-
-**GPU runs are on your Colab account.** This machine cannot start them.
+Details: [4b/RUN.md](4b/RUN.md) · [0.8b/RUN.md](0.8b/RUN.md)

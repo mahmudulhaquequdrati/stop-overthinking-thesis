@@ -1,22 +1,24 @@
-# How to run the 0.8B Colab (do this SECOND)
+# How to run the 0.8B Colab (SECOND) — Run all
 
-1. Finish the **4B** run first ([../4b/RUN.md](../4b/RUN.md)), so hours left are known.
-2. Open Google Colab → **Runtime → Change runtime type → A100** (separate session from 4B).
-3. Open [`notebooks/15a_qwen35_0_8b.ipynb`](../../notebooks/15a_qwen35_0_8b.ipynb).
-4. **Runtime → Run all.**
-5. The notebook reads `results/shared/hours_budget.json` on Drive and **skips** stages that would pass 150 hours.
-6. After it finishes, copy from Drive:
-   `MyDrive/stop-overthinking/results/0.8b/` → this folder in the git repo.
-7. On your laptop:
-   ```bash
-   python scripts/make_size_summary.py --dir results/0.8b/raw --run 0.8b --summary results/0.8b/SUMMARY.md
-   python scripts/make_all_results.py
-   ```
+## Before this
 
-**Hard rules**
-- Shared pot with 4B: **≤150 hours combined**.
-- Suggested for 0.8B: ≤60 hours (whatever remains after 4B).
-- Prefer cutting Stage C (second try) or even LoRA-1 on 0.8B before cutting 4B work.
-- LoRA-1 only (no LoRA-2).
+1. Finish **4B** ([../4b/RUN.md](../4b/RUN.md)).
+2. Same Drive code mirror: `MyDrive/stop-overthinking/code/` (latest scripts).
 
-**Status:** notebook ready. GPU run = you on Colab.
+## Every run
+
+1. **New** Colab session → A100.
+2. Open **`notebooks/15a_qwen35_0_8b.ipynb`**.
+3. **Runtime → Run all.**  
+   - Batch: **128 on 80GB**, **64 on 40GB**.  
+   - Must see **`FAST PATH ON ✓`**.  
+   - Shared hour ledger skips stages if the 150h pot is empty.
+4. Results: `MyDrive/stop-overthinking/results/0.8b/`.
+
+## After both runs (laptop)
+
+```bash
+python scripts/make_size_summary.py --dir results/4b/raw --run 4b --summary results/4b/SUMMARY.md
+python scripts/make_size_summary.py --dir results/0.8b/raw --run 0.8b --summary results/0.8b/SUMMARY.md
+python scripts/make_all_results.py
+```
