@@ -398,6 +398,20 @@ continues where it stopped, instead of starting again.
 
 ## S
 
+**Shared hour pot**
+The ≤150 compute hours that the 0.8B and 4B Colab runs must share (DECISIONS #72). Not 150 each.
+A JSON ledger on Drive (`results/shared/hours_budget.json`) tracks both runs. ≥50 hours of the
+200 bought stay as a buffer.
+
+**Stop-on-repeat**
+A safety in `gen_colab.py` (`--stop-on-repeat`): if the model repeats the same 32-token block
+three times, we force it to stop that answer. Cuts loops early so they do not burn the whole
+token budget. Off by default so old 2B runs stay comparable.
+
+**Surety gate**
+A small check (about 40 problems) before a big training spend: does this model loop a lot?
+Is there short correct thinking to learn from? Can it solve the training problems?
+
 **Smoke test**
 A tiny first run that only checks that everything **works**, not how good the answers are.
 *Example:* turning a new oven on for a minute before baking. Notebook 14 runs every way on 2 problems first.

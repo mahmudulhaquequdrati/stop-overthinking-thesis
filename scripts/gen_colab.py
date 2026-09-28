@@ -76,7 +76,43 @@ def add_adapter(model, adapter_dir):
     return model.merge_and_unload()
 
 
-def generate(model, tok, texts, max_new_tokens, profile, seed):
+def make_repetition_eos_processor(eos_token_id, ngram=32, repeats=3):
+    """Force EOS on any sequence whose last `ngram` tokens already repeated `repeats` times.
+
+    Why: on Qwen3.5-2B most cut-offs were loops (thesis Ch. 5). Without a stop, a looping
+    answer burns the whole max_new_tokens budget and holds up the batch. This is the
+    "stop when the text repeats" check from thesis §7.5.1 / DECISIONS #72.
+    Per-row EOS (not a whole-batch stop) so siblings in the batch can keep writing.
+    Off by default so old notebook-14 runs stay the same; pass --stop-on-repeat.
+    """
+    import torch
+    from transformers import LogitsProcessor
+
+    if isinstance(eos_token_id, (list, tuple)):
+        eos_id = int(eos_token_id[0])
+    else:
+        eos_id = int(eos_token_id)
+
+    def is_loop(ids):
+        need = ngram * repeats
+        if len(ids) < need:
+            return False
+        block = ids[-ngram:]
+        return all(ids[-(i + 1) * ngram: len(ids) - i * ngram] == block
+                   for i in range(repeats))
+
+    class RepetitionEos(LogitsProcessor):
+        def __call__(self, input_ids, scores):
+            for i, seq in enumerate(input_ids.tolist()):
+                if is_loop(seq):
+                    scores[i, :] = torch.finfo(scores.dtype).min
+                    scores[i, eos_id] = 0
+            return scores
+
+    return RepetitionEos()
+
+
+def generate(model, tok, texts, max_new_tokens, profile, seed, stop_on_repeat=False):
     """Answer a whole batch at once. Returns (the NEW text only, cut-off flag per answer).
 
     "Cut off" is read from the model's own tokens: the answer used every allowed token and did
@@ -84,13 +120,20 @@ def generate(model, tok, texts, max_new_tokens, profile, seed):
     one (seen 2026-09-22: a looping answer counted 4,095 of 4,096 and was not marked cut off).
     """
     import torch
-    from transformers import set_seed
+    from transformers import set_seed, LogitsProcessorList
 
     set_seed(seed)
     batch = tok(texts, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
+    kw = dict(max_new_tokens=max_new_tokens, do_sample=True,
+              pad_token_id=tok.pad_token_id, **profile["gen"])
+    if stop_on_repeat:
+        eos = model.generation_config.eos_token_id
+        if eos is None:
+            eos = tok.eos_token_id
+        kw["logits_processor"] = LogitsProcessorList(
+            [make_repetition_eos_processor(eos)])
     with torch.no_grad():
-        out = model.generate(**batch, max_new_tokens=max_new_tokens, do_sample=True,
-                             pad_token_id=tok.pad_token_id, **profile["gen"])
+        out = model.generate(**batch, **kw)
     grown = out[:, batch["input_ids"].shape[1]:]          # drop the prompt part
     eos = model.generation_config.eos_token_id
     stop = {tok.pad_token_id, *(eos if isinstance(eos, list) else [eos])}
@@ -115,14 +158,15 @@ def generate_safe(fn, texts, *args):
         return a_txt + b_txt, a_cut + b_cut
 
 
-def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, seed):
+def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, seed,
+                         stop_on_repeat=False):
     """The 'limit' way of answering: stop the thinking after `budget` tokens, then make the
     model answer now by adding the end-of-thinking marker ourselves.
 
     Done in two batched rounds, so it is as fast as the other ways of answering.
     """
     end = profile["think_end"]
-    first, _ = generate(model, tok, texts, budget, profile, seed)
+    first, _ = generate(model, tok, texts, budget, profile, seed, stop_on_repeat)
 
     seconds_texts, heads = [], []
     for prompt_text, head in zip(texts, first):
@@ -133,7 +177,8 @@ def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, see
         heads.append(head)
         seconds_texts.append(prompt_text + head)
 
-    rest, cut = generate(model, tok, seconds_texts, max_new_tokens - budget, profile, seed)
+    rest, cut = generate(model, tok, seconds_texts, max_new_tokens - budget, profile, seed,
+                         stop_on_repeat)
     return [h + r for h, r in zip(heads, rest)], cut
 
 
@@ -176,6 +221,9 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=4096,
                     help="the SAME safety limit for every way of answering")
     ap.add_argument("--think-budget", type=int, default=256, help="only for --policy limit")
+    ap.add_argument("--stop-on-repeat", action="store_true",
+                    help="force EOS when a sequence repeats the same 32-token block 3 times "
+                         "(cuts loops early; default off so old runs stay comparable)")
     ap.add_argument("--model", default=models.DEFAULT)
     ap.add_argument("--problems", default="data/problems.json")
     ap.add_argument("--out", required=True)
@@ -213,10 +261,12 @@ def main():
         if args.policy == "limit":
             answers, cut = generate_safe(
                 lambda t: generate_with_budget(model, tok, t, args.think_budget,
-                                               args.max_tokens, profile, seed), texts)
+                                               args.max_tokens, profile, seed,
+                                               args.stop_on_repeat), texts)
         else:
             answers, cut = generate_safe(
-                lambda t: generate(model, tok, t, args.max_tokens, profile, seed), texts)
+                lambda t: generate(model, tok, t, args.max_tokens, profile, seed,
+                                   args.stop_on_repeat), texts)
         secs = time.time() - t0
 
         new_tokens = 0

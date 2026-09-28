@@ -93,7 +93,12 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Results + analysis chapter, first draft (#69)        │
 │       ✅ COMPLETE THESIS drafted (#70, 2026-09-25)            │
 │           thesis/THESIS.md: 10 chapters + qa/30             │
-│       ⬜ You read it + fill in name/supervisor ← HERE         │
+│       ✅ Size × limit extension READY (#72, 2026-09-29) ← HERE│
+│           notebooks 15b (4B) + 15a (0.8B), LoRA-1 only       │
+│           shared ≤150h pot · results/4b + 0.8b + ALL-RESULTS │
+│       ⬜ You RUN 15b on Colab A100 (4B first)                 │
+│       ⬜ You RUN 15a on Colab A100 (0.8B second)              │
+│       ⬜ You read thesis + fill in name/supervisor            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
 │  ⬜ Part 3: research skills                                   │

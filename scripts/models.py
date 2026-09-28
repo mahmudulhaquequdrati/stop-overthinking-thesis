@@ -23,6 +23,14 @@ THE IMPORTANT FIELD IS `start_in_output`.
 """
 
 PROFILES = {
+    # Smaller sibling for the size × limit extension (DECISIONS #72). Same switch, same settings.
+    "qwen35_0_8b": dict(
+        hf_id="unsloth/Qwen3.5-0.8B",
+        think_start="<think>",
+        think_end="</think>",
+        start_in_output=False,
+        gen=dict(temperature=0.6, top_p=0.95, top_k=20),
+    ),
     # Our model since 2026-09-20. 4.58 GB in 16-bit, fits fully on a free Colab T4.
     "qwen35_2b": dict(
         hf_id="unsloth/Qwen3.5-2B",
@@ -33,7 +41,7 @@ PROFILES = {
         # The SAME settings are used for every way of answering, so the comparison is fair.
         gen=dict(temperature=0.6, top_p=0.95, top_k=20),
     ),
-    # The fallback, used only if 2B fails the "solved at least once >= 40%" gate (PLAN §7).
+    # Bigger sibling for the size × limit extension (DECISIONS #72). Was the old fallback (#9).
     "qwen35_4b": dict(
         hf_id="unsloth/Qwen3.5-4B",
         think_start="<think>",

@@ -190,6 +190,7 @@ shorter. Before spending money on training, try the free options first.
   - [7.3 Advice for people who use small reasoning models for code](#73-advice-for-people-who-use-small-reasoning-models-for-code)
   - [7.4 What the hypothesis taught us](#74-what-the-hypothesis-taught-us)
   - [7.5 Future work](#75-future-work)
+  - [7.5.4 Size × limit extension (in progress, DECISIONS #72)](#754-size-limit-extension-in-progress-decisions-72)
   - [7.6 Closing](#76-closing)
 - [References](#references)
 - [Appendices](#appendices)
@@ -1409,11 +1410,26 @@ Our results suggest attacking the loop itself:
 - **Hard problems and math**, where longer, careful thinking may really be needed.
 - **Different limits** (512, 2,048), to find the best limit for each kind of problem.
 
+## 7.5.4 Size × limit extension (in progress, DECISIONS #72)
+
+To answer "why only one model?" and "why only 1,024?", we prepared two more Colab runs on
+the **same** Qwen3.5 family:
+
+| Notebook | Model | Folder |
+|---|---|---|
+| `notebooks/15b_qwen35_4b.ipynb` | Qwen3.5-4B (run first) | `results/4b/` |
+| `notebooks/15a_qwen35_0_8b.ipynb` | Qwen3.5-0.8B (run second) | `results/0.8b/` |
+
+Each run tests thinking OFF, ON, limits **512 / 1,024 / 2,048 / 4,096**, and **LoRA-1 only** (no LoRA-2),
+on the same 234 problems. Shared GPU time ≤ **150 hours**. Join page: `results/ALL-RESULTS.md`.
+**Numbers for 0.8B and 4B are not filled yet** — they appear after the Colab runs finish.
+
 ## 7.6 Closing
 
 We set out to teach a small model to stop overthinking, and found that its real problem was getting stuck. For this model, the
 simplest free fix, a limit on thinking, beat training. The trained approach may still work for larger models that loop less;
-our "check first" step shows how to find out cheaply before paying for it.
+our "check first" step shows how to find out cheaply before paying for it. The size × limit notebooks (Section 7.5.4) are
+how we test that idea on 0.8B and 4B without mixing their files with the finished 2B evidence.
 
 ---
 
