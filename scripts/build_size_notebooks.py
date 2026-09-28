@@ -202,14 +202,19 @@ for attempt in (1, 2):
     whl = _glob.glob(f"{WHEELS}/causal_conv1d*.whl")
     if not whl:
         print("building causal-conv1d once (~5–15 min) → saved on Drive for next time")
+        # --no-deps: do NOT let pip pull a newer torch (that breaks Unsloth)
         sh(f"pip wheel -q causal-conv1d --no-build-isolation --no-deps -w {WHEELS}")
         whl = _glob.glob(f"{WHEELS}/causal_conv1d*.whl")
     if not whl:
         raise RuntimeError("pip wheel produced no causal_conv1d*.whl — see errors above")
-    sh(f"pip install -q --force-reinstall {whl[0]}")
-    sh("pip install -q --upgrade flash-linear-attention")
+    # CRITICAL: --no-deps so torch/cuda stay as Unsloth installed them
+    sh(f"pip install -q --no-deps {whl[0]}")
+    sh("pip install -q --no-deps flash-linear-attention || pip install -q flash-linear-attention")
+    # fla may need its own small deps; if import still fails, try with deps once (not torch)
     if not fast_path_ok():
-        print("wheel did not import — deleting and rebuilding once")
+        sh("pip install -q flash-linear-attention")
+    if not fast_path_ok() and whl:
+        print("wheel did not import with current torch — deleting bad wheel, rebuild once")
         for w in whl:
             try: os.remove(w)
             except OSError: pass
@@ -219,8 +224,11 @@ print("torch", torch.__version__, "cuda", torch.version.cuda, "py", sys.version.
 if not fast_path_ok():
     raise RuntimeError(
         "FAST PATH OFF. Do not Run all further. "
-        "Paste the torch/cuda/py line above into the chat.")
+        "Runtime → Restart session, re-run from cell 1. "
+        "Paste the torch/cuda/py line into the chat if it fails again.")
 print("FAST PATH ON ✓")
+# Quick speed sanity: if someone later sees ~40 tok/s, fast path silently failed at generate time.
+print("If Stage A shows <100 tok/s, stop and check: import causal_conv1d, fla")
 """))
 
     cells.append(md("""## 4. Problems + overlap check"""))
