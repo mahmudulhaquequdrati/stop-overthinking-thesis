@@ -169,9 +169,13 @@ So “always leave thinking on” is bad advice for these small code models.
 **4. LoRA-1 still does not beat the best free way** on 0.8B or 4B.  
 Same story as the main 2B thesis: training on shortest-correct answers is not enough when the free winner is OFF or a hard limit.
 
-**5. Honest caveats.**  
+**5. Best limit grows with size** where limits help: 1024 on 2B → 2048 on 4B. On 2B, **limit 512 = 45.1%**
+   (beats ON 42.1%, loses to 1024 49.8%).
+
+**6. Honest caveats.**  
 0.8B used **1 try**; 2B/4B used **2**. Ranking ways *inside* 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.  
 0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.
+2B limit 512 came from a separate fill-in run (notebook 16), not from the original thesis Stage A.
 
 This softens one threat from Section 6.6 (“one model only”): we now have **three sizes in one family**. It does **not** remove “code only” or “easy/medium only”.
 
@@ -185,6 +189,6 @@ Small model thinks ─► often gets STUCK IN A LOOP ─► never finishes ─�
         Thinking OFF:                      never enters the loop             ─► 4× cheaper; best on 0.8B
 
 Across sizes (same 234 problems):
-  0.8B → OFF wins     ·  2B → limit 1024 wins  ·  4B → limit 2048 wins
+  0.8B → OFF wins     ·  2B → limit 1024 wins (512 = 45.1%)  ·  4B → limit 2048 wins
   LoRA-1 never beats that best free way
 ```

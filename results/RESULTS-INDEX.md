@@ -34,7 +34,8 @@
 | **2B short results** | [2026-09-24-thesis-run.md](2026-09-24-thesis-run.md) |
 | **2B full (charts, every problem)** | [full-results/FULL-RESULTS.md](full-results/FULL-RESULTS.md) |
 | **4B summary + story** | [4b/SUMMARY.md](4b/SUMMARY.md) · [4b/RUN.md](4b/RUN.md) |
-| **2B limit512 fill-in** (planned) | [2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · [2b-limit512/RUN.md](2b-limit512/RUN.md) · notebook [16](../notebooks/16_qwen35_2b_limit512.ipynb) |
+| **2B limit512 fill-in** | ✅ **45.1%** (2 tries) | [2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · [2b-limit512/RUN.md](2b-limit512/RUN.md) · notebook [16](../notebooks/16_qwen35_2b_limit512.ipynb) |
+| **2B limit2048 fill-in** (lean, planned) | ⬜ 1 try | [2b-limit2048/RUN.md](2b-limit2048/RUN.md) · notebook [17](../notebooks/17_qwen35_2b_limit2048.ipynb) |
 | **Hours ledger** | [shared/hours_budget.json](shared/hours_budget.json) |
 | **Thesis chapters with these numbers** | [../thesis/THESIS.md](../thesis/THESIS.md) §5.13 · §6.7 · §7.5.4 |
 | **Teacher talk track** | [../TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md) |
@@ -46,7 +47,7 @@
 | 0.8B | `0.8b/raw/test-*-graded.csv` (+ `.jsonl` answers) |
 | 2B | `2026-09-24-thesis-run/` and `full-results/` |
 | 4B | `4b/raw/test-*-graded.csv` |
-| 2B limit512 (after run) | `2b-limit512/raw/` |
+| 2B limit512 | `2b-limit512/raw/` |
 
 ---
 
@@ -58,7 +59,7 @@
 |---|---|---|---|
 | OFF | **20.5** | 40.8 | 69.7 |
 | ON | 7.3 | 42.1 | 64.3 |
-| limit512 | 17.5 | — *(notebook 16)* | 75.4 |
+| limit512 | 17.5 | **45.1** | 75.4 |
 | limit1024 | 13.2 | **49.8** | 76.5 |
 | limit2048 | — | — | **78.2** |
 | limit4096 | — | — | 76.7 |

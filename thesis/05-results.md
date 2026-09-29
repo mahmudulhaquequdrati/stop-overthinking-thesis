@@ -277,12 +277,13 @@ the effect disappeared.
 ## 5.13 Size extension: 0.8B and 4B (same family)
 
 The main thesis uses **Qwen3.5-2B**. A teacher may ask: *why only one size?* and *why only limit 1,024?*  
-So we ran the **same 234 problems** on two more models in the same family (DECISIONS #72–#77):
+So we ran the **same 234 problems** on two more models in the same family (DECISIONS #72–#77), and later filled
+**2B × limit 512** in a small extra run (notebook 16, DECISIONS #81–#82):
 
 | Size | Tries | Limits tested | Training |
 |---|---|---|---|
 | **0.8B** (lean) | **1** | 512, 1,024 | LoRA-1 only |
-| **2B** (main) | 2 | 1,024 (+ other free ways) | LoRA-1 and LoRA-2 |
+| **2B** (main + fill-in) | 2 | **512**, 1,024 (+ other free ways on main run) | LoRA-1 and LoRA-2 (main run) |
 | **4B** | 2 | 512, 1,024, 2,048, 4,096 | LoRA-1 only |
 
 0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.  
@@ -294,7 +295,7 @@ Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
 |---|---|---|---|
 | Thinking OFF | **20.5%** | 40.8% | 69.7% |
 | Thinking ON | 7.3% | 42.1% | 64.3% |
-| Limit 512 | 17.5% | — | 75.4% |
+| Limit 512 | 17.5% | **45.1%** | 75.4% |
 | Limit 1,024 | 13.2% | **49.8%** | 76.5% |
 | Limit 2,048 | — | — | **78.2%** |
 | Limit 4,096 | — | — | 76.7% |
@@ -304,7 +305,7 @@ Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
 Best free way per size
 
 0.8B  →  OFF           20.5%
-2B    →  limit 1,024   49.8%
+2B    →  limit 1,024   49.8%   (limit 512 = 45.1%: helps, but 1024 still better)
 4B    →  limit 2,048   78.2%
 ```
 
@@ -320,4 +321,4 @@ Best free way per size
 
 Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.
 
-Raw folders: `results/0.8b/`, `results/4b/`. Join page: `results/SIZE-COMPARISON.md`.
+Raw folders: `results/0.8b/`, `results/4b/`, `results/2b-limit512/`. Join page: `results/SIZE-COMPARISON.md`.

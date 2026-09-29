@@ -1,27 +1,29 @@
-# How to run 2B · limit 512 only
+# 2B · limit 512 fill-in — what happened
 
-Fills the empty cell: **2B × Limit 512** in the size table.  
-**Not** 2048. **Not** OFF/ON/LoRA. Same 234 problems · **2 tries**.
+**Checked** from Drive zip `2b-limit512-20260929T161939Z-1-001.zip` (2026-09-29).  
+Same **234** problems · **2 tries** · **limit512 only** (DECISIONS #81–#82).
 
-## Steps
+## Main number
 
-1. Copy to Drive: `notebooks/16_qwen35_2b_limit512.ipynb`, `scripts/`, and `results/shared/hours_budget.json`
-2. Colab **A100** → open **16** → **Runtime → Run all**
-3. Wait for **`FAST PATH ON ✓`**
-4. When DONE, copy Drive `results/2b-limit512/` into the laptop repo
-5. We then put the % into SIZE-COMPARISON / ALL-RESULTS / thesis §5.13
+| Way | Accuracy | Thinking | All tokens | Cut off |
+|---|---|---|---|---|
+| **limit512** | **45.1%** | 492 | 2684 | 28% |
 
-## Output files
+## How it sits next to other 2B ways
+
+| Way | Accuracy |
+|---|---|
+| Thinking OFF | 40.8% |
+| Thinking ON | 42.1% |
+| **limit512** | **45.1%** ← this fill-in |
+| LoRA-1 | 45.5% |
+| **limit1024** | **49.8%** ← still best on 2B |
 
 ```text
-results/2b-limit512/
-  SUMMARY.md
-  raw/
-    test-limit512-he.jsonl (+ graded.csv)
-    test-limit512-lcb.jsonl (+ graded.csv)
-    smoke/
+limit512 helps vs ON (+3.0 points)
+but limit1024 is still clearly better (+4.7 vs limit512)
 ```
 
-Does **not** write into `results/2026-09-24-thesis-run/`.
+So the empty chart cell is filled, and the main 2B story does **not** change: best free way stays **limit 1024**.
 
-DECISIONS #81.
+Raw: `results/2b-limit512/raw/` · Notebook: `16_qwen35_2b_limit512.ipynb`

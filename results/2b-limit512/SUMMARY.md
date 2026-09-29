@@ -1,10 +1,13 @@
-# 2b-limit512 run — not started
+# 2b-limit512 run — summary
 
-Open `notebooks/16_qwen35_2b_limit512.ipynb` on Colab (A100).
-Raw files go in `raw/`. Fill this SUMMARY after the run.
-
-Plan: **limit512 only** · 234 problems · **2 tries** (DECISIONS #81).
+Raw folder: `results/2b-limit512/raw`
 
 | Way | Problems | Tries | Accuracy | Thinking | All tokens | Cut off % |
 |---|---|---|---|---|---|---|
-| limit512 | — | — | — | — | — | — |
+| limit512 | 234 | 2 | 45.1% | 492 | 2684 | 28% |
+
+## Status
+
+✅ Graded files found.
+
+Hours ledger (shared): `results/shared/hours_budget.json`

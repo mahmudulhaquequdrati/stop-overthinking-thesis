@@ -1757,7 +1757,8 @@ we measure cost in tokens (Section 4.15).</li>
 </tr>
 </tbody></table>
 <h2 id="513-size-extension-08b-and-4b-same-family">5.13 Size extension: 0.8B and 4B (same family)</h2>
-<p>The main thesis uses <strong>Qwen3.5-2B</strong>. A teacher may ask: <em>why only one size?</em> and <em>why only limit 1,024?</em><br>So we ran the <strong>same 234 problems</strong> on two more models in the same family (DECISIONS #72–#77):</p>
+<p>The main thesis uses <strong>Qwen3.5-2B</strong>. A teacher may ask: <em>why only one size?</em> and <em>why only limit 1,024?</em><br>So we ran the <strong>same 234 problems</strong> on two more models in the same family (DECISIONS #72–#77), and later filled
+<strong>2B × limit 512</strong> in a small extra run (notebook 16, DECISIONS #81–#82):</p>
 <table class="short">
 <thead>
 <tr>
@@ -1774,10 +1775,10 @@ we measure cost in tokens (Section 4.15).</li>
 <td>LoRA-1 only</td>
 </tr>
 <tr>
-<td><strong>2B</strong> (main)</td>
+<td><strong>2B</strong> (main + fill-in)</td>
 <td>2</td>
-<td>1,024 (+ other free ways)</td>
-<td>LoRA-1 and LoRA-2</td>
+<td><strong>512</strong>, 1,024 (+ other free ways on main run)</td>
+<td>LoRA-1 and LoRA-2 (main run)</td>
 </tr>
 <tr>
 <td><strong>4B</strong></td>
@@ -1812,7 +1813,7 @@ we measure cost in tokens (Section 4.15).</li>
 <tr>
 <td>Limit 512</td>
 <td>17.5%</td>
-<td>—</td>
+<td><strong>45.1%</strong></td>
 <td>75.4%</td>
 </tr>
 <tr>
@@ -1843,7 +1844,7 @@ we measure cost in tokens (Section 4.15).</li>
 <pre><code class="language-text">Best free way per size
 
 0.8B  →  OFF           20.5%
-2B    →  limit 1,024   49.8%
+2B    →  limit 1,024   49.8%   (limit 512 = 45.1%: helps, but 1024 still better)
 4B    →  limit 2,048   78.2%
 </code></pre>
 <p><strong>Figure idea (for the paper):</strong> three bars per size — OFF, best limit (or “n/a”), LoRA-1 — so the eye sees that LoRA never wins.</p>
@@ -1873,7 +1874,7 @@ we measure cost in tokens (Section 4.15).</li>
 </tr>
 </tbody></table>
 <p>Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.</p>
-<p>Raw folders: <code>results/0.8b/</code>, <code>results/4b/</code>. Join page: <code>results/SIZE-COMPARISON.md</code>.</p>
+<p>Raw folders: <code>results/0.8b/</code>, <code>results/4b/</code>, <code>results/2b-limit512/</code>. Join page: <code>results/SIZE-COMPARISON.md</code>.</p>
 <h1 id="6-analysis">6. Analysis</h1>
 <p>Chapter 5 showed <strong>what</strong> happened. This chapter explains <strong>why</strong>, compares it with earlier work, and says honestly what
 could be wrong.</p>
@@ -2055,7 +2056,10 @@ are well outside that noise.</li>
 </tbody></table>
 <p><strong>3. Open thinking (ON) is risky when the model loops.</strong><br>On 0.8B, ON is the <em>worst</em> way (7.3%, 78% cut off). On 4B, OFF still beats ON (69.7% vs 64.3%).<br>So “always leave thinking on” is bad advice for these small code models.</p>
 <p><strong>4. LoRA-1 still does not beat the best free way</strong> on 0.8B or 4B.<br>Same story as the main 2B thesis: training on shortest-correct answers is not enough when the free winner is OFF or a hard limit.</p>
-<p><strong>5. Honest caveats.</strong><br>0.8B used <strong>1 try</strong>; 2B/4B used <strong>2</strong>. Ranking ways <em>inside</em> 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.<br>0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.</p>
+<p><strong>5. Best limit grows with size</strong> where limits help: 1024 on 2B → 2048 on 4B. On 2B, <strong>limit 512 = 45.1%</strong>
+   (beats ON 42.1%, loses to 1024 49.8%).</p>
+<p><strong>6. Honest caveats.</strong><br>0.8B used <strong>1 try</strong>; 2B/4B used <strong>2</strong>. Ranking ways <em>inside</em> 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.<br>0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.
+2B limit 512 came from a separate fill-in run (notebook 16), not from the original thesis Stage A.</p>
 <p>This softens one threat from Section 6.6 (“one model only”): we now have <strong>three sizes in one family</strong>. It does <strong>not</strong> remove “code only” or “easy/medium only”.</p>
 <h2 id="68-summary-of-the-analysis">6.8 Summary of the analysis</h2>
 <pre><code class="language-text">Small model thinks ─► often gets STUCK IN A LOOP ─► never finishes ─► fails
@@ -2065,7 +2069,7 @@ are well outside that noise.</li>
         Thinking OFF:                      never enters the loop             ─► 4× cheaper; best on 0.8B
 
 Across sizes (same 234 problems):
-  0.8B → OFF wins     ·  2B → limit 1024 wins  ·  4B → limit 2048 wins
+  0.8B → OFF wins     ·  2B → limit 1024 wins (512 = 45.1%)  ·  4B → limit 2048 wins
   LoRA-1 never beats that best free way
 </code></pre>
 <h1 id="7-conclusion-and-future-work">7. Conclusion and Future Work</h1>
@@ -2094,7 +2098,8 @@ the harder LiveCodeBench problems.</li>
 <li><strong>More room did not rescue normal thinking:</strong> with 16,384 tokens it gained 5.5 points on HumanEval+ and 7.1 on
 LiveCodeBench, still below the limit.</li>
 <li><strong>Size extension (checked):</strong> best free way = <strong>OFF 20.5%</strong> on 0.8B · <strong>limit 1,024 → 49.8%</strong> on 2B · <strong>limit 2,048 → 78.2%</strong> on 4B.
-LoRA-1 lost to that free winner on every size. ON cut-off fell as size grew (78% → ~41% → 28%).</li>
+On 2B, <strong>limit 512 = 45.1%</strong> (fill-in): better than ON, worse than 1024. LoRA-1 lost to that free winner on every size.
+ON cut-off fell as size grew (78% → ~41% → 28%).</li>
 </ol>
 <h2 id="73-advice-for-people-who-use-small-reasoning-models-for-code">7.3 Advice for people who use small reasoning models for code</h2>
 <pre><code class="language-text">1. Try THINKING OFF and a THINKING LIMIT first.   → free; winner depends on size
@@ -2248,6 +2253,13 @@ answered correctly, like the limit&#39;s successful answers. This would teach th
 <td>49.8%</td>
 <td>45.5%</td>
 <td>yes</td>
+</tr>
+<tr>
+<td>2B limit512 fill-in</td>
+<td>Limit 512</td>
+<td><strong>45.1%</strong></td>
+<td>(same LoRA-1)</td>
+<td>limit1024 still wins</td>
 </tr>
 <tr>
 <td>4B (2 tries)</td>

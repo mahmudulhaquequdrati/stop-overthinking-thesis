@@ -1,22 +1,26 @@
 # Q&A 38: 2B limit-512 fill-in (notebook 16)
 
-⬅️ [All Q&A](README.md) · Decision: [#81](../DECISIONS.md) · Run: [results/2b-limit512/RUN.md](../results/2b-limit512/RUN.md)
+⬅️ [All Q&A](README.md) · Decision: [#81](../DECISIONS.md)–[#82](../DECISIONS.md) · Numbers: [results/2b-limit512/SUMMARY.md](../results/2b-limit512/SUMMARY.md)
 
 ---
 
 ## 1. The step in 2 sentences
 
-The size table had no **2B × Limit 512** number. Notebook **16** runs only that way on the same 234 problems (2 tries). We skip 2048 on 2B for now.
+We filled the empty **2B × Limit 512** cell: **45.1%** on the same 234 problems (2 tries).
+It beats thinking ON (42.1%) but still loses to **limit 1024 (49.8%)**, so the main 2B answer does not change.
 
 ---
 
 ## 2. Questions a teacher may ask
 
+**Q: What was 2B at limit 512?**
+A: **45.1%** (thinking ~492 tokens, 28% cut off).
+
 **Q: Why only 512, not 2048?**
-A: 2B’s best free way is already limit **1024**. 4B already showed 2048 can win on a bigger model. 512 is the empty cell next to 0.8B and 4B.
+A: 2B’s best free way is already limit **1024**. 4B already showed 2048 can win on a bigger model. 512 was the empty chart cell.
 
 **Q: Does this change the main 2B thesis?**
-A: No. It adds one comparable number. The main result (limit 1024 wins on 2B) stays.
+A: No. Limit 1024 stays best. 512 just shows a shorter budget already helps a bit.
 
 ---
 
@@ -24,12 +28,11 @@ A: No. It adds one comparable number. The main result (limit 1024 wins on 2B) st
 
 | Checked | Assumed |
 |---|---|
-| Notebook 16 built; folder stub ready | Accuracy after Colab Run all |
+| Graded HE+LCB, 468 answers (234×2) | Exact Colab compute hours for this fill-in |
 
 ---
 
 ## 5. Where it is written
 
-- [notebooks/16_qwen35_2b_limit512.ipynb](../notebooks/16_qwen35_2b_limit512.ipynb)
-- [results/2b-limit512/](../results/2b-limit512/)
-- DECISIONS #81
+- [results/2b-limit512/](../results/2b-limit512/) · [SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md)
+- Thesis §5.13 · DECISIONS #82
