@@ -256,9 +256,13 @@ def answer(way, ds, tries, folder=None, n=0, maxtok=None, think_budget=None,
     policy, adapter = WAYS[way]
     if way.startswith("limit") and think_budget is None:
         think_budget = int(way.replace("limit", ""))
+    # Limit ways need think_budget + room for code. Else limit4096 + max=4096 → 0 answer tokens.
+    use_max = maxtok or MAXTOK[ds]
+    if policy == "limit":
+        use_max = max(use_max, (think_budget or 1024) + 1024)
     cmd = (f'python scripts/gen_colab.py --policy {policy} --label {way} --model {MODEL} '
            f'--problems {problems} --source {SRC[ds]} --samples {tries} '
-           f'--dtype auto --batch {BATCH} --max-tokens {maxtok or MAXTOK[ds]} '
+           f'--dtype auto --batch {BATCH} --max-tokens {use_max} '
            f'--think-budget {think_budget or 1024} --out "{out}"')
     if stop_on_repeat:
         cmd += " --stop-on-repeat"

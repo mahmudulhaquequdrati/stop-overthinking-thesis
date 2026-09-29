@@ -164,8 +164,13 @@ def generate_with_budget(model, tok, texts, budget, max_new_tokens, profile, see
     model answer now by adding the end-of-thinking marker ourselves.
 
     Done in two batched rounds, so it is as fast as the other ways of answering.
+
+    The second round needs room for the code answer. If max_new_tokens <= budget
+    (e.g. limit4096 with a 4096 safety cap), we add 1024 tokens for the answer.
     """
     end = profile["think_end"]
+    if max_new_tokens <= budget:
+        max_new_tokens = budget + 1024
     first, _ = generate(model, tok, texts, budget, profile, seed, stop_on_repeat)
 
     seconds_texts, heads = [], []
