@@ -11,6 +11,8 @@
 
 **Hour rule now:** Colab has ~**100** compute hours left; always keep **≥50**. So **0.8B may use ≤50 more hours**. Ledger: [shared/hours_budget.json](shared/hours_budget.json).
 
+**Tries (say this in every table caption):** 2B and 4B used **2 tries**; lean 0.8B uses **1 try** (DECISIONS #75–76). Error bars still use the same problems (bootstrap). 0.8B bars will be a bit wider — that is expected, not missing data.
+
 **Who this thesis is for:** people who run **small reasoning models for code** on a **limited GPU** (students, indie developers, one-GPU setups).
 
 ---
