@@ -5,6 +5,7 @@
 > | File | What is in it |
 > |---|---|
 > | **[TEACHER-A-TO-Z.md](TEACHER-A-TO-Z.md)** | **Before a meeting:** A→Z map, where to check numbers, what to say |
+| **[easy-thesis/FULL-THESIS.md](easy-thesis/FULL-THESIS.md)** | **Plain-language thesis** in one file (short chapters in the same folder) |
 > | **[results/RESULTS-INDEX.md](results/RESULTS-INDEX.md)** | **All 0.8B / 2B / 4B numbers for the paper** |
 > | [PLAN.md](PLAN.md) | The research design: what exactly we will do |
 > | [DECISIONS.md](DECISIONS.md) | Every choice we made, and why |
@@ -101,8 +102,10 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Lean 0.8B DONE (#75–77): OFF best 20.5%              │
 │       ✅ Size story in thesis (#78) · Teacher A→Z (#79)       │
 │       ✅ Notebook 16 DONE: 2B limit512 = 45.1% (#82)          │
-│       ✅ Notebook 17 DONE: 2B limit2048 = 46.6% (#84) ←HERE   │
+│       ✅ Notebook 17 DONE: 2B limit2048 = 46.6% (#84)         │
 │           2B curve peaks at limit1024 (49.8%)                │
+│       ✅ Easy thesis folder (#85) ←HERE                       │
+│           easy-thesis/FULL-THESIS.md                         │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
