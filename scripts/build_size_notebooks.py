@@ -450,7 +450,7 @@ print("hours left:", round(hb.left(HOURS), 1))
         cells.append(md("""## 9. Stage C — skipped on purpose
 
 **0.8B lean plan:** no second try. Saves about half the answering cost. One try is enough to compare ways."""))
-        cells.append(code("""print("Stage C skipped (lean 0.8B plan, DECISIONS #74). Hours left:", round(hb.left(HOURS), 1))
+        cells.append(code("""print("Stage C skipped (lean 0.8B plan, DECISIONS #75). Hours left:", round(hb.left(HOURS), 1))
 """))
 
     cells.append(md("""## 10. Finish + SUMMARY.md on Drive"""))
