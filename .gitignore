@@ -15,3 +15,6 @@ __pycache__/
 .DS_Store
 # the Drive download zip (its contents are in results/2026-09-24-thesis-run/)
 thesis-*.zip
+*.zip
+4b-*.zip
+hours_budget.json

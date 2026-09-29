@@ -15,13 +15,18 @@ NB_DIR = os.path.join(ROOT, "notebooks")
 
 CONFIGS = {
     "15a_qwen35_0_8b.ipynb": dict(
-        title="15a — Qwen3.5-0.8B size × limit × LoRA-1",
+        title="15a — Qwen3.5-0.8B (lean: best free ways + LoRA-1)",
         run_tag="0.8b",
         model_profile="qwen35_0_8b",
         hf_id="unsloth/Qwen3.5-0.8B",
         drive_sub="0.8b",
-        suggested_hours=60,
-        order="SECOND (after 4B)",
+        suggested_hours=50,
+        order="NEXT (after 4B; ≤50 compute hours)",
+        # Lean plan (DECISIONS #74): enough for the teacher, fits the 50h buffer rule.
+        limits=[512, 1024, 2048],   # drop 4096 (not best on 4B; costly)
+        stage_a_tries=1,            # one try (drop Stage C)
+        run_stage_c=False,
+        cost_h={"smoke": 0.4, "A": 12.0, "B1": 8.0, "B2": 1.0, "B3": 3.0},
     ),
     "15b_qwen35_4b.ipynb": dict(
         title="15b — Qwen3.5-4B size × limit × LoRA-1",
@@ -30,17 +35,12 @@ CONFIGS = {
         hf_id="unsloth/Qwen3.5-4B",
         drive_sub="4b",
         suggested_hours=90,
-        order="FIRST",
+        order="FIRST (done)",
+        limits=[512, 1024, 2048, 4096],
+        stage_a_tries=1,
+        run_stage_c=True,
+        cost_h={"smoke": 0.5, "A": 18.0, "B1": 10.0, "B2": 1.5, "B3": 4.0, "C": 22.0},
     ),
-}
-
-COST_H = {
-    "smoke": 0.5,
-    "A": 18.0,
-    "B1": 10.0,
-    "B2": 1.5,
-    "B3": 4.0,
-    "C": 22.0,
 }
 
 
@@ -58,28 +58,44 @@ def code(text):
 def build(cfg):
     t = cfg
     profile = t["model_profile"]
+    limits = t["limits"]
+    limits_txt = "/".join(str(x) for x in limits)
+    cost_h = t["cost_h"]
+    run_stage_c = t.get("run_stage_c", True)
+    stage_a_tries = t.get("stage_a_tries", 1)
     cells = []
+
+    lean_note = ""
+    if t["run_tag"] == "0.8b":
+        lean_note = """
+**Lean plan (≤50 compute hours):** OFF · ON · limits **512 / 1024 / 2048** · LoRA-1 · **1 try** · **no Stage C**.
+Dropped limit4096 (not best on 4B) and the second try (saves ~half the answering cost).
+Same 234 problems. Enough to answer: smaller size × best free ways × does LoRA beat them?
+"""
 
     cells.append(md(f"""# {t['title']}
 
 **Runtime → Run all** on an **A100** (40GB or 80GB). No typing needed.
-
+{lean_note}
 | | |
 |---|---|
 | Model | `{t['hf_id']}` (`{t['model_profile']}`) |
 | Order | **{t['order']}** |
 | Drive results | `MyDrive/stop-overthinking/results/{t['drive_sub']}/` |
-| Ways | OFF · ON · limit 512/1024/2048/4096 · **LoRA-1 only** |
-| Hour pot | ≤150h shared with the other size notebook |
+| Ways | OFF · ON · limit {limits_txt} · **LoRA-1 only** |
+| Tries | **{stage_a_tries}** (Stage C: {"yes" if run_stage_c else "NO — skipped to save hours"}) |
+| Hour rule | Colab ~100 left; keep ≥50; this run ≤50 more |
 | Test set | same **234** problems as the 2B thesis |
 
-**Before first Run all:** copy this laptop repo once to Drive so Colab has the latest scripts:
+**Before Run all:** put latest scripts on Drive:
 
 ```text
-MyDrive/stop-overthinking/code/   ← full git repo (scripts/, data/, …)
+MyDrive/stop-overthinking/code/
 ```
 
-DECISIONS #72."""))
+Also copy `results/shared/hours_budget.json` to Drive so the 50h cap is enforced.
+
+DECISIONS #72 · #73 · #74."""))
 
     cells.append(md("""## 1. Install packages
 
@@ -169,18 +185,21 @@ if not os.path.exists(HOURS):
               open(HOURS, "w"), indent=2)
 
 MAXTOK = {{"he": 4096, "lcb": 8192}}
-LIMITS = [512, 1024, 2048, 4096]
+LIMITS = {limits!r}
 SRC = {{"he": "humaneval", "lcb": "lcb"}}
 N = {{"he": 164, "lcb": 70}}
 WAYS = {{"off": ("thinking_off", None), "on": ("thinking_on", None)}}
 for L in LIMITS:
     WAYS[f"limit{{L}}"] = ("limit", None)
 WAYS["lora1"] = ("thinking_on", LORA1)
-COST_H = {json.dumps(COST_H)}
+COST_H = {json.dumps(cost_h)}
+STAGE_A_TRIES = {stage_a_tries}
+RUN_STAGE_C = {run_stage_c!r}
 
 import hours_budget as hb
 print(f"model={{MODEL}} · out={{T}}")
-print(f"shared hours left: {{hb.left(HOURS):.1f}} / 150")
+print(f"limits={{LIMITS}} · stage_a_tries={{STAGE_A_TRIES}} · stage_c={{RUN_STAGE_C}}")
+print(f"shared hours left: {{hb.left(HOURS):.1f}} / {{json.load(open(HOURS)).get('cap_hours', '?')}}")
 '''))
 
     cells.append(md("""## 3. Fast path (REQUIRED)
@@ -358,11 +377,16 @@ elif hb.gate(HOURS, RUN_TAG, "smoke", COST_H["smoke"]):
         hb.end_stage(HOURS, RUN_TAG, "smoke")
 """))
 
-    cells.append(md("""## 7. Stage A — free ways on 234 (try 1)
+    stage_a_note = (
+        "OFF · ON · the limits listed above. **1 try** (lean plan). Skips finished files."
+        if not run_stage_c
+        else "OFF · ON · the limits listed above. **1 try** here; Stage C adds a second try later."
+    )
+    cells.append(md(f"""## 7. Stage A — free ways on 234
 
-OFF · ON · limits 512/1024/2048/4096. Skips files already on Drive."""))
+{stage_a_note}"""))
     cells.append(code("""assert PRODUCTION_OK
-stage("A", free_ways(), tries=1, cost_key="A")
+stage("A", free_ways(), tries=STAGE_A_TRIES, cost_key="A")
 wait_grading()
 print("stage A done. Hours left:", round(hb.left(HOURS), 1))
 """))
@@ -412,13 +436,20 @@ else:
     print("B3 skipped: no LoRA-1")
 """))
 
-    cells.append(md("""## 9. Stage C — second try (if hours remain)
+    if run_stage_c:
+        cells.append(md("""## 9. Stage C — second try (if hours remain)
 
-Skipped automatically when the shared 150h pot is too low."""))
-    cells.append(code("""ways_c = free_ways() + (["lora1"] if os.path.exists(f"{LORA1}/adapter_config.json") else [])
+Skipped automatically when the shared pot is too low."""))
+        cells.append(code("""ways_c = free_ways() + (["lora1"] if os.path.exists(f"{LORA1}/adapter_config.json") else [])
 stage("C", ways_c, tries=2, cost_key="C")
 wait_grading()
 print("hours left:", round(hb.left(HOURS), 1))
+"""))
+    else:
+        cells.append(md("""## 9. Stage C — skipped on purpose
+
+**0.8B lean plan:** no second try. Saves about half the answering cost. One try is enough to compare ways."""))
+        cells.append(code("""print("Stage C skipped (lean 0.8B plan, DECISIONS #74). Hours left:", round(hb.left(HOURS), 1))
 """))
 
     cells.append(md("""## 10. Finish + SUMMARY.md on Drive"""))

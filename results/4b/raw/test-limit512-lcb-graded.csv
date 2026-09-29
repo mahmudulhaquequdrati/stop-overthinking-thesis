@@ -1,0 +1,141 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,lcb/3705,0,easy,False,wrong answer on test 10,512,695,False
+limit,lcb/3709,0,easy,True,,512,8193,True
+limit,lcb/3723,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,668,False
+limit,lcb/3736,0,easy,True,,512,737,False
+limit,lcb/3753,0,easy,True,,512,632,False
+limit,lcb/3768,0,easy,True,,512,675,False
+limit,lcb/3773,0,easy,True,,512,8193,True
+limit,lcb/3778,0,easy,False,SyntaxError: invalid syntax,512,4924,False
+limit,lcb/3788,0,easy,False,SyntaxError: unmatched ']',512,8193,True
+limit,lcb/3799,0,easy,True,,512,8109,False
+limit,lcb/3811,0,easy,True,,512,678,False
+limit,lcb/3817,0,easy,True,,512,654,False
+limit,lcb/3832,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,8193,True
+limit,lcb/abc391_a,0,easy,True,,512,3514,False
+limit,lcb/abc391_b,0,easy,True,,512,877,False
+limit,lcb/abc392_a,0,easy,True,,512,4224,False
+limit,lcb/abc392_b,0,easy,True,,512,887,False
+limit,lcb/abc393_a,0,easy,False,EOFError: EOF when reading a line,512,824,False
+limit,lcb/abc393_b,0,easy,True,,512,781,False
+limit,lcb/abc394_a,0,easy,True,,512,544,False
+limit,lcb/abc394_b,0,easy,True,,512,673,False
+limit,lcb/abc395_a,0,easy,True,,512,732,False
+limit,lcb/abc395_b,0,easy,True,,512,8193,True
+limit,lcb/abc396_a,0,easy,True,,512,5752,False
+limit,lcb/abc396_b,0,easy,True,,512,721,False
+limit,lcb/abc397_a,0,easy,True,,512,653,False
+limit,lcb/abc398_a,0,easy,True,,512,8190,True
+limit,lcb/abc399_a,0,easy,True,,512,653,False
+limit,lcb/abc399_b,0,easy,True,,512,5732,False
+limit,lcb/abc400_a,0,easy,True,,512,719,False
+limit,lcb/abc400_b,0,easy,True,,512,1093,False
+limit,lcb/3722,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/3743,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/3748,0,medium,False,SyntaxError: unterminated string literal (detected at line 2),512,8193,True
+limit,lcb/3750,0,medium,True,,512,8193,True
+limit,lcb/3754,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/3759,0,medium,False,IndentationError: unexpected indent,512,8193,True
+limit,lcb/3760,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3763,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3764,0,medium,True,,512,8193,True
+limit,lcb/3771,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/3776,0,medium,False,SyntaxError: unmatched ']',512,8193,True
+limit,lcb/3779,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3785,0,medium,True,,512,6724,False
+limit,lcb/3786,0,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/3791,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3793,0,medium,True,,512,8193,True
+limit,lcb/3794,0,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/3795,0,medium,False,SyntaxError: unterminated string literal (detected at line 2),512,8193,True
+limit,lcb/3805,0,medium,False,SyntaxError: unterminated string literal (detected at line 10),512,8193,True
+limit,lcb/3809,0,medium,True,,512,857,False
+limit,lcb/abc391_d,0,medium,False,SyntaxError: unterminated string literal (detected at line 16),512,8193,True
+limit,lcb/abc392_c,0,medium,True,,512,1236,False
+limit,lcb/abc392_d,0,medium,False,UnboundLocalError: cannot access local variable 'count_j' where it is not associated with a value,512,1535,False
+limit,lcb/abc394_c,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/abc394_d,0,medium,True,,512,4140,False
+limit,lcb/abc395_c,0,medium,True,,512,7275,False
+limit,lcb/abc396_c,0,medium,True,,512,8193,True
+limit,lcb/abc396_d,0,medium,False,IndentationError: unexpected indent,512,8193,True
+limit,lcb/abc397_b,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/abc397_c,0,medium,False,IndexError: list assignment index out of range,512,1231,False
+limit,lcb/abc398_b,0,medium,True,,512,6073,False
+limit,lcb/abc398_c,0,medium,True,,512,7005,False
+limit,lcb/abc399_c,0,medium,True,,512,5780,False
+limit,lcb/abc399_d,0,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/abc400_c,0,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/abc400_d,0,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/arc192_a,0,medium,False,SyntaxError: unterminated string literal (detected at line 2),512,8193,True
+limit,lcb/arc194_a,0,medium,False,SyntaxError: unterminated string literal (detected at line 2),512,8193,True
+limit,lcb/arc195_a,0,medium,True,,512,8193,True
+limit,lcb/3705,1,easy,False,wrong answer on test 10,512,691,False
+limit,lcb/3709,1,easy,True,,512,8193,True
+limit,lcb/3723,1,easy,True,,512,671,False
+limit,lcb/3736,1,easy,True,,512,703,False
+limit,lcb/3753,1,easy,True,,512,652,False
+limit,lcb/3768,1,easy,True,,512,665,False
+limit,lcb/3773,1,easy,True,,512,8193,True
+limit,lcb/3778,1,easy,True,,512,604,False
+limit,lcb/3788,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3799,1,easy,True,,512,6523,False
+limit,lcb/3811,1,easy,True,,512,764,False
+limit,lcb/3817,1,easy,True,,512,700,False
+limit,lcb/3832,1,easy,False,SyntaxError: unterminated string literal (detected at line 2),512,8193,True
+limit,lcb/abc391_a,1,easy,True,,512,601,False
+limit,lcb/abc391_b,1,easy,True,,512,5908,False
+limit,lcb/abc392_a,1,easy,True,,512,761,False
+limit,lcb/abc392_b,1,easy,True,,512,713,False
+limit,lcb/abc393_a,1,easy,True,,512,6285,False
+limit,lcb/abc393_b,1,easy,True,,512,789,False
+limit,lcb/abc394_a,1,easy,True,,512,656,False
+limit,lcb/abc394_b,1,easy,True,,512,682,False
+limit,lcb/abc395_a,1,easy,True,,512,727,False
+limit,lcb/abc395_b,1,easy,True,,512,5429,False
+limit,lcb/abc396_a,1,easy,True,,512,712,False
+limit,lcb/abc396_b,1,easy,True,,512,797,False
+limit,lcb/abc397_a,1,easy,True,,512,641,False
+limit,lcb/abc398_a,1,easy,False,SyntaxError: unterminated string literal (detected at line 11),514,8194,True
+limit,lcb/abc399_a,1,easy,True,,512,656,False
+limit,lcb/abc399_b,1,easy,True,,512,911,False
+limit,lcb/abc400_a,1,easy,True,,512,692,False
+limit,lcb/abc400_b,1,easy,True,,512,5404,False
+limit,lcb/3722,1,medium,False,SyntaxError: unterminated string literal (detected at line 6),512,8193,True
+limit,lcb/3743,1,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/3748,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3750,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3754,1,medium,False,SyntaxError: unmatched ')',512,8193,True
+limit,lcb/3759,1,medium,False,IndentationError: expected an indented block after function definition on line 2,512,8193,True
+limit,lcb/3760,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3763,1,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/3764,1,medium,False,IndentationError: unexpected indent,512,8193,True
+limit,lcb/3771,1,medium,False,IndentationError: expected an indented block after function definition on line 3,512,8193,True
+limit,lcb/3776,1,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/3779,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3785,1,medium,True,,512,8120,False
+limit,lcb/3786,1,medium,False,SyntaxError: unterminated string literal (detected at line 3),512,8193,True
+limit,lcb/3791,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,646,False
+limit,lcb/3793,1,medium,False,IndentationError: unexpected indent,512,8193,True
+limit,lcb/3794,1,medium,False,SyntaxError: unterminated string literal (detected at line 10),512,8193,True
+limit,lcb/3795,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,8193,True
+limit,lcb/3805,1,medium,False,SyntaxError: unterminated string literal (detected at line 9),512,8193,True
+limit,lcb/3809,1,medium,True,,512,887,False
+limit,lcb/abc391_d,1,medium,False,SyntaxError: invalid syntax,512,8193,True
+limit,lcb/abc392_c,1,medium,True,,512,8193,True
+limit,lcb/abc392_d,1,medium,False,wrong answer on test 1,512,1085,False
+limit,lcb/abc394_c,1,medium,True,,512,8193,True
+limit,lcb/abc394_d,1,medium,True,,512,8193,True
+limit,lcb/abc395_c,1,medium,True,,512,768,False
+limit,lcb/abc396_c,1,medium,False,wrong answer on test 1,512,8193,True
+limit,lcb/abc396_d,1,medium,True,,512,7306,False
+limit,lcb/abc397_b,1,medium,False,SyntaxError: invalid syntax,512,8192,True
+limit,lcb/abc397_c,1,medium,True,,512,1131,False
+limit,lcb/abc398_b,1,medium,True,,512,6580,False
+limit,lcb/abc398_c,1,medium,True,,512,771,False
+limit,lcb/abc399_c,1,medium,True,,512,6926,False
+limit,lcb/abc399_d,1,medium,False,SyntaxError: unterminated string literal (detected at line 4),512,8193,True
+limit,lcb/abc400_c,1,medium,True,,512,8193,True
+limit,lcb/abc400_d,1,medium,False,SyntaxError: unterminated string literal (detected at line 4),512,8193,True
+limit,lcb/arc192_a,1,medium,False,SyntaxError: invalid decimal literal,512,8193,True
+limit,lcb/arc194_a,1,medium,False,SyntaxError: unterminated string literal (detected at line 7),512,8193,True
+limit,lcb/arc195_a,1,medium,False,wrong answer on test 1,512,8193,True

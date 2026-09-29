@@ -1,0 +1,146 @@
+1/140 lcb/3705        easy    thinking_off fail: wrong answer on test 10
+2/140 lcb/3709        easy    thinking_off PASS
+3/140 lcb/3723        easy    thinking_off PASS
+4/140 lcb/3736        easy    thinking_off PASS
+5/140 lcb/3753        easy    thinking_off PASS
+6/140 lcb/3768        easy    thinking_off PASS
+7/140 lcb/3773        easy    thinking_off fail: IndentationError: expected an indented block after 'elif' statement on line 32
+8/140 lcb/3778        easy    thinking_off PASS
+9/140 lcb/3788        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+10/140 lcb/3799        easy    thinking_off fail: wrong answer on test 2
+11/140 lcb/3811        easy    thinking_off PASS
+12/140 lcb/3817        easy    thinking_off PASS
+13/140 lcb/3832        easy    thinking_off PASS
+14/140 lcb/abc391_a    easy    thinking_off PASS
+15/140 lcb/abc391_b    easy    thinking_off PASS
+16/140 lcb/abc392_a    easy    thinking_off PASS
+17/140 lcb/abc392_b    easy    thinking_off PASS
+18/140 lcb/abc393_a    easy    thinking_off PASS
+19/140 lcb/abc393_b    easy    thinking_off fail: wrong answer on test 1
+20/140 lcb/abc394_a    easy    thinking_off PASS
+21/140 lcb/abc394_b    easy    thinking_off PASS
+22/140 lcb/abc395_a    easy    thinking_off PASS
+23/140 lcb/abc395_b    easy    thinking_off PASS
+24/140 lcb/abc396_a    easy    thinking_off PASS
+25/140 lcb/abc396_b    easy    thinking_off PASS
+26/140 lcb/abc397_a    easy    thinking_off PASS
+27/140 lcb/abc398_a    easy    thinking_off PASS
+28/140 lcb/abc399_a    easy    thinking_off PASS
+29/140 lcb/abc399_b    easy    thinking_off PASS
+30/140 lcb/abc400_a    easy    thinking_off PASS
+31/140 lcb/abc400_b    easy    thinking_off PASS
+32/140 lcb/3722        medium  thinking_off fail: wrong answer on test 1
+33/140 lcb/3743        medium  thinking_off fail: wrong answer on test 1
+34/140 lcb/3748        medium  thinking_off fail: wrong answer on test 1
+35/140 lcb/3750        medium  thinking_off fail: wrong answer on test 3
+36/140 lcb/3754        medium  thinking_off fail: wrong answer on test 1
+37/140 lcb/3759        medium  thinking_off fail: IndentationError: expected an indented block after 'for' statement on line 19
+38/140 lcb/3760        medium  thinking_off PASS
+39/140 lcb/3763        medium  thinking_off fail: wrong answer on test 2
+40/140 lcb/3764        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+41/140 lcb/3771        medium  thinking_off fail: wrong answer on test 2
+42/140 lcb/3776        medium  thinking_off fail: wrong answer on test 6
+43/140 lcb/3779        medium  thinking_off fail: wrong answer on test 3
+44/140 lcb/3785        medium  thinking_off PASS
+45/140 lcb/3786        medium  thinking_off fail: wrong answer on test 1
+46/140 lcb/3791        medium  thinking_off fail: wrong answer on test 1
+47/140 lcb/3793        medium  thinking_off fail: wrong answer on test 3
+48/140 lcb/3794        medium  thinking_off fail: wrong answer on test 1
+49/140 lcb/3795        medium  thinking_off fail: wrong answer on test 1
+50/140 lcb/3805        medium  thinking_off fail: wrong answer on test 1
+51/140 lcb/3809        medium  thinking_off PASS
+52/140 lcb/abc391_d    medium  thinking_off fail: wrong answer on test 1
+53/140 lcb/abc392_c    medium  thinking_off fail: wrong answer on test 1
+54/140 lcb/abc392_d    medium  thinking_off fail: wrong answer on test 1
+55/140 lcb/abc394_c    medium  thinking_off PASS
+56/140 lcb/abc394_d    medium  thinking_off fail: wrong answer on test 1
+57/140 lcb/abc395_c    medium  thinking_off PASS
+58/140 lcb/abc396_c    medium  thinking_off PASS
+59/140 lcb/abc396_d    medium  thinking_off PASS
+60/140 lcb/abc397_b    medium  thinking_off fail: timeout on test 1
+61/140 lcb/abc397_c    medium  thinking_off PASS
+62/140 lcb/abc398_b    medium  thinking_off fail: wrong answer on test 5
+63/140 lcb/abc398_c    medium  thinking_off fail: wrong answer on test 1
+64/140 lcb/abc399_c    medium  thinking_off PASS
+65/140 lcb/abc399_d    medium  thinking_off fail: SyntaxError: unterminated string literal (detected at line 1)
+66/140 lcb/abc400_c    medium  thinking_off fail: timeout on test 1
+67/140 lcb/abc400_d    medium  thinking_off fail: wrong answer on test 1
+68/140 lcb/arc192_a    medium  thinking_off fail: SyntaxError: invalid decimal literal
+69/140 lcb/arc194_a    medium  thinking_off fail: wrong answer on test 1
+70/140 lcb/arc195_a    medium  thinking_off fail: wrong answer on test 1
+71/140 lcb/3705        easy    thinking_off fail: wrong answer on test 10
+72/140 lcb/3709        easy    thinking_off PASS
+73/140 lcb/3723        easy    thinking_off PASS
+74/140 lcb/3736        easy    thinking_off PASS
+75/140 lcb/3753        easy    thinking_off fail: wrong answer on test 4
+76/140 lcb/3768        easy    thinking_off PASS
+77/140 lcb/3773        easy    thinking_off fail: IndexError: list index out of range
+78/140 lcb/3778        easy    thinking_off PASS
+79/140 lcb/3788        easy    thinking_off fail: wrong answer on test 4
+80/140 lcb/3799        easy    thinking_off fail: wrong answer on test 2
+81/140 lcb/3811        easy    thinking_off PASS
+82/140 lcb/3817        easy    thinking_off PASS
+83/140 lcb/3832        easy    thinking_off PASS
+84/140 lcb/abc391_a    easy    thinking_off PASS
+85/140 lcb/abc391_b    easy    thinking_off PASS
+86/140 lcb/abc392_a    easy    thinking_off PASS
+87/140 lcb/abc392_b    easy    thinking_off PASS
+88/140 lcb/abc393_a    easy    thinking_off PASS
+89/140 lcb/abc393_b    easy    thinking_off fail: wrong answer on test 1
+90/140 lcb/abc394_a    easy    thinking_off PASS
+91/140 lcb/abc394_b    easy    thinking_off PASS
+92/140 lcb/abc395_a    easy    thinking_off PASS
+93/140 lcb/abc395_b    easy    thinking_off PASS
+94/140 lcb/abc396_a    easy    thinking_off PASS
+95/140 lcb/abc396_b    easy    thinking_off PASS
+96/140 lcb/abc397_a    easy    thinking_off PASS
+97/140 lcb/abc398_a    easy    thinking_off fail: wrong answer on test 1
+98/140 lcb/abc399_a    easy    thinking_off PASS
+99/140 lcb/abc399_b    easy    thinking_off PASS
+100/140 lcb/abc400_a    easy    thinking_off PASS
+101/140 lcb/abc400_b    easy    thinking_off fail: wrong answer on test 3
+102/140 lcb/3722        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+103/140 lcb/3743        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+104/140 lcb/3748        medium  thinking_off PASS
+105/140 lcb/3750        medium  thinking_off fail: wrong answer on test 1
+106/140 lcb/3754        medium  thinking_off fail: wrong answer on test 8
+107/140 lcb/3759        medium  thinking_off fail: SyntaxError: invalid syntax
+108/140 lcb/3760        medium  thinking_off PASS
+109/140 lcb/3763        medium  thinking_off fail: timeout on test 1
+110/140 lcb/3764        medium  thinking_off fail: NameError: name 'n' is not defined
+111/140 lcb/3771        medium  thinking_off fail: SyntaxError: expected ':'
+112/140 lcb/3776        medium  thinking_off fail: IndentationError: expected an indented block after function definition on line 5
+113/140 lcb/3779        medium  thinking_off fail: wrong answer on test 1
+114/140 lcb/3785        medium  thinking_off fail: wrong answer on test 1
+115/140 lcb/3786        medium  thinking_off fail: IndexError: list index out of range
+116/140 lcb/3791        medium  thinking_off fail: wrong answer on test 5
+117/140 lcb/3793        medium  thinking_off fail: wrong answer on test 2
+118/140 lcb/3794        medium  thinking_off fail: wrong answer on test 1
+119/140 lcb/3795        medium  thinking_off fail: wrong answer on test 1
+120/140 lcb/3805        medium  thinking_off fail: wrong answer on test 1
+121/140 lcb/3809        medium  thinking_off PASS
+122/140 lcb/abc391_d    medium  thinking_off fail: wrong answer on test 1
+123/140 lcb/abc392_c    medium  thinking_off PASS
+124/140 lcb/abc392_d    medium  thinking_off fail: wrong answer on test 3
+125/140 lcb/abc394_c    medium  thinking_off PASS
+126/140 lcb/abc394_d    medium  thinking_off PASS
+127/140 lcb/abc395_c    medium  thinking_off fail: wrong answer on test 1
+128/140 lcb/abc396_c    medium  thinking_off fail: wrong answer on test 2
+129/140 lcb/abc396_d    medium  thinking_off PASS
+130/140 lcb/abc397_b    medium  thinking_off fail: wrong answer on test 1
+131/140 lcb/abc397_c    medium  thinking_off PASS
+132/140 lcb/abc398_b    medium  thinking_off fail: wrong answer on test 5
+133/140 lcb/abc398_c    medium  thinking_off PASS
+134/140 lcb/abc399_c    medium  thinking_off PASS
+135/140 lcb/abc399_d    medium  thinking_off fail: SyntaxError: invalid syntax
+136/140 lcb/abc400_c    medium  thinking_off fail: wrong answer on test 1
+137/140 lcb/abc400_d    medium  thinking_off fail: wrong answer on test 1
+138/140 lcb/arc192_a    medium  thinking_off fail: wrong answer on test 1
+139/140 lcb/arc194_a    medium  thinking_off fail: wrong answer on test 1
+140/140 lcb/arc195_a    medium  thinking_off fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 49/62 (79%) | median thinking 0 | median all tokens 156 | hit the limit 0
+thinking_off medium   passed 19/78 (24%) | median thinking 0 | median all tokens 904 | hit the limit 21
+
+saved /content/drive/MyDrive/stop-overthinking/results/4b/raw/test-off-lcb-graded.csv

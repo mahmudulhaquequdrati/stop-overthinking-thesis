@@ -1,1 +1,47 @@
-{"cap_hours":150,"used_hours":0,"runs":{},"note":"shared pot for 0.8B + 4B; buffer 50h of the 200 stays unused"}
+{
+  "cap_hours": 58.544,
+  "used_hours": 8.544,
+  "runs": {
+    "4b": {
+      "stages": {
+        "smoke": {
+          "t0": 1790628635.6487887,
+          "hours": 0.156,
+          "ended": "2026-09-28 20:59:56"
+        },
+        "A": {
+          "t0": 1790649461.7429352,
+          "hours": 0.939,
+          "ended": "2026-09-29 03:34:03"
+        },
+        "B1": {
+          "t0": 1790652890.9829416,
+          "hours": 0.752,
+          "ended": "2026-09-29 04:19:59"
+        },
+        "B2": {
+          "t0": 1790655599.5545306,
+          "hours": 0.093,
+          "ended": "2026-09-29 04:25:34"
+        },
+        "B3": {
+          "t0": 1790655934.308727,
+          "hours": 0.802,
+          "ended": "2026-09-29 05:13:41"
+        },
+        "C": {
+          "t0": 1790658853.6479075,
+          "hours": 5.802,
+          "ended": "2026-09-29 11:02:20"
+        }
+      },
+      "hours": 8.544
+    }
+  },
+  "note": "4B done: wall ledger 8.544h, user reports ~100 Colab compute hours used. Colab ~100 left; keep \u226550. 0.8B lean plan \u226450 more hours (DECISIONS #74).",
+  "updated": "2026-09-29",
+  "colab_compute_hours_left": 100,
+  "buffer_keep_hours": 50,
+  "max_hours_for_0_8b": 50,
+  "4b_colab_compute_hours_est": 100
+}

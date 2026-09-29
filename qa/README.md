@@ -68,6 +68,7 @@
 | [31](31-size-limit-extension.md) | Size × limit extension: 0.8B + 4B Colabs, LoRA-1 only | 2026-09-29 |
 | [32](32-4b-run.md) | 4B Colab run (fill after GPU run) | 2026-09-29 |
 | [33](33-all-models-compared.md) | All three models compared (fill after both runs) | 2026-09-29 |
+| [34](34-lean-0.8b-plan.md) | Lean 0.8B test plan (≤50 compute hours) | 2026-09-29 |
 
-**What has been run:** notebooks 08 and 10 (no GPU needed). Notebook 11 ran out of memory on Colab ([qa/20](20-first-model-load-out-of-memory.md)), then **ran on Kaggle** (2026-09-19): it works, but it writes only ~4.4 tokens per second ([qa/21](21-first-real-numbers.md)). A pilot on the user's Mac then solved 30 real problems ([qa/22](22-pilot-on-the-mac.md)), but medium problems took 250 seconds each, so on 2026-09-20 everything moved to Google Colab with a smaller model ([qa/23](23-moving-to-colab-and-qwen.md)).
-**Next:** notebooks **15b (4B)** then **15a (0.8B)** on Colab A100 ([qa/31](31-size-limit-extension.md), DECISIONS #72). Shared ≤150 hours. Then fill [qa/32](32-4b-run.md) and [qa/33](33-all-models-compared.md). The complete 2B thesis is in [thesis/THESIS.md](../thesis/THESIS.md).
+**What has been run:** 2B thesis done · **4B Colab done** (~100 compute hours; best free way = limit2048 at 78.2%).  
+**Next:** Run lean **15a (0.8B)** on Colab A100 under ≤50 hours ([qa/34](34-lean-0.8b-plan.md), DECISIONS #74). Then fill [qa/33](33-all-models-compared.md).

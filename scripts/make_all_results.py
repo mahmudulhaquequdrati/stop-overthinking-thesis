@@ -42,6 +42,14 @@ def cell(v, default="—"):
     return v if v not in (None, "", "—") else default
 
 
+def status_line(label, folder_summary_rows, done_hint):
+    # Real run rows have a % in the accuracy column (index 3). Stubs use "—".
+    real = any(len(parts) > 3 and "%" in str(parts[3]) for parts in folder_summary_rows.values())
+    if real:
+        return f"| **{label}** | ✅ has graded files | {done_hint} |"
+    return f"| **{label}** | ⬜ not run yet | {done_hint} |"
+
+
 def main():
     t2 = twob_from_csv()
     s08 = read_summary_table(os.path.join(ROOT, "results", "0.8b", "SUMMARY.md"))
@@ -55,9 +63,16 @@ def main():
         c = s4.get(way, [None] * 7)
         b_acc = b[3] if len(b) > 3 else "—"
         c_acc = c[3] if len(c) > 3 else "—"
-        if b_acc in (None, "not run yet"):
+        if b_acc in (None, "not run yet") or (isinstance(b_acc, str) and "—" in b_acc and "%" not in b_acc):
             b_acc = "—"
-        if c_acc in (None, "not run yet"):
+        if c_acc in (None, "not run yet") or (isinstance(c_acc, str) and "—" in c_acc and "%" not in c_acc):
+            c_acc = "—"
+        # stub tables use "—" as accuracy
+        if b_acc == "—":
+            pass
+        if not (isinstance(b_acc, str) and "%" in b_acc):
+            b_acc = "—"
+        if not (isinstance(c_acc, str) and "%" in c_acc):
             c_acc = "—"
         return a, b_acc, c_acc
 
@@ -87,15 +102,11 @@ def main():
         "| **Qwen3.5-2B** (main thesis) | ✅ done 2026-09-24 | "
         "[2026-09-24-thesis-run.md](2026-09-24-thesis-run.md) · "
         "[full-results/FULL-RESULTS.md](full-results/FULL-RESULTS.md) |",
-        f"| **Qwen3.5-0.8B** | "
-        f"{'✅ has graded files' if any(k for k in s08 if k not in ('—',)) else '⬜ not run yet'} | "
-        "[0.8b/SUMMARY.md](0.8b/SUMMARY.md) · raw: `0.8b/raw/` |",
-        f"| **Qwen3.5-4B** | "
-        f"{'✅ has graded files' if any(k for k in s4 if k not in ('—',)) else '⬜ not run yet'} | "
-        "[4b/SUMMARY.md](4b/SUMMARY.md) · raw: `4b/raw/` |",
+        status_line("Qwen3.5-0.8B", s08, "[0.8b/SUMMARY.md](0.8b/SUMMARY.md) · raw: `0.8b/raw/`"),
+        status_line("Qwen3.5-4B", s4, "[4b/SUMMARY.md](4b/SUMMARY.md) · raw: `4b/raw/`"),
         "",
-        "**Shared hour pot:** ≤150 hours for 0.8B + 4B together. "
-        "Ledger: [shared/hours_budget.json](shared/hours_budget.json).",
+        "**Hour rule now:** Colab has ~**100** compute hours left; always keep **≥50**. "
+        "So **0.8B may use ≤50 more hours**. Ledger: [shared/hours_budget.json](shared/hours_budget.json).",
         "",
         "**Who this thesis is for:** people who run **small reasoning models for code** on a "
         "**limited GPU** (students, indie developers, one-GPU setups).",
@@ -118,6 +129,9 @@ def main():
         "2B numbers from `results/2026-09-24-thesis-run/summary.csv`. "
         "LoRA-2 is **not** re-run on 0.8B/4B (DECISIONS #72).",
         "",
+        "**4B headline (checked):** best free way = **limit 2048 → 78.2%**. "
+        "OFF 69.7% beats ON 64.3%. LoRA-1 69.9% does **not** beat the limits.",
+        "",
         "---",
         "",
         "## 2. Per-model summaries",
@@ -138,8 +152,8 @@ def main():
         "",
         "## 4. Notebooks",
         "",
-        "- [15a 0.8B](../notebooks/15a_qwen35_0_8b.ipynb) — run **second**",
-        "- [15b 4B](../notebooks/15b_qwen35_4b.ipynb) — run **first**",
+        "- [15a 0.8B](../notebooks/15a_qwen35_0_8b.ipynb) — run **next** (≤50h)",
+        "- [15b 4B](../notebooks/15b_qwen35_4b.ipynb) — ✅ done",
         "",
     ]
     open(OUT, "w").write("\n".join(lines) + "\n")
