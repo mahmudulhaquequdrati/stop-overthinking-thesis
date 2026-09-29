@@ -96,7 +96,7 @@ MyDrive/stop-overthinking/code/
 
 Also copy `results/shared/hours_budget.json` to Drive so the 50h cap is enforced.
 
-DECISIONS #72 · #73 · #74."""))
+DECISIONS #72 · #73 · #75."""))
 
     cells.append(md("""## 1. Install packages
 
