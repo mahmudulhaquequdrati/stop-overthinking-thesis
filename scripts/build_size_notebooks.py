@@ -22,11 +22,12 @@ CONFIGS = {
         drive_sub="0.8b",
         suggested_hours=50,
         order="NEXT (after 4B; ≤50 compute hours)",
-        # Lean plan (DECISIONS #74): enough for the teacher, fits the 50h buffer rule.
-        limits=[512, 1024, 2048],   # drop 4096 (not best on 4B; costly)
+        # Lean plan (DECISIONS #74–75): enough for the teacher, fits ≤50h.
+        # Max limit 1024: that won on 2B (49.8%); 0.8B is smaller, so 2048 not needed.
+        limits=[512, 1024],
         stage_a_tries=1,            # one try (drop Stage C)
         run_stage_c=False,
-        cost_h={"smoke": 0.4, "A": 12.0, "B1": 8.0, "B2": 1.0, "B3": 3.0},
+        cost_h={"smoke": 0.4, "A": 8.0, "B1": 8.0, "B2": 1.0, "B3": 3.0},
     ),
     "15b_qwen35_4b.ipynb": dict(
         title="15b — Qwen3.5-4B size × limit × LoRA-1",
@@ -68,8 +69,8 @@ def build(cfg):
     lean_note = ""
     if t["run_tag"] == "0.8b":
         lean_note = """
-**Lean plan (≤50 compute hours):** OFF · ON · limits **512 / 1024 / 2048** · LoRA-1 · **1 try** · **no Stage C**.
-Dropped limit4096 (not best on 4B) and the second try (saves ~half the answering cost).
+**Lean plan (≤50 compute hours):** OFF · ON · limits **512 / 1024** · LoRA-1 · **1 try** · **no Stage C**.
+Max limit = **1024** (won on 2B at 49.8%). Dropped 2048/4096 and the second try.
 Same 234 problems. Enough to answer: smaller size × best free ways × does LoRA beat them?
 """
 

@@ -2,7 +2,7 @@
 
 ## The step in 2 sentences
 
-4B used almost **100 Colab compute hours**. For 0.8B we run a **lean** plan: OFF · ON · limits 512/1024/2048 · LoRA-1 · **1 try** · **no Stage C** · same 234 problems.
+4B used almost **100 Colab compute hours**. For 0.8B we run a **lean** plan: OFF · ON · limits **512 / 1024** (max 1024) · LoRA-1 · **1 try** · **no Stage C** · same 234 problems.
 
 ## Questions a teacher may ask
 
@@ -18,13 +18,17 @@ Whether a **smaller** model shows the same pattern: a free thinking limit beats 
 
 | Dropped | Why |
 |---|---|
-| limit 4096 | Not best on 4B (2048 won); costly |
+| limit 2048 / 4096 | On **2B**, max useful limit was **1024** (49.8%). 0.8B is smaller — longer budget not needed |
 | Stage C (2nd try) | Cuts answering cost a lot; 1 try still ranks the ways |
 | LoRA-2 / “think briefly” | Already decided: LoRA-1 only for this extension |
 
 ### What did you keep?
 
-Same 234 problems · OFF · ON · limits around 4B’s winner (512 / 1024 / 2048) · LoRA-1.
+Same 234 problems · OFF · ON · limits **512 / 1024** · LoRA-1.
+
+### Why not 2048 on 0.8B?
+
+2B’s best free way was already limit 1024. 4B needed 2048 because it is bigger. 0.8B should not need more than 2B.
 
 ### How do you run it?
 
@@ -36,9 +40,9 @@ Notebook **15a** on Colab A100 → **Runtime → Run all**. Cap: ≤50 more comp
 
 For ranking ways, one try is fine. Two tries mainly tighten error bars. 4B already has the 2-try story.
 
-### What if 0.8B’s best limit is not 2048?
+### What if 512 beats 1024 on 0.8B?
 
-That is still a result. We keep 512 and 1024 so we can see if the winner moves with size.
+That is still a useful result: smaller models may prefer a shorter cap. We keep both so we can see which wins.
 
 ## Checked vs. assumed
 
@@ -49,4 +53,4 @@ That is still a result. We keep 512 and 1024 so we can see if the winner moves w
 
 ## Where it is written
 
-DECISIONS #74 · `results/0.8b/RUN.md` · `notebooks/15a_qwen35_0_8b.ipynb` · ROADMAP
+DECISIONS #75 · `results/0.8b/RUN.md` · `notebooks/15a_qwen35_0_8b.ipynb` · ROADMAP
