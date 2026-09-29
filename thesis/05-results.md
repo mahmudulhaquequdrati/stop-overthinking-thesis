@@ -273,3 +273,51 @@ the effect disappeared.
 | Long answers were mostly loops | 69.5% of ON's cut-offs, 88.5% of LoRA-2's |
 | More room for ON (16k) | HumanEval+ 53.7% → 59.1%; LiveCodeBench 10.0% → 17.1% |
 | Training helped only on similar problems | x0.59 on MBPP+, x0.94 on HumanEval+ |
+
+## 5.13 Size extension: 0.8B and 4B (same family)
+
+The main thesis uses **Qwen3.5-2B**. A teacher may ask: *why only one size?* and *why only limit 1,024?*  
+So we ran the **same 234 problems** on two more models in the same family (DECISIONS #72–#77):
+
+| Size | Tries | Limits tested | Training |
+|---|---|---|---|
+| **0.8B** (lean) | **1** | 512, 1,024 | LoRA-1 only |
+| **2B** (main) | 2 | 1,024 (+ other free ways) | LoRA-1 and LoRA-2 |
+| **4B** | 2 | 512, 1,024, 2,048, 4,096 | LoRA-1 only |
+
+0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.  
+Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
+
+### Accuracy on all 234 problems
+
+| Way | 0.8B (1 try) | 2B (2 tries) | 4B (2 tries) |
+|---|---|---|---|
+| Thinking OFF | **20.5%** | 40.8% | 69.7% |
+| Thinking ON | 7.3% | 42.1% | 64.3% |
+| Limit 512 | 17.5% | — | 75.4% |
+| Limit 1,024 | 13.2% | **49.8%** | 76.5% |
+| Limit 2,048 | — | — | **78.2%** |
+| Limit 4,096 | — | — | 76.7% |
+| LoRA-1 | 17.9% | 45.5% | 69.9% |
+
+```text
+Best free way per size
+
+0.8B  →  OFF           20.5%
+2B    →  limit 1,024   49.8%
+4B    →  limit 2,048   78.2%
+```
+
+**Figure idea (for the paper):** three bars per size — OFF, best limit (or “n/a”), LoRA-1 — so the eye sees that LoRA never wins.
+
+### Cut-off under thinking ON (how often answers hit the wall)
+
+| Size | ON accuracy | ON cut-off share |
+|---|---|---|
+| 0.8B | 7.3% | **78%** |
+| 2B | 42.1% | 41% (main run) |
+| 4B | 64.3% | **28%** |
+
+Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.
+
+Raw folders: `results/0.8b/`, `results/4b/`. Join page: `results/SIZE-COMPARISON.md`.

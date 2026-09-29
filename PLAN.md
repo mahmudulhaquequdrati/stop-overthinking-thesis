@@ -326,3 +326,19 @@ of the ~30 GPU-hour weekly limit per hour of real time.
 **Cut the work before asking for more sessions.** Write many answers at the same time
 (vLLM, 32–64 prompts at once). This is **2–5×** faster and changes nothing in the science, so do it first.
 Full detail: [research/gpu-time-budget.md](research/gpu-time-budget.md) §8.
+
+---
+
+## 12. Size extension (done 2026-09-29)
+
+**Why:** answer “why only 2B?” and “why only limit 1,024?” (DECISIONS #72–#77).
+
+| Size | Status | Best free way | LoRA-1 |
+|---|---|---|---|
+| 0.8B (lean, 1 try) | ✅ | OFF 20.5% | 17.9% |
+| 2B (main thesis) | ✅ | limit 1024 → 49.8% | 45.5% |
+| 4B (2 tries) | ✅ | limit 2048 → 78.2% | 69.9% |
+
+Same 234 problems. Numbers and paper map: [results/RESULTS-INDEX.md](results/RESULTS-INDEX.md).  
+Written into the thesis: §5.13 · §6.7 · §7.5.4.
+

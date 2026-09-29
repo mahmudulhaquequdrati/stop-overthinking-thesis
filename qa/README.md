@@ -66,10 +66,14 @@
 | [29](29-results-and-analysis-chapter.md) | The results and analysis chapter (first draft) | 2026-09-25 |
 | [30](30-the-complete-thesis.md) | The complete thesis, from top to bottom | 2026-09-25 |
 | [31](31-size-limit-extension.md) | Size × limit extension: 0.8B + 4B Colabs, LoRA-1 only | 2026-09-29 |
-| [32](32-4b-run.md) | 4B Colab run (fill after GPU run) | 2026-09-29 |
+| [32](32-4b-run.md) | 4B Colab run (done) | 2026-09-29 |
 | [33](33-all-models-compared.md) | All three models compared | 2026-09-29 |
 | [34](34-lean-0.8b-plan.md) | Lean 0.8B test plan (≤50 compute hours) | 2026-09-29 |
 | [35](35-0.8b-run.md) | 0.8B Colab run (lean) | 2026-09-29 |
+| [36](36-size-extension-in-thesis.md) | Size extension written into the thesis | 2026-09-29 |
+| [37](37-thesis-a-to-z-teacher.md) | Thesis A→Z + what to tell the teacher | 2026-09-29 |
 
-**What has been run:** 2B thesis done · **4B done** · **0.8B lean done**.  
-**Next:** fold size comparison into the thesis / paper ([SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md), [qa/33](33-all-models-compared.md)).
+**What has been run:** 2B · 4B · 0.8B lean — all graded. Thesis + PDF include the size story.  
+**Before a meeting:** open [TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md).  
+**All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md).  
+**Next:** fill name/supervisor in `thesis/00-front-matter.md`; practice Opening answers out loud.

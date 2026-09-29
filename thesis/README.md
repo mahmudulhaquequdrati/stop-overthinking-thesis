@@ -20,13 +20,16 @@ MARKED=<any-folder>/node_modules/marked node scripts/build_thesis_pdf.js
 | [04-how-we-measure.md](04-how-we-measure.md) | 4. **Where the evidence comes from:** pass rule, accuracy, points, error bars, tokens, loops |
 | [05-results.md](05-results.md) | 5. All results, **starting with the thinking limit** |
 | [06-analysis.md](06-analysis.md) | 6. Why it happened, earlier work, what could be wrong |
-| [07-conclusion-and-future-work.md](07-conclusion-and-future-work.md) | 7. The answer, advice, **bigger models** and loop-fixing methods |
+| [07-conclusion-and-future-work.md](07-conclusion-and-future-work.md) | 7. The answer, advice, **size results (0.8B/4B)**, bigger models still open |
 | [08-references.md](08-references.md) | References |
 | [09-appendices.md](09-appendices.md) | Every problem, how to repeat the work, project history, words |
+
+**Size numbers for the paper:** [../results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · §5.13 in the thesis.
 
 ## Rules for editing
 
 - Edit the **chapter files**, never THESIS.md. Then rebuild: `node scripts/build_thesis.js`.
-- Every number comes from [results/full-results/FULL-RESULTS.md](../results/full-results/FULL-RESULTS.md), which is built from
-  the raw answers by `node scripts/make_full_results.js`. When a number changes there, change it in the chapters too.
+- Every **2B** number comes from [results/full-results/FULL-RESULTS.md](../results/full-results/FULL-RESULTS.md).
+  **0.8B / 4B** numbers come from [results/0.8b/SUMMARY.md](../results/0.8b/SUMMARY.md) and [results/4b/SUMMARY.md](../results/4b/SUMMARY.md).
 - To fill in before handing in: your name, supervisor, university and department (top of `00-front-matter.md`).
+

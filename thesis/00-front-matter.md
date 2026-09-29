@@ -35,8 +35,10 @@ test sets' own tests.
   of a loop. A thinking limit simply stops it.
 
 **Conclusion.** For a small reasoning model on code, the waste is not long, careful thinking but **getting
-stuck**. A free thinking limit handles this better than training. We suggest testing larger models, which may
-loop less, as future work.
+stuck**. A free thinking limit handles this better than training on the 2B model. We also ran the same 234
+problems on **Qwen3.5-0.8B** and **Qwen3.5-4B**: the best free way was **OFF** (20.5%) on 0.8B, **limit 1,024**
+on 2B, and **limit 2,048** (78.2%) on 4B. LoRA-1 never beat that free winner. Still-larger models remain
+open future work.
 
 **Keywords:** reasoning models, overthinking, thinking budget, LoRA, code generation, efficient inference.
 
@@ -86,8 +88,9 @@ and again until it ran out of space. So the model was not "thinking too carefull
 
 ### What it means
 
-For small AI models that write code, a **free thinking limit** works better than training the model to think
-shorter. Before spending money on training, try the free options first.
+For small AI models that write code, **try free options first** (thinking OFF and a thinking limit).  
+On Qwen3.5-2B, a **limit of 1,024** was best. On 0.8B, **OFF** was best. On 4B, a **limit of 2,048** was best.
+Training with LoRA-1 did not beat those free winners on any of the three sizes.
 
 ---
 
@@ -96,12 +99,13 @@ shorter. Before spending money on training, try the free options first.
 | | |
 |---|---|
 | Research question | Is training a small model to think shorter better than the free options? |
-| Answer | **No.** A free thinking limit was better. |
-| Model | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
+| Answer (2B) | **No.** A free thinking limit (1,024) was better. |
+| Size check | Same 234 problems on **0.8B / 2B / 4B**: best free = OFF / limit1024 / limit2048; LoRA-1 never won |
+| Model (main) | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
 | Test problems | 234: HumanEval+ (164) and LiveCodeBench (70: 31 easy, 39 medium) |
-| Answers checked | 2,808 test answers (6 ways × 234 problems × 2 tries), plus 96 re-runs with more room |
+| Answers checked | 2,808 test answers on 2B (6 ways × 234 × 2 tries), plus size-extension runs on 0.8B and 4B |
 | How answers were checked | By running each test set's own tests on the code (no checking by eye) |
-| Best way | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |
-| Cheapest way | Thinking off: 860 tokens per answer (normal thinking: 3,446) |
+| Best way (2B) | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |
+| Cheapest way (2B) | Thinking off: 860 tokens per answer (normal thinking: 3,446) |
 | Main reason | Long answers were mostly **loops** (69.5% of normal thinking's unfinished answers) |
-| Computer used | One Google Colab A100 GPU, about 38 paid units |
+| Computer used | Google Colab A100 GPU (main run ~38 units; size extension used further paid hours) |

@@ -37,8 +37,10 @@ test sets' own tests.
   of a loop. A thinking limit simply stops it.
 
 **Conclusion.** For a small reasoning model on code, the waste is not long, careful thinking but **getting
-stuck**. A free thinking limit handles this better than training. We suggest testing larger models, which may
-loop less, as future work.
+stuck**. A free thinking limit handles this better than training on the 2B model. We also ran the same 234
+problems on **Qwen3.5-0.8B** and **Qwen3.5-4B**: the best free way was **OFF** (20.5%) on 0.8B, **limit 1,024**
+on 2B, and **limit 2,048** (78.2%) on 4B. LoRA-1 never beat that free winner. Still-larger models remain
+open future work.
 
 **Keywords:** reasoning models, overthinking, thinking budget, LoRA, code generation, efficient inference.
 
@@ -88,8 +90,9 @@ and again until it ran out of space. So the model was not "thinking too carefull
 
 ### What it means
 
-For small AI models that write code, a **free thinking limit** works better than training the model to think
-shorter. Before spending money on training, try the free options first.
+For small AI models that write code, **try free options first** (thinking OFF and a thinking limit).  
+On Qwen3.5-2B, a **limit of 1,024** was best. On 0.8B, **OFF** was best. On 4B, a **limit of 2,048** was best.
+Training with LoRA-1 did not beat those free winners on any of the three sizes.
 
 ---
 
@@ -98,15 +101,16 @@ shorter. Before spending money on training, try the free options first.
 | | |
 |---|---|
 | Research question | Is training a small model to think shorter better than the free options? |
-| Answer | **No.** A free thinking limit was better. |
-| Model | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
+| Answer (2B) | **No.** A free thinking limit (1,024) was better. |
+| Size check | Same 234 problems on **0.8B / 2B / 4B**: best free = OFF / limit1024 / limit2048; LoRA-1 never won |
+| Model (main) | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
 | Test problems | 234: HumanEval+ (164) and LiveCodeBench (70: 31 easy, 39 medium) |
-| Answers checked | 2,808 test answers (6 ways × 234 problems × 2 tries), plus 96 re-runs with more room |
+| Answers checked | 2,808 test answers on 2B (6 ways × 234 × 2 tries), plus size-extension runs on 0.8B and 4B |
 | How answers were checked | By running each test set's own tests on the code (no checking by eye) |
-| Best way | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |
-| Cheapest way | Thinking off: 860 tokens per answer (normal thinking: 3,446) |
+| Best way (2B) | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |
+| Cheapest way (2B) | Thinking off: 860 tokens per answer (normal thinking: 3,446) |
 | Main reason | Long answers were mostly **loops** (69.5% of normal thinking's unfinished answers) |
-| Computer used | One Google Colab A100 GPU, about 38 paid units |
+| Computer used | Google Colab A100 GPU (main run ~38 units; size extension used further paid hours) |
 
 ---
 
@@ -176,6 +180,7 @@ shorter. Before spending money on training, try the free options first.
   - [5.10 From the pilot study to the real test](#510-from-the-pilot-study-to-the-real-test)
   - [5.11 Computer time](#511-computer-time)
   - [5.12 Summary of results](#512-summary-of-results)
+  - [5.13 Size extension: 0.8B and 4B (same family)](#513-size-extension-08b-and-4b-same-family)
 - [6. Analysis](#6-analysis)
   - [6.1 The answer to the research question](#61-the-answer-to-the-research-question)
   - [6.2 Why training did not shorten thinking](#62-why-training-did-not-shorten-thinking)
@@ -183,14 +188,15 @@ shorter. Before spending money on training, try the free options first.
   - [6.4 Thinking OFF is a strong, cheap option](#64-thinking-off-is-a-strong-cheap-option)
   - [6.5 How this fits earlier work](#65-how-this-fits-earlier-work)
   - [6.6 What could be wrong? (threats to validity)](#66-what-could-be-wrong-threats-to-validity)
-  - [6.7 Summary of the analysis](#67-summary-of-the-analysis)
+  - [6.7 Size extension: what 0.8B and 4B change](#67-size-extension-what-08b-and-4b-change)
+  - [6.8 Summary of the analysis](#68-summary-of-the-analysis)
 - [7. Conclusion and Future Work](#7-conclusion-and-future-work)
   - [7.1 The answer](#71-the-answer)
   - [7.2 Main findings](#72-main-findings)
   - [7.3 Advice for people who use small reasoning models for code](#73-advice-for-people-who-use-small-reasoning-models-for-code)
   - [7.4 What the hypothesis taught us](#74-what-the-hypothesis-taught-us)
   - [7.5 Future work](#75-future-work)
-  - [7.5.4 Size × limit extension (in progress, DECISIONS #72)](#754-size-limit-extension-in-progress-decisions-72)
+  - [7.5.4 Size × limit extension — results (DECISIONS #72–#77)](#754-size-limit-extension-results-decisions-7277)
   - [7.6 Closing](#76-closing)
 - [References](#references)
 - [Appendices](#appendices)
@@ -297,9 +303,9 @@ careful thinking. Chapters 5 and 6 show the evidence.
 | 2. Background | What LLMs, tokens, thinking, LoRA and code test sets are; earlier work |
 | 3. Method | The six ways of answering, the data, the training, the fairness rules |
 | 4. How we measure | How a pass is decided, how accuracy, points, error bars and loops are computed |
-| 5. Results | All numbers, tables and charts |
+| 5. Results | All numbers, tables and charts (including the 0.8B / 4B size check) |
 | 6. Analysis | Why it happened, how it fits earlier work, and what could be wrong |
-| 7. Conclusion and future work | The answer, advice, and what to test next (including bigger models) |
+| 7. Conclusion and future work | The answer, advice, size results, and what to test next |
 
 ---
 
@@ -1145,6 +1151,54 @@ the effect disappeared.
 | More room for ON (16k) | HumanEval+ 53.7% → 59.1%; LiveCodeBench 10.0% → 17.1% |
 | Training helped only on similar problems | x0.59 on MBPP+, x0.94 on HumanEval+ |
 
+## 5.13 Size extension: 0.8B and 4B (same family)
+
+The main thesis uses **Qwen3.5-2B**. A teacher may ask: *why only one size?* and *why only limit 1,024?*  
+So we ran the **same 234 problems** on two more models in the same family (DECISIONS #72–#77):
+
+| Size | Tries | Limits tested | Training |
+|---|---|---|---|
+| **0.8B** (lean) | **1** | 512, 1,024 | LoRA-1 only |
+| **2B** (main) | 2 | 1,024 (+ other free ways) | LoRA-1 and LoRA-2 |
+| **4B** | 2 | 512, 1,024, 2,048, 4,096 | LoRA-1 only |
+
+0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.  
+Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
+
+### Accuracy on all 234 problems
+
+| Way | 0.8B (1 try) | 2B (2 tries) | 4B (2 tries) |
+|---|---|---|---|
+| Thinking OFF | **20.5%** | 40.8% | 69.7% |
+| Thinking ON | 7.3% | 42.1% | 64.3% |
+| Limit 512 | 17.5% | — | 75.4% |
+| Limit 1,024 | 13.2% | **49.8%** | 76.5% |
+| Limit 2,048 | — | — | **78.2%** |
+| Limit 4,096 | — | — | 76.7% |
+| LoRA-1 | 17.9% | 45.5% | 69.9% |
+
+```text
+Best free way per size
+
+0.8B  →  OFF           20.5%
+2B    →  limit 1,024   49.8%
+4B    →  limit 2,048   78.2%
+```
+
+**Figure idea (for the paper):** three bars per size — OFF, best limit (or “n/a”), LoRA-1 — so the eye sees that LoRA never wins.
+
+### Cut-off under thinking ON (how often answers hit the wall)
+
+| Size | ON accuracy | ON cut-off share |
+|---|---|---|
+| 0.8B | 7.3% | **78%** |
+| 2B | 42.1% | 41% (main run) |
+| 4B | 64.3% | **28%** |
+
+Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.
+
+Raw folders: `results/0.8b/`, `results/4b/`. Join page: `results/SIZE-COMPARISON.md`.
+
 ---
 
 # 6. Analysis
@@ -1280,10 +1334,11 @@ runs long.** Methods that learn only from finished answers cannot address it.
 - ⚠️ Our loop test is strict and under-counts loops. The true share is probably higher.
 
 **Does it hold elsewhere?**
-- ⚠️ One model only. Its makers say it loops more than the other Qwen3.5 models, so **larger models may behave differently**
-  (Chapter 7).
+- ⚠️ Main thesis = one model (2B). **Softened:** we also ran **0.8B and 4B** in the same family on the same 234 problems
+  (Section 5.13). The free winner changed with size; LoRA-1 still lost. Other families and harder tasks are still open.
 - ⚠️ Only easy and medium problems. LiveCodeBench medium is at the floor (0–9%) and can't separate the ways.
 - ⚠️ Code only.
+- ⚠️ Size extension: 0.8B used **1 try** (lean plan); 2B/4B used 2 tries.
 
 **Is it just luck?**
 - ⚠️ 234 problems, 2 tries each. Error bars are about ±4–6 points over all problems and much wider on the small LiveCodeBench
@@ -1295,14 +1350,46 @@ runs long.** Methods that learn only from finished answers cannot address it.
 - ⚠️ LiveCodeBench answers were checked on up to 20 tests per problem, not always all of them.
 - ⚠️ GPU time depends on batching, so we use tokens for cost.
 
-## 6.7 Summary of the analysis
+## 6.7 Size extension: what 0.8B and 4B change
+
+Chapter 5.13 gave the numbers. Here is what they mean.
+
+**1. Size still matters most for raw accuracy.**  
+OFF alone goes 20.5% → 40.8% → 69.7% from 0.8B to 4B. Bigger is simply better at code here.
+
+**2. The best *free* fix depends on size.**
+
+| Size | Best free way | Everyday reading |
+|---|---|---|
+| 0.8B | **Thinking OFF** | Too weak to think well — better not to start a long think |
+| 2B | **Limit 1,024** | Thinking helps if you cut loops |
+| 4B | **Limit 2,048** | Same idea; the useful budget moved up |
+
+**3. Open thinking (ON) is risky when the model loops.**  
+On 0.8B, ON is the *worst* way (7.3%, 78% cut off). On 4B, OFF still beats ON (69.7% vs 64.3%).  
+So “always leave thinking on” is bad advice for these small code models.
+
+**4. LoRA-1 still does not beat the best free way** on 0.8B or 4B.  
+Same story as the main 2B thesis: training on shortest-correct answers is not enough when the free winner is OFF or a hard limit.
+
+**5. Honest caveats.**  
+0.8B used **1 try**; 2B/4B used **2**. Ranking ways *inside* 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.  
+0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.
+
+This softens one threat from Section 6.6 (“one model only”): we now have **three sizes in one family**. It does **not** remove “code only” or “easy/medium only”.
+
+## 6.8 Summary of the analysis
 
 ```text
 Small model thinks ─► often gets STUCK IN A LOOP ─► never finishes ─► fails
                                    │
         Training on short correct answers: never shows how to get unstuck ─► no change (x1.00)
-        Thinking limit:                    cuts the loop, forces an answer   ─► +7.7 points
-        Thinking OFF:                      never enters the loop             ─► 4× cheaper
+        Thinking limit:                    cuts the loop, forces an answer   ─► +7.7 points (2B)
+        Thinking OFF:                      never enters the loop             ─► 4× cheaper; best on 0.8B
+
+Across sizes (same 234 problems):
+  0.8B → OFF wins     ·  2B → limit 1024 wins  ·  4B → limit 2048 wins
+  LoRA-1 never beats that best free way
 ```
 
 ---
@@ -1316,30 +1403,37 @@ code, it is not.** Training on the model's own shortest correct answers did not 
 most accurate way was a free one: **stop thinking at 1,024 tokens**. It reached **49.8%**, against **42.1%** for normal
 thinking (+7.7 points, proven), and it also beat the trained model and thinking off.
 
+We then checked **two more sizes** in the same family (0.8B and 4B) on the **same 234 problems**. The free winner
+changed with size, but **LoRA-1 never beat the best free way** on any of the three.
+
 The reason is the most important lesson of this thesis:
 
 > **A small reasoning model doesn't mainly waste tokens by thinking too carefully. It wastes them by getting stuck in
 > loops.** Training on short, finished answers can't teach it to get unstuck. A thinking limit simply cuts the loop.
+> On a *very* small model, even a limit is not enough — switching thinking **OFF** can be best.
 
 ## 7.2 Main findings
 
-1. **The thinking limit was the most accurate way:** +7.7 points over normal thinking, +4.7 over the trained model, +9.0
+1. **The thinking limit was the most accurate way on 2B:** +7.7 points over normal thinking, +4.7 over the trained model, +9.0
    over thinking off (all proven), with 21% fewer tokens than normal thinking.
-2. **Training did not shorten thinking** on the test problems (x1.00). Its accuracy gain (+3.0) could not be proven.
-3. **Thinking off was the cheapest:** 4× fewer tokens than normal thinking, at about the same overall accuracy, and better on
+2. **Training did not shorten thinking** on the 2B test problems (x1.00). Its accuracy gain (+3.0) could not be proven.
+3. **Thinking off was the cheapest on 2B:** 4× fewer tokens than normal thinking, at about the same overall accuracy, and better on
    the harder LiveCodeBench problems.
 4. **Most long answers were loops:** 69.5% of normal thinking's unfinished answers, and 88.5% of the trained model's.
 5. **Training only helped on problems like its training data:** 41% less thinking on MBPP+, but almost none on HumanEval+.
 6. **More room did not rescue normal thinking:** with 16,384 tokens it gained 5.5 points on HumanEval+ and 7.1 on
    LiveCodeBench, still below the limit.
+7. **Size extension (checked):** best free way = **OFF 20.5%** on 0.8B · **limit 1,024 → 49.8%** on 2B · **limit 2,048 → 78.2%** on 4B.
+   LoRA-1 lost to that free winner on every size. ON cut-off fell as size grew (78% → ~41% → 28%).
 
 ## 7.3 Advice for people who use small reasoning models for code
 
 ```text
-1. Try a THINKING LIMIT first (for example ~1,000 tokens).   → most accurate here, cheaper
-2. Try THINKING OFF.                                          → cheapest, often good enough
-3. Watch for LOOPS: count answers that never finish.          → they are the real waste
-4. Train to think shorter ONLY if your real problems look like your training problems.
+1. Try THINKING OFF and a THINKING LIMIT first.   → free; winner depends on size
+2. Pick the limit near your size: ~1k (2B) or ~2k (4B). Tiny models: prefer OFF.
+3. Watch for LOOPS: count answers that never finish. → they are the real waste
+4. Train to think shorter ONLY if free ways are not enough —
+   and only if your real problems look like your training problems.
 ```
 
 ## 7.4 What the hypothesis taught us
@@ -1352,7 +1446,15 @@ measured reason is a useful result. It tells the next study what to measure **fi
 
 ### 7.5.1 Bigger models: will they loop less, think better, and learn from training?
 
-This is the most promising next step. Three pieces of evidence suggest that a bigger model may behave very differently:
+We already ran **0.8B and 4B** (Section 7.5.4). That answers part of the size question. What is still open:
+
+| Still open | Why |
+|---|---|
+| **9B or larger** in the same family | May loop even less; may finally give “long but finished” thinking that LoRA can shorten |
+| **Other families** (not only Qwen3.5) | One family can share quirks |
+| **Harder problems / math** | Where careful long thinking may really help |
+
+Earlier evidence that larger models may differ:
 
 | Evidence | Source | What it suggests |
 |---|---|---|
@@ -1360,21 +1462,21 @@ This is the most promising next step. Three pieces of evidence suggest that a bi
 | *"Larger models tend to loop less"* | Pipis et al. (2025), arXiv:2512.12895 | Looping goes down as model size goes up |
 | *"small models (≤3B parameters) do not consistently benefit from long chain-of-thought (CoT) reasoning"* | Li et al. (2025), arXiv:2502.12143 | Larger models learn better from reasoning examples |
 | Our own data: finished answers were short; the waste was loops | Chapter 5 | If a model loops less, its waste becomes "long but finished" thinking, which **is** what shortest-correct training can shorten |
+| **Our 0.8B / 4B runs** | Chapter 5.13 | ON cut-off dropped with size (78% → 28%). Best free way moved from OFF → limit 1k → limit 2k. LoRA-1 still lost. |
 
-**Our expectations for a bigger model** (to be tested, not claimed):
+**What we expected vs what we saw on 4B:**
 
 ```text
-                        Qwen3.5-2B (measured)        Bigger Qwen3.5, e.g. 4B or 9B (expected)
-Loops                   many (69.5% of cut-offs)     fewer
-Normal thinking         often never finishes         finishes more often, but may run long
-Room for training       little (kept ÷ avg 0.83–0.99) more ("long but finished" thinking)
-Training effect         none on new problems (x1.00)  may shorten thinking and keep accuracy
-Thinking limit          best way                     may lose its advantage if loops are rare
+Expectation                         What 4B showed (checked)
+Fewer cut-offs than 2B              Yes: ON cut-off 28% (vs ~41% on 2B)
+Limit may lose if loops are rare    No: limit 2048 still won (78.2%)
+Training may finally win            No: LoRA-1 69.9% < every limit and < OFF
 ```
 
-**How to test it without wasting money: a "check first" step.** Before training a bigger model, run a small, cheap check on
-about 40 problems (4 tries, thinking ON, a large token limit, and stop generation when the text repeats). Measure three
-numbers, with rules written down **before** looking:
+So “bigger → less looping” helped accuracy, but **not** enough for shortest-correct LoRA to beat a free limit on 4B.
+
+**How to test a still-bigger model without wasting money.** Before full training, run a small check on about 40 problems
+(4 tries, thinking ON, a large token limit, stop when text repeats). Measure three numbers with rules written **before** looking:
 
 | Check | What it tells us | Qwen3.5-2B | Go ahead if |
 |---|---|---|---|
@@ -1382,19 +1484,13 @@ numbers, with rules written down **before** looking:
 | Kept length ÷ average correct length | Is there short-but-correct thinking to learn from? | 0.83 (MBPP+), 0.99 (LCB) | ≤ 0.75 |
 | Problems with ≥ 2 correct out of 4 | Can it solve the training problems? | 56% (MBPP+), 15% (LCB) | ≥ 50% in every set |
 
-If the bigger model passes, training has a real chance. If it fails, it still tests our main explanation on a second model.
-
-**Practical notes.** The Qwen3.5 family includes 0.8B, 2B, 4B and 9B models and larger ones, with the same thinking switch (for
-the 9B model, thinking is on by default). A 9B model should fit on one A100 or H100 GPU for LoRA training, but it writes each token
-more slowly, so a full run would cost several times our 38 units. These are estimates, not measurements.
-
 ### 7.5.2 Methods that target loops directly
 
 Our results suggest attacking the loop itself:
 
 - **Stop when the text repeats.** Detect a loop while the model is writing and stop it early. The model card itself recommends
   *"further tuning the sampling parameters"* and using streaming *"to enable timely detection and interruption of such anomalous
-  generation behaviors."*
+  generation behaviors."* Our size notebooks already use `--stop-on-repeat` for generation.
 - **Change the sampling settings.** The model card says a `presence_penalty` between 0 and 2 can *"reduce endless repetitions"*,
   with some trade-offs. Pipis et al. (2025) found that a higher temperature reduces looping, though answers stay long. We used the
   official coding settings (no penalty), so this is untested here.
@@ -1405,31 +1501,42 @@ Our results suggest attacking the loop itself:
 ### 7.5.3 Other extensions
 
 - **Other "think briefly" wordings** that don't clash with the answer rule.
-- **More tries per problem** (4 or 8), for narrower error bars.
+- **More tries per problem** on 0.8B (we used 1 try to save hours).
 - **Full fine-tuning** instead of LoRA, given SEER's reported gap between them.
 - **Hard problems and math**, where longer, careful thinking may really be needed.
-- **Different limits** (512, 2,048), to find the best limit for each kind of problem.
+- **Limits we skipped on 0.8B** (2,048 / 4,096), if more GPU hours appear.
 
-## 7.5.4 Size × limit extension (in progress, DECISIONS #72)
+## 7.5.4 Size × limit extension — results (DECISIONS #72–#77)
 
-To answer "why only one model?" and "why only 1,024?", we prepared two more Colab runs on
-the **same** Qwen3.5 family:
+**Status: done.** Same 234 problems; notebooks `15a` (0.8B) and `15b` (4B); folders `results/0.8b/` and `results/4b/`.
 
-| Notebook | Model | Folder |
-|---|---|---|
-| `notebooks/15b_qwen35_4b.ipynb` | Qwen3.5-4B (run first) | `results/4b/` |
-| `notebooks/15a_qwen35_0_8b.ipynb` | Qwen3.5-0.8B (run second) | `results/0.8b/` |
+| Size | Best free way | Score | LoRA-1 | Beats LoRA? |
+|---|---|---|---|---|
+| 0.8B (1 try) | **Thinking OFF** | 20.5% | 17.9% | yes |
+| 2B (2 tries) | **Limit 1,024** | 49.8% | 45.5% | yes |
+| 4B (2 tries) | **Limit 2,048** | 78.2% | 69.9% | yes |
 
-Each run tests thinking OFF, ON, limits **512 / 1,024 / 2,048 / 4,096**, and **LoRA-1 only** (no LoRA-2),
-on the same 234 problems. Shared GPU time ≤ **150 hours**. Join page: `results/ALL-RESULTS.md`.
-**Numbers for 0.8B and 4B are not filled yet** — they appear after the Colab runs finish.
+```text
+Same problems ──► three sizes
+                      │
+         ┌────────────┼────────────┐
+         ▼            ▼            ▼
+       0.8B          2B           4B
+      OFF wins   limit1024    limit2048
+       20.5%       49.8%        78.2%
+```
+
+**Takeaway for users:** try **OFF** and a **short thinking limit** before any training.  
+Pick a larger limit as the model grows (about 1k → 2k in this family). On a tiny model, prefer OFF.
+
+Full tables: `results/SIZE-COMPARISON.md` · `results/ALL-RESULTS.md`.
 
 ## 7.6 Closing
 
-We set out to teach a small model to stop overthinking, and found that its real problem was getting stuck. For this model, the
-simplest free fix, a limit on thinking, beat training. The trained approach may still work for larger models that loop less;
-our "check first" step shows how to find out cheaply before paying for it. The size × limit notebooks (Section 7.5.4) are
-how we test that idea on 0.8B and 4B without mixing their files with the finished 2B evidence.
+We set out to teach a small model to stop overthinking, and found that its real problem was getting stuck. For Qwen3.5-2B,
+the simplest free fix — a limit on thinking — beat training. Across **0.8B, 2B, and 4B**, a free control always beat
+LoRA-1; only *which* free control won changed with size. Methods that attack loops directly, and tests on still-larger
+models that finish thinking more often, are the natural next steps.
 
 ---
 

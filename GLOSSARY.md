@@ -487,8 +487,14 @@ The notes a reasoning model writes before its answer. We count their length in t
 
 **Thinking limit (thinking budget, budget forcing)**
 Let the model think, but stop its thinking after a fixed number of tokens and make it answer.
-*Example:* an exam rule "one page of rough work, then write your answer". In our thesis the limit was 1,024 tokens,
-and it was the most accurate way (49.8%), because it cuts loops.
+*Example:* an exam rule "one page of rough work, then write your answer". In our thesis the best
+limit on **2B** was 1,024 tokens (49.8%). On **4B** the best was 2,048 (78.2%). On **0.8B**,
+thinking **OFF** beat the limits we tried (512 / 1,024).
+
+**Size extension**
+Extra runs of the same 234 problems on Qwen3.5-**0.8B** and **4B**, to check whether the 2B
+story holds at other sizes. Join page: `results/SIZE-COMPARISON.md`. Index: `results/RESULTS-INDEX.md`.
+
 
 **Thinking switch (ON/OFF)**
 A setting in some new models. ON = the model thinks first. OFF = it answers directly.

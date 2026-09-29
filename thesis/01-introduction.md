@@ -94,6 +94,6 @@ careful thinking. Chapters 5 and 6 show the evidence.
 | 2. Background | What LLMs, tokens, thinking, LoRA and code test sets are; earlier work |
 | 3. Method | The six ways of answering, the data, the training, the fairness rules |
 | 4. How we measure | How a pass is decided, how accuracy, points, error bars and loops are computed |
-| 5. Results | All numbers, tables and charts |
+| 5. Results | All numbers, tables and charts (including the 0.8B / 4B size check) |
 | 6. Analysis | Why it happened, how it fits earlier work, and what could be wrong |
-| 7. Conclusion and future work | The answer, advice, and what to test next (including bigger models) |
+| 7. Conclusion and future work | The answer, advice, size results, and what to test next |

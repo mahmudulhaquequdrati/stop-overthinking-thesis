@@ -131,10 +131,11 @@ runs long.** Methods that learn only from finished answers cannot address it.
 - ⚠️ Our loop test is strict and under-counts loops. The true share is probably higher.
 
 **Does it hold elsewhere?**
-- ⚠️ One model only. Its makers say it loops more than the other Qwen3.5 models, so **larger models may behave differently**
-  (Chapter 7).
+- ⚠️ Main thesis = one model (2B). **Softened:** we also ran **0.8B and 4B** in the same family on the same 234 problems
+  (Section 5.13). The free winner changed with size; LoRA-1 still lost. Other families and harder tasks are still open.
 - ⚠️ Only easy and medium problems. LiveCodeBench medium is at the floor (0–9%) and can't separate the ways.
 - ⚠️ Code only.
+- ⚠️ Size extension: 0.8B used **1 try** (lean plan); 2B/4B used 2 tries.
 
 **Is it just luck?**
 - ⚠️ 234 problems, 2 tries each. Error bars are about ±4–6 points over all problems and much wider on the small LiveCodeBench
@@ -146,12 +147,44 @@ runs long.** Methods that learn only from finished answers cannot address it.
 - ⚠️ LiveCodeBench answers were checked on up to 20 tests per problem, not always all of them.
 - ⚠️ GPU time depends on batching, so we use tokens for cost.
 
-## 6.7 Summary of the analysis
+## 6.7 Size extension: what 0.8B and 4B change
+
+Chapter 5.13 gave the numbers. Here is what they mean.
+
+**1. Size still matters most for raw accuracy.**  
+OFF alone goes 20.5% → 40.8% → 69.7% from 0.8B to 4B. Bigger is simply better at code here.
+
+**2. The best *free* fix depends on size.**
+
+| Size | Best free way | Everyday reading |
+|---|---|---|
+| 0.8B | **Thinking OFF** | Too weak to think well — better not to start a long think |
+| 2B | **Limit 1,024** | Thinking helps if you cut loops |
+| 4B | **Limit 2,048** | Same idea; the useful budget moved up |
+
+**3. Open thinking (ON) is risky when the model loops.**  
+On 0.8B, ON is the *worst* way (7.3%, 78% cut off). On 4B, OFF still beats ON (69.7% vs 64.3%).  
+So “always leave thinking on” is bad advice for these small code models.
+
+**4. LoRA-1 still does not beat the best free way** on 0.8B or 4B.  
+Same story as the main 2B thesis: training on shortest-correct answers is not enough when the free winner is OFF or a hard limit.
+
+**5. Honest caveats.**  
+0.8B used **1 try**; 2B/4B used **2**. Ranking ways *inside* 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.  
+0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.
+
+This softens one threat from Section 6.6 (“one model only”): we now have **three sizes in one family**. It does **not** remove “code only” or “easy/medium only”.
+
+## 6.8 Summary of the analysis
 
 ```text
 Small model thinks ─► often gets STUCK IN A LOOP ─► never finishes ─► fails
                                    │
         Training on short correct answers: never shows how to get unstuck ─► no change (x1.00)
-        Thinking limit:                    cuts the loop, forces an answer   ─► +7.7 points
-        Thinking OFF:                      never enters the loop             ─► 4× cheaper
+        Thinking limit:                    cuts the loop, forces an answer   ─► +7.7 points (2B)
+        Thinking OFF:                      never enters the loop             ─► 4× cheaper; best on 0.8B
+
+Across sizes (same 234 problems):
+  0.8B → OFF wins     ·  2B → limit 1024 wins  ·  4B → limit 2048 wins
+  LoRA-1 never beats that best free way
 ```
