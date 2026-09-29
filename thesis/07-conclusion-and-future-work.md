@@ -28,7 +28,7 @@ The reason is the most important lesson of this thesis:
 6. **More room did not rescue normal thinking:** with 16,384 tokens it gained 5.5 points on HumanEval+ and 7.1 on
    LiveCodeBench, still below the limit.
 7. **Size extension (checked):** best free way = **OFF 20.5%** on 0.8B · **limit 1,024 → 49.8%** on 2B · **limit 2,048 → 78.2%** on 4B.
-   On 2B, **limit 512 = 45.1%** (fill-in): better than ON, worse than 1024. LoRA-1 lost to that free winner on every size.
+   On 2B limits: 512 = 45.1% · 1024 = **49.8%** · 2048 = 46.6% (1 try) — **peaks at 1024**. LoRA-1 lost on every size.
    ON cut-off fell as size grew (78% → ~41% → 28%).
 
 ## 7.3 Advice for people who use small reasoning models for code
@@ -119,7 +119,8 @@ Our results suggest attacking the loop itself:
 |---|---|---|---|---|
 | 0.8B (1 try) | **Thinking OFF** | 20.5% | 17.9% | yes |
 | 2B (2 tries) | **Limit 1,024** | 49.8% | 45.5% | yes |
-| 2B limit512 fill-in | Limit 512 | **45.1%** | (same LoRA-1) | limit1024 still wins |
+| 2B limit512 | Limit 512 | 45.1% | (same LoRA-1) | limit1024 still wins |
+| 2B limit2048 (1 try) | Limit 2,048 | 46.6% | (same LoRA-1) | still below 1024 — peak confirmed |
 | 4B (2 tries) | **Limit 2,048** | 78.2% | 69.9% | yes |
 
 ```text

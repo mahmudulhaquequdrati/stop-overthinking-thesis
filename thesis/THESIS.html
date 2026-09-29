@@ -1,46 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<title>Stop Overthinking, Keep Passing the Tests</title><style>
-@page { size: A4; margin: 20mm 20mm 22mm 20mm;
-  @bottom-center { content: counter(page); font: 9pt Georgia, serif; color: #555; } }
-@page :first { @bottom-center { content: none; } }
-html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: Georgia, "Times New Roman", serif; font-size: 10.5pt; line-height: 1.5; color: #111; background: #fff; margin: 0; }
-.cover { height: 247mm; display: flex; flex-direction: column; justify-content: center; text-align: center; break-after: page; }
-.cover h1 { font-size: 26pt; margin: 0 0 10pt; break-before: auto; border: none; }
-.cover h2 { font-size: 14pt; font-weight: normal; font-style: italic; margin: 0 0 30pt; border: none; }
-.cover p { font-size: 11pt; }
-.cover hr { display: none; }
-h1 { font-size: 20pt; margin: 0 0 12pt; padding-bottom: 6pt; border-bottom: 1.5pt solid #222; break-before: page; break-after: avoid; }
-h2 { font-size: 13.5pt; margin: 18pt 0 6pt; break-after: avoid; }
-h3 { font-size: 11.5pt; margin: 14pt 0 4pt; break-after: avoid; }
-p, li { orphans: 3; widows: 3; }
-a { color: #1c4f8f; text-decoration: none; }
-hr { border: none; border-top: 0.6pt solid #bbb; margin: 14pt 0; }
-blockquote { margin: 10pt 0; padding: 6pt 12pt; border-left: 3pt solid #1c4f8f; background: #f3f6fa; break-inside: avoid; }
-blockquote p { margin: 3pt 0; }
-table { width: 100%; border-collapse: collapse; margin: 6pt 0 12pt; font-size: 8.8pt; line-height: 1.35; }
-th, td { border: 0.5pt solid #bbb; padding: 3pt 5pt; text-align: left; vertical-align: top; }
-th { background: #eceae4; font-weight: bold; }
-thead { display: table-header-group; }
-tr { break-inside: avoid; }
-table.long { font-size: 7.4pt; }
-table.short { break-inside: avoid; }
-table.long td, table.long th { padding: 1.2pt 3pt; }
-code { font-family: Consolas, "Courier New", monospace; font-size: 8.8pt; background: #f1f0ec; padding: 0 2pt; border-radius: 2pt; }
-pre { font-family: Consolas, "Courier New", monospace; font-size: 7.6pt; line-height: 1.3; background: #f6f5f1; border: 0.5pt solid #ddd;
-      padding: 7pt 9pt; white-space: pre-wrap; word-break: break-word; break-inside: avoid; border-radius: 3pt; }
-pre code { background: none; padding: 0; font-size: inherit; }
-img { display: block; max-width: 100%; height: auto; margin: 8pt auto 2pt; break-inside: avoid; }
-p:has(> img) { break-inside: avoid; break-after: avoid; margin: 0; }
-ul, ol { padding-left: 18pt; }
-#contents { break-before: page; font-size: 20pt; border-bottom: 1.5pt solid #222; padding-bottom: 6pt; }
-#contents + ul { font-size: 9.5pt; line-height: 1.35; }
-</style></head><body><section class="cover"><h1 id="stop-overthinking-keep-passing-the-tests">Stop Overthinking, Keep Passing the Tests</h1>
-<h2 id="shortest-correct-lora-fine-tuning-versus-free-thinking-controls-in-a-small-code-model-qwen35-2b">Shortest-Correct LoRA Fine-Tuning versus Free Thinking Controls in a Small Code Model (Qwen3.5-2B)</h2>
+<!DOCTYPE html><html><head><meta charset=utf-8><title>thesis</title></head><body><h1>Stop Overthinking, Keep Passing the Tests</h1>
+<h2>Shortest-Correct LoRA Fine-Tuning versus Free Thinking Controls in a Small Code Model (Qwen3.5-2B)</h2>
 <p><strong>Author:</strong> [your name] · <strong>Supervisor:</strong> [supervisor&#39;s name] · <strong>[University], [Department]</strong> · September 2026</p>
 <hr>
-</section>
-<h2 id="abstract">Abstract</h2>
+<h2>Abstract</h2>
 <p>Some AI models &quot;think&quot; before they answer. They write notes to themselves first, then give the answer.
 Thinking often makes answers better, but it costs time and computer power. Small models are said to
 <strong>overthink</strong>: they think far longer than they need to.</p>
@@ -71,12 +33,12 @@ on 2B, and <strong>limit 2,048</strong> (78.2%) on 4B. LoRA-1 never beat that fr
 open future work.</p>
 <p><strong>Keywords:</strong> reasoning models, overthinking, thinking budget, LoRA, code generation, efficient inference.</p>
 <hr>
-<h2 id="the-thesis-in-one-page-for-everyone">The thesis in one page (for everyone)</h2>
-<h3 id="the-problem-with-an-everyday-example">The problem, with an everyday example</h3>
+<h2>The thesis in one page (for everyone)</h2>
+<h3>The problem, with an everyday example</h3>
 <p>Imagine a student who writes five pages for every exam question, even &quot;what is 2 + 2?&quot;. That is slow, and
 it doesn&#39;t make the answers better. New AI models do something similar. Before they answer, they &quot;think&quot; by
 writing notes to themselves. On easy code problems, these notes are often much longer than needed.</p>
-<h3 id="what-we-tried">What we tried</h3>
+<h3>What we tried</h3>
 <pre><code class="language-text">                           ┌─ 1. Thinking OFF        (switch it off)
                            ├─ 2. Thinking ON         (normal: what we compare against)
 Same model, same 234  ─────┼─ 3. &quot;Think briefly&quot;     (ask in words)
@@ -85,7 +47,7 @@ code problems              ├─ 4. Thinking limit      (stop thinking at 1,024
                            └─ 6. LoRA-2              (trained on short correct answers, bigger)
 </code></pre>
 <p>Ways 1–4 are <strong>free</strong>: no training is needed. Ways 5–6 need training. We wanted to know: is training worth it?</p>
-<h3 id="what-we-found">What we found</h3>
+<h3>What we found</h3>
 <pre><code class="language-text">Accuracy on 234 code problems (higher is better)
 
 Thinking limit   ██████████████████████████  49.8%   ← best, and proven
@@ -95,20 +57,25 @@ Thinking ON      █████████████████████
 Thinking OFF     █████████████████████       40.8%   (4× cheaper)
 &quot;Think briefly&quot;  ███                          6.6%   (confused the model)
 </code></pre>
-<h3 id="why-it-happened">Why it happened</h3>
+<h3>Why it happened</h3>
 <p>We read the answers that were too long. Most of them were <strong>loops</strong>: the model wrote the same few lines again
 and again until it ran out of space. So the model was not &quot;thinking too carefully&quot;. It was <strong>stuck</strong>.</p>
 <ul>
 <li>Our training showed the model short, correct answers. That teaches it nothing about how to get unstuck.</li>
 <li>A thinking limit simply stops the loop and makes the model answer. That works.</li>
 </ul>
-<h3 id="what-it-means">What it means</h3>
+<h3>What it means</h3>
 <p>For small AI models that write code, <strong>try free options first</strong> (thinking OFF and a thinking limit).<br>On Qwen3.5-2B, a <strong>limit of 1,024</strong> was best. On 0.8B, <strong>OFF</strong> was best. On 4B, a <strong>limit of 2,048</strong> was best.
 Training with LoRA-1 did not beat those free winners on any of the three sizes.</p>
 <hr>
-<h2 id="key-facts-at-a-glance">Key facts at a glance</h2>
-<table class="short">
-
+<h2>Key facts at a glance</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
 <tbody><tr>
 <td>Research question</td>
 <td>Is training a small model to think shorter better than the free options?</td>
@@ -155,7 +122,7 @@ Training with LoRA-1 did not beat those free winners on any of the three sizes.<
 </tr>
 </tbody></table>
 <hr>
-<h2 id="contents">Contents</h2>
+<h2>Contents</h2>
 <ul>
 <li><a href="#1-introduction">1. Introduction</a><ul>
 <li><a href="#11-the-problem">1.1 The problem</a></li>
@@ -262,8 +229,9 @@ Training with LoRA-1 did not beat those free winners on any of the three sizes.<
 </ul>
 </li>
 </ul>
-<h1 id="1-introduction">1. Introduction</h1>
-<h2 id="11-the-problem">1.1 The problem</h2>
+<hr>
+<h1>1. Introduction</h1>
+<h2>1.1 The problem</h2>
 <p>AI models that write text, called <strong>large language models</strong> (LLMs), are now used every day to write computer
 code. A newer kind, the <strong>reasoning model</strong>, does something extra. Before it answers, it writes a <strong>thinking</strong>
 part: notes to itself, like a student&#39;s rough work on scrap paper. Then it writes the answer.</p>
@@ -277,10 +245,10 @@ answers are not better, but the exam takes much longer.</p>
 <p>This matters most for <strong>small</strong> models. Small models are cheap and can run on one ordinary graphics card
 (GPU). That is why people use them. If they waste most of their time on unneeded thinking, that advantage
 is lost.</p>
-<h2 id="12-two-ways-to-fix-it">1.2 Two ways to fix it</h2>
+<h2>1.2 Two ways to fix it</h2>
 <p>There are two kinds of fixes.</p>
 <p><strong>The free fixes</strong> need no training:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Free fix</th>
@@ -304,13 +272,13 @@ is lost.</p>
 practice problem several times, keep its <strong>shortest answer that is still correct</strong>, and train the model on those
 short answers (Munkhbat et al., 2025). Earlier work did this on math, and on code with larger models of 7–8 billion
 parameters, and reported 23–40% shorter thinking (SEER, 2025; ASAP, 2025).</p>
-<h2 id="13-the-gap">1.3 The gap</h2>
+<h2>1.3 The gap</h2>
 <p>The trained fix costs work and computer time. The free fixes cost nothing. So the key question is:
 <strong>is training worth it compared with the free fixes, on the same model?</strong></p>
 <p>We found no study that answers this for a small model that has a thinking switch, on code. Earlier training
 studies used models without a switch, so they could not compare with &quot;thinking off&quot;. Studies of the switch
 (for example HRBench, 2026) compared ways of using the switch, but not a model trained to think shorter.</p>
-<h2 id="14-the-research-question">1.4 The research question</h2>
+<h2>1.4 The research question</h2>
 <blockquote>
 <p><strong>On a small model with a thinking switch, does training on its own shortest correct code answers give a
 better balance of accuracy and thinking length than the free options?</strong></p>
@@ -323,7 +291,7 @@ better balance of accuracy and thinking length than the free options?</strong></
 </ol>
 <p>All three rules were written down <strong>before</strong> we saw any result (Chapter 3). This matters: it stops us from
 choosing the rules later to fit the results.</p>
-<h2 id="15-what-we-did-in-short">1.5 What we did, in short</h2>
+<h2>1.5 What we did, in short</h2>
 <pre><code class="language-text">PROBLEM → GAP → QUESTION → HYPOTHESIS → EXPERIMENT → DATA → RESULTS → ANALYSIS → CONCLUSION
  1.1       1.3    1.4        1.4          Ch. 3        Ch. 3   Ch. 5     Ch. 6      Ch. 7
 </code></pre>
@@ -334,11 +302,11 @@ choosing the rules later to fit the results.</p>
 <li><strong>Checking:</strong> every answer&#39;s code was run against the test sets&#39; own tests. Chapter 4 explains exactly how we
 count a pass, compute accuracy, and decide whether a difference is real.</li>
 </ul>
-<h2 id="16-what-we-found-in-short">1.6 What we found, in short</h2>
+<h2>1.6 What we found, in short</h2>
 <p>The answer was <strong>no</strong>. Training did not make the model think shorter on the test problems. The free thinking
 limit was the most accurate way of all. The reason surprised us: the long answers were mostly <strong>loops</strong>, not
 careful thinking. Chapters 5 and 6 show the evidence.</p>
-<h2 id="17-contributions">1.7 Contributions</h2>
+<h2>1.7 Contributions</h2>
 <ol>
 <li><strong>A fair, same-model comparison</strong> of a trained &quot;think shorter&quot; model against all three free options, on code,
 with rules fixed in advance.</li>
@@ -349,8 +317,8 @@ not unfairly hurt normal thinking.</li>
 <li><strong>Everything is open:</strong> every raw answer, every grade, the scripts and the trained add-ons, so anyone can
 check or repeat the work.</li>
 </ol>
-<h2 id="18-how-this-thesis-is-organised">1.8 How this thesis is organised</h2>
-<table class="short">
+<h2>1.8 How this thesis is organised</h2>
+<table>
 <thead>
 <tr>
 <th>Chapter</th>
@@ -382,10 +350,11 @@ check or repeat the work.</li>
 <td>The answer, advice, size results, and what to test next</td>
 </tr>
 </tbody></table>
-<h1 id="2-background">2. Background</h1>
+<hr>
+<h1>2. Background</h1>
 <p>This chapter explains the ideas the thesis builds on, from the ground up. If you already know how language
 models work, you can skip to Section 2.7.</p>
-<h2 id="21-what-is-a-large-language-model">2.1 What is a large language model?</h2>
+<h2>2.1 What is a large language model?</h2>
 <p>A <strong>large language model</strong> (LLM) is a computer program that writes text. It works by guessing the next piece
 of text again and again.</p>
 <blockquote>
@@ -395,25 +364,25 @@ but much bigger and much better. It can continue a question with a whole correct
 <p>The model learned to guess by reading a huge amount of text. What it learned is stored in billions of numbers
 called <strong>parameters</strong>. Our model, Qwen3.5-2B, has about <strong>2 billion</strong> parameters. That is small for 2026. It
 fits on one graphics card.</p>
-<h2 id="22-what-is-a-token">2.2 What is a token?</h2>
+<h2>2.2 What is a token?</h2>
 <p>The model doesn&#39;t read or write whole words. It uses <strong>tokens</strong>: small pieces of text, about ¾ of a word on
 average. &quot;Overthinking&quot; might be split into &quot;Over&quot; + &quot;think&quot; + &quot;ing&quot;.</p>
 <p>Tokens are how we measure <strong>cost</strong>. The model writes one token at a time, so:</p>
 <pre><code class="language-text">more tokens  →  more time  →  more electricity  →  more money
 </code></pre>
 <p>In this thesis, &quot;the model wrote 3,446 tokens&quot; means it wrote about 2,600 words.</p>
-<h2 id="23-what-is-a-reasoning-model-and-what-is-thinking">2.3 What is a reasoning model, and what is &quot;thinking&quot;?</h2>
+<h2>2.3 What is a reasoning model, and what is &quot;thinking&quot;?</h2>
 <p>A <strong>reasoning model</strong> writes two parts:</p>
 <pre><code class="language-text">Question → [ THINKING: notes to itself ... ] → [ ANSWER: the final code ]
 </code></pre>
 <p>The thinking part is like a student&#39;s rough work on scrap paper. It often makes the final answer more correct.
 In our model, the thinking ends with a special marker, <code>&lt;/think&gt;</code>. Everything before the marker is thinking.
 Everything after it is the answer.</p>
-<h2 id="24-the-thinking-switch">2.4 The thinking switch</h2>
+<h2>2.4 The thinking switch</h2>
 <p>Many 2026 models, including the Qwen3.5 family, have a <strong>thinking switch</strong>. With the switch ON, the model thinks
 before answering. With it OFF, the model answers directly. Qwen3.5-2B is OFF by default; we turned thinking on
 where needed with the setting <code>enable_thinking=True</code>.</p>
-<h2 id="25-overthinking-and-a-second-problem-loops">2.5 Overthinking, and a second problem: loops</h2>
+<h2>2.5 Overthinking, and a second problem: loops</h2>
 <p><strong>Overthinking</strong> means thinking much longer than needed, for example checking an easy answer again and again
 (Sui et al., 2025).</p>
 <p>A related but different problem is the <strong>loop</strong> (also called <em>repetition</em>). The model starts repeating the same
@@ -426,7 +395,7 @@ lines, and never reaches the end marker:</p>
 ends by itself. The makers of our model warn about exactly this. The official Qwen3.5-2B model card says:
 <em>&quot;Qwen3.5-2B is more prone to entering thinking loops compared to other Qwen3.5 models, which may prevent it from
 terminating generation properly.&quot;</em></p>
-<h2 id="26-what-is-training-and-what-is-lora">2.6 What is training, and what is LoRA?</h2>
+<h2>2.6 What is training, and what is LoRA?</h2>
 <p><strong>Training</strong> (or <strong>fine-tuning</strong>) means showing the model examples and nudging its parameters so it becomes more
 likely to write text like those examples.</p>
 <p>Changing all 2 billion parameters is expensive. <strong>LoRA</strong> (Low-Rank Adaptation; Hu et al., 2022) is a cheaper way.
@@ -436,7 +405,7 @@ It leaves the model unchanged and trains a <strong>small add-on</strong> that si
 the same; the notes change how you read it.</p>
 </blockquote>
 <p>Our LoRA add-ons are about 44 MB, against 4.6 GB for the model.</p>
-<h2 id="27-training-a-model-to-think-shorter-shortest-correct">2.7 Training a model to think shorter: &quot;shortest correct&quot;</h2>
+<h2>2.7 Training a model to think shorter: &quot;shortest correct&quot;</h2>
 <p>The idea we test comes from Munkhbat et al. (2025):</p>
 <pre><code class="language-text">1. The model answers each practice problem several times (here: 4 times).
 2. Check each answer with the problem&#39;s tests.
@@ -445,7 +414,7 @@ the same; the notes change how you read it.</p>
 </code></pre>
 <p>The hope is that the model learns the habit: &quot;stop thinking once you have enough&quot;.</p>
 <p><strong>What earlier work found:</strong></p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Work</th>
@@ -475,7 +444,7 @@ the same; the notes change how you read it.</p>
 </tr>
 </tbody></table>
 <p>None of these models had a thinking switch, so none could compare training with simply turning thinking off.</p>
-<h2 id="28-the-free-options-in-earlier-work">2.8 The free options in earlier work</h2>
+<h2>2.8 The free options in earlier work</h2>
 <ul>
 <li><strong>Thinking OFF.</strong> NoThinking (2025) showed that skipping thinking can beat thinking with a small budget, also on
 code. So &quot;thinking off&quot; is a serious option that any trained method must beat.</li>
@@ -486,7 +455,7 @@ model&#39;s thinking process&quot;</em>. The Qwen3 report (2025) also describes 
 <li><strong>HRBench (2026)</strong> compared many ways to use the thinking switch, on models from Qwen3.5-2B upwards, and found no
 single winner. It did not include a model trained to think shorter.</li>
 </ul>
-<h2 id="29-why-small-models-may-be-different">2.9 Why small models may be different</h2>
+<h2>2.9 Why small models may be different</h2>
 <p>Two recent findings matter for a 2-billion-parameter model:</p>
 <ul>
 <li><strong>Small models learn less from long reasoning.</strong> Li et al. (2025): <em>&quot;small models (≤3B parameters) do not
@@ -495,7 +464,7 @@ consistently benefit from long chain-of-thought (CoT) reasoning or distillation 
 significantly even when their teachers rarely do.&quot;</em></li>
 </ul>
 <p>We did not know these when we planned the study. They help explain our results (Chapter 6).</p>
-<h2 id="210-how-code-answers-are-checked-test-sets">2.10 How code answers are checked: test sets</h2>
+<h2>2.10 How code answers are checked: test sets</h2>
 <p>A <strong>benchmark</strong> is a fixed set of problems with a fair way to check answers. For code, the check is to <strong>run the
 code against tests</strong>. A <strong>test case</strong> is one input with the expected output:</p>
 <pre><code class="language-text">Problem:   write add(a, b)
@@ -504,7 +473,7 @@ Test 2:    add(-1, 1)  should give 0
 Answer passes only if it passes ALL tests.
 </code></pre>
 <p>We used two benchmarks:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Benchmark</th>
@@ -526,15 +495,16 @@ Answer passes only if it passes ALL tests.
 <p>LiveCodeBench keeps adding new problems. We used problems released from <strong>February 2025 on</strong>, to lower the chance
 that the model saw them while it was being built. We also used <strong>MBPP+</strong> (Liu et al., 2023), a set of easy
 Python problems, but only for training and for our pilot study, never as test problems in the main run.</p>
-<h2 id="211-summary">2.11 Summary</h2>
+<h2>2.11 Summary</h2>
 <pre><code class="language-text">Reasoning models think before answering → thinking costs tokens → small models may overthink
                                                                   → or get stuck in LOOPS
 Fixes: FREE (off / limit / &quot;brief&quot;)  vs  TRAINED (shortest-correct LoRA)
 Nobody had compared them on one small model with a switch, on code  → this thesis
 </code></pre>
-<h1 id="3-method">3. Method</h1>
+<hr>
+<h1>3. Method</h1>
 <p>This chapter says <strong>what</strong> we did and <strong>why</strong>. Chapter 4 explains <strong>how we measured</strong> it.</p>
-<h2 id="31-the-design-in-one-picture">3.1 The design in one picture</h2>
+<h2>3.1 The design in one picture</h2>
 <pre><code class="language-text">                        TRAINING (only for the LoRAs)
  MBPP+ 200 + old LiveCodeBench 80 ──► model answers 4× ──► check with tests ──► keep shortest correct ──► train LoRA-2
  (pilot: MBPP+ 100) ────────────────────────────────────────────────────────────────────────────────────► LoRA-1
@@ -544,9 +514,14 @@ Nobody had compared them on one small model with a switch, on code  → this the
 </code></pre>
 <p>The design is a <strong>comparison on the same problems</strong>: every way answers exactly the same 234 problems, with the same
 settings, so the only thing that changes is the way of answering.</p>
-<h2 id="32-the-model">3.2 The model</h2>
-<table class="short">
-
+<h2>3.2 The model</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
 <tbody><tr>
 <td>Model</td>
 <td><strong>Qwen3.5-2B</strong> (<code>unsloth/Qwen3.5-2B</code>), released February 2026, Apache-2.0 licence</td>
@@ -566,8 +541,8 @@ settings, so the only thing that changes is the way of answering.</p>
 </tbody></table>
 <p><em>Temperature, top-p and top-k</em> control how random the model&#39;s word choices are. We used the official settings, so
 the model is not disadvantaged by our choices.</p>
-<h2 id="33-the-six-ways-of-answering">3.3 The six ways of answering</h2>
-<table class="short">
+<h2>3.3 The six ways of answering</h2>
+<table>
 <thead>
 <tr>
 <th>#</th>
@@ -610,8 +585,8 @@ the model is not disadvantaged by our choices.</p>
 asks a fair question: <em>is a simple hard cut as good as training?</em></p>
 <p><strong>Why LoRA-2 is the main one.</strong> We decided <strong>before</strong> the run that LoRA-2 would be the main result if it was trained.
 This stops us from picking whichever LoRA looks best afterwards.</p>
-<h2 id="34-the-test-problems-234">3.4 The test problems (234)</h2>
-<table class="short">
+<h2>3.4 The test problems (234)</h2>
+<table>
 <thead>
 <tr>
 <th>Set</th>
@@ -657,8 +632,8 @@ This stops us from picking whichever LoRA looks best afterwards.</p>
 LiveCodeBench:  the problem text  + &quot;Write a complete Python program. It reads from standard input and
                  prints the answer to standard output. Answer with one Python code block only.&quot;
 </code></pre>
-<h2 id="35-the-training-data">3.5 The training data</h2>
-<table class="short">
+<h2>3.5 The training data</h2>
+<table>
 <thead>
 <tr>
 <th>Pool</th>
@@ -680,7 +655,7 @@ LiveCodeBench:  the problem text  + &quot;Write a complete Python program. It re
 <p><strong>Overlap check.</strong> No test problem may appear in the training data. A script compared every training problem with
 every test problem and removed any that had the same function name, or shared many 5-word pieces of text (30% or
 more). It removed one training problem (<code>Mbpp/309</code>).</p>
-<h2 id="36-making-the-training-examples-shortest-correct">3.6 Making the training examples: &quot;shortest correct&quot;</h2>
+<h2>3.6 Making the training examples: &quot;shortest correct&quot;</h2>
 <pre><code class="language-text">For each training problem:
   1. Thinking ON answers it 4 times (token limit: 4,096 for MBPP+, 8,192 for LiveCodeBench).
   2. Each answer is checked with the problem&#39;s tests.
@@ -690,8 +665,8 @@ more). It removed one training problem (<code>Mbpp/309</code>).</p>
 <p><strong>Why step 4?</strong> The S3-CoT paper warns that training on the very shortest answers can hurt accuracy. A lucky, too-short
 answer would teach &quot;always stop early&quot;. So we keep the shortest <em>reasonable</em> answer.</p>
 <p>The kept answer is stored <strong>word for word</strong>, with its thinking and its code, and becomes one training example.</p>
-<h2 id="37-training-the-lora">3.7 Training the LoRA</h2>
-<table class="short">
+<h2>3.7 Training the LoRA</h2>
+<table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -731,7 +706,7 @@ answer would teach &quot;always stop early&quot;. So we keep the shortest <em>re
 <p><strong>A safety check on the add-on.</strong> In the pilot we found that the saved LoRA could load &quot;empty&quot;, with its parts matched to
 nothing, so the &quot;trained&quot; model silently behaved like the untrained one. The answering script now <strong>stops</strong> if any LoRA part
 is not matched to the model. This check passed for both LoRAs.</p>
-<h2 id="38-the-pilot-study-the-mini-thesis">3.8 The pilot study (the &quot;mini-thesis&quot;)</h2>
+<h2>3.8 The pilot study (the &quot;mini-thesis&quot;)</h2>
 <p>Before the main run, we ran the whole method once, small:</p>
 <ul>
 <li>100 MBPP+ training problems → shortest-correct examples → LoRA-1.</li>
@@ -740,8 +715,8 @@ is not matched to the model. This check passed for both LoRAs.</p>
 <p><strong>Pilot result:</strong> LoRA-1 used 41% fewer tokens than thinking ON (x0.59) <strong>and</strong> was more accurate (65% against 50%).
 This was a strong sign that the method works, so we went ahead with the main run. The main run then tested whether
 this holds on <strong>different</strong> problems (Chapter 5.10).</p>
-<h2 id="39-the-fairness-rules-fixed-before-the-run">3.9 The fairness rules (fixed before the run)</h2>
-<table class="short">
+<h2>3.9 The fairness rules (fixed before the run)</h2>
+<table>
 <thead>
 <tr>
 <th>Rule</th>
@@ -798,8 +773,8 @@ this holds on <strong>different</strong> problems (Chapter 5.10).</p>
 <p><strong>Why 4,096 and 8,192?</strong> HumanEval+ problems are easy; in the pilot almost every answer that reached 4,096 was a loop.
 LiveCodeBench has medium problems, where honest reasoning can be longer. To check that these limits did not unfairly hurt
 normal thinking, we re-ran thinking ON&#39;s cut-off answers with <strong>16,384</strong> tokens (Section 4.9).</p>
-<h2 id="310-how-the-run-was-done">3.10 How the run was done</h2>
-<table class="short">
+<h2>3.10 How the run was done</h2>
+<table>
 <thead>
 <tr>
 <th>Stage</th>
@@ -839,9 +814,9 @@ normal thinking, we re-ran thinking ON&#39;s cut-off answers with <strong>16,384
 <li><strong>Total:</strong> about 38 units, from 2026-09-21 to 2026-09-24 (including set-up time).</li>
 <li>Results were saved to Google Drive after every step, so a disconnect lost nothing.</li>
 </ul>
-<h2 id="311-what-changed-from-the-proposal-and-why">3.11 What changed from the proposal, and why</h2>
+<h2>3.11 What changed from the proposal, and why</h2>
 <p>We report every change honestly. All were made <strong>before</strong> the main results were seen.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Proposal</th>
@@ -880,26 +855,27 @@ normal thinking, we re-ran thinking ON&#39;s cut-off answers with <strong>16,384
 <td>LoRA-2 added medium-style training problems; LoRA-1 kept for comparison.</td>
 </tr>
 </tbody></table>
-<h2 id="312-ethics-and-safety">3.12 Ethics and safety</h2>
+<h2>3.12 Ethics and safety</h2>
 <ul>
 <li>The model&#39;s code was <strong>never run inside our notebook</strong>. It ran in a separate process, in a temporary folder, with a time
 limit, so broken or harmful code could not damage anything.</li>
 <li>No personal data was used. All data sets are public.</li>
 </ul>
-<h1 id="4-how-we-measure-where-the-evidence-comes-from">4. How We Measure: Where the Evidence Comes From</h1>
+<hr>
+<h1>4. How We Measure: Where the Evidence Comes From</h1>
 <p>Every number in this thesis comes from one of the steps below. This chapter explains each step with a small worked
 example, so anyone can check our numbers by hand.</p>
 <pre><code class="language-text">answer text ─► take out the code ─► run the tests ─► PASS or FAIL ─► accuracy ─► compare two ways ─► error bar
      └──────► count tokens (thinking / answer) ─► cost ─► cut off? loop?
 </code></pre>
-<h2 id="41-step-1-take-the-code-out-of-the-answer">4.1 Step 1: take the code out of the answer</h2>
+<h2>4.1 Step 1: take the code out of the answer</h2>
 <p>The model&#39;s answer is text. We look for the <strong>last Python code block</strong> in the answer part (the text after the
 end-of-thinking marker <code>&lt;/think&gt;</code>). That code is what we test.</p>
 <p>If the model never reached <code>&lt;/think&gt;</code>, there is <strong>no answer part</strong>, so there is no code to test. That answer is a
 <strong>fail</strong> (Section 4.9).</p>
-<h2 id="42-step-2-run-the-benchmarks-own-tests">4.2 Step 2: run the benchmark&#39;s own tests</h2>
+<h2>4.2 Step 2: run the benchmark&#39;s own tests</h2>
 <p>We never judge code by reading it. We <strong>run</strong> it against the benchmark&#39;s own tests:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -930,12 +906,12 @@ end-of-thinking marker <code>&lt;/think&gt;</code>). That code is what we test.<
 </tbody></table>
 <p><strong>Safety.</strong> The code runs in a <strong>separate process</strong>, in a temporary folder, with the time limit. It never runs inside
 our notebook.</p>
-<h2 id="43-step-3-the-pass-rule">4.3 Step 3: the pass rule</h2>
+<h2>4.3 Step 3: the pass rule</h2>
 <blockquote>
 <p><strong>An answer PASSES only if it passes EVERY test.</strong> One failed test = FAIL.</p>
 </blockquote>
 <p>An answer fails if any of these happen:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Why it failed</th>
@@ -960,11 +936,11 @@ our notebook.</p>
 </tr>
 </tbody></table>
 <p>This is strict, and the same for every way.</p>
-<h2 id="44-step-4-checking-the-checker">4.4 Step 4: checking the checker</h2>
+<h2>4.4 Step 4: checking the checker</h2>
 <p>A broken checker would make every number wrong. So <strong>before</strong> grading any model answer, the notebook graded the
 benchmarks&#39; <strong>official correct solutions</strong> for 30 HumanEval+ and 20 MBPP+ problems. All had to pass, or the run would
 stop. They all passed.</p>
-<h2 id="45-accuracy">4.5 Accuracy</h2>
+<h2>4.5 Accuracy</h2>
 <blockquote>
 <p><strong>Accuracy = answers that passed ÷ all answers</strong></p>
 </blockquote>
@@ -974,13 +950,13 @@ passed: 197
 accuracy = 197 ÷ 468 = 0.421 = 42.1%
 </code></pre>
 <p>Every problem has exactly 2 tries, so every problem counts equally.</p>
-<h2 id="46-points-not-percent">4.6 Points, not percent</h2>
+<h2>4.6 Points, not percent</h2>
 <p>When we compare two accuracies, we use <strong>percentage points</strong> (&quot;points&quot;):</p>
 <pre><code class="language-text">Thinking limit 49.8%  −  Thinking ON 42.1%  =  +7.7 points
 </code></pre>
 <p>This is <strong>not</strong> &quot;+7.7 percent&quot;. In relative terms, 7.7 ÷ 42.1 is an 18% improvement. We always report <strong>points</strong>,
 because they are simpler and cannot be inflated by a small starting value.</p>
-<h2 id="47-comparing-on-the-same-problems-paired">4.7 Comparing on the same problems (&quot;paired&quot;)</h2>
+<h2>4.7 Comparing on the same problems (&quot;paired&quot;)</h2>
 <p>Some problems are easy and some are hard. If one way happened to get easier problems, it would look better for no real
 reason. So we always compare two ways <strong>on the same problems</strong>, one problem at a time.</p>
 <p>For each problem, each way&#39;s score is the share of its 2 tries that passed (0, ½ or 1). Then:</p>
@@ -992,7 +968,7 @@ lcb/3705        0/2 = 0%      1/2 = 50%         +50
 average over all 234 problems                   +7.7 points
 </code></pre>
 <p>(The three rows are made-up examples to show the idea. The +7.7 is the real average.)</p>
-<h2 id="48-error-bars-is-the-difference-real-or-luck">4.8 Error bars: is the difference real, or luck?</h2>
+<h2>4.8 Error bars: is the difference real, or luck?</h2>
 <p>With only 234 problems and 2 tries each, some difference can appear just by luck. An <strong>error bar</strong> (a 95% interval)
 shows how big the difference could reasonably be.</p>
 <p>We compute it with the <strong>bootstrap</strong>, a method that uses the data itself:</p>
@@ -1019,7 +995,7 @@ If it is <strong>below 0</strong>, it is proven worse. If it <strong>includes 0<
 <p><strong>Real example:</strong> thinking limit vs ON = <strong>+7.7 [+4.3, +11.3]</strong>. The whole bar is above 0, so the limit is proven better.
 LoRA-2 vs ON = <strong>+3.0 [−1.1, +7.3]</strong>. The bar includes 0, so we cannot say LoRA-2 is better.</p>
 <p>The random draws use a fixed <strong>seed</strong> (3407), so running the script again gives exactly the same error bars.</p>
-<h2 id="49-counting-tokens-and-cut-off">4.9 Counting tokens, and &quot;cut off&quot;</h2>
+<h2>4.9 Counting tokens, and &quot;cut off&quot;</h2>
 <p>We count tokens with the model&#39;s own tokenizer:</p>
 <pre><code class="language-text">[ thinking tokens ........ ] &lt;/think&gt; [ answer tokens ]
          thinking                            answer part
@@ -1033,7 +1009,7 @@ LoRA-2 vs ON = <strong>+3.0 [−1.1, +7.3]</strong>. The bar includes 0, so we c
 <p><strong>Cut off.</strong> Every way had the same overall limit: 4,096 tokens (HumanEval+) or 8,192 (LiveCodeBench). If an answer
 reaches the limit before it ends, it is <strong>cut off</strong>. If it was still thinking, <strong>all</strong> its tokens count as thinking and
 there is no code, so it <strong>fails</strong>. The rule is the same for every way.</p>
-<h2 id="410-the-thinking-ratio">4.10 The thinking ratio</h2>
+<h2>4.10 The thinking ratio</h2>
 <p>To compare thinking length, we divide:</p>
 <pre><code class="language-text">thinking ratio = total thinking tokens of a way  ÷  total thinking tokens of thinking ON   (same problems)
 </code></pre>
@@ -1045,13 +1021,13 @@ there is no code, so it <strong>fails</strong>. The rule is the same for every w
 <p>It gets an error bar in the same way as accuracy (Section 4.8).</p>
 <p><strong>Watch out:</strong> the thinking limit stops thinking at 1,024 tokens, but the model can keep reasoning inside its answer
 part. So for the limit we also report <strong>all tokens</strong>, which gives the honest saving (Chapter 5.3).</p>
-<h2 id="411-median-the-middle-value">4.11 Median: the middle value</h2>
+<h2>4.11 Median: the middle value</h2>
 <p>A few very long answers can pull an average up a lot. So we also report the <strong>median</strong>: sort all the values and take
 the middle one.</p>
 <pre><code class="language-text">lengths 500, 600, 700, 800, 4,096   → average 1,339,  median 700
 </code></pre>
 <p>We use the median of <strong>finished</strong> answers (not cut off) to show how long normal, successful thinking is.</p>
-<h2 id="412-finding-loops">4.12 Finding loops</h2>
+<h2>4.12 Finding loops</h2>
 <p>To check whether a cut-off answer is a <strong>loop</strong>, we use a simple rule:</p>
 <blockquote>
 <p>Take a piece of the answer&#39;s <strong>last 200 characters</strong>. If that exact piece already appears <strong>at least twice</strong> earlier
@@ -1063,19 +1039,19 @@ in the same answer, the answer is a loop.</p>
 </code></pre>
 <p>This rule is <strong>strict</strong>. It misses loops where the model repeats with small changes. So our loop counts are a <strong>lower
 bound</strong>: the real number is probably higher.</p>
-<h2 id="413-better-or-worse-problem-by-problem">4.13 Better or worse, problem by problem</h2>
+<h2>4.13 Better or worse, problem by problem</h2>
 <p>For each problem we also ask: did a way solve <strong>more</strong> of its 2 tries than thinking ON, <strong>fewer</strong>, or the <strong>same</strong>?
 Counting problems gives a simple picture that doesn&#39;t depend on averages (Chapter 5.6).</p>
-<h2 id="414-checking-whether-the-token-limit-was-fair-stage-d">4.14 Checking whether the token limit was fair (&quot;stage D&quot;)</h2>
+<h2>4.14 Checking whether the token limit was fair (&quot;stage D&quot;)</h2>
 <p>A fixed limit might cut off long but useful thinking. To test this, we took every thinking-ON answer from try 1 that was
 cut off, and ran it again with <strong>16,384</strong> tokens, four times the room. If many of them then finish and pass, the limit
 was unfair to thinking ON. Chapter 5.7 gives the answer.</p>
-<h2 id="415-gpu-time">4.15 GPU time</h2>
+<h2>4.15 GPU time</h2>
 <p>We also record how long the GPU took. Each batch of answers has a measured time, which we share equally among its answers.
 But a batch waits for its <strong>slowest</strong> answer, so GPU time mostly reflects how we grouped answers. That is why we use
 <strong>tokens</strong>, not minutes, as the measure of cost.</p>
-<h2 id="416-where-every-number-comes-from">4.16 Where every number comes from</h2>
-<table class="short">
+<h2>4.16 Where every number comes from</h2>
+<table>
 <thead>
 <tr>
 <th>Evidence</th>
@@ -1104,19 +1080,20 @@ But a batch waits for its <strong>slowest</strong> answer, so GPU time mostly re
 </tr>
 </tbody></table>
 <p>Anyone can re-grade or re-count everything from the raw answers, without a GPU.</p>
-<h1 id="5-results">5. Results</h1>
+<hr>
+<h1>5. Results</h1>
 <p>This chapter gives the numbers, without opinions. Chapter 6 explains them. Chapter 4 explains how each number was
 computed. The full tables, every problem, and all charts are in
 <a href="../results/full-results/FULL-RESULTS.md">results/full-results/FULL-RESULTS.md</a>.</p>
 <p><strong>What was run:</strong> 6 ways × 234 problems × 2 tries = <strong>2,808 test answers</strong>, all checked with the benchmarks&#39; own tests,
 on one Colab A100 GPU (2026-09-21 to 2026-09-24).</p>
-<h2 id="51-the-headline-the-free-thinking-limit-was-the-most-accurate-way">5.1 The headline: the free thinking limit was the most accurate way</h2>
+<h2>5.1 The headline: the free thinking limit was the most accurate way</h2>
 <blockquote>
 <p><strong>Stopping the model&#39;s thinking at 1,024 tokens gave the highest accuracy of all six ways: 49.8%, against 42.1% for
 normal thinking. This is +7.7 points, and the error bar [+4.3, +11.3] is fully above zero.</strong></p>
 </blockquote>
 <p>The evidence, all on the same 234 problems:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>#</th>
@@ -1170,9 +1147,9 @@ normal thinking. This is +7.7 points, and the error bar [+4.3, +11.3] is fully a
 </tbody></table>
 <p><strong>Where it does not help:</strong> on LiveCodeBench <strong>medium</strong> problems it solved nothing (0 of 78 answers). Stage D (Section 5.7)
 also shows that part of its advantage on HumanEval+ comes from our 4,096-token limit.</p>
-<h2 id="52-accuracy-of-every-way">5.2 Accuracy of every way</h2>
+<h2>5.2 Accuracy of every way</h2>
 <p><strong>Table 5.1.</strong> Accuracy (answers passed ÷ answers). &quot;vs ON&quot; is the difference from thinking ON in points, with the 95% error bar.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1235,7 +1212,7 @@ also shows that part of its advantage on HumanEval+ comes from our 4,096-token l
 <p><img src="../results/full-results/figures/fig1-accuracy-by-group.svg" alt="Figure 5.1: Accuracy by problem group"></p>
 <p><strong>Figure 5.1.</strong> Accuracy of each way, by problem group.</p>
 <p><strong>Differences by group (vs thinking ON):</strong></p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1282,7 +1259,7 @@ also shows that part of its advantage on HumanEval+ comes from our 4,096-token l
 <li>On <strong>LiveCodeBench medium</strong>, every way is near zero. Only thinking OFF solves a few (9.0%).</li>
 </ul>
 <p><strong>Extra comparisons</strong> (computed with the same method after the run; not part of the planned hypotheses):</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Comparison</th>
@@ -1315,9 +1292,9 @@ also shows that part of its advantage on HumanEval+ comes from our 4,096-token l
 </tr>
 </tbody></table>
 <p>LoRA-2 and LoRA-1 were the same: the extra training data did not help.</p>
-<h2 id="53-cost-how-many-tokens-each-way-used">5.3 Cost: how many tokens each way used</h2>
+<h2>5.3 Cost: how many tokens each way used</h2>
 <p><strong>Table 5.2.</strong> Tokens per answer, all 234 problems.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1386,10 +1363,10 @@ also shows that part of its advantage on HumanEval+ comes from our 4,096-token l
 <li><strong>Thinking OFF is by far the cheapest:</strong> 4× fewer tokens than ON.</li>
 <li><strong>&quot;Think briefly&quot; made thinking longer</strong>, not shorter (x1.55).</li>
 </ol>
-<h2 id="54-the-hypotheses">5.4 The hypotheses</h2>
+<h2>5.4 The hypotheses</h2>
 <p>The hypotheses were fixed before the run, for the main trained model, LoRA-2.</p>
 <p><strong>Table 5.3.</strong> The hypotheses.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1436,10 +1413,10 @@ also shows that part of its advantage on HumanEval+ comes from our 4,096-token l
 </tr>
 </tbody></table>
 <p><strong>The overall hypothesis is rejected:</strong> H1 and H3b fail.</p>
-<h2 id="55-unfinished-answers-and-loops">5.5 Unfinished answers and loops</h2>
+<h2>5.5 Unfinished answers and loops</h2>
 <p>Many thinking answers never finished. We checked each unfinished answer for a <strong>loop</strong> (Section 4.12).</p>
 <p><strong>Table 5.4.</strong> Cut-offs and loops (468 answers per way).</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1495,9 +1472,9 @@ valid groups into a list.
 By iterating through the string, I can identify balanced groups without nested structures, ...
 [the same three paragraphs repeat until the limit]
 </code></pre>
-<h2 id="56-problem-by-problem">5.6 Problem by problem</h2>
+<h2>5.6 Problem by problem</h2>
 <p><strong>Table 5.5.</strong> Problems (of 234) where each way solved more of its 2 tries than thinking ON (&quot;better&quot;), fewer (&quot;worse&quot;), or the same.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1541,10 +1518,10 @@ By iterating through the string, I can identify balanced groups without nested s
 <p><strong>Figure 5.5.</strong> Problem by problem, against thinking ON.</p>
 <p>The limit had the best balance: it made only 12 problems worse. Across all ways, <strong>168</strong> of the 234 problems were solved at
 least once; <strong>66</strong> were solved by no way at all.</p>
-<h2 id="57-was-the-token-limit-unfair-to-thinking-on-stage-d">5.7 Was the token limit unfair to thinking ON? (stage D)</h2>
+<h2>5.7 Was the token limit unfair to thinking ON? (stage D)</h2>
 <p>We gave every cut-off thinking-ON answer from try 1 four times more room (16,384 tokens).</p>
 <p><strong>Table 5.6.</strong> Thinking ON with 16,384 tokens for its cut-off answers (try 1 only).</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1602,7 +1579,7 @@ But thinking ON needed up to 16,384 tokens to get there; the limit needs far few
 <li><strong>LiveCodeBench:</strong> more room helped little. 48 of the 50 answers still cut off were loops. Thinking ON stayed below both
 the limit and OFF.</li>
 </ul>
-<h2 id="58-why-think-briefly-failed">5.8 Why &quot;think briefly&quot; failed</h2>
+<h2>5.8 Why &quot;think briefly&quot; failed</h2>
 <p>Only 36 of 468 &quot;think briefly&quot; answers finished. Our question already said <em>&quot;Answer with one Python code block only.&quot;</em> The
 extra sentence said <em>&quot;Think briefly … then give the answer.&quot;</em> The model treated these as two rules that clash, and argued
 about them until it ran out of space (HumanEval/0):</p>
@@ -1612,9 +1589,9 @@ about them until it ran out of space (HumanEval/0):</p>
 *   Wait, if I output thinking text, is it &quot;one Python code block only&quot;?
 </code></pre>
 <p>This result is about <strong>this wording</strong> combined with our answer rule. It does not show that asking to be brief never works.</p>
-<h2 id="59-why-lora-2-had-little-to-learn-from">5.9 Why LoRA-2 had little to learn from</h2>
+<h2>5.9 Why LoRA-2 had little to learn from</h2>
 <p><strong>Table 5.7.</strong> From training problems to training examples (4 thinking-ON tries per problem).</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -1668,9 +1645,9 @@ answer (0.987). On LiveCodeBench answers that finished, LoRA-2 then thought for 
 <li>LoRA-2 did learn its examples: its training loss fell from about 0.25 to 0.16
 (<a href="../results/full-results/figures/fig8-lora2-training-loss.svg">Figure 8 in FULL-RESULTS</a>).</li>
 </ul>
-<h2 id="510-from-the-pilot-study-to-the-real-test">5.10 From the pilot study to the real test</h2>
+<h2>5.10 From the pilot study to the real test</h2>
 <p><strong>Table 5.8.</strong> LoRA-1 against thinking ON, on different test sets.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Test set</th>
@@ -1708,15 +1685,15 @@ answer (0.987). On LiveCodeBench answers that finished, LoRA-2 then thought for 
 <p><strong>Figure 5.8.</strong> LoRA-1&#39;s thinking length compared with thinking ON.</p>
 <p>On problems like its training data, training worked well (41% less thinking, +15 points). On new kinds of problems, most of
 the effect disappeared.</p>
-<h2 id="511-computer-time">5.11 Computer time</h2>
+<h2>5.11 Computer time</h2>
 <ul>
 <li>Answering all 234 problems twice took about <strong>38 A100 minutes</strong> for each thinking way and <strong>29 minutes</strong> for thinking OFF.</li>
 <li>The whole run, including making training data, training, and stage D, used about <strong>38 Colab units</strong>.</li>
 <li>OFF writes 4× fewer tokens but was only about 1.3× faster here, because each batch waits for its slowest answer. That is why
 we measure cost in tokens (Section 4.15).</li>
 </ul>
-<h2 id="512-summary-of-results">5.12 Summary of results</h2>
-<table class="short">
+<h2>5.12 Summary of results</h2>
+<table>
 <thead>
 <tr>
 <th>Finding</th>
@@ -1756,10 +1733,10 @@ we measure cost in tokens (Section 4.15).</li>
 <td>x0.59 on MBPP+, x0.94 on HumanEval+</td>
 </tr>
 </tbody></table>
-<h2 id="513-size-extension-08b-and-4b-same-family">5.13 Size extension: 0.8B and 4B (same family)</h2>
+<h2>5.13 Size extension: 0.8B and 4B (same family)</h2>
 <p>The main thesis uses <strong>Qwen3.5-2B</strong>. A teacher may ask: <em>why only one size?</em> and <em>why only limit 1,024?</em><br>So we ran the <strong>same 234 problems</strong> on two more models in the same family (DECISIONS #72–#77), and later filled
 <strong>2B × limit 512</strong> in a small extra run (notebook 16, DECISIONS #81–#82):</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Size</th>
@@ -1775,9 +1752,9 @@ we measure cost in tokens (Section 4.15).</li>
 <td>LoRA-1 only</td>
 </tr>
 <tr>
-<td><strong>2B</strong> (main + fill-in)</td>
-<td>2</td>
-<td><strong>512</strong>, 1,024 (+ other free ways on main run)</td>
+<td><strong>2B</strong> (main + fill-ins)</td>
+<td>2 (main); limit2048 fill-in = <strong>1</strong></td>
+<td><strong>512</strong>, 1,024, <strong>2,048</strong></td>
 <td>LoRA-1 and LoRA-2 (main run)</td>
 </tr>
 <tr>
@@ -1788,8 +1765,8 @@ we measure cost in tokens (Section 4.15).</li>
 </tr>
 </tbody></table>
 <p>0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.<br>Captions must say <strong>0.8B = 1 try</strong>; <strong>2B / 4B = 2 tries</strong>.</p>
-<h3 id="accuracy-on-all-234-problems">Accuracy on all 234 problems</h3>
-<table class="short">
+<h3>Accuracy on all 234 problems</h3>
+<table>
 <thead>
 <tr>
 <th>Way</th>
@@ -1825,7 +1802,7 @@ we measure cost in tokens (Section 4.15).</li>
 <tr>
 <td>Limit 2,048</td>
 <td>—</td>
-<td>—</td>
+<td><strong>46.6%</strong> (1 try)*</td>
 <td><strong>78.2%</strong></td>
 </tr>
 <tr>
@@ -1841,15 +1818,16 @@ we measure cost in tokens (Section 4.15).</li>
 <td>69.9%</td>
 </tr>
 </tbody></table>
+<p>* 2B limit 2,048 is a lean fill-in (<strong>1 try</strong>); other 2B main numbers use 2 tries.</p>
 <pre><code class="language-text">Best free way per size
 
 0.8B  →  OFF           20.5%
-2B    →  limit 1,024   49.8%   (limit 512 = 45.1%: helps, but 1024 still better)
+2B    →  limit 1,024   49.8%   (512=45.1% · 2048=46.6% → peaks at 1024)
 4B    →  limit 2,048   78.2%
 </code></pre>
 <p><strong>Figure idea (for the paper):</strong> three bars per size — OFF, best limit (or “n/a”), LoRA-1 — so the eye sees that LoRA never wins.</p>
-<h3 id="cut-off-under-thinking-on-how-often-answers-hit-the-wall">Cut-off under thinking ON (how often answers hit the wall)</h3>
-<table class="short">
+<h3>Cut-off under thinking ON (how often answers hit the wall)</h3>
+<table>
 <thead>
 <tr>
 <th>Size</th>
@@ -1874,11 +1852,12 @@ we measure cost in tokens (Section 4.15).</li>
 </tr>
 </tbody></table>
 <p>Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.</p>
-<p>Raw folders: <code>results/0.8b/</code>, <code>results/4b/</code>, <code>results/2b-limit512/</code>. Join page: <code>results/SIZE-COMPARISON.md</code>.</p>
-<h1 id="6-analysis">6. Analysis</h1>
+<p>Raw folders: <code>results/0.8b/</code>, <code>results/4b/</code>, <code>results/2b-limit512/</code>, <code>results/2b-limit2048/</code>. Join page: <code>results/SIZE-COMPARISON.md</code>.</p>
+<hr>
+<h1>6. Analysis</h1>
 <p>Chapter 5 showed <strong>what</strong> happened. This chapter explains <strong>why</strong>, compares it with earlier work, and says honestly what
 could be wrong.</p>
-<h2 id="61-the-answer-to-the-research-question">6.1 The answer to the research question</h2>
+<h2>6.1 The answer to the research question</h2>
 <blockquote>
 <p><em>On a small model with a thinking switch, does training on its own shortest correct code answers give a better balance
 of accuracy and thinking length than the free options?</em></p>
@@ -1893,8 +1872,8 @@ Thinking OFF     40.8%             860   ◄ cheapest
 <p>The trained model did not think shorter (x1.00), and its small accuracy gain could not be proven. The free thinking limit
 was more accurate than the trained model (+4.7, proven), more accurate than normal thinking (+7.7, proven), and cheaper.
 Thinking OFF was 4× cheaper than normal thinking, at about the same overall accuracy.</p>
-<h2 id="62-why-training-did-not-shorten-thinking">6.2 Why training did not shorten thinking</h2>
-<h3 id="reason-1-the-main-one-the-waste-was-loops-not-long-careful-thinking">Reason 1 (the main one): the waste was loops, not long careful thinking</h3>
+<h2>6.2 Why training did not shorten thinking</h2>
+<h3>Reason 1 (the main one): the waste was loops, not long careful thinking</h3>
 <p>Shortest-correct training is built on one idea of overthinking: <em>the model finds the answer, then keeps checking</em>. If that
 were true, showing the model short correct answers would teach it to stop earlier.</p>
 <p>Our data shows a different kind of waste:</p>
@@ -1915,7 +1894,7 @@ loops compared to other Qwen3.5 models, which may prevent it from terminating ge
 </ul>
 <p>Training only ever shows the model <strong>finished</strong> answers. It never shows how to get <strong>out</strong> of a loop. So it could not
 remove the main source of waste.</p>
-<h3 id="reason-2-the-training-signal-was-weak">Reason 2: the training signal was weak</h3>
+<h3>Reason 2: the training signal was weak</h3>
 <ul>
 <li><strong>Little to learn:</strong> for MBPP+, the kept examples were only 17% shorter than an average correct answer (0.829). For
 LiveCodeBench they were almost exactly average (0.987).</li>
@@ -1925,14 +1904,14 @@ LiveCodeBench they were almost exactly average (0.987).</li>
 </ul>
 <p>This fits a known finding about small models: <em>&quot;small models (≤3B parameters) do not consistently benefit from long
 chain-of-thought (CoT) reasoning&quot;</em> (Li et al., 2025).</p>
-<h3 id="reason-3-the-effect-did-not-carry-over-to-new-kinds-of-problems">Reason 3: the effect did not carry over to new kinds of problems</h3>
+<h3>Reason 3: the effect did not carry over to new kinds of problems</h3>
 <p>In the pilot, where training and test problems came from the same benchmark (MBPP+), LoRA-1 cut thinking by 41% and gained
 15 points. On HumanEval+, which has similar easy function problems from a different source, the effect almost disappeared
 (x0.94, +1.2). The training seems to teach <strong>habits for one kind of problem</strong>, not a general &quot;think shorter&quot; skill.</p>
-<h3 id="a-possible-fourth-reason-not-tested">A possible fourth reason (not tested)</h3>
+<h3>A possible fourth reason (not tested)</h3>
 <p>SEER (2025) reported that LoRA training was about 7 points less accurate than training the whole model. We only used LoRA.
 Training the whole model might learn more.</p>
-<h2 id="63-why-the-thinking-limit-worked">6.3 Why the thinking limit worked</h2>
+<h2>6.3 Why the thinking limit worked</h2>
 <p><strong>It stops loops by force.</strong> When thinking reaches 1,024 tokens, the model must answer.</p>
 <pre><code class="language-text">Thinking ON:      think ... [loop] [loop] [loop] ... ✂ cut off at 4,096 → no code → FAIL
 Thinking limit:   think ... [loop] ✂ stop at 1,024 → &lt;/think&gt; → writes code → often PASS
@@ -1949,7 +1928,7 @@ its answer (1,879 tokens on average). The real saving is 21% of all tokens, not 
 <li><strong>On easy problems, part of its win comes from our token limit.</strong> With 16,384 tokens, thinking ON nearly caught up on
 HumanEval+ (59.1% against 60.4%, Section 5.7). But ON needed up to 16 times more thinking room to get there.</li>
 </ol>
-<h2 id="64-thinking-off-is-a-strong-cheap-option">6.4 Thinking OFF is a strong, cheap option</h2>
+<h2>6.4 Thinking OFF is a strong, cheap option</h2>
 <p>Thinking OFF used 860 tokens per answer, 4× fewer than thinking ON, with about the same overall accuracy (−1.3, not proven).
 The groups differ:</p>
 <ul>
@@ -1961,8 +1940,8 @@ thinking so often looped until the limit.</li>
 1,024-token limit beat OFF overall (+9.0, proven), but OFF beat the limit on LiveCodeBench medium (−9.0 for the limit). The
 studies use different models and budgets, so they don&#39;t directly disagree. Both show that &quot;thinking off&quot; must always be part
 of the comparison.</p>
-<h2 id="65-how-this-fits-earlier-work">6.5 How this fits earlier work</h2>
-<table class="short">
+<h2>6.5 How this fits earlier work</h2>
+<table>
 <thead>
 <tr>
 <th>Earlier work</th>
@@ -1998,7 +1977,7 @@ of the comparison.</p>
 </tbody></table>
 <p>Our main new point: <strong>for a small reasoning model, the main waste is thinking that never finishes, not correct thinking that
 runs long.</strong> Methods that learn only from finished answers cannot address it.</p>
-<h2 id="66-what-could-be-wrong-threats-to-validity">6.6 What could be wrong? (threats to validity)</h2>
+<h2>6.6 What could be wrong? (threats to validity)</h2>
 <p><strong>Is the comparison fair?</strong></p>
 <ul>
 <li>✅ All ways used the same problems, settings, seeds, token limits and checker. The main LoRA and the hypotheses were fixed before the run.</li>
@@ -2026,11 +2005,11 @@ are well outside that noise.</li>
 <li>⚠️ LiveCodeBench answers were checked on up to 20 tests per problem, not always all of them.</li>
 <li>⚠️ GPU time depends on batching, so we use tokens for cost.</li>
 </ul>
-<h2 id="67-size-extension-what-08b-and-4b-change">6.7 Size extension: what 0.8B and 4B change</h2>
+<h2>6.7 Size extension: what 0.8B and 4B change</h2>
 <p>Chapter 5.13 gave the numbers. Here is what they mean.</p>
 <p><strong>1. Size still matters most for raw accuracy.</strong><br>OFF alone goes 20.5% → 40.8% → 69.7% from 0.8B to 4B. Bigger is simply better at code here.</p>
 <p><strong>2. The best <em>free</em> fix depends on size.</strong></p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Size</th>
@@ -2056,12 +2035,11 @@ are well outside that noise.</li>
 </tbody></table>
 <p><strong>3. Open thinking (ON) is risky when the model loops.</strong><br>On 0.8B, ON is the <em>worst</em> way (7.3%, 78% cut off). On 4B, OFF still beats ON (69.7% vs 64.3%).<br>So “always leave thinking on” is bad advice for these small code models.</p>
 <p><strong>4. LoRA-1 still does not beat the best free way</strong> on 0.8B or 4B.<br>Same story as the main 2B thesis: training on shortest-correct answers is not enough when the free winner is OFF or a hard limit.</p>
-<p><strong>5. Best limit grows with size</strong> where limits help: 1024 on 2B → 2048 on 4B. On 2B, <strong>limit 512 = 45.1%</strong>
-   (beats ON 42.1%, loses to 1024 49.8%).</p>
-<p><strong>6. Honest caveats.</strong><br>0.8B used <strong>1 try</strong>; 2B/4B used <strong>2</strong>. Ranking ways <em>inside</em> 0.8B is still fair. Cross-size %-point gaps have wider noise on 0.8B.<br>0.8B did not re-test limits 2,048 / 4,096 (hour budget). 4B already showed 2,048 can win on a larger model.
-2B limit 512 came from a separate fill-in run (notebook 16), not from the original thesis Stage A.</p>
+<p><strong>5. Best limit grows with size</strong> where limits help: <strong>1024 on 2B</strong> → <strong>2048 on 4B</strong>. On 2B the curve is
+   512 → 45.1% · 1024 → <strong>49.8%</strong> · 2048 → 46.6% (1 try) — <strong>peaks at 1024</strong>, so more budget is not always better.</p>
+<p><strong>6. Honest caveats.</strong><br>0.8B and the 2B-limit2048 fill-in used <strong>1 try</strong>; other 2B/4B numbers used <strong>2</strong>. Ranking ways <em>inside</em> each run is still fair.<br>0.8B did not re-test limits 2,048 / 4,096 (hour budget). 2B fill-ins came from notebooks 16–17, not the original thesis Stage A.</p>
 <p>This softens one threat from Section 6.6 (“one model only”): we now have <strong>three sizes in one family</strong>. It does <strong>not</strong> remove “code only” or “easy/medium only”.</p>
-<h2 id="68-summary-of-the-analysis">6.8 Summary of the analysis</h2>
+<h2>6.8 Summary of the analysis</h2>
 <pre><code class="language-text">Small model thinks ─► often gets STUCK IN A LOOP ─► never finishes ─► fails
                                    │
         Training on short correct answers: never shows how to get unstuck ─► no change (x1.00)
@@ -2069,11 +2047,14 @@ are well outside that noise.</li>
         Thinking OFF:                      never enters the loop             ─► 4× cheaper; best on 0.8B
 
 Across sizes (same 234 problems):
-  0.8B → OFF wins     ·  2B → limit 1024 wins (512 = 45.1%)  ·  4B → limit 2048 wins
+  0.8B → OFF wins
+  2B → limit 1024 wins (512=45.1% · 2048=46.6% → peak at 1024)
+  4B → limit 2048 wins
   LoRA-1 never beats that best free way
 </code></pre>
-<h1 id="7-conclusion-and-future-work">7. Conclusion and Future Work</h1>
-<h2 id="71-the-answer">7.1 The answer</h2>
+<hr>
+<h1>7. Conclusion and Future Work</h1>
+<h2>7.1 The answer</h2>
 <p>We asked whether training a small reasoning model to think shorter is better than the free options. <strong>On Qwen3.5-2B, for
 code, it is not.</strong> Training on the model&#39;s own shortest correct answers did not shorten its thinking on new problems. The
 most accurate way was a free one: <strong>stop thinking at 1,024 tokens</strong>. It reached <strong>49.8%</strong>, against <strong>42.1%</strong> for normal
@@ -2086,7 +2067,7 @@ changed with size, but <strong>LoRA-1 never beat the best free way</strong> on a
 loops.</strong> Training on short, finished answers can&#39;t teach it to get unstuck. A thinking limit simply cuts the loop.
 On a <em>very</em> small model, even a limit is not enough — switching thinking <strong>OFF</strong> can be best.</p>
 </blockquote>
-<h2 id="72-main-findings">7.2 Main findings</h2>
+<h2>7.2 Main findings</h2>
 <ol>
 <li><strong>The thinking limit was the most accurate way on 2B:</strong> +7.7 points over normal thinking, +4.7 over the trained model, +9.0
 over thinking off (all proven), with 21% fewer tokens than normal thinking.</li>
@@ -2098,24 +2079,24 @@ the harder LiveCodeBench problems.</li>
 <li><strong>More room did not rescue normal thinking:</strong> with 16,384 tokens it gained 5.5 points on HumanEval+ and 7.1 on
 LiveCodeBench, still below the limit.</li>
 <li><strong>Size extension (checked):</strong> best free way = <strong>OFF 20.5%</strong> on 0.8B · <strong>limit 1,024 → 49.8%</strong> on 2B · <strong>limit 2,048 → 78.2%</strong> on 4B.
-On 2B, <strong>limit 512 = 45.1%</strong> (fill-in): better than ON, worse than 1024. LoRA-1 lost to that free winner on every size.
+On 2B limits: 512 = 45.1% · 1024 = <strong>49.8%</strong> · 2048 = 46.6% (1 try) — <strong>peaks at 1024</strong>. LoRA-1 lost on every size.
 ON cut-off fell as size grew (78% → ~41% → 28%).</li>
 </ol>
-<h2 id="73-advice-for-people-who-use-small-reasoning-models-for-code">7.3 Advice for people who use small reasoning models for code</h2>
+<h2>7.3 Advice for people who use small reasoning models for code</h2>
 <pre><code class="language-text">1. Try THINKING OFF and a THINKING LIMIT first.   → free; winner depends on size
 2. Pick the limit near your size: ~1k (2B) or ~2k (4B). Tiny models: prefer OFF.
 3. Watch for LOOPS: count answers that never finish. → they are the real waste
 4. Train to think shorter ONLY if free ways are not enough —
    and only if your real problems look like your training problems.
 </code></pre>
-<h2 id="74-what-the-hypothesis-taught-us">7.4 What the hypothesis taught us</h2>
+<h2>7.4 What the hypothesis taught us</h2>
 <p>Our hypothesis assumed that the waste was <strong>overthinking</strong>: finished but too-long thinking. That assumption came from
 studies of larger models. For our small model it was wrong: the waste was <strong>looping</strong>. A rejected hypothesis with a clear,
 measured reason is a useful result. It tells the next study what to measure <strong>first</strong> (Section 7.5.2).</p>
-<h2 id="75-future-work">7.5 Future work</h2>
-<h3 id="751-bigger-models-will-they-loop-less-think-better-and-learn-from-training">7.5.1 Bigger models: will they loop less, think better, and learn from training?</h3>
+<h2>7.5 Future work</h2>
+<h3>7.5.1 Bigger models: will they loop less, think better, and learn from training?</h3>
 <p>We already ran <strong>0.8B and 4B</strong> (Section 7.5.4). That answers part of the size question. What is still open:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Still open</th>
@@ -2136,7 +2117,7 @@ measured reason is a useful result. It tells the next study what to measure <str
 </tr>
 </tbody></table>
 <p>Earlier evidence that larger models may differ:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Evidence</th>
@@ -2179,7 +2160,7 @@ Training may finally win            No: LoRA-1 69.9% &lt; every limit and &lt; O
 <p>So “bigger → less looping” helped accuracy, but <strong>not</strong> enough for shortest-correct LoRA to beat a free limit on 4B.</p>
 <p><strong>How to test a still-bigger model without wasting money.</strong> Before full training, run a small check on about 40 problems
 (4 tries, thinking ON, a large token limit, stop when text repeats). Measure three numbers with rules written <strong>before</strong> looking:</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Check</th>
@@ -2207,7 +2188,7 @@ Training may finally win            No: LoRA-1 69.9% &lt; every limit and &lt; O
 <td>≥ 50% in every set</td>
 </tr>
 </tbody></table>
-<h3 id="752-methods-that-target-loops-directly">7.5.2 Methods that target loops directly</h3>
+<h3>7.5.2 Methods that target loops directly</h3>
 <p>Our results suggest attacking the loop itself:</p>
 <ul>
 <li><strong>Stop when the text repeats.</strong> Detect a loop while the model is writing and stop it early. The model card itself recommends
@@ -2220,7 +2201,7 @@ official coding settings (no penalty), so this is untested here.</li>
 answered correctly, like the limit&#39;s successful answers. This would teach the model what the limit does by force.</li>
 <li><strong>Combine the limit with training.</strong> Use the thinking limit on top of a trained model.</li>
 </ul>
-<h3 id="753-other-extensions">7.5.3 Other extensions</h3>
+<h3>7.5.3 Other extensions</h3>
 <ul>
 <li><strong>Other &quot;think briefly&quot; wordings</strong> that don&#39;t clash with the answer rule.</li>
 <li><strong>More tries per problem</strong> on 0.8B (we used 1 try to save hours).</li>
@@ -2228,9 +2209,9 @@ answered correctly, like the limit&#39;s successful answers. This would teach th
 <li><strong>Hard problems and math</strong>, where longer, careful thinking may really be needed.</li>
 <li><strong>Limits we skipped on 0.8B</strong> (2,048 / 4,096), if more GPU hours appear.</li>
 </ul>
-<h2 id="754-size-limit-extension-results-decisions-7277">7.5.4 Size × limit extension — results (DECISIONS #72–#77)</h2>
+<h2>7.5.4 Size × limit extension — results (DECISIONS #72–#77)</h2>
 <p><strong>Status: done.</strong> Same 234 problems; notebooks <code>15a</code> (0.8B) and <code>15b</code> (4B); folders <code>results/0.8b/</code> and <code>results/4b/</code>.</p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Size</th>
@@ -2255,11 +2236,18 @@ answered correctly, like the limit&#39;s successful answers. This would teach th
 <td>yes</td>
 </tr>
 <tr>
-<td>2B limit512 fill-in</td>
+<td>2B limit512</td>
 <td>Limit 512</td>
-<td><strong>45.1%</strong></td>
+<td>45.1%</td>
 <td>(same LoRA-1)</td>
 <td>limit1024 still wins</td>
+</tr>
+<tr>
+<td>2B limit2048 (1 try)</td>
+<td>Limit 2,048</td>
+<td>46.6%</td>
+<td>(same LoRA-1)</td>
+<td>still below 1024 — peak confirmed</td>
 </tr>
 <tr>
 <td>4B (2 tries)</td>
@@ -2279,12 +2267,13 @@ answered correctly, like the limit&#39;s successful answers. This would teach th
 </code></pre>
 <p><strong>Takeaway for users:</strong> try <strong>OFF</strong> and a <strong>short thinking limit</strong> before any training.<br>Pick a larger limit as the model grows (about 1k → 2k in this family). On a tiny model, prefer OFF.</p>
 <p>Full tables: <code>results/SIZE-COMPARISON.md</code> · <code>results/ALL-RESULTS.md</code>.</p>
-<h2 id="76-closing">7.6 Closing</h2>
+<h2>7.6 Closing</h2>
 <p>We set out to teach a small model to stop overthinking, and found that its real problem was getting stuck. For Qwen3.5-2B,
 the simplest free fix — a limit on thinking — beat training. Across <strong>0.8B, 2B, and 4B</strong>, a free control always beat
 LoRA-1; only <em>which</em> free control won changed with size. Methods that attack loops directly, and tests on still-larger
 models that finish thinking more often, are the natural next steps.</p>
-<h1 id="references">References</h1>
+<hr>
+<h1>References</h1>
 <ol>
 <li>Sui, Y. et al. &quot;Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models.&quot; <em>TMLR</em>, 2025. arXiv:2503.16419.</li>
 <li>Munkhbat, T. et al. &quot;Self-Training Elicits Concise Reasoning in Large Language Models.&quot; <em>Findings of ACL</em>, 2025. arXiv:2502.20122.</li>
@@ -2306,8 +2295,9 @@ models that finish thinking more often, are the natural next steps.</p>
 </ol>
 <p><em>Where each paper is discussed:</em> 1–6 and 13–16 in Chapter 2; 5, 8, 9 in Sections 2.8 and 6.4–6.5; 10–12 in Sections 2.5, 2.9,
 6.2 and 7.5. Notes on every paper we read are in <a href="../PAPERS.md">PAPERS.md</a>.</p>
-<h1 id="appendices">Appendices</h1>
-<h2 id="appendix-a-every-problem-every-number-every-chart">Appendix A. Every problem, every number, every chart</h2>
+<hr>
+<h1>Appendices</h1>
+<h2>Appendix A. Every problem, every number, every chart</h2>
 <p>The full results page lists <strong>every</strong> test problem (all 234, with how many of its 2 tries each way solved) and <strong>every</strong>
 training problem (all 280, with how many of its 4 tries were correct and whether it was kept):</p>
 <ul>
@@ -2318,7 +2308,7 @@ training problem (all 280, with how many of its 4 tries were correct and whether
 <a href="../results/full-results/tables/gpu-time.csv">gpu-time.csv</a></li>
 <li>All 10 charts: <a href="../results/full-results/figures/">results/full-results/figures/</a></li>
 </ul>
-<h2 id="appendix-b-how-to-repeat-this-work">Appendix B. How to repeat this work</h2>
+<h2>Appendix B. How to repeat this work</h2>
 <p><strong>Re-check every number (no GPU needed, about one minute):</strong></p>
 <pre><code class="language-text">node scripts/make_full_results.js     → rebuilds FULL-RESULTS.md, the charts and the tables
 node scripts/check_thesis_run.js results/2026-09-24-thesis-run   → loops, stage D, training data
@@ -2331,7 +2321,7 @@ node scripts/check_thesis_run.js results/2026-09-24-thesis-run   → loops, stag
 <li>The notebook runs every stage, skips what is already done after a disconnect, and prints the results tables at the end.</li>
 </ol>
 <p><strong>Key scripts:</strong></p>
-<table class="short">
+<table>
 <thead>
 <tr>
 <th>Script</th>
@@ -2367,8 +2357,8 @@ node scripts/check_thesis_run.js results/2026-09-24-thesis-run   → loops, stag
 <td>Accuracy, token ratios, error bars, hypotheses</td>
 </tr>
 </tbody></table>
-<h2 id="appendix-c-how-the-project-developed">Appendix C. How the project developed</h2>
-<table class="short">
+<h2>Appendix C. How the project developed</h2>
+<table>
 <thead>
 <tr>
 <th>Date (2026)</th>
@@ -2405,8 +2395,8 @@ node scripts/check_thesis_run.js results/2026-09-24-thesis-run   → loops, stag
 </tr>
 </tbody></table>
 <p>Every choice and its reason is logged, with dates, in <a href="../DECISIONS.md">DECISIONS.md</a> (69+ entries).</p>
-<h2 id="appendix-d-words-used-in-this-thesis">Appendix D. Words used in this thesis</h2>
-<table class="short">
+<h2>Appendix D. Words used in this thesis</h2>
+<table>
 <thead>
 <tr>
 <th>Word</th>
@@ -2499,5883 +2489,4 @@ node scripts/check_thesis_run.js results/2026-09-24-thesis-run   → loops, stag
 </tr>
 </tbody></table>
 <p>More words are explained in <a href="../GLOSSARY.md">GLOSSARY.md</a>.</p>
-<h1 id="printed-appendices">Printed appendices</h1>
-<p><em>These two lists are copied from <code>results/full-results/FULL-RESULTS.md</code> so the printed thesis is complete.</em></p>
-<h2 id="appendix-e-every-test-problem-234">Appendix E. Every test problem (234)</h2>
-<p>Each cell = how many of the 2 tries passed. <strong>ON 16k</strong> = the try-1 re-run with 16,384 tokens (only for cut-off answers).</p>
-<table class="long">
-<thead>
-<tr>
-<th>#</th>
-<th>Problem</th>
-<th>Set</th>
-<th>Level</th>
-<th>Thinking ON</th>
-<th>Thinking OFF</th>
-<th>Think briefly</th>
-<th>Limit 1,024</th>
-<th>LoRA-1</th>
-<th>LoRA-2</th>
-<th>ON 16k</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td><code>HumanEval/0</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>HumanEval/1</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>HumanEval/2</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>HumanEval/3</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>HumanEval/4</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>HumanEval/5</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td><code>HumanEval/6</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>8</td>
-<td><code>HumanEval/7</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>9</td>
-<td><code>HumanEval/8</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>10</td>
-<td><code>HumanEval/9</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>11</td>
-<td><code>HumanEval/10</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>12</td>
-<td><code>HumanEval/11</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>13</td>
-<td><code>HumanEval/12</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>14</td>
-<td><code>HumanEval/13</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>15</td>
-<td><code>HumanEval/14</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>16</td>
-<td><code>HumanEval/15</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>17</td>
-<td><code>HumanEval/16</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>18</td>
-<td><code>HumanEval/17</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>19</td>
-<td><code>HumanEval/18</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>20</td>
-<td><code>HumanEval/19</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>21</td>
-<td><code>HumanEval/20</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>22</td>
-<td><code>HumanEval/21</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>23</td>
-<td><code>HumanEval/22</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>24</td>
-<td><code>HumanEval/23</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>25</td>
-<td><code>HumanEval/24</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>26</td>
-<td><code>HumanEval/25</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>27</td>
-<td><code>HumanEval/26</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>28</td>
-<td><code>HumanEval/27</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>29</td>
-<td><code>HumanEval/28</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>30</td>
-<td><code>HumanEval/29</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>31</td>
-<td><code>HumanEval/30</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>32</td>
-<td><code>HumanEval/31</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>33</td>
-<td><code>HumanEval/32</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>34</td>
-<td><code>HumanEval/33</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>35</td>
-<td><code>HumanEval/34</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>36</td>
-<td><code>HumanEval/35</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>37</td>
-<td><code>HumanEval/36</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>38</td>
-<td><code>HumanEval/37</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>39</td>
-<td><code>HumanEval/38</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>40</td>
-<td><code>HumanEval/39</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>41</td>
-<td><code>HumanEval/40</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>42</td>
-<td><code>HumanEval/41</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>43</td>
-<td><code>HumanEval/42</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>44</td>
-<td><code>HumanEval/43</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>45</td>
-<td><code>HumanEval/44</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>46</td>
-<td><code>HumanEval/45</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>47</td>
-<td><code>HumanEval/46</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>48</td>
-<td><code>HumanEval/47</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>49</td>
-<td><code>HumanEval/48</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>50</td>
-<td><code>HumanEval/49</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>51</td>
-<td><code>HumanEval/50</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>52</td>
-<td><code>HumanEval/51</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>53</td>
-<td><code>HumanEval/52</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>54</td>
-<td><code>HumanEval/53</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>55</td>
-<td><code>HumanEval/54</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>56</td>
-<td><code>HumanEval/55</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>57</td>
-<td><code>HumanEval/56</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>58</td>
-<td><code>HumanEval/57</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>59</td>
-<td><code>HumanEval/58</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>60</td>
-<td><code>HumanEval/59</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>61</td>
-<td><code>HumanEval/60</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>62</td>
-<td><code>HumanEval/61</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>63</td>
-<td><code>HumanEval/62</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>64</td>
-<td><code>HumanEval/63</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>65</td>
-<td><code>HumanEval/64</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>66</td>
-<td><code>HumanEval/65</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>67</td>
-<td><code>HumanEval/66</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>68</td>
-<td><code>HumanEval/67</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>69</td>
-<td><code>HumanEval/68</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>70</td>
-<td><code>HumanEval/69</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>71</td>
-<td><code>HumanEval/70</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>72</td>
-<td><code>HumanEval/71</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>73</td>
-<td><code>HumanEval/72</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>74</td>
-<td><code>HumanEval/73</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>75</td>
-<td><code>HumanEval/74</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>76</td>
-<td><code>HumanEval/75</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>77</td>
-<td><code>HumanEval/76</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>78</td>
-<td><code>HumanEval/77</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>79</td>
-<td><code>HumanEval/78</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>80</td>
-<td><code>HumanEval/79</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>81</td>
-<td><code>HumanEval/80</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>82</td>
-<td><code>HumanEval/81</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>83</td>
-<td><code>HumanEval/82</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>84</td>
-<td><code>HumanEval/83</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>85</td>
-<td><code>HumanEval/84</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>86</td>
-<td><code>HumanEval/85</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>87</td>
-<td><code>HumanEval/86</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>88</td>
-<td><code>HumanEval/87</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>89</td>
-<td><code>HumanEval/88</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>90</td>
-<td><code>HumanEval/89</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>91</td>
-<td><code>HumanEval/90</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>92</td>
-<td><code>HumanEval/91</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>93</td>
-<td><code>HumanEval/92</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>94</td>
-<td><code>HumanEval/93</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>95</td>
-<td><code>HumanEval/94</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>96</td>
-<td><code>HumanEval/95</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>97</td>
-<td><code>HumanEval/96</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>98</td>
-<td><code>HumanEval/97</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>99</td>
-<td><code>HumanEval/98</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>100</td>
-<td><code>HumanEval/99</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>101</td>
-<td><code>HumanEval/100</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>102</td>
-<td><code>HumanEval/101</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>103</td>
-<td><code>HumanEval/102</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>104</td>
-<td><code>HumanEval/103</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>105</td>
-<td><code>HumanEval/104</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>106</td>
-<td><code>HumanEval/105</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>107</td>
-<td><code>HumanEval/106</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>108</td>
-<td><code>HumanEval/107</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>109</td>
-<td><code>HumanEval/108</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>110</td>
-<td><code>HumanEval/109</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>111</td>
-<td><code>HumanEval/110</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>112</td>
-<td><code>HumanEval/111</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>113</td>
-<td><code>HumanEval/112</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>114</td>
-<td><code>HumanEval/113</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>115</td>
-<td><code>HumanEval/114</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>116</td>
-<td><code>HumanEval/115</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>117</td>
-<td><code>HumanEval/116</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>118</td>
-<td><code>HumanEval/117</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>119</td>
-<td><code>HumanEval/118</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>120</td>
-<td><code>HumanEval/119</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>121</td>
-<td><code>HumanEval/120</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>122</td>
-<td><code>HumanEval/121</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>123</td>
-<td><code>HumanEval/122</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>124</td>
-<td><code>HumanEval/123</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>125</td>
-<td><code>HumanEval/124</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>126</td>
-<td><code>HumanEval/125</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>127</td>
-<td><code>HumanEval/126</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>128</td>
-<td><code>HumanEval/127</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>129</td>
-<td><code>HumanEval/128</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>130</td>
-<td><code>HumanEval/129</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>131</td>
-<td><code>HumanEval/130</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>132</td>
-<td><code>HumanEval/131</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>133</td>
-<td><code>HumanEval/132</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>134</td>
-<td><code>HumanEval/133</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>135</td>
-<td><code>HumanEval/134</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>136</td>
-<td><code>HumanEval/135</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>137</td>
-<td><code>HumanEval/136</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>138</td>
-<td><code>HumanEval/137</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>139</td>
-<td><code>HumanEval/138</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>140</td>
-<td><code>HumanEval/139</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>141</td>
-<td><code>HumanEval/140</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>142</td>
-<td><code>HumanEval/141</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>143</td>
-<td><code>HumanEval/142</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>144</td>
-<td><code>HumanEval/143</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>145</td>
-<td><code>HumanEval/144</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>146</td>
-<td><code>HumanEval/145</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>147</td>
-<td><code>HumanEval/146</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>148</td>
-<td><code>HumanEval/147</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>149</td>
-<td><code>HumanEval/148</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>150</td>
-<td><code>HumanEval/149</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>151</td>
-<td><code>HumanEval/150</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>152</td>
-<td><code>HumanEval/151</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>153</td>
-<td><code>HumanEval/152</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>154</td>
-<td><code>HumanEval/153</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>155</td>
-<td><code>HumanEval/154</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>156</td>
-<td><code>HumanEval/155</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>157</td>
-<td><code>HumanEval/156</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>158</td>
-<td><code>HumanEval/157</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>159</td>
-<td><code>HumanEval/158</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>160</td>
-<td><code>HumanEval/159</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>161</td>
-<td><code>HumanEval/160</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>162</td>
-<td><code>HumanEval/161</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>163</td>
-<td><code>HumanEval/162</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>164</td>
-<td><code>HumanEval/163</code></td>
-<td>HE+</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>165</td>
-<td><code>lcb/arc192_a</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>166</td>
-<td><code>lcb/arc194_a</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>167</td>
-<td><code>lcb/arc195_a</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>168</td>
-<td><code>lcb/abc391_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>169</td>
-<td><code>lcb/abc391_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>170</td>
-<td><code>lcb/abc391_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>171</td>
-<td><code>lcb/abc392_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>172</td>
-<td><code>lcb/abc392_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>173</td>
-<td><code>lcb/abc392_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>174</td>
-<td><code>lcb/abc392_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>175</td>
-<td><code>lcb/abc393_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>176</td>
-<td><code>lcb/abc393_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>177</td>
-<td><code>lcb/abc394_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>178</td>
-<td><code>lcb/abc394_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>179</td>
-<td><code>lcb/abc394_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>180</td>
-<td><code>lcb/abc394_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>181</td>
-<td><code>lcb/abc395_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>182</td>
-<td><code>lcb/abc395_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>183</td>
-<td><code>lcb/abc395_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>184</td>
-<td><code>lcb/abc396_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>185</td>
-<td><code>lcb/abc396_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>186</td>
-<td><code>lcb/abc396_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>187</td>
-<td><code>lcb/abc396_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>188</td>
-<td><code>lcb/abc397_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>189</td>
-<td><code>lcb/abc397_b</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>190</td>
-<td><code>lcb/abc397_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>191</td>
-<td><code>lcb/abc398_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>192</td>
-<td><code>lcb/abc398_b</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>193</td>
-<td><code>lcb/abc398_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>194</td>
-<td><code>lcb/abc399_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>✔</td>
-</tr>
-<tr>
-<td>195</td>
-<td><code>lcb/abc399_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>196</td>
-<td><code>lcb/abc399_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>197</td>
-<td><code>lcb/abc399_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>198</td>
-<td><code>lcb/abc400_a</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>199</td>
-<td><code>lcb/abc400_b</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>200</td>
-<td><code>lcb/abc400_c</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>201</td>
-<td><code>lcb/abc400_d</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>202</td>
-<td><code>lcb/3705</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>203</td>
-<td><code>lcb/3709</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>204</td>
-<td><code>lcb/3722</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>205</td>
-<td><code>lcb/3723</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>206</td>
-<td><code>lcb/3736</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>207</td>
-<td><code>lcb/3743</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>208</td>
-<td><code>lcb/3748</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>209</td>
-<td><code>lcb/3750</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>210</td>
-<td><code>lcb/3753</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>211</td>
-<td><code>lcb/3754</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>212</td>
-<td><code>lcb/3759</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>213</td>
-<td><code>lcb/3760</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>214</td>
-<td><code>lcb/3763</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>215</td>
-<td><code>lcb/3764</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>216</td>
-<td><code>lcb/3768</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>217</td>
-<td><code>lcb/3771</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>218</td>
-<td><code>lcb/3773</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>219</td>
-<td><code>lcb/3776</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>220</td>
-<td><code>lcb/3778</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td><strong>2</strong></td>
-<td>✘</td>
-</tr>
-<tr>
-<td>221</td>
-<td><code>lcb/3779</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>222</td>
-<td><code>lcb/3785</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>223</td>
-<td><code>lcb/3786</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>224</td>
-<td><code>lcb/3788</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>225</td>
-<td><code>lcb/3791</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>226</td>
-<td><code>lcb/3793</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>227</td>
-<td><code>lcb/3794</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>228</td>
-<td><code>lcb/3795</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>229</td>
-<td><code>lcb/3799</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>230</td>
-<td><code>lcb/3805</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>231</td>
-<td><code>lcb/3809</code></td>
-<td>LCB</td>
-<td>medium</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>232</td>
-<td><code>lcb/3811</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>233</td>
-<td><code>lcb/3817</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td><strong>2</strong></td>
-<td>0</td>
-<td>0</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>234</td>
-<td><code>lcb/3832</code></td>
-<td>LCB</td>
-<td>easy</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>✘</td>
-</tr>
-</tbody></table>
-<h2 id="appendix-f-every-training-problem-280">Appendix F. Every training problem (280)</h2>
-<p>Correct = how many of the 4 tries passed. Kept = became a training example (the shortest correct answer).</p>
-<table class="long">
-<thead>
-<tr>
-<th>#</th>
-<th>Problem</th>
-<th>Pool</th>
-<th>Level</th>
-<th>Correct (of 4)</th>
-<th>Kept</th>
-<th>Kept thinking tokens</th>
-<th>Question starts with</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td><code>lcb/abc301_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>lcb/abc302_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>lcb/abc302_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>lcb/abc303_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>lcb/abc303_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>lcb/abc307_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>4862</td>
-<td>Takahashi has recorded the number of steps he walked for N weeks. He w</td>
-</tr>
-<tr>
-<td>7</td>
-<td><code>lcb/abc308_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>7198</td>
-<td>Given eight integers S_1,S_2,\dots, and S_8, print Yes if they satisfy</td>
-</tr>
-<tr>
-<td>8</td>
-<td><code>lcb/abc308_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>9</td>
-<td><code>lcb/abc309_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>10</td>
-<td><code>lcb/abc309_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>11</td>
-<td><code>lcb/abc311_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>12</td>
-<td><code>lcb/abc312_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>3516</td>
-<td>Given a length-3 string S consisting of uppercase English letters, pri</td>
-</tr>
-<tr>
-<td>13</td>
-<td><code>lcb/abc312_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>14</td>
-<td><code>lcb/abc313_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>6224</td>
-<td>There are N people numbered 1 through N. Each person has a integer sco</td>
-</tr>
-<tr>
-<td>15</td>
-<td><code>lcb/abc314_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>7596</td>
-<td>The number pi to the 100-th decimal place is 3.14159265358979323846264</td>
-</tr>
-<tr>
-<td>16</td>
-<td><code>lcb/abc314_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>17</td>
-<td><code>lcb/abc315_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>2233</td>
-<td>You are given a string S consisting of lowercase English letters. Remo</td>
-</tr>
-<tr>
-<td>18</td>
-<td><code>lcb/abc318_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>19</td>
-<td><code>lcb/abc319_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>5837</td>
-<td>You are given a positive integer N. Print a string of length (N+1), s_</td>
-</tr>
-<tr>
-<td>20</td>
-<td><code>lcb/abc320_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>5094</td>
-<td>You are given positive integers A and B. Print the value A^B+B^A. Inpu</td>
-</tr>
-<tr>
-<td>21</td>
-<td><code>lcb/abc321_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>22</td>
-<td><code>lcb/abc322_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>23</td>
-<td><code>lcb/abc322_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>24</td>
-<td><code>lcb/abc325_b</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>25</td>
-<td><code>lcb/abc326_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1962</td>
-<td>A 326-like number is a three-digit positive integer where the product</td>
-</tr>
-<tr>
-<td>26</td>
-<td><code>lcb/abc327_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>27</td>
-<td><code>lcb/abc329_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>4613</td>
-<td>You are given a string S consisting of uppercase English letters. Sepa</td>
-</tr>
-<tr>
-<td>28</td>
-<td><code>lcb/abc329_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>5548</td>
-<td>You are given N integers A_1, A_2, \ldots, A_N. Find the largest among</td>
-</tr>
-<tr>
-<td>29</td>
-<td><code>lcb/abc331_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>30</td>
-<td><code>lcb/abc333_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>4709</td>
-<td>You are given an integer N between 1 and 9, inclusive, as input. Conca</td>
-</tr>
-<tr>
-<td>31</td>
-<td><code>lcb/abc333_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>32</td>
-<td><code>lcb/abc334_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>1310</td>
-<td>Takahashi, a young baseball enthusiast, has been a very good boy this</td>
-</tr>
-<tr>
-<td>33</td>
-<td><code>lcb/abc334_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>34</td>
-<td><code>lcb/abc335_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>35</td>
-<td><code>lcb/abc336_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>6833</td>
-<td>For a positive integer X, let \text{ctz}(X) be the (maximal) number of</td>
-</tr>
-<tr>
-<td>36</td>
-<td><code>lcb/abc336_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>37</td>
-<td><code>lcb/abc337_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>38</td>
-<td><code>lcb/abc339_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>39</td>
-<td><code>lcb/abc339_d</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>40</td>
-<td><code>lcb/abc340_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>7006</td>
-<td>Print an arithmetic sequence with first term A, last term B, and commo</td>
-</tr>
-<tr>
-<td>41</td>
-<td><code>lcb/abc340_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>42</td>
-<td><code>lcb/abc341_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>43</td>
-<td><code>lcb/abc341_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>44</td>
-<td><code>lcb/abc342_a</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>45</td>
-<td><code>lcb/abc342_b</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>46</td>
-<td><code>lcb/abc342_c</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>47</td>
-<td><code>lcb/1873_D</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>48</td>
-<td><code>lcb/2730</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>49</td>
-<td><code>lcb/2791</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>50</td>
-<td><code>lcb/2792</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>51</td>
-<td><code>lcb/2811</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>52</td>
-<td><code>lcb/2844</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>5772</td>
-<td>You are given a 1-indexed integer array nums of length n. An element n</td>
-</tr>
-<tr>
-<td>53</td>
-<td><code>lcb/2850</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>54</td>
-<td><code>lcb/2854</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>55</td>
-<td><code>lcb/2857</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>56</td>
-<td><code>lcb/2866</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>57</td>
-<td><code>lcb/2868</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>58</td>
-<td><code>lcb/2869</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>59</td>
-<td><code>lcb/2872</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>60</td>
-<td><code>lcb/2886</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1253</td>
-<td>Your laptop keyboard is faulty, and whenever you type a character &#39;i&#39;</td>
-</tr>
-<tr>
-<td>61</td>
-<td><code>lcb/2998</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1117</td>
-<td>You are given two positive integers low and high. An integer x consist</td>
-</tr>
-<tr>
-<td>62</td>
-<td><code>lcb/3018</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>63</td>
-<td><code>lcb/3033</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>64</td>
-<td><code>lcb/3080</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>65</td>
-<td><code>lcb/3093</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>688</td>
-<td>You are given a 0-indexed integer array nums and an integer k. Return</td>
-</tr>
-<tr>
-<td>66</td>
-<td><code>lcb/3164</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>67</td>
-<td><code>lcb/3176</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>755</td>
-<td>You are given a 0-indexed array nums of integers. A triplet of indices</td>
-</tr>
-<tr>
-<td>68</td>
-<td><code>lcb/3190</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>69</td>
-<td><code>lcb/3194</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>7574</td>
-<td>You are given a 0-indexed array of strings words and a character x. Re</td>
-</tr>
-<tr>
-<td>70</td>
-<td><code>lcb/3213</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>71</td>
-<td><code>lcb/3225</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>72</td>
-<td><code>lcb/3226</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>73</td>
-<td><code>lcb/3230</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>74</td>
-<td><code>lcb/3249</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>75</td>
-<td><code>lcb/3251</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>726</td>
-<td>You are given a 2D 0-indexed integer array dimensions. For all indices</td>
-</tr>
-<tr>
-<td>76</td>
-<td><code>lcb/3263</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>77</td>
-<td><code>lcb/3269</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>1</td>
-<td>✔</td>
-<td>822</td>
-<td>You are given a 0-indexed integer array nums of size n, and a 0-indexe</td>
-</tr>
-<tr>
-<td>78</td>
-<td><code>lcb/3292</code></td>
-<td>LCB old</td>
-<td>medium</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>79</td>
-<td><code>lcb/3312</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1039</td>
-<td>You are given a 0-indexed string s typed by a user. Changing a key is</td>
-</tr>
-<tr>
-<td>80</td>
-<td><code>lcb/3331</code></td>
-<td>LCB old</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>81</td>
-<td><code>Mbpp/7</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>82</td>
-<td><code>Mbpp/8</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>216</td>
-<td>Write a function to find squares of individual elements in a list. You</td>
-</tr>
-<tr>
-<td>83</td>
-<td><code>Mbpp/9</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>84</td>
-<td><code>Mbpp/12</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>527</td>
-<td>Write a function to sort a given matrix in ascending order according t</td>
-</tr>
-<tr>
-<td>85</td>
-<td><code>Mbpp/14</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>414</td>
-<td>Write a python function to find the volume of a triangular prism. Your</td>
-</tr>
-<tr>
-<td>86</td>
-<td><code>Mbpp/16</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>87</td>
-<td><code>Mbpp/17</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>113</td>
-<td>Write a function that returns the perimeter of a square given its side</td>
-</tr>
-<tr>
-<td>88</td>
-<td><code>Mbpp/56</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>501</td>
-<td>Write a python function to check if a given number is one less than tw</td>
-</tr>
-<tr>
-<td>89</td>
-<td><code>Mbpp/59</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>581</td>
-<td>Write a function to find the nth octagonal number. Your code must pass</td>
-</tr>
-<tr>
-<td>90</td>
-<td><code>Mbpp/63</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>91</td>
-<td><code>Mbpp/65</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>628</td>
-<td>Write a function to flatten a list and sum all of its elements. Your c</td>
-</tr>
-<tr>
-<td>92</td>
-<td><code>Mbpp/66</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>1935</td>
-<td>Write a python function to count the number of positive numbers in a l</td>
-</tr>
-<tr>
-<td>93</td>
-<td><code>Mbpp/67</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1100</td>
-<td>Write a function to find the number of ways to partition a set of Bell</td>
-</tr>
-<tr>
-<td>94</td>
-<td><code>Mbpp/68</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1861</td>
-<td>Write a python function to check whether the given array is monotonic</td>
-</tr>
-<tr>
-<td>95</td>
-<td><code>Mbpp/74</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>96</td>
-<td><code>Mbpp/75</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>377</td>
-<td>Write a function to find tuples which have all elements divisible by k</td>
-</tr>
-<tr>
-<td>97</td>
-<td><code>Mbpp/79</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>415</td>
-<td>Write a python function to check whether the length of the word is odd</td>
-</tr>
-<tr>
-<td>98</td>
-<td><code>Mbpp/82</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>296</td>
-<td>Write a function to find the volume of a sphere. Your code must pass t</td>
-</tr>
-<tr>
-<td>99</td>
-<td><code>Mbpp/84</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>100</td>
-<td><code>Mbpp/85</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>250</td>
-<td>Write a function to find the surface area of a sphere. Your code must</td>
-</tr>
-<tr>
-<td>101</td>
-<td><code>Mbpp/87</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>1052</td>
-<td>Write a function to merge three dictionaries into a single dictionary.</td>
-</tr>
-<tr>
-<td>102</td>
-<td><code>Mbpp/88</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>435</td>
-<td>Write a function to get the frequency of all the elements in a list, r</td>
-</tr>
-<tr>
-<td>103</td>
-<td><code>Mbpp/90</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>264</td>
-<td>Write a python function to find the length of the longest word. Your c</td>
-</tr>
-<tr>
-<td>104</td>
-<td><code>Mbpp/91</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>384</td>
-<td>Write a function to check if a string is present as a substring in a g</td>
-</tr>
-<tr>
-<td>105</td>
-<td><code>Mbpp/92</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>106</td>
-<td><code>Mbpp/93</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>172</td>
-<td>Write a function to calculate the value of &#39;a&#39; to the power &#39;b&#39;. Your</td>
-</tr>
-<tr>
-<td>107</td>
-<td><code>Mbpp/94</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>670</td>
-<td>Given a list of tuples, write a function that returns the first value</td>
-</tr>
-<tr>
-<td>108</td>
-<td><code>Mbpp/95</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>456</td>
-<td>Write a python function to find the length of the smallest list in a l</td>
-</tr>
-<tr>
-<td>109</td>
-<td><code>Mbpp/96</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>636</td>
-<td>Write a python function to find the number of divisors of a given inte</td>
-</tr>
-<tr>
-<td>110</td>
-<td><code>Mbpp/98</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>754</td>
-<td>Write a function to multiply all the numbers in a list and divide with</td>
-</tr>
-<tr>
-<td>111</td>
-<td><code>Mbpp/99</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>112</td>
-<td><code>Mbpp/100</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>113</td>
-<td><code>Mbpp/101</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>225</td>
-<td>Write a function to find the kth element in the given array using 1-ba</td>
-</tr>
-<tr>
-<td>114</td>
-<td><code>Mbpp/106</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>115</td>
-<td><code>Mbpp/111</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>635</td>
-<td>Write a function to find the common elements in given nested lists. Yo</td>
-</tr>
-<tr>
-<td>116</td>
-<td><code>Mbpp/116</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>412</td>
-<td>Write a function to convert a given tuple of positive integers into a</td>
-</tr>
-<tr>
-<td>117</td>
-<td><code>Mbpp/118</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>369</td>
-<td>Write a function to convert a string to a list of strings split on the</td>
-</tr>
-<tr>
-<td>118</td>
-<td><code>Mbpp/119</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>119</td>
-<td><code>Mbpp/123</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>120</td>
-<td><code>Mbpp/126</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>121</td>
-<td><code>Mbpp/130</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>1106</td>
-<td>Write a function to find the item with maximum frequency in a given li</td>
-</tr>
-<tr>
-<td>122</td>
-<td><code>Mbpp/133</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>1516</td>
-<td>Write a function to calculate the sum of the negative numbers of a giv</td>
-</tr>
-<tr>
-<td>123</td>
-<td><code>Mbpp/135</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>3926</td>
-<td>Write a function to find the nth hexagonal number. Your code must pass</td>
-</tr>
-<tr>
-<td>124</td>
-<td><code>Mbpp/137</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>125</td>
-<td><code>Mbpp/140</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>588</td>
-<td>Write a function to flatten the list of lists into a single set of num</td>
-</tr>
-<tr>
-<td>126</td>
-<td><code>Mbpp/142</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>127</td>
-<td><code>Mbpp/145</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>226</td>
-<td>Write a python function to find the maximum difference between any two</td>
-</tr>
-<tr>
-<td>128</td>
-<td><code>Mbpp/161</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>360</td>
-<td>Write a function to remove all elements from a given list present in a</td>
-</tr>
-<tr>
-<td>129</td>
-<td><code>Mbpp/165</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>2223</td>
-<td>Write a function to count the number of characters in a string that oc</td>
-</tr>
-<tr>
-<td>130</td>
-<td><code>Mbpp/170</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>523</td>
-<td>Write a function to find the sum of numbers in a list within a range s</td>
-</tr>
-<tr>
-<td>131</td>
-<td><code>Mbpp/171</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>2067</td>
-<td>Write a function to find the perimeter of a regular pentagon from the</td>
-</tr>
-<tr>
-<td>132</td>
-<td><code>Mbpp/222</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>597</td>
-<td>Write a function to check if all the elements in tuple have same data</td>
-</tr>
-<tr>
-<td>133</td>
-<td><code>Mbpp/224</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>237</td>
-<td>Write a python function to count the number of set bits (binary digits</td>
-</tr>
-<tr>
-<td>134</td>
-<td><code>Mbpp/227</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>1931</td>
-<td>Write a function to find minimum of three numbers. Your code must pass</td>
-</tr>
-<tr>
-<td>135</td>
-<td><code>Mbpp/232</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>1591</td>
-<td>Write a function that takes in a list and an integer n and returns a l</td>
-</tr>
-<tr>
-<td>136</td>
-<td><code>Mbpp/233</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>1152</td>
-<td>Write a function to find the lateral surface area of a cylinder. Your</td>
-</tr>
-<tr>
-<td>137</td>
-<td><code>Mbpp/234</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>1202</td>
-<td>Write a function to find the volume of a cube given its side length. Y</td>
-</tr>
-<tr>
-<td>138</td>
-<td><code>Mbpp/235</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>139</td>
-<td><code>Mbpp/237</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>140</td>
-<td><code>Mbpp/238</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>426</td>
-<td>Write a python function to count the number of non-empty substrings of</td>
-</tr>
-<tr>
-<td>141</td>
-<td><code>Mbpp/242</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>2163</td>
-<td>Write a function to count the total number of characters in a string.</td>
-</tr>
-<tr>
-<td>142</td>
-<td><code>Mbpp/244</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>143</td>
-<td><code>Mbpp/252</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>371</td>
-<td>Write a python function to convert complex numbers to polar coordinate</td>
-</tr>
-<tr>
-<td>144</td>
-<td><code>Mbpp/253</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>259</td>
-<td>Write a python function that returns the number of integer elements in</td>
-</tr>
-<tr>
-<td>145</td>
-<td><code>Mbpp/260</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>146</td>
-<td><code>Mbpp/265</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>147</td>
-<td><code>Mbpp/267</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>148</td>
-<td><code>Mbpp/268</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>149</td>
-<td><code>Mbpp/272</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>2353</td>
-<td>Write a function that takes in a list of tuples and returns a list con</td>
-</tr>
-<tr>
-<td>150</td>
-<td><code>Mbpp/276</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>1217</td>
-<td>Write a function that takes in the radius and height of a cylinder and</td>
-</tr>
-<tr>
-<td>151</td>
-<td><code>Mbpp/277</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>488</td>
-<td>Write a function that takes in a dictionary and integer n and filters</td>
-</tr>
-<tr>
-<td>152</td>
-<td><code>Mbpp/280</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>302</td>
-<td>Write a function that takes in an array and element and returns a tupl</td>
-</tr>
-<tr>
-<td>153</td>
-<td><code>Mbpp/282</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>1684</td>
-<td>Write a function to subtract two lists element-wise. Your code must pa</td>
-</tr>
-<tr>
-<td>154</td>
-<td><code>Mbpp/283</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>667</td>
-<td>Write a python function takes in an integer and check whether the freq</td>
-</tr>
-<tr>
-<td>155</td>
-<td><code>Mbpp/294</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>156</td>
-<td><code>Mbpp/297</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>633</td>
-<td>Write a function to flatten a given nested list structure. Your code m</td>
-</tr>
-<tr>
-<td>157</td>
-<td><code>Mbpp/305</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>158</td>
-<td><code>Mbpp/309</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>159</td>
-<td><code>Mbpp/311</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>160</td>
-<td><code>Mbpp/312</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>267</td>
-<td>Write a function to find the volume of a cone. Your code must pass thi</td>
-</tr>
-<tr>
-<td>161</td>
-<td><code>Mbpp/388</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1411</td>
-<td>Write a python function to find the highest power of 2 that is less th</td>
-</tr>
-<tr>
-<td>162</td>
-<td><code>Mbpp/389</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>714</td>
-<td>Write a function to find the n&#39;th lucas number. Your code must pass th</td>
-</tr>
-<tr>
-<td>163</td>
-<td><code>Mbpp/390</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>164</td>
-<td><code>Mbpp/391</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>165</td>
-<td><code>Mbpp/398</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>166</td>
-<td><code>Mbpp/405</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>220</td>
-<td>Write a function to check whether an element exists within a tuple. Yo</td>
-</tr>
-<tr>
-<td>167</td>
-<td><code>Mbpp/406</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>169</td>
-<td>Write a python function to find whether the parity of a given number i</td>
-</tr>
-<tr>
-<td>168</td>
-<td><code>Mbpp/409</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1185</td>
-<td>Write a function to find the minimum product from the pairs of tuples</td>
-</tr>
-<tr>
-<td>169</td>
-<td><code>Mbpp/412</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>592</td>
-<td>Write a python function to remove odd numbers from a given list. Your</td>
-</tr>
-<tr>
-<td>170</td>
-<td><code>Mbpp/413</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>750</td>
-<td>Write a function to extract the nth element from a given list of tuple</td>
-</tr>
-<tr>
-<td>171</td>
-<td><code>Mbpp/414</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>399</td>
-<td>Write a python function to check whether any value in a sequence exist</td>
-</tr>
-<tr>
-<td>172</td>
-<td><code>Mbpp/418</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>471</td>
-<td>Write a python function to find the element of a list having maximum l</td>
-</tr>
-<tr>
-<td>173</td>
-<td><code>Mbpp/419</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>1203</td>
-<td>Write a function to round every number of a given list of numbers and</td>
-</tr>
-<tr>
-<td>174</td>
-<td><code>Mbpp/420</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>723</td>
-<td>Write a python function to find the cube sum of first n even natural n</td>
-</tr>
-<tr>
-<td>175</td>
-<td><code>Mbpp/421</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>176</td>
-<td><code>Mbpp/422</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>340</td>
-<td>Write a python function to find the average of cubes of first n natura</td>
-</tr>
-<tr>
-<td>177</td>
-<td><code>Mbpp/424</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>296</td>
-<td>Write a function to extract only the rear index element of each string</td>
-</tr>
-<tr>
-<td>178</td>
-<td><code>Mbpp/425</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>447</td>
-<td>Write a function to count the number of sublists containing a particul</td>
-</tr>
-<tr>
-<td>179</td>
-<td><code>Mbpp/426</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1370</td>
-<td>Write a function to filter odd numbers. Your code must pass this test:</td>
-</tr>
-<tr>
-<td>180</td>
-<td><code>Mbpp/428</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>583</td>
-<td>Write a function to sort the given array by using shell sort. Your cod</td>
-</tr>
-<tr>
-<td>181</td>
-<td><code>Mbpp/430</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>182</td>
-<td><code>Mbpp/435</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>473</td>
-<td>Write a python function to find the last digit of a given number. Your</td>
-</tr>
-<tr>
-<td>183</td>
-<td><code>Mbpp/437</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>431</td>
-<td>Write a function to remove odd characters in a string. Your code must</td>
-</tr>
-<tr>
-<td>184</td>
-<td><code>Mbpp/439</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>2569</td>
-<td>Write a function to join a list of multiple integers into a single int</td>
-</tr>
-<tr>
-<td>185</td>
-<td><code>Mbpp/447</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>2063</td>
-<td>Write a function to find cubes of individual elements in a list. Your</td>
-</tr>
-<tr>
-<td>186</td>
-<td><code>Mbpp/450</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>218</td>
-<td>Write a function to extract specified size of strings from a given lis</td>
-</tr>
-<tr>
-<td>187</td>
-<td><code>Mbpp/454</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>2867</td>
-<td>Write a function that matches a word containing &#39;z&#39;. Your code must pa</td>
-</tr>
-<tr>
-<td>188</td>
-<td><code>Mbpp/455</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>494</td>
-<td>Write a function to check whether the given month number contains 31 d</td>
-</tr>
-<tr>
-<td>189</td>
-<td><code>Mbpp/457</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>639</td>
-<td>Write a python function to find the sublist having minimum length. You</td>
-</tr>
-<tr>
-<td>190</td>
-<td><code>Mbpp/459</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>930</td>
-<td>Write a function to remove uppercase substrings from a given string. Y</td>
-</tr>
-<tr>
-<td>191</td>
-<td><code>Mbpp/460</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>627</td>
-<td>Write a python function to get the first element of each sublist. Your</td>
-</tr>
-<tr>
-<td>192</td>
-<td><code>Mbpp/462</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>193</td>
-<td><code>Mbpp/465</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>440</td>
-<td>Write a function to drop empty items from a given dictionary. Your cod</td>
-</tr>
-<tr>
-<td>194</td>
-<td><code>Mbpp/470</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>515</td>
-<td>Write a function to find the pairwise addition of the neighboring elem</td>
-</tr>
-<tr>
-<td>195</td>
-<td><code>Mbpp/471</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>442</td>
-<td>Write a python function to find the product of the array multiplicatio</td>
-</tr>
-<tr>
-<td>196</td>
-<td><code>Mbpp/472</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>623</td>
-<td>Write a python function to check whether the given list contains conse</td>
-</tr>
-<tr>
-<td>197</td>
-<td><code>Mbpp/475</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>389</td>
-<td>Write a function to sort a dictionary by value. Your code must pass th</td>
-</tr>
-<tr>
-<td>198</td>
-<td><code>Mbpp/476</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>115</td>
-<td>Write a python function to find the sum of the largest and smallest va</td>
-</tr>
-<tr>
-<td>199</td>
-<td><code>Mbpp/477</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>211</td>
-<td>Write a python function to convert the given string to lower case. You</td>
-</tr>
-<tr>
-<td>200</td>
-<td><code>Mbpp/478</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>433</td>
-<td>Write a function to remove lowercase substrings from a given string. Y</td>
-</tr>
-<tr>
-<td>201</td>
-<td><code>Mbpp/479</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>776</td>
-<td>Write a python function to find the first digit of a given number. You</td>
-</tr>
-<tr>
-<td>202</td>
-<td><code>Mbpp/554</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>182</td>
-<td>Write a python function which takes a list of integers and only return</td>
-</tr>
-<tr>
-<td>203</td>
-<td><code>Mbpp/556</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>204</td>
-<td><code>Mbpp/558</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>3445</td>
-<td>Write a python function to find the sum of the per-digit difference be</td>
-</tr>
-<tr>
-<td>205</td>
-<td><code>Mbpp/559</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>206</td>
-<td><code>Mbpp/568</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>208</td>
-<td>Write a function to create a list of N empty dictionaries. Your code m</td>
-</tr>
-<tr>
-<td>207</td>
-<td><code>Mbpp/569</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>535</td>
-<td>Write a function to sort each sublist of strings in a given list of li</td>
-</tr>
-<tr>
-<td>208</td>
-<td><code>Mbpp/572</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>209</td>
-<td><code>Mbpp/573</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>462</td>
-<td>Write a python function to calculate the product of the unique numbers</td>
-</tr>
-<tr>
-<td>210</td>
-<td><code>Mbpp/577</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>211</td>
-<td><code>Mbpp/580</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>212</td>
-<td><code>Mbpp/581</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>213</td>
-<td><code>Mbpp/585</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>197</td>
-<td>Write a function to find the n most expensive items in a given dataset</td>
-</tr>
-<tr>
-<td>214</td>
-<td><code>Mbpp/587</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>2309</td>
-<td>Write a function to convert a list to a tuple. Your code must pass thi</td>
-</tr>
-<tr>
-<td>215</td>
-<td><code>Mbpp/589</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>216</td>
-<td><code>Mbpp/591</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>217</td>
-<td><code>Mbpp/592</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>218</td>
-<td><code>Mbpp/596</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>385</td>
-<td>Write a function to find the size in bytes of the given tuple. Your co</td>
-</tr>
-<tr>
-<td>219</td>
-<td><code>Mbpp/599</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>416</td>
-<td>Write a function to find sum and average of first n natural numbers. Y</td>
-</tr>
-<tr>
-<td>220</td>
-<td><code>Mbpp/602</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>395</td>
-<td>Write a python function to find the first repeated character in a give</td>
-</tr>
-<tr>
-<td>221</td>
-<td><code>Mbpp/603</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>222</td>
-<td><code>Mbpp/604</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>410</td>
-<td>Write a function to reverse words seperated by spaces in a given strin</td>
-</tr>
-<tr>
-<td>223</td>
-<td><code>Mbpp/606</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>180</td>
-<td>Write a function to convert degrees to radians. Your code must pass th</td>
-</tr>
-<tr>
-<td>224</td>
-<td><code>Mbpp/607</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>225</td>
-<td><code>Mbpp/608</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1865</td>
-<td>Write a python function to find nth bell number. Your code must pass t</td>
-</tr>
-<tr>
-<td>226</td>
-<td><code>Mbpp/612</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>2173</td>
-<td>Write a python function which takes a list of lists, where each sublis</td>
-</tr>
-<tr>
-<td>227</td>
-<td><code>Mbpp/615</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>228</td>
-<td><code>Mbpp/616</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>303</td>
-<td>Write a function which takes two tuples of the same length and perform</td>
-</tr>
-<tr>
-<td>229</td>
-<td><code>Mbpp/619</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>230</td>
-<td><code>Mbpp/620</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>231</td>
-<td><code>Mbpp/623</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>2906</td>
-<td>Write a function to compute the n-th power of each number in a list. Y</td>
-</tr>
-<tr>
-<td>232</td>
-<td><code>Mbpp/629</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>369</td>
-<td>Write a python function to find even numbers from a list of numbers. Y</td>
-</tr>
-<tr>
-<td>233</td>
-<td><code>Mbpp/632</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>437</td>
-<td>Write a python function to move all zeroes to the end of the given lis</td>
-</tr>
-<tr>
-<td>234</td>
-<td><code>Mbpp/633</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>235</td>
-<td><code>Mbpp/635</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>599</td>
-<td>Write a function to sort the given list. Your code must pass this test</td>
-</tr>
-<tr>
-<td>236</td>
-<td><code>Mbpp/643</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>237</td>
-<td><code>Mbpp/721</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>238</td>
-<td><code>Mbpp/723</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>2626</td>
-<td>The input is defined as two lists of the same length. Write a function</td>
-</tr>
-<tr>
-<td>239</td>
-<td><code>Mbpp/725</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>1253</td>
-<td>Write a function to extract values between quotation marks &quot; &quot; of the</td>
-</tr>
-<tr>
-<td>240</td>
-<td><code>Mbpp/726</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>1698</td>
-<td>Write a function that takes as input a tuple of numbers (t_1,...,t_{N+</td>
-</tr>
-<tr>
-<td>241</td>
-<td><code>Mbpp/728</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>304</td>
-<td>Write a function takes as input two lists [a_1,...,a_n], [b_1,...,b_n]</td>
-</tr>
-<tr>
-<td>242</td>
-<td><code>Mbpp/732</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>1</td>
-<td>✔</td>
-<td>640</td>
-<td>Write a function to replace all occurrences of spaces, commas, or dots</td>
-</tr>
-<tr>
-<td>243</td>
-<td><code>Mbpp/733</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>656</td>
-<td>Write a function to find the index of the first occurrence of a given</td>
-</tr>
-<tr>
-<td>244</td>
-<td><code>Mbpp/734</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>245</td>
-<td><code>Mbpp/735</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>246</td>
-<td><code>Mbpp/736</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>483</td>
-<td>Write a function to locate the left insertion point for a specified va</td>
-</tr>
-<tr>
-<td>247</td>
-<td><code>Mbpp/737</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>424</td>
-<td>Write a function to check whether the given string is starting with a</td>
-</tr>
-<tr>
-<td>248</td>
-<td><code>Mbpp/739</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>249</td>
-<td><code>Mbpp/741</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>569</td>
-<td>Write a python function to check whether all the characters are same o</td>
-</tr>
-<tr>
-<td>250</td>
-<td><code>Mbpp/742</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>251</td>
-<td><code>Mbpp/744</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>251</td>
-<td>Write a function to check if the given tuple has any none value or not</td>
-</tr>
-<tr>
-<td>252</td>
-<td><code>Mbpp/745</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>253</td>
-<td><code>Mbpp/749</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>254</td>
-<td><code>Mbpp/753</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>420</td>
-<td>Write a function to find minimum k records from tuple list. <a href="https://ww">https://ww</a></td>
-</tr>
-<tr>
-<td>255</td>
-<td><code>Mbpp/754</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>647</td>
-<td>We say that an element is common for lists l1, l2, l3 if it appears in</td>
-</tr>
-<tr>
-<td>256</td>
-<td><code>Mbpp/757</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>257</td>
-<td><code>Mbpp/758</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>258</td>
-<td><code>Mbpp/760</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>273</td>
-<td>Write a python function to check whether a list of numbers contains on</td>
-</tr>
-<tr>
-<td>259</td>
-<td><code>Mbpp/762</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>3716</td>
-<td>Write a function to check whether the given month number contains 30 d</td>
-</tr>
-<tr>
-<td>260</td>
-<td><code>Mbpp/763</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>261</td>
-<td><code>Mbpp/766</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>2491</td>
-<td>Write a function to return a list of all pairs of consecutive items in</td>
-</tr>
-<tr>
-<td>262</td>
-<td><code>Mbpp/767</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>456</td>
-<td>Write a python function to count the number of pairs whose sum is equa</td>
-</tr>
-<tr>
-<td>263</td>
-<td><code>Mbpp/770</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>456</td>
-<td>Write a python function to find the sum of fourth power of first n odd</td>
-</tr>
-<tr>
-<td>264</td>
-<td><code>Mbpp/771</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>265</td>
-<td><code>Mbpp/772</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>436</td>
-<td>Write a function to remove all the words with k length in the given st</td>
-</tr>
-<tr>
-<td>266</td>
-<td><code>Mbpp/773</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>267</td>
-<td><code>Mbpp/775</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>627</td>
-<td>Write a python function to check whether every odd index contains odd</td>
-</tr>
-<tr>
-<td>268</td>
-<td><code>Mbpp/778</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>269</td>
-<td><code>Mbpp/780</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>270</td>
-<td><code>Mbpp/784</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>271</td>
-<td><code>Mbpp/785</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>272</td>
-<td><code>Mbpp/786</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>273</td>
-<td><code>Mbpp/787</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>541</td>
-<td>Write a function that matches a string that has an a followed by three</td>
-</tr>
-<tr>
-<td>274</td>
-<td><code>Mbpp/790</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>275</td>
-<td><code>Mbpp/793</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>882</td>
-<td>Write a python function to find the last position of an element in a s</td>
-</tr>
-<tr>
-<td>276</td>
-<td><code>Mbpp/794</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>277</td>
-<td><code>Mbpp/796</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>3</td>
-<td>✔</td>
-<td>161</td>
-<td>Write function to find the sum of all items in the given dictionary. Y</td>
-</tr>
-<tr>
-<td>278</td>
-<td><code>Mbpp/798</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>91</td>
-<td>Write a python function to find the sum of an array. Your code must pa</td>
-</tr>
-<tr>
-<td>279</td>
-<td><code>Mbpp/807</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>2</td>
-<td>✔</td>
-<td>294</td>
-<td>Write a python function to find the first odd number in a given list o</td>
-</tr>
-<tr>
-<td>280</td>
-<td><code>Mbpp/808</code></td>
-<td>MBPP+</td>
-<td>easy</td>
-<td>4</td>
-<td>✔</td>
-<td>2887</td>
-<td>Write a function to check if the given tuples contain the k or not. Yo</td>
-</tr>
-</tbody></table>
 </body></html>

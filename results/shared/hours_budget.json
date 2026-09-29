@@ -46,9 +46,12 @@
     "2b_limit512": {
       "hours": null,
       "note": "fill-in done; limit512=45.1% (DECISIONS #82); zip had no separate hours stage dump in SUMMARY"
+    },
+    "2b_limit2048": {
+      "note": "DONE lean 1-try limit2048=46.6% (DECISIONS #84); peaks at 1024 on 2B"
     }
   },
-  "note": "4B + 0.8B done. Wall ledger used_hours=11.544 (4B 8.544 + 0.8B ~3.0 estimated; zip lacked hours file). 0.8B lean: OFF best 20.5%; ON 7.3%; limit512 17.5%; LoRA-1 17.9%. | 2B limit512 fill-in DONE: 45.1% (beats ON 42.1%, loses to limit1024 49.8%).",
+  "note": "4B + 0.8B done. Wall ledger used_hours=11.544 (4B 8.544 + 0.8B ~3.0 estimated; zip lacked hours file). 0.8B lean: OFF best 20.5%; ON 7.3%; limit512 17.5%; LoRA-1 17.9%. | 2B limit512 fill-in DONE: 45.1% (beats ON 42.1%, loses to limit1024 49.8%). | 2B limit2048 DONE: 46.6% (1 try) < limit1024 49.8% \u2192 peak at 1024.",
   "updated": "2026-09-29",
   "colab_compute_hours_left": 100,
   "buffer_keep_hours": 50,

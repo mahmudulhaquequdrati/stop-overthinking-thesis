@@ -1,0 +1,3 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,HumanEval/0,0,easy,False,AssertionError,128,257,True
+limit,HumanEval/1,0,easy,False,SyntaxError: invalid syntax,128,257,True

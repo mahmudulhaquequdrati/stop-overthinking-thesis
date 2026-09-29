@@ -75,8 +75,8 @@
 | [38](38-2b-limit512-fill.md) | 2B limit-512 fill-in (notebook 16) | 2026-09-29 |
 | [39](39-2b-limit2048-lean.md) | 2B limit-2048 lean fill-in (notebook 17) | 2026-09-29 |
 
-**What has been run:** 2B · 4B · 0.8B lean · 2B limit512 (45.1%).  
-**Next Colab (lean):** notebook **17** = 2B × limit2048 · **1 try** ([qa/39](39-2b-limit2048-lean.md)).  
+**What has been run:** 2B · 4B · 0.8B · 2B limit512 (45.1%) · 2B limit2048 lean (**46.6%**).  
+**2B limit curve:** peaks at **1024** (49.8%), not 2048.  
 **Before a meeting:** open [TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md).  
-**All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md).  
-**Next:** Run notebook 17 on A100 (watch FAST PATH); fill name/supervisor before hand-in.
+**All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · [SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).  
+**Next:** fill name/supervisor; practice Opening answers out loud.

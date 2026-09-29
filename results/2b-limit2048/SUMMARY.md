@@ -1,9 +1,13 @@
-# 2b-limit2048 run — not started (LEAN)
+# 2b-limit2048 run — summary
 
-Open `notebooks/17_qwen35_2b_limit2048.ipynb` on Colab A100.
-
-Lean plan (DECISIONS #83): **limit2048 only** · 234 problems · **1 try** · max = budget+1024.
+Raw folder: `results/2b-limit2048/raw`
 
 | Way | Problems | Tries | Accuracy | Thinking | All tokens | Cut off % |
 |---|---|---|---|---|---|---|
-| limit2048 | — | — | — | — | — | — |
+| limit2048 | 234 | 1 | 46.6% | 1377 | 1834 | 29% |
+
+## Status
+
+✅ Graded files found.
+
+Hours ledger (shared): `results/shared/hours_budget.json`

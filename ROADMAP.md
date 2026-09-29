@@ -101,8 +101,8 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Lean 0.8B DONE (#75–77): OFF best 20.5%              │
 │       ✅ Size story in thesis (#78) · Teacher A→Z (#79)       │
 │       ✅ Notebook 16 DONE: 2B limit512 = 45.1% (#82)          │
-│       ✅ Notebook 17 ready: 2B limit2048 LEAN (#83) ←HERE    │
-│       ⬜ You RUN 17 on Colab A100 (1 try, tight max)         │
+│       ✅ Notebook 17 DONE: 2B limit2048 = 46.6% (#84) ←HERE   │
+│           2B curve peaks at limit1024 (49.8%)                │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │

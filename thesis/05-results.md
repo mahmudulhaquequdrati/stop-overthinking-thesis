@@ -283,7 +283,7 @@ So we ran the **same 234 problems** on two more models in the same family (DECIS
 | Size | Tries | Limits tested | Training |
 |---|---|---|---|
 | **0.8B** (lean) | **1** | 512, 1,024 | LoRA-1 only |
-| **2B** (main + fill-in) | 2 | **512**, 1,024 (+ other free ways on main run) | LoRA-1 and LoRA-2 (main run) |
+| **2B** (main + fill-ins) | 2 (main); limit2048 fill-in = **1** | **512**, 1,024, **2,048** | LoRA-1 and LoRA-2 (main run) |
 | **4B** | 2 | 512, 1,024, 2,048, 4,096 | LoRA-1 only |
 
 0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.  
@@ -297,15 +297,17 @@ Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
 | Thinking ON | 7.3% | 42.1% | 64.3% |
 | Limit 512 | 17.5% | **45.1%** | 75.4% |
 | Limit 1,024 | 13.2% | **49.8%** | 76.5% |
-| Limit 2,048 | — | — | **78.2%** |
+| Limit 2,048 | — | **46.6%** (1 try)* | **78.2%** |
 | Limit 4,096 | — | — | 76.7% |
 | LoRA-1 | 17.9% | 45.5% | 69.9% |
+
+\* 2B limit 2,048 is a lean fill-in (**1 try**); other 2B main numbers use 2 tries.
 
 ```text
 Best free way per size
 
 0.8B  →  OFF           20.5%
-2B    →  limit 1,024   49.8%   (limit 512 = 45.1%: helps, but 1024 still better)
+2B    →  limit 1,024   49.8%   (512=45.1% · 2048=46.6% → peaks at 1024)
 4B    →  limit 2,048   78.2%
 ```
 
@@ -321,4 +323,4 @@ Best free way per size
 
 Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.
 
-Raw folders: `results/0.8b/`, `results/4b/`, `results/2b-limit512/`. Join page: `results/SIZE-COMPARISON.md`.
+Raw folders: `results/0.8b/`, `results/4b/`, `results/2b-limit512/`, `results/2b-limit2048/`. Join page: `results/SIZE-COMPARISON.md`.

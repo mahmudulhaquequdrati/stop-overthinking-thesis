@@ -50,12 +50,14 @@ def main():
     s08 = read_summary_table(os.path.join(ROOT, "results", "0.8b", "SUMMARY.md"))
     s4 = read_summary_table(os.path.join(ROOT, "results", "4b", "SUMMARY.md"))
     s2b512 = read_summary_table(os.path.join(ROOT, "results", "2b-limit512", "SUMMARY.md"))
-    # Fill 2B limit512 from the dedicated fill-in run (not in main thesis summary.csv).
-    if "limit512" in s2b512 and len(s2b512["limit512"]) > 3:
-        acc512 = s2b512["limit512"][3]
-        if isinstance(acc512, str) and "%" in acc512:
-            t2 = dict(t2)
-            t2["limit512"] = {"accuracy": acc512.replace("%", "").strip(), "way": "limit512"}
+    s2b2048 = read_summary_table(os.path.join(ROOT, "results", "2b-limit2048", "SUMMARY.md"))
+    # Fill 2B extra limits from dedicated fill-in runs (not in main thesis summary.csv).
+    t2 = dict(t2)
+    for way, src in (("limit512", s2b512), ("limit2048", s2b2048)):
+        if way in src and len(src[way]) > 3:
+            acc_w = src[way][3]
+            if isinstance(acc_w, str) and "%" in acc_w:
+                t2[way] = {"accuracy": acc_w.replace("%", "").strip(), "way": way}
 
     def acc(way, src_2b_key=None):
         k = src_2b_key or way
@@ -99,11 +101,13 @@ def main():
         "[full-results/FULL-RESULTS.md](full-results/FULL-RESULTS.md) |",
         status_line("Qwen3.5-0.8B", s08, "[0.8b/SUMMARY.md](0.8b/SUMMARY.md) · raw: `0.8b/raw/`"),
         status_line("Qwen3.5-4B", s4, "[4b/SUMMARY.md](4b/SUMMARY.md) · raw: `4b/raw/`"),
-        "| **2B limit512 fill-in** | ✅ done | "
+        "| **2B limit512 fill-in** | ✅ done (45.1%) | "
         "[2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · raw: `2b-limit512/raw/` |",
+        "| **2B limit2048 fill-in** | ✅ done (46.6%, 1 try) | "
+        "[2b-limit2048/SUMMARY.md](2b-limit2048/SUMMARY.md) · raw: `2b-limit2048/raw/` |",
         "",
-        "**Tries (table captions):** 2B and 4B = **2 tries**; lean 0.8B = **1 try** "
-        "(DECISIONS #75–76). 2B limit512 fill-in = **2 tries** (#81–#82).",
+        "**Tries (table captions):** 2B main and 4B = **2 tries**; lean 0.8B = **1 try**; "
+        "2B limit512 fill-in = **2 tries**; 2B limit2048 fill-in = **1 try** (#83–#84).",
         "",
         "**Who this thesis is for:** people who run **small reasoning models for code** on a "
         "**limited GPU** (students, indie developers, one-GPU setups).",
@@ -119,20 +123,27 @@ def main():
         a, b, c = acc(knew, src_2b_key=k2)
         if label.startswith("LoRA-2"):
             b, c = "n/a", "n/a"
+        # Annotate 1-try fill-in in the 2B cell for limit2048
+        if knew == "limit2048" and a != "—" and "1 try" not in a:
+            a = f"{a}*"
         lines.append(f"| {label} | {a} | {b} | {c} |")
 
     lines += [
         "",
+        "\\* 2B limit2048 = **1 try** (lean fill-in). Other 2B main numbers = 2 tries.",
+        "",
         "2B main numbers from `results/2026-09-24-thesis-run/summary.csv`. "
-        "2B **limit512 = 45.1%** from the fill-in run (`results/2b-limit512/`, DECISIONS #82). "
+        "2B **limit512 = 45.1%** (`results/2b-limit512/`, #82). "
+        "2B **limit2048 = 46.6%** (`results/2b-limit2048/`, #84). "
         "LoRA-2 is **not** re-run on 0.8B/4B (DECISIONS #72).",
         "",
         "**0.8B headline (checked, 1 try):** best free way = **OFF → 20.5%**. "
         "ON only 7.3% (78% cut off). limit512 17.5% · LoRA-1 17.9%. "
         "On this tiny model, **switching thinking OFF beats limits and LoRA**.",
         "",
-        "**2B headline (checked, 2 tries):** best free way = **limit 1024 → 49.8%**. "
-        "limit512 = **45.1%** (better than ON 42.1%, worse than 1024). LoRA did not beat limit 1024.",
+        "**2B headline (checked):** best free way = **limit 1024 → 49.8%** (2 tries). "
+        "Curve: limit512 45.1% → limit1024 **49.8%** → limit2048 46.6% (1 try). "
+        "**Peaks at 1024** — longer budget did not help. LoRA did not beat limit 1024.",
         "",
         "**4B headline (checked, 2 tries):** best free way = **limit 2048 → 78.2%**. "
         "OFF 69.7% beats ON 64.3%. LoRA-1 69.9% does **not** beat the limits.",
@@ -147,6 +158,7 @@ def main():
         "- [4b/SUMMARY.md](4b/SUMMARY.md)",
         "- [2B short](2026-09-24-thesis-run.md) · [2B full](full-results/FULL-RESULTS.md)",
         "- [2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · [2b-limit512/RUN.md](2b-limit512/RUN.md)",
+        "- [2b-limit2048/SUMMARY.md](2b-limit2048/SUMMARY.md) · [2b-limit2048/RUN.md](2b-limit2048/RUN.md)",
         "- [SIZE-COMPARISON.md](SIZE-COMPARISON.md)",
         "",
         "---",
@@ -163,7 +175,8 @@ def main():
         "",
         "- [15a 0.8B](../notebooks/15a_qwen35_0_8b.ipynb) — ✅ lean run done",
         "- [15b 4B](../notebooks/15b_qwen35_4b.ipynb) — ✅ done",
-        "- [16 2B limit512](../notebooks/16_qwen35_2b_limit512.ipynb) — ✅ fill-in done (45.1%)",
+        "- [16 2B limit512](../notebooks/16_qwen35_2b_limit512.ipynb) — ✅ 45.1%",
+        "- [17 2B limit2048 lean](../notebooks/17_qwen35_2b_limit2048.ipynb) — ✅ 46.6% (1 try)",
         "",
         "Rebuilt by `scripts/make_all_results.py`.",
         "",
