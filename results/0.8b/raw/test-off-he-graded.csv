@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,HumanEval/0,0,easy,True,,0,214,False
+thinking_off,HumanEval/1,0,easy,False,AssertionError,0,372,False
+thinking_off,HumanEval/10,0,easy,False,TypeError: slice indices must be integers or None or have an __index__ method,0,421,False
+thinking_off,HumanEval/100,0,easy,False,AssertionError,0,228,False
+thinking_off,HumanEval/101,0,easy,False,AssertionError,0,128,False
+thinking_off,HumanEval/102,0,easy,False,AssertionError,0,191,False
+thinking_off,HumanEval/103,0,easy,False,AssertionError,0,230,False
+thinking_off,HumanEval/104,0,easy,False,TypeError: not all arguments converted during string formatting,0,173,False
+thinking_off,HumanEval/105,0,easy,False,AssertionError,0,498,False
+thinking_off,HumanEval/106,0,easy,False,IndexError: list assignment index out of range,0,278,False
+thinking_off,HumanEval/107,0,easy,False,AssertionError,0,311,False
+thinking_off,HumanEval/108,0,easy,False,AssertionError,0,213,False
+thinking_off,HumanEval/109,0,easy,False,AssertionError,0,502,False
+thinking_off,HumanEval/11,0,easy,False,AssertionError,0,112,False
+thinking_off,HumanEval/110,0,easy,False,AssertionError,0,456,False
+thinking_off,HumanEval/111,0,easy,False,AssertionError,0,44,False
+thinking_off,HumanEval/112,0,easy,False,AssertionError,0,220,False
+thinking_off,HumanEval/113,0,easy,False,AssertionError,0,263,False
+thinking_off,HumanEval/114,0,easy,False,AssertionError,0,195,False
+thinking_off,HumanEval/115,0,easy,False,AssertionError,0,424,False
+thinking_off,HumanEval/116,0,easy,False,TypeError: sort_array.<locals>.compare() missing 1 required positional argument: 'y',0,141,False
+thinking_off,HumanEval/117,0,easy,False,AssertionError,0,297,False
+thinking_off,HumanEval/118,0,easy,False,NameError: name 'consonants' is not defined,0,4073,True
+thinking_off,HumanEval/119,0,easy,False,AssertionError,0,693,False
+thinking_off,HumanEval/12,0,easy,False,AssertionError,0,188,False
+thinking_off,HumanEval/120,0,easy,False,AssertionError,0,288,False
+thinking_off,HumanEval/121,0,easy,True,,0,154,False
+thinking_off,HumanEval/122,0,easy,False,AssertionError,0,188,False
+thinking_off,HumanEval/123,0,easy,False,AssertionError,0,367,False
+thinking_off,HumanEval/124,0,easy,False,AssertionError,0,707,False
+thinking_off,HumanEval/125,0,easy,False,AssertionError,0,103,False
+thinking_off,HumanEval/126,0,easy,False,AssertionError,0,300,False
+thinking_off,HumanEval/127,0,easy,False,NameError: name 'start1' is not defined,0,490,False
+thinking_off,HumanEval/128,0,easy,False,AssertionError,0,207,False
+thinking_off,HumanEval/129,0,easy,False,ValueError: too many values to unpack (expected 2),0,842,False
+thinking_off,HumanEval/13,0,easy,True,,0,155,False
+thinking_off,HumanEval/130,0,easy,False,RecursionError: maximum recursion depth exceeded,0,282,False
+thinking_off,HumanEval/131,0,easy,False,AssertionError,0,128,False
+thinking_off,HumanEval/132,0,easy,False,AttributeError: 'int' object has no attribute 'append',0,479,False
+thinking_off,HumanEval/133,0,easy,False,AssertionError,0,341,False
+thinking_off,HumanEval/134,0,easy,False,AssertionError,0,201,False
+thinking_off,HumanEval/135,0,easy,False,AssertionError,0,209,False
+thinking_off,HumanEval/136,0,easy,False,AssertionError,0,179,False
+thinking_off,HumanEval/137,0,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',0,281,False
+thinking_off,HumanEval/138,0,easy,False,AssertionError,0,233,False
+thinking_off,HumanEval/139,0,easy,True,,0,221,False
+thinking_off,HumanEval/14,0,easy,False,AssertionError,0,84,False
+thinking_off,HumanEval/140,0,easy,False,AssertionError,0,227,False
+thinking_off,HumanEval/141,0,easy,False,AssertionError,0,401,False
+thinking_off,HumanEval/142,0,easy,False,AssertionError,0,239,False
+thinking_off,HumanEval/143,0,easy,True,,0,291,False
+thinking_off,HumanEval/144,0,easy,False,AssertionError,0,470,False
+thinking_off,HumanEval/145,0,easy,False,AssertionError,0,213,False
+thinking_off,HumanEval/146,0,easy,False,AssertionError,0,62,False
+thinking_off,HumanEval/147,0,easy,False,AssertionError,0,290,False
+thinking_off,HumanEval/148,0,easy,False,AssertionError,0,394,False
+thinking_off,HumanEval/149,0,easy,False,AssertionError,0,318,False
+thinking_off,HumanEval/15,0,easy,False,AssertionError,0,90,False
+thinking_off,HumanEval/150,0,easy,False,AssertionError,0,118,False
+thinking_off,HumanEval/151,0,easy,False,AssertionError,0,223,False
+thinking_off,HumanEval/152,0,easy,True,,0,257,False
+thinking_off,HumanEval/153,0,easy,False,AssertionError,0,423,False
+thinking_off,HumanEval/154,0,easy,False,AssertionError,0,208,False
+thinking_off,HumanEval/155,0,easy,False,ValueError: invalid literal for int() with base 10: '-',0,155,False
+thinking_off,HumanEval/156,0,easy,False,IndexError: list index out of range,0,307,False
+thinking_off,HumanEval/157,0,easy,False,AssertionError,0,189,False
+thinking_off,HumanEval/158,0,easy,False,AssertionError,0,218,False
+thinking_off,HumanEval/159,0,easy,False,AssertionError,0,341,False
+thinking_off,HumanEval/16,0,easy,False,AssertionError,0,89,False
+thinking_off,HumanEval/160,0,easy,False,IndexError: pop index out of range,0,395,False
+thinking_off,HumanEval/161,0,easy,False,AssertionError,0,189,False
+thinking_off,HumanEval/162,0,easy,True,,0,73,False
+thinking_off,HumanEval/163,0,easy,False,AssertionError,0,172,False
+thinking_off,HumanEval/17,0,easy,False,AssertionError,0,469,False
+thinking_off,HumanEval/18,0,easy,True,,0,140,False
+thinking_off,HumanEval/19,0,easy,False,ValueError: invalid literal for int() with base 10: 't',0,148,False
+thinking_off,HumanEval/2,0,easy,True,,0,97,False
+thinking_off,HumanEval/20,0,easy,False,AssertionError,0,325,False
+thinking_off,HumanEval/21,0,easy,False,AssertionError,0,189,False
+thinking_off,HumanEval/22,0,easy,False,AssertionError,0,112,False
+thinking_off,HumanEval/23,0,easy,True,,0,53,False
+thinking_off,HumanEval/24,0,easy,False,AssertionError,0,89,False
+thinking_off,HumanEval/25,0,easy,True,,0,212,False
+thinking_off,HumanEval/26,0,easy,False,AssertionError,0,131,False
+thinking_off,HumanEval/27,0,easy,False,AssertionError,0,59,False
+thinking_off,HumanEval/28,0,easy,True,,0,70,False
+thinking_off,HumanEval/29,0,easy,True,,0,107,False
+thinking_off,HumanEval/3,0,easy,True,,0,157,False
+thinking_off,HumanEval/30,0,easy,True,,0,28,False
+thinking_off,HumanEval/31,0,easy,True,,0,195,False
+thinking_off,HumanEval/32,0,easy,False,"TypeError: Value after * must be an iterable, not NoneType",0,4096,True
+thinking_off,HumanEval/33,0,easy,False,AssertionError,0,206,False
+thinking_off,HumanEval/34,0,easy,True,,0,124,False
+thinking_off,HumanEval/35,0,easy,True,,0,97,False
+thinking_off,HumanEval/36,0,easy,False,AssertionError,0,71,False
+thinking_off,HumanEval/37,0,easy,False,AssertionError,0,200,False
+thinking_off,HumanEval/38,0,easy,False,"TypeError: sequence item 0: expected str instance, reversed found",0,236,False
+thinking_off,HumanEval/39,0,easy,False,ValueError: No prime Fibonacci numbers found up to n,0,255,False
+thinking_off,HumanEval/4,0,easy,True,,0,151,False
+thinking_off,HumanEval/40,0,easy,True,,0,231,False
+thinking_off,HumanEval/41,0,easy,False,AssertionError,0,273,False
+thinking_off,HumanEval/42,0,easy,True,,0,132,False
+thinking_off,HumanEval/43,0,easy,True,,0,225,False
+thinking_off,HumanEval/44,0,easy,False,AssertionError,0,151,False
+thinking_off,HumanEval/45,0,easy,True,,0,60,False
+thinking_off,HumanEval/46,0,easy,True,,0,345,False
+thinking_off,HumanEval/47,0,easy,True,,0,114,False
+thinking_off,HumanEval/48,0,easy,True,,0,87,False
+thinking_off,HumanEval/49,0,easy,True,,0,139,False
+thinking_off,HumanEval/5,0,easy,True,,0,138,False
+thinking_off,HumanEval/50,0,easy,False,AssertionError,0,66,False
+thinking_off,HumanEval/51,0,easy,True,,0,166,False
+thinking_off,HumanEval/52,0,easy,True,,0,100,False
+thinking_off,HumanEval/53,0,easy,True,,0,63,False
+thinking_off,HumanEval/54,0,easy,True,,0,127,False
+thinking_off,HumanEval/55,0,easy,True,,0,126,False
+thinking_off,HumanEval/56,0,easy,False,AssertionError,0,154,False
+thinking_off,HumanEval/57,0,easy,False,AssertionError,0,157,False
+thinking_off,HumanEval/58,0,easy,True,,0,210,False
+thinking_off,HumanEval/59,0,easy,False,AssertionError,0,121,False
+thinking_off,HumanEval/6,0,easy,False,AssertionError,0,197,False
+thinking_off,HumanEval/60,0,easy,True,,0,125,False
+thinking_off,HumanEval/61,0,easy,True,,0,101,False
+thinking_off,HumanEval/62,0,easy,False,AssertionError,0,223,False
+thinking_off,HumanEval/63,0,easy,False,AssertionError,0,271,False
+thinking_off,HumanEval/64,0,easy,False,AssertionError,0,153,False
+thinking_off,HumanEval/65,0,easy,False,NameError: name 'i' is not defined. Did you mean: 'id'?,0,127,False
+thinking_off,HumanEval/66,0,easy,True,,0,140,False
+thinking_off,HumanEval/67,0,easy,False,AssertionError,0,274,False
+thinking_off,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",0,438,False
+thinking_off,HumanEval/69,0,easy,False,AssertionError,0,294,False
+thinking_off,HumanEval/7,0,easy,True,,0,112,False
+thinking_off,HumanEval/70,0,easy,False,AssertionError,0,134,False
+thinking_off,HumanEval/71,0,easy,False,AssertionError,0,240,False
+thinking_off,HumanEval/72,0,easy,False,AssertionError,0,376,False
+thinking_off,HumanEval/73,0,easy,False,AssertionError,0,335,False
+thinking_off,HumanEval/74,0,easy,False,AssertionError,0,275,False
+thinking_off,HumanEval/75,0,easy,False,AssertionError,0,346,False
+thinking_off,HumanEval/76,0,easy,False,AssertionError,0,119,False
+thinking_off,HumanEval/77,0,easy,False,IndentationError: expected an indented block after 'if' statement on line 677,0,4096,True
+thinking_off,HumanEval/78,0,easy,False,ValueError: invalid literal for int() with base 10: 'A',0,423,False
+thinking_off,HumanEval/79,0,easy,False,AssertionError,0,210,False
+thinking_off,HumanEval/8,0,easy,True,,0,174,False
+thinking_off,HumanEval/80,0,easy,False,AssertionError,0,81,False
+thinking_off,HumanEval/81,0,easy,False,KeyError: 3.5,0,510,False
+thinking_off,HumanEval/82,0,easy,False,AssertionError,0,154,False
+thinking_off,HumanEval/83,0,easy,False,AssertionError,0,146,False
+thinking_off,HumanEval/84,0,easy,False,AssertionError,0,219,False
+thinking_off,HumanEval/85,0,easy,False,AssertionError,0,103,False
+thinking_off,HumanEval/86,0,easy,False,"TypeError: sequence item 0: expected str instance, list found",0,181,False
+thinking_off,HumanEval/87,0,easy,False,AssertionError,0,519,False
+thinking_off,HumanEval/88,0,easy,False,AssertionError,0,321,False
+thinking_off,HumanEval/89,0,easy,False,AssertionError,0,77,False
+thinking_off,HumanEval/9,0,easy,False,AssertionError,0,185,False
+thinking_off,HumanEval/90,0,easy,False,AssertionError,0,155,False
+thinking_off,HumanEval/91,0,easy,False,AssertionError,0,199,False
+thinking_off,HumanEval/92,0,easy,True,,0,220,False
+thinking_off,HumanEval/93,0,easy,False,KeyError: 'T',0,291,False
+thinking_off,HumanEval/94,0,easy,False,NameError: name 'is_prime' is not defined. Did you mean: 'max_prime'?,0,398,False
+thinking_off,HumanEval/95,0,easy,False,AssertionError,0,286,False
+thinking_off,HumanEval/96,0,easy,True,,0,434,False
+thinking_off,HumanEval/97,0,easy,False,AssertionError,0,139,False
+thinking_off,HumanEval/98,0,easy,True,,0,134,False
+thinking_off,HumanEval/99,0,easy,False,AssertionError,0,320,False

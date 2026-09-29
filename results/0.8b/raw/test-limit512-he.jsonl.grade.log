@@ -1,0 +1,2 @@
+test-limit512-he.jsonl: passed 37/164 (23%) | median thinking 512 tokens | hit the limit 97
+saved /content/drive/MyDrive/stop-overthinking/results/0.8b/raw/test-limit512-he-graded.csv

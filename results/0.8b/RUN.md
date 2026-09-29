@@ -1,37 +1,34 @@
-# How to run the 0.8B Colab — lean plan (≤50 compute hours)
+# 0.8B run — what happened (lean plan)
 
-## Why lean?
+**Checked** from Drive zip `0.8b-20260929T143603Z-1-001.zip` (2026-09-29).  
+Same **234** problems · **1 try** · limits **512 / 1024** only · LoRA-1 · no Stage C (DECISIONS #75–76).
 
-4B already used ~**100 Colab compute hours**. You have ~100 left and must keep **≥50**.  
-So 0.8B gets **≤50**. We do **not** repeat the full 4B menu.
+## Main table
 
-## What we test
+| Way | Accuracy | Thinking | All tokens | Cut off |
+|---|---|---|---|---|
+| **OFF** | **20.5%** (best) | 0 | 1118 | 12% |
+| ON | 7.3% | 4509 | 4557 | 78% |
+| limit512 | 17.5% | 509 | 4198 | 68% |
+| limit1024 | 13.2% | 969 | 4299 | 69% |
+| LoRA-1 | 17.9% | 3472 | 3627 | 55% |
+
+## Plain story
 
 ```text
-Same 234 problems
-  OFF
-  ON
-  limit 512
-  limit 1024     ← max (won on 2B at 49.8%)
-  LoRA-1
-1 try only
-NO Stage C
-NO limit 2048 / 4096
+0.8B is too small to “think well” on these code tests.
+
+ON    → loops / hits the wall a lot (78% cut off) → only 7.3%
+limit → better than ON, but still weak
+LoRA  → a bit better than limits, still loses to OFF
+OFF   → best accuracy, cheapest thinking (0 tokens)
 ```
 
-| Keep | Drop |
-|---|---|
-| OFF, ON | second try (Stage C) |
-| limits 512 / 1024 | limits 2048, 4096 |
-| LoRA-1 | “think briefly” |
+So on **0.8B**, the free winner is **thinking OFF**, not a length limit.  
+That is different from **2B** (best = limit 1024) and **4B** (best = limit 2048).
 
-**Why max 1024?** On 2B, limit 1024 was the best free way (49.8%). 0.8B is smaller, so it does not need a longer thinking budget. 4B already answered “2048 can win on a bigger model”.
+## Hours
 
-## Steps
+Zip had no `hours_budget.json`. Wall time from Colab file times ≈ **~3 hours** (smoke → SUMMARY). Ledger updated with that estimate.
 
-1. Copy to Drive: `notebooks/15a_qwen35_0_8b.ipynb`, `scripts/`, and `results/shared/hours_budget.json`
-2. Colab A100 → open **15a** → **Runtime → Run all**
-3. Wait for **`FAST PATH ON ✓`**
-4. When DONE, copy Drive `results/0.8b/` into the repo and run `make_all_results.py`
-
-DECISIONS #75.
+Raw files: `results/0.8b/raw/` · Rebuild SUMMARY: `python scripts/make_size_summary.py --dir results/0.8b/raw --run 0.8b --summary results/0.8b/SUMMARY.md`

@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_on,HumanEval/0,0,easy,True,,537,726,False
+thinking_on,HumanEval/1,0,easy,False,NameError: name 'separate_paren_groups' is not defined,4096,4096,True
+thinking_on,HumanEval/10,0,easy,False,NameError: name 'make_palindrome' is not defined,4096,4096,True
+thinking_on,HumanEval/100,0,easy,False,NameError: name 'make_a_pile' is not defined,4096,4096,True
+thinking_on,HumanEval/101,0,easy,False,AssertionError,843,978,False
+thinking_on,HumanEval/102,0,easy,False,AssertionError,2680,2841,False
+thinking_on,HumanEval/103,0,easy,False,NameError: name 'rounded_avg' is not defined,4096,4096,True
+thinking_on,HumanEval/104,0,easy,True,,1066,1263,False
+thinking_on,HumanEval/105,0,easy,True,,1095,1640,False
+thinking_on,HumanEval/106,0,easy,False,NameError: name 'f' is not defined,4096,4096,True
+thinking_on,HumanEval/107,0,easy,False,NameError: name 'even_odd_palindrome' is not defined,4096,4096,True
+thinking_on,HumanEval/108,0,easy,False,NameError: name 'count_nums' is not defined,4096,4096,True
+thinking_on,HumanEval/109,0,easy,False,NameError: name 'move_one_ball' is not defined,4096,4096,True
+thinking_on,HumanEval/11,0,easy,False,TypeError: unsupported operand type(s) for ^: 'str' and 'str',412,507,False
+thinking_on,HumanEval/110,0,easy,False,NameError: name 'exchange' is not defined,4096,4096,True
+thinking_on,HumanEval/111,0,easy,False,"ValueError: not enough values to unpack (expected 2, got 1)",602,703,False
+thinking_on,HumanEval/112,0,easy,False,NameError: name 'reverse_delete' is not defined,4096,4096,True
+thinking_on,HumanEval/113,0,easy,False,NameError: name 'odd_count' is not defined,4096,4096,True
+thinking_on,HumanEval/114,0,easy,False,NameError: name 'minSubArraySum' is not defined,4096,4096,True
+thinking_on,HumanEval/115,0,easy,False,NameError: name 'max_fill' is not defined,4096,4096,True
+thinking_on,HumanEval/116,0,easy,False,NameError: name 'sort_array' is not defined,4096,4096,True
+thinking_on,HumanEval/117,0,easy,False,NameError: name 'select_words' is not defined,4096,4096,True
+thinking_on,HumanEval/118,0,easy,False,AssertionError,1194,1491,False
+thinking_on,HumanEval/119,0,easy,False,AssertionError,500,661,False
+thinking_on,HumanEval/12,0,easy,True,,657,828,False
+thinking_on,HumanEval/120,0,easy,False,NameError: name 'maximum' is not defined,4096,4096,True
+thinking_on,HumanEval/121,0,easy,True,,1324,1489,False
+thinking_on,HumanEval/122,0,easy,False,AssertionError,1528,1772,False
+thinking_on,HumanEval/123,0,easy,False,NameError: name 'get_odd_collatz' is not defined,4096,4096,True
+thinking_on,HumanEval/124,0,easy,False,AssertionError,949,1446,False
+thinking_on,HumanEval/125,0,easy,False,NameError: name 'split_words' is not defined,4096,4096,True
+thinking_on,HumanEval/126,0,easy,False,NameError: name 'is_sorted' is not defined. Did you mean: 'sorted'?,4096,4096,True
+thinking_on,HumanEval/127,0,easy,False,NameError: name 'intersection' is not defined,4096,4096,True
+thinking_on,HumanEval/128,0,easy,False,NameError: name 'prod_signs' is not defined,4096,4096,True
+thinking_on,HumanEval/129,0,easy,False,NameError: name 'minPath' is not defined,4096,4096,True
+thinking_on,HumanEval/13,0,easy,False,NameError: name 'greatest_common_divisor' is not defined,4096,4096,True
+thinking_on,HumanEval/130,0,easy,False,NameError: name 'tri' is not defined,4096,4096,True
+thinking_on,HumanEval/131,0,easy,False,AssertionError,1169,1320,False
+thinking_on,HumanEval/132,0,easy,False,NameError: name 'is_nested' is not defined,4082,4082,True
+thinking_on,HumanEval/133,0,easy,False,AssertionError,709,934,False
+thinking_on,HumanEval/134,0,easy,False,NameError: name 'check_if_last_char_is_a_letter' is not defined,4096,4096,True
+thinking_on,HumanEval/135,0,easy,True,,465,627,False
+thinking_on,HumanEval/136,0,easy,True,,766,1002,False
+thinking_on,HumanEval/137,0,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',941,1339,False
+thinking_on,HumanEval/138,0,easy,False,NameError: name 'is_equal_to_sum_even' is not defined,4096,4096,True
+thinking_on,HumanEval/139,0,easy,False,AssertionError,2081,2228,False
+thinking_on,HumanEval/14,0,easy,False,NameError: name 'all_prefixes' is not defined,4096,4096,True
+thinking_on,HumanEval/140,0,easy,False,AssertionError,622,817,False
+thinking_on,HumanEval/141,0,easy,False,NameError: name 'file_name_check' is not defined,4096,4096,True
+thinking_on,HumanEval/142,0,easy,False,NameError: name 'sum_squares' is not defined,4096,4096,True
+thinking_on,HumanEval/143,0,easy,False,NameError: name 'words_in_sentence' is not defined,4096,4096,True
+thinking_on,HumanEval/144,0,easy,False,ValueError: could not convert string to float: '1/5',660,752,False
+thinking_on,HumanEval/145,0,easy,False,ValueError: invalid literal for int() with base 10: '-',871,1067,False
+thinking_on,HumanEval/146,0,easy,False,AssertionError,643,729,False
+thinking_on,HumanEval/147,0,easy,False,NameError: name 'get_max_triples' is not defined,4096,4096,True
+thinking_on,HumanEval/148,0,easy,False,AssertionError,1341,1695,False
+thinking_on,HumanEval/149,0,easy,True,,888,1152,False
+thinking_on,HumanEval/15,0,easy,True,,326,420,False
+thinking_on,HumanEval/150,0,easy,False,NameError: name 'x_or_y' is not defined,4096,4096,True
+thinking_on,HumanEval/151,0,easy,False,AssertionError,982,1179,False
+thinking_on,HumanEval/152,0,easy,True,,681,940,False
+thinking_on,HumanEval/153,0,easy,False,NameError: name 'Strongest_Extension' is not defined,4096,4096,True
+thinking_on,HumanEval/154,0,easy,False,NameError: name 'cycpattern_check' is not defined,4096,4096,True
+thinking_on,HumanEval/155,0,easy,False,NameError: name 'even_odd_count' is not defined,4096,4096,True
+thinking_on,HumanEval/156,0,easy,False,NameError: name 'int_to_mini_roman' is not defined,4096,4096,True
+thinking_on,HumanEval/157,0,easy,False,AssertionError,470,609,False
+thinking_on,HumanEval/158,0,easy,False,NameError: name 'find_max' is not defined,4096,4096,True
+thinking_on,HumanEval/159,0,easy,False,NameError: name 'eat' is not defined,4096,4096,True
+thinking_on,HumanEval/16,0,easy,False,AssertionError,337,419,False
+thinking_on,HumanEval/160,0,easy,False,"TypeError: sequence item 0: expected str instance, int found",1742,2108,False
+thinking_on,HumanEval/161,0,easy,False,AssertionError,1027,1100,False
+thinking_on,HumanEval/162,0,easy,False,NameError: name 'hashlib' is not defined. Did you forget to import 'hashlib'?,357,475,False
+thinking_on,HumanEval/163,0,easy,False,NameError: name 'generate_integers' is not defined,4096,4096,True
+thinking_on,HumanEval/17,0,easy,False,NameError: name 'parse_music' is not defined,4087,4087,True
+thinking_on,HumanEval/18,0,easy,False,NameError: name 'how_many_times' is not defined,4096,4096,True
+thinking_on,HumanEval/19,0,easy,False,ValueError: invalid literal for int() with base 10: 'three',528,678,False
+thinking_on,HumanEval/2,0,easy,True,,558,657,False
+thinking_on,HumanEval/20,0,easy,False,AssertionError,797,1114,False
+thinking_on,HumanEval/21,0,easy,False,NameError: name 'rescale_to_unit' is not defined,4096,4096,True
+thinking_on,HumanEval/22,0,easy,False,AssertionError,395,509,False
+thinking_on,HumanEval/23,0,easy,True,,202,225,False
+thinking_on,HumanEval/24,0,easy,False,AssertionError,634,729,False
+thinking_on,HumanEval/25,0,easy,True,,2228,2442,False
+thinking_on,HumanEval/26,0,easy,False,AssertionError,573,706,False
+thinking_on,HumanEval/27,0,easy,False,AssertionError,510,573,False
+thinking_on,HumanEval/28,0,easy,True,,443,515,False
+thinking_on,HumanEval/29,0,easy,True,,392,501,False
+thinking_on,HumanEval/3,0,easy,False,NameError: name 'below_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/30,0,easy,True,,363,393,False
+thinking_on,HumanEval/31,0,easy,True,,534,731,False
+thinking_on,HumanEval/32,0,easy,False,NameError: name 'find_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/33,0,easy,False,NameError: name 'sort_third' is not defined,4096,4096,True
+thinking_on,HumanEval/34,0,easy,True,,444,466,False
+thinking_on,HumanEval/35,0,easy,True,,279,300,False
+thinking_on,HumanEval/36,0,easy,False,NameError: name 'fizz_buzz' is not defined,4096,4096,True
+thinking_on,HumanEval/37,0,easy,False,NameError: name 'sort_even' is not defined,4096,4096,True
+thinking_on,HumanEval/38,0,easy,False,IndexError: string index out of range,479,4096,True
+thinking_on,HumanEval/39,0,easy,False,AssertionError,1154,1449,False
+thinking_on,HumanEval/4,0,easy,True,,1117,1266,False
+thinking_on,HumanEval/40,0,easy,True,,873,1106,False
+thinking_on,HumanEval/41,0,easy,False,NameError: name 'car_race_collision' is not defined,4096,4096,True
+thinking_on,HumanEval/42,0,easy,True,,185,213,False
+thinking_on,HumanEval/43,0,easy,False,NameError: name 'pairs_sum_to_zero' is not defined,4096,4096,True
+thinking_on,HumanEval/44,0,easy,False,NameError: name 'change_base' is not defined,4096,4096,True
+thinking_on,HumanEval/45,0,easy,True,,141,203,False
+thinking_on,HumanEval/46,0,easy,False,NameError: name 'fib4' is not defined,4096,4096,True
+thinking_on,HumanEval/47,0,easy,False,NameError: name 'median' is not defined,4096,4096,True
+thinking_on,HumanEval/48,0,easy,True,,524,613,False
+thinking_on,HumanEval/49,0,easy,True,,1909,2045,False
+thinking_on,HumanEval/5,0,easy,True,,1121,1200,False
+thinking_on,HumanEval/50,0,easy,False,NameError: name 'decode_shift' is not defined,4096,4096,True
+thinking_on,HumanEval/51,0,easy,False,AssertionError,637,802,False
+thinking_on,HumanEval/52,0,easy,True,,240,271,False
+thinking_on,HumanEval/53,0,easy,True,,221,245,False
+thinking_on,HumanEval/54,0,easy,True,,532,694,False
+thinking_on,HumanEval/55,0,easy,False,ValueError: n must be a positive integer,1220,1372,False
+thinking_on,HumanEval/56,0,easy,False,NameError: name 'correct_bracketing' is not defined,4095,4095,True
+thinking_on,HumanEval/57,0,easy,False,NameError: name 'monotonic' is not defined,4096,4096,True
+thinking_on,HumanEval/58,0,easy,True,,477,627,False
+thinking_on,HumanEval/59,0,easy,False,NameError: name 'largest_prime_factor' is not defined,4096,4096,True
+thinking_on,HumanEval/6,0,easy,False,NameError: name 'parse_nested_parens' is not defined,4096,4096,True
+thinking_on,HumanEval/60,0,easy,True,,590,717,False
+thinking_on,HumanEval/61,0,easy,False,AssertionError,533,643,False
+thinking_on,HumanEval/62,0,easy,False,NameError: name 'derivative' is not defined,4096,4096,True
+thinking_on,HumanEval/63,0,easy,False,NameError: name 'fibfib' is not defined,4096,4096,True
+thinking_on,HumanEval/64,0,easy,False,AssertionError,738,927,False
+thinking_on,HumanEval/65,0,easy,False,TypeError: object of type 'int' has no len(),669,799,False
+thinking_on,HumanEval/66,0,easy,False,NameError: name 'digitSum' is not defined,4096,4096,True
+thinking_on,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: '5 apples and 6',580,874,False
+thinking_on,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",725,1141,False
+thinking_on,HumanEval/69,0,easy,False,NameError: name 'search' is not defined,4096,4096,True
+thinking_on,HumanEval/7,0,easy,True,,512,626,False
+thinking_on,HumanEval/70,0,easy,False,AssertionError,1320,1500,False
+thinking_on,HumanEval/71,0,easy,True,,634,845,False
+thinking_on,HumanEval/72,0,easy,False,NameError: name 'will_it_fly' is not defined,4096,4096,True
+thinking_on,HumanEval/73,0,easy,False,NameError: name 'smallest_change' is not defined,4096,4096,True
+thinking_on,HumanEval/74,0,easy,False,NameError: name 'total_match' is not defined,4096,4096,True
+thinking_on,HumanEval/75,0,easy,False,AssertionError,999,1499,False
+thinking_on,HumanEval/76,0,easy,False,AssertionError,894,1052,False
+thinking_on,HumanEval/77,0,easy,False,IndentationError: expected an indented block after 'if' statement on line 429,643,4096,True
+thinking_on,HumanEval/78,0,easy,False,NameError: name 'hex_key' is not defined,4096,4096,True
+thinking_on,HumanEval/79,0,easy,True,,1355,1418,False
+thinking_on,HumanEval/8,0,easy,False,NameError: name 'product' is not defined,483,630,False
+thinking_on,HumanEval/80,0,easy,False,AssertionError,592,659,False
+thinking_on,HumanEval/81,0,easy,False,NameError: name 'numerical_letter_grade' is not defined,4092,4092,True
+thinking_on,HumanEval/82,0,easy,False,AssertionError,634,818,False
+thinking_on,HumanEval/83,0,easy,False,NameError: name 'starts_one_ends' is not defined,4096,4096,True
+thinking_on,HumanEval/84,0,easy,False,NameError: name 'solve' is not defined,258,258,False
+thinking_on,HumanEval/85,0,easy,False,NameError: name 'add' is not defined,4096,4096,True
+thinking_on,HumanEval/86,0,easy,False,AssertionError,497,693,False
+thinking_on,HumanEval/87,0,easy,False,NameError: name 'get_row' is not defined,4096,4096,True
+thinking_on,HumanEval/88,0,easy,True,,454,762,False
+thinking_on,HumanEval/89,0,easy,False,"TypeError: sequence item 0: expected str instance, int found",486,645,False
+thinking_on,HumanEval/9,0,easy,False,AssertionError,869,1045,False
+thinking_on,HumanEval/90,0,easy,False,NameError: name 'next_smallest' is not defined,4096,4096,True
+thinking_on,HumanEval/91,0,easy,False,AssertionError,592,760,False
+thinking_on,HumanEval/92,0,easy,False,NameError: name 'any_int' is not defined,4096,4096,True
+thinking_on,HumanEval/93,0,easy,False,AssertionError,470,4096,True
+thinking_on,HumanEval/94,0,easy,False,NameError: name 'skjkasdkd' is not defined,4096,4096,True
+thinking_on,HumanEval/95,0,easy,False,NameError: name 'check_dict_case' is not defined,4096,4096,True
+thinking_on,HumanEval/96,0,easy,False,NameError: name 'is_prime' is not defined,1163,1376,False
+thinking_on,HumanEval/97,0,easy,False,AssertionError,447,588,False
+thinking_on,HumanEval/98,0,easy,True,,884,1014,False
+thinking_on,HumanEval/99,0,easy,False,AssertionError,964,1253,False

@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,HumanEval/0,0,easy,True,,512,971,False
+limit,HumanEval/1,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/10,0,easy,False,SyntaxError: '[' was never closed,512,4097,True
+limit,HumanEval/100,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/101,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/102,0,easy,False,AssertionError,512,3255,False
+limit,HumanEval/103,0,easy,False,AssertionError,512,764,False
+limit,HumanEval/104,0,easy,False,TypeError: not all arguments converted during string formatting,512,691,False
+limit,HumanEval/105,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/106,0,easy,False,NameError: name 'factorial' is not defined,512,4097,True
+limit,HumanEval/107,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/108,0,easy,False,AssertionError,512,822,False
+limit,HumanEval/109,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/11,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/110,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/111,0,easy,False,AssertionError,512,761,False
+limit,HumanEval/112,0,easy,False,AttributeError: 'str' object has no attribute 'copy',512,1747,False
+limit,HumanEval/113,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/114,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/115,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/116,0,easy,True,,512,4097,True
+limit,HumanEval/117,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/118,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/119,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/12,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/120,0,easy,False,AssertionError,512,601,False
+limit,HumanEval/121,0,easy,True,,489,645,False
+limit,HumanEval/122,0,easy,False,AssertionError,512,682,False
+limit,HumanEval/123,0,easy,False,AssertionError,512,905,False
+limit,HumanEval/124,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/125,0,easy,False,"TypeError: ord() expected a character, but string of length 6 found",512,4097,True
+limit,HumanEval/126,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/127,0,easy,False,SyntaxError: unmatched ')',512,4097,True
+limit,HumanEval/128,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/129,0,easy,False,NameError: name 'N' is not defined,512,4097,True
+limit,HumanEval/13,0,easy,False,ZeroDivisionError: integer modulo by zero,512,612,False
+limit,HumanEval/130,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/131,0,easy,False,TypeError: not all arguments converted during string formatting,512,1199,False
+limit,HumanEval/132,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/133,0,easy,False,SyntaxError: unterminated string literal (detected at line 2),512,4097,True
+limit,HumanEval/134,0,easy,False,AssertionError,512,4095,True
+limit,HumanEval/135,0,easy,False,SyntaxError: unterminated string literal (detected at line 5),512,4097,True
+limit,HumanEval/136,0,easy,True,,512,661,False
+limit,HumanEval/137,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/138,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/139,0,easy,False,AssertionError,512,833,False
+limit,HumanEval/14,0,easy,False,IndentationError: unexpected indent,512,1049,False
+limit,HumanEval/140,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/141,0,easy,False,TypeError: unsupported operand type(s) for -: 'str' and 'str',512,945,False
+limit,HumanEval/142,0,easy,False,AssertionError,512,757,False
+limit,HumanEval/143,0,easy,False,TypeError: object of type 'int' has no len(),512,846,False
+limit,HumanEval/144,0,easy,True,,512,4097,True
+limit,HumanEval/145,0,easy,False,ValueError: invalid literal for int() with base 10: '-',512,792,False
+limit,HumanEval/146,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/147,0,easy,False,AssertionError,512,826,False
+limit,HumanEval/148,0,easy,False,AssertionError,512,863,False
+limit,HumanEval/149,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,4097,True
+limit,HumanEval/15,0,easy,False,SyntaxError: unterminated string literal (detected at line 13),512,4097,True
+limit,HumanEval/150,0,easy,False,AssertionError,512,1621,False
+limit,HumanEval/151,0,easy,False,AssertionError,512,582,False
+limit,HumanEval/152,0,easy,True,,512,771,False
+limit,HumanEval/153,0,easy,False,AssertionError,512,891,False
+limit,HumanEval/154,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/155,0,easy,True,,512,2011,False
+limit,HumanEval/156,0,easy,False,KeyError: 1,512,4097,True
+limit,HumanEval/157,0,easy,False,AssertionError,512,586,False
+limit,HumanEval/158,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/159,0,easy,False,UnboundLocalError: cannot access local variable 'eaten' where it is not associated with a value,512,4097,True
+limit,HumanEval/16,0,easy,True,,512,1204,False
+limit,HumanEval/160,0,easy,False,IndentationError: unexpected indent,512,712,False
+limit,HumanEval/161,0,easy,False,SyntaxError: unterminated string literal (detected at line 7),512,4097,True
+limit,HumanEval/162,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/163,0,easy,False,AssertionError,463,620,False
+limit,HumanEval/17,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/18,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/19,0,easy,False,ValueError: invalid literal for int() with base 10: 'three',512,1351,False
+limit,HumanEval/2,0,easy,True,,512,4097,True
+limit,HumanEval/20,0,easy,True,,512,2577,False
+limit,HumanEval/21,0,easy,False,TypeError: unsupported operand type(s) for -: 'NoneType' and 'float',512,4097,True
+limit,HumanEval/22,0,easy,False,SyntaxError: unmatched ']',512,4097,True
+limit,HumanEval/23,0,easy,True,,512,535,False
+limit,HumanEval/24,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,4097,True
+limit,HumanEval/25,0,easy,False,AssertionError,512,1989,False
+limit,HumanEval/26,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/27,0,easy,True,,512,4097,True
+limit,HumanEval/28,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,512,537,False
+limit,HumanEval/29,0,easy,True,,374,483,False
+limit,HumanEval/3,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/30,0,easy,True,,512,1314,False
+limit,HumanEval/31,0,easy,True,,512,707,False
+limit,HumanEval/32,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/33,0,easy,False,NameError: name 'sort_third' is not defined,512,4097,True
+limit,HumanEval/34,0,easy,True,,512,612,False
+limit,HumanEval/35,0,easy,True,,512,4097,True
+limit,HumanEval/36,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/37,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/38,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/39,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/4,0,easy,False,SyntaxError: unterminated string literal (detected at line 11),512,4097,True
+limit,HumanEval/40,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/41,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/42,0,easy,True,,512,646,False
+limit,HumanEval/43,0,easy,True,,512,741,False
+limit,HumanEval/44,0,easy,False,AssertionError,512,683,False
+limit,HumanEval/45,0,easy,True,,512,536,False
+limit,HumanEval/46,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/47,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/48,0,easy,False,IndentationError: unexpected indent,516,4101,True
+limit,HumanEval/49,0,easy,True,,381,541,False
+limit,HumanEval/5,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/50,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/51,0,easy,True,,512,1203,False
+limit,HumanEval/52,0,easy,True,,512,543,False
+limit,HumanEval/53,0,easy,True,,512,536,False
+limit,HumanEval/54,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/55,0,easy,False,AssertionError,512,774,False
+limit,HumanEval/56,0,easy,False,AssertionError,506,4091,True
+limit,HumanEval/57,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/58,0,easy,True,,512,697,False
+limit,HumanEval/59,0,easy,False,AssertionError,512,818,False
+limit,HumanEval/6,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/60,0,easy,True,,512,639,False
+limit,HumanEval/61,0,easy,False,AssertionError,512,1604,False
+limit,HumanEval/62,0,easy,False,SyntaxError: unmatched ']',512,4097,True
+limit,HumanEval/63,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/64,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/65,0,easy,False,"TypeError: sequence item 0: expected str instance, int found",512,4097,True
+limit,HumanEval/66,0,easy,False,SyntaxError: unterminated string literal (detected at line 20),512,4097,True
+limit,HumanEval/67,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",512,4097,True
+limit,HumanEval/69,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/7,0,easy,True,,347,461,False
+limit,HumanEval/70,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/71,0,easy,False,AssertionError,453,4038,True
+limit,HumanEval/72,0,easy,True,,512,858,False
+limit,HumanEval/73,0,easy,True,,512,727,False
+limit,HumanEval/74,0,easy,True,,512,2761,False
+limit,HumanEval/75,0,easy,False,IndentationError: expected an indented block after 'if' statement on line 432,512,4097,True
+limit,HumanEval/76,0,easy,False,AssertionError,512,570,False
+limit,HumanEval/77,0,easy,False,AssertionError,463,4048,True
+limit,HumanEval/78,0,easy,False,ValueError: invalid literal for int() with base 10: 'A',512,4097,True
+limit,HumanEval/79,0,easy,True,,512,4097,True
+limit,HumanEval/8,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/80,0,easy,True,,512,4097,True
+limit,HumanEval/81,0,easy,False,AssertionError,512,2140,False
+limit,HumanEval/82,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/83,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/84,0,easy,False,AssertionError,512,728,False
+limit,HumanEval/85,0,easy,True,,512,4097,True
+limit,HumanEval/86,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/87,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),511,4096,True
+limit,HumanEval/88,0,easy,True,,512,699,False
+limit,HumanEval/89,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/9,0,easy,False,AssertionError,512,2374,False
+limit,HumanEval/90,0,easy,False,IndentationError: expected an indented block after 'if' statement on line 107,512,4097,True
+limit,HumanEval/91,0,easy,False,AssertionError,512,667,False
+limit,HumanEval/92,0,easy,True,,512,743,False
+limit,HumanEval/93,0,easy,False,AssertionError,512,2296,False
+limit,HumanEval/94,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/95,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/96,0,easy,True,,512,773,False
+limit,HumanEval/97,0,easy,False,AssertionError,424,456,False
+limit,HumanEval/98,0,easy,True,,512,4097,True
+limit,HumanEval/99,0,easy,False,ValueError: invalid literal for int() with base 10: '14.5',512,4097,True

@@ -1,0 +1,76 @@
+1/70 lcb/3705        easy    thinking_off fail: wrong answer on test 1
+2/70 lcb/3709        easy    thinking_off fail: wrong answer on test 2
+3/70 lcb/3723        easy    thinking_off fail: wrong answer on test 1
+4/70 lcb/3736        easy    thinking_off fail: wrong answer on test 1
+5/70 lcb/3753        easy    thinking_off fail: AttributeError: 'Counter' object has no attribute 'count'
+6/70 lcb/3768        easy    thinking_off fail: TypeError: 'str' object does not support item assignment
+7/70 lcb/3773        easy    thinking_off fail: wrong answer on test 1
+8/70 lcb/3778        easy    thinking_off fail: wrong answer on test 1
+9/70 lcb/3788        easy    thinking_off fail: wrong answer on test 2
+10/70 lcb/3799        easy    thinking_off fail: wrong answer on test 1
+11/70 lcb/3811        easy    thinking_off fail: wrong answer on test 1
+12/70 lcb/3817        easy    thinking_off fail: wrong answer on test 1
+13/70 lcb/3832        easy    thinking_off fail: wrong answer on test 1
+14/70 lcb/abc391_a    easy    thinking_off PASS
+15/70 lcb/abc391_b    easy    thinking_off fail: StopIteration
+16/70 lcb/abc392_a    easy    thinking_off fail: wrong answer on test 6
+17/70 lcb/abc392_b    easy    thinking_off PASS
+18/70 lcb/abc393_a    easy    thinking_off fail: wrong answer on test 1
+19/70 lcb/abc393_b    easy    thinking_off fail: wrong answer on test 1
+20/70 lcb/abc394_a    easy    thinking_off PASS
+21/70 lcb/abc394_b    easy    thinking_off fail: EOFError: EOF when reading a line
+22/70 lcb/abc395_a    easy    thinking_off PASS
+23/70 lcb/abc395_b    easy    thinking_off fail: wrong answer on test 1
+24/70 lcb/abc396_a    easy    thinking_off fail: wrong answer on test 1
+25/70 lcb/abc396_b    easy    thinking_off fail: IndexError: list index out of range
+26/70 lcb/abc397_a    easy    thinking_off PASS
+27/70 lcb/abc398_a    easy    thinking_off fail: wrong answer on test 1
+28/70 lcb/abc399_a    easy    thinking_off PASS
+29/70 lcb/abc399_b    easy    thinking_off fail: wrong answer on test 1
+30/70 lcb/abc400_a    easy    thinking_off fail: wrong answer on test 1
+31/70 lcb/abc400_b    easy    thinking_off fail: ValueError: invalid literal for int() with base 10: '7 3'
+32/70 lcb/3722        medium  thinking_off fail: wrong answer on test 1
+33/70 lcb/3743        medium  thinking_off fail: IndentationError: expected an indented block after function definition on line 5
+34/70 lcb/3748        medium  thinking_off fail: wrong answer on test 1
+35/70 lcb/3750        medium  thinking_off fail: wrong answer on test 1
+36/70 lcb/3754        medium  thinking_off fail: SyntaxError: unterminated triple-quoted string literal (detected at line 484)
+37/70 lcb/3759        medium  thinking_off fail: SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
+38/70 lcb/3760        medium  thinking_off fail: IndexError: list index out of range
+39/70 lcb/3763        medium  thinking_off fail: wrong answer on test 1
+40/70 lcb/3764        medium  thinking_off fail: wrong answer on test 1
+41/70 lcb/3771        medium  thinking_off fail: wrong answer on test 2
+42/70 lcb/3776        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+43/70 lcb/3779        medium  thinking_off fail: wrong answer on test 1
+44/70 lcb/3785        medium  thinking_off fail: UnboundLocalError: cannot access local variable 'i' where it is not associated with a value
+45/70 lcb/3786        medium  thinking_off fail: IndexError: list index out of range
+46/70 lcb/3791        medium  thinking_off fail: NameError: name 'basket' is not defined. Did you mean: 'baskets'?
+47/70 lcb/3793        medium  thinking_off fail: wrong answer on test 1
+48/70 lcb/3794        medium  thinking_off fail: KeyError: (4, 4)
+49/70 lcb/3795        medium  thinking_off fail: wrong answer on test 1
+50/70 lcb/3805        medium  thinking_off fail: IndentationError: expected an indented block after function definition on line 64
+51/70 lcb/3809        medium  thinking_off fail: UnboundLocalError: cannot access local variable 'components' where it is not associated with a value
+52/70 lcb/abc391_d    medium  thinking_off fail: wrong answer on test 1
+53/70 lcb/abc392_c    medium  thinking_off fail: IndexError: list index out of range
+54/70 lcb/abc392_d    medium  thinking_off fail: wrong answer on test 1
+55/70 lcb/abc394_c    medium  thinking_off fail: timeout on test 1
+56/70 lcb/abc394_d    medium  thinking_off fail: wrong answer on test 1
+57/70 lcb/abc395_c    medium  thinking_off fail: wrong answer on test 1
+58/70 lcb/abc396_c    medium  thinking_off fail: wrong answer on test 1
+59/70 lcb/abc396_d    medium  thinking_off fail: wrong answer on test 1
+60/70 lcb/abc397_b    medium  thinking_off fail: wrong answer on test 1
+61/70 lcb/abc397_c    medium  thinking_off fail: wrong answer on test 1
+62/70 lcb/abc398_b    medium  thinking_off fail: KeyError: 1
+63/70 lcb/abc398_c    medium  thinking_off fail: wrong answer on test 3
+64/70 lcb/abc399_c    medium  thinking_off fail: wrong answer on test 1
+65/70 lcb/abc399_d    medium  thinking_off fail: SyntaxError: invalid decimal literal
+66/70 lcb/abc400_c    medium  thinking_off fail: wrong answer on test 1
+67/70 lcb/abc400_d    medium  thinking_off fail: wrong answer on test 1
+68/70 lcb/arc192_a    medium  thinking_off fail: wrong answer on test 1
+69/70 lcb/arc194_a    medium  thinking_off fail: wrong answer on test 1
+70/70 lcb/arc195_a    medium  thinking_off fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 6/31 (19%) | median thinking 0 | median all tokens 188 | hit the limit 4
+thinking_off medium   passed 0/39 (0%) | median thinking 0 | median all tokens 8192 | hit the limit 20
+
+saved /content/drive/MyDrive/stop-overthinking/results/0.8b/raw/test-off-lcb-graded.csv

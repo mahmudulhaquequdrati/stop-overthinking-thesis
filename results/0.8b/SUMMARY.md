@@ -1,14 +1,17 @@
-# 0.8B run — lean plan (not started)
+# 0.8b run — summary
 
-Open `notebooks/15a_qwen35_0_8b.ipynb` on Colab (A100).
-Raw files go in `raw/`. Fill this SUMMARY after the run.
+Raw folder: `results/0.8b/raw`
 
-Lean plan (DECISIONS #75): OFF · ON · limit512 · limit1024 · LoRA-1 · 1 try.
+| Way | Problems | Tries | Accuracy | Thinking | All tokens | Cut off % |
+|---|---|---|---|---|---|---|
+| off | 234 | 1 | 20.5% | 0 | 1118 | 12% |
+| on | 234 | 1 | 7.3% | 4509 | 4557 | 78% |
+| limit512 | 234 | 1 | 17.5% | 509 | 4198 | 68% |
+| limit1024 | 234 | 1 | 13.2% | 969 | 4299 | 69% |
+| lora1 | 234 | 1 | 17.9% | 3472 | 3627 | 55% |
 
-| Way | Accuracy | Thinking | All tokens | Cut off |
-|---|---|---|---|---|
-| OFF | — | — | — | — |
-| ON | — | — | — | — |
-| limit 512 | — | — | — | — |
-| limit 1024 | — | — | — | — |
-| LoRA-1 | — | — | — | — |
+## Status
+
+✅ Graded files found.
+
+Hours ledger (shared): `results/shared/hours_budget.json`

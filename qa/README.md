@@ -67,8 +67,9 @@
 | [30](30-the-complete-thesis.md) | The complete thesis, from top to bottom | 2026-09-25 |
 | [31](31-size-limit-extension.md) | Size × limit extension: 0.8B + 4B Colabs, LoRA-1 only | 2026-09-29 |
 | [32](32-4b-run.md) | 4B Colab run (fill after GPU run) | 2026-09-29 |
-| [33](33-all-models-compared.md) | All three models compared (fill after both runs) | 2026-09-29 |
+| [33](33-all-models-compared.md) | All three models compared | 2026-09-29 |
 | [34](34-lean-0.8b-plan.md) | Lean 0.8B test plan (≤50 compute hours) | 2026-09-29 |
+| [35](35-0.8b-run.md) | 0.8B Colab run (lean) | 2026-09-29 |
 
-**What has been run:** 2B thesis done · **4B Colab done** (~100 compute hours; best free way = limit2048 at 78.2%).  
-**Next:** Run lean **15a (0.8B)** on Colab A100 under ≤50 hours ([qa/34](34-lean-0.8b-plan.md), DECISIONS #74). Then fill [qa/33](33-all-models-compared.md).
+**What has been run:** 2B thesis done · **4B done** · **0.8B lean done**.  
+**Next:** fold size comparison into the thesis / paper ([SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md), [qa/33](33-all-models-compared.md)).

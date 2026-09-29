@@ -1,6 +1,6 @@
 {
   "cap_hours": 58.544,
-  "used_hours": 8.544,
+  "used_hours": 11.544,
   "runs": {
     "4b": {
       "stages": {
@@ -36,12 +36,19 @@
         }
       },
       "hours": 8.544
+    },
+    "0.8b": {
+      "hours": 3.0,
+      "stages": {
+        "note": "zip had no hours_budget.json; wall ~3h from Colab file times (smoke~04:36 \u2192 SUMMARY~07:18 UTC-ish)"
+      }
     }
   },
-  "note": "4B done: wall ledger 8.544h, user reports ~100 Colab compute hours used. Colab ~100 left; keep \u226550. 0.8B lean plan \u226450 more hours (DECISIONS #74).",
+  "note": "4B + 0.8B done. Wall ledger used_hours=11.544 (4B 8.544 + 0.8B ~3.0 estimated; zip lacked hours file). 0.8B lean: OFF best 20.5%; ON 7.3%; limit512 17.5%; LoRA-1 17.9%.",
   "updated": "2026-09-29",
   "colab_compute_hours_left": 100,
   "buffer_keep_hours": 50,
   "max_hours_for_0_8b": 50,
-  "4b_colab_compute_hours_est": 100
+  "4b_colab_compute_hours_est": 100,
+  "0_8b_wall_hours_est": 3.0
 }

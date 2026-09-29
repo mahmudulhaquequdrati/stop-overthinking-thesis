@@ -96,8 +96,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Size × limit: 4B DONE (#72–73, 2026-09-29)           │
 │           best = limit2048 78.2% · LoRA-1 69.9%               │
 │           ~100 Colab compute hours used for 4B               │
-│       ✅ Lean 0.8B plan: max limit 1024 (#75, qa/34) ← HERE   │
-│       ⬜ You RUN 15a on Colab A100 (0.8B, ≤50 compute h)      │
+│       ✅ Lean 0.8B DONE (#75–77): OFF best 20.5% ← HERE       │
+│           ON 7.3% · lim512 17.5% · LoRA-1 17.9% (1 try)     │
+│       ⬜ Write size-extension chapter into thesis / paper     │
 │       ⬜ You read thesis + fill in name/supervisor            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
