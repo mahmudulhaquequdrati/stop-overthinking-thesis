@@ -26,7 +26,7 @@ A stronger student (2B/4B) does best with a short thinking budget, not with open
 | ------------ | ------------ | ------------ | ------------ |
 | Thinking OFF | **20.5%**    | 40.8%        | 69.7%        |
 | Thinking ON  | 7.3%         | 42.1%        | 64.3%        |
-| Limit 512    | 17.5%        | —            | 75.4%        |
+| Limit 512    | 17.5%        | — *(nb 16)*  | 75.4%        |
 | Limit 1,024  | 13.2%        | **49.8%**    | 76.5%        |
 | Limit 2,048  | —            | —            | **78.2%**    |
 | Limit 4,096  | —            | —            | 76.7%        |
@@ -66,4 +66,6 @@ A stronger student (2B/4B) does best with a short thinking budget, not with open
 For small code models on one GPU: **try OFF and a short thinking limit first**.  
 Train with LoRA only if free ways are not enough — in these three sizes, training did not beat the best free option.
 
-Join table: [ALL-RESULTS.md](ALL-RESULTS.md) · DECISIONS #72–#77.
+Join table: [ALL-RESULTS.md](ALL-RESULTS.md) · DECISIONS #72–#81.
+
+**Next fill-in:** 2B × limit 512 only — [2b-limit512/RUN.md](2b-limit512/RUN.md) · notebook `16_qwen35_2b_limit512.ipynb`. Skip 2048 on 2B for now (1024 already won on 2B; 4B already showed 2048).

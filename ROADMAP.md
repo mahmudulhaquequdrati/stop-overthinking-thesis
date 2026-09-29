@@ -99,7 +99,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │           best = limit2048 78.2% · LoRA-1 69.9%               │
 │           ~100 Colab compute hours used for 4B               │
 │       ✅ Lean 0.8B DONE (#75–77): OFF best 20.5%              │
-│       ✅ Size story in thesis (#78) · Teacher A→Z (#79) ←HERE │
+│       ✅ Size story in thesis (#78) · Teacher A→Z (#79)       │
+│       ✅ Notebook 16 ready: 2B limit512 fill-in (#81) ←HERE  │
+│       ⬜ You RUN 16 on Colab A100 (optional table fill)      │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │

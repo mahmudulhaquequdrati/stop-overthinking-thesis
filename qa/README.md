@@ -72,8 +72,10 @@
 | [35](35-0.8b-run.md) | 0.8B Colab run (lean) | 2026-09-29 |
 | [36](36-size-extension-in-thesis.md) | Size extension written into the thesis | 2026-09-29 |
 | [37](37-thesis-a-to-z-teacher.md) | Thesis A→Z + what to tell the teacher | 2026-09-29 |
+| [38](38-2b-limit512-fill.md) | 2B limit-512 fill-in (notebook 16) | 2026-09-29 |
 
 **What has been run:** 2B · 4B · 0.8B lean — all graded. Thesis + PDF include the size story.  
+**Optional fill-in:** notebook **16** = 2B × limit512 only ([qa/38](38-2b-limit512-fill.md)).  
 **Before a meeting:** open [TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md).  
 **All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md).  
-**Next:** fill name/supervisor in `thesis/00-front-matter.md`; practice Opening answers out loud.
+**Next:** Run notebook 16 on Colab if you want the Limit 512 cell filled; fill name/supervisor before hand-in.
