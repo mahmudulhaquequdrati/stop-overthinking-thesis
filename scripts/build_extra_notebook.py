@@ -140,27 +140,57 @@ print("hour file", HOURS, "cap", CAP_H, "spare", FLOOR_H)
 
     cells.append(md("""## 3. Fast path
 
+Qwen is very slow without two small libraries. This cell installs them.
+A wheel saved on Drive from an older Colab is deleted if it does not import.
 Must print **FAST PATH ON**. If it stays off, stop. A slow run wastes the hours."""))
-    cells.append(code("""def fast_path_ok():
-    return subprocess.run(
+    cells.append(code("""def fast_path_error():
+    p = subprocess.run(
         [sys.executable, "-c", "import causal_conv1d, fla"],
-        capture_output=True).returncode == 0
+        capture_output=True, text=True)
+    if p.returncode == 0:
+        return ""
+    return ((p.stderr or "") + (p.stdout or "")).strip()[-800:]
 
-for attempt in (1, 2):
-    if fast_path_ok():
-        break
-    whl = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
-    if not whl:
-        print("building causal-conv1d once, then saving the wheel")
-        sh(f"pip wheel -q causal-conv1d --no-build-isolation --no-deps -w {WHEELS}")
-        whl = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
-    if not whl:
-        raise RuntimeError("no causal_conv1d wheel")
-    sh(f"pip install -q --no-deps {whl[0]}")
-    sh("pip install -q --no-deps flash-linear-attention || pip install -q flash-linear-attention")
+def fast_path_ok():
+    return fast_path_error() == ""
+
+os.chdir("/content")
+print("fast path at start:", "ON" if fast_path_ok() else "off")
+
+saved = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
+if saved and not fast_path_ok():
+    print("trying saved wheel", os.path.basename(saved[0]))
+    sh(f"pip install -q --no-deps {saved[0]}")
+    sh("pip install -q flash-linear-attention")
 
 if not fast_path_ok():
-    raise RuntimeError("FAST PATH OFF — Restart session, re-run from the top.")
+    print("saved wheel does not match this Colab — deleting it")
+    err = fast_path_error()
+    if err:
+        print(err)
+    for w in glob.glob(f"{WHEELS}/causal_conv1d*.whl"):
+        try:
+            os.remove(w)
+        except OSError:
+            pass
+    sh("pip install -q ninja packaging wheel")
+    # A ready-made wheel is enough when one exists for this torch.
+    sh("pip install causal-conv1d || true")
+    sh("pip install -q flash-linear-attention")
+
+if not fast_path_ok():
+    print("no ready-made wheel — building causal-conv1d. This can take 5–15 min.")
+    sh(f"pip wheel causal-conv1d --no-build-isolation --no-deps -w {WHEELS}")
+    built = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
+    if not built:
+        raise RuntimeError("could not build causal-conv1d. Scroll up for the pip error.")
+    sh(f"pip install --no-deps {built[0]}")
+    sh("pip install -q flash-linear-attention")
+
+err = fast_path_error()
+if err:
+    print(err)
+    raise RuntimeError("FAST PATH OFF — read the lines above. Restart session, then Run all.")
 print("FAST PATH ON")
 """))
 
