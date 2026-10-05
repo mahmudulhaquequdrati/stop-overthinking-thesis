@@ -48,7 +48,7 @@ this notebook        →  writes only to  results/extra/
 **Before Run all:** push this project to GitHub, then upload this notebook to Colab.
 Colab clones the repo by itself. You do not copy a code folder to Drive.
 
-Answers still go to Drive, so a stopped run can continue.
+Answers go to Drive when it mounts. If Drive fails, they stay on the Colab disk and a zip is written at the end.
 Add-on weights come from the repo. If one weight file is missing, that one way is skipped.
 
 DECISIONS #86."""))
@@ -62,10 +62,13 @@ print("pip done")
 
     cells.append(md("""## 2. GPU, Drive, GitHub
 
-Clones the project from GitHub. Answers go only under Drive `results/extra/`."""))
+Clones the project from GitHub.
+If Drive mounts, answers go to Drive `results/extra/`.
+If Drive fails, answers stay in `/content/extra-out/` and the run continues."""))
     cells.append(code("""import os, sys, json, subprocess, time, glob
 from IPython import get_ipython
 
+os.chdir("/content")
 name, mem = subprocess.run(
     ["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader,nounits"],
     capture_output=True, text=True).stdout.strip().split(", ")
@@ -81,13 +84,34 @@ def sh(cmd):
     if get_ipython().user_ns.get("_exit_code", 0) != 0:
         raise RuntimeError(f"FAILED: {cmd[:180]}")
 
-from google.colab import drive
-drive.mount("/content/drive")
+def try_mount():
+    from google.colab import drive
+    try:
+        drive.mount("/content/drive")
+    except Exception as e:
+        print("Drive mount failed:", type(e).__name__, e)
+        try:
+            drive.mount("/content/drive", force_remount=True)
+        except Exception as e2:
+            print("Drive mount failed again:", type(e2).__name__, e2)
+            return False
+    return os.path.isdir("/content/drive/MyDrive")
 
-D = "/content/drive/MyDrive/stop-overthinking/results"
-WHEELS = "/content/drive/MyDrive/stop-overthinking/wheels"
+DRIVE_OK = try_mount()
+if DRIVE_OK:
+    D = "/content/drive/MyDrive/stop-overthinking/results"
+    WHEELS = "/content/drive/MyDrive/stop-overthinking/wheels"
+    EXTRA_ROOT = f"{D}/extra"
+    print("saving scores on Drive:", EXTRA_ROOT)
+else:
+    D = "/content/extra-out"
+    WHEELS = "/content/wheels"
+    EXTRA_ROOT = "/content/extra-out"
+    print("Drive did not mount. Scores stay in /content/extra-out.")
+    print("A zip is written at the end. Download it before the session ends.")
 os.makedirs(D, exist_ok=True)
 os.makedirs(WHEELS, exist_ok=True)
+os.makedirs(EXTRA_ROOT, exist_ok=True)
 
 REPO = "https://github.com/mahmudulhaquequdrati/stop-overthinking-thesis.git"
 os.chdir("/content")
@@ -105,8 +129,6 @@ if missing:
         "STOP: GitHub is missing " + ", ".join(missing)
         + ". Push this project to master, then Runtime -> Run all again.")
 
-EXTRA_ROOT = f"{D}/extra"
-os.makedirs(EXTRA_ROOT, exist_ok=True)
 HOURS = f"{EXTRA_ROOT}/hours.json"
 CAP_H = 4.5          # real A100 hours. 4.5 x 6.77 units ≈ 30 units, inside a 50-unit pot
 FLOOR_H = 0.5        # never plan a step that would eat this spare time
@@ -155,6 +177,8 @@ def fast_path_ok():
     return fast_path_error() == ""
 
 os.chdir("/content")
+os.makedirs(WHEELS, exist_ok=True)
+print("wheels folder:", WHEELS)
 print("fast path at start:", "ON" if fast_path_ok() else "off")
 
 saved = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
@@ -419,7 +443,12 @@ refresh_summary()
 print()
 print("DONE")
 print("Scores:", EXTRA_ROOT + "/SUMMARY.md")
-print("Download results/extra/ back into the project. Then we update the thesis docs.")
+if not DRIVE_OK:
+    import shutil
+    shutil.make_archive("/content/extra-out-download", "zip", "/content", "extra-out")
+    print("Drive was not used. Download /content/extra-out-download.zip from the files panel.")
+else:
+    print("Download Drive results/extra/ back into the project. Then we update the thesis docs.")
 """))
 
     return {
