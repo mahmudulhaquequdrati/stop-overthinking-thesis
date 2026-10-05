@@ -74,6 +74,9 @@ PRODUCTION_OK = ("A100" in GPU or "H100" in GPU) and GPU_GB > 35
 print(f"GPU: {GPU} ({GPU_GB:.0f} GB) · " + ("OK" if PRODUCTION_OK else "NOT an A100 — stop"))
 
 def sh(cmd):
+    # A previous run may have deleted the folder we were standing in.
+    if not os.path.isdir(os.getcwd()):
+        os.chdir("/content")
     get_ipython().system(cmd)
     if get_ipython().user_ns.get("_exit_code", 0) != 0:
         raise RuntimeError(f"FAILED: {cmd[:180]}")
@@ -87,8 +90,9 @@ os.makedirs(D, exist_ok=True)
 os.makedirs(WHEELS, exist_ok=True)
 
 REPO = "https://github.com/mahmudulhaquequdrati/stop-overthinking-thesis.git"
+os.chdir("/content")
 sh("rm -rf /content/thesis")
-sh(f"git clone -q --depth 1 --branch master {REPO} /content/thesis")
+sh(f"git clone --depth 1 --branch master {REPO} /content/thesis")
 os.chdir("/content/thesis")
 sys.path.insert(0, "/content/thesis/scripts")
 print("code from GitHub:", REPO)
