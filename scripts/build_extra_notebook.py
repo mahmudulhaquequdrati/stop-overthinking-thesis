@@ -307,6 +307,8 @@ if err:
         "FAST PATH OFF. The speed libraries did not load. "
         "Copy the lines above and paste them here.")
 print("FAST PATH ON")
+os.chdir("/content/thesis")
+print("code folder:", os.getcwd())
 """))
 
     cells.append(md("""## 4. Build the 40 problems and show the lists
@@ -314,13 +316,16 @@ print("FAST PATH ON")
 The id list in git must match the rebuild. If it does not, the script stops.
 Old exam ids and old training ids are refused."""))
     cells.append(code("""import shutil
+# The fast-path cell stands in /content while it installs. The project lives in /content/thesis.
+os.chdir("/content/thesis")
+print("code folder:", os.getcwd())
 os.makedirs("data", exist_ok=True)
 saved = "results/extra/extra-lcb.json"
 if os.path.exists(saved):
     shutil.copy(saved, "data/extra-lcb.json")
     print("using the saved 40 problems — no new download")
 else:
-    sh("python scripts/build_extra_problems.py")
+    sh(sys.executable + " scripts/build_extra_problems.py")
 OLD = json.load(open("results/extra/old-test-ids.json"))
 TRAIN = json.load(open("results/extra/old-train-ids.json"))
 IDS = json.load(open("results/extra/ids.json"))

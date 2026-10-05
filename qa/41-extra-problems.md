@@ -31,6 +31,9 @@ No. We checked the ids. Overlap with the 234 exam ids: 0. Overlap with the 80 tr
 **Q: Why did the fast-path cell say "restart"?**
 It installed a speed library that did not match this Colab. The import failed. The message said to restart. A restart ran the same install, so it failed again. The cell now downloads the ready-made file whose name matches this Colab's PyTorch (DECISIONS #87).
 
+**Q: Why did Python say `/content/scripts/build_extra_problems.py` is missing?**
+The project is in `/content/thesis`. The fast-path cell had moved the notebook to `/content`. The next cell looked for `scripts/` in the wrong folder. It now walks back to `/content/thesis` first (DECISIONS #88).
+
 ---
 
 ## 3. Hard questions
@@ -58,4 +61,4 @@ No. Forty extra problems make the error bars only a little tighter. The question
 
 - **Lists:** [results/extra/LISTS.md](../results/extra/LISTS.md)
 - **Notebook:** [notebooks/18_extra_problems.ipynb](../notebooks/18_extra_problems.ipynb)
-- **Decision:** [DECISIONS.md](../DECISIONS.md) #86, fast-path fix #87
+- **Decision:** [DECISIONS.md](../DECISIONS.md) #86, fast-path fix #87, folder fix #88

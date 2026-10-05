@@ -107,8 +107,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Easy thesis folder (#85)                            │
 │           easy-thesis/FULL-THESIS.md                         │
 │       ✅ Extra 40 problems listed (#86)                       │
-│       ✅ Notebook 18 fast path fixed (#87) ←HERE              │
-│           scores not run yet · re-upload the notebook         │
+│       ✅ Notebook 18 fast path fixed (#87)                    │
+│       ✅ Notebook 18 returns to /content/thesis (#88) ←HERE   │
+│           scores not run yet · re-upload, then rerun cell 4   │
 │           results/extra/LISTS.md · total 234+40 = 274         │
 │       ⬜ Run notebook 18 on an A100 (do not rerun 14–17)      │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
@@ -249,8 +250,8 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: push this project to GitHub, upload the new notebook 18 to Colab, and Run all on an A100.**
-The copy already on Colab still has the old fast-path cell. Upload this file again.
+**Next, and it is one thing: push this project, upload the new notebook 18, then run the “40 problems” cell again.**
+If the fast-path cell already printed `FAST PATH ON`, do not redo it. Run from the cell that builds the 40 problems.
 Do **not** run notebooks 14–17 again. Those already finished the 234.
 Colab clones the repo itself. You do not copy a code folder to Drive.
 Then Runtime → A100 → **Run all**.
