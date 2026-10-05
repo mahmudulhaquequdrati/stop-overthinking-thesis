@@ -1,0 +1,86 @@
+1/80 lcb/3621        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+2/80 lcb/3632        easy    limit        fail: IndentationError: unexpected indent
+3/80 lcb/3651        easy    limit        PASS
+4/80 lcb/3656        easy    limit        fail: IndentationError: expected an indented block after function definition on line 2
+5/80 lcb/3676        easy    limit        PASS
+6/80 lcb/3684        easy    limit        fail: IndentationError: unexpected indent
+7/80 lcb/3685        easy    limit        PASS
+8/80 lcb/3702        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+9/80 lcb/abc382_a    easy    limit        PASS
+10/80 lcb/abc382_b    easy    limit        PASS
+11/80 lcb/abc383_a    easy    limit        PASS
+12/80 lcb/abc384_a    easy    limit        PASS
+13/80 lcb/abc384_b    easy    limit        PASS
+14/80 lcb/abc385_a    easy    limit        PASS
+15/80 lcb/abc385_b    easy    limit        PASS
+16/80 lcb/abc386_a    easy    limit        fail: wrong answer on test 1
+17/80 lcb/abc386_b    easy    limit        PASS
+18/80 lcb/3613        medium  limit        fail: wrong answer on test 1
+19/80 lcb/3620        medium  limit        fail: SyntaxError: invalid syntax
+20/80 lcb/3634        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 13)
+21/80 lcb/3649        medium  limit        PASS
+22/80 lcb/3653        medium  limit        PASS
+23/80 lcb/3655        medium  limit        fail: SyntaxError: unmatched '}'
+24/80 lcb/3657        medium  limit        fail: SyntaxError: unmatched '}'
+25/80 lcb/3659        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+26/80 lcb/3681        medium  limit        PASS
+27/80 lcb/3683        medium  limit        fail: SyntaxError: invalid syntax
+28/80 lcb/3686        medium  limit        fail: SyntaxError: invalid syntax
+29/80 lcb/3699        medium  limit        fail: IndentationError: expected an indented block after 'for' statement on line 100
+30/80 lcb/3715        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+31/80 lcb/3716        medium  limit        fail: IndentationError: expected an indented block after function definition on line 5
+32/80 lcb/abc382_c    medium  limit        fail: wrong answer on test 2
+33/80 lcb/abc383_b    medium  limit        PASS
+34/80 lcb/abc383_c    medium  limit        PASS
+35/80 lcb/abc383_d    medium  limit        PASS
+36/80 lcb/abc384_c    medium  limit        PASS
+37/80 lcb/abc384_d    medium  limit        fail: SyntaxError: invalid syntax
+38/80 lcb/abc385_c    medium  limit        PASS
+39/80 lcb/abc386_c    medium  limit        PASS
+40/80 lcb/arc189_a    medium  limit        fail: SyntaxError: invalid syntax
+41/80 lcb/3621        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 7)
+42/80 lcb/3632        easy    limit        fail: wrong answer on test 1
+43/80 lcb/3651        easy    limit        fail: IndentationError: unexpected indent
+44/80 lcb/3656        easy    limit        PASS
+45/80 lcb/3676        easy    limit        PASS
+46/80 lcb/3684        easy    limit        fail: IndentationError: expected an indented block after 'if' statement on line 10
+47/80 lcb/3685        easy    limit        PASS
+48/80 lcb/3702        easy    limit        fail: SyntaxError: invalid syntax
+49/80 lcb/abc382_a    easy    limit        PASS
+50/80 lcb/abc382_b    easy    limit        PASS
+51/80 lcb/abc383_a    easy    limit        PASS
+52/80 lcb/abc384_a    easy    limit        PASS
+53/80 lcb/abc384_b    easy    limit        PASS
+54/80 lcb/abc385_a    easy    limit        PASS
+55/80 lcb/abc385_b    easy    limit        PASS
+56/80 lcb/abc386_a    easy    limit        PASS
+57/80 lcb/abc386_b    easy    limit        PASS
+58/80 lcb/3613        medium  limit        fail: IndentationError: expected an indented block after function definition on line 5
+59/80 lcb/3620        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+60/80 lcb/3634        medium  limit        fail: IndexError: list index out of range
+61/80 lcb/3649        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+62/80 lcb/3653        medium  limit        fail: IndentationError: expected an indented block after function definition on line 2
+63/80 lcb/3655        medium  limit        fail: SyntaxError: invalid syntax
+64/80 lcb/3657        medium  limit        fail: SyntaxError: expected 'else' after 'if' expression
+65/80 lcb/3659        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+66/80 lcb/3681        medium  limit        fail: IndentationError: unexpected indent
+67/80 lcb/3683        medium  limit        fail: SyntaxError: invalid syntax
+68/80 lcb/3686        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+69/80 lcb/3699        medium  limit        fail: IndentationError: unexpected indent
+70/80 lcb/3715        medium  limit        fail: wrong answer on test 1
+71/80 lcb/3716        medium  limit        fail: SyntaxError: invalid syntax
+72/80 lcb/abc382_c    medium  limit        fail: IndentationError: unexpected indent
+73/80 lcb/abc383_b    medium  limit        PASS
+74/80 lcb/abc383_c    medium  limit        PASS
+75/80 lcb/abc383_d    medium  limit        PASS
+76/80 lcb/abc384_c    medium  limit        PASS
+77/80 lcb/abc384_d    medium  limit        fail: SyntaxError: expected 'else' after 'if' expression
+78/80 lcb/abc385_c    medium  limit        fail: wrong answer on test 1
+79/80 lcb/abc386_c    medium  limit        PASS
+80/80 lcb/arc189_a    medium  limit        fail: SyntaxError: invalid syntax
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 23/34 (68%) | median thinking 2048 | median all tokens 6935 | hit the limit 14
+limit        medium   passed 14/46 (30%) | median thinking 2048 | median all tokens 8193 | hit the limit 37
+
+saved /content/drive/MyDrive/stop-overthinking/results/extra/4b/test-limit2048-lcb-graded.csv

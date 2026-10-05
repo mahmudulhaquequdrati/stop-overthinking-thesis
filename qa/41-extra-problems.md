@@ -1,13 +1,13 @@
 # Q&A 41: Extra 40 problems (notebook 18)
 
-⬅️ [All Q&A](README.md) · Decision: [#86](../DECISIONS.md) · Lists: [results/extra/LISTS.md](../results/extra/LISTS.md)
+⬅️ [All Q&A](README.md) · Decision: [#86](../DECISIONS.md), scores [#89](../DECISIONS.md) · Scores: [results/extra/SUMMARY.md](../results/extra/SUMMARY.md)
 
 ---
 
 ## 1. The step in 2 sentences
 
-We listed 40 more LiveCodeBench problems that were not in the old exam and not in training.
-Notebook 18 will grade them later. The 234 scores are not changed. This step has **no new accuracy number yet**.
+We graded 40 more LiveCodeBench problems that were not in the old exam and not in training.
+A free way still wins. The 234 scores stay the first exam. On these 40, thinking OFF was best or tied the limit.
 
 ---
 
@@ -25,24 +25,30 @@ LiveCodeBench has no newer file than the one we already used. HumanEval+ is alre
 **Q: Could one of the 40 be a training problem?**
 No. We checked the ids. Overlap with the 234 exam ids: 0. Overlap with the 80 training ids: 0. Overlap of the question text with saved training questions: 0.
 
+**Q: What did they score?**
+0.8B thinking OFF **5.0%** (2/40). Every other 0.8B way, including training, scored 0. 2B thinking OFF **12.5%** (10/80). The 1,024 limit scored 8.8% (7/80). Thinking ON scored 0. 4B thinking OFF and the 2,048 limit both scored **46.2%** (37/80). Thinking ON scored 18.8% (15/80).
+
+**Q: Did the winner change?**
+On the first exam, no. 49.8% and 78.2% stay. On these 40, thinking OFF won or tied. The 2B gap is 3 answers out of 80. We have no error bars, so we do not call that a new proven winner.
+
+**Q: Why not replace 49.8% with one blended number?**
+The 40 are contest problems only. The old exam is mostly easy functions. A blend would be pulled by the old 234, and the new result would disappear. 2B and 4B training also did not run on these 40, so a full new headline table would have holes.
+
+**Q: Why is training missing on 2B and 4B?**
+2B training was skipped. The run continued to later free ways, and the score file has no 2B training rows, so the weight files were not used. 4B stopped after thinking ON. The clock file shows 3.7 hours used of a 4.5 hour cap, with half an hour kept spare.
+
 **Q: Why not a 500-token limit or a 2000-token limit?**
-2B already has limit 512 and limit 2048 on the old 234. The new run copies those settings. It does not invent a new one.
-
-**Q: Why did the fast-path cell say "restart"?**
-It installed a speed library that did not match this Colab. The import failed. The message said to restart. A restart ran the same install, so it failed again. The cell now downloads the ready-made file whose name matches this Colab's PyTorch (DECISIONS #87).
-
-**Q: Why did Python say `/content/scripts/build_extra_problems.py` is missing?**
-The project is in `/content/thesis`. The fast-path cell had moved the notebook to `/content`. The next cell looked for `scripts/` in the wrong folder. It now walks back to `/content/thesis` first (DECISIONS #88).
+2B already has limit 512 and limit 2048 on the old 234. The new run copies those settings. It does not invent a new one. 2B's 2,048 cell is still 1 try (3/40 = 7.5%).
 
 ---
 
 ## 3. Hard questions
 
 **Q: Is 274 now the thesis number?**
-Not yet. The thesis number stays 234 until notebook 18 has been run and the extra table is written beside it. We will not replace 49.8% or 78.2% with a mixed number in the main table.
+No. The thesis exam stays 234. The 40 are a second table in the easy thesis results chapter.
 
 **Q: Does this prove a sharper result?**
-No. Forty extra problems make the error bars only a little tighter. The question is whether the same free way still wins.
+No. Forty problems do not tighten the old error bars. The new fact is that a free way still wins when the questions are newer contest problems, and thinking ON is weaker there.
 
 ---
 
@@ -50,15 +56,15 @@ No. Forty extra problems make the error bars only a little tighter. The question
 
 | ✅ We checked this | ❌ We only assume this |
 |---|---|
-| 234 old exam ids, same in every model folder | That the add-on weight files are still on Drive |
-| 80 training ids, none inside the 234 | How many real hours notebook 18 will take |
-| 40 new ids, no overlap, saved in `results/extra/` | The extra scores — not run yet |
-| Wheel names on the causal-conv1d release (v1.7.0) match torch 2.6–2.10 and 26.02–26.07 | That this download loads on the A100 — not run yet |
+| Graded files match the summary: 40 problems, 17 easy, 23 medium | Error bars on these 40 — not computed |
+| Try counts: 0.8B is 1 try, most 2B and all 4B rows are 2 tries, 2B limit 2048 is 1 try | The Colab screen itself — we read the saved zip |
+| 2B and 4B training rows are absent from the score file | That a missing 2B weight file is the only reason those rows are absent |
+| Hours file: 3.657 hours used, cap 4.5 | |
 
 ---
 
 ## 5. Where this is written down
 
-- **Lists:** [results/extra/LISTS.md](../results/extra/LISTS.md)
-- **Notebook:** [notebooks/18_extra_problems.ipynb](../notebooks/18_extra_problems.ipynb)
-- **Decision:** [DECISIONS.md](../DECISIONS.md) #86, fast-path fix #87, folder fix #88
+- **Scores:** [results/extra/SUMMARY.md](../results/extra/SUMMARY.md)
+- **Easy thesis:** [easy-thesis/05-results.md](../easy-thesis/05-results.md) and [easy-thesis/FULL-THESIS.md](../easy-thesis/FULL-THESIS.md)
+- **Decision:** [DECISIONS.md](../DECISIONS.md) #86, #87, #88, #89

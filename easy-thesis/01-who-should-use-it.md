@@ -86,6 +86,9 @@ A giant model would spend more time and money on problems this size can already 
 We did **not** test a model bigger than 4B.
 We did **not** test hard contest problems.
 On those, a bigger model may still be the right tool.
+We did grade 40 newer easy and medium contest problems.
+On those, thinking OFF matched or beat the limit.
+The table is in [05-results.md](05-results.md).
 
 **Keep code private.**
 If the model runs on your own computer, the source code stays with you.
@@ -99,6 +102,7 @@ This is advice from the setup, not a measured security result.
 | Checked | Not checked |
 |---|---|
 | Accuracy and tokens on 234 code problems | Privacy attacks or secret leaks |
+| A later 40 contest problems | 2B and 4B training on those 40 |
 | Three sizes in one family (Qwen3.5) | Models bigger than 4B |
 | Real benchmark tests, not a human reading the code | Hard problems and math |
 | A free limit beats the trained add-on on each size | Every possible "think briefly" wording |

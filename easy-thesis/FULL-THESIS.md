@@ -80,6 +80,21 @@ Three sizes, same 234 problems:
 
 The trained add-on never beat the best free way.
 
+## Later check
+
+We also graded 40 newer contest problems.
+A free way still wins.
+Thinking OFF was best, or it tied the limit.
+
+| Size | On these 40 | Thinking ON |
+|---|---|---|
+| 0.8B (1 try) | OFF 5.0% (2/40) | 0% |
+| 2B (2 tries) | OFF 12.5% (10/80) | 0% |
+| 4B (2 tries) | OFF 46.2%, tied with limit 2,048 | 18.8% |
+
+The first exam scores above stay the exam scores.
+The full table is in the results chapter below.
+
 ## Why
 
 Most very long answers were loops.
@@ -182,6 +197,9 @@ A giant model would spend more time and money on problems this size can already 
 We did **not** test a model bigger than 4B.
 We did **not** test hard contest problems.
 On those, a bigger model may still be the right tool.
+We did grade 40 newer easy and medium contest problems.
+On those, thinking OFF matched or beat the limit.
+The table is in the results chapter below.
 
 **Keep code private.**
 If the model runs on your own computer, the source code stays with you.
@@ -195,6 +213,7 @@ This is advice from the setup, not a measured security result.
 | Checked | Not checked |
 |---|---|
 | Accuracy and tokens on 234 code problems | Privacy attacks or secret leaks |
+| A later 40 contest problems | 2B and 4B training on those 40 |
 | Three sizes in one family (Qwen3.5) | Models bigger than 4B |
 | Real benchmark tests, not a human reading the code | Hard problems and math |
 | A free limit beats the trained add-on on each size | Every possible "think briefly" wording |
@@ -724,6 +743,60 @@ Bigger is more accurate on every way.
 The free winner still changes with size.
 LoRA-1 still loses.
 
+## A later check: 40 newer contest problems
+
+The first exam stays **234** problems.
+The scores above do not change.
+
+After that exam, we graded **40** more LiveCodeBench problems.
+The dates run from 30 November 2024 to 4 January 2025.
+17 are easy. 23 are medium.
+None are in the exam. None are in training.
+This list has no easy function questions.
+That is why every score here is lower.
+
+The run took **3.7 hours** on an A100, under a 4.5 hour cap.
+
+| Way | 0.8B (1 try) | 2B | 4B (2 tries) |
+|---|---|---|---|
+| Thinking OFF | **5.0%** (2/40) | **12.5%** (10/80) | **46.2%** (37/80) |
+| Thinking ON | 0% (0/40) | 0% (0/80) | 18.8% (15/80) |
+| Limit 512 | 0% | 6.2% (5/80) | not run |
+| Limit 1,024 | 0% | 8.8% (7/80) | not run |
+| Limit 2,048 | — | 7.5% (3/40, 1 try) | **46.2%** (37/80) |
+| Think briefly | — | 5.0% (4/80) | — |
+| LoRA-1 | 0% (0/40) | not run | not run |
+
+On these 40, a free way still wins.
+Thinking OFF wins on 0.8B and on 2B.
+On 4B, OFF and the 2,048 limit tie.
+Thinking ON is the weak way.
+It hit the token wall on **92%** of 2B answers and **81%** of 4B answers.
+
+The 2B lead for OFF is **3 answers out of 80**.
+We have not drawn error bars, so this is not a new proven winner.
+It is enough to say the 1,024 limit did not win this list.
+
+On 4B the tie splits by difficulty:
+
+| 4B way | Easy (34 answers) | Medium (46 answers) |
+|---|---|---|
+| Thinking OFF | **73.5%** | 26.1% |
+| Limit 2,048 | 67.6% | **30.4%** |
+| Thinking ON | 41.2% | 2.2% |
+
+2B training and 4B training did not run on these 40.
+The 2B weight files were missing, so those ways were skipped.
+4B stopped after thinking ON.
+The next job would have broken the spare half hour.
+On 0.8B, training scored **0 out of 40**. OFF still won.
+
+These 40 stay in their own table.
+The first exam was locked before anyone saw a score.
+Adding them into 49.8% would hide this result, because the old 234 would still dominate the average.
+
+The saved scores are in [../results/extra/SUMMARY.md](../results/extra/SUMMARY.md).
+
 ## The early test, for contrast
 
 On 100 easy MBPP+ problems that look like the training data, LoRA-1 scored **65%** against **50%** and used **41% fewer tokens**.
@@ -896,9 +969,22 @@ On the same 234 problems:
    and only if new problems look like the training problems.
 ```
 
+## The later 40 contest problems
+
+The size rule above is for the first exam.
+That exam is mostly easy functions.
+
+On 40 newer contest problems, start with thinking OFF on every size we tested.
+On 4B, also try a 2,048 limit.
+It tied OFF at **46.2%**.
+On the medium ones it was a bit higher: **30.4%** against OFF at **26.1%**.
+
+Training was not retested on 2B or 4B for these 40.
+On 0.8B it scored **0 out of 40**.
+
 ## Who should not expect a miracle
 
-- **Medium and hard contest problems.** On LiveCodeBench medium, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%.
+- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 40 newer problems, 2B medium was still near the floor: OFF 6.5%, limit 1,024 at 4.3%.
 - **A giant model.** We stopped at 4B. A 9B model might loop less and might finally have long finished thinking that training can shorten. That is still open.
 - **A privacy proof.** Running locally can keep code on your machine. We did not test attacks or leaks.
 - **Another "be brief" sentence.** We tested one wording. It clashed with "one code block only".
@@ -1071,6 +1157,9 @@ A: No. A clear no, with a measured reason, is a result. The reason is loops, not
 
 **Q: Then what did you contribute?**
 A: A fair comparison of training against three free controls on one small code model, plus the same 234 problems on two more sizes. The practical rule is: match a free cap to the size. Training did not beat that rule.
+
+**Q: Did 40 more problems change the winner?**
+A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
 
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

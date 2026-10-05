@@ -20,11 +20,23 @@ This file is rewritten after every graded way, so a stopped run still has its sc
 
 ### 0.8b — extra problems only
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| limit1024 | 0.0% | 0/40 |
+| limit512 | 0.0% | 0/40 |
+| lora1 | 0.0% | 0/40 |
+| off | 5.0% | 2/40 |
+| on | 0.0% | 0/40 |
 
 ### 0.8b — old plus extra
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| limit1024 | 11.3% | 31/274 |
+| limit512 | 15.0% | 41/274 |
+| lora1 | 15.3% | 42/274 |
+| off | 18.2% | 50/274 |
+| on | 6.2% | 17/274 |
 
 ### 2b — old exam (frozen)
 
@@ -41,11 +53,25 @@ No graded files yet.
 
 ### 2b — extra problems only
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| brief | 5.0% | 4/80 |
+| limit1024 | 8.8% | 7/80 |
+| limit2048 | 7.5% | 3/40 |
+| limit512 | 6.2% | 5/80 |
+| off | 12.5% | 10/80 |
+| on | 0.0% | 0/80 |
 
 ### 2b — old plus extra
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| brief | 6.4% | 35/548 |
+| limit1024 | 43.8% | 240/548 |
+| limit2048 | 40.9% | 112/274 |
+| limit512 | 39.4% | 216/548 |
+| off | 36.7% | 201/548 |
+| on | 35.9% | 197/548 |
 
 ### 4b — old exam (frozen)
 
@@ -61,8 +87,16 @@ No graded files yet.
 
 ### 4b — extra problems only
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| limit2048 | 46.2% | 37/80 |
+| off | 46.2% | 37/80 |
+| on | 18.8% | 15/80 |
 
 ### 4b — old plus extra
 
-No graded files yet.
+| Way | Accuracy | Passed |
+|---|---|---|
+| limit2048 | 73.5% | 403/548 |
+| off | 66.2% | 363/548 |
+| on | 57.7% | 316/548 |

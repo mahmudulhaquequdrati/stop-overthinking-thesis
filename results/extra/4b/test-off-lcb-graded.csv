@@ -1,0 +1,81 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3621,0,easy,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3632,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,237,False
+thinking_off,lcb/3651,0,easy,False,wrong answer on test 1,0,177,False
+thinking_off,lcb/3656,0,easy,False,wrong answer on test 1,0,147,False
+thinking_off,lcb/3676,0,easy,True,,0,126,False
+thinking_off,lcb/3684,0,easy,True,,0,251,False
+thinking_off,lcb/3685,0,easy,True,,0,140,False
+thinking_off,lcb/3702,0,easy,True,,0,262,False
+thinking_off,lcb/abc382_a,0,easy,True,,0,215,False
+thinking_off,lcb/abc382_b,0,easy,True,,0,246,False
+thinking_off,lcb/abc383_a,0,easy,True,,0,239,False
+thinking_off,lcb/abc384_a,0,easy,True,,0,296,False
+thinking_off,lcb/abc384_b,0,easy,True,,0,228,False
+thinking_off,lcb/abc385_a,0,easy,True,,0,641,False
+thinking_off,lcb/abc385_b,0,easy,True,,0,557,False
+thinking_off,lcb/abc386_a,0,easy,True,,0,1350,False
+thinking_off,lcb/abc386_b,0,easy,True,,0,3136,False
+thinking_off,lcb/3613,0,medium,False,wrong answer on test 1,0,1589,False
+thinking_off,lcb/3620,0,medium,False,wrong answer on test 1,0,156,False
+thinking_off,lcb/3634,0,medium,False,timeout on test 5,0,174,False
+thinking_off,lcb/3649,0,medium,False,timeout on test 3,0,3564,False
+thinking_off,lcb/3653,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,1165,False
+thinking_off,lcb/3655,0,medium,True,,0,6910,False
+thinking_off,lcb/3657,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,2596,False
+thinking_off,lcb/3659,0,medium,True,,0,577,False
+thinking_off,lcb/3681,0,medium,False,wrong answer on test 3,0,708,False
+thinking_off,lcb/3683,0,medium,False,SyntaxError: unterminated triple-quoted string literal (detected at line 425),0,8192,True
+thinking_off,lcb/3686,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3699,0,medium,False,AttributeError: 'list' object has no attribute 'items',0,489,False
+thinking_off,lcb/3715,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3716,0,medium,False,wrong answer on test 1,0,564,False
+thinking_off,lcb/abc382_c,0,medium,False,wrong answer on test 2,0,3664,False
+thinking_off,lcb/abc383_b,0,medium,True,,0,497,False
+thinking_off,lcb/abc383_c,0,medium,False,wrong answer on test 1,0,688,False
+thinking_off,lcb/abc383_d,0,medium,True,,0,1019,False
+thinking_off,lcb/abc384_c,0,medium,True,,0,258,False
+thinking_off,lcb/abc384_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_c,0,medium,False,wrong answer on test 3,0,1095,False
+thinking_off,lcb/abc386_c,0,medium,True,,0,1110,False
+thinking_off,lcb/arc189_a,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/3621,1,easy,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3632,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,159,False
+thinking_off,lcb/3651,1,easy,True,,0,163,False
+thinking_off,lcb/3656,1,easy,True,,0,158,False
+thinking_off,lcb/3676,1,easy,True,,0,119,False
+thinking_off,lcb/3684,1,easy,False,wrong answer on test 1,0,199,False
+thinking_off,lcb/3685,1,easy,False,wrong answer on test 8,0,97,False
+thinking_off,lcb/3702,1,easy,True,,0,199,False
+thinking_off,lcb/abc382_a,1,easy,True,,0,174,False
+thinking_off,lcb/abc382_b,1,easy,True,,0,370,False
+thinking_off,lcb/abc383_a,1,easy,True,,0,213,False
+thinking_off,lcb/abc384_a,1,easy,True,,0,157,False
+thinking_off,lcb/abc384_b,1,easy,True,,0,226,False
+thinking_off,lcb/abc385_a,1,easy,False,wrong answer on test 3,0,601,False
+thinking_off,lcb/abc385_b,1,easy,True,,0,488,False
+thinking_off,lcb/abc386_a,1,easy,True,,0,441,False
+thinking_off,lcb/abc386_b,1,easy,True,,0,610,False
+thinking_off,lcb/3613,1,medium,False,IndexError: list index out of range,0,1767,False
+thinking_off,lcb/3620,1,medium,False,wrong answer on test 1,0,197,False
+thinking_off,lcb/3634,1,medium,False,timeout on test 5,0,295,False
+thinking_off,lcb/3649,1,medium,True,,0,2539,False
+thinking_off,lcb/3653,1,medium,False,wrong answer on test 1,0,1233,False
+thinking_off,lcb/3655,1,medium,False,IndexError: list index out of range,0,3502,False
+thinking_off,lcb/3657,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/3659,1,medium,True,,0,412,False
+thinking_off,lcb/3681,1,medium,False,TypeError: unhashable type: 'list',0,556,False
+thinking_off,lcb/3683,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3686,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3699,1,medium,False,IndexError: list assignment index out of range,0,8192,True
+thinking_off,lcb/3715,1,medium,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3716,1,medium,False,wrong answer on test 1,0,244,False
+thinking_off,lcb/abc382_c,1,medium,False,wrong answer on test 2,0,1664,False
+thinking_off,lcb/abc383_b,1,medium,True,,0,671,False
+thinking_off,lcb/abc383_c,1,medium,False,wrong answer on test 1,0,675,False
+thinking_off,lcb/abc383_d,1,medium,True,,0,880,False
+thinking_off,lcb/abc384_c,1,medium,True,,0,266,False
+thinking_off,lcb/abc384_d,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_c,1,medium,False,TypeError: object of type 'int' has no len(),0,2177,False
+thinking_off,lcb/abc386_c,1,medium,True,,0,517,False
+thinking_off,lcb/arc189_a,1,medium,False,SyntaxError: invalid syntax,0,8192,True

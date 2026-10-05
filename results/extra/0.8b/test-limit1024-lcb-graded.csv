@@ -1,0 +1,41 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,lcb/3621,0,easy,False,IndentationError: expected an indented block after function definition on line 5,1024,8193,True
+limit,lcb/3632,0,easy,False,IndentationError: expected an indented block after function definition on line 5,1024,8193,True
+limit,lcb/3651,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3656,0,easy,False,IndentationError: expected an indented block after function definition on line 3,1024,8193,True
+limit,lcb/3676,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3684,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3685,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3702,0,easy,False,wrong answer on test 1,408,1653,False
+limit,lcb/abc382_a,0,easy,False,IndentationError: unexpected indent,1024,8193,True
+limit,lcb/abc382_b,0,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc383_a,0,easy,False,SyntaxError: unterminated string literal (detected at line 40),1024,8193,True
+limit,lcb/abc384_a,0,easy,False,wrong answer on test 1,1024,8193,True
+limit,lcb/abc384_b,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),1024,8193,True
+limit,lcb/abc385_a,0,easy,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc385_b,0,easy,False,IndentationError: unexpected indent,1024,8193,True
+limit,lcb/abc386_a,0,easy,False,SyntaxError: unterminated string literal (detected at line 17),1024,8193,True
+limit,lcb/abc386_b,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),1024,8193,True
+limit,lcb/3613,0,medium,False,SyntaxError: unterminated string literal (detected at line 3),1024,8193,True
+limit,lcb/3620,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3634,0,medium,False,IndentationError: expected an indented block after function definition on line 3,1024,8193,True
+limit,lcb/3649,0,medium,False,SyntaxError: unterminated string literal (detected at line 3),1024,8193,True
+limit,lcb/3653,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/3655,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3657,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/3659,0,medium,False,SyntaxError: unmatched ']',1024,1270,False
+limit,lcb/3681,0,medium,False,SyntaxError: unterminated string literal (detected at line 11),1024,8193,True
+limit,lcb/3683,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3686,0,medium,False,wrong answer on test 1,1024,8193,True
+limit,lcb/3699,0,medium,False,IndentationError: unexpected indent,1024,8193,True
+limit,lcb/3715,0,medium,False,SyntaxError: unterminated string literal (detected at line 17),1024,8193,True
+limit,lcb/3716,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,1024,8193,True
+limit,lcb/abc382_c,0,medium,False,IndentationError: unexpected indent,1024,8193,True
+limit,lcb/abc383_b,0,medium,False,SyntaxError: unterminated string literal (detected at line 1),1024,8193,True
+limit,lcb/abc383_c,0,medium,False,SyntaxError: unmatched ')',1024,8193,True
+limit,lcb/abc383_d,0,medium,False,SyntaxError: unexpected character after line continuation character,1024,8193,True
+limit,lcb/abc384_c,0,medium,False,IndentationError: unexpected indent,1024,1546,False
+limit,lcb/abc384_d,0,medium,False,SyntaxError: invalid syntax,1024,8193,True
+limit,lcb/abc385_c,0,medium,False,SyntaxError: unterminated string literal (detected at line 10),1024,8193,True
+limit,lcb/abc386_c,0,medium,False,wrong answer on test 1,923,8092,True
+limit,lcb/arc189_a,0,medium,False,SyntaxError: unterminated string literal (detected at line 1),1024,8193,True

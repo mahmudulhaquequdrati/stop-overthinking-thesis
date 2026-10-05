@@ -1,0 +1,22 @@
+{
+  "cap_hours": 4.5,
+  "floor_hours": 0.5,
+  "used_hours": 3.657,
+  "runs": {
+    "0.8b/off": 0.174,
+    "0.8b/limit512": 0.153,
+    "0.8b/on": 0.149,
+    "0.8b/lora1": 0.148,
+    "0.8b/limit1024": 0.152,
+    "2b/limit1024": 0.209,
+    "2b/off": 0.197,
+    "2b/on": 0.194,
+    "2b/limit512": 0.239,
+    "2b/limit2048": 0.065,
+    "2b/brief": 0.196,
+    "4b/limit2048": 0.603,
+    "4b/off": 0.602,
+    "4b/on": 0.576
+  },
+  "note": "notebook 18 only. Does not touch the old shared ledger."
+}

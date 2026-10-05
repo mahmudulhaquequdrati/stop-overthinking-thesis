@@ -19,7 +19,7 @@ Or read one chapter at a time:
 | [06-why-it-works.md](06-why-it-works.md) | Loops, cost, and why a limit wins |
 | [07-advice-and-limits.md](07-advice-and-limits.md) | What to do, and what we did not prove |
 | [08-all-answers.md](08-all-answers.md) | Short answers to teacher and user questions |
-| [09-extra-problems.md](09-extra-problems.md) | 40 later problems. Not scored yet |
+| [09-extra-problems.md](09-extra-problems.md) | 40 later contest problems. Scored. A free way still wins |
 | [WORDS.md](WORDS.md) | Hard words, one line each |
 
 ```text

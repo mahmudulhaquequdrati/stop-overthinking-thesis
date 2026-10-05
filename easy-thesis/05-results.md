@@ -131,6 +131,60 @@ Bigger is more accurate on every way.
 The free winner still changes with size.
 LoRA-1 still loses.
 
+## A later check: 40 newer contest problems
+
+The first exam stays **234** problems.
+The scores above do not change.
+
+After that exam, we graded **40** more LiveCodeBench problems.
+The dates run from 30 November 2024 to 4 January 2025.
+17 are easy. 23 are medium.
+None are in the exam. None are in training.
+This list has no easy function questions.
+That is why every score here is lower.
+
+The run took **3.7 hours** on an A100, under a 4.5 hour cap.
+
+| Way | 0.8B (1 try) | 2B | 4B (2 tries) |
+|---|---|---|---|
+| Thinking OFF | **5.0%** (2/40) | **12.5%** (10/80) | **46.2%** (37/80) |
+| Thinking ON | 0% (0/40) | 0% (0/80) | 18.8% (15/80) |
+| Limit 512 | 0% | 6.2% (5/80) | not run |
+| Limit 1,024 | 0% | 8.8% (7/80) | not run |
+| Limit 2,048 | — | 7.5% (3/40, 1 try) | **46.2%** (37/80) |
+| Think briefly | — | 5.0% (4/80) | — |
+| LoRA-1 | 0% (0/40) | not run | not run |
+
+On these 40, a free way still wins.
+Thinking OFF wins on 0.8B and on 2B.
+On 4B, OFF and the 2,048 limit tie.
+Thinking ON is the weak way.
+It hit the token wall on **92%** of 2B answers and **81%** of 4B answers.
+
+The 2B lead for OFF is **3 answers out of 80**.
+We have not drawn error bars, so this is not a new proven winner.
+It is enough to say the 1,024 limit did not win this list.
+
+On 4B the tie splits by difficulty:
+
+| 4B way | Easy (34 answers) | Medium (46 answers) |
+|---|---|---|
+| Thinking OFF | **73.5%** | 26.1% |
+| Limit 2,048 | 67.6% | **30.4%** |
+| Thinking ON | 41.2% | 2.2% |
+
+2B training and 4B training did not run on these 40.
+The 2B weight files were missing, so those ways were skipped.
+4B stopped after thinking ON.
+The next job would have broken the spare half hour.
+On 0.8B, training scored **0 out of 40**. OFF still won.
+
+These 40 stay in their own table.
+The first exam was locked before anyone saw a score.
+Adding them into 49.8% would hide this result, because the old 234 would still dominate the average.
+
+The saved scores are in [../results/extra/SUMMARY.md](../results/extra/SUMMARY.md).
+
 ## The early test, for contrast
 
 On 100 easy MBPP+ problems that look like the training data, LoRA-1 scored **65%** against **50%** and used **41% fewer tokens**.

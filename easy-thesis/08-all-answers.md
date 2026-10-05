@@ -135,5 +135,8 @@ A: No. A clear no, with a measured reason, is a result. The reason is loops, not
 **Q: Then what did you contribute?**
 A: A fair comparison of training against three free controls on one small code model, plus the same 234 problems on two more sizes. The practical rule is: match a free cap to the size. Training did not beat that rule.
 
+**Q: Did 40 more problems change the winner?**
+A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
+
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

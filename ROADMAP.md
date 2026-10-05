@@ -108,10 +108,12 @@ We also check whether just saying "don't think, just answer" works as well.
 │           easy-thesis/FULL-THESIS.md                         │
 │       ✅ Extra 40 problems listed (#86)                       │
 │       ✅ Notebook 18 fast path fixed (#87)                    │
-│       ✅ Notebook 18 returns to /content/thesis (#88) ←HERE   │
-│           scores not run yet · re-upload, then rerun cell 4   │
-│           results/extra/LISTS.md · total 234+40 = 274         │
-│       ⬜ Run notebook 18 on an A100 (do not rerun 14–17)      │
+│       ✅ Notebook 18 returns to /content/thesis (#88)         │
+│       ✅ Extra 40 scored (#89) ←HERE                          │
+│           free way still wins · OFF best or tied              │
+│           2B OFF 12.5% · 4B OFF = limit2048 at 46.2%          │
+│           first exam stays 234 · 49.8% and 78.2%              │
+│           written into easy-thesis results + one page         │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │

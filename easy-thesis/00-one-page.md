@@ -56,6 +56,21 @@ Three sizes, same 234 problems:
 
 The trained add-on never beat the best free way.
 
+## Later check
+
+We also graded 40 newer contest problems.
+A free way still wins.
+Thinking OFF was best, or it tied the limit.
+
+| Size | On these 40 | Thinking ON |
+|---|---|---|
+| 0.8B (1 try) | OFF 5.0% (2/40) | 0% |
+| 2B (2 tries) | OFF 12.5% (10/80) | 0% |
+| 4B (2 tries) | OFF 46.2%, tied with limit 2,048 | 18.8% |
+
+The first exam scores above stay the exam scores.
+The full table is in [05-results.md](05-results.md).
+
 ## Why
 
 Most very long answers were loops.

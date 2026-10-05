@@ -1,0 +1,86 @@
+1/80 lcb/3621        easy    thinking_off fail: IndentationError: expected an indented block after function definition on line 5
+2/80 lcb/3632        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+3/80 lcb/3651        easy    thinking_off fail: wrong answer on test 1
+4/80 lcb/3656        easy    thinking_off fail: wrong answer on test 1
+5/80 lcb/3676        easy    thinking_off PASS
+6/80 lcb/3684        easy    thinking_off PASS
+7/80 lcb/3685        easy    thinking_off PASS
+8/80 lcb/3702        easy    thinking_off PASS
+9/80 lcb/abc382_a    easy    thinking_off PASS
+10/80 lcb/abc382_b    easy    thinking_off PASS
+11/80 lcb/abc383_a    easy    thinking_off PASS
+12/80 lcb/abc384_a    easy    thinking_off PASS
+13/80 lcb/abc384_b    easy    thinking_off PASS
+14/80 lcb/abc385_a    easy    thinking_off PASS
+15/80 lcb/abc385_b    easy    thinking_off PASS
+16/80 lcb/abc386_a    easy    thinking_off PASS
+17/80 lcb/abc386_b    easy    thinking_off PASS
+18/80 lcb/3613        medium  thinking_off fail: wrong answer on test 1
+19/80 lcb/3620        medium  thinking_off fail: wrong answer on test 1
+20/80 lcb/3634        medium  thinking_off fail: timeout on test 5
+21/80 lcb/3649        medium  thinking_off fail: timeout on test 3
+22/80 lcb/3653        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+23/80 lcb/3655        medium  thinking_off PASS
+24/80 lcb/3657        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+25/80 lcb/3659        medium  thinking_off PASS
+26/80 lcb/3681        medium  thinking_off fail: wrong answer on test 3
+27/80 lcb/3683        medium  thinking_off fail: SyntaxError: unterminated triple-quoted string literal (detected at line 425)
+28/80 lcb/3686        medium  thinking_off fail: wrong answer on test 1
+29/80 lcb/3699        medium  thinking_off fail: AttributeError: 'list' object has no attribute 'items'
+30/80 lcb/3715        medium  thinking_off fail: wrong answer on test 1
+31/80 lcb/3716        medium  thinking_off fail: wrong answer on test 1
+32/80 lcb/abc382_c    medium  thinking_off fail: wrong answer on test 2
+33/80 lcb/abc383_b    medium  thinking_off PASS
+34/80 lcb/abc383_c    medium  thinking_off fail: wrong answer on test 1
+35/80 lcb/abc383_d    medium  thinking_off PASS
+36/80 lcb/abc384_c    medium  thinking_off PASS
+37/80 lcb/abc384_d    medium  thinking_off fail: wrong answer on test 1
+38/80 lcb/abc385_c    medium  thinking_off fail: wrong answer on test 3
+39/80 lcb/abc386_c    medium  thinking_off PASS
+40/80 lcb/arc189_a    medium  thinking_off fail: SyntaxError: invalid syntax
+41/80 lcb/3621        easy    thinking_off fail: IndentationError: expected an indented block after function definition on line 5
+42/80 lcb/3632        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+43/80 lcb/3651        easy    thinking_off PASS
+44/80 lcb/3656        easy    thinking_off PASS
+45/80 lcb/3676        easy    thinking_off PASS
+46/80 lcb/3684        easy    thinking_off fail: wrong answer on test 1
+47/80 lcb/3685        easy    thinking_off fail: wrong answer on test 8
+48/80 lcb/3702        easy    thinking_off PASS
+49/80 lcb/abc382_a    easy    thinking_off PASS
+50/80 lcb/abc382_b    easy    thinking_off PASS
+51/80 lcb/abc383_a    easy    thinking_off PASS
+52/80 lcb/abc384_a    easy    thinking_off PASS
+53/80 lcb/abc384_b    easy    thinking_off PASS
+54/80 lcb/abc385_a    easy    thinking_off fail: wrong answer on test 3
+55/80 lcb/abc385_b    easy    thinking_off PASS
+56/80 lcb/abc386_a    easy    thinking_off PASS
+57/80 lcb/abc386_b    easy    thinking_off PASS
+58/80 lcb/3613        medium  thinking_off fail: IndexError: list index out of range
+59/80 lcb/3620        medium  thinking_off fail: wrong answer on test 1
+60/80 lcb/3634        medium  thinking_off fail: timeout on test 5
+61/80 lcb/3649        medium  thinking_off PASS
+62/80 lcb/3653        medium  thinking_off fail: wrong answer on test 1
+63/80 lcb/3655        medium  thinking_off fail: IndexError: list index out of range
+64/80 lcb/3657        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+65/80 lcb/3659        medium  thinking_off PASS
+66/80 lcb/3681        medium  thinking_off fail: TypeError: unhashable type: 'list'
+67/80 lcb/3683        medium  thinking_off fail: wrong answer on test 1
+68/80 lcb/3686        medium  thinking_off fail: wrong answer on test 1
+69/80 lcb/3699        medium  thinking_off fail: IndexError: list assignment index out of range
+70/80 lcb/3715        medium  thinking_off fail: IndentationError: expected an indented block after function definition on line 5
+71/80 lcb/3716        medium  thinking_off fail: wrong answer on test 1
+72/80 lcb/abc382_c    medium  thinking_off fail: wrong answer on test 2
+73/80 lcb/abc383_b    medium  thinking_off PASS
+74/80 lcb/abc383_c    medium  thinking_off fail: wrong answer on test 1
+75/80 lcb/abc383_d    medium  thinking_off PASS
+76/80 lcb/abc384_c    medium  thinking_off PASS
+77/80 lcb/abc384_d    medium  thinking_off fail: wrong answer on test 1
+78/80 lcb/abc385_c    medium  thinking_off fail: TypeError: object of type 'int' has no len()
+79/80 lcb/abc386_c    medium  thinking_off PASS
+80/80 lcb/arc189_a    medium  thinking_off fail: SyntaxError: invalid syntax
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 25/34 (74%) | median thinking 0 | median all tokens 232 | hit the limit 2
+thinking_off medium   passed 12/46 (26%) | median thinking 0 | median all tokens 1199 | hit the limit 12
+
+saved /content/drive/MyDrive/stop-overthinking/results/extra/4b/test-off-lcb-graded.csv

@@ -1,0 +1,86 @@
+1/80 lcb/3621        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+2/80 lcb/3632        easy    thinking_off fail: wrong answer on test 1
+3/80 lcb/3651        easy    thinking_off fail: wrong answer on test 1
+4/80 lcb/3656        easy    thinking_off fail: wrong answer on test 1
+5/80 lcb/3676        easy    thinking_off fail: wrong answer on test 1
+6/80 lcb/3684        easy    thinking_off fail: wrong answer on test 1
+7/80 lcb/3685        easy    thinking_off fail: wrong answer on test 8
+8/80 lcb/3702        easy    thinking_off fail: wrong answer on test 1
+9/80 lcb/abc382_a    easy    thinking_off PASS
+10/80 lcb/abc382_b    easy    thinking_off PASS
+11/80 lcb/abc383_a    easy    thinking_off fail: wrong answer on test 2
+12/80 lcb/abc384_a    easy    thinking_off PASS
+13/80 lcb/abc384_b    easy    thinking_off fail: wrong answer on test 1
+14/80 lcb/abc385_a    easy    thinking_off fail: wrong answer on test 5
+15/80 lcb/abc385_b    easy    thinking_off fail: ValueError: invalid literal for int() with base 10: '#'
+16/80 lcb/abc386_a    easy    thinking_off fail: wrong answer on test 1
+17/80 lcb/abc386_b    easy    thinking_off fail: wrong answer on test 1
+18/80 lcb/3613        medium  thinking_off fail: TypeError: unhashable type: 'list'
+19/80 lcb/3620        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+20/80 lcb/3634        medium  thinking_off fail: wrong answer on test 1
+21/80 lcb/3649        medium  thinking_off fail: wrong answer on test 1
+22/80 lcb/3653        medium  thinking_off fail: TypeError: unsupported operand type(s) for +: 'int' and 'list'
+23/80 lcb/3655        medium  thinking_off fail: AttributeError: 'Solution' object has no attribute 'is_prime'
+24/80 lcb/3657        medium  thinking_off fail: wrong answer on test 1
+25/80 lcb/3659        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+26/80 lcb/3681        medium  thinking_off fail: wrong answer on test 3
+27/80 lcb/3683        medium  thinking_off fail: wrong answer on test 1
+28/80 lcb/3686        medium  thinking_off fail: NameError: name 'nums1' is not defined. Did you mean: 'nums'?
+29/80 lcb/3699        medium  thinking_off fail: wrong answer on test 1
+30/80 lcb/3715        medium  thinking_off fail: TypeError: cannot unpack non-iterable int object
+31/80 lcb/3716        medium  thinking_off fail: IndentationError: expected an indented block after 'for' statement on line 46
+32/80 lcb/abc382_c    medium  thinking_off fail: wrong answer on test 1
+33/80 lcb/abc383_b    medium  thinking_off PASS
+34/80 lcb/abc383_c    medium  thinking_off fail: StopIteration
+35/80 lcb/abc383_d    medium  thinking_off fail: wrong answer on test 1
+36/80 lcb/abc384_c    medium  thinking_off PASS
+37/80 lcb/abc384_d    medium  thinking_off fail: wrong answer on test 1
+38/80 lcb/abc385_c    medium  thinking_off fail: wrong answer on test 1
+39/80 lcb/abc386_c    medium  thinking_off fail: IndentationError: expected an indented block after 'if' statement on line 18
+40/80 lcb/arc189_a    medium  thinking_off fail: SyntaxError: unterminated string literal (detected at line 1)
+41/80 lcb/3621        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+42/80 lcb/3632        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+43/80 lcb/3651        easy    thinking_off fail: wrong answer on test 1
+44/80 lcb/3656        easy    thinking_off fail: TypeError: pop expected at most 1 argument, got 2
+45/80 lcb/3676        easy    thinking_off fail: wrong answer on test 1
+46/80 lcb/3684        easy    thinking_off fail: wrong answer on test 1
+47/80 lcb/3685        easy    thinking_off fail: wrong answer on test 3
+48/80 lcb/3702        easy    thinking_off fail: wrong answer on test 1
+49/80 lcb/abc382_a    easy    thinking_off PASS
+50/80 lcb/abc382_b    easy    thinking_off PASS
+51/80 lcb/abc383_a    easy    thinking_off fail: UnboundLocalError: cannot access local variable 'prev_time' where it is not associated with a value
+52/80 lcb/abc384_a    easy    thinking_off PASS
+53/80 lcb/abc384_b    easy    thinking_off PASS
+54/80 lcb/abc385_a    easy    thinking_off fail: wrong answer on test 2
+55/80 lcb/abc385_b    easy    thinking_off fail: ValueError: 'L' is not in list
+56/80 lcb/abc386_a    easy    thinking_off fail: wrong answer on test 5
+57/80 lcb/abc386_b    easy    thinking_off fail: wrong answer on test 1
+58/80 lcb/3613        medium  thinking_off fail: wrong answer on test 1
+59/80 lcb/3620        medium  thinking_off fail: wrong answer on test 2
+60/80 lcb/3634        medium  thinking_off fail: wrong answer on test 1
+61/80 lcb/3649        medium  thinking_off fail: wrong answer on test 1
+62/80 lcb/3653        medium  thinking_off fail: wrong answer on test 2
+63/80 lcb/3655        medium  thinking_off fail: AttributeError: 'Solution' object has no attribute 'is_prime'
+64/80 lcb/3657        medium  thinking_off fail: wrong answer on test 1
+65/80 lcb/3659        medium  thinking_off PASS
+66/80 lcb/3681        medium  thinking_off fail: NameError: name 'valid_ys' is not defined. Did you mean: 'valid_xs'?
+67/80 lcb/3683        medium  thinking_off fail: wrong answer on test 1
+68/80 lcb/3686        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+69/80 lcb/3699        medium  thinking_off fail: IndexError: list index out of range
+70/80 lcb/3715        medium  thinking_off fail: wrong answer on test 1
+71/80 lcb/3716        medium  thinking_off fail: IndentationError: expected an indented block after 'else' statement on line 23
+72/80 lcb/abc382_c    medium  thinking_off fail: wrong answer on test 1
+73/80 lcb/abc383_b    medium  thinking_off fail: wrong answer on test 1
+74/80 lcb/abc383_c    medium  thinking_off fail: StopIteration
+75/80 lcb/abc383_d    medium  thinking_off fail: wrong answer on test 1
+76/80 lcb/abc384_c    medium  thinking_off fail: AttributeError: 'set' object has no attribute 'get'
+77/80 lcb/abc384_d    medium  thinking_off fail: wrong answer on test 1
+78/80 lcb/abc385_c    medium  thinking_off fail: wrong answer on test 1
+79/80 lcb/abc386_c    medium  thinking_off fail: IndentationError: expected an indented block after 'if' statement on line 41
+80/80 lcb/arc189_a    medium  thinking_off fail: SyntaxError: invalid syntax
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 7/34 (21%) | median thinking 0 | median all tokens 252 | hit the limit 3
+thinking_off medium   passed 3/46 (7%) | median thinking 0 | median all tokens 728 | hit the limit 13
+
+saved /content/drive/MyDrive/stop-overthinking/results/extra/2b/test-off-lcb-graded.csv

@@ -34,9 +34,22 @@ On the same 234 problems:
    and only if new problems look like the training problems.
 ```
 
+## The later 40 contest problems
+
+The size rule above is for the first exam.
+That exam is mostly easy functions.
+
+On 40 newer contest problems, start with thinking OFF on every size we tested.
+On 4B, also try a 2,048 limit.
+It tied OFF at **46.2%**.
+On the medium ones it was a bit higher: **30.4%** against OFF at **26.1%**.
+
+Training was not retested on 2B or 4B for these 40.
+On 0.8B it scored **0 out of 40**.
+
 ## Who should not expect a miracle
 
-- **Medium and hard contest problems.** On LiveCodeBench medium, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%.
+- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 40 newer problems, 2B medium was still near the floor: OFF 6.5%, limit 1,024 at 4.3%.
 - **A giant model.** We stopped at 4B. A 9B model might loop less and might finally have long finished thinking that training can shorten. That is still open.
 - **A privacy proof.** Running locally can keep code on your machine. We did not test attacks or leaks.
 - **Another "be brief" sentence.** We tested one wording. It clashed with "one code block only".

@@ -1,0 +1,81 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3621,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,272,False
+thinking_off,lcb/3632,0,easy,False,wrong answer on test 1,0,164,False
+thinking_off,lcb/3651,0,easy,False,wrong answer on test 1,0,192,False
+thinking_off,lcb/3656,0,easy,False,wrong answer on test 1,0,77,False
+thinking_off,lcb/3676,0,easy,False,wrong answer on test 1,0,156,False
+thinking_off,lcb/3684,0,easy,False,wrong answer on test 1,0,140,False
+thinking_off,lcb/3685,0,easy,False,wrong answer on test 8,0,103,False
+thinking_off,lcb/3702,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc382_a,0,easy,True,,0,287,False
+thinking_off,lcb/abc382_b,0,easy,True,,0,484,False
+thinking_off,lcb/abc383_a,0,easy,False,wrong answer on test 2,0,245,False
+thinking_off,lcb/abc384_a,0,easy,True,,0,233,False
+thinking_off,lcb/abc384_b,0,easy,False,wrong answer on test 1,0,247,False
+thinking_off,lcb/abc385_a,0,easy,False,wrong answer on test 5,0,541,False
+thinking_off,lcb/abc385_b,0,easy,False,ValueError: invalid literal for int() with base 10: '#',0,733,False
+thinking_off,lcb/abc386_a,0,easy,False,wrong answer on test 1,0,522,False
+thinking_off,lcb/abc386_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3613,0,medium,False,TypeError: unhashable type: 'list',0,8192,True
+thinking_off,lcb/3620,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,276,False
+thinking_off,lcb/3634,0,medium,False,wrong answer on test 1,0,210,False
+thinking_off,lcb/3649,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3653,0,medium,False,TypeError: unsupported operand type(s) for +: 'int' and 'list',0,345,False
+thinking_off,lcb/3655,0,medium,False,AttributeError: 'Solution' object has no attribute 'is_prime',0,2103,False
+thinking_off,lcb/3657,0,medium,False,wrong answer on test 1,0,770,False
+thinking_off,lcb/3659,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,644,False
+thinking_off,lcb/3681,0,medium,False,wrong answer on test 3,0,688,False
+thinking_off,lcb/3683,0,medium,False,wrong answer on test 1,0,690,False
+thinking_off,lcb/3686,0,medium,False,NameError: name 'nums1' is not defined. Did you mean: 'nums'?,0,342,False
+thinking_off,lcb/3699,0,medium,False,wrong answer on test 1,0,240,False
+thinking_off,lcb/3715,0,medium,False,TypeError: cannot unpack non-iterable int object,0,391,False
+thinking_off,lcb/3716,0,medium,False,IndentationError: expected an indented block after 'for' statement on line 46,0,8192,True
+thinking_off,lcb/abc382_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc383_b,0,medium,True,,0,764,False
+thinking_off,lcb/abc383_c,0,medium,False,StopIteration,0,677,False
+thinking_off,lcb/abc383_d,0,medium,False,wrong answer on test 1,0,281,False
+thinking_off,lcb/abc384_c,0,medium,True,,0,1547,False
+thinking_off,lcb/abc384_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_c,0,medium,False,wrong answer on test 1,0,258,False
+thinking_off,lcb/abc386_c,0,medium,False,IndentationError: expected an indented block after 'if' statement on line 18,0,8192,True
+thinking_off,lcb/arc189_a,0,medium,False,SyntaxError: unterminated string literal (detected at line 1),0,8192,True
+thinking_off,lcb/3621,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,628,False
+thinking_off,lcb/3632,1,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,141,False
+thinking_off,lcb/3651,1,easy,False,wrong answer on test 1,0,145,False
+thinking_off,lcb/3656,1,easy,False,"TypeError: pop expected at most 1 argument, got 2",0,231,False
+thinking_off,lcb/3676,1,easy,False,wrong answer on test 1,0,113,False
+thinking_off,lcb/3684,1,easy,False,wrong answer on test 1,0,251,False
+thinking_off,lcb/3685,1,easy,False,wrong answer on test 3,0,100,False
+thinking_off,lcb/3702,1,easy,False,wrong answer on test 1,0,537,False
+thinking_off,lcb/abc382_a,1,easy,True,,0,269,False
+thinking_off,lcb/abc382_b,1,easy,True,,0,312,False
+thinking_off,lcb/abc383_a,1,easy,False,UnboundLocalError: cannot access local variable 'prev_time' where it is not associated with a value,0,295,False
+thinking_off,lcb/abc384_a,1,easy,True,,0,178,False
+thinking_off,lcb/abc384_b,1,easy,True,,0,254,False
+thinking_off,lcb/abc385_a,1,easy,False,wrong answer on test 2,0,1123,False
+thinking_off,lcb/abc385_b,1,easy,False,ValueError: 'L' is not in list,0,572,False
+thinking_off,lcb/abc386_a,1,easy,False,wrong answer on test 5,0,235,False
+thinking_off,lcb/abc386_b,1,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3613,1,medium,False,wrong answer on test 1,0,861,False
+thinking_off,lcb/3620,1,medium,False,wrong answer on test 2,0,393,False
+thinking_off,lcb/3634,1,medium,False,wrong answer on test 1,0,270,False
+thinking_off,lcb/3649,1,medium,False,wrong answer on test 1,0,306,False
+thinking_off,lcb/3653,1,medium,False,wrong answer on test 2,0,273,False
+thinking_off,lcb/3655,1,medium,False,AttributeError: 'Solution' object has no attribute 'is_prime',0,823,False
+thinking_off,lcb/3657,1,medium,False,wrong answer on test 1,0,393,False
+thinking_off,lcb/3659,1,medium,True,,0,397,False
+thinking_off,lcb/3681,1,medium,False,NameError: name 'valid_ys' is not defined. Did you mean: 'valid_xs'?,0,1179,False
+thinking_off,lcb/3683,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3686,1,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,709,False
+thinking_off,lcb/3699,1,medium,False,IndexError: list index out of range,0,300,False
+thinking_off,lcb/3715,1,medium,False,wrong answer on test 1,0,460,False
+thinking_off,lcb/3716,1,medium,False,IndentationError: expected an indented block after 'else' statement on line 23,0,8192,True
+thinking_off,lcb/abc382_c,1,medium,False,wrong answer on test 1,0,541,False
+thinking_off,lcb/abc383_b,1,medium,False,wrong answer on test 1,0,1190,False
+thinking_off,lcb/abc383_c,1,medium,False,StopIteration,0,695,False
+thinking_off,lcb/abc383_d,1,medium,False,wrong answer on test 1,0,1631,False
+thinking_off,lcb/abc384_c,1,medium,False,AttributeError: 'set' object has no attribute 'get',0,746,False
+thinking_off,lcb/abc384_d,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_c,1,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc386_c,1,medium,False,IndentationError: expected an indented block after 'if' statement on line 41,0,8192,True
+thinking_off,lcb/arc189_a,1,medium,False,SyntaxError: invalid syntax,0,8192,True

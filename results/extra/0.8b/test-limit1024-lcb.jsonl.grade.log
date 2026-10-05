@@ -1,0 +1,46 @@
+1/40 lcb/3621        easy    limit        fail: IndentationError: expected an indented block after function definition on line 5
+2/40 lcb/3632        easy    limit        fail: IndentationError: expected an indented block after function definition on line 5
+3/40 lcb/3651        easy    limit        fail: SyntaxError: invalid syntax
+4/40 lcb/3656        easy    limit        fail: IndentationError: expected an indented block after function definition on line 3
+5/40 lcb/3676        easy    limit        fail: SyntaxError: invalid syntax
+6/40 lcb/3684        easy    limit        fail: SyntaxError: invalid syntax
+7/40 lcb/3685        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+8/40 lcb/3702        easy    limit        fail: wrong answer on test 1
+9/40 lcb/abc382_a    easy    limit        fail: IndentationError: unexpected indent
+10/40 lcb/abc382_b    easy    limit        fail: wrong answer on test 1
+11/40 lcb/abc383_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 40)
+12/40 lcb/abc384_a    easy    limit        fail: wrong answer on test 1
+13/40 lcb/abc384_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+14/40 lcb/abc385_a    easy    limit        fail: SyntaxError: invalid syntax
+15/40 lcb/abc385_b    easy    limit        fail: IndentationError: unexpected indent
+16/40 lcb/abc386_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 17)
+17/40 lcb/abc386_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+18/40 lcb/3613        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+19/40 lcb/3620        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+20/40 lcb/3634        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+21/40 lcb/3649        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+22/40 lcb/3653        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+23/40 lcb/3655        medium  limit        fail: SyntaxError: invalid syntax
+24/40 lcb/3657        medium  limit        fail: SyntaxError: invalid syntax
+25/40 lcb/3659        medium  limit        fail: SyntaxError: unmatched ']'
+26/40 lcb/3681        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 11)
+27/40 lcb/3683        medium  limit        fail: wrong answer on test 1
+28/40 lcb/3686        medium  limit        fail: wrong answer on test 1
+29/40 lcb/3699        medium  limit        fail: IndentationError: unexpected indent
+30/40 lcb/3715        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 17)
+31/40 lcb/3716        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+32/40 lcb/abc382_c    medium  limit        fail: IndentationError: unexpected indent
+33/40 lcb/abc383_b    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+34/40 lcb/abc383_c    medium  limit        fail: SyntaxError: unmatched ')'
+35/40 lcb/abc383_d    medium  limit        fail: SyntaxError: unexpected character after line continuation character
+36/40 lcb/abc384_c    medium  limit        fail: IndentationError: unexpected indent
+37/40 lcb/abc384_d    medium  limit        fail: SyntaxError: invalid syntax
+38/40 lcb/abc385_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 10)
+39/40 lcb/abc386_c    medium  limit        fail: wrong answer on test 1
+40/40 lcb/arc189_a    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 0/17 (0%) | median thinking 1024 | median all tokens 8193 | hit the limit 16
+limit        medium   passed 0/23 (0%) | median thinking 1024 | median all tokens 8193 | hit the limit 21
+
+saved /content/drive/MyDrive/stop-overthinking/results/extra/0.8b/test-limit1024-lcb-graded.csv

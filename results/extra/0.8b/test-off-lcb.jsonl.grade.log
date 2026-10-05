@@ -1,0 +1,46 @@
+1/40 lcb/3621        easy    thinking_off fail: NameError: name 'v' is not defined
+2/40 lcb/3632        easy    thinking_off PASS
+3/40 lcb/3651        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+4/40 lcb/3656        easy    thinking_off fail: wrong answer on test 1
+5/40 lcb/3676        easy    thinking_off fail: wrong answer on test 1
+6/40 lcb/3684        easy    thinking_off fail: IndexError: list assignment index out of range
+7/40 lcb/3685        easy    thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+8/40 lcb/3702        easy    thinking_off fail: AttributeError: 'int' object has no attribute 'prime_factors'
+9/40 lcb/abc382_a    easy    thinking_off fail: wrong answer on test 1
+10/40 lcb/abc382_b    easy    thinking_off fail: NameError: name 'sys' is not defined. Did you forget to import 'sys'?
+11/40 lcb/abc383_a    easy    thinking_off fail: wrong answer on test 1
+12/40 lcb/abc384_a    easy    thinking_off PASS
+13/40 lcb/abc384_b    easy    thinking_off fail: wrong answer on test 1
+14/40 lcb/abc385_a    easy    thinking_off fail: wrong answer on test 1
+15/40 lcb/abc385_b    easy    thinking_off fail: wrong answer on test 1
+16/40 lcb/abc386_a    easy    thinking_off fail: KeyError: 7
+17/40 lcb/abc386_b    easy    thinking_off fail: wrong answer on test 1
+18/40 lcb/3613        medium  thinking_off fail: TypeError: can't multiply sequence by non-int of type 'float'
+19/40 lcb/3620        medium  thinking_off fail: wrong answer on test 2
+20/40 lcb/3634        medium  thinking_off fail: UnboundLocalError: cannot access local variable 'score' where it is not associated with a value
+21/40 lcb/3649        medium  thinking_off fail: SyntaxError: unterminated triple-quoted string literal (detected at line 628)
+22/40 lcb/3653        medium  thinking_off fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+23/40 lcb/3655        medium  thinking_off fail: wrong answer on test 1
+24/40 lcb/3657        medium  thinking_off fail: wrong answer on test 1
+25/40 lcb/3659        medium  thinking_off fail: wrong answer on test 1
+26/40 lcb/3681        medium  thinking_off fail: UnboundLocalError: cannot access local variable 'max_area' where it is not associated with a value
+27/40 lcb/3683        medium  thinking_off fail: wrong answer on test 1
+28/40 lcb/3686        medium  thinking_off fail: wrong answer on test 1
+29/40 lcb/3699        medium  thinking_off fail: wrong answer on test 1
+30/40 lcb/3715        medium  thinking_off fail: wrong answer on test 1
+31/40 lcb/3716        medium  thinking_off fail: wrong answer on test 2
+32/40 lcb/abc382_c    medium  thinking_off fail: wrong answer on test 1
+33/40 lcb/abc383_b    medium  thinking_off fail: IndentationError: expected an indented block after 'for' statement on line 483
+34/40 lcb/abc383_c    medium  thinking_off fail: wrong answer on test 1
+35/40 lcb/abc383_d    medium  thinking_off fail: wrong answer on test 1
+36/40 lcb/abc384_c    medium  thinking_off fail: wrong answer on test 1
+37/40 lcb/abc384_d    medium  thinking_off fail: wrong answer on test 1
+38/40 lcb/abc385_c    medium  thinking_off fail: wrong answer on test 1
+39/40 lcb/abc386_c    medium  thinking_off fail: SyntaxError: invalid syntax
+40/40 lcb/arc189_a    medium  thinking_off fail: wrong answer on test 1
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+thinking_off easy     passed 2/17 (12%) | median thinking 0 | median all tokens 245 | hit the limit 2
+thinking_off medium   passed 0/23 (0%) | median thinking 0 | median all tokens 709 | hit the limit 10
+
+saved /content/drive/MyDrive/stop-overthinking/results/extra/0.8b/test-off-lcb-graded.csv

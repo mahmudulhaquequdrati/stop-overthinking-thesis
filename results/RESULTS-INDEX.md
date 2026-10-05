@@ -37,7 +37,7 @@
 | **2B limit512 fill-in** | ✅ **45.1%** (2 tries) | [2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · [2b-limit512/RUN.md](2b-limit512/RUN.md) · notebook [16](../notebooks/16_qwen35_2b_limit512.ipynb) |
 | **2B limit2048 fill-in** | ✅ **46.6%** (1 try) | [2b-limit2048/SUMMARY.md](2b-limit2048/SUMMARY.md) · [2b-limit2048/RUN.md](2b-limit2048/RUN.md) · notebook [17](../notebooks/17_qwen35_2b_limit2048.ipynb) |
 | **Hours ledger** | [shared/hours_budget.json](shared/hours_budget.json) |
-| **Extra 40 problems (not scored yet)** | [extra/LISTS.md](extra/LISTS.md) · notebook [18](../notebooks/18_extra_problems.ipynb) |
+| **Extra 40 problems (scored)** | [extra/SUMMARY.md](extra/SUMMARY.md) · [extra/LISTS.md](extra/LISTS.md) · notebook [18](../notebooks/18_extra_problems.ipynb) |
 | **Thesis chapters with these numbers** | [../thesis/THESIS.md](../thesis/THESIS.md) §5.13 · §6.7 · §7.5.4 |
 | **Teacher talk track** | [../TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md) |
 
@@ -81,6 +81,18 @@
 | 0.8B | OFF | 20.5% | yes (17.9%) |
 | 2B | limit 1024 | 49.8% | yes (45.5%) |
 | 4B | limit 2048 | 78.2% | yes (69.9%) |
+
+### Later check: 40 contest problems only
+
+These do **not** replace the table above. Source: [extra/SUMMARY.md](extra/SUMMARY.md). Run: 3.7 hours.
+
+| Way | 0.8B (1 try) | 2B | 4B (2 tries) |
+|---|---|---|---|
+| OFF | **5.0%** (2/40) | **12.5%** (10/80) | **46.2%** (37/80) |
+| ON | 0% | 0% | 18.8% (15/80) |
+| limit1024 | 0% | 8.8% (7/80) | not run |
+| limit2048 | — | 7.5% (3/40, 1 try) | **46.2%** (37/80) |
+| LoRA-1 | 0% | not run | not run |
 
 ### Thinking ON cut-off (hits the wall)
 
