@@ -37,6 +37,7 @@
 | **2B limit512 fill-in** | ✅ **45.1%** (2 tries) | [2b-limit512/SUMMARY.md](2b-limit512/SUMMARY.md) · [2b-limit512/RUN.md](2b-limit512/RUN.md) · notebook [16](../notebooks/16_qwen35_2b_limit512.ipynb) |
 | **2B limit2048 fill-in** | ✅ **46.6%** (1 try) | [2b-limit2048/SUMMARY.md](2b-limit2048/SUMMARY.md) · [2b-limit2048/RUN.md](2b-limit2048/RUN.md) · notebook [17](../notebooks/17_qwen35_2b_limit2048.ipynb) |
 | **Hours ledger** | [shared/hours_budget.json](shared/hours_budget.json) |
+| **Extra 40 problems (not scored yet)** | [extra/LISTS.md](extra/LISTS.md) · notebook [18](../notebooks/18_extra_problems.ipynb) |
 | **Thesis chapters with these numbers** | [../thesis/THESIS.md](../thesis/THESIS.md) §5.13 · §6.7 · §7.5.4 |
 | **Teacher talk track** | [../TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md) |
 

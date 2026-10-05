@@ -104,8 +104,12 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Notebook 16 DONE: 2B limit512 = 45.1% (#82)          │
 │       ✅ Notebook 17 DONE: 2B limit2048 = 46.6% (#84)         │
 │           2B curve peaks at limit1024 (49.8%)                │
-│       ✅ Easy thesis folder (#85) ←HERE                       │
+│       ✅ Easy thesis folder (#85)                            │
 │           easy-thesis/FULL-THESIS.md                         │
+│       ✅ Extra 40 problems listed (#86) ←HERE                 │
+│           notebook 18 ready · scores not run yet              │
+│           results/extra/LISTS.md · total 234+40 = 274         │
+│       ⬜ Run notebook 18 on an A100 (do not rerun 14–17)      │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
@@ -244,14 +248,17 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: run [notebooks/14_thesis_run.ipynb](notebooks/14_thesis_run.ipynb) on the A100.**
-Runtime → A100 → **Run all**. Type the units left once. Paste back only the last cell.
+**Next, and it is one thing: run [notebooks/18_extra_problems.ipynb](notebooks/18_extra_problems.ipynb) on the A100.**
+Do **not** run notebooks 14–17 again. Those already finished the 234.
+Copy this project into Drive `MyDrive/stop-overthinking/code/` first.
+Then Runtime → A100 → **Run all**.
 
-~~~text
-smoke (0.7) → A: 5 ways × 234 problems (10.3, must) → B: LoRA-2 (10.7) → C: 2nd try (12.8) → D: 16k check (2.7)
-every stage checks the budget first: it runs only if  units left − its cost ≥ 20
-~~~
+```text
+check the 40 ids → 0.8B → 2B → 4B
+writes only to results/extra/
+stops if it would pass 6 real hours
+```
 
-Token limits: 4,096 (HumanEval+) · 8,192 (LiveCodeBench) · the same for every way (DECISIONS #66).
+The old 234 path (notebooks 14–17) stays closed.
 
 Also still open: you explain Parts 1–2 back in your own words.

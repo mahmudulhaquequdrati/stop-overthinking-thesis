@@ -75,10 +75,12 @@
 | [38](38-2b-limit512-fill.md) | 2B limit-512 fill-in (notebook 16) | 2026-09-29 |
 | [39](39-2b-limit2048-lean.md) | 2B limit-2048 lean fill-in (notebook 17) | 2026-09-29 |
 | [40](40-easy-thesis.md) | Easy-language thesis folder | 2026-09-29 |
+| [41](41-extra-problems.md) | Extra 40 problems, new notebook only | 2026-10-05 |
 
 **What has been run:** 2B · 4B · 0.8B · 2B limit512 (45.1%) · 2B limit2048 lean (**46.6%**).  
 **2B limit curve:** peaks at **1024** (49.8%), not 2048.  
+**Extra list ready, not scored yet:** 40 new problems. Total with the old exam: **274**.  
 **Before a meeting:** open [TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md).  
 **All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · [SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).  
 **Easy read:** [easy-thesis/FULL-THESIS.md](../easy-thesis/FULL-THESIS.md).  
-**Next:** fill name/supervisor; practice Opening answers out loud.
+**Next:** run notebook 18 on an A100. Do not rerun notebooks 14–17.
