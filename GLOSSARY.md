@@ -135,7 +135,7 @@ See [lesson 03](lessons/03-how-a-model-learns.md).
 
 **Fast path**
 The quick code for Qwen3.5's special layers. It needs two extra libraries (`flash-linear-attention`, `causal-conv1d`).
-Without them the model still works, but runs slow backup code. Notebook 14 builds them once and keeps them on Drive.
+Without them the model still works, but runs slow backup code. Notebook 18 downloads the ready-made `causal-conv1d` file that matches this Colab's PyTorch. A restart does not fix a file that does not match.
 
 **Fresh problem**
 A test problem published **after** the model's cutoff date, so the model cannot have seen it.

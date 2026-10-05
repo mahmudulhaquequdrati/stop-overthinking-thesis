@@ -106,8 +106,9 @@ We also check whether just saying "don't think, just answer" works as well.
 │           2B curve peaks at limit1024 (49.8%)                │
 │       ✅ Easy thesis folder (#85)                            │
 │           easy-thesis/FULL-THESIS.md                         │
-│       ✅ Extra 40 problems listed (#86) ←HERE                 │
-│           notebook 18 ready · scores not run yet              │
+│       ✅ Extra 40 problems listed (#86)                       │
+│       ✅ Notebook 18 fast path fixed (#87) ←HERE              │
+│           scores not run yet · re-upload the notebook         │
 │           results/extra/LISTS.md · total 234+40 = 274         │
 │       ⬜ Run notebook 18 on an A100 (do not rerun 14–17)      │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
@@ -248,7 +249,8 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: push this project to GitHub, upload notebook 18 to Colab, and Run all on an A100.**
+**Next, and it is one thing: push this project to GitHub, upload the new notebook 18 to Colab, and Run all on an A100.**
+The copy already on Colab still has the old fast-path cell. Upload this file again.
 Do **not** run notebooks 14–17 again. Those already finished the 234.
 Colab clones the repo itself. You do not copy a code folder to Drive.
 Then Runtime → A100 → **Run all**.

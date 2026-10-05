@@ -163,8 +163,9 @@ print("hour file", HOURS, "cap", CAP_H, "spare", FLOOR_H)
     cells.append(md("""## 3. Fast path
 
 Qwen is very slow without two small libraries. This cell installs them.
-A wheel saved on Drive from an older Colab is deleted if it does not import.
-Must print **FAST PATH ON**. If it stays off, stop. A slow run wastes the hours."""))
+It downloads the ready-made file that matches **this** Colab's PyTorch.
+An old file on Drive is used only when its name matches. A mismatch is deleted.
+Must print **FAST PATH ON**. If it stops, copy the error and paste it here."""))
     cells.append(code("""def fast_path_error():
     p = subprocess.run(
         [sys.executable, "-c", "import causal_conv1d, fla"],
@@ -176,45 +177,135 @@ Must print **FAST PATH ON**. If it stays off, stop. A slow run wastes the hours.
 def fast_path_ok():
     return fast_path_error() == ""
 
+def pip_sh(args):
+    # Same Python as the import check. A bare "pip" can install into another Python.
+    sh(sys.executable + " -m pip " + args)
+
+def colab_torch():
+    # Read versions in a new process, so this notebook does not load torch yet.
+    probe = '''
+import json, sys, torch
+ver = torch.__version__.split("+")[0]
+parts = ver.split(".")
+tags = []
+if len(parts) >= 2:
+    tags.append(parts[0] + "." + parts[1])
+    if parts[0].isdigit() and int(parts[0]) >= 20 and parts[1].isdigit():
+        tags.append("%s.%02d" % (parts[0], int(parts[1])))
+        tags.append("%s.%d" % (parts[0], int(parts[1])))
+seen = []
+for t in tags:
+    if t and t not in seen:
+        seen.append(t)
+cuda = (torch.version.cuda or "").split(".")[0]
+abi = "TRUE" if torch.compiled_with_cxx11_abi() else "FALSE"
+py = "cp%d%d" % (sys.version_info.major, sys.version_info.minor)
+print(json.dumps({"ver": ver, "tags": seen, "cuda": cuda, "abi": abi, "py": py}))
+'''
+    p = subprocess.run([sys.executable, "-c", probe], capture_output=True, text=True)
+    if p.returncode != 0:
+        print((p.stderr or "")[-800:])
+        raise RuntimeError("could not read the PyTorch version. Scroll up.")
+    return json.loads(p.stdout.strip().splitlines()[-1])
+
+def wheel_needles(info, abi):
+    py = info["py"]
+    cu = info["cuda"]
+    return [
+        f"+cu{cu}torch{tag}cxx11abi{abi}-{py}-{py}-linux_x86_64.whl"
+        for tag in info["tags"]
+    ]
+
+def find_saved(info):
+    paths = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
+    order = [info["abi"], "FALSE" if info["abi"] == "TRUE" else "TRUE"]
+    for abi in order:
+        for needle in wheel_needles(info, abi):
+            for path in paths:
+                if needle in os.path.basename(path):
+                    return path
+    return ""
+
+def find_release_url(info):
+    import urllib.request
+    url = "https://api.github.com/repos/Dao-AILab/causal-conv1d/releases/latest"
+    req = urllib.request.Request(url, headers={"User-Agent": "stop-overthinking"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        rel = json.load(r)
+    order = [info["abi"], "FALSE" if info["abi"] == "TRUE" else "TRUE"]
+    for abi in order:
+        for needle in wheel_needles(info, abi):
+            for asset in rel.get("assets", []):
+                if needle in asset.get("name", ""):
+                    return asset["browser_download_url"], asset["name"]
+    return "", ""
+
+def install_wheel(path):
+    pip_sh(f'install -q --no-deps "{path}"')
+    pip_sh("install -q flash-linear-attention")
+
 os.chdir("/content")
 os.makedirs(WHEELS, exist_ok=True)
 print("wheels folder:", WHEELS)
 print("fast path at start:", "ON" if fast_path_ok() else "off")
 
-saved = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
-if saved and not fast_path_ok():
-    print("trying saved wheel", os.path.basename(saved[0]))
-    sh(f"pip install -q --no-deps {saved[0]}")
-    sh("pip install -q flash-linear-attention")
-
 if not fast_path_ok():
-    print("saved wheel does not match this Colab — deleting it")
+    info = colab_torch()
+    print("this Colab: torch", info["ver"], "cuda", info["cuda"],
+          "python", info["py"], "abi", info["abi"])
+    if not info["cuda"]:
+        raise RuntimeError("PyTorch has no CUDA. Change the runtime to an A100, then Run all.")
     err = fast_path_error()
     if err:
         print(err)
-    for w in glob.glob(f"{WHEELS}/causal_conv1d*.whl"):
+    # A half-installed copy from "pip install causal-conv1d" blocks the right file.
+    subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "causal-conv1d"],
+                   capture_output=True, text=True)
+    saved = find_saved(info)
+    if saved:
+        print("using saved wheel", os.path.basename(saved))
+        install_wheel(saved)
+    if not fast_path_ok():
+        # The saved file did not load. Delete it so the next run does not try it again.
+        for w in glob.glob(f"{WHEELS}/causal_conv1d*.whl"):
+            try:
+                os.remove(w)
+            except OSError:
+                pass
         try:
-            os.remove(w)
-        except OSError:
-            pass
-    sh("pip install -q ninja packaging wheel")
-    # A ready-made wheel is enough when one exists for this torch.
-    sh("pip install causal-conv1d || true")
-    sh("pip install -q flash-linear-attention")
-
-if not fast_path_ok():
-    print("no ready-made wheel — building causal-conv1d. This can take 5–15 min.")
-    sh(f"pip wheel causal-conv1d --no-build-isolation --no-deps -w {WHEELS}")
-    built = glob.glob(f"{WHEELS}/causal_conv1d*.whl")
-    if not built:
-        raise RuntimeError("could not build causal-conv1d. Scroll up for the pip error.")
-    sh(f"pip install --no-deps {built[0]}")
-    sh("pip install -q flash-linear-attention")
+            url, name = find_release_url(info)
+        except Exception as e:
+            url, name = "", ""
+            print("could not list ready wheels:", type(e).__name__, e)
+        if url:
+            from urllib.request import urlretrieve
+            dest = os.path.join(WHEELS, name)
+            print("downloading ready wheel (~185 MB):", name)
+            try:
+                urlretrieve(url, dest)
+                install_wheel(dest)
+            except Exception as e:
+                print("download failed:", type(e).__name__, e)
+    if not fast_path_ok():
+        for w in glob.glob(f"{WHEELS}/causal_conv1d*.whl"):
+            try:
+                os.remove(w)
+            except OSError:
+                pass
+        print("no ready wheel loaded. Building. This can take 5-15 min.")
+        pip_sh("install -q ninja packaging wheel")
+        sh(f"{sys.executable} -m pip wheel causal-conv1d --no-build-isolation --no-deps -w {WHEELS}")
+        built = [p for p in glob.glob(f"{WHEELS}/causal_conv1d*.whl")]
+        if not built:
+            raise RuntimeError("could not build causal-conv1d. Scroll up for the pip error.")
+        install_wheel(built[0])
 
 err = fast_path_error()
 if err:
     print(err)
-    raise RuntimeError("FAST PATH OFF — read the lines above. Restart session, then Run all.")
+    raise RuntimeError(
+        "FAST PATH OFF. The speed libraries did not load. "
+        "Copy the lines above and paste them here.")
 print("FAST PATH ON")
 """))
 

@@ -28,6 +28,9 @@ No. We checked the ids. Overlap with the 234 exam ids: 0. Overlap with the 80 tr
 **Q: Why not a 500-token limit or a 2000-token limit?**
 2B already has limit 512 and limit 2048 on the old 234. The new run copies those settings. It does not invent a new one.
 
+**Q: Why did the fast-path cell say "restart"?**
+It installed a speed library that did not match this Colab. The import failed. The message said to restart. A restart ran the same install, so it failed again. The cell now downloads the ready-made file whose name matches this Colab's PyTorch (DECISIONS #87).
+
 ---
 
 ## 3. Hard questions
@@ -47,6 +50,7 @@ No. Forty extra problems make the error bars only a little tighter. The question
 | 234 old exam ids, same in every model folder | That the add-on weight files are still on Drive |
 | 80 training ids, none inside the 234 | How many real hours notebook 18 will take |
 | 40 new ids, no overlap, saved in `results/extra/` | The extra scores — not run yet |
+| Wheel names on the causal-conv1d release (v1.7.0) match torch 2.6–2.10 and 26.02–26.07 | That this download loads on the A100 — not run yet |
 
 ---
 
@@ -54,4 +58,4 @@ No. Forty extra problems make the error bars only a little tighter. The question
 
 - **Lists:** [results/extra/LISTS.md](../results/extra/LISTS.md)
 - **Notebook:** [notebooks/18_extra_problems.ipynb](../notebooks/18_extra_problems.ipynb)
-- **Decision:** [DECISIONS.md](../DECISIONS.md) #86
+- **Decision:** [DECISIONS.md](../DECISIONS.md) #86, fast-path fix #87
