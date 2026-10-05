@@ -45,12 +45,11 @@ this notebook        →  writes only to  results/extra/
 | Hour cap | **4.5 real hours**, and it always leaves **0.5 hour** spare |
 | Stop point | before **every** way, not only before each model |
 
-**Before Run all:** copy this whole project into Drive folder
-`MyDrive/stop-overthinking/code/` so Colab sees the new script and the id list.
-If that copy is old, this notebook stops. It will not fall back to the old GitHub code.
+**Before Run all:** push this project to GitHub, then upload this notebook to Colab.
+Colab clones the repo by itself. You do not copy a code folder to Drive.
 
-The add-on weights are read from the old Drive folders. They are not trained again.
-If a weight file is missing, that one way is skipped.
+Answers still go to Drive, so a stopped run can continue.
+Add-on weights come from the repo. If one weight file is missing, that one way is skipped.
 
 DECISIONS #86."""))
 
@@ -61,10 +60,9 @@ DECISIONS #86."""))
 print("pip done")
 """))
 
-    cells.append(md("""## 2. GPU, Drive, this repo's code
+    cells.append(md("""## 2. GPU, Drive, GitHub
 
-Code must come from the Drive folder you just updated.
-Answers go only under `results/extra/`."""))
+Clones the project from GitHub. Answers go only under Drive `results/extra/`."""))
     cells.append(code("""import os, sys, json, subprocess, time, glob
 from IPython import get_ipython
 
@@ -85,27 +83,23 @@ drive.mount("/content/drive")
 
 D = "/content/drive/MyDrive/stop-overthinking/results"
 WHEELS = "/content/drive/MyDrive/stop-overthinking/wheels"
-DRIVE_CODE = "/content/drive/MyDrive/stop-overthinking/code"
 os.makedirs(D, exist_ok=True)
 os.makedirs(WHEELS, exist_ok=True)
 
-if not os.path.isdir(f"{DRIVE_CODE}/scripts"):
-    raise RuntimeError(
-        "STOP: no code at MyDrive/stop-overthinking/code. "
-        "Copy this project there. Do not open notebooks 14-17.")
-print("Using Drive code mirror:", DRIVE_CODE)
-sh("rm -rf /content/thesis && mkdir -p /content/thesis")
-sh(f"cp -a {DRIVE_CODE}/. /content/thesis/")
+REPO = "https://github.com/mahmudulhaquequdrati/stop-overthinking-thesis.git"
+sh("rm -rf /content/thesis")
+sh(f"git clone -q --depth 1 --branch master {REPO} /content/thesis")
 os.chdir("/content/thesis")
 sys.path.insert(0, "/content/thesis/scripts")
+print("code from GitHub:", REPO)
 
 need = ["scripts/build_extra_problems.py", "scripts/compare_extra.py",
-        "scripts/gen_colab.py", "results/extra/ids.json"]
+        "scripts/gen_colab.py", "results/extra/ids.json", "results/extra/extra-lcb.json"]
 missing = [p for p in need if not os.path.exists(p)]
 if missing:
     raise RuntimeError(
-        "STOP: Drive code is old. Missing " + ", ".join(missing)
-        + ". Copy the new project into MyDrive/stop-overthinking/code and run again.")
+        "STOP: GitHub is missing " + ", ".join(missing)
+        + ". Push this project to master, then Runtime -> Run all again.")
 
 EXTRA_ROOT = f"{D}/extra"
 os.makedirs(EXTRA_ROOT, exist_ok=True)
@@ -290,23 +284,37 @@ def answer(folder, profile, way, policy, adapter, tries, max_tokens, think_budge
     sh(cmd)
     return out
 
+def find_lora(repo_rel, drive_rel):
+    # Repo first (after you push). Drive second, in case an old run saved the weights there.
+    options = [f"/content/thesis/{repo_rel}", f"{D}/{drive_rel}"]
+    for path in options:
+        if os.path.exists(os.path.join(path, "adapter_model.safetensors")):
+            print("LoRA found:", path)
+            return path
+    print("LoRA missing, that way will be skipped:", repo_rel)
+    return options[0]
+
 # Same settings as the finished runs. 2B limit 2048 stays 1 try.
 # Important ways come first, so a stop still has the story.
 # 2B main ways do not use stop-on-repeat. That matches notebook 14.
+LORA_08 = find_lora("results/0.8b/raw/lora/lora1", "0.8b/raw/lora/lora1")
+LORA_4B = find_lora("results/4b/raw/lora/lora1", "4b/raw/lora/lora1")
+LORA_2B_1 = find_lora("results/mini/lora/lora100", "mini/lora/lora100")
+LORA_2B_2 = find_lora("results/2026-09-24-thesis-run/lora/lora2", "2026-09-24-thesis-run/lora/lora2")
 RUNS = [
     ("0.8b", "qwen35_0_8b", [
         ("off", "thinking_off", None, 1, 8192, None, True),
         ("limit512", "limit", None, 1, 8192, 512, True),
         ("on", "thinking_on", None, 1, 8192, None, True),
-        ("lora1", "thinking_on", f"{D}/0.8b/raw/lora/lora1", 1, 8192, None, True),
+        ("lora1", "thinking_on", LORA_08, 1, 8192, None, True),
         ("limit1024", "limit", None, 1, 8192, 1024, True),
     ]),
     ("2b", "qwen35_2b", [
         ("limit1024", "limit", None, 2, 8192, 1024, False),
         ("off", "thinking_off", None, 2, 8192, None, False),
         ("on", "thinking_on", None, 2, 8192, None, False),
-        ("lora2", "thinking_on", f"{D}/2026-09-24-thesis-run/lora/lora2", 2, 8192, None, False),
-        ("lora1", "thinking_on", f"{D}/mini/lora/lora100", 2, 8192, None, False),
+        ("lora2", "thinking_on", LORA_2B_2, 2, 8192, None, False),
+        ("lora1", "thinking_on", LORA_2B_1, 2, 8192, None, False),
         ("limit512", "limit", None, 2, 8192, 512, True),
         ("limit2048", "limit", None, 1, 3072, 2048, True),
         ("brief", "brief", None, 2, 8192, None, False),
@@ -315,7 +323,7 @@ RUNS = [
         ("limit2048", "limit", None, 2, 8192, 2048, True),
         ("off", "thinking_off", None, 2, 8192, None, True),
         ("on", "thinking_on", None, 2, 8192, None, True),
-        ("lora1", "thinking_on", f"{D}/4b/raw/lora/lora1", 2, 8192, None, True),
+        ("lora1", "thinking_on", LORA_4B, 2, 8192, None, True),
         ("limit1024", "limit", None, 2, 8192, 1024, True),
         ("limit512", "limit", None, 2, 8192, 512, True),
         ("limit4096", "limit", None, 2, 8192, 4096, True),

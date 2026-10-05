@@ -248,9 +248,9 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: run [notebooks/18_extra_problems.ipynb](notebooks/18_extra_problems.ipynb) on the A100.**
+**Next, and it is one thing: push this project to GitHub, upload notebook 18 to Colab, and Run all on an A100.**
 Do **not** run notebooks 14–17 again. Those already finished the 234.
-Copy this project into Drive `MyDrive/stop-overthinking/code/` first.
+Colab clones the repo itself. You do not copy a code folder to Drive.
 Then Runtime → A100 → **Run all**.
 
 ```text

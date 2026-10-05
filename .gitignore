@@ -7,6 +7,8 @@
 # big or rebuildable things
 data/
 *.safetensors
+!results/0.8b/raw/lora/lora1/adapter_model.safetensors
+!results/4b/raw/lora/lora1/adapter_model.safetensors
 *.bin
 outputs/
 checkpoints/
