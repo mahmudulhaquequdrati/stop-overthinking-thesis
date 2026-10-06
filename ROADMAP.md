@@ -109,11 +109,14 @@ We also check whether just saying "don't think, just answer" works as well.
 │       ✅ Extra 40 problems listed (#86)                       │
 │       ✅ Notebook 18 fast path fixed (#87)                    │
 │       ✅ Notebook 18 returns to /content/thesis (#88)         │
-│       ✅ Extra 40 scored (#89) ←HERE                          │
+│       ✅ Extra 40 scored (#89)                                │
 │           free way still wins · OFF best or tied              │
 │           2B OFF 12.5% · 4B OFF = limit2048 at 46.2%          │
 │           first exam stays 234 · 49.8% and 78.2%              │
 │           written into easy-thesis results + one page         │
+│       ✅ Notebook 19 written, not run yet (#90) ←HERE         │
+│           190 new problems · 118 easy · 72 medium             │
+│           total count 464 · scores not mixed into 49.8%       │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │

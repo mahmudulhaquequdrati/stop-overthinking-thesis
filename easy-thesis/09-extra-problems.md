@@ -51,3 +51,17 @@ The same table, with every way, is in [05-results.md](05-results.md).
 The other 4B limits did not run, for the same reason.
 
 Where we are: `RESULTS → extra check`. The extra scores are in the main results chapter.
+
+## A later list, not scored yet
+
+Notebook 19 has a second list. It is not mixed into these 40, and it is not mixed into 49.8% or 78.2%.
+
+| List | How many |
+|---|---|
+| Old exam | 234 |
+| Extra 40 | 40 |
+| New list | 190 (118 easy, 72 medium) |
+| Total | 464 |
+
+The full id list is in [../results/more/LISTS.md](../results/more/LISTS.md).
+The score file is empty until Colab runs. It will keep an easy row and a medium row.

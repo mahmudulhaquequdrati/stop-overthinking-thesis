@@ -76,6 +76,7 @@
 | [39](39-2b-limit2048-lean.md) | 2B limit-2048 lean fill-in (notebook 17) | 2026-09-29 |
 | [40](40-easy-thesis.md) | Easy-language thesis folder | 2026-09-29 |
 | [41](41-extra-problems.md) | Extra 40 problems, scored | 2026-10-05 |
+| [42](42-more-problems.md) | Growing list of 190, notebook 19 | 2026-10-06 |
 
 **What has been run:** 2B · 4B · 0.8B · 2B limit512 (45.1%) · 2B limit2048 lean (**46.6%**) · extra 40.  
 **2B limit curve:** peaks at **1024** (49.8%), not 2048.  
