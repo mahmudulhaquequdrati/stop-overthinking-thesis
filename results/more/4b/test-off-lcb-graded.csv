@@ -1,0 +1,191 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3334,0,easy,False,wrong answer on test 1,0,151,False
+thinking_off,lcb/3349,0,easy,True,,0,165,False
+thinking_off,lcb/3353,0,easy,True,,0,144,False
+thinking_off,lcb/3361,0,easy,True,,0,891,False
+thinking_off,lcb/3367,0,easy,True,,0,121,False
+thinking_off,lcb/3371,0,easy,True,,0,88,False
+thinking_off,lcb/3372,0,easy,True,,0,182,False
+thinking_off,lcb/3379,0,easy,True,,0,63,False
+thinking_off,lcb/3381,0,easy,True,,0,172,False
+thinking_off,lcb/3396,0,easy,False,wrong answer on test 6,0,145,False
+thinking_off,lcb/3397,0,easy,False,wrong answer on test 1,0,110,False
+thinking_off,lcb/3398,0,easy,False,RecursionError: maximum recursion depth exceeded,0,822,False
+thinking_off,lcb/3408,0,easy,False,wrong answer on test 2,0,74,False
+thinking_off,lcb/3412,0,easy,True,,0,117,False
+thinking_off,lcb/3421,0,easy,True,,0,94,False
+thinking_off,lcb/3426,0,easy,True,,0,1776,False
+thinking_off,lcb/3428,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,75,False
+thinking_off,lcb/3429,0,easy,True,,0,95,False
+thinking_off,lcb/3446,0,easy,True,,0,108,False
+thinking_off,lcb/3447,0,easy,True,,0,112,False
+thinking_off,lcb/3450,0,easy,True,,0,137,False
+thinking_off,lcb/3463,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,165,False
+thinking_off,lcb/3468,0,easy,True,,0,117,False
+thinking_off,lcb/3469,0,easy,False,wrong answer on test 1,0,124,False
+thinking_off,lcb/3471,0,easy,True,,0,133,False
+thinking_off,lcb/3476,0,easy,True,,0,115,False
+thinking_off,lcb/3484,0,easy,False,wrong answer on test 3,0,153,False
+thinking_off,lcb/3508,0,easy,True,,0,126,False
+thinking_off,lcb/3511,0,easy,True,,0,499,False
+thinking_off,lcb/3515,0,easy,True,,0,173,False
+thinking_off,lcb/3519,0,easy,False,KeyError: 0,0,220,False
+thinking_off,lcb/3533,0,easy,True,,0,214,False
+thinking_off,lcb/3543,0,easy,True,,0,1096,False
+thinking_off,lcb/3553,0,easy,True,,0,180,False
+thinking_off,lcb/3555,0,easy,True,,0,252,False
+thinking_off,lcb/3567,0,easy,True,,0,128,False
+thinking_off,lcb/3568,0,easy,True,,0,185,False
+thinking_off,lcb/3600,0,easy,False,wrong answer on test 1,0,1210,False
+thinking_off,lcb/3605,0,easy,False,wrong answer on test 1,0,4049,False
+thinking_off,lcb/3606,0,easy,True,,0,102,False
+thinking_off,lcb/3610,0,easy,True,,0,267,False
+thinking_off,lcb/3612,0,easy,True,,0,187,False
+thinking_off,lcb/3616,0,easy,False,wrong answer on test 1,0,427,False
+thinking_off,lcb/3617,0,easy,False,wrong answer on test 1,0,428,False
+thinking_off,lcb/3625,0,easy,False,wrong answer on test 4,0,386,False
+thinking_off,lcb/3626,0,easy,True,,0,104,False
+thinking_off,lcb/3636,0,easy,True,,0,90,False
+thinking_off,lcb/3644,0,easy,True,,0,170,False
+thinking_off,lcb/abc344_a,0,easy,True,,0,67,False
+thinking_off,lcb/abc344_b,0,easy,True,,0,307,False
+thinking_off,lcb/abc345_b,0,easy,True,,0,538,False
+thinking_off,lcb/abc346_a,0,easy,True,,0,158,False
+thinking_off,lcb/abc346_b,0,easy,True,,0,503,False
+thinking_off,lcb/abc347_a,0,easy,True,,0,158,False
+thinking_off,lcb/abc347_b,0,easy,True,,0,135,False
+thinking_off,lcb/abc348_a,0,easy,True,,0,64,False
+thinking_off,lcb/abc348_b,0,easy,True,,0,340,False
+thinking_off,lcb/abc349_a,0,easy,True,,0,123,False
+thinking_off,lcb/abc349_b,0,easy,True,,0,199,False
+thinking_off,lcb/abc350_a,0,easy,True,,0,362,False
+thinking_off,lcb/abc350_b,0,easy,True,,0,277,False
+thinking_off,lcb/abc351_a,0,easy,True,,0,352,False
+thinking_off,lcb/abc351_b,0,easy,True,,0,247,False
+thinking_off,lcb/abc352_a,0,easy,True,,0,184,False
+thinking_off,lcb/abc353_a,0,easy,True,,0,190,False
+thinking_off,lcb/abc353_b,0,easy,False,wrong answer on test 1,0,235,False
+thinking_off,lcb/abc354_a,0,easy,True,,0,969,False
+thinking_off,lcb/abc354_b,0,easy,True,,0,183,False
+thinking_off,lcb/abc355_a,0,easy,True,,0,119,False
+thinking_off,lcb/abc355_b,0,easy,True,,0,233,False
+thinking_off,lcb/abc356_a,0,easy,True,,0,208,False
+thinking_off,lcb/abc356_b,0,easy,True,,0,251,False
+thinking_off,lcb/abc357_a,0,easy,True,,0,151,False
+thinking_off,lcb/abc357_b,0,easy,True,,0,105,False
+thinking_off,lcb/abc358_a,0,easy,True,,0,43,False
+thinking_off,lcb/abc358_b,0,easy,False,wrong answer on test 1,0,283,False
+thinking_off,lcb/abc359_a,0,easy,True,,0,133,False
+thinking_off,lcb/abc359_b,0,easy,True,,0,183,False
+thinking_off,lcb/abc360_a,0,easy,True,,0,55,False
+thinking_off,lcb/abc360_b,0,easy,True,,0,408,False
+thinking_off,lcb/abc361_a,0,easy,True,,0,186,False
+thinking_off,lcb/abc362_a,0,easy,True,,0,152,False
+thinking_off,lcb/abc362_b,0,easy,True,,0,296,False
+thinking_off,lcb/abc363_a,0,easy,True,,0,2148,False
+thinking_off,lcb/abc363_b,0,easy,True,,0,508,False
+thinking_off,lcb/abc364_a,0,easy,False,wrong answer on test 2,0,190,False
+thinking_off,lcb/abc364_b,0,easy,True,,0,379,False
+thinking_off,lcb/abc365_a,0,easy,True,,0,111,False
+thinking_off,lcb/abc365_b,0,easy,True,,0,285,False
+thinking_off,lcb/abc366_a,0,easy,True,,0,285,False
+thinking_off,lcb/abc366_b,0,easy,False,wrong answer on test 12,0,5520,False
+thinking_off,lcb/abc367_a,0,easy,False,wrong answer on test 1,0,300,False
+thinking_off,lcb/abc367_b,0,easy,True,,0,155,False
+thinking_off,lcb/abc368_a,0,easy,True,,0,240,False
+thinking_off,lcb/abc368_b,0,easy,False,wrong answer on test 1,0,348,False
+thinking_off,lcb/abc369_a,0,easy,True,,0,388,False
+thinking_off,lcb/abc369_b,0,easy,True,,0,2069,False
+thinking_off,lcb/abc370_a,0,easy,True,,0,179,False
+thinking_off,lcb/abc370_b,0,easy,True,,0,1011,False
+thinking_off,lcb/abc371_a,0,easy,False,EOFError: EOF when reading a line,0,523,False
+thinking_off,lcb/abc371_b,0,easy,True,,0,297,False
+thinking_off,lcb/abc372_a,0,easy,True,,0,17,False
+thinking_off,lcb/abc373_a,0,easy,True,,0,122,False
+thinking_off,lcb/abc373_b,0,easy,True,,0,173,False
+thinking_off,lcb/abc374_a,0,easy,True,,0,34,False
+thinking_off,lcb/abc374_b,0,easy,True,,0,206,False
+thinking_off,lcb/abc375_a,0,easy,True,,0,192,False
+thinking_off,lcb/abc376_a,0,easy,True,,0,155,False
+thinking_off,lcb/abc377_a,0,easy,True,,0,55,False
+thinking_off,lcb/abc377_b,0,easy,True,,0,200,False
+thinking_off,lcb/abc378_a,0,easy,True,,0,167,False
+thinking_off,lcb/abc378_b,0,easy,False,wrong answer on test 1,0,453,False
+thinking_off,lcb/abc379_a,0,easy,True,,0,160,False
+thinking_off,lcb/abc379_b,0,easy,True,,0,1634,False
+thinking_off,lcb/abc380_a,0,easy,True,,0,110,False
+thinking_off,lcb/abc380_b,0,easy,True,,0,242,False
+thinking_off,lcb/abc381_a,0,easy,True,,0,323,False
+thinking_off,lcb/abc381_b,0,easy,True,,0,248,False
+thinking_off,lcb/3026,0,medium,True,,0,3312,False
+thinking_off,lcb/3328,0,medium,False,wrong answer on test 1,0,508,False
+thinking_off,lcb/3337,0,medium,False,wrong answer on test 1,0,127,False
+thinking_off,lcb/3346,0,medium,False,wrong answer on test 1,0,151,False
+thinking_off,lcb/3354,0,medium,True,,0,874,False
+thinking_off,lcb/3355,0,medium,False,wrong answer on test 1,0,331,False
+thinking_off,lcb/3356,0,medium,False,wrong answer on test 1,0,422,False
+thinking_off,lcb/3360,0,medium,True,,0,398,False
+thinking_off,lcb/3374,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,128,False
+thinking_off,lcb/3384,0,medium,True,,0,414,False
+thinking_off,lcb/3394,0,medium,False,IndentationError: expected an indented block after function definition on line 3,0,8192,True
+thinking_off,lcb/3395,0,medium,False,wrong answer on test 2,0,268,False
+thinking_off,lcb/3403,0,medium,False,wrong answer on test 2,0,424,False
+thinking_off,lcb/3406,0,medium,False,wrong answer on test 1,0,871,False
+thinking_off,lcb/3422,0,medium,True,,0,295,False
+thinking_off,lcb/3442,0,medium,True,,0,376,False
+thinking_off,lcb/3451,0,medium,True,,0,125,False
+thinking_off,lcb/3453,0,medium,True,,0,227,False
+thinking_off,lcb/3455,0,medium,True,,0,5755,False
+thinking_off,lcb/3456,0,medium,True,,0,1279,False
+thinking_off,lcb/3462,0,medium,False,wrong answer on test 1,0,6407,False
+thinking_off,lcb/3464,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,1562,False
+thinking_off,lcb/3475,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,270,False
+thinking_off,lcb/3479,0,medium,False,wrong answer on test 2,0,460,False
+thinking_off,lcb/3487,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,900,False
+thinking_off,lcb/3493,0,medium,False,timeout on test 1,0,8192,True
+thinking_off,lcb/3494,0,medium,False,IndentationError: expected an indented block after 'while' statement on line 22,0,8192,True
+thinking_off,lcb/3496,0,medium,False,wrong answer on test 2,0,534,False
+thinking_off,lcb/3498,0,medium,False,wrong answer on test 3,0,885,False
+thinking_off,lcb/3502,0,medium,False,wrong answer on test 1,0,2503,False
+thinking_off,lcb/3507,0,medium,True,,0,549,False
+thinking_off,lcb/3517,0,medium,True,,0,321,False
+thinking_off,lcb/3518,0,medium,True,,0,1349,False
+thinking_off,lcb/3522,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,176,False
+thinking_off,lcb/3526,0,medium,True,,0,222,False
+thinking_off,lcb/3528,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3534,0,medium,False,wrong answer on test 1,0,275,False
+thinking_off,lcb/3540,0,medium,True,,0,108,False
+thinking_off,lcb/3558,0,medium,True,,0,603,False
+thinking_off,lcb/3559,0,medium,False,wrong answer on test 5,0,347,False
+thinking_off,lcb/3570,0,medium,True,,0,213,False
+thinking_off,lcb/3573,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3579,0,medium,True,,0,193,False
+thinking_off,lcb/3587,0,medium,False,wrong answer on test 2,0,274,False
+thinking_off,lcb/3591,0,medium,False,wrong answer on test 4,0,356,False
+thinking_off,lcb/3593,0,medium,True,,0,209,False
+thinking_off,lcb/3607,0,medium,False,IndentationError: expected an indented block after 'while' statement on line 185,0,8131,False
+thinking_off,lcb/3622,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,415,False
+thinking_off,lcb/3627,0,medium,False,wrong answer on test 1,0,311,False
+thinking_off,lcb/3629,0,medium,False,wrong answer on test 1,0,793,False
+thinking_off,lcb/3639,0,medium,False,wrong answer on test 1,0,241,False
+thinking_off,lcb/3654,0,medium,False,wrong answer on test 1,0,433,False
+thinking_off,lcb/abc349_c,0,medium,True,,0,358,False
+thinking_off,lcb/abc356_c,0,medium,True,,0,448,False
+thinking_off,lcb/abc356_d,0,medium,True,,0,772,False
+thinking_off,lcb/abc357_c,0,medium,False,wrong answer on test 2,0,395,False
+thinking_off,lcb/abc357_d,0,medium,True,,0,569,False
+thinking_off,lcb/abc358_c,0,medium,True,,0,371,False
+thinking_off,lcb/abc359_c,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/abc361_b,0,medium,True,,0,265,False
+thinking_off,lcb/abc363_c,0,medium,False,wrong answer on test 1,0,1972,False
+thinking_off,lcb/abc363_d,0,medium,False,wrong answer on test 2,0,1038,False
+thinking_off,lcb/abc370_c,0,medium,True,,0,6663,False
+thinking_off,lcb/abc371_c,0,medium,False,IndexError: list index out of range,0,1902,False
+thinking_off,lcb/abc374_c,0,medium,True,,0,1160,False
+thinking_off,lcb/abc374_d,0,medium,False,"TypeError: float() argument must be a string or a real number, not 'tuple'",0,2148,False
+thinking_off,lcb/abc375_d,0,medium,True,,0,1040,False
+thinking_off,lcb/abc376_b,0,medium,True,,0,3989,False
+thinking_off,lcb/abc379_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc380_c,0,medium,True,,0,4370,False
+thinking_off,lcb/abc380_d,0,medium,True,,0,6599,False
+thinking_off,lcb/abc381_c,0,medium,True,,0,1672,False

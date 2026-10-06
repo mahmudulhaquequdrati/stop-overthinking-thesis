@@ -24,7 +24,8 @@ MARKED=<any-folder>/node_modules/marked node scripts/build_thesis_pdf.js
 | [08-references.md](08-references.md) | References |
 | [09-appendices.md](09-appendices.md) | Every problem, how to repeat the work, project history, words |
 
-**Size numbers for the paper:** [../results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · §5.13 in the thesis.
+**Size numbers for the paper:** [../results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · §5.13 in the thesis.  
+**All piles and charts:** [../easy-thesis/10-all-counts.md](../easy-thesis/10-all-counts.md). The same pictures are on the one page in this folder.
 
 ## Rules for editing
 

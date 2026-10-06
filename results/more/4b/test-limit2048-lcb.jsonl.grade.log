@@ -1,0 +1,196 @@
+1/190 lcb/3334        easy    limit        PASS
+2/190 lcb/3349        easy    limit        PASS
+3/190 lcb/3353        easy    limit        PASS
+4/190 lcb/3361        easy    limit        fail: IndentationError: unexpected indent
+5/190 lcb/3367        easy    limit        PASS
+6/190 lcb/3371        easy    limit        PASS
+7/190 lcb/3372        easy    limit        PASS
+8/190 lcb/3379        easy    limit        PASS
+9/190 lcb/3381        easy    limit        PASS
+10/190 lcb/3396        easy    limit        PASS
+11/190 lcb/3397        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+12/190 lcb/3398        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+13/190 lcb/3408        easy    limit        PASS
+14/190 lcb/3412        easy    limit        PASS
+15/190 lcb/3421        easy    limit        PASS
+16/190 lcb/3426        easy    limit        PASS
+17/190 lcb/3428        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+18/190 lcb/3429        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+19/190 lcb/3446        easy    limit        PASS
+20/190 lcb/3447        easy    limit        PASS
+21/190 lcb/3450        easy    limit        PASS
+22/190 lcb/3463        easy    limit        PASS
+23/190 lcb/3468        easy    limit        PASS
+24/190 lcb/3469        easy    limit        PASS
+25/190 lcb/3471        easy    limit        PASS
+26/190 lcb/3476        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+27/190 lcb/3484        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+28/190 lcb/3508        easy    limit        PASS
+29/190 lcb/3511        easy    limit        PASS
+30/190 lcb/3515        easy    limit        PASS
+31/190 lcb/3519        easy    limit        PASS
+32/190 lcb/3533        easy    limit        PASS
+33/190 lcb/3543        easy    limit        PASS
+34/190 lcb/3553        easy    limit        PASS
+35/190 lcb/3555        easy    limit        PASS
+36/190 lcb/3567        easy    limit        PASS
+37/190 lcb/3568        easy    limit        PASS
+38/190 lcb/3600        easy    limit        PASS
+39/190 lcb/3605        easy    limit        fail: IndentationError: expected an indented block after function definition on line 4
+40/190 lcb/3606        easy    limit        PASS
+41/190 lcb/3610        easy    limit        PASS
+42/190 lcb/3612        easy    limit        PASS
+43/190 lcb/3616        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+44/190 lcb/3617        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 8)
+45/190 lcb/3625        easy    limit        PASS
+46/190 lcb/3626        easy    limit        PASS
+47/190 lcb/3636        easy    limit        PASS
+48/190 lcb/3644        easy    limit        PASS
+49/190 lcb/abc344_a    easy    limit        PASS
+50/190 lcb/abc344_b    easy    limit        PASS
+51/190 lcb/abc345_b    easy    limit        PASS
+52/190 lcb/abc346_a    easy    limit        PASS
+53/190 lcb/abc346_b    easy    limit        PASS
+54/190 lcb/abc347_a    easy    limit        PASS
+55/190 lcb/abc347_b    easy    limit        PASS
+56/190 lcb/abc348_a    easy    limit        PASS
+57/190 lcb/abc348_b    easy    limit        PASS
+58/190 lcb/abc349_a    easy    limit        PASS
+59/190 lcb/abc349_b    easy    limit        PASS
+60/190 lcb/abc350_a    easy    limit        PASS
+61/190 lcb/abc350_b    easy    limit        PASS
+62/190 lcb/abc351_a    easy    limit        PASS
+63/190 lcb/abc351_b    easy    limit        PASS
+64/190 lcb/abc352_a    easy    limit        PASS
+65/190 lcb/abc353_a    easy    limit        PASS
+66/190 lcb/abc353_b    easy    limit        fail: SyntaxError: invalid syntax
+67/190 lcb/abc354_a    easy    limit        PASS
+68/190 lcb/abc354_b    easy    limit        PASS
+69/190 lcb/abc355_a    easy    limit        PASS
+70/190 lcb/abc355_b    easy    limit        PASS
+71/190 lcb/abc356_a    easy    limit        PASS
+72/190 lcb/abc356_b    easy    limit        PASS
+73/190 lcb/abc357_a    easy    limit        PASS
+74/190 lcb/abc357_b    easy    limit        PASS
+75/190 lcb/abc358_a    easy    limit        PASS
+76/190 lcb/abc358_b    easy    limit        PASS
+77/190 lcb/abc359_a    easy    limit        PASS
+78/190 lcb/abc359_b    easy    limit        PASS
+79/190 lcb/abc360_a    easy    limit        PASS
+80/190 lcb/abc360_b    easy    limit        PASS
+81/190 lcb/abc361_a    easy    limit        PASS
+82/190 lcb/abc362_a    easy    limit        PASS
+83/190 lcb/abc362_b    easy    limit        PASS
+84/190 lcb/abc363_a    easy    limit        PASS
+85/190 lcb/abc363_b    easy    limit        PASS
+86/190 lcb/abc364_a    easy    limit        fail: wrong answer on test 2
+87/190 lcb/abc364_b    easy    limit        PASS
+88/190 lcb/abc365_a    easy    limit        PASS
+89/190 lcb/abc365_b    easy    limit        PASS
+90/190 lcb/abc366_a    easy    limit        PASS
+91/190 lcb/abc366_b    easy    limit        fail: SyntaxError: invalid syntax
+92/190 lcb/abc367_a    easy    limit        PASS
+93/190 lcb/abc367_b    easy    limit        PASS
+94/190 lcb/abc368_a    easy    limit        PASS
+95/190 lcb/abc368_b    easy    limit        PASS
+96/190 lcb/abc369_a    easy    limit        PASS
+97/190 lcb/abc369_b    easy    limit        PASS
+98/190 lcb/abc370_a    easy    limit        PASS
+99/190 lcb/abc370_b    easy    limit        PASS
+100/190 lcb/abc371_a    easy    limit        PASS
+101/190 lcb/abc371_b    easy    limit        PASS
+102/190 lcb/abc372_a    easy    limit        PASS
+103/190 lcb/abc373_a    easy    limit        PASS
+104/190 lcb/abc373_b    easy    limit        PASS
+105/190 lcb/abc374_a    easy    limit        PASS
+106/190 lcb/abc374_b    easy    limit        PASS
+107/190 lcb/abc375_a    easy    limit        PASS
+108/190 lcb/abc376_a    easy    limit        PASS
+109/190 lcb/abc377_a    easy    limit        PASS
+110/190 lcb/abc377_b    easy    limit        PASS
+111/190 lcb/abc378_a    easy    limit        PASS
+112/190 lcb/abc378_b    easy    limit        PASS
+113/190 lcb/abc379_a    easy    limit        PASS
+114/190 lcb/abc379_b    easy    limit        PASS
+115/190 lcb/abc380_a    easy    limit        PASS
+116/190 lcb/abc380_b    easy    limit        fail: SyntaxError: invalid syntax
+117/190 lcb/abc381_a    easy    limit        PASS
+118/190 lcb/abc381_b    easy    limit        PASS
+119/190 lcb/3026        medium  limit        fail: SyntaxError: invalid syntax
+120/190 lcb/3328        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 8)
+121/190 lcb/3337        medium  limit        PASS
+122/190 lcb/3346        medium  limit        fail: wrong answer on test 1
+123/190 lcb/3354        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+124/190 lcb/3355        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+125/190 lcb/3356        medium  limit        fail: IndentationError: unexpected indent
+126/190 lcb/3360        medium  limit        fail: IndentationError: unexpected indent
+127/190 lcb/3374        medium  limit        PASS
+128/190 lcb/3384        medium  limit        fail: SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+129/190 lcb/3394        medium  limit        fail: SyntaxError: invalid syntax
+130/190 lcb/3395        medium  limit        PASS
+131/190 lcb/3403        medium  limit        fail: wrong answer on test 1
+132/190 lcb/3406        medium  limit        fail: SyntaxError: invalid syntax
+133/190 lcb/3422        medium  limit        PASS
+134/190 lcb/3442        medium  limit        fail: SyntaxError: invalid syntax
+135/190 lcb/3451        medium  limit        PASS
+136/190 lcb/3453        medium  limit        PASS
+137/190 lcb/3455        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 15)
+138/190 lcb/3456        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+139/190 lcb/3462        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 9)
+140/190 lcb/3464        medium  limit        fail: SyntaxError: invalid syntax
+141/190 lcb/3475        medium  limit        fail: SyntaxError: invalid syntax
+142/190 lcb/3479        medium  limit        fail: IndentationError: unexpected indent
+143/190 lcb/3487        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+144/190 lcb/3493        medium  limit        fail: wrong answer on test 1
+145/190 lcb/3494        medium  limit        fail: SyntaxError: invalid syntax
+146/190 lcb/3496        medium  limit        PASS
+147/190 lcb/3498        medium  limit        fail: SyntaxError: invalid syntax
+148/190 lcb/3502        medium  limit        PASS
+149/190 lcb/3507        medium  limit        PASS
+150/190 lcb/3517        medium  limit        PASS
+151/190 lcb/3518        medium  limit        PASS
+152/190 lcb/3522        medium  limit        PASS
+153/190 lcb/3526        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+154/190 lcb/3528        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+155/190 lcb/3534        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+156/190 lcb/3540        medium  limit        PASS
+157/190 lcb/3558        medium  limit        fail: IndentationError: unexpected indent
+158/190 lcb/3559        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+159/190 lcb/3570        medium  limit        PASS
+160/190 lcb/3573        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+161/190 lcb/3579        medium  limit        PASS
+162/190 lcb/3587        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+163/190 lcb/3591        medium  limit        fail: IndentationError: unexpected indent
+164/190 lcb/3593        medium  limit        fail: IndentationError: unexpected indent
+165/190 lcb/3607        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+166/190 lcb/3622        medium  limit        fail: SyntaxError: invalid syntax
+167/190 lcb/3627        medium  limit        PASS
+168/190 lcb/3629        medium  limit        fail: IndentationError: expected an indented block after 'for' statement on line 6
+169/190 lcb/3639        medium  limit        PASS
+170/190 lcb/3654        medium  limit        fail: wrong answer on test 1
+171/190 lcb/abc349_c    medium  limit        PASS
+172/190 lcb/abc356_c    medium  limit        PASS
+173/190 lcb/abc356_d    medium  limit        PASS
+174/190 lcb/abc357_c    medium  limit        fail: SyntaxError: invalid syntax
+175/190 lcb/abc357_d    medium  limit        PASS
+176/190 lcb/abc358_c    medium  limit        PASS
+177/190 lcb/abc359_c    medium  limit        fail: SyntaxError: invalid syntax
+178/190 lcb/abc361_b    medium  limit        PASS
+179/190 lcb/abc363_c    medium  limit        fail: wrong answer on test 1
+180/190 lcb/abc363_d    medium  limit        PASS
+181/190 lcb/abc370_c    medium  limit        fail: SyntaxError: invalid syntax
+182/190 lcb/abc371_c    medium  limit        PASS
+183/190 lcb/abc374_c    medium  limit        PASS
+184/190 lcb/abc374_d    medium  limit        fail: wrong answer on test 1
+185/190 lcb/abc375_d    medium  limit        PASS
+186/190 lcb/abc376_b    medium  limit        fail: IndentationError: unexpected indent
+187/190 lcb/abc379_d    medium  limit        fail: wrong answer on test 3
+188/190 lcb/abc380_c    medium  limit        fail: wrong answer on test 1
+189/190 lcb/abc380_d    medium  limit        fail: SyntaxError: invalid syntax
+190/190 lcb/abc381_c    medium  limit        PASS
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 104/118 (88%) | median thinking 2048 | median all tokens 2360 | hit the limit 20
+limit        medium   passed 28/72 (39%) | median thinking 2048 | median all tokens 8193 | hit the limit 54
+
+saved /content/drive/MyDrive/stop-overthinking/results/more/4b/test-limit2048-lcb-graded.csv

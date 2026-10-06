@@ -24,6 +24,25 @@ The list was **fixed on 2026-09-20**, before any score.
       └─ medium       39           the same job, harder
 ```
 
+## Later lists, counted apart
+
+The first exam stays 234.
+Two later contest lists were marked on their own sheet.
+
+![How many problems](figures/counts.svg)
+
+| Pile | How many |
+|---|---|
+| First exam | 234 |
+| Extra contest | 40 |
+| More contest | 190 (118 easy, 72 medium) |
+| Tests in total | **464** |
+| LoRA-1 pool | 100 |
+| LoRA-2 pool | 280, of which **157** were kept |
+
+464 is a count. It is not one score.
+The charts and the stats are in [10-all-counts.md](10-all-counts.md).
+
 Hard LiveCodeBench problems were left out.
 A 2 billion model solves almost none of them.
 They could not show a difference between ways.
@@ -98,7 +117,9 @@ For a class problem it says: complete the given Python class, and answer with on
 
 ## The training set
 
-Training problems are **not** the 234 test problems.
+Training problems are **not** the test problems.
+LoRA-1 used a pool of **100** easy functions.
+LoRA-2 used the bigger pool below.
 
 | Pool | Problems | Why this pool |
 |---|---|---|

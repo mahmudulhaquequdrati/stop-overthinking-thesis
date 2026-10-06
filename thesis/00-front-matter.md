@@ -92,6 +92,68 @@ For small AI models that write code, **try free options first** (thinking OFF an
 On Qwen3.5-2B, a **limit of 1,024** was best. On 0.8B, **OFF** was best. On 4B, a **limit of 2,048** was best.
 Training with LoRA-1 did not beat those free winners on any of the three sizes.
 
+### Every problem, in one count
+
+The picture above is the first exam only.
+Two later exams stay in their own tables.
+The training piles are homework, not exam questions.
+
+```text
+TEST
+  234  first exam
++  40  extra contest problems
++ 190  more contest problems
+─────
+  464  problems we can name (a count, not one score)
+
+TRAIN
+  100  easy functions          → LoRA-1
+  280  (200 easy + 80 contest) → LoRA-2
+       157 of those 280 were kept as short correct answers
+```
+
+![How many problems](../easy-thesis/figures/counts.svg)
+
+| Pile | How many | What it is |
+|---|---|---|
+| First exam | **234** | Easy functions plus contest problems |
+| Extra contest | **40** | Later check |
+| More contest | **190** | 118 easy, 72 medium |
+| **Tests in total** | **464** | 234 + 40 + 190. A count, not a blended score |
+| LoRA-1 pool | **100** | Easy functions for the small add-on |
+| LoRA-2 pool | **280** | 200 easy functions + 80 older contest problems |
+| LoRA-2 kept | **157** | Short correct answers actually used. 133 + 24 |
+
+![Best free score on each list](../easy-thesis/figures/best-free.svg)
+
+| List | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Exam 234 | OFF **20.5%** | Limit 1,024 **49.8%** | Limit 2,048 **78.2%** |
+| Extra 40 | OFF **5.0%** (2/40) | OFF **12.5%** (10/80) | OFF **46.2%**, tied with limit 2,048 |
+| More 190 | OFF **9.5%** (18/190) | Limit 1,024 **31.1%** (59/190) | Limit 2,048 **69.5%** (132/190) |
+
+A free way wins on every list.
+On the first exam the trained add-on is LoRA-1 at 17.9% / 45.5% / 69.9%.
+LoRA-2 on 2B is 45.1%. Neither beats the free winner.
+
+![The 190 contest problems, by way](../easy-thesis/figures/more-190-ways.svg)
+
+| Way | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
+| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
+| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
+| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+
+The 2B add-on has no bar.
+Colab printed `SKIP — no weights at /content/thesis/results/mini/lora/lora100`.
+The clock said GO. About 11 hours were left.
+That session was later deleted, so this cell stays empty.
+
+49.8% and 78.2% stay on the 234.
+Do not average the three lists into one score.
+The chart page is [easy-thesis/10-all-counts.md](../easy-thesis/10-all-counts.md).
+
 ---
 
 ## Key facts at a glance
@@ -102,7 +164,8 @@ Training with LoRA-1 did not beat those free winners on any of the three sizes.
 | Answer (2B) | **No.** A free thinking limit (1,024) was better. |
 | Size check | Same 234 problems on **0.8B / 2B / 4B**: best free = OFF / limit1024 / limit2048; LoRA-1 never won |
 | Model (main) | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
-| Test problems | 234: HumanEval+ (164) and LiveCodeBench (70: 31 easy, 39 medium) |
+| Test problems | **464** in three lists: first exam **234**, extra **40**, more **190**. 49.8% and 78.2% stay on the 234. |
+| Training problems | LoRA-1 pool **100** easy functions. LoRA-2 pool **280** (200 + 80). LoRA-2 kept **157**. |
 | Answers checked | 2,808 test answers on 2B (6 ways × 234 × 2 tries), plus size-extension runs on 0.8B and 4B |
 | How answers were checked | By running each test set's own tests on the code (no checking by eye) |
 | Best way (2B) | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |

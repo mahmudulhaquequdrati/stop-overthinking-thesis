@@ -71,3 +71,5 @@ On ~4B, about **2,048** was best.
 Train with LoRA only if free ways are not enough.
 
 Join table: [ALL-RESULTS.md](ALL-RESULTS.md) · [RESULTS-INDEX.md](RESULTS-INDEX.md) · DECISIONS #72–#84.
+
+Later lists stay out of the table above. Extra 40: [extra/SUMMARY.md](extra/SUMMARY.md). The 190: [more/SUMMARY.md](more/SUMMARY.md).

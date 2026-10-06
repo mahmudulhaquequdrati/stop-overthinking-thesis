@@ -1,0 +1,191 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3334,0,easy,False,wrong answer on test 1,0,159,False
+thinking_off,lcb/3349,0,easy,False,wrong answer on test 1,0,174,False
+thinking_off,lcb/3353,0,easy,True,,0,72,False
+thinking_off,lcb/3361,0,easy,False,UnboundLocalError: cannot access local variable 'mm_str' where it is not associated with a value,0,586,False
+thinking_off,lcb/3367,0,easy,False,wrong answer on test 1,0,130,False
+thinking_off,lcb/3371,0,easy,True,,0,112,False
+thinking_off,lcb/3372,0,easy,False,wrong answer on test 1,0,250,False
+thinking_off,lcb/3379,0,easy,True,,0,61,False
+thinking_off,lcb/3381,0,easy,False,wrong answer on test 1,0,336,False
+thinking_off,lcb/3396,0,easy,False,wrong answer on test 1,0,150,False
+thinking_off,lcb/3397,0,easy,False,wrong answer on test 1,0,96,False
+thinking_off,lcb/3398,0,easy,False,wrong answer on test 1,0,468,False
+thinking_off,lcb/3408,0,easy,False,wrong answer on test 1,0,81,False
+thinking_off,lcb/3412,0,easy,True,,0,106,False
+thinking_off,lcb/3421,0,easy,True,,0,98,False
+thinking_off,lcb/3426,0,easy,True,,0,120,False
+thinking_off,lcb/3428,0,easy,True,,0,130,False
+thinking_off,lcb/3429,0,easy,True,,0,78,False
+thinking_off,lcb/3446,0,easy,True,,0,106,False
+thinking_off,lcb/3447,0,easy,False,wrong answer on test 4,0,176,False
+thinking_off,lcb/3450,0,easy,False,wrong answer on test 2,0,417,False
+thinking_off,lcb/3463,0,easy,True,,0,163,False
+thinking_off,lcb/3468,0,easy,True,,0,77,False
+thinking_off,lcb/3469,0,easy,False,wrong answer on test 1,0,248,False
+thinking_off,lcb/3471,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,216,False
+thinking_off,lcb/3476,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,699,False
+thinking_off,lcb/3484,0,easy,False,wrong answer on test 1,0,121,False
+thinking_off,lcb/3508,0,easy,False,wrong answer on test 1,0,108,False
+thinking_off,lcb/3511,0,easy,False,wrong answer on test 1,0,886,False
+thinking_off,lcb/3515,0,easy,False,wrong answer on test 1,0,129,False
+thinking_off,lcb/3519,0,easy,False,wrong answer on test 1,0,160,False
+thinking_off,lcb/3533,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,245,False
+thinking_off,lcb/3543,0,easy,False,wrong answer on test 1,0,244,False
+thinking_off,lcb/3553,0,easy,False,wrong answer on test 2,0,209,False
+thinking_off,lcb/3555,0,easy,True,,0,135,False
+thinking_off,lcb/3567,0,easy,True,,0,111,False
+thinking_off,lcb/3568,0,easy,False,SyntaxError: '(' was never closed,0,162,False
+thinking_off,lcb/3600,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3605,0,easy,False,wrong answer on test 1,0,989,False
+thinking_off,lcb/3606,0,easy,True,,0,89,False
+thinking_off,lcb/3610,0,easy,False,wrong answer on test 1,0,388,False
+thinking_off,lcb/3612,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,211,False
+thinking_off,lcb/3616,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3617,0,easy,False,wrong answer on test 1,0,344,False
+thinking_off,lcb/3625,0,easy,False,wrong answer on test 1,0,591,False
+thinking_off,lcb/3626,0,easy,False,wrong answer on test 2,0,155,False
+thinking_off,lcb/3636,0,easy,True,,0,97,False
+thinking_off,lcb/3644,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,176,False
+thinking_off,lcb/abc344_a,0,easy,False,wrong answer on test 1,0,100,False
+thinking_off,lcb/abc344_b,0,easy,False,wrong answer on test 1,0,160,False
+thinking_off,lcb/abc345_b,0,easy,True,,0,105,False
+thinking_off,lcb/abc346_a,0,easy,True,,0,248,False
+thinking_off,lcb/abc346_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc347_a,0,easy,True,,0,180,False
+thinking_off,lcb/abc347_b,0,easy,True,,0,142,False
+thinking_off,lcb/abc348_a,0,easy,True,,0,171,False
+thinking_off,lcb/abc348_b,0,easy,False,wrong answer on test 1,0,448,False
+thinking_off,lcb/abc349_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc349_b,0,easy,True,,0,223,False
+thinking_off,lcb/abc350_a,0,easy,False,wrong answer on test 1,0,395,False
+thinking_off,lcb/abc350_b,0,easy,False,wrong answer on test 1,0,325,False
+thinking_off,lcb/abc351_a,0,easy,False,IndentationError: expected an indented block after 'if' statement on line 16,0,8192,True
+thinking_off,lcb/abc351_b,0,easy,True,,0,191,False
+thinking_off,lcb/abc352_a,0,easy,False,wrong answer on test 2,0,337,False
+thinking_off,lcb/abc353_a,0,easy,True,,0,214,False
+thinking_off,lcb/abc353_b,0,easy,False,IndentationError: unexpected indent,0,8192,True
+thinking_off,lcb/abc354_a,0,easy,False,wrong answer on test 2,0,555,False
+thinking_off,lcb/abc354_b,0,easy,True,,0,264,False
+thinking_off,lcb/abc355_a,0,easy,True,,0,254,False
+thinking_off,lcb/abc355_b,0,easy,True,,0,234,False
+thinking_off,lcb/abc356_a,0,easy,True,,0,211,False
+thinking_off,lcb/abc356_b,0,easy,True,,0,384,False
+thinking_off,lcb/abc357_a,0,easy,False,wrong answer on test 1,0,260,False
+thinking_off,lcb/abc357_b,0,easy,False,wrong answer on test 1,0,75,False
+thinking_off,lcb/abc358_a,0,easy,False,wrong answer on test 1,0,136,False
+thinking_off,lcb/abc358_b,0,easy,False,NameError: name 'finish_times' is not defined. Did you mean: 'finish_time'?,0,351,False
+thinking_off,lcb/abc359_a,0,easy,True,,0,180,False
+thinking_off,lcb/abc359_b,0,easy,False,AttributeError: 'int' object has no attribute 'append',0,422,False
+thinking_off,lcb/abc360_a,0,easy,True,,0,151,False
+thinking_off,lcb/abc360_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc361_a,0,easy,True,,0,228,False
+thinking_off,lcb/abc362_a,0,easy,False,wrong answer on test 1,0,248,False
+thinking_off,lcb/abc362_b,0,easy,True,,0,354,False
+thinking_off,lcb/abc363_a,0,easy,False,wrong answer on test 3,0,792,False
+thinking_off,lcb/abc363_b,0,easy,True,,0,267,False
+thinking_off,lcb/abc364_a,0,easy,False,wrong answer on test 1,0,206,False
+thinking_off,lcb/abc364_b,0,easy,False,UnboundLocalError: cannot access local variable 'dr' where it is not associated with a value,0,502,False
+thinking_off,lcb/abc365_a,0,easy,True,,0,125,False
+thinking_off,lcb/abc365_b,0,easy,True,,0,853,False
+thinking_off,lcb/abc366_a,0,easy,False,wrong answer on test 4,0,287,False
+thinking_off,lcb/abc366_b,0,easy,False,wrong answer on test 1,0,8191,True
+thinking_off,lcb/abc367_a,0,easy,False,wrong answer on test 1,0,238,False
+thinking_off,lcb/abc367_b,0,easy,False,wrong answer on test 1,0,239,False
+thinking_off,lcb/abc368_a,0,easy,False,wrong answer on test 1,0,208,False
+thinking_off,lcb/abc368_b,0,easy,False,wrong answer on test 1,0,226,False
+thinking_off,lcb/abc369_a,0,easy,True,,0,915,False
+thinking_off,lcb/abc369_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc370_a,0,easy,False,wrong answer on test 3,0,138,False
+thinking_off,lcb/abc370_b,0,easy,False,IndexError: list index out of range,0,384,False
+thinking_off,lcb/abc371_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc371_b,0,easy,False,wrong answer on test 1,0,315,False
+thinking_off,lcb/abc372_a,0,easy,True,,0,59,False
+thinking_off,lcb/abc373_a,0,easy,True,,0,151,False
+thinking_off,lcb/abc373_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc374_a,0,easy,True,,0,60,False
+thinking_off,lcb/abc374_b,0,easy,False,wrong answer on test 2,0,212,False
+thinking_off,lcb/abc375_a,0,easy,True,,0,257,False
+thinking_off,lcb/abc376_a,0,easy,False,wrong answer on test 1,0,147,False
+thinking_off,lcb/abc377_a,0,easy,True,,0,148,False
+thinking_off,lcb/abc377_b,0,easy,True,,0,5321,False
+thinking_off,lcb/abc378_a,0,easy,True,,0,215,False
+thinking_off,lcb/abc378_b,0,easy,False,wrong answer on test 1,0,503,False
+thinking_off,lcb/abc379_a,0,easy,True,,0,204,False
+thinking_off,lcb/abc379_b,0,easy,False,TypeError: 'str' object does not support item assignment,0,247,False
+thinking_off,lcb/abc380_a,0,easy,True,,0,186,False
+thinking_off,lcb/abc380_b,0,easy,False,wrong answer on test 1,0,394,False
+thinking_off,lcb/abc381_a,0,easy,False,wrong answer on test 1,0,313,False
+thinking_off,lcb/abc381_b,0,easy,False,wrong answer on test 3,0,285,False
+thinking_off,lcb/3026,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3328,0,medium,False,timeout on test 1,0,8192,True
+thinking_off,lcb/3337,0,medium,False,wrong answer on test 1,0,154,False
+thinking_off,lcb/3346,0,medium,False,IndentationError: expected an indented block after 'for' statement on line 48,0,8192,True
+thinking_off,lcb/3354,0,medium,False,wrong answer on test 1,0,380,False
+thinking_off,lcb/3355,0,medium,False,wrong answer on test 2,0,982,False
+thinking_off,lcb/3356,0,medium,False,wrong answer on test 1,0,700,False
+thinking_off,lcb/3360,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3374,0,medium,False,wrong answer on test 1,0,385,False
+thinking_off,lcb/3384,0,medium,False,wrong answer on test 1,0,185,False
+thinking_off,lcb/3394,0,medium,False,IndentationError: expected an indented block after function definition on line 3,0,8192,True
+thinking_off,lcb/3395,0,medium,False,wrong answer on test 1,0,1811,False
+thinking_off,lcb/3403,0,medium,False,wrong answer on test 1,0,280,False
+thinking_off,lcb/3406,0,medium,False,IndentationError: expected an indented block after 'for' statement on line 93,0,8192,True
+thinking_off,lcb/3422,0,medium,False,wrong answer on test 1,0,665,False
+thinking_off,lcb/3442,0,medium,False,wrong answer on test 1,0,101,False
+thinking_off,lcb/3451,0,medium,False,timeout on test 5,0,108,False
+thinking_off,lcb/3453,0,medium,False,wrong answer on test 1,0,212,False
+thinking_off,lcb/3455,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3456,0,medium,False,wrong answer on test 1,0,411,False
+thinking_off,lcb/3462,0,medium,False,wrong answer on test 1,0,124,False
+thinking_off,lcb/3464,0,medium,False,wrong answer on test 1,0,360,False
+thinking_off,lcb/3475,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,748,False
+thinking_off,lcb/3479,0,medium,False,IndentationError: expected an indented block after 'if' statement on line 29,0,8192,True
+thinking_off,lcb/3487,0,medium,False,wrong answer on test 1,0,632,False
+thinking_off,lcb/3493,0,medium,False,wrong answer on test 1,0,159,False
+thinking_off,lcb/3494,0,medium,False,wrong answer on test 1,0,525,False
+thinking_off,lcb/3496,0,medium,False,wrong answer on test 1,0,377,False
+thinking_off,lcb/3498,0,medium,False,wrong answer on test 1,0,6851,False
+thinking_off,lcb/3502,0,medium,False,timeout on test 5,0,337,False
+thinking_off,lcb/3507,0,medium,False,timeout on test 8,0,273,False
+thinking_off,lcb/3517,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,304,False
+thinking_off,lcb/3518,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3522,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,97,False
+thinking_off,lcb/3526,0,medium,False,SyntaxError: '[' was never closed,0,8192,True
+thinking_off,lcb/3528,0,medium,False,wrong answer on test 1,0,237,False
+thinking_off,lcb/3534,0,medium,False,wrong answer on test 1,0,351,False
+thinking_off,lcb/3540,0,medium,True,,0,121,False
+thinking_off,lcb/3558,0,medium,False,wrong answer on test 1,0,446,False
+thinking_off,lcb/3559,0,medium,False,NameError: name 'k' is not defined,0,265,False
+thinking_off,lcb/3570,0,medium,False,IndexError: list index out of range,0,608,False
+thinking_off,lcb/3573,0,medium,False,"TypeError: can only concatenate str (not ""int"") to str",0,8192,True
+thinking_off,lcb/3579,0,medium,False,NameError: name 'itertools' is not defined. Did you forget to import 'itertools'?,0,188,False
+thinking_off,lcb/3587,0,medium,False,wrong answer on test 1,0,617,False
+thinking_off,lcb/3591,0,medium,False,wrong answer on test 1,0,575,False
+thinking_off,lcb/3593,0,medium,False,wrong answer on test 1,0,603,False
+thinking_off,lcb/3607,0,medium,False,wrong answer on test 1,0,1118,False
+thinking_off,lcb/3622,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,1316,False
+thinking_off,lcb/3627,0,medium,False,wrong answer on test 1,0,280,False
+thinking_off,lcb/3629,0,medium,False,wrong answer on test 3,0,438,False
+thinking_off,lcb/3639,0,medium,False,wrong answer on test 1,0,356,False
+thinking_off,lcb/3654,0,medium,False,AttributeError: 'set' object has no attribute 'sort',0,360,False
+thinking_off,lcb/abc349_c,0,medium,False,wrong answer on test 1,0,359,False
+thinking_off,lcb/abc356_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc356_d,0,medium,True,,0,8192,True
+thinking_off,lcb/abc357_c,0,medium,False,IndexError: list index out of range,0,372,False
+thinking_off,lcb/abc357_d,0,medium,False,NameError: name 'R' is not defined,0,968,False
+thinking_off,lcb/abc358_c,0,medium,False,wrong answer on test 1,0,1566,False
+thinking_off,lcb/abc359_c,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/abc361_b,0,medium,False,wrong answer on test 2,0,382,False
+thinking_off,lcb/abc363_c,0,medium,False,wrong answer on test 1,0,1549,False
+thinking_off,lcb/abc363_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc370_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc371_c,0,medium,False,wrong answer on test 1,0,1304,False
+thinking_off,lcb/abc374_c,0,medium,False,wrong answer on test 1,0,1374,False
+thinking_off,lcb/abc374_d,0,medium,False,TypeError: 'int' object is not subscriptable,0,2159,False
+thinking_off,lcb/abc375_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc376_b,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc379_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc380_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc380_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc381_c,0,medium,False,wrong answer on test 1,0,8192,True

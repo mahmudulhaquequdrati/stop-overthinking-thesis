@@ -10,15 +10,16 @@ A *token* is a small piece of text, about three quarters of a word.
 ## Contents
 
 1. [The thesis in one page](#the-thesis-in-one-page)
-2. [Who should use this, and why](#who-should-use-this-and-why)
-3. [The problem, the gap, and the question](#the-problem-the-gap-and-the-question)
-4. [How we did it](#how-we-did-it)
-5. [The datasets, and how we checked them](#the-datasets-and-how-we-checked-them)
-6. [The results](#the-results)
-7. [Why the limit works, and training does not](#why-the-limit-works-and-training-does-not)
-8. [What to do, and what we did not prove](#what-to-do-and-what-we-did-not-prove)
-9. [All the answers](#all-the-answers)
-10. [Words used in this folder](#words-used-in-this-folder)
+2. [All the problems, then the scores](#all-the-problems-then-the-scores)
+3. [Who should use this, and why](#who-should-use-this-and-why)
+4. [The problem, the gap, and the question](#the-problem-the-gap-and-the-question)
+5. [How we did it](#how-we-did-it)
+6. [The datasets, and how we checked them](#the-datasets-and-how-we-checked-them)
+7. [The results](#the-results)
+8. [Why the limit works, and training does not](#why-the-limit-works-and-training-does-not)
+9. [What to do, and what we did not prove](#what-to-do-and-what-we-did-not-prove)
+10. [All the answers](#all-the-answers)
+11. [Words used in this folder](#words-used-in-this-folder)
 
 ---
 
@@ -27,85 +28,199 @@ A *token* is a small piece of text, about three quarters of a word.
 Small code models often "think" for a long time.
 A free stop on that thinking beat training them to think shorter.
 
+You are in the **CONCLUSION** box.
+The lists below are the whole study on one page.
+
 ## Everyday example
 
-Imagine a student who writes five pages for "what is 2 + 2?".
-That is slow.
-It does not make the answer better.
-Some small AI models do the same thing on easy code problems.
-They write notes to themselves before the code.
-Those notes are often a stuck loop, not careful work.
+Imagine three exam papers and two homework piles.
+You mark each exam paper on its own.
+You do not add the three marks into one score.
+The homework is what we used to train the add-on.
+The homework is not the exam.
 
-## The picture
+## Every problem, in one count
 
 ```text
-Same 234 code problems
-        │
-   ┌────┴────────────┐
-   ▼                 ▼
- Free ways           Trained add-on (LoRA)
- OFF · limit ·       shortest correct answers
- "think briefly"
-        │
-        ▼
- On 2B, stop thinking at 1,024 tokens: 49.8%
- Normal thinking:                         42.1%
- Training did not make thinking shorter.
+TEST  (three lists, marked apart)
+  234  first exam      easy functions + contest
++  40  extra contest   a small later check
++ 190  more contest    a bigger later check
+─────
+  464  problems we can name
+
+TRAIN  (the add-on only)
+  100  easy functions     →  LoRA-1
+  280  easy + old contest →  LoRA-2
+       200 + 80
+       157 of the 280 had a short correct answer we kept
 ```
+
+**464 is a count of problems.**
+It is not one accuracy.
+49.8% and 78.2% stay on the 234.
+
+The pictures and the full stats are in [10-all-counts.md](10-all-counts.md).
 
 A *token* is a small piece of text, about three quarters of a word.
 A *LoRA* is a small add-on we train on top of the model.
 We do not retrain the whole model.
 
-## What we found
+| Add-on | Training problems | What we kept | Where it was used |
+|---|---|---|---|
+| LoRA-1 | **100** easy functions | 37 on 0.8B, 73 on 4B | 0.8B, 2B, and 4B |
+| LoRA-2 | **280** (200 easy + 80 older contest) | **157** (133 + 24) | 2B main exam only |
+
+## Scores on the 234
 
 ```text
-How often the first answers pass the tests (2B, higher is better)
+How often the answers pass the tests (2B, higher is better)
 
 Limit 1,024     ██████████████████████████  49.8%   best, and proven
-LoRA-1          ███████████████████████     45.5%
-LoRA-2          ███████████████████████     45.1%   not shorter
+LoRA-1 (from 100) ███████████████████████   45.5%
+LoRA-2 (from 280) ███████████████████████   45.1%   not shorter
 Thinking ON     ██████████████████████      42.1%   what we compare against
 Thinking OFF    █████████████████████       40.8%   about 4× fewer tokens
 "Think briefly" ███                          6.6%   the wording confused it
 ```
 
-Three sizes, same 234 problems:
-
 | Size | Best free way | Score | Trained add-on |
 |---|---|---|---|
-| 0.8B (1 try) | Thinking OFF | 20.5% | 17.9% |
-| 2B | Limit 1,024 | 49.8% | 45.5% |
-| 4B (2 tries) | Limit 2,048 | 78.2% | 69.9% |
+| 0.8B (1 try) | Thinking OFF | 20.5% | LoRA-1 17.9% |
+| 2B | Limit 1,024 | 49.8% | LoRA-1 45.5% · LoRA-2 45.1% |
+| 4B (2 tries) | Limit 2,048 | 78.2% | LoRA-1 69.9% |
 
-The trained add-on never beat the best free way.
+The trained add-on never beat the best free way on this exam.
 
-## Later check
+## Scores on the extra 40
 
-We also graded 40 newer contest problems.
 A free way still wins.
 Thinking OFF was best, or it tied the limit.
 
-| Size | On these 40 | Thinking ON |
-|---|---|---|
-| 0.8B (1 try) | OFF 5.0% (2/40) | 0% |
-| 2B (2 tries) | OFF 12.5% (10/80) | 0% |
-| 4B (2 tries) | OFF 46.2%, tied with limit 2,048 | 18.8% |
+| Size | On these 40 | Thinking ON | Trained add-on |
+|---|---|---|---|
+| 0.8B (1 try) | OFF 5.0% (2/40) | 0% | LoRA-1 0% |
+| 2B (2 tries) | OFF 12.5% (10/80) | 0% | not run |
+| 4B (2 tries) | OFF 46.2%, tied with limit 2,048 | 18.8% | not run |
 
-The first exam scores above stay the exam scores.
-The full table is in the results chapter below.
+## Scores on the 190
+
+One try each. A free way still wins.
+The winner matches the first exam.
+
+| Size | On these 190 | Trained add-on |
+|---|---|---|
+| 0.8B | OFF 9.5% (18/190) | LoRA-1 7.9% (from the 100) |
+| 2B | Limit 1,024 at 31.1% (59/190) | skipped |
+| 4B | Limit 2,048 at 69.5% (132/190) | LoRA-1 46.3% (from the 100) |
+
+The 2B add-on was skipped. Colab printed this line:
+
+```text
+lora1  SKIP — no weights at /content/thesis/results/mini/lora/lora100
+```
+
+The clock still said GO. About 11 hours were left.
+The file `adapter_model.safetensors` was not in that folder.
+Git keeps the 0.8B and 4B weight files. It does not keep this 2B file.
+Those two add-ons did load. Colab printed "LoRA loaded" for both.
+The free 2B ways had already been graded.
+That Colab session was later deleted, so this cell stays empty.
+
+On 4B medium only, OFF is 44.4% and the limit is 38.9%.
+The limit still wins all 190, because easy is 88.1% against OFF at 80.5%.
+
+The full tables are in the results chapter below.
 
 ## Why
 
 Most very long answers were loops.
 The model repeated the same lines until it ran out of room.
 A thinking limit cuts the loop and forces an answer.
-Training on short finished answers does not teach the model how to get unstuck.
+Training on 100 or on 280 short answers does not teach the model how to get unstuck.
 
 ## One line
 
 For these small code models, try thinking OFF or a short thinking limit first.
 Train only if those free ways are not enough.
+
+---
+
+# All the problems, then the scores
+
+This page is the whole pile in one place.
+The pictures come first. The tables sit under them.
+
+You are in the **RESULTS** box.
+Each test list keeps its own score.
+464 is a count. It is not one accuracy.
+
+## Everyday example
+
+Three exam papers sit in one folder.
+Two homework piles sit next to them.
+You can count every sheet.
+You still mark each exam on its own.
+
+## The count
+
+![How many problems](figures/counts.svg)
+
+| Pile | How many | What it is |
+|---|---|---|
+| First exam | **234** | Easy functions plus contest problems |
+| Extra contest | **40** | Later check |
+| More contest | **190** | Bigger later check. 118 easy, 72 medium |
+| **Tests in total** | **464** | 234 + 40 + 190. A count, not a blended score |
+| LoRA-1 pool | **100** | Easy functions used to train the small add-on |
+| LoRA-2 pool | **280** | 200 easy functions + 80 older contest problems |
+| LoRA-2 kept | **157** | Short correct answers actually used. 133 + 24 |
+
+49.8% and 78.2% stay on the 234.
+
+## Best free score on each list
+
+![Best free score](figures/best-free.svg)
+
+| List | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Exam 234 | OFF **20.5%** | Limit 1,024 **49.8%** | Limit 2,048 **78.2%** |
+| Extra 40 | OFF **5.0%** (2/40) | OFF **12.5%** (10/80) | OFF **46.2%**, tied with limit 2,048 |
+| More 190 | OFF **9.5%** (18/190) | Limit 1,024 **31.1%** (59/190) | Limit 2,048 **69.5%** (132/190) |
+
+A free way wins on every list.
+The winner on the 190 matches the first exam.
+
+## The 190, way by way
+
+![The 190 by way](figures/more-190-ways.svg)
+
+| Way | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
+| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
+| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
+| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+
+The 2B add-on has no bar.
+Colab printed `SKIP — no weights at /content/thesis/results/mini/lora/lora100`.
+The clock said GO. About 11 hours were left.
+That Colab session was later deleted, so this cell stays empty.
+The other scores were already saved.
+
+On 4B medium only, OFF is 44.4% (32/72) and the limit is 38.9% (28/72).
+The limit still wins all 190, because easy is 88.1% (104/118) against OFF at 80.5% (95/118).
+
+The run took **7.9 hours**. One try. Seed 3407.
+
+## What this does not say
+
+The three lists are not one exam.
+Do not average 49.8%, 12.5%, and 31.1% into a new 2B score.
+The 4B lead on the 190 is 5 answers (132 vs 127).
+We did not draw error bars on the 40 or the 190.
+
+The same page on its own is [10-all-counts.md](10-all-counts.md).
 
 ---
 
@@ -453,6 +568,25 @@ The list was **fixed on 2026-09-20**, before any score.
       └─ medium       39           the same job, harder
 ```
 
+## Later lists, counted apart
+
+The first exam stays 234.
+Two later contest lists were marked on their own sheet.
+
+![How many problems](figures/counts.svg)
+
+| Pile | How many |
+|---|---|
+| First exam | 234 |
+| Extra contest | 40 |
+| More contest | 190 (118 easy, 72 medium) |
+| Tests in total | **464** |
+| LoRA-1 pool | 100 |
+| LoRA-2 pool | 280, of which **157** were kept |
+
+464 is a count. It is not one score.
+The charts and the stats are in [10-all-counts.md](10-all-counts.md).
+
 Hard LiveCodeBench problems were left out.
 A 2 billion model solves almost none of them.
 They could not show a difference between ways.
@@ -527,7 +661,9 @@ For a class problem it says: complete the given Python class, and answer with on
 
 ## The training set
 
-Training problems are **not** the 234 test problems.
+Training problems are **not** the test problems.
+LoRA-1 used a pool of **100** easy functions.
+LoRA-2 used the bigger pool below.
 
 | Pool | Problems | Why this pool |
 |---|---|---|
@@ -797,6 +933,54 @@ Adding them into 49.8% would hide this result, because the old 234 would still d
 
 The saved scores are in [../results/extra/SUMMARY.md](../results/extra/SUMMARY.md).
 
+## A bigger later check: 190 contest problems
+
+After the 40, we graded **190** more LiveCodeBench problems.
+118 are easy. 72 are medium.
+Dates run from 26 August 2023 to 23 November 2024.
+None are in the exam, the extra 40, or training.
+This list is contest problems only, so the scores are lower than the 234.
+
+The run took **7.9 hours** on one GPU, under a cap of about 14.8 hours.
+One try each.
+
+![The 190 by way](figures/more-190-ways.svg)
+
+| Way | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
+| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
+| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
+| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+
+A free way still wins.
+The winner is the same one as the first exam: OFF, then limit 1,024, then limit 2,048.
+
+The 40 had said OFF wins or ties.
+That was a small pile. Here the exam winner comes back.
+The 4B lead is only **5 answers** (132 vs 127).
+We have not drawn error bars, so do not call that gap proven.
+
+On 4B the full-list win splits by difficulty:
+
+| 4B way | Easy (118) | Medium (72) |
+|---|---|---|
+| Thinking OFF | 80.5% (95) | **44.4%** (32) |
+| Limit 2,048 | **88.1%** (104) | 38.9% (28) |
+| Thinking ON | 59.3% (70) | 5.6% (4) |
+| LoRA-1 | 67.8% (80) | 11.1% (8) |
+
+The 2B add-on was skipped. Colab found no weight file at `results/mini/lora/lora100`.
+The clock said GO. That session was later deleted, so the cell stays empty.
+0.8B training scored 7.9%. 4B training scored 46.3%.
+Both lost to a free way.
+
+These 190 stay in their own table.
+Adding them into 49.8% would hide both results.
+
+The saved scores are in [../results/more/SUMMARY.md](../results/more/SUMMARY.md).
+The count charts are in [10-all-counts.md](10-all-counts.md).
+
 ## The early test, for contrast
 
 On 100 easy MBPP+ problems that look like the training data, LoRA-1 scored **65%** against **50%** and used **41% fewer tokens**.
@@ -982,9 +1166,23 @@ On the medium ones it was a bit higher: **30.4%** against OFF at **26.1%**.
 Training was not retested on 2B or 4B for these 40.
 On 0.8B it scored **0 out of 40**.
 
+## The later 190 contest problems
+
+The 40 were a small pile. OFF looked like the winner.
+On 190 newer contest problems, the first-exam rule comes back.
+
+| Size | Do this first | Score | Trained add-on |
+|---|---|---|---|
+| 0.8B | Thinking OFF | 9.5% | 7.9% |
+| 2B | Limit about 1,024 | 31.1% | skipped |
+| 4B | Limit about 2,048 | 69.5% | 46.3% |
+
+On 4B medium only, OFF was higher: 44.4% against the limit at 38.9%.
+The limit still wins the full 190, because it wins the easy ones by more.
+
 ## Who should not expect a miracle
 
-- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 40 newer problems, 2B medium was still near the floor: OFF 6.5%, limit 1,024 at 4.3%.
+- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 190, 2B medium is still low: the 1,024 limit is 9.7%, ON is 4.2%, OFF is 2.8%. 4B medium is not a floor: OFF reaches 44.4%.
 - **A giant model.** We stopped at 4B. A 9B model might loop less and might finally have long finished thinking that training can shorten. That is still open.
 - **A privacy proof.** Running locally can keep code on your machine. We did not test attacks or leaks.
 - **Another "be brief" sentence.** We tested one wording. It clashed with "one code block only".
@@ -1127,10 +1325,10 @@ A: Only for very easy checks. Its best score here was 20.5%. Bigger in this fami
 ## D. Dataset questions
 
 **Q: What datasets did you test on?**
-A: HumanEval+ (164 easy functions) and LiveCodeBench easy and medium from February 2025 on (31 + 39). Total 234.
+A: Three lists, marked apart. First exam 234. Extra contest 40. More contest 190. Total count **464**. The 49.8% and 78.2% stay on the 234.
 
 **Q: What did you train on?**
-A: 200 MBPP+ problems and 80 older LiveCodeBench problems (40 easy, 40 medium, before February 2025).
+A: LoRA-1 used **100** easy functions. LoRA-2 used a pool of **280** (200 easy functions plus 80 older contest problems) and kept **157** short correct answers.
 
 **Q: Show me one test problem.**
 A: HumanEval/0 asks whether any two numbers in a list are closer than a threshold. The description is in [04-the-datasets.md](04-the-datasets.md). It was copied from our saved answer file.
@@ -1160,6 +1358,9 @@ A: A fair comparison of training against three free controls on one small code m
 
 **Q: Did 40 more problems change the winner?**
 A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
+
+**Q: Did 190 more problems change the winner?**
+A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on 0.8B (7.9%) and on 4B (46.3%). The 2B add-on was skipped, and that Colab session was deleted. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
 
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

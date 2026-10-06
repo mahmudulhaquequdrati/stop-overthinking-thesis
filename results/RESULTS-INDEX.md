@@ -38,6 +38,8 @@
 | **2B limit2048 fill-in** | ✅ **46.6%** (1 try) | [2b-limit2048/SUMMARY.md](2b-limit2048/SUMMARY.md) · [2b-limit2048/RUN.md](2b-limit2048/RUN.md) · notebook [17](../notebooks/17_qwen35_2b_limit2048.ipynb) |
 | **Hours ledger** | [shared/hours_budget.json](shared/hours_budget.json) |
 | **Extra 40 problems (scored)** | [extra/SUMMARY.md](extra/SUMMARY.md) · [extra/LISTS.md](extra/LISTS.md) · notebook [18](../notebooks/18_extra_problems.ipynb) |
+| **190 more problems (scored)** | [more/SUMMARY.md](more/SUMMARY.md) · [more/RUN.md](more/RUN.md) · [more/LISTS.md](more/LISTS.md) · notebook [19](../notebooks/19_more_problems.ipynb) |
+| **All piles, charts, and stats** | [../easy-thesis/10-all-counts.md](../easy-thesis/10-all-counts.md) · 464 tests · train 100 and 280 |
 | **Thesis chapters with these numbers** | [../thesis/THESIS.md](../thesis/THESIS.md) §5.13 · §6.7 · §7.5.4 |
 | **Teacher talk track** | [../TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md) |
 
@@ -94,7 +96,22 @@ These do **not** replace the table above. Source: [extra/SUMMARY.md](extra/SUMMA
 | limit2048 | — | 7.5% (3/40, 1 try) | **46.2%** (37/80) |
 | LoRA-1 | 0% | not run | not run |
 
-### Thinking ON cut-off (hits the wall)
+### Later check: 190 contest problems (1 try)
+
+These do **not** replace the 234 table or the 40 table.
+Source: [more/SUMMARY.md](more/SUMMARY.md). Story: [more/RUN.md](more/RUN.md). Run: 7.9 hours.
+
+| Way | 0.8B | 2B | 4B |
+|---|---|---|---|
+| OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
+| ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
+| Best limit | 4.2% (8/190) at 512 | **31.1%** (59/190) at 1024 | **69.5%** (132/190) at 2048 |
+| LoRA-1 | 7.9% (15/190) | not run | 46.3% (88/190) |
+
+118 easy, 72 medium. On 4B medium, OFF is 44.4% and the 2,048 limit is 38.9%.
+The full-list winner is still the limit, because easy is 88.1% vs 80.5%.
+
+### Thinking ON cut-off on the first exam (hits the wall)
 
 | Size | ON accuracy | Cut-off |
 |---|---|---|
@@ -129,6 +146,8 @@ These do **not** replace the table above. Source: [extra/SUMMARY.md](extra/SUMMA
 | `TEACHER-A-TO-Z.md` | ✅ |
 | `qa/32–37` | ✅ |
 | This index | ✅ |
+| Easy thesis later checks (40 and 190) | ✅ `easy-thesis/05-results.md` · `09-extra-problems.md` |
+| The 190 scores | ✅ `results/more/SUMMARY.md` · DECISIONS #93 |
 | Old proposal (`proposal/`) | Historical (written before size runs) — do not rewrite |
 | Early `qa/01–29` | About older steps; leave as history |
 

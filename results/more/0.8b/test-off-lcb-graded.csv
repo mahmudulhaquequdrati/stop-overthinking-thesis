@@ -1,0 +1,191 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3334,0,easy,False,wrong answer on test 1,0,161,False
+thinking_off,lcb/3349,0,easy,False,wrong answer on test 1,0,267,False
+thinking_off,lcb/3353,0,easy,False,wrong answer on test 1,0,81,False
+thinking_off,lcb/3361,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3367,0,easy,False,wrong answer on test 2,0,95,False
+thinking_off,lcb/3371,0,easy,True,,0,91,False
+thinking_off,lcb/3372,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3379,0,easy,True,,0,63,False
+thinking_off,lcb/3381,0,easy,False,IndentationError: expected an indented block after 'for' statement on line 40,0,8192,True
+thinking_off,lcb/3396,0,easy,False,wrong answer on test 1,0,176,False
+thinking_off,lcb/3397,0,easy,False,wrong answer on test 1,0,126,False
+thinking_off,lcb/3398,0,easy,False,IndexError: list index out of range,0,284,False
+thinking_off,lcb/3408,0,easy,False,wrong answer on test 1,0,62,False
+thinking_off,lcb/3412,0,easy,False,wrong answer on test 1,0,125,False
+thinking_off,lcb/3421,0,easy,False,wrong answer on test 1,0,116,False
+thinking_off,lcb/3426,0,easy,False,wrong answer on test 2,0,153,False
+thinking_off,lcb/3428,0,easy,True,,0,117,False
+thinking_off,lcb/3429,0,easy,False,wrong answer on test 2,0,81,False
+thinking_off,lcb/3446,0,easy,True,,0,221,False
+thinking_off,lcb/3447,0,easy,False,timeout on test 2,0,200,False
+thinking_off,lcb/3450,0,easy,False,NameError: name 'S' is not defined,0,1595,False
+thinking_off,lcb/3463,0,easy,False,wrong answer on test 1,0,190,False
+thinking_off,lcb/3468,0,easy,False,wrong answer on test 1,0,49,False
+thinking_off,lcb/3469,0,easy,False,wrong answer on test 1,0,518,False
+thinking_off,lcb/3471,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,320,False
+thinking_off,lcb/3476,0,easy,True,,0,122,False
+thinking_off,lcb/3484,0,easy,False,wrong answer on test 1,0,282,False
+thinking_off,lcb/3508,0,easy,False,IndexError: string index out of range,0,106,False
+thinking_off,lcb/3511,0,easy,False,wrong answer on test 2,0,178,False
+thinking_off,lcb/3515,0,easy,False,wrong answer on test 3,0,105,False
+thinking_off,lcb/3519,0,easy,False,UnboundLocalError: cannot access local variable 'i' where it is not associated with a value,0,200,False
+thinking_off,lcb/3533,0,easy,True,,0,264,False
+thinking_off,lcb/3543,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3553,0,easy,False,UnboundLocalError: cannot access local variable 'coord1' where it is not associated with a value,0,141,False
+thinking_off,lcb/3555,0,easy,False,wrong answer on test 1,0,393,False
+thinking_off,lcb/3567,0,easy,False,AttributeError: 'Solution' object has no attribute 'convertToBinary'. Did you mean: 'convertDateToBinary'?,0,67,False
+thinking_off,lcb/3568,0,easy,False,IndexError: list index out of range,0,287,False
+thinking_off,lcb/3600,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3605,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3606,0,easy,False,wrong answer on test 1,0,77,False
+thinking_off,lcb/3610,0,easy,False,NameError: name 'n' is not defined,0,423,False
+thinking_off,lcb/3612,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,665,False
+thinking_off,lcb/3616,0,easy,False,wrong answer on test 1,0,8162,True
+thinking_off,lcb/3617,0,easy,False,wrong answer on test 1,0,295,False
+thinking_off,lcb/3625,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3626,0,easy,False,wrong answer on test 2,0,235,False
+thinking_off,lcb/3636,0,easy,True,,0,90,False
+thinking_off,lcb/3644,0,easy,False,wrong answer on test 2,0,162,False
+thinking_off,lcb/abc344_a,0,easy,False,wrong answer on test 1,0,108,False
+thinking_off,lcb/abc344_b,0,easy,False,wrong answer on test 1,0,618,False
+thinking_off,lcb/abc345_b,0,easy,True,,0,139,False
+thinking_off,lcb/abc346_a,0,easy,True,,0,178,False
+thinking_off,lcb/abc346_b,0,easy,False,wrong answer on test 1,0,8195,True
+thinking_off,lcb/abc347_a,0,easy,False,ValueError: invalid literal for int() with base 10: '2 5 6 7 10',0,148,False
+thinking_off,lcb/abc347_b,0,easy,False,wrong answer on test 1,0,58,False
+thinking_off,lcb/abc348_a,0,easy,True,,0,180,False
+thinking_off,lcb/abc348_b,0,easy,False,KeyError: 2,0,460,False
+thinking_off,lcb/abc349_a,0,easy,True,,0,2231,False
+thinking_off,lcb/abc349_b,0,easy,False,wrong answer on test 1,0,202,False
+thinking_off,lcb/abc350_a,0,easy,False,wrong answer on test 1,0,489,False
+thinking_off,lcb/abc350_b,0,easy,False,StopIteration,0,195,False
+thinking_off,lcb/abc351_a,0,easy,False,wrong answer on test 1,0,270,False
+thinking_off,lcb/abc351_b,0,easy,False,IndexError: list index out of range,0,208,False
+thinking_off,lcb/abc352_a,0,easy,False,wrong answer on test 1,0,437,False
+thinking_off,lcb/abc353_a,0,easy,False,IndexError: list index out of range,0,205,False
+thinking_off,lcb/abc353_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc354_a,0,easy,False,wrong answer on test 2,0,143,False
+thinking_off,lcb/abc354_b,0,easy,False,IndexError: list index out of range,0,281,False
+thinking_off,lcb/abc355_a,0,easy,False,wrong answer on test 1,0,1159,False
+thinking_off,lcb/abc355_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc356_a,0,easy,False,wrong answer on test 1,0,166,False
+thinking_off,lcb/abc356_b,0,easy,False,TypeError: 'int' object is not subscriptable,0,314,False
+thinking_off,lcb/abc357_a,0,easy,False,wrong answer on test 1,0,259,False
+thinking_off,lcb/abc357_b,0,easy,False,wrong answer on test 1,0,76,False
+thinking_off,lcb/abc358_a,0,easy,False,EOFError: EOF when reading a line,0,52,False
+thinking_off,lcb/abc358_b,0,easy,False,UnboundLocalError: cannot access local variable 'i' where it is not associated with a value,0,298,False
+thinking_off,lcb/abc359_a,0,easy,True,,0,129,False
+thinking_off,lcb/abc359_b,0,easy,False,wrong answer on test 1,0,248,False
+thinking_off,lcb/abc360_a,0,easy,False,wrong answer on test 2,0,44,False
+thinking_off,lcb/abc360_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc361_a,0,easy,True,,0,162,False
+thinking_off,lcb/abc362_a,0,easy,False,wrong answer on test 1,0,170,False
+thinking_off,lcb/abc362_b,0,easy,False,wrong answer on test 2,0,374,False
+thinking_off,lcb/abc363_a,0,easy,True,,0,107,False
+thinking_off,lcb/abc363_b,0,easy,False,wrong answer on test 1,0,282,False
+thinking_off,lcb/abc364_a,0,easy,False,wrong answer on test 1,0,484,False
+thinking_off,lcb/abc364_b,0,easy,False,IndexError: list index out of range,0,443,False
+thinking_off,lcb/abc365_a,0,easy,True,,0,154,False
+thinking_off,lcb/abc365_b,0,easy,False,wrong answer on test 1,0,291,False
+thinking_off,lcb/abc366_a,0,easy,False,wrong answer on test 1,0,475,False
+thinking_off,lcb/abc366_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc367_a,0,easy,False,wrong answer on test 2,0,357,False
+thinking_off,lcb/abc367_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc368_a,0,easy,False,IndexError: list index out of range,0,541,False
+thinking_off,lcb/abc368_b,0,easy,False,wrong answer on test 1,0,237,False
+thinking_off,lcb/abc369_a,0,easy,False,wrong answer on test 1,0,764,False
+thinking_off,lcb/abc369_b,0,easy,False,wrong answer on test 1,0,8191,True
+thinking_off,lcb/abc370_a,0,easy,False,wrong answer on test 4,0,135,False
+thinking_off,lcb/abc370_b,0,easy,False,IndentationError: expected an indented block after 'for' statement on line 24,0,2206,False
+thinking_off,lcb/abc371_a,0,easy,False,ValueError: invalid literal for int() with base 10: '<',0,437,False
+thinking_off,lcb/abc371_b,0,easy,False,ValueError: invalid literal for int() with base 10: 'M',0,498,False
+thinking_off,lcb/abc372_a,0,easy,True,,0,51,False
+thinking_off,lcb/abc373_a,0,easy,True,,0,152,False
+thinking_off,lcb/abc373_b,0,easy,False,wrong answer on test 2,0,289,False
+thinking_off,lcb/abc374_a,0,easy,True,,0,44,False
+thinking_off,lcb/abc374_b,0,easy,False,wrong answer on test 1,0,316,False
+thinking_off,lcb/abc375_a,0,easy,False,wrong answer on test 1,0,165,False
+thinking_off,lcb/abc376_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc377_a,0,easy,False,wrong answer on test 5,0,85,False
+thinking_off,lcb/abc377_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc378_a,0,easy,False,wrong answer on test 16,0,155,False
+thinking_off,lcb/abc378_b,0,easy,False,KeyError: 1,0,417,False
+thinking_off,lcb/abc379_a,0,easy,False,wrong answer on test 1,0,104,False
+thinking_off,lcb/abc379_b,0,easy,False,timeout on test 1,0,206,False
+thinking_off,lcb/abc380_a,0,easy,False,wrong answer on test 1,0,157,False
+thinking_off,lcb/abc380_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc381_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc381_b,0,easy,False,wrong answer on test 1,0,389,False
+thinking_off,lcb/3026,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3328,0,medium,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3337,0,medium,False,wrong answer on test 1,0,65,False
+thinking_off,lcb/3346,0,medium,False,wrong answer on test 1,0,416,False
+thinking_off,lcb/3354,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3355,0,medium,False,wrong answer on test 1,0,1522,False
+thinking_off,lcb/3356,0,medium,False,wrong answer on test 1,0,406,False
+thinking_off,lcb/3360,0,medium,False,NameError: name 'target_counts' is not defined,0,926,False
+thinking_off,lcb/3374,0,medium,False,wrong answer on test 2,0,207,False
+thinking_off,lcb/3384,0,medium,False,IndexError: string index out of range,0,739,False
+thinking_off,lcb/3394,0,medium,False,IndentationError: expected an indented block after function definition on line 3,0,8192,True
+thinking_off,lcb/3395,0,medium,False,wrong answer on test 3,0,113,False
+thinking_off,lcb/3403,0,medium,False,wrong answer on test 1,0,654,False
+thinking_off,lcb/3406,0,medium,False,wrong answer on test 2,0,815,False
+thinking_off,lcb/3422,0,medium,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3442,0,medium,False,NameError: name 'index' is not defined,0,116,False
+thinking_off,lcb/3451,0,medium,False,wrong answer on test 2,0,165,False
+thinking_off,lcb/3453,0,medium,False,SyntaxError: unterminated string literal (detected at line 509),0,8192,True
+thinking_off,lcb/3455,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3456,0,medium,False,IndentationError: expected an indented block after 'for' statement on line 29,0,8192,True
+thinking_off,lcb/3462,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3464,0,medium,False,wrong answer on test 1,0,1355,False
+thinking_off,lcb/3475,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/3479,0,medium,False,wrong answer on test 1,0,163,False
+thinking_off,lcb/3487,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3493,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3494,0,medium,False,IndexError: list assignment index out of range,0,454,False
+thinking_off,lcb/3496,0,medium,False,wrong answer on test 1,0,363,False
+thinking_off,lcb/3498,0,medium,False,UnboundLocalError: cannot access local variable 'n' where it is not associated with a value,0,2022,False
+thinking_off,lcb/3502,0,medium,False,wrong answer on test 1,0,754,False
+thinking_off,lcb/3507,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3517,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,379,False
+thinking_off,lcb/3518,0,medium,False,wrong answer on test 1,0,302,False
+thinking_off,lcb/3522,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,334,False
+thinking_off,lcb/3526,0,medium,False,wrong answer on test 2,0,829,False
+thinking_off,lcb/3528,0,medium,False,wrong answer on test 1,0,453,False
+thinking_off,lcb/3534,0,medium,False,TypeError: 'int' object is not iterable,0,328,False
+thinking_off,lcb/3540,0,medium,False,"TypeError: sequence item 0: expected str instance, int found",0,204,False
+thinking_off,lcb/3558,0,medium,False,wrong answer on test 1,0,373,False
+thinking_off,lcb/3559,0,medium,False,"TypeError: can only concatenate str (not ""int"") to str",0,469,False
+thinking_off,lcb/3570,0,medium,False,wrong answer on test 1,0,393,False
+thinking_off,lcb/3573,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3579,0,medium,False,wrong answer on test 1,0,101,False
+thinking_off,lcb/3587,0,medium,False,TypeError: '<' not supported between instances of 'int' and 'list',0,852,False
+thinking_off,lcb/3591,0,medium,False,KeyError: 'a',0,8192,True
+thinking_off,lcb/3593,0,medium,False,NameError: name 'gcd' is not defined,0,304,False
+thinking_off,lcb/3607,0,medium,False,SyntaxError: unterminated string literal (detected at line 223),0,8192,True
+thinking_off,lcb/3622,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3627,0,medium,False,wrong answer on test 1,0,284,False
+thinking_off,lcb/3629,0,medium,False,wrong answer on test 1,0,418,False
+thinking_off,lcb/3639,0,medium,False,wrong answer on test 1,0,904,False
+thinking_off,lcb/3654,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc349_c,0,medium,False,UnboundLocalError: cannot access local variable 't_counts' where it is not associated with a value,0,481,False
+thinking_off,lcb/abc356_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc356_d,0,medium,False,wrong answer on test 1,0,1264,False
+thinking_off,lcb/abc357_c,0,medium,False,IndentationError: expected an indented block after function definition on line 13,0,8192,True
+thinking_off,lcb/abc357_d,0,medium,False,wrong answer on test 1,0,320,False
+thinking_off,lcb/abc358_c,0,medium,False,"TypeError: list indices must be integers or slices, not str",0,502,False
+thinking_off,lcb/abc359_c,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/abc361_b,0,medium,False,wrong answer on test 1,0,881,False
+thinking_off,lcb/abc363_c,0,medium,False,IndentationError: expected an indented block after function definition on line 46,0,8192,True
+thinking_off,lcb/abc363_d,0,medium,False,wrong answer on test 1,0,1535,False
+thinking_off,lcb/abc370_c,0,medium,False,wrong answer on test 1,0,8188,True
+thinking_off,lcb/abc371_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc374_c,0,medium,False,SyntaxError: unterminated string literal (detected at line 185),0,8192,True
+thinking_off,lcb/abc374_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc375_d,0,medium,False,wrong answer on test 1,0,272,False
+thinking_off,lcb/abc376_b,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc379_d,0,medium,False,wrong answer on test 1,0,1751,False
+thinking_off,lcb/abc380_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc380_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc381_c,0,medium,False,wrong answer on test 1,0,8192,True

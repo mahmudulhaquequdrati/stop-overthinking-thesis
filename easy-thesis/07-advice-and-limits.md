@@ -47,9 +47,23 @@ On the medium ones it was a bit higher: **30.4%** against OFF at **26.1%**.
 Training was not retested on 2B or 4B for these 40.
 On 0.8B it scored **0 out of 40**.
 
+## The later 190 contest problems
+
+The 40 were a small pile. OFF looked like the winner.
+On 190 newer contest problems, the first-exam rule comes back.
+
+| Size | Do this first | Score | Trained add-on |
+|---|---|---|---|
+| 0.8B | Thinking OFF | 9.5% | 7.9% |
+| 2B | Limit about 1,024 | 31.1% | skipped |
+| 4B | Limit about 2,048 | 69.5% | 46.3% |
+
+On 4B medium only, OFF was higher: 44.4% against the limit at 38.9%.
+The limit still wins the full 190, because it wins the easy ones by more.
+
 ## Who should not expect a miracle
 
-- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 40 newer problems, 2B medium was still near the floor: OFF 6.5%, limit 1,024 at 4.3%.
+- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 190, 2B medium is still low: the 1,024 limit is 9.7%, ON is 4.2%, OFF is 2.8%. 4B medium is not a floor: OFF reaches 44.4%.
 - **A giant model.** We stopped at 4B. A 9B model might loop less and might finally have long finished thinking that training can shorten. That is still open.
 - **A privacy proof.** Running locally can keep code on your machine. We did not test attacks or leaks.
 - **Another "be brief" sentence.** We tested one wording. It clashed with "one code block only".

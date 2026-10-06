@@ -104,10 +104,10 @@ A: Only for very easy checks. Its best score here was 20.5%. Bigger in this fami
 ## D. Dataset questions
 
 **Q: What datasets did you test on?**
-A: HumanEval+ (164 easy functions) and LiveCodeBench easy and medium from February 2025 on (31 + 39). Total 234.
+A: Three lists, marked apart. First exam 234. Extra contest 40. More contest 190. Total count **464**. The 49.8% and 78.2% stay on the 234.
 
 **Q: What did you train on?**
-A: 200 MBPP+ problems and 80 older LiveCodeBench problems (40 easy, 40 medium, before February 2025).
+A: LoRA-1 used **100** easy functions. LoRA-2 used a pool of **280** (200 easy functions plus 80 older contest problems) and kept **157** short correct answers.
 
 **Q: Show me one test problem.**
 A: HumanEval/0 asks whether any two numbers in a list are closer than a threshold. The description is in [04-the-datasets.md](04-the-datasets.md). It was copied from our saved answer file.
@@ -137,6 +137,9 @@ A: A fair comparison of training against three free controls on one small code m
 
 **Q: Did 40 more problems change the winner?**
 A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
+
+**Q: Did 190 more problems change the winner?**
+A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on 0.8B (7.9%) and on 4B (46.3%). The 2B add-on was skipped, and that Colab session was deleted. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
 
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

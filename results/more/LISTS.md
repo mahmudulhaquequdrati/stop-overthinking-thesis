@@ -4,6 +4,7 @@ The old exam, the extra 40, and the training ids are frozen.
 The new list only grows. Lowering the target does not remove an id.
 The total below is a count of problems. It is not a new blended score.
 49.8% and 78.2% stay on the old exam of 234.
+The 190 were scored on 2026-10-06. Scores: [SUMMARY.md](SUMMARY.md). Story: [RUN.md](RUN.md).
 
 | List | Count | File |
 |---|---|---|

@@ -185,6 +185,54 @@ Adding them into 49.8% would hide this result, because the old 234 would still d
 
 The saved scores are in [../results/extra/SUMMARY.md](../results/extra/SUMMARY.md).
 
+## A bigger later check: 190 contest problems
+
+After the 40, we graded **190** more LiveCodeBench problems.
+118 are easy. 72 are medium.
+Dates run from 26 August 2023 to 23 November 2024.
+None are in the exam, the extra 40, or training.
+This list is contest problems only, so the scores are lower than the 234.
+
+The run took **7.9 hours** on one GPU, under a cap of about 14.8 hours.
+One try each.
+
+![The 190 by way](figures/more-190-ways.svg)
+
+| Way | 0.8B | 2B | 4B |
+|---|---|---|---|
+| Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
+| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
+| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
+| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+
+A free way still wins.
+The winner is the same one as the first exam: OFF, then limit 1,024, then limit 2,048.
+
+The 40 had said OFF wins or ties.
+That was a small pile. Here the exam winner comes back.
+The 4B lead is only **5 answers** (132 vs 127).
+We have not drawn error bars, so do not call that gap proven.
+
+On 4B the full-list win splits by difficulty:
+
+| 4B way | Easy (118) | Medium (72) |
+|---|---|---|
+| Thinking OFF | 80.5% (95) | **44.4%** (32) |
+| Limit 2,048 | **88.1%** (104) | 38.9% (28) |
+| Thinking ON | 59.3% (70) | 5.6% (4) |
+| LoRA-1 | 67.8% (80) | 11.1% (8) |
+
+The 2B add-on was skipped. Colab found no weight file at `results/mini/lora/lora100`.
+The clock said GO. That session was later deleted, so the cell stays empty.
+0.8B training scored 7.9%. 4B training scored 46.3%.
+Both lost to a free way.
+
+These 190 stay in their own table.
+Adding them into 49.8% would hide both results.
+
+The saved scores are in [../results/more/SUMMARY.md](../results/more/SUMMARY.md).
+The count charts are in [10-all-counts.md](10-all-counts.md).
+
 ## The early test, for contrast
 
 On 100 easy MBPP+ problems that look like the training data, LoRA-1 scored **65%** against **50%** and used **41% fewer tokens**.

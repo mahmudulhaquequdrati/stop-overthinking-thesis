@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" font-family="system-ui, sans-serif">
+<title>Problem counts: 464 tests, train pools 100 and 280</title>
+<rect width="720" height="360" fill="#fcfcfb"/>
+<text x="20" y="28" font-size="16" font-weight="600" fill="#0b0b0b">How many problems</text>
+<text x="20" y="48" font-size="12" fill="#52514e">Counts, not one score. Tests 234 + 40 + 190 = 464. Train pools sit beside them.</text>
+<text x="120" y="96" font-size="13" fill="#0b0b0b" text-anchor="end">First exam</text>
+<rect x="130" y="78" width="434.6" height="28" rx="3" fill="#2a78d6"/>
+<text x="572.6" y="96" font-size="13" fill="#0b0b0b">234</text>
+<text x="120" y="138" font-size="13" fill="#0b0b0b" text-anchor="end">Extra contest</text>
+<rect x="130" y="120" width="74.3" height="28" rx="3" fill="#7aa6e0"/>
+<text x="212.3" y="138" font-size="13" fill="#0b0b0b">40</text>
+<text x="120" y="180" font-size="13" fill="#0b0b0b" text-anchor="end">More contest</text>
+<rect x="130" y="162" width="352.9" height="28" rx="3" fill="#2a78d6"/>
+<text x="490.9" y="180" font-size="13" fill="#0b0b0b">190</text>
+<text x="120" y="222" font-size="13" fill="#0b0b0b" text-anchor="end">LoRA-1 pool</text>
+<rect x="130" y="204" width="185.7" height="28" rx="3" fill="#e87ba4"/>
+<text x="323.7" y="222" font-size="13" fill="#0b0b0b">100</text>
+<text x="120" y="264" font-size="13" fill="#0b0b0b" text-anchor="end">LoRA-2 pool</text>
+<rect x="130" y="246" width="520.0" height="28" rx="3" fill="#c45b86"/>
+<text x="658.0" y="264" font-size="13" fill="#0b0b0b">280</text>
+<text x="120" y="306" font-size="13" fill="#0b0b0b" text-anchor="end">LoRA-2 kept</text>
+<rect x="130" y="288" width="291.6" height="28" rx="3" fill="#eda100"/>
+<text x="429.6" y="306" font-size="13" fill="#0b0b0b">157</text>
+<text x="20" y="348" font-size="11" fill="#52514e">Blue = test lists. Pink = training pools. Gold = answers actually kept for LoRA-2. Source: results lists, 2026-10-07.</text>
+</svg>

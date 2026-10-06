@@ -74,6 +74,17 @@ Everyday example: before you tell a teacher “49.8%”, open the file and point
 | Raw graded CSVs | `results/0.8b/raw/test-*-graded.csv` · `results/4b/raw/` |
 | Notebooks used | [15a 0.8B](notebooks/15a_qwen35_0_8b.ipynb) · [15b 4B](notebooks/15b_qwen35_4b.ipynb) |
 
+### Later lists (do not mix into 49.8% or 78.2%)
+
+| What to check | Where |
+|---|---|
+| Extra 40 | [results/extra/SUMMARY.md](results/extra/SUMMARY.md) · 2B OFF 12.5% · 4B OFF tied limit 2048 at 46.2% |
+| The 190 | [results/more/SUMMARY.md](results/more/SUMMARY.md) · 0.8B OFF **9.5%** · 2B limit 1024 **31.1%** · 4B limit 2048 **69.5%** |
+| Story of the 190 | [results/more/RUN.md](results/more/RUN.md) · qa/43 |
+| **Counts and charts** | [easy-thesis/10-all-counts.md](easy-thesis/10-all-counts.md) · 464 tests · train 100 and 280 |
+
+Say this if asked: a free way still wins. The 190 winner matches the exam. 2B training was skipped. On 4B medium only, OFF was higher (44.4% vs 38.9%).
+
 ### Quick “is the number real?” test (do once)
 
 ```text

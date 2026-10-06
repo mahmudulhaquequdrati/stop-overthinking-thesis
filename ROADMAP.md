@@ -114,9 +114,10 @@ We also check whether just saying "don't think, just answer" works as well.
 │           2B OFF 12.5% · 4B OFF = limit2048 at 46.2%          │
 │           first exam stays 234 · 49.8% and 78.2%              │
 │           written into easy-thesis results + one page         │
-│       ✅ Notebook 19 written, not run yet (#90) ←HERE         │
-│           190 new problems · 118 easy · 72 medium             │
-│           total count 464 · scores not mixed into 49.8%       │
+│       ✅ Notebook 19 scored the 190 (#93) ←HERE            │
+│           0.8B OFF 9.5% · 2B 31.1% · 4B 69.5%              │
+│           free way wins · 2B LoRA skipped · 7.9 hours      │
+│           one page shows 464 tests · train 100 and 280    │
 │       ⬜ Fill name/supervisor; rebuild PDF; defend            │
 │       ⬜ You explain Parts 1–2 back in your own words         │
 │  ⬜ Part 2: learn the tools                                   │
@@ -135,11 +136,11 @@ on easy problems (#64). Paid Colab units are now in use.
 **Where we are in the research chain:**
 
 ```text
-PROBLEM ✅ → GAP ✅ → QUESTION ✅ → HYPOTHESIS ✅ → EXPERIMENT ⬜ → DATA/CODE ⬜ → RESULTS ⬜ → ANALYSIS ⬜ → CONCLUSION ⬜
-                                                    ↑ next big box
+PROBLEM ✅ → GAP ✅ → QUESTION ✅ → HYPOTHESIS ✅ → EXPERIMENT ✅ → DATA/CODE ✅ → RESULTS ✅ → ANALYSIS ✅ → CONCLUSION ✅
 ```
 
-The first four boxes are written down. They are only on paper; nothing is tested yet.
+The first exam (234) is done. The extra 40 is done. The 190-problem side list is scored too.
+Those later scores stay in their own tables. They do not replace 49.8% or 78.2%.
 
 ---
 
@@ -255,18 +256,11 @@ think briefly    3%   4,056 tokens   (the model loops on the instruction)
 On easy problems, training works: rule R1 says YES. The learning curve is flat, so more of the
 same data is unlikely to help much.
 
-**Next, and it is one thing: push this project, upload the new notebook 18, then run the “40 problems” cell again.**
-If the fast-path cell already printed `FAST PATH ON`, do not redo it. Run from the cell that builds the 40 problems.
-Do **not** run notebooks 14–17 again. Those already finished the 234.
-Colab clones the repo itself. You do not copy a code folder to Drive.
-Then Runtime → A100 → **Run all**.
+**Next, and it is one thing: fill your name and supervisor, then rebuild the PDF.**
+Do **not** rerun notebooks 14–19. The 234, the extra 40, and the 190 are already scored.
+Do **not** average the 190 into 49.8% or 78.2%.
 
-```text
-check the 40 ids → 0.8B → 2B → 4B
-writes only to results/extra/
-stops if it would pass 6 real hours
-```
-
-The old 234 path (notebooks 14–17) stays closed.
+The one hole on the 190 is 2B training. The weight file was not on the new Drive, so that way was skipped.
+Leave it skipped unless a teacher asks for that one cell.
 
 Also still open: you explain Parts 1–2 back in your own words.

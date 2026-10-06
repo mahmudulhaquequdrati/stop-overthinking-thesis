@@ -495,6 +495,11 @@ thinking **OFF** beat the limits we tried (512 / 1,024).
 Extra runs of the same 234 problems on Qwen3.5-**0.8B** and **4B**, to check whether the 2B
 story holds at other sizes. Join page: `results/SIZE-COMPARISON.md`. Index: `results/RESULTS-INDEX.md`.
 
+**Later list**
+Problems graded after the first exam, kept in their own table.
+The extra 40 and the 190 are later lists.
+They are not mixed into 49.8% or 78.2%.
+
 
 **Thinking switch (ON/OFF)**
 A setting in some new models. ON = the model thinks first. OFF = it answers directly.

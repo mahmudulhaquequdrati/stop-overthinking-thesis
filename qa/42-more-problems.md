@@ -1,4 +1,6 @@
-# Q&A 42: A growing list, one notebook (not run yet)
+# Q&A 42: A growing list, one notebook
+
+> Scored on 2026-10-07. The numbers are in [43](43-more-scores.md). This file is the plan, written before the run.
 
 ⬅️ [All Q&A](README.md) · Decision: [#90](../DECISIONS.md) · List: [results/more/LISTS.md](../results/more/LISTS.md)
 
@@ -7,7 +9,7 @@
 ## 1. The step in 2 sentences
 
 We built one Colab notebook that can grade 0.8B, 2B, and 4B on a new problem list.
-The list has 190 problems and can grow later. It has not been run on the GPU yet.
+The list has 190 problems. The scores from the run are in [Q&A 43](43-more-scores.md).
 
 ---
 

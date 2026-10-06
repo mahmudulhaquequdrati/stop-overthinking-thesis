@@ -76,12 +76,14 @@
 | [39](39-2b-limit2048-lean.md) | 2B limit-2048 lean fill-in (notebook 17) | 2026-09-29 |
 | [40](40-easy-thesis.md) | Easy-language thesis folder | 2026-09-29 |
 | [41](41-extra-problems.md) | Extra 40 problems, scored | 2026-10-05 |
-| [42](42-more-problems.md) | Growing list of 190, notebook 19 | 2026-10-06 |
+| [42](42-more-problems.md) | Growing list of 190, notebook 19 (the plan) | 2026-10-06 |
+| [43](43-more-scores.md) | The 190 scored. Free way still wins | 2026-10-07 |
 
-**What has been run:** 2B · 4B · 0.8B · 2B limit512 (45.1%) · 2B limit2048 lean (**46.6%**) · extra 40.  
+**What has been run:** 2B · 4B · 0.8B · 2B limit512 (45.1%) · 2B limit2048 lean (**46.6%**) · extra 40 · the 190.  
 **2B limit curve:** peaks at **1024** (49.8%), not 2048.  
 **Extra 40 scored:** 2B OFF **12.5%**, 4B OFF tied with limit 2048 at **46.2%**. First exam stays 234.  
+**190 scored:** 0.8B OFF **9.5%**, 2B limit 1024 **31.1%**, 4B limit 2048 **69.5%**. Not mixed into 49.8% or 78.2%.  
 **Before a meeting:** open [TEACHER-A-TO-Z.md](../TEACHER-A-TO-Z.md).  
 **All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · [SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).  
 **Easy read:** [easy-thesis/FULL-THESIS.md](../easy-thesis/FULL-THESIS.md).  
-**Next:** read the later-check table in the easy thesis before a meeting. Do not rerun notebooks 14–17.
+**Next:** fill your name, then rebuild the PDF. Do not rerun notebooks 14–19.

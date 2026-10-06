@@ -1,0 +1,196 @@
+1/190 lcb/3334        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+2/190 lcb/3349        easy    limit        fail: wrong answer on test 1
+3/190 lcb/3353        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+4/190 lcb/3361        easy    limit        fail: IndentationError: expected an indented block after function definition on line 3
+5/190 lcb/3367        easy    limit        fail: SyntaxError: invalid syntax
+6/190 lcb/3371        easy    limit        PASS
+7/190 lcb/3372        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 9)
+8/190 lcb/3379        easy    limit        fail: TypeError: can only concatenate str (not "int") to str
+9/190 lcb/3381        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+10/190 lcb/3396        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 12)
+11/190 lcb/3397        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+12/190 lcb/3398        easy    limit        fail: SyntaxError: unmatched ')'
+13/190 lcb/3408        easy    limit        fail: wrong answer on test 1
+14/190 lcb/3412        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 31)
+15/190 lcb/3421        easy    limit        fail: SyntaxError: unmatched ')'
+16/190 lcb/3426        easy    limit        fail: IndentationError: expected an indented block after function definition on line 3
+17/190 lcb/3428        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+18/190 lcb/3429        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+19/190 lcb/3446        easy    limit        PASS
+20/190 lcb/3447        easy    limit        fail: timeout on test 2
+21/190 lcb/3450        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+22/190 lcb/3463        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+23/190 lcb/3468        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+24/190 lcb/3469        easy    limit        fail: SyntaxError: unterminated triple-quoted string literal (detected at line 687)
+25/190 lcb/3471        easy    limit        fail: NameError: name 'Solution' is not defined
+26/190 lcb/3476        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+27/190 lcb/3484        easy    limit        fail: TypeError: not all arguments converted during string formatting
+28/190 lcb/3508        easy    limit        fail: wrong answer on test 1
+29/190 lcb/3511        easy    limit        fail: IndentationError: unexpected indent
+30/190 lcb/3515        easy    limit        fail: IndentationError: unexpected indent
+31/190 lcb/3519        easy    limit        fail: IndentationError: expected an indented block after 'if' statement on line 18
+32/190 lcb/3533        easy    limit        fail: NameError: name 'Solution' is not defined
+33/190 lcb/3543        easy    limit        fail: wrong answer on test 1
+34/190 lcb/3553        easy    limit        fail: ValueError: invalid literal for int() with base 10: 'a'
+35/190 lcb/3555        easy    limit        fail: SyntaxError: unmatched ']'
+36/190 lcb/3567        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 9)
+37/190 lcb/3568        easy    limit        fail: TypeError: '<' not supported between instances of 'str' and 'int'
+38/190 lcb/3600        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+39/190 lcb/3605        easy    limit        fail: IndentationError: expected an indented block after function definition on line 5
+40/190 lcb/3606        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+41/190 lcb/3610        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 26)
+42/190 lcb/3612        easy    limit        fail: wrong answer on test 1
+43/190 lcb/3616        easy    limit        fail: SyntaxError: unmatched ']'
+44/190 lcb/3617        easy    limit        fail: wrong answer on test 1
+45/190 lcb/3625        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 7)
+46/190 lcb/3626        easy    limit        fail: SyntaxError: unterminated string literal (detected at line 15)
+47/190 lcb/3636        easy    limit        fail: IndentationError: expected an indented block after function definition on line 2
+48/190 lcb/3644        easy    limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+49/190 lcb/abc344_a    easy    limit        fail: IndentationError: unexpected indent
+50/190 lcb/abc344_b    easy    limit        fail: IndentationError: unexpected indent
+51/190 lcb/abc345_b    easy    limit        fail: IndentationError: unexpected indent
+52/190 lcb/abc346_a    easy    limit        PASS
+53/190 lcb/abc346_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+54/190 lcb/abc347_a    easy    limit        fail: wrong answer on test 1
+55/190 lcb/abc347_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+56/190 lcb/abc348_a    easy    limit        fail: IndentationError: unexpected indent
+57/190 lcb/abc348_b    easy    limit        fail: wrong answer on test 7
+58/190 lcb/abc349_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+59/190 lcb/abc349_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+60/190 lcb/abc350_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+61/190 lcb/abc350_b    easy    limit        fail: wrong answer on test 1
+62/190 lcb/abc351_a    easy    limit        fail: IndentationError: unexpected indent
+63/190 lcb/abc351_b    easy    limit        fail: StopIteration
+64/190 lcb/abc352_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+65/190 lcb/abc353_a    easy    limit        fail: NameError: name 'found' is not defined. Did you mean: 'round'?
+66/190 lcb/abc353_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+67/190 lcb/abc354_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+68/190 lcb/abc354_b    easy    limit        fail: SyntaxError: invalid syntax
+69/190 lcb/abc355_a    easy    limit        fail: IndentationError: unexpected indent
+70/190 lcb/abc355_b    easy    limit        fail: wrong answer on test 1
+71/190 lcb/abc356_a    easy    limit        fail: IndentationError: unexpected indent
+72/190 lcb/abc356_b    easy    limit        fail: IndentationError: unexpected indent
+73/190 lcb/abc357_a    easy    limit        fail: SyntaxError: invalid decimal literal
+74/190 lcb/abc357_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+75/190 lcb/abc358_a    easy    limit        fail: EOFError: EOF when reading a line
+76/190 lcb/abc358_b    easy    limit        fail: wrong answer on test 1
+77/190 lcb/abc359_a    easy    limit        PASS
+78/190 lcb/abc359_b    easy    limit        fail: IndentationError: unexpected indent
+79/190 lcb/abc360_a    easy    limit        PASS
+80/190 lcb/abc360_b    easy    limit        fail: SyntaxError: unexpected character after line continuation character
+81/190 lcb/abc361_a    easy    limit        fail: SyntaxError: expected 'except' or 'finally' block
+82/190 lcb/abc362_a    easy    limit        fail: SyntaxError: unmatched ')'
+83/190 lcb/abc362_b    easy    limit        fail: IndentationError: unexpected indent
+84/190 lcb/abc363_a    easy    limit        fail: SyntaxError: unmatched '}'
+85/190 lcb/abc363_b    easy    limit        fail: SyntaxError: unexpected character after line continuation character
+86/190 lcb/abc364_a    easy    limit        fail: IndentationError: unexpected indent
+87/190 lcb/abc364_b    easy    limit        fail: IndentationError: unexpected indent
+88/190 lcb/abc365_a    easy    limit        fail: SyntaxError: invalid syntax
+89/190 lcb/abc365_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+90/190 lcb/abc366_a    easy    limit        fail: wrong answer on test 1
+91/190 lcb/abc366_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+92/190 lcb/abc367_a    easy    limit        fail: IndentationError: unexpected indent
+93/190 lcb/abc367_b    easy    limit        fail: SyntaxError: invalid syntax
+94/190 lcb/abc368_a    easy    limit        fail: SyntaxError: invalid decimal literal
+95/190 lcb/abc368_b    easy    limit        fail: SyntaxError: unmatched ']'
+96/190 lcb/abc369_a    easy    limit        fail: SyntaxError: invalid syntax
+97/190 lcb/abc369_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 64)
+98/190 lcb/abc370_a    easy    limit        fail: IndentationError: unexpected indent
+99/190 lcb/abc370_b    easy    limit        fail: IndentationError: unexpected indent
+100/190 lcb/abc371_a    easy    limit        fail: SyntaxError: unexpected character after line continuation character
+101/190 lcb/abc371_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 26)
+102/190 lcb/abc372_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 9)
+103/190 lcb/abc373_a    easy    limit        PASS
+104/190 lcb/abc373_b    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+105/190 lcb/abc374_a    easy    limit        PASS
+106/190 lcb/abc374_b    easy    limit        fail: IndentationError: expected an indented block after 'if' statement on line 6
+107/190 lcb/abc375_a    easy    limit        fail: IndentationError: unexpected indent
+108/190 lcb/abc376_a    easy    limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+109/190 lcb/abc377_a    easy    limit        fail: SyntaxError: expected 'else' after 'if' expression
+110/190 lcb/abc377_b    easy    limit        fail: IndentationError: unexpected indent
+111/190 lcb/abc378_a    easy    limit        fail: IndentationError: unexpected indent
+112/190 lcb/abc378_b    easy    limit        fail: SyntaxError: invalid syntax
+113/190 lcb/abc379_a    easy    limit        fail: wrong answer on test 1
+114/190 lcb/abc379_b    easy    limit        fail: SyntaxError: invalid syntax
+115/190 lcb/abc380_a    easy    limit        fail: IndentationError: unexpected indent
+116/190 lcb/abc380_b    easy    limit        fail: SyntaxError: invalid syntax
+117/190 lcb/abc381_a    easy    limit        fail: SyntaxError: invalid syntax
+118/190 lcb/abc381_b    easy    limit        fail: IndentationError: unexpected indent
+119/190 lcb/3026        medium  limit        fail: SyntaxError: unmatched ']'
+120/190 lcb/3328        medium  limit        fail: wrong answer on test 1
+121/190 lcb/3337        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 13)
+122/190 lcb/3346        medium  limit        fail: wrong answer on test 1
+123/190 lcb/3354        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+124/190 lcb/3355        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+125/190 lcb/3356        medium  limit        fail: wrong answer on test 1
+126/190 lcb/3360        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+127/190 lcb/3374        medium  limit        fail: SyntaxError: unmatched ']'
+128/190 lcb/3384        medium  limit        fail: wrong answer on test 1
+129/190 lcb/3394        medium  limit        fail: IndentationError: expected an indented block after function definition on line 3
+130/190 lcb/3395        medium  limit        fail: IndentationError: unexpected indent
+131/190 lcb/3403        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 5)
+132/190 lcb/3406        medium  limit        fail: wrong answer on test 1
+133/190 lcb/3422        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+134/190 lcb/3442        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+135/190 lcb/3451        medium  limit        fail: IndentationError: unexpected indent
+136/190 lcb/3453        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+137/190 lcb/3455        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 65)
+138/190 lcb/3456        medium  limit        fail: wrong answer on test 1
+139/190 lcb/3462        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+140/190 lcb/3464        medium  limit        fail: SyntaxError: invalid character '−' (U+2212)
+141/190 lcb/3475        medium  limit        fail: SyntaxError: invalid decimal literal
+142/190 lcb/3479        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 4)
+143/190 lcb/3487        medium  limit        fail: SyntaxError: unmatched ']'
+144/190 lcb/3493        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+145/190 lcb/3494        medium  limit        fail: IndentationError: expected an indented block after function definition on line 6
+146/190 lcb/3496        medium  limit        fail: SyntaxError: unmatched ']'
+147/190 lcb/3498        medium  limit        fail: SyntaxError: unmatched ']'
+148/190 lcb/3502        medium  limit        fail: SyntaxError: invalid syntax
+149/190 lcb/3507        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 17)
+150/190 lcb/3517        medium  limit        fail: IndentationError: unexpected indent
+151/190 lcb/3518        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+152/190 lcb/3522        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 15)
+153/190 lcb/3526        medium  limit        fail: wrong answer on test 1
+154/190 lcb/3528        medium  limit        fail: IndentationError: unexpected indent
+155/190 lcb/3534        medium  limit        fail: SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+156/190 lcb/3540        medium  limit        PASS
+157/190 lcb/3558        medium  limit        fail: IndentationError: unexpected indent
+158/190 lcb/3559        medium  limit        fail: NameError: name 'List' is not defined. Did you mean: 'list'?
+159/190 lcb/3570        medium  limit        fail: SyntaxError: unmatched ']'
+160/190 lcb/3573        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+161/190 lcb/3579        medium  limit        fail: IndentationError: unexpected indent
+162/190 lcb/3587        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 10)
+163/190 lcb/3591        medium  limit        fail: wrong answer on test 1
+164/190 lcb/3593        medium  limit        fail: IndentationError: unexpected indent
+165/190 lcb/3607        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+166/190 lcb/3622        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 400)
+167/190 lcb/3627        medium  limit        fail: SyntaxError: unmatched ']'
+168/190 lcb/3629        medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+169/190 lcb/3639        medium  limit        fail: SyntaxError: invalid syntax
+170/190 lcb/3654        medium  limit        fail: wrong answer on test 1
+171/190 lcb/abc349_c    medium  limit        fail: IndentationError: unexpected indent
+172/190 lcb/abc356_c    medium  limit        fail: SyntaxError: invalid syntax
+173/190 lcb/abc356_d    medium  limit        fail: SyntaxError: unmatched ')'
+174/190 lcb/abc357_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 7)
+175/190 lcb/abc357_d    medium  limit        fail: IndentationError: unexpected indent
+176/190 lcb/abc358_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 9)
+177/190 lcb/abc359_c    medium  limit        fail: SyntaxError: invalid syntax
+178/190 lcb/abc361_b    medium  limit        fail: SyntaxError: invalid syntax
+179/190 lcb/abc363_c    medium  limit        fail: IndentationError: unexpected indent
+180/190 lcb/abc363_d    medium  limit        fail: SyntaxError: invalid syntax
+181/190 lcb/abc370_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 12)
+182/190 lcb/abc371_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 20)
+183/190 lcb/abc374_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+184/190 lcb/abc374_d    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 1)
+185/190 lcb/abc375_d    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 6)
+186/190 lcb/abc376_b    medium  limit        fail: IndentationError: unexpected indent
+187/190 lcb/abc379_d    medium  limit        fail: IndentationError: unexpected indent
+188/190 lcb/abc380_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 2)
+189/190 lcb/abc380_d    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 12)
+190/190 lcb/abc381_c    medium  limit        fail: SyntaxError: unterminated string literal (detected at line 3)
+
+=== SUMMARY (LiveCodeBench, all tests must pass) ===
+limit        easy     passed 7/118 (6%) | median thinking 512 | median all tokens 8193 | hit the limit 108
+limit        medium   passed 1/72 (1%) | median thinking 512 | median all tokens 8193 | hit the limit 68
+
+saved /content/drive/MyDrive/stop-overthinking/results/more/0.8b/test-limit512-lcb-graded.csv

@@ -1,0 +1,20 @@
+{
+  "cap_hours": 14.771048744460858,
+  "compute_cap": 100,
+  "floor_hours": 0.5,
+  "used_hours": 7.947,
+  "runs": {
+    "0.8b/off": 0.601,
+    "0.8b/limit512": 0.552,
+    "0.8b/on": 0.533,
+    "0.8b/lora1": 0.545,
+    "2b/limit1024": 0.491,
+    "2b/off": 0.482,
+    "2b/on": 0.458,
+    "4b/limit2048": 1.211,
+    "4b/off": 0.785,
+    "4b/on": 1.144,
+    "4b/lora1": 1.145
+  },
+  "note": "notebook 19 only. Does not touch the old exam or the extra 40."
+}
