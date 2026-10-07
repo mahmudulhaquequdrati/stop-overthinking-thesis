@@ -203,7 +203,7 @@ One try each.
 | Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
 A free way still wins.
 The winner is the same one as the first exam: OFF, then limit 1,024, then limit 2,048.
@@ -222,10 +222,10 @@ On 4B the full-list win splits by difficulty:
 | Thinking ON | 59.3% (70) | 5.6% (4) |
 | LoRA-1 | 67.8% (80) | 11.1% (8) |
 
-The 2B add-on was skipped. Colab found no weight file at `results/mini/lora/lora100`.
-The clock said GO. That session was later deleted, so the cell stays empty.
+2B LoRA-1 scored **27.4%** (52/190). Easy is 42.4% (50/118). Medium is 2.8% (2/72).
+The 1,024 limit still leads, 59 to 52.
 0.8B training scored 7.9%. 4B training scored 46.3%.
-Both lost to a free way.
+On every size, the trained add-on lost to a free way.
 
 These 190 stay in their own table.
 Adding them into 49.8% would hide both results.

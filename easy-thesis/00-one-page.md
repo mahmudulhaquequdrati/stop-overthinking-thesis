@@ -86,21 +86,13 @@ The winner matches the first exam.
 | Size | On these 190 | Trained add-on |
 |---|---|---|
 | 0.8B | OFF 9.5% (18/190) | LoRA-1 7.9% (from the 100) |
-| 2B | Limit 1,024 at 31.1% (59/190) | skipped |
+| 2B | Limit 1,024 at 31.1% (59/190) | LoRA-1 **27.4%** (52/190) |
 | 4B | Limit 2,048 at 69.5% (132/190) | LoRA-1 46.3% (from the 100) |
 
-The 2B add-on was skipped. Colab printed this line:
-
-```text
-lora1  SKIP — no weights at /content/thesis/results/mini/lora/lora100
-```
-
-The clock still said GO. About 11 hours were left.
-The file `adapter_model.safetensors` was not in that folder.
-Git keeps the 0.8B and 4B weight files. It does not keep this 2B file.
-Those two add-ons did load. Colab printed "LoRA loaded" for both.
-The free 2B ways had already been graded.
-That Colab session was later deleted, so this cell stays empty.
+The 2B add-on is now scored: **27.4%** (52/190).
+It beats thinking OFF (47/190) and thinking ON (26/190).
+It loses to the 1,024 limit (59/190).
+The lead is 7 answers. We did not draw error bars on this list.
 
 On 4B medium only, OFF is 44.4% and the limit is 38.9%.
 The limit still wins all 190, because easy is 88.1% against OFF at 80.5%.

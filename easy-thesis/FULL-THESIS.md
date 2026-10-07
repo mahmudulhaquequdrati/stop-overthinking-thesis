@@ -111,21 +111,13 @@ The winner matches the first exam.
 | Size | On these 190 | Trained add-on |
 |---|---|---|
 | 0.8B | OFF 9.5% (18/190) | LoRA-1 7.9% (from the 100) |
-| 2B | Limit 1,024 at 31.1% (59/190) | skipped |
+| 2B | Limit 1,024 at 31.1% (59/190) | LoRA-1 **27.4%** (52/190) |
 | 4B | Limit 2,048 at 69.5% (132/190) | LoRA-1 46.3% (from the 100) |
 
-The 2B add-on was skipped. Colab printed this line:
-
-```text
-lora1  SKIP — no weights at /content/thesis/results/mini/lora/lora100
-```
-
-The clock still said GO. About 11 hours were left.
-The file `adapter_model.safetensors` was not in that folder.
-Git keeps the 0.8B and 4B weight files. It does not keep this 2B file.
-Those two add-ons did load. Colab printed "LoRA loaded" for both.
-The free 2B ways had already been graded.
-That Colab session was later deleted, so this cell stays empty.
+The 2B add-on is now scored: **27.4%** (52/190).
+It beats thinking OFF (47/190) and thinking ON (26/190).
+It loses to the 1,024 limit (59/190).
+The lead is 7 answers. We did not draw error bars on this list.
 
 On 4B medium only, OFF is 44.4% and the limit is 38.9%.
 The limit still wins all 190, because easy is 88.1% against OFF at 80.5%.
@@ -200,18 +192,19 @@ The winner on the 190 matches the first exam.
 | Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
-The 2B add-on has no bar.
-Colab printed `SKIP — no weights at /content/thesis/results/mini/lora/lora100`.
-The clock said GO. About 11 hours were left.
-That Colab session was later deleted, so this cell stays empty.
-The other scores were already saved.
+On 2B, LoRA-1 is **27.4%**.
+The 1,024 limit is still higher, at 31.1% (59 vs 52).
+LoRA-1 does beat thinking OFF (47) and thinking ON (26).
+On the easy 118, LoRA-1 is 42.4% (50/118), just under the limit at 44.1%.
+On the medium 72, LoRA-1 is 2.8% (2/72), the same as OFF. The limit is 9.7%.
 
 On 4B medium only, OFF is 44.4% (32/72) and the limit is 38.9% (28/72).
 The limit still wins all 190, because easy is 88.1% (104/118) against OFF at 80.5% (95/118).
 
-The run took **7.9 hours**. One try. Seed 3407.
+The first pass took **7.9 hours**. The 2B add-on added **0.5 hours**.
+The hours file now says **8.5 hours**. One try. Seed 3407.
 
 ## What this does not say
 
@@ -951,7 +944,7 @@ One try each.
 | Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
 A free way still wins.
 The winner is the same one as the first exam: OFF, then limit 1,024, then limit 2,048.
@@ -970,10 +963,10 @@ On 4B the full-list win splits by difficulty:
 | Thinking ON | 59.3% (70) | 5.6% (4) |
 | LoRA-1 | 67.8% (80) | 11.1% (8) |
 
-The 2B add-on was skipped. Colab found no weight file at `results/mini/lora/lora100`.
-The clock said GO. That session was later deleted, so the cell stays empty.
+2B LoRA-1 scored **27.4%** (52/190). Easy is 42.4% (50/118). Medium is 2.8% (2/72).
+The 1,024 limit still leads, 59 to 52.
 0.8B training scored 7.9%. 4B training scored 46.3%.
-Both lost to a free way.
+On every size, the trained add-on lost to a free way.
 
 These 190 stay in their own table.
 Adding them into 49.8% would hide both results.
@@ -1174,7 +1167,7 @@ On 190 newer contest problems, the first-exam rule comes back.
 | Size | Do this first | Score | Trained add-on |
 |---|---|---|---|
 | 0.8B | Thinking OFF | 9.5% | 7.9% |
-| 2B | Limit about 1,024 | 31.1% | skipped |
+| 2B | Limit about 1,024 | 31.1% | 27.4% |
 | 4B | Limit about 2,048 | 69.5% | 46.3% |
 
 On 4B medium only, OFF was higher: 44.4% against the limit at 38.9%.
@@ -1360,7 +1353,7 @@ A: A fair comparison of training against three free controls on one small code m
 A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
 
 **Q: Did 190 more problems change the winner?**
-A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on 0.8B (7.9%) and on 4B (46.3%). The 2B add-on was skipped, and that Colab session was deleted. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
+A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on every size: 0.8B 7.9%, 2B LoRA-1 27.4% (52/190), 4B 46.3%. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
 
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

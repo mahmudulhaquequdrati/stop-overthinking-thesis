@@ -55,7 +55,7 @@ On 190 newer contest problems, the first-exam rule comes back.
 | Size | Do this first | Score | Trained add-on |
 |---|---|---|---|
 | 0.8B | Thinking OFF | 9.5% | 7.9% |
-| 2B | Limit about 1,024 | 31.1% | skipped |
+| 2B | Limit about 1,024 | 31.1% | 27.4% |
 | 4B | Limit about 2,048 | 69.5% | 46.3% |
 
 On 4B medium only, OFF was higher: 44.4% against the limit at 38.9%.

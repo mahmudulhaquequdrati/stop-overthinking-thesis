@@ -1,46 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="380" viewBox="0 0 720 380" font-family="system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" font-family="system-ui, sans-serif">
 <title>The 190 contest problems, by way</title>
-<rect width="720" height="380" fill="#fcfcfb"/>
+<rect width="720" height="400" fill="#fcfcfb"/>
 <text x="20" y="28" font-size="16" font-weight="600" fill="#0b0b0b">The 190 contest problems, by way</text>
-<text x="20" y="48" font-size="12" fill="#52514e">Pass rate (%). One try. 2B add-on is missing, so it is not a bar.</text>
-<line x1="48" x2="700" y1="324.0" y2="324.0" stroke="#e6e5e0"/>
-<text x="42" y="328.0" font-size="11" fill="#52514e" text-anchor="end">0%</text>
-<line x1="48" x2="700" y1="274.8" y2="274.8" stroke="#e6e5e0"/>
-<text x="42" y="278.8" font-size="11" fill="#52514e" text-anchor="end">20%</text>
-<line x1="48" x2="700" y1="225.6" y2="225.6" stroke="#e6e5e0"/>
-<text x="42" y="229.6" font-size="11" fill="#52514e" text-anchor="end">40%</text>
-<line x1="48" x2="700" y1="176.4" y2="176.4" stroke="#e6e5e0"/>
-<text x="42" y="180.4" font-size="11" fill="#52514e" text-anchor="end">60%</text>
-<line x1="48" x2="700" y1="127.2" y2="127.2" stroke="#e6e5e0"/>
-<text x="42" y="131.2" font-size="11" fill="#52514e" text-anchor="end">80%</text>
+<text x="20" y="48" font-size="12" fill="#52514e">Pass rate (%). One try. LoRA-1 is now included for 2B (27.4%).</text>
+<line x1="48" x2="700" y1="344.0" y2="344.0" stroke="#e6e5e0"/>
+<text x="42" y="348.0" font-size="11" fill="#52514e" text-anchor="end">0%</text>
+<line x1="48" x2="700" y1="290.8" y2="290.8" stroke="#e6e5e0"/>
+<text x="42" y="294.8" font-size="11" fill="#52514e" text-anchor="end">20%</text>
+<line x1="48" x2="700" y1="237.6" y2="237.6" stroke="#e6e5e0"/>
+<text x="42" y="241.6" font-size="11" fill="#52514e" text-anchor="end">40%</text>
+<line x1="48" x2="700" y1="184.4" y2="184.4" stroke="#e6e5e0"/>
+<text x="42" y="188.4" font-size="11" fill="#52514e" text-anchor="end">60%</text>
+<line x1="48" x2="700" y1="131.2" y2="131.2" stroke="#e6e5e0"/>
+<text x="42" y="135.2" font-size="11" fill="#52514e" text-anchor="end">80%</text>
 <line x1="48" x2="700" y1="78.0" y2="78.0" stroke="#e6e5e0"/>
 <text x="42" y="82.0" font-size="11" fill="#52514e" text-anchor="end">100%</text>
 <rect x="48" y="58" width="12" height="12" rx="2" fill="#eb6834"/>
 <text x="64" y="69" font-size="12" fill="#0b0b0b">Thinking OFF</text>
-<rect x="166" y="58" width="12" height="12" rx="2" fill="#2a78d6"/>
-<text x="182" y="69" font-size="12" fill="#0b0b0b">Thinking ON</text>
-<rect x="277" y="58" width="12" height="12" rx="2" fill="#eda100"/>
-<text x="293" y="69" font-size="12" fill="#0b0b0b">Best limit</text>
-<rect x="110.7" y="300.6" width="28.0" height="23.4" rx="2" fill="#eb6834"><title>Thinking OFF · 0.8B: 9.5%</title></rect>
-<text x="124.7" y="296.6" font-size="10" fill="#0b0b0b" text-anchor="middle">9.5</text>
-<rect x="142.7" y="321.3" width="28.0" height="2.7" rx="2" fill="#2a78d6"><title>Thinking ON · 0.8B: 1.1%</title></rect>
-<text x="156.7" y="317.3" font-size="10" fill="#0b0b0b" text-anchor="middle">1.1</text>
-<rect x="174.7" y="313.7" width="28.0" height="10.3" rx="2" fill="#eda100"><title>Best limit · 0.8B: 4.2%</title></rect>
-<text x="188.7" y="309.7" font-size="10" fill="#0b0b0b" text-anchor="middle">4.2</text>
-<text x="156.7" y="344" font-size="12" fill="#0b0b0b" text-anchor="middle">0.8B</text>
-<rect x="328.0" y="263.2" width="28.0" height="60.8" rx="2" fill="#eb6834"><title>Thinking OFF · 2B: 24.7%</title></rect>
-<text x="342.0" y="259.2" font-size="10" fill="#0b0b0b" text-anchor="middle">24.7</text>
-<rect x="360.0" y="290.3" width="28.0" height="33.7" rx="2" fill="#2a78d6"><title>Thinking ON · 2B: 13.7%</title></rect>
-<text x="374.0" y="286.3" font-size="10" fill="#0b0b0b" text-anchor="middle">13.7</text>
-<rect x="392.0" y="247.5" width="28.0" height="76.5" rx="2" fill="#eda100"><title>Best limit · 2B: 31.1%</title></rect>
-<text x="406.0" y="243.5" font-size="10" fill="#0b0b0b" text-anchor="middle">31.1</text>
-<text x="374.0" y="344" font-size="12" fill="#0b0b0b" text-anchor="middle">2B</text>
-<rect x="545.3" y="159.7" width="28.0" height="164.3" rx="2" fill="#eb6834"><title>Thinking OFF · 4B: 66.8%</title></rect>
-<text x="559.3" y="155.7" font-size="10" fill="#0b0b0b" text-anchor="middle">66.8</text>
-<rect x="577.3" y="228.3" width="28.0" height="95.7" rx="2" fill="#2a78d6"><title>Thinking ON · 4B: 38.9%</title></rect>
-<text x="591.3" y="224.3" font-size="10" fill="#0b0b0b" text-anchor="middle">38.9</text>
-<rect x="609.3" y="153.0" width="28.0" height="171.0" rx="2" fill="#eda100"><title>Best limit · 4B: 69.5%</title></rect>
-<text x="623.3" y="149.0" font-size="10" fill="#0b0b0b" text-anchor="middle">69.5</text>
-<text x="591.3" y="344" font-size="12" fill="#0b0b0b" text-anchor="middle">4B</text>
-<line x1="48" x2="700" y1="324" y2="324" stroke="#8a8984"/>
+<rect x="164" y="58" width="12" height="12" rx="2" fill="#2a78d6"/>
+<text x="180" y="69" font-size="12" fill="#0b0b0b">Thinking ON</text>
+<rect x="273" y="58" width="12" height="12" rx="2" fill="#eda100"/>
+<text x="289" y="69" font-size="12" fill="#0b0b0b">Best limit</text>
+<rect x="375" y="58" width="12" height="12" rx="2" fill="#e87ba4"/>
+<text x="391" y="69" font-size="12" fill="#0b0b0b">LoRA-1</text>
+<rect x="106.7" y="318.7" width="22.0" height="25.3" rx="2" fill="#eb6834"><title>Thinking OFF · 0.8B: 9.5%</title></rect>
+<text x="117.7" y="314.7" font-size="10" fill="#0b0b0b" text-anchor="middle">9.5</text>
+<rect x="132.7" y="341.1" width="22.0" height="2.9" rx="2" fill="#2a78d6"><title>Thinking ON · 0.8B: 1.1%</title></rect>
+<text x="143.7" y="337.1" font-size="10" fill="#0b0b0b" text-anchor="middle">1.1</text>
+<rect x="158.7" y="332.8" width="22.0" height="11.2" rx="2" fill="#eda100"><title>Best limit · 0.8B: 4.2%</title></rect>
+<text x="169.7" y="328.8" font-size="10" fill="#0b0b0b" text-anchor="middle">4.2</text>
+<rect x="184.7" y="323.0" width="22.0" height="21.0" rx="2" fill="#e87ba4"><title>LoRA-1 · 0.8B: 7.9%</title></rect>
+<text x="195.7" y="319.0" font-size="10" fill="#0b0b0b" text-anchor="middle">7.9</text>
+<text x="156.7" y="364" font-size="12" fill="#0b0b0b" text-anchor="middle">0.8B</text>
+<rect x="324.0" y="278.3" width="22.0" height="65.7" rx="2" fill="#eb6834"><title>Thinking OFF · 2B: 24.7%</title></rect>
+<text x="335.0" y="274.3" font-size="10" fill="#0b0b0b" text-anchor="middle">24.7</text>
+<rect x="350.0" y="307.6" width="22.0" height="36.4" rx="2" fill="#2a78d6"><title>Thinking ON · 2B: 13.7%</title></rect>
+<text x="361.0" y="303.6" font-size="10" fill="#0b0b0b" text-anchor="middle">13.7</text>
+<rect x="376.0" y="261.3" width="22.0" height="82.7" rx="2" fill="#eda100"><title>Best limit · 2B: 31.1%</title></rect>
+<text x="387.0" y="257.3" font-size="10" fill="#0b0b0b" text-anchor="middle">31.1</text>
+<rect x="402.0" y="271.1" width="22.0" height="72.9" rx="2" fill="#e87ba4"><title>LoRA-1 · 2B: 27.4%</title></rect>
+<text x="413.0" y="267.1" font-size="10" fill="#0b0b0b" text-anchor="middle">27.4</text>
+<text x="374.0" y="364" font-size="12" fill="#0b0b0b" text-anchor="middle">2B</text>
+<rect x="541.3" y="166.3" width="22.0" height="177.7" rx="2" fill="#eb6834"><title>Thinking OFF · 4B: 66.8%</title></rect>
+<text x="552.3" y="162.3" font-size="10" fill="#0b0b0b" text-anchor="middle">66.8</text>
+<rect x="567.3" y="240.5" width="22.0" height="103.5" rx="2" fill="#2a78d6"><title>Thinking ON · 4B: 38.9%</title></rect>
+<text x="578.3" y="236.5" font-size="10" fill="#0b0b0b" text-anchor="middle">38.9</text>
+<rect x="593.3" y="159.1" width="22.0" height="184.9" rx="2" fill="#eda100"><title>Best limit · 4B: 69.5%</title></rect>
+<text x="604.3" y="155.1" font-size="10" fill="#0b0b0b" text-anchor="middle">69.5</text>
+<rect x="619.3" y="220.8" width="22.0" height="123.2" rx="2" fill="#e87ba4"><title>LoRA-1 · 4B: 46.3%</title></rect>
+<text x="630.3" y="216.8" font-size="10" fill="#0b0b0b" text-anchor="middle">46.3</text>
+<text x="591.3" y="364" font-size="12" fill="#0b0b0b" text-anchor="middle">4B</text>
+<line x1="48" x2="700" y1="344" y2="344" stroke="#8a8984"/>
 </svg>

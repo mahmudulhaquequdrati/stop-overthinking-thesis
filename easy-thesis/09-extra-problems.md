@@ -74,7 +74,7 @@ One try each. Seed 3407.
 | Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 (8/190) | **31.1%** at 1,024 (59/190) | **69.5%** at 2,048 (132/190) |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
 A free way still wins.
 This time the winner matches the first exam on every size.
@@ -83,9 +83,8 @@ OFF on 0.8B. Limit 1,024 on 2B. Limit 2,048 on 4B.
 On 4B medium only, OFF wins: **44.4%** (32/72) against the limit at **38.9%** (28/72).
 The limit still wins all 190, because easy is **88.1%** against OFF at **80.5%**.
 
-The 2B add-on was skipped. The weight file was not in the Colab copy.
-That session was later deleted, so the cell stays empty.
-0.8B and 4B training did run. Both lost to a free way.
+2B LoRA-1 scored **27.4%** (52/190). The 1,024 limit still leads, 59 to 52.
+0.8B and 4B training also lost to a free way.
 
 The charts for all three lists are in [10-all-counts.md](10-all-counts.md).
 

@@ -44,6 +44,7 @@ The total is a count of problems, not a blended accuracy.
 | Way | Accuracy | Passed |
 |---|---|---|
 | limit1024 | 31.1% | 59/190 |
+| lora1 | 27.4% | 52/190 |
 | off | 24.7% | 47/190 |
 | on | 13.7% | 26/190 |
 
@@ -52,6 +53,7 @@ The total is a count of problems, not a blended accuracy.
 | Way | Accuracy | Passed |
 |---|---|---|
 | limit1024 | 44.1% | 52/118 |
+| lora1 | 42.4% | 50/118 |
 | off | 38.1% | 45/118 |
 | on | 19.5% | 23/118 |
 
@@ -60,6 +62,7 @@ The total is a count of problems, not a blended accuracy.
 | Way | Accuracy | Passed |
 |---|---|---|
 | limit1024 | 9.7% | 7/72 |
+| lora1 | 2.8% | 2/72 |
 | off | 2.8% | 2/72 |
 | on | 4.2% | 3/72 |
 

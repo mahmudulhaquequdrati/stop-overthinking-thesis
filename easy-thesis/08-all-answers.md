@@ -139,7 +139,7 @@ A: A fair comparison of training against three free controls on one small code m
 A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
 
 **Q: Did 190 more problems change the winner?**
-A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on 0.8B (7.9%) and on 4B (46.3%). The 2B add-on was skipped, and that Colab session was deleted. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
+A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on every size: 0.8B 7.9%, 2B LoRA-1 27.4% (52/190), 4B 46.3%. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
 
 **Q: What is the single next step?**
 A: On your own problems, try thinking OFF and a short limit before you train anything.

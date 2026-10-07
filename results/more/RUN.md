@@ -70,7 +70,7 @@ So the chip is an A100 or an H100. We do not have the exact name saved.
 | Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% (8/190) at 512 | **31.1%** (59/190) at 1,024 | **69.5%** (132/190) at 2,048 |
-| LoRA-1 | 7.9% (15/190) | not run | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | 27.4% (52/190) | 46.3% (88/190) |
 
 A free way still wins on every size.
 The winner matches the first exam:
@@ -92,7 +92,7 @@ The first exam also has easy function questions.
 | OFF | **15.3%** (18/118) | 0% (0/72) | 38.1% (45/118) | 2.8% (2/72) | 80.5% (95/118) | **44.4%** (32/72) |
 | ON | 0.8% (1/118) | 1.4% (1/72) | 19.5% (23/118) | 4.2% (3/72) | 59.3% (70/118) | 5.6% (4/72) |
 | Limit | 5.9% (7/118) | 1.4% (1/72) | **44.1%** (52/118) | **9.7%** (7/72) | **88.1%** (104/118) | 38.9% (28/72) |
-| LoRA-1 | 11.9% (14/118) | 1.4% (1/72) | not run | not run | 67.8% (80/118) | 11.1% (8/72) |
+| LoRA-1 | 11.9% (14/118) | 1.4% (1/72) | 42.4% (50/118) | 2.8% (2/72) | 67.8% (80/118) | 11.1% (8/72) |
 
 On 4B medium, thinking OFF beats the 2,048 limit (32 vs 28).
 The limit still wins the full 190, because it wins the easy slice by more (104 vs 95).
@@ -116,10 +116,9 @@ That is the same loop story as the first exam.
 
 ## What did not run
 
-2B LoRA-1 is missing.
-There is no 2B training file in the zip, and no hour line for it.
-The notebook skips that way when the weight file is not on Drive.
-0.8B and 4B training did run. Both lost to a free way.
+2B LoRA-1 is now scored: **27.4%** (52/190), in **0.504** hours.
+It loses to the 1,024 limit (59/190) and beats OFF (47/190).
+0.8B and 4B training also lost to a free way.
 
 LoRA-2 was not in this notebook.
 Other limits were not in this notebook.
@@ -131,8 +130,8 @@ Every way here is **one try**. The first exam used two tries on 2B and 4B.
 |---|---|
 | 11 graded files, each 190 rows, pass counts match SUMMARY.md | The GPU was an A100. The notebook allows A100 or H100. The printed name was not in the zip. |
 | 118 easy and 72 medium on every file | |
-| 0.8B and 4B LoRA-1 ran. 2B LoRA-1 did not. | |
-| Hours add up to 7.947 | |
+| 2B LoRA-1 is 52/190, easy 50/118, medium 2/72 | |
+| Hours add up to 8.451, including 2B LoRA-1 at 0.504 | |
 | These scores are not written into the 234 tables | |
 
 ## What this does not prove

@@ -52,18 +52,19 @@ The winner on the 190 matches the first exam.
 | Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
-The 2B add-on has no bar.
-Colab printed `SKIP — no weights at /content/thesis/results/mini/lora/lora100`.
-The clock said GO. About 11 hours were left.
-That Colab session was later deleted, so this cell stays empty.
-The other scores were already saved.
+On 2B, LoRA-1 is **27.4%**.
+The 1,024 limit is still higher, at 31.1% (59 vs 52).
+LoRA-1 does beat thinking OFF (47) and thinking ON (26).
+On the easy 118, LoRA-1 is 42.4% (50/118), just under the limit at 44.1%.
+On the medium 72, LoRA-1 is 2.8% (2/72), the same as OFF. The limit is 9.7%.
 
 On 4B medium only, OFF is 44.4% (32/72) and the limit is 38.9% (28/72).
 The limit still wins all 190, because easy is 88.1% (104/118) against OFF at 80.5% (95/118).
 
-The run took **7.9 hours**. One try. Seed 3407.
+The first pass took **7.9 hours**. The 2B add-on added **0.5 hours**.
+The hours file now says **8.5 hours**. One try. Seed 3407.
 
 ## What this does not say
 
