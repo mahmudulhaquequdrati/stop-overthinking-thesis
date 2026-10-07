@@ -4,12 +4,14 @@ This folder tells the whole study in short, plain sentences.
 The official science write-up stays in [../thesis/THESIS.md](../thesis/THESIS.md).
 This folder is the easy copy. The numbers are the same.
 
-**Read it all in one file:** [FULL-THESIS.md](FULL-THESIS.md)
+**Show this to a teacher, and draft the paper from it:** [PAPER.md](PAPER.md)  
+**Read the long version:** [FULL-THESIS.md](FULL-THESIS.md)
 
 Or read one chapter at a time:
 
 | File | What it is |
 |---|---|
+| [PAPER.md](PAPER.md) | **Teacher and paper:** every chart and every score in one file |
 | [00-one-page.md](00-one-page.md) | The whole story on one page: 464 tests, train 100 and 280 |
 | [10-all-counts.md](10-all-counts.md) | Every problem count, then the charts and the stats |
 | [01-who-should-use-it.md](01-who-should-use-it.md) | Who it helps, why, and why not a giant model |

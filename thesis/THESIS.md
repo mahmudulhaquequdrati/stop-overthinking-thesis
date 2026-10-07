@@ -145,12 +145,9 @@ LoRA-2 on 2B is 45.1%. Neither beats the free winner.
 | Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
 | Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
 | Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | skipped | 46.3% (88/190) |
+| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
 
-The 2B add-on has no bar.
-Colab printed `SKIP — no weights at /content/thesis/results/mini/lora/lora100`.
-The clock said GO. About 11 hours were left.
-That session was later deleted, so this cell stays empty.
+2B LoRA-1 is 27.4%. It loses to the 1,024 limit (59 vs 52) and beats thinking OFF (47).
 
 49.8% and 78.2% stay on the 234.
 Do not average the three lists into one score.

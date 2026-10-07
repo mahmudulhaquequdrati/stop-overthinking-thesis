@@ -1,6 +1,7 @@
 # Stop Overthinking, Keep Passing the Tests
 
 Easy-language thesis. One file.
+**For a teacher, and for the paper, start at [PAPER.md](PAPER.md).** That file has every chart and every score.
 The short chapters live beside this file.
 The official science write-up is [../thesis/THESIS.md](../thesis/THESIS.md).
 Numbers come from the checked results, not from memory.
