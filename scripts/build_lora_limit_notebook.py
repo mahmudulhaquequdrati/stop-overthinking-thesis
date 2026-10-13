@@ -1,7 +1,7 @@
-"""Build standalone Notebook 21 with frozen data, scripts, and first-attempt scores.
+"""Build small Notebook 21 with scripts, frozen IDs, and first-attempt scores.
 
 The notebook needs only Colab, Drive, and the existing LoRA-1 weight file.
-No repository clone, training, or dataset download is required.
+Tests are loaded externally, as in the earlier notebooks, and cached on Drive.
 """
 import base64
 import csv
@@ -16,7 +16,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'notebooks/21_2b_lora1_limit1024.ipynb'
 SCRIPT_NAMES=['models.py','prompts.py','build_problem_set.py','gen_colab.py',
     'grade_humaneval.py','grade_plus.py','grade_lcb.py','lcb_data.py',
-    'run_lora_limit.py','compare_lora_limit.py']
+    'run_lora_limit.py','compare_lora_limit.py','prepare_lora_limit_data.py']
 
 
 def make_payload():
@@ -69,7 +69,19 @@ def make_payload():
         baselines['sources'].append(dict(path=src['path'],sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
     assert {k:len(v) for k,v in baselines['methods'].items()}=={'limit1024':464,'lora1':424,'off':464,'on':464}
     files={f'scripts/{name}':(ROOT/'scripts'/name).read_bytes() for name in SCRIPT_NAMES}
-    files['data/problems-464.json']=json.dumps(frozen,separators=(',',':')).encode()
+    full_body=json.dumps(frozen,sort_keys=True,separators=(',',':')).encode()
+    thin={'problems':[{k:v for k,v in p.items() if k not in ('test_plus','tests')} for p in frozen['problems']]}
+    files['data/problem-templates.json']=json.dumps(thin,separators=(',',':')).encode()
+    data_commit='5ff583e6ed2b950636342d2b3583f7420fb9ed4b'
+    contest_files=[]
+    for name,relative in [('extra-lcb.json','results/extra/extra-lcb.json'),('more-lcb.json','results/more/more-lcb.json')]:
+        contest_files.append(dict(name=name,sha256=hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),
+            url=f'https://raw.githubusercontent.com/mahmudulhaquequdrati/stop-overthinking-thesis/{data_commit}/{relative}'))
+    lcb_revision=(Path.home()/'.cache/huggingface/hub/datasets--livecodebench--code_generation_lite/refs/main').read_text().strip()
+    files['data/data-manifest.json']=json.dumps(dict(problem_sha256=hashlib.sha256(full_body).hexdigest(),
+        humanevalplus_revision=he_revision,livecodebench_revision=lcb_revision,
+        original_lcb_ids=[p['task_id'] for p in json.loads((ROOT/'data/problems.json').read_text())['problems'] if p['source']=='lcb'],
+        contest_files=contest_files),indent=2).encode()
     files['data/baselines-first-attempt.json']=json.dumps(baselines,separators=(',',':')).encode()
     files['data/adapter_config.json']=(ROOT/'results/mini/lora/lora100/adapter_config.json').read_bytes()
     files['data/manifest.json']=json.dumps({'files':{k:hashlib.sha256(v).hexdigest() for k,v in files.items()},
@@ -101,9 +113,10 @@ Before starting, put your existing **LoRA-1** weight file here:
 
 Use the file from the original **lora100** training run, not LoRA-2.
 The correct adapter configuration is included. Do not rename a different adapter's weights.
-This notebook includes its own scripts, questions, tests, and saved comparison scores.
-It is larger than earlier notebooks because it carries the complete frozen test data.
-No GitHub push or extra code upload is required.
+This small notebook includes its scripts, frozen questions/IDs, and saved comparison scores.
+Like the earlier notebooks, it loads the tests from Hugging Face and saved project files.
+It checks their contents and caches the full problem set on Drive for later resumes.
+No separate test ZIP or extra code upload is required.
 
 Allow Drive access when asked. Enter Colab's displayed **compute units per hour** when asked.
 You do not need to edit code. The run has a **15-unit estimated cap**, including setup.
@@ -195,13 +208,13 @@ if remaining_seconds() < 60:
     raise RuntimeError("This experiment's budget is exhausted. Saved answers are safe; do not reset the ledger to bypass the cap.")
 print(f"LoRA-1 found. Estimated used: {budget['estimated_units']:.2f}/{UNIT_CAP:.0f} units. Batch: {BATCH}.")
 ''')
-    md('''## 2. Unpack this notebook's frozen files
+    md('''## 2. Unpack the small code and question bundle
 
 **Problem:** GitHub code or local data can be missing.
 **Why:** the notebook should work without a repository update.
-**Input:** the compressed bundle included below.
-**Output:** checked scripts and exactly 464 frozen problems in `/content/lora-limit-21`.
-**Choice:** compare file hashes before using data, then copy the weight locally.''')
+**Input:** the small compressed bundle included below.
+**Output:** scripts, frozen questions/IDs, and reference scores in `/content/lora-limit-21`.
+**Choice:** keep tests outside the notebook, check files, then copy the weight locally.''')
     code('''import base64, io, zipfile, shutil
 WORK = Path("/content/lora-limit-21")
 WORK.mkdir(parents=True, exist_ok=True)
@@ -222,21 +235,19 @@ for name, wanted in manifest["files"].items():
         raise RuntimeError("Bundled file failed its check: " + name)
 PROBLEMS = WORK / "data/problems-464.json"
 BASELINES = WORK / "data/baselines-first-attempt.json"
-problems = json.loads(PROBLEMS.read_text())["problems"]
+problems = json.loads((WORK / "data/problem-templates.json").read_text())["problems"]
 ids = {p["task_id"] for p in problems}
 assert len(problems) == len(ids) == 464
 assert ids == set(manifest["problem_ids"])
 assert not ids.intersection(manifest["training_ids"])
 assert sum(p["source"] == "humaneval" for p in problems) == 164
-assert all(p.get("test_plus") for p in problems if p["source"] == "humaneval")
-assert all(0 < len(p["tests"]) <= 20 for p in problems if p["source"] == "lcb")
 ADAPTER = WORK / "adapter-lora1"
 ADAPTER.mkdir(exist_ok=True)
 shutil.copy2(ADAPTER_SOURCE, ADAPTER / "adapter_model.safetensors")
 shutil.copy2(WORK / "data/adapter_config.json", ADAPTER / "adapter_config.json")
 sys.path.insert(0, str(WORK / "scripts"))
 os.chdir(WORK)
-print("Checked 464 unique problems, their tests, comparison files, and scripts. Training ID overlap: zero.")
+print("Checked 464 frozen questions/IDs, comparison files, and scripts. Tests load after package setup. Training ID overlap: zero.")
 ''')
     md('''## 3. Install and check inference packages
 
@@ -292,7 +303,7 @@ def pip_install(*packages, timeout=900):
     if not run_process([sys.executable, "-m", "pip", "install", "--disable-pip-version-check", *packages], "install-packages", timeout):
         raise RuntimeError("Setup stopped at its budget/time limit. Inspect the saved log before resuming.")
 
-pip_install("transformers==5.15.0", "peft>=0.20.0,<0.21", "accelerate", "safetensors", "evalplus", "flash-linear-attention", "ninja", "packaging", "wheel")
+pip_install("transformers==5.15.0", "peft>=0.20.0,<0.21", "accelerate", "safetensors", "evalplus", "datasets", "flash-linear-attention", "ninja", "packaging", "wheel")
 WHEELS = DRIVE / "wheels"
 WHEELS.mkdir(parents=True, exist_ok=True)
 probe = subprocess.run([sys.executable, "-c", "import json, sys, torch; print(json.dumps(dict(torch=torch.__version__.split('+')[0], cuda=torch.version.cuda, abi=str(torch.compiled_with_cxx11_abi()).upper(), py='cp%d%d'%sys.version_info[:2])))"], capture_output=True, text=True)
@@ -339,10 +350,30 @@ if check.returncode != 0:
 if not run_process([sys.executable, "-m", "pip", "freeze"], "package-versions", 60):
     raise RuntimeError("Budget exhausted during package checks.")
 print("FAST PATH ON. Qwen3.5 imports correctly.")
+''')
+    md('''## 4. Load the problem set, like the earlier notebooks
+
+**Problem:** the large tests should not be stored inside an ipynb.
+**Why:** keep uploads and Git changes small without changing the exam.
+**Input:** frozen questions, pinned Hugging Face releases, and the project's saved contest lists.
+**Output:** exactly 464 problems with the correct tests, cached on Drive.
+**Choice:** reuse a checked cache; otherwise load externally and verify the complete set before generation.''')
+    code('''DATA_CACHE = DRIVE / "results/lora-limit-2b-inputs"
+prepare_command = [sys.executable, str(WORK / "scripts/prepare_lora_limit_data.py"),
+    "--manifest", str(WORK / "data/data-manifest.json"),
+    "--templates", str(WORK / "data/problem-templates.json"),
+    "--cache", str(DATA_CACHE), "--out", str(PROBLEMS)]
+if not run_process(prepare_command, "prepare-data", 900):
+    raise RuntimeError("Data preparation stopped. The checked cache can be reused next time.")
+problems = json.loads(PROBLEMS.read_text())["problems"]
+assert len(problems) == len({p["task_id"] for p in problems}) == 464
+assert all(p.get("test_plus") for p in problems if p["source"] == "humaneval")
+assert all(0 < len(p["tests"]) <= 20 for p in problems if p["source"] == "lcb")
 if not run_process([sys.executable, str(WORK / "scripts/grade_plus.py"), "--problems", str(PROBLEMS), "--source", "humaneval", "--check-official", "8"], "check-grader", 300):
     raise RuntimeError("No time for the official-solution grader check; generation will not start.")
+print("464 problems verified. Official-solution grader check passed.")
 ''')
-    md('''## 4. Run the one new combination
+    md('''## 5. Run the one new combination
 
 **Problem:** find whether the trained add-on benefits from the same thinking limit.
 **Why:** this tests the missing combination without training again.
@@ -360,7 +391,7 @@ except Exception as error:
     print("The next cells will grade saved answers and make a partial report.")
 print("Generation completed:", GENERATION_COMPLETE)
 ''')
-    md('''## 5. Grade saved answers and compare
+    md('''## 6. Grade saved answers and compare
 
 **Problem:** saved text alone cannot establish accuracy.
 **Why:** only benchmark tests can mark the code.
@@ -383,7 +414,7 @@ if summary_file.exists():
     display(Markdown(summary_file.read_text()))
 print("Outputs saved:", OUT)
 ''')
-    md('''## 6. Save a download and release the GPU
+    md('''## 7. Save a download and release the GPU
 
 **Problem:** leaving a paid runtime connected wastes units.
 **Why:** the data is already saved on Drive.

@@ -11,7 +11,8 @@ Use shared IDs only and report actual generated/graded coverage and paired uncer
 The main comparison is against the same limit without LoRA, not unlimited thinking.
 Keep results separate until this new run is checked; do not overwrite the combined thesis scores.
 Budget: estimated 15 Colab units across setup, generation, grading, and reports at the entered rate.
-Frozen scripts, questions, tests, and reference grades are embedded in the notebook.
+Frozen scripts, questions/IDs, and reference grades are embedded in the small notebook.
+Like earlier notebooks, tests load from fixed external data sources; their contents are checked and cached on Drive.
 The original lora100 weight file is required on Drive before package installation.
 Actual GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
 

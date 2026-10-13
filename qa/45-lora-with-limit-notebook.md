@@ -35,19 +35,24 @@ Use weights from the original lora100 run. Do not substitute LoRA-2 weights.
 
 ## How does it avoid the earlier file problems?
 
-The notebook carries frozen scripts, 464 problem definitions, tests, and reference grades.
+The small notebook carries scripts, frozen questions/IDs, and reference grades.
+Like earlier notebooks, it loads tests from Hugging Face and saved project data files.
+The source revisions and content checks prevent the exam from silently changing.
+The complete checked problem set is cached on Drive for resumes.
 Its embedded files are checked with hashes, which identify file contents.
 It stops before installing packages if Drive, an A100, or the weights are missing.
 It uses absolute paths and its own working folder.
 It does not depend on an updated GitHub branch or a Drive code mirror.
-The notebook is about 36 MB because it includes all tests.
+Saved contest data is downloaded from an already-published, fixed project commit.
+The notebook is about 0.3 MB. No separate test ZIP needs uploading.
 
 ## Is grading really HumanEval+?
 
 The old local problem file lacked the plus tests.
-The builder adds tests from the cached official evalplus/humanevalplus dataset.
+The notebook loads tests from the official evalplus/humanevalplus dataset at a fixed revision.
 Its revision is d32357cf319e50e9c8d8dab5ea876c72b0fd321b.
 The 164 HumanEval problems must all have plus tests; easier tests are not a silent fallback.
+The complete questions and tests must match the expected file hash before generation starts.
 LiveCodeBench retains the saved tests, with at most 20 tests per problem.
 
 ## What is the budget?
@@ -116,12 +121,14 @@ This is a retrospective extension, not a fresh held-out evaluation.
 ## Checked versus not run
 
 Checked locally: notebook cell syntax; embedded file hashes; 464 distinct problem IDs;
-training ID separation; all HumanEval+ tests present; source parity; interrupted-file recovery;
+training ID separation; all HumanEval+ tests present after loading; source parity; interrupted-file recovery;
 duplicate and setting checks; shared-problem calculations; worker budget stopping.
-The grader passed 8/8 official HumanEval+ solutions using the embedded tests.
+The grader passed 8/8 official HumanEval+ solutions using the frozen tests.
+The slim notebook reconstructed all 464 questions/tests exactly using cached source fixtures.
+A verified Drive cache skipped all dataset downloads in the local check.
 
 Not run here: actual A100 inference, LoRA tensor loading, Colab package installation,
-current wheel downloads, Drive permissions, or Colab runtime release.
+current wheel/data downloads, Drive permissions, or Colab runtime release.
 No new accuracy score is claimed. No Colab units were spent while building it.
 
 ## What to do next

@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 from run_lora_limit import FIELDS,WAY,read_answers,read_grades,schedule,validate_answers
 from compare_lora_limit import summarize
+from prepare_lora_limit_data import prepare,download
 
 
 def problem(tid,source='humaneval',difficulty='easy'):
@@ -20,6 +21,27 @@ def answer(tid,source='humaneval'):
 
 
 class ResumeTests(unittest.TestCase):
+    def test_verified_problem_cache_needs_no_dataset_package(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as wd:
+            root=Path(wd);cache=root/'cache';cache.mkdir()
+            body=b'{"problems":[]}'
+            (cache/'problems-464.json').write_bytes(body)
+            (root/'manifest.json').write_text(json.dumps({'problem_sha256':hashlib.sha256(body).hexdigest()}))
+            (root/'templates.json').write_text('{"problems":[]}')
+            with patch.dict('sys.modules',{'datasets':None}),patch('builtins.print'):
+                prepare(root/'manifest.json',root/'templates.json',cache,root/'out.json')
+            self.assertEqual((root/'out.json').read_bytes(),body)
+
+    def test_changed_download_does_not_replace_saved_source(self):
+        import io
+        with tempfile.TemporaryDirectory() as wd:
+            path=Path(wd)/'data.json';path.write_bytes(b'original')
+            with patch('urllib.request.urlopen',return_value=io.BytesIO(b'changed')):
+                with self.assertRaises(RuntimeError):download('https://example.org/data',path,'wrong-hash')
+            self.assertEqual(path.read_bytes(),b'original')
+            self.assertFalse(path.with_suffix('.json.part').exists())
+
     def test_interrupted_final_answer_is_archived_and_repaired(self):
         with tempfile.TemporaryDirectory() as wd:
             p=Path(wd)/'answers.jsonl';row=answer('a')

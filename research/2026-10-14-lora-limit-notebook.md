@@ -11,8 +11,8 @@ This is a retrospective comparison against historical samples; batches and packa
 
 The local data/problems.json lacked HumanEval+ test programs.
 The builder reads the cached official HF Arrow dataset at revision d32357cf319e50e9c8d8dab5ea876c72b0fd321b.
-It bundles its plus tests without changing original problem files.
-Eight official solutions passed the embedded plus-test grader locally.
+The slim notebook loads that fixed dataset revision when it runs, without changing original problem files.
+Eight official solutions passed the frozen plus-test grader locally.
 
 The notebook fixes Transformers at 5.15.0 and requests PEFT >=0.20.0,<0.21 to read the saved adapter configuration.
 It checks optional causal_conv1d and flash-linear-attention imports before model loading.
@@ -23,9 +23,17 @@ A successful import is a prerequisite, not evidence of measured inference speed.
 Official Transformers documentation describes the hybrid Qwen3.5 architecture and optional fast kernels:
 [Qwen3.5 documentation](https://huggingface.co/docs/transformers/v5.15.0/model_doc/qwen3_5).
 
-All scripts and tests are embedded with hashes, so no repository push or dataset download is needed.
+Scripts, frozen questions/IDs, and reference grades are embedded with hashes.
+Tests are external, matching the earlier notebooks' approach.
+Original LiveCodeBench tests come from revision 0fe84c3912ea0c4d4a78037083943e8f0c4dd505, test6.jsonl.
+The two saved contest files come from project commit 5ff583e6ed2b950636342d2b3583f7420fb9ed4b.
+Their downloaded bytes are checked before combining. The combined file must match the expected SHA-256.
+A checked combined file is cached on Drive so resumes do not download data again.
 The LoRA weight file is not embedded; it must be the user's original lora100 weights on Drive.
-The notebook is about 36 MB because it includes the frozen benchmark tests.
+The notebook was initially 36.3 MB; this design was replaced at the user's request.
+The notebook is now about 0.3 MB, without test data embedded.
+Offline reconstruction using the cached official source and saved project files matched the exact expected hash.
+A second preparation reused the checked cache without downloading.
 
 Budget enforcement is based on entered units/hour and elapsed runtime, not actual Colab billing APIs.
 The 15-unit cap is an estimate; setup, waiting, and failure idle time can affect billing.
