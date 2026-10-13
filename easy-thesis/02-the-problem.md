@@ -68,9 +68,10 @@ What would reject it: thinking not shorter, or a free way that scores higher.
 
 ## 6. What we actually did, in one line
 
-We used **Qwen3.5-2B** on **234** code problems.
-We compared six ways.
-Then we repeated the idea on **0.8B** and **4B**.
+We evaluated three Qwen3.5 sizes across **464 unique code problems**.
+We compared free thinking controls with shortest-correct LoRA training.
+Coverage differs by method, so trained models are compared on shared problems.
+The combined analysis is retrospective; the original hypotheses applied to LoRA-2's 234-problem experiment.
 
-The full method is in [03-how-we-did-it.md](03-how-we-did-it.md).
-The scores are in [05-results.md](05-results.md).
+The method is in [03-how-we-did-it.md](03-how-we-did-it.md).
+The combined scores are in [05-results.md](05-results.md).

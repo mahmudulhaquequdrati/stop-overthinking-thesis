@@ -1,331 +1,142 @@
 # Stop Overthinking, Keep Passing the Tests
 
-Easy-language thesis. One file.
-**For a teacher, and for the paper, start at [PAPER.md](PAPER.md).** That file has every chart and every score.
-The short chapters live beside this file.
-The official science write-up is [../thesis/THESIS.md](../thesis/THESIS.md).
-Numbers come from the checked results, not from memory.
-
-A *token* is a small piece of text, about three quarters of a word.
-
-## Contents
-
-1. [The thesis in one page](#the-thesis-in-one-page)
-2. [All the problems, then the scores](#all-the-problems-then-the-scores)
-3. [Who should use this, and why](#who-should-use-this-and-why)
-4. [The problem, the gap, and the question](#the-problem-the-gap-and-the-question)
-5. [How we did it](#how-we-did-it)
-6. [The datasets, and how we checked them](#the-datasets-and-how-we-checked-them)
-7. [The results](#the-results)
-8. [Why the limit works, and training does not](#why-the-limit-works-and-training-does-not)
-9. [What to do, and what we did not prove](#what-to-do-and-what-we-did-not-prove)
-10. [All the answers](#all-the-answers)
-11. [Words used in this folder](#words-used-in-this-folder)
-
----
+Easy-language thesis: retrospective combined analysis of **464 unique problems**.
 
 # The thesis in one page
 
-Small code models often "think" for a long time.
-A free stop on that thinking beat training them to think shorter.
+We studied **464 unique code problems** using three small Qwen3.5 models.
+The question: does training the model to think shorter beat free thinking controls?
+A *LoRA* is a small trained add-on. A *token* is a small piece of text.
 
-You are in the **CONCLUSION** box.
-The lists below are the whole study on one page.
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-## Everyday example
+These are the best observed free controls with **464/464 coverage**.
+“Free” means no additional training; generating answers still uses compute.
 
-Imagine three exam papers and two homework piles.
-You mark each exam paper on its own.
-You do not add the three marks into one score.
-The homework is what we used to train the add-on.
-The homework is not the exam.
+![Best full-coverage controls](figures/best-free.svg)
 
-## Every problem, in one count
+## What training added
 
-```text
-TEST  (three lists, marked apart)
-  234  first exam      easy functions + contest
-+  40  extra contest   a small later check
-+ 190  more contest    a bigger later check
-─────
-  464  problems we can name
+| Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
+| 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
 
-TRAIN  (the add-on only)
-  100  easy functions     →  LoRA-1
-  280  easy + old contest →  LoRA-2
-       200 + 80
-       157 of the 280 had a short correct answer we kept
-```
 
-**464 is a count of problems.**
-It is not one accuracy.
-49.8% and 78.2% stay on the 234.
+All three free controls score higher than LoRA-1 on shared problems.
+The 0.8B interval crosses zero, so its small lead is uncertain.
+The 2B lead has an interval only just above zero. The 4B lead is clearer.
+These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
-The pictures and the full stats are in [10-all-counts.md](10-all-counts.md).
+## How to read the result
 
-A *token* is a small piece of text, about three quarters of a word.
-A *LoRA* is a small add-on we train on top of the model.
-We do not retrain the whole model.
+Each problem gets equal weight, whether it has one attempt or two.
+For each problem, average its pass/fail results. Then average across problems.
+2B and 4B LoRA-1 cover 424/464 problems. Do not treat missing results as wrong answers.
+Earlier LoRA-2 and loop checks cover only 234 problems.
 
-| Add-on | Training problems | What we kept | Where it was used |
-|---|---|---|---|
-| LoRA-1 | **100** easy functions | 37 on 0.8B, 73 on 4B | 0.8B, 2B, and 4B |
-| LoRA-2 | **280** (200 easy + 80 older contest) | **157** (133 + 24) | 2B main exam only |
+The combined view was chosen after the runs. It was not a single preselected exam.
+Collection details stay in the methods note; the main story uses all 464 problems.
 
-## Scores on the 234
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-```text
-How often the answers pass the tests (2B, higher is better)
-
-Limit 1,024     ██████████████████████████  49.8%   best, and proven
-LoRA-1 (from 100) ███████████████████████   45.5%
-LoRA-2 (from 280) ███████████████████████   45.1%   not shorter
-Thinking ON     ██████████████████████      42.1%   what we compare against
-Thinking OFF    █████████████████████       40.8%   about 4× fewer tokens
-"Think briefly" ███                          6.6%   the wording confused it
-```
-
-| Size | Best free way | Score | Trained add-on |
-|---|---|---|---|
-| 0.8B (1 try) | Thinking OFF | 20.5% | LoRA-1 17.9% |
-| 2B | Limit 1,024 | 49.8% | LoRA-1 45.5% · LoRA-2 45.1% |
-| 4B (2 tries) | Limit 2,048 | 78.2% | LoRA-1 69.9% |
-
-The trained add-on never beat the best free way on this exam.
-
-## Scores on the extra 40
-
-A free way still wins.
-Thinking OFF was best, or it tied the limit.
-
-| Size | On these 40 | Thinking ON | Trained add-on |
-|---|---|---|---|
-| 0.8B (1 try) | OFF 5.0% (2/40) | 0% | LoRA-1 0% |
-| 2B (2 tries) | OFF 12.5% (10/80) | 0% | not run |
-| 4B (2 tries) | OFF 46.2%, tied with limit 2,048 | 18.8% | not run |
-
-## Scores on the 190
-
-One try each. A free way still wins.
-The winner matches the first exam.
-
-| Size | On these 190 | Trained add-on |
-|---|---|---|
-| 0.8B | OFF 9.5% (18/190) | LoRA-1 7.9% (from the 100) |
-| 2B | Limit 1,024 at 31.1% (59/190) | LoRA-1 **27.4%** (52/190) |
-| 4B | Limit 2,048 at 69.5% (132/190) | LoRA-1 46.3% (from the 100) |
-
-The 2B add-on is now scored: **27.4%** (52/190).
-It beats thinking OFF (47/190) and thinking ON (26/190).
-It loses to the 1,024 limit (59/190).
-The lead is 7 answers. We did not draw error bars on this list.
-
-On 4B medium only, OFF is 44.4% and the limit is 38.9%.
-The limit still wins all 190, because easy is 88.1% against OFF at 80.5%.
-
-The full tables are in the results chapter below.
-
-## Why
-
-Most very long answers were loops.
-The model repeated the same lines until it ran out of room.
-A thinking limit cuts the loop and forces an answer.
-Training on 100 or on 280 short answers does not teach the model how to get unstuck.
-
-## One line
-
-For these small code models, try thinking OFF or a short thinking limit first.
-Train only if those free ways are not enough.
 
 ---
 
-# All the problems, then the scores
+# All problems and all available scores
 
-This page is the whole pile in one place.
-The pictures come first. The tables sit under them.
+**464 unique test problems** is the main count.
+Training pools and the early pilot are excluded.
 
-You are in the **RESULTS** box.
-Each test list keeps its own score.
-464 is a count. It is not one accuracy.
+![Problem counts](figures/counts.svg)
 
-## Everyday example
+| Group | Unique problems |
+|---|---|
+| HumanEval+ easy | 164 |
+| LiveCodeBench easy | 166 |
+| LiveCodeBench medium | 134 |
+| Test total | 464 |
 
-Three exam papers sit in one folder.
-Two homework piles sit next to them.
-You can count every sheet.
-You still mark each exam on its own.
 
-## The count
+LoRA-1's original training pool had 100 problems.
+LoRA-2's pool had 280 problems; 157 retained examples were used for training.
+These are training counts, not extra test problems. The pools must not be summed as disjoint sets.
 
-![How many problems](figures/counts.svg)
+## Every method with its actual coverage
 
-| Pile | How many | What it is |
-|---|---|---|
-| First exam | **234** | Easy functions plus contest problems |
-| Extra contest | **40** | Later check |
-| More contest | **190** | Bigger later check. 118 easy, 72 medium |
-| **Tests in total** | **464** | 234 + 40 + 190. A count, not a blended score |
-| LoRA-1 pool | **100** | Easy functions used to train the small add-on |
-| LoRA-2 pool | **280** | 200 easy functions + 80 older contest problems |
-| LoRA-2 kept | **157** | Short correct answers actually used. 133 + 24 |
+| Model | Way | Accuracy | Coverage | Attempts |
+|---|---|---|---|---|
+| 0.8B | Limit 1,024 | 11.3% | 274/464 | 274 |
+| 0.8B | Limit 512 | 10.6% | 464/464 | 464 |
+| 0.8B | LoRA-1 | 12.3% | 464/464 | 464 |
+| 0.8B | Thinking OFF | 14.7% | 464/464 | 464 |
+| 0.8B | Thinking ON | 4.1% | 464/464 | 464 |
+| 2B | Think briefly | 6.4% | 274/464 | 548 |
+| 2B | Limit 1,024 | 38.6% | 464/464 | 738 |
+| 2B | Limit 2,048 | 40.9% | 274/464 | 274 |
+| 2B | Limit 512 | 39.4% | 274/464 | 548 |
+| 2B | LoRA-1 | 37.4% | 424/464 | 658 |
+| 2B | LoRA-2 | 45.1% | 234/464 | 468 |
+| 2B | Thinking OFF | 31.8% | 464/464 | 738 |
+| 2B | Thinking ON | 26.8% | 464/464 | 738 |
+| 4B | Limit 1,024 | 76.5% | 234/464 | 468 |
+| 4B | Limit 2,048 | 71.9% | 464/464 | 738 |
+| 4B | Limit 4,096 | 76.7% | 234/464 | 468 |
+| 4B | Limit 512 | 75.4% | 234/464 | 468 |
+| 4B | LoRA-1 | 59.3% | 424/464 | 658 |
+| 4B | Thinking OFF | 66.5% | 464/464 | 738 |
+| 4B | Thinking ON | 50.0% | 464/464 | 738 |
 
-49.8% and 78.2% stay on the 234.
 
-## Best free score on each list
+Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.
 
-![Best free score](figures/best-free.svg)
+The combined inputs contain **11,116 saved attempts** across all methods and sizes.
+That is not a count of independent test problems.
 
-| List | 0.8B | 2B | 4B |
-|---|---|---|---|
-| Exam 234 | OFF **20.5%** | Limit 1,024 **49.8%** | Limit 2,048 **78.2%** |
-| Extra 40 | OFF **5.0%** (2/40) | OFF **12.5%** (10/80) | OFF **46.2%**, tied with limit 2,048 |
-| More 190 | OFF **9.5%** (18/190) | Limit 1,024 **31.1%** (59/190) | Limit 2,048 **69.5%** (132/190) |
+![Matched LoRA comparison](figures/combined-lora.svg)
 
-A free way wins on every list.
-The winner on the 190 matches the first exam.
+| Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
+| 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
 
-## The 190, way by way
 
-![The 190 by way](figures/more-190-ways.svg)
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-| Way | 0.8B | 2B | 4B |
-|---|---|---|---|
-| Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
-| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
-| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
-
-On 2B, LoRA-1 is **27.4%**.
-The 1,024 limit is still higher, at 31.1% (59 vs 52).
-LoRA-1 does beat thinking OFF (47) and thinking ON (26).
-On the easy 118, LoRA-1 is 42.4% (50/118), just under the limit at 44.1%.
-On the medium 72, LoRA-1 is 2.8% (2/72), the same as OFF. The limit is 9.7%.
-
-On 4B medium only, OFF is 44.4% (32/72) and the limit is 38.9% (28/72).
-The limit still wins all 190, because easy is 88.1% (104/118) against OFF at 80.5% (95/118).
-
-The first pass took **7.9 hours**. The 2B add-on added **0.5 hours**.
-The hours file now says **8.5 hours**. One try. Seed 3407.
-
-## What this does not say
-
-The three lists are not one exam.
-Do not average 49.8%, 12.5%, and 31.1% into a new 2B score.
-The 4B lead on the 190 is 5 answers (132 vs 127).
-We did not draw error bars on the 40 or the 190.
-
-The same page on its own is [10-all-counts.md](10-all-counts.md).
 
 ---
 
 # Who should use this, and why
 
-A small code model with a thinking switch is enough for many easy Python tasks.
-A free limit, or thinking turned off, is the first thing to try.
+This study helps people choosing settings for small Python code models.
+It covers Qwen3.5-0.8B, 2B, and 4B, run on a Colab GPU.
+A GPU is the chip doing the model's calculations.
 
-## Everyday example
+Imagine asking a student to plan a solution before writing code.
+Some planning helps. Repeating the plan without finishing wastes time.
+Our free controls either skip the notes or stop them at a fixed length.
 
-You have a laptop, or one rented graphics chip.
-You want a function that checks a list of numbers.
-You do not want to send that code to a giant cloud model.
-You also do not want the small model to talk to itself for pages.
+## What to try first
 
-That is the job this study is about.
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-## Who it is for
+These scores use 464 problems each. Try the same controls on your own tasks.
+No additional training is needed. Answer generation still costs compute.
 
-1. **A student or a small team** writing easy or medium Python.
-2. **A lab with one GPU.** A GPU is the chip that runs the model. Our models are about 0.8, 2, and 4 billion numbers. They fit on one Colab GPU.
-3. **Someone who must keep code on their own machine.** A small model can run locally. The code does not have to leave the building.
-4. **Someone choosing a setting before they pay for training.** Training costs time. The free settings already won here.
+![Accuracy and coverage](figures/combined-accuracy.svg)
 
-## Why people should use the free way
+## Cost matters too
 
-On the 2 billion model, stopping thinking at 1,024 tokens solved **49.8%** of answers.
-Normal thinking solved **42.1%**.
-The gap is **+7.7 points**.
-The error bar is **[+4.3, +11.3]**.
-It sits fully above zero, so the gap is proven on this test.
+Thinking OFF uses fewer total tokens than normal thinking on every tested size.
+The limits on 2B and 4B also reduce total tokens relative to normal thinking.
+See the exact counts and coverage in [the results](05-results.md).
 
-The trained add-on did not think shorter.
-Its length was **x1.00** of normal thinking.
-Its accuracy was **45.1%**.
-The gain over normal thinking was **+3.0 points**, and that gain is not proven.
+We did not test larger models, hard contest problems, math, or privacy attacks.
+Local deployment can keep prompts on your machine, but this is not a security evaluation.
+A result on these benchmarks does not promise the same accuracy on your code.
 
-So the useful product is not a new trained model.
-It is a simple rule: **cap the thinking, or turn it off.**
-
-## Why this is efficient
-
-A *token* is a small piece of text, about three quarters of a word.
-
-| Way on the 2B model | Tokens per answer | Accuracy |
-|---|---|---|
-| Thinking OFF | **860** | 40.8% |
-| Limit 1,024 | **2,722** | **49.8%** |
-| Normal thinking | **3,446** | 42.1% |
-| Trained add-on (LoRA-2) | **3,392** | 45.1% |
-
-Thinking OFF uses about **4 times fewer tokens** than normal thinking (860 against 3,446).
-Accuracy stays close.
-The limit uses **21% fewer tokens** than normal thinking (2,722 against 3,446) and scores higher.
-
-The saving is real because long answers were mostly **loops**.
-The model repeated itself.
-A limit stops that repeat.
-Careful long thinking was not the main waste.
-Finished answers were already short.
-On HumanEval+, the middle finished thinking length was **672** tokens.
-
-## Benefits
-
-- **Higher accuracy for free** on the 2B and 4B models, by using a thinking limit.
-- **Much cheaper answers** if you turn thinking off, with only a small accuracy drop on the 2B model.
-- **No training step** for the winning way. You change one setting.
-- **A size rule you can copy:** OFF on the tiny model, about 1,024 tokens on 2B, about 2,048 tokens on 4B.
-- **Honest failure on hard-for-this-model problems.** Medium LiveCodeBench stayed near zero. You know not to trust these models there.
-
-## Why not a giant model
-
-```text
-Easy Python on one GPU
-        │
-        ├─ Small model + thinking limit     fits, private, already strong on easy tasks
-        └─ Giant model                      more machine, more tokens, code may leave your computer
-```
-
-**Small GPU.**
-We ran 0.8B, 2B, and 4B on one Colab A100.
-A giant model needs a much bigger machine.
-For a school lab, that cost is the whole point.
-
-**Easy problems.**
-These tests are easy functions and easy or medium programs.
-A 4B model with a 2,048-token thinking limit already reached **78.2%**.
-A giant model would spend more time and money on problems this size can already attempt.
-We did **not** test a model bigger than 4B.
-We did **not** test hard contest problems.
-On those, a bigger model may still be the right tool.
-We did grade 40 newer easy and medium contest problems.
-On those, thinking OFF matched or beat the limit.
-The table is in the results chapter below.
-
-**Keep code private.**
-If the model runs on your own computer, the source code stays with you.
-A giant cloud model often means sending the problem out.
-We did **not** run a security test.
-We did **not** measure leaks or attacks.
-This is advice from the setup, not a measured security result.
-
-## What we checked, and what we did not
-
-| Checked | Not checked |
-|---|---|
-| Accuracy and tokens on 234 code problems | Privacy attacks or secret leaks |
-| A later 40 contest problems | 2B and 4B training on those 40 |
-| Three sizes in one family (Qwen3.5) | Models bigger than 4B |
-| Real benchmark tests, not a human reading the code | Hard problems and math |
-| A free limit beats the trained add-on on each size | Every possible "think briefly" wording |
 
 ---
 
@@ -399,259 +210,103 @@ What would reject it: thinking not shorter, or a free way that scores higher.
 
 ## 6. What we actually did, in one line
 
-We used **Qwen3.5-2B** on **234** code problems.
-We compared six ways.
-Then we repeated the idea on **0.8B** and **4B**.
+We evaluated three Qwen3.5 sizes across **464 unique code problems**.
+We compared free thinking controls with shortest-correct LoRA training.
+Coverage differs by method, so trained models are compared on shared problems.
+The combined analysis is retrospective; the original hypotheses applied to LoRA-2's 234-problem experiment.
 
-The full method is in [03-how-we-did-it.md](03-how-we-did-it.md).
-The scores are in [05-results.md](05-results.md).
+The method is in [03-how-we-did-it.md](03-how-we-did-it.md).
+The combined scores are in [05-results.md](05-results.md).
+
 
 ---
 
 # How we did it
 
-We kept the model, the problems, and the rules the same.
-Only the way of answering changed.
-That is what makes the comparison fair.
+We combined saved graded results for **464 unique problems**.
+No new answers were generated. No training was run.
+This update spends no Colab units.
 
-## Everyday example
+## What changes between methods
 
-Six students sit the same exam.
-Same questions.
-Same time room.
-One student is told "do not plan".
-One may plan freely.
-One is told "plan in one short note".
-One must stop planning after one page.
-Two studied from their own best short answers.
-We mark every script with the same hidden tests.
+- Thinking OFF: answer without thinking notes.
+- Thinking ON: allow notes until the overall output cap.
+- Thinking limit: end the notes at a fixed token budget, then generate the answer.
+- Think briefly: ask for shorter notes in the prompt.
+- LoRA-1: use a small add-on trained on shortest correct answers.
+- LoRA-2: use the original 2B study's larger training set; coverage is 234/464.
 
-## The model
+A token is a small piece of text. LoRA trains an add-on while keeping the base model fixed.
+The reported limits refer to thinking tokens, not the whole answer.
+The original output caps were 4,096 for HumanEval+ and 8,192 for LiveCodeBench.
+The saved runs used temperature 0.6, top-p 0.95, and top-k 20.
+Repeat stopping was used in the size extensions; 2B retained its original handling.
+This is a summary of existing runs, not a newly standardized experiment.
 
-| | |
-|---|---|
-| Main model | Qwen3.5-2B (`unsloth/Qwen3.5-2B`) |
-| Also tested | Qwen3.5-0.8B and Qwen3.5-4B |
-| Thinking switch | ON or OFF is a real setting, not only a sentence in the prompt |
-| Computer | Google Colab A100 GPU |
+## How accuracy is calculated
 
-We changed from an earlier Gemma plan to Qwen because the small Qwen models fit, they have a thinking switch, and the Colab tools could train them.
-That choice is decision 53 in [../DECISIONS.md](../DECISIONS.md).
-
-## The six ways (main 2B run)
+For each problem, count the share of its attempts that passed.
+Then average those shares across covered problems.
 
 ```text
-Same model, same 234 problems
-        │
-        ├─ 1. Thinking OFF
-        ├─ 2. Thinking ON          ← what we compare against
-        ├─ 3. "Think briefly"      ← one extra sentence
-        ├─ 4. Thinking limit       ← stop notes at 1,024 tokens
-        ├─ 5. LoRA-1               ← small early add-on
-        └─ 6. LoRA-2               ← main trained add-on
+Problem A: 1 pass from 2 attempts → 0.5
+Problem B: 1 pass from 1 attempt  → 1.0
+Combined accuracy: (0.5 + 1.0) / 2 = 75%
 ```
 
-Ways 1 to 4 are free.
-Ways 5 and 6 need training.
+Pooling the three attempts would give 66.7%. That would give A twice the weight.
+Our combined score gives each problem equal weight.
+We do not average rounded percentages from the old summaries.
 
-**Why 1,024?**
-In the small early test, the trained model thought for about 1,000 tokens.
-The limit asks a fair question: is a hard cut as good as training?
+Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.
 
-**Why LoRA-2 is the main trained way?**
-We named it **before** the run.
-That stops us from picking whichever add-on looks better afterwards.
+## Tests and uncertainty
 
-## How an answer is marked
+An answer passes when it passes every test actually used by the saved grader.
+HumanEval+ used its extended tests. LiveCodeBench used up to 20 tests per problem.
+Thus these results do not establish success on every available LiveCodeBench hidden test.
+Generated code was checked in a separate process with time limits.
+This update reads scores only; it does not execute generated code.
 
-```text
-model text → take the last Python block → run the benchmark tests → pass or fail
-```
+For a comparison, use the intersection of both methods' problem IDs.
+Resample whole problems 2,000 times with seed 3407.
+The reported 95% intervals are percentile bootstrap intervals.
+Both methods remain paired on each sampled problem; attempts are not independent problems.
+Intervals reflect variation across problems, not all training or generation randomness.
+They are unadjusted for multiple comparisons and post-result method selection.
 
-An answer **passes only if it passes every test**.
-One failed test means fail.
-If thinking never finishes, there is no code, so that answer fails.
-The tests run in a separate process with a time limit.
-They never run inside the notebook.
+## A retrospective combined view
 
-Before we graded model answers, we graded the official correct solutions on 30 HumanEval+ problems and 20 MBPP+ problems.
-They all passed.
-So the checker itself was working.
+The 464 problems came from several runs with different attempt counts.
+The original 234 were selected before their results; later collections added 40 and 190.
+We chose to combine them on 13 October 2026, after seeing results.
+This history matters for interpreting claims, but it does not prevent a labelled combined summary.
+Raw files and the original formal thesis remain unchanged.
 
-**Accuracy** = answers that passed ÷ all answers.
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-Worked example for normal thinking on all 234 problems:
-
-```text
-234 problems × 2 tries = 468 answers
-passed: 197
-197 ÷ 468 = 42.1%
-```
-
-**Points** are the gap between two accuracies.
-49.8% minus 42.1% is **+7.7 points**.
-That is not "7.7 percent more" in the relative sense.
-We always report points.
-
-The error bars come from comparing the **same problems** before and after.
-We resample problems 2,000 times with seed 3407.
-If the bar does not include 0, we call the gap proven on this test.
-
-## Fair rules, fixed before the run
-
-| Rule | Value | Why |
-|---|---|---|
-| Same problems | all 234 | a paired comparison |
-| Same token room | 4,096 on HumanEval+, 8,192 on LiveCodeBench | nobody gets extra room |
-| Same sampling | temperature 0.6, top-p 0.95, top-k 20 | only the way changes |
-| Same prompt | except one sentence for "think briefly" | |
-| Tries | 2 on the main 2B run | the GPU budget |
-| Seeds | fixed, try 1 uses 3407 | anyone can repeat it |
-| Grading | the benchmark's own tests | not a human looking at code |
-| Raw answers | saved word for word | re-grading is free |
-
-We later gave normal thinking more room (16,384 tokens) on answers that had been cut off.
-That check is in the results.
-It shows the room limit did cost a little on easy functions.
-It did not erase the limit's win.
-
-## The small test before the real run
-
-On 100 other easy MBPP+ problems, the early add-on scored **65%** against **50%** for normal thinking.
-It also used **41% fewer tokens**.
-That was a green light to run the real test.
-The real test then asked whether the same trick works on **different** problems.
-
-## What the later size runs changed
-
-| | 0.8B | 2B main | 4B |
-|---|---|---|---|
-| Tries | 1 | 2 | 2 |
-| Limits | 512 and 1,024 | 1,024, plus later 512 and 2,048 | 512, 1,024, 2,048, 4,096 |
-| Trained add-on | LoRA-1 only | LoRA-1 and LoRA-2 | LoRA-1 only |
-| "Think briefly" | not repeated | yes | not repeated |
-
-The 2B limit of 2,048 is a lean fill-in with **1 try**.
-Say that whenever you quote **46.6%**.
 
 ---
 
 # The datasets, and how we checked them
 
-We did not invent the problems.
-We used public code tests, then checked that training problems were not copies of test problems.
+The combined study has **464 distinct test problems**.
+Training problems are not part of this total.
 
-## Everyday example
+![Problem counts](figures/counts.svg)
 
-A teacher writes the exam in September.
-The homework is from last year's book.
-Before the exam, someone checks that no homework question is the same as an exam question.
-If one is too close, it is thrown out.
-
-That check is the overlap check.
-
-## The test set (234 problems)
-
-The list was **fixed on 2026-09-20**, before any score.
-
-```text
-234 test problems
- ├─ HumanEval+      164   easy     finish one Python function
- └─ LiveCodeBench    70   from February 2025 on
-      ├─ easy         31           read input, print output (a few are class methods)
-      └─ medium       39           the same job, harder
-```
-
-## Later lists, counted apart
-
-The first exam stays 234.
-Two later contest lists were marked on their own sheet.
-
-![How many problems](figures/counts.svg)
-
-| Pile | How many |
+| Dataset and difficulty | Problems |
 |---|---|
-| First exam | 234 |
-| Extra contest | 40 |
-| More contest | 190 (118 easy, 72 medium) |
-| Tests in total | **464** |
-| LoRA-1 pool | 100 |
-| LoRA-2 pool | 280, of which **157** were kept |
-
-464 is a count. It is not one score.
-The charts and the stats are in [10-all-counts.md](10-all-counts.md).
-
-Hard LiveCodeBench problems were left out.
-A 2 billion model solves almost none of them.
-They could not show a difference between ways.
-
-| Set | What the model must do | How a test works |
-|---|---|---|
-| HumanEval+ | Complete one function | A call such as `has_close_elements([1.0, 2.8, 3.0], 0.3)` plus the right result. HumanEval+ adds many more tests than the old HumanEval set. |
-| LiveCodeBench | A full program, or a class method | An input text goes in. The program must print the exact output. We use up to 20 tests per problem. |
-
-Time limits: 30 seconds for a HumanEval+ test program, 20 seconds per LiveCodeBench test.
-
-The question text was the same for every way, except the one extra sentence for "think briefly".
-
-```text
-HumanEval+:    "Complete this Python function. Answer with one Python code block only,
-                containing the complete function."  + the function to finish
-
-LiveCodeBench: the problem text + "Write a complete Python program. It reads from
-                standard input and prints the answer. Answer with one Python code block only."
-                (class problems ask you to finish the given class instead)
-```
-
-## A real HumanEval problem
-
-This is **HumanEval/0**, the first test problem.
-The text below is copied from our saved answer file
-`results/2026-09-24-thesis-run/test-off-he.jsonl`.
-Thinking was OFF.
-The model returned the function it was asked to finish, including the official description.
-
-```python
-from typing import List
+| HumanEval+ easy functions | 164 |
+| LiveCodeBench easy | 166 |
+| LiveCodeBench medium | 134 |
+| Total | 464 |
 
 
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    """ Check if in given list of numbers, are any two numbers closer to each other than
-    given threshold.
-    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
-    False
-    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
-    True
-    """
-```
-
-The examples in the quotes are part of the problem.
-The hidden HumanEval+ tests are stricter.
-An answer passes only if **every** test passes.
-On the main 2B run, the limit, LoRA-1, and LoRA-2 each solved HumanEval/0 on both tries.
-Normal thinking solved it on one try.
-The full row is in [../results/full-results/FULL-RESULTS.md](../results/full-results/FULL-RESULTS.md).
-
-## A real LiveCodeBench problem
-
-The question body is **not stored in this git repo**.
-It lives in the LiveCodeBench file the notebook downloads.
-We can still show the problem we actually graded.
-
-| | |
-|---|---|
-| Id | `lcb/3705` |
-| Level | easy |
-| Shape in our saved answer | a class method `largestInteger(self, nums, k)` |
-| Date rule | test problems are from **after 31 January 2025** |
-| Score on the main 2B run | **no way** solved it (0 of 2 tries each) |
-
-That zero is useful.
-It shows an easy label does not mean every model passes.
-66 of the 234 problems were solved by no way at all.
-
-The instruction we add is in `scripts/lcb_data.py`.
-For a class problem it says: complete the given Python class, and answer with one code block.
+HumanEval+ asks for Python functions. LiveCodeBench includes contest programs and class methods.
+There are no hard problems in this study.
+We checked IDs across all collection lists and found no duplicate test problems.
+The combined total is 164 function problems and 300 contest problems.
 
 ## The training set
 
@@ -662,7 +317,7 @@ LoRA-2 used the bigger pool below.
 | Pool | Problems | Why this pool |
 |---|---|---|
 | MBPP+ | 200 | Easy Python functions with strong tests. The early test showed they work. |
-| Older LiveCodeBench | 80 (40 easy + 40 medium) | Same kind of task as the LiveCodeBench exam, but from release v1, **before February 2025**, so they cannot be the test problems. |
+| Older LiveCodeBench | 80 (40 easy + 40 medium) | Older contest training problems from release v1. Distinct IDs were checked against the combined test set; dates alone do not establish separation. |
 
 ```text
 200 MBPP+  +  80 older LiveCodeBench  =  280 problems
@@ -698,666 +353,342 @@ That took about 6 minutes.
 The loss fell from about 0.25 to about 0.16, so the add-on did learn the examples.
 The later chapter explains why that still did not shorten test thinking.
 
-## The overlap check
+## Overlap and limitations
 
-No test problem may appear in the training data.
+The combined audit compares all 464 test IDs with **280 saved training-pool IDs**.
+Exact ID overlap is **zero**. It also checks IDs in saved training-answer and retained-example files.
+The source list is in [the audit](../results/combined/results.json).
+This update does not repeat a full text-similarity audit.
+Different IDs can still hide related wording or equivalent tasks.
 
-The script `scripts/overlap_check.py` compares every training problem with every test problem.
-It removes a training problem if:
+Earlier runs used function-name and 5-word text-overlap exclusions.
+Those historical exclusions are preserved, not rewritten by this update.
+We cannot prove the base model never saw these benchmarks during pretraining.
+A problem's release date alone is not proof of unseen data.
 
-- the function name is the same, or
-- they share 30% or more of their 5-word pieces.
-
-**Main 2B run.**
-One training problem was removed after it had a correct answer: **`Mbpp/309`**.
-That is the removal named in the full results page.
-
-**Later size runs.**
-The saved files `results/0.8b/raw/overlap-exclude.json`, `results/4b/raw/overlap-exclude.json`, `results/2b-limit512/raw/overlap-exclude.json`, and `results/2b-limit2048/raw/overlap-exclude.json` list four ids:
-
-- `Mbpp/119`
-- `Mbpp/309`
-- `Mbpp/626`
-- `Mbpp/99`
-
-Those files belong to the later notebooks, not to a second story about the main run.
-The main written result still names **`Mbpp/309`** as the problem removed from LoRA-2's kept set.
-
-## What "valid" means here
-
-| Check | Result |
-|---|---|
-| Test list fixed before scores | Yes, 2026-09-20, 234 problems |
-| Train and test are different pools | Yes. MBPP+ and older LiveCodeBench versus HumanEval+ and LiveCodeBench from February 2025 on |
-| Overlap script ran | Yes. Main run removed `Mbpp/309` |
-| Grader checked on official solutions | Yes. 30 HumanEval+ and 20 MBPP+ official solutions passed |
-| Answers judged by eye | No. Real tests only |
-| Every test problem listed with scores | Yes, in the full results appendix |
-
-We do **not** claim the model has never seen HumanEval or MBPP on the internet.
-Qwen3.5 does not publish a cutoff date that would prove that.
-The February 2025 LiveCodeBench cut is a **recent-problem** filter, not a proof the model has never seen the text.
 
 ---
 
-# The results
+# The combined results
 
-The free thinking limit was the most accurate way on the 2B model.
-Training did not make thinking shorter.
-The same pattern holds on 0.8B and 4B: a free way wins, and the best free way grows with size.
+**464 unique problems** form the main results view.
+Accuracy gives each problem equal weight, using all its available attempts.
 
-## Everyday example
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-You time six routes to school.
-One route is "don't plan, just walk".
-One route is "plan, but stop the plan after one page".
-The short plan wins.
-The fancy study notes do not beat it.
+These are the best observed controls among methods covering the full set.
+A higher score on an incomplete subset does not establish a better method.
 
-## Where we are
+## Methods with complete coverage
 
-```text
-PROBLEM ✅ → GAP ✅ → QUESTION ✅ → HYPOTHESIS ✅ → EXPERIMENT ✅ → DATA ✅ → RESULTS ← here
-```
+![Combined accuracy](figures/combined-accuracy.svg)
 
-Numbers below are copied from [../results/full-results/FULL-RESULTS.md](../results/full-results/FULL-RESULTS.md)
-and [../results/SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).
+| Model | Way | Accuracy | 95% interval | Coverage | Attempts |
+|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 14.7% | [11.6%, 17.9%] | 464/464 | 464 |
+| 0.8B | Thinking ON | 4.1% | [2.4%, 6.0%] | 464/464 | 464 |
+| 0.8B | LoRA-1 | 12.3% | [9.3%, 15.3%] | 464/464 | 464 |
+| 2B | Thinking OFF | 31.8% | [27.7%, 36.0%] | 464/464 | 738 |
+| 2B | Thinking ON | 26.8% | [23.2%, 30.6%] | 464/464 | 738 |
+| 2B | Limit 1,024 | 38.6% | [34.4%, 42.8%] | 464/464 | 738 |
+| 4B | Thinking OFF | 66.5% | [62.3%, 70.5%] | 464/464 | 738 |
+| 4B | Thinking ON | 50.0% | [45.9%, 54.3%] | 464/464 | 738 |
+| 4B | Limit 2,048 | 71.9% | [67.9%, 75.6%] | 464/464 | 738 |
 
-## Main 2B scores
 
-234 problems, 2 tries, 468 answers per way.
+## Training versus free controls on shared problems
 
-![Accuracy by group](../results/full-results/figures/fig1-accuracy-by-group.svg)
+![Matched LoRA comparison](figures/combined-lora.svg)
 
-| Way | Passed | Accuracy | Versus normal thinking |
-|---|---|---|---|
-| Thinking ON | 197 / 468 | **42.1%** | — |
-| Thinking OFF | 191 / 468 | **40.8%** | −1.3 points [−6.6, +4.3] |
-| Think briefly | 31 / 468 | **6.6%** | −35.5 points [−41.2, −29.3] |
-| Limit 1,024 | 233 / 468 | **49.8%** | **+7.7 points [+4.3, +11.3]** |
-| LoRA-1 | 213 / 468 | **45.5%** | +3.4 points [−0.4, +7.7] |
-| LoRA-2 (main) | 211 / 468 | **45.1%** | +3.0 points [−1.1, +7.3] |
+| Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
+| 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
 
-Only the limit's gain over normal thinking is proven.
-Its error bar is fully above zero.
-LoRA-2's +3.0 point gain includes zero, so we cannot prove it.
 
-![Accuracy against tokens](../results/full-results/figures/fig2-accuracy-vs-tokens.svg)
+The 0.8B free control's lead is uncertain: its interval includes zero.
+The 2B interval is narrowly positive, and the 4B interval is positive.
+These intervals are descriptive and unadjusted for selecting comparisons after results.
+Do not describe these as universal or definitive wins.
 
-## By problem group (2B)
+## All available methods, with coverage
 
-| Way | HumanEval+ (164) | LiveCodeBench easy (31) | LiveCodeBench medium (39) |
-|---|---|---|---|
-| Thinking ON | 55.2% | 24.2% | 1.3% |
-| Thinking OFF | 47.3% | 46.8% | **9.0%** |
-| Think briefly | 3.7% | 30.6% | 0.0% |
-| Limit 1,024 | **60.4%** | **56.5%** | 0.0% |
-| LoRA-1 | 56.4% | 41.9% | 2.6% |
-| LoRA-2 | 56.4% | 38.7% | 2.6% |
+Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.
 
-On easy functions, thinking helps: turning it off costs **7.9 points** [−14.6, −1.2].
-On easy LiveCodeBench, normal thinking is weak, and the limit gains **+32.3 points** [+17.7, +46.8].
-On medium LiveCodeBench, almost nothing works.
-Only thinking OFF solves a few (**9.0%**).
+| Model | Way | Accuracy | Coverage | Attempts |
+|---|---|---|---|---|
+| 0.8B | Limit 1,024 | 11.3% | 274/464 | 274 |
+| 0.8B | Limit 512 | 10.6% | 464/464 | 464 |
+| 0.8B | LoRA-1 | 12.3% | 464/464 | 464 |
+| 0.8B | Thinking OFF | 14.7% | 464/464 | 464 |
+| 0.8B | Thinking ON | 4.1% | 464/464 | 464 |
+| 2B | Think briefly | 6.4% | 274/464 | 548 |
+| 2B | Limit 1,024 | 38.6% | 464/464 | 738 |
+| 2B | Limit 2,048 | 40.9% | 274/464 | 274 |
+| 2B | Limit 512 | 39.4% | 274/464 | 548 |
+| 2B | LoRA-1 | 37.4% | 424/464 | 658 |
+| 2B | LoRA-2 | 45.1% | 234/464 | 468 |
+| 2B | Thinking OFF | 31.8% | 464/464 | 738 |
+| 2B | Thinking ON | 26.8% | 464/464 | 738 |
+| 4B | Limit 1,024 | 76.5% | 234/464 | 468 |
+| 4B | Limit 2,048 | 71.9% | 464/464 | 738 |
+| 4B | Limit 4,096 | 76.7% | 234/464 | 468 |
+| 4B | Limit 512 | 75.4% | 234/464 | 468 |
+| 4B | LoRA-1 | 59.3% | 424/464 | 658 |
+| 4B | Thinking OFF | 66.5% | 464/464 | 738 |
+| 4B | Thinking ON | 50.0% | 464/464 | 738 |
 
-## Did training do what we asked?
 
-| Part | Needed | Result | Verdict |
-|---|---|---|---|
-| H1 shorter thinking | ≤ 0.75× | **x1.00** [0.94, 1.06] | No |
-| H2 accuracy held | loss ≤ 3 points | **+3.0** [−1.1, +7.3] | Yes (it did not get worse) |
-| H3 beats the limit | higher than the limit | **−4.7** [−9.0, −0.2] | No. The limit is better |
+For example, 2B Limit 2,048 covers only 274 problems.
+Its score cannot be ranked directly against Limit 1,024 on 464 problems.
+LoRA-2 covers only its original 234 problems; it is not a full-study result.
 
-The research answer on 2B is **no**.
-Training was not better than the free options.
+## Paired comparisons
 
-## Tokens, the real cost
+Positive gaps favor the first method. Every row uses identical shared problem IDs.
 
-| Way | All tokens (average) | Thinking versus ON |
-|---|---|---|
-| Thinking ON | **3,446** | — |
-| Thinking OFF | **860** | no thinking notes |
-| Limit 1,024 | **2,722** | x0.26 of ON's thinking |
-| LoRA-1 | 3,158 | x0.87 [0.81, 0.93] |
-| LoRA-2 | 3,392 | **x1.00** [0.94, 1.06] |
+| Model | Way vs reference | Shared problems | Way accuracy | Reference accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF vs Thinking ON | 464 | 14.7% | 4.1% | +10.6 | [+7.5, +13.8] |
+| 0.8B | Thinking OFF vs LoRA-1 | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 vs Thinking ON | 464 | 38.6% | 26.8% | +11.7 | [+8.5, +15.1] |
+| 2B | Limit 1,024 vs LoRA-1 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
+| 2B | Limit 1,024 vs Thinking OFF | 464 | 38.6% | 31.8% | +6.8 | [+3.2, +10.5] |
+| 4B | Limit 2,048 vs Thinking ON | 464 | 71.9% | 50.0% | +21.9 | [+18.3, +25.5] |
+| 4B | Limit 2,048 vs LoRA-1 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
+| 4B | Limit 2,048 vs Thinking OFF | 464 | 71.9% | 66.5% | +5.4 | [+1.6, +9.1] |
 
-The limit's thinking notes are short.
-After the cut, it still writes a long answer part (1,879 tokens on average).
-Count **all** tokens and the saving is **21%**, not 74%.
 
-## The 2B limit curve
+## Tokens and output caps
 
-Later fill-ins added two more limits on the same 234 problems.
+A token is a small piece of text. These are averages of per-problem means.
+All tokens include both thinking and the final answer.
+“Hit output cap” comes from the saved flag; it is not a loop detector or the pass/fail rule.
+Token counts describe output length, not measured GPU time.
 
-```text
-Limit 512     45.1%    (2 tries)
-Limit 1,024   49.8%    (2 tries)   ← peak
-Limit 2,048   46.6%    (1 try)
-```
+![Combined token use](figures/combined-tokens.svg)
 
-A longer cap than 1,024 did **not** help this 2B model.
-Say that 46.6% is **one try**.
-The other two cells are two tries.
+| Model | Way | Coverage | Thinking tokens | All tokens | Hit output cap |
+|---|---|---|---|---|---|
+| 0.8B | LoRA-1 | 464/464 | 5,150 | 5,256 | 68.1% |
+| 0.8B | Thinking OFF | 464/464 | 0 | 1,781 | 19.0% |
+| 0.8B | Thinking ON | 464/464 | 6,147 | 6,206 | 86.4% |
+| 2B | Limit 1,024 | 464/464 | 923 | 4,337 | 45.3% |
+| 2B | LoRA-1 | 424/464 | 4,148 | 4,445 | 48.8% |
+| 2B | Thinking OFF | 464/464 | 0 | 1,337 | 12.4% |
+| 2B | Thinking ON | 464/464 | 5,169 | 5,331 | 60.6% |
+| 4B | Limit 2,048 | 464/464 | 1,603 | 3,921 | 29.2% |
+| 4B | LoRA-1 | 424/464 | 4,406 | 4,547 | 35.5% |
+| 4B | Thinking OFF | 464/464 | 0 | 943 | 5.3% |
+| 4B | Thinking ON | 464/464 | 5,064 | 5,188 | 45.7% |
 
-## Three sizes
 
-```mermaid
-flowchart LR
-  problems[Same234Problems]
-  problems --> tiny[Size0_8B]
-  problems --> mid[Size2B]
-  problems --> big[Size4B]
-  tiny --> offWin["OFF 20.5 percent"]
-  mid --> lim1k["Limit1024 49.8 percent"]
-  big --> lim2k["Limit2048 78.2 percent"]
-```
+## Full-coverage recommended controls by problem group
 
-| Way | 0.8B (1 try) | 2B | 4B (2 tries) |
-|---|---|---|---|
-| Thinking OFF | **20.5%** | 40.8% | 69.7% |
-| Thinking ON | 7.3% | 42.1% | 64.3% |
-| Limit 512 | 17.5% | 45.1% | 75.4% |
-| Limit 1,024 | 13.2% | **49.8%** | 76.5% |
-| Limit 2,048 | — | 46.6% (1 try) | **78.2%** |
-| Limit 4,096 | — | — | 76.7% |
-| LoRA-1 | 17.9% | 45.5% | 69.9% |
+| Model | Way | Problem group | Coverage | Accuracy |
+|---|---|---|---|---|
+| 0.8B | Thinking OFF | HumanEval+ easy | 164 | 25.6% |
+| 0.8B | Thinking OFF | LiveCodeBench easy | 166 | 15.7% |
+| 0.8B | Thinking OFF | LiveCodeBench medium | 134 | 0.0% |
+| 2B | Limit 1,024 | HumanEval+ easy | 164 | 60.4% |
+| 2B | Limit 1,024 | LiveCodeBench easy | 166 | 43.4% |
+| 2B | Limit 1,024 | LiveCodeBench medium | 134 | 6.0% |
+| 4B | Limit 2,048 | HumanEval+ easy | 164 | 86.9% |
+| 4B | Limit 2,048 | LiveCodeBench easy | 166 | 85.2% |
+| 4B | Limit 2,048 | LiveCodeBench medium | 134 | 36.9% |
 
-| Size | Best free way | Beats LoRA-1? |
-|---|---|---|
-| 0.8B | OFF at 20.5% | Yes (17.9%) |
-| 2B | Limit 1,024 at 49.8% | Yes (45.5%) |
-| 4B | Limit 2,048 at 78.2% | Yes (69.9%) |
 
-Normal thinking hits the wall less often as the model grows: **78%** cut off on 0.8B, about **41%** on 2B, **28%** on 4B.
-Bigger is more accurate on every way.
-The free winner still changes with size.
-LoRA-1 still loses.
+Different difficulty mixes change the overall score. Report these groups alongside the headline.
 
-## A later check: 40 newer contest problems
+## Earlier focused checks
 
-The first exam stays **234** problems.
-The scores above do not change.
+LoRA-2's original 234-problem experiment reported a thinking-length ratio of x1.00
+and 45.1% accuracy. These were not rerun on all 464 problems.
+The earlier MBPP+ pilot used 100 separate test problems. It is excluded here.
+Its 65% LoRA accuracy versus 50% thinking ON is an earlier transfer check, not a combined score.
+Loop and longer-output checks retain their original coverage in [the explanation](06-why-it-works.md).
 
-After that exam, we graded **40** more LiveCodeBench problems.
-The dates run from 30 November 2024 to 4 January 2025.
-17 are easy. 23 are medium.
-None are in the exam. None are in training.
-This list has no easy function questions.
-That is why every score here is lower.
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-The run took **3.7 hours** on an A100, under a 4.5 hour cap.
-
-| Way | 0.8B (1 try) | 2B | 4B (2 tries) |
-|---|---|---|---|
-| Thinking OFF | **5.0%** (2/40) | **12.5%** (10/80) | **46.2%** (37/80) |
-| Thinking ON | 0% (0/40) | 0% (0/80) | 18.8% (15/80) |
-| Limit 512 | 0% | 6.2% (5/80) | not run |
-| Limit 1,024 | 0% | 8.8% (7/80) | not run |
-| Limit 2,048 | — | 7.5% (3/40, 1 try) | **46.2%** (37/80) |
-| Think briefly | — | 5.0% (4/80) | — |
-| LoRA-1 | 0% (0/40) | not run | not run |
-
-On these 40, a free way still wins.
-Thinking OFF wins on 0.8B and on 2B.
-On 4B, OFF and the 2,048 limit tie.
-Thinking ON is the weak way.
-It hit the token wall on **92%** of 2B answers and **81%** of 4B answers.
-
-The 2B lead for OFF is **3 answers out of 80**.
-We have not drawn error bars, so this is not a new proven winner.
-It is enough to say the 1,024 limit did not win this list.
-
-On 4B the tie splits by difficulty:
-
-| 4B way | Easy (34 answers) | Medium (46 answers) |
-|---|---|---|
-| Thinking OFF | **73.5%** | 26.1% |
-| Limit 2,048 | 67.6% | **30.4%** |
-| Thinking ON | 41.2% | 2.2% |
-
-2B training and 4B training did not run on these 40.
-The 2B weight files were missing, so those ways were skipped.
-4B stopped after thinking ON.
-The next job would have broken the spare half hour.
-On 0.8B, training scored **0 out of 40**. OFF still won.
-
-These 40 stay in their own table.
-The first exam was locked before anyone saw a score.
-Adding them into 49.8% would hide this result, because the old 234 would still dominate the average.
-
-The saved scores are in [../results/extra/SUMMARY.md](../results/extra/SUMMARY.md).
-
-## A bigger later check: 190 contest problems
-
-After the 40, we graded **190** more LiveCodeBench problems.
-118 are easy. 72 are medium.
-Dates run from 26 August 2023 to 23 November 2024.
-None are in the exam, the extra 40, or training.
-This list is contest problems only, so the scores are lower than the 234.
-
-The run took **7.9 hours** on one GPU, under a cap of about 14.8 hours.
-One try each.
-
-![The 190 by way](figures/more-190-ways.svg)
-
-| Way | 0.8B | 2B | 4B |
-|---|---|---|---|
-| Thinking OFF | **9.5%** (18/190) | 24.7% (47/190) | 66.8% (127/190) |
-| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
-| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
-
-A free way still wins.
-The winner is the same one as the first exam: OFF, then limit 1,024, then limit 2,048.
-
-The 40 had said OFF wins or ties.
-That was a small pile. Here the exam winner comes back.
-The 4B lead is only **5 answers** (132 vs 127).
-We have not drawn error bars, so do not call that gap proven.
-
-On 4B the full-list win splits by difficulty:
-
-| 4B way | Easy (118) | Medium (72) |
-|---|---|---|
-| Thinking OFF | 80.5% (95) | **44.4%** (32) |
-| Limit 2,048 | **88.1%** (104) | 38.9% (28) |
-| Thinking ON | 59.3% (70) | 5.6% (4) |
-| LoRA-1 | 67.8% (80) | 11.1% (8) |
-
-2B LoRA-1 scored **27.4%** (52/190). Easy is 42.4% (50/118). Medium is 2.8% (2/72).
-The 1,024 limit still leads, 59 to 52.
-0.8B training scored 7.9%. 4B training scored 46.3%.
-On every size, the trained add-on lost to a free way.
-
-These 190 stay in their own table.
-Adding them into 49.8% would hide both results.
-
-The saved scores are in [../results/more/SUMMARY.md](../results/more/SUMMARY.md).
-The count charts are in [10-all-counts.md](10-all-counts.md).
-
-## The early test, for contrast
-
-On 100 easy MBPP+ problems that look like the training data, LoRA-1 scored **65%** against **50%** and used **41% fewer tokens**.
-On HumanEval+, which is a different easy-function set, that shortening almost disappeared (x0.94).
-Training helped on problems like its homework.
-It did not travel cleanly to the exam.
 
 ---
 
-# Why the limit works, and training does not
+# What the results suggest
 
-The model was not mainly thinking too carefully.
-It was getting stuck.
-A limit cuts the stuck text.
-Training on short finished answers never shows the model how to escape a loop.
+A thinking limit can interrupt repeated notes and leave room for code.
+Thinking OFF avoids those notes altogether.
+This is a plausible explanation for the combined results, not proof of one cause.
 
-## Everyday example
+Imagine a student copying the same plan until the exam ends.
+Stopping the notes can leave time to write an answer.
+But it cannot supply a missing solution.
 
-A student who knows the answer writes half a page and stops.
-A student who is stuck copies the same sentence until the paper is full.
-Showing them a neat short essay does not teach them to notice the copy loop.
-Taking the pen away after one page does.
+## Earlier loop analysis: 234 problems only
 
-## The loop counts
+The original 2B run had 468 attempts per method.
+Normal thinking hit the output cap on 190 attempts (40.6%).
+Of those capped attempts, 69.5% met the study's loop rule.
+LoRA-2 hit the cap on 192 attempts (41.0%).
+Of those, 88.5% met the loop rule.
+These are historical measurements, not estimates for all 464 problems.
 
-![Cut-offs and loops](../results/full-results/figures/fig3-cutoffs-and-loops.svg)
+![Original 234-problem loop analysis](../results/full-results/figures/fig3-cutoffs-and-loops.svg)
 
-| Way | Cut off | Of those, stuck in a loop |
-|---|---|---|
-| Thinking ON | 190 of 468 (**40.6%**) | **69.5%** |
-| Thinking OFF | 33 of 468 (7.1%) | 81.8% |
-| Think briefly | 432 of 468 (92.3%) | 40.3% |
-| Limit 1,024 | 121 of 468 (25.9%) | 76.9% |
-| LoRA-1 | 168 of 468 (35.9%) | 83.9% |
-| LoRA-2 | 192 of 468 (41.0%) | **88.5%** |
+On HumanEval+, completed normal-thinking answers had a median of 672 thinking tokens.
+This suggests unfinished repetitions contributed strongly to long output.
+Training on finished correct answers did not explicitly teach recovery from loops.
+That may explain its limited transfer, but does not prove such training can never help.
 
-Training did not reduce loops.
-LoRA-2's unfinished answers were loops even more often than normal thinking.
+## Earlier LoRA-2 result: 234 problems only
 
-A real loop, from thinking ON on HumanEval/1, cut off at 4,096 tokens.
-This is the end of the saved notes.
-The same sentences return again and again:
+The thinking-length ratio versus normal thinking was x1.00 [0.94, 1.06].
+The original study did not find the hoped-for shortening.
+This result must not be extended to all models or all 464 problems.
+The original training and loop evidence remains in the formal thesis.
 
-```text
-The implementation requires careful tracking of parentheses groups...
-By iterating through the string, I can identify balanced groups...
-The implementation requires careful tracking of parentheses groups...
-By iterating through the string, I can identify balanced groups...
-```
+## What the combined analysis adds
 
-## Finished answers were already short
+The full-coverage 2B and 4B limits score higher than normal thinking and use fewer total tokens.
+Thinking OFF is the cheapest of the main full-coverage controls on each size.
+For exact numbers and paired intervals, see [the combined results](05-results.md).
 
-On HumanEval+, the middle thinking length of answers that **finished** was **672** tokens for normal thinking.
-The long average (1,564 thinking tokens) is pulled up by the cut-off loops.
-So there was little "too long but finished" thinking for the add-on to copy.
+LoRA-1 and LoRA-2 differ in training data and coverage.
+A result for one is not a result for the other.
+The best observed full-coverage controls also differ by model size.
+Incomplete limit sweeps do not establish a globally optimal budget.
 
-![How long thinking runs on HumanEval+](../results/full-results/figures/fig4-thinking-length-humaneval.svg)
+## Other historical checks
 
-## Why the training examples could not fix this
+One “think briefly” wording conflicted with the code-only instruction in saved examples.
+That does not show that every short-thinking prompt fails.
+A longer-output retry changed both the available token room and the evaluated conditions.
+Keep its original scope in [the formal analysis](../thesis/06-analysis.md).
+Neither check is a newly calculated 464-problem result.
 
-```text
-Shortest correct answer  →  a finished, fairly short note
-What the model does wrong on the test  →  a loop that never finishes
-```
-
-You cannot teach "get unstuck" with examples that never get stuck.
-
-Two extra facts from the training funnel:
-
-1. On older LiveCodeBench, only **1 of 160** medium tries was correct.
-   The kept examples there had a middle length of **4,709** tokens.
-   LoRA-2 then thought **longer** on LiveCodeBench than LoRA-1.
-2. On MBPP+, the early add-on really did get shorter (x0.59) and more accurate (65% vs 50%).
-   Those problems look like the homework.
-   HumanEval+ is a different set of easy functions, and the shortening faded.
-
-The add-on did learn something.
-Its training loss fell from about 0.25 to about 0.16.
-It learned the examples it was given.
-Those examples were the wrong lesson for loops.
-
-## Why a limit is efficient
-
-| | Thinking notes | All tokens | Accuracy |
-|---|---|---|---|
-| Normal thinking | 3,262 average | 3,446 | 42.1% |
-| Limit 1,024 | 843 average | 2,722 | 49.8% |
-| Thinking OFF | 0 | 860 | 40.8% |
-
-The limit spends fewer tokens **and** passes more tests on this 2B run.
-That is the efficiency claim we checked.
-
-It is not magic.
-On medium LiveCodeBench the limit solved **nothing** (0 of 78 answers).
-If the model has not found the idea by 1,024 tokens, cutting it does not create the idea.
-On those problems, thinking OFF was the least bad free way (9.0%).
-
-Giving normal thinking 16,384 tokens raised HumanEval+ from 53.7% to 59.1% on the cut-off retry.
-The limit was still at 60.4%, and it used far less room.
-More room did not rescue open thinking.
-
-## Why "think briefly" failed
-
-The prompt already said "answer with one Python code block only".
-The extra sentence said "think briefly, then give the answer".
-The model argued with the two rules and often never finished.
-Only **36 of 468** brief answers finished.
-This is a result for **this wording**, not for every way of asking for a short answer.
-
-A snippet from HumanEval/0, try 1:
-
-```text
-"Answer with one Python code block only" suggests I should not include filler.
-"Think briefly... then give the answer." suggests I should include the thinking.
-Wait, if I output thinking text, is it "one Python code block only"?
-```
-
-## Why the best cap grows with size
-
-A weak student (0.8B) does best when told not to plan.
-Open thinking cut off **78%** of its answers, and accuracy fell to **7.3%**.
-OFF won at **20.5%**.
-
-A mid student (2B) can use about 1,024 tokens of notes.
-512 helps (45.1%).
-2,048 does not beat 1,024 (46.6% vs 49.8%).
-
-A stronger student (4B) can use about 2,048 tokens.
-That cap won at **78.2%**.
-Open thinking still lost (64.3%) because **28%** of answers still hit the wall.
-
-So the efficient setting is not one number for every model.
-It is: **match the cap to the size, and prefer OFF when the model is tiny.**
 
 ---
 
-# What to do, and what we did not prove
+# Advice and limits
 
-Try the free settings first.
-Train only if they are not enough, and only if your real problems look like the training problems.
+Try free thinking controls before paying for shortest-correct training.
+For the complete 464-problem set, the best observed free controls are:
 
-## The answer
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-On Qwen3.5-2B, for these code tests, training to think shorter was **not** better than the free options.
-The best way was free: **stop thinking at 1,024 tokens (49.8%)**.
+“Best” here is limited to the methods with full coverage.
+The partially tested limits cannot establish a better full-set score.
 
-On the same 234 problems:
+## What we can say about training
 
-| Size | Do this first | Score | Trained add-on |
-|---|---|---|---|
-| 0.8B | Thinking OFF | 20.5% | 17.9% |
-| 2B | Limit about 1,024 | 49.8% | 45.5% (LoRA-1) |
-| 4B | Limit about 2,048 | 78.2% | 69.9% |
+On shared problems, the selected free controls score higher than LoRA-1.
+The small 0.8B difference remains uncertain.
+The 2B gap has a narrowly positive interval; the 4B gap is clearer.
+No result proves that all LoRA training methods are ineffective.
+The original LoRA-2 experiment remains a 234-problem finding.
 
-> A small reasoning model does not mainly waste tokens by thinking carefully.
-> It wastes them by getting stuck.
-> A limit cuts the loop.
-> On a very small model, even a limit is weak, and thinking OFF can be best.
+## Limits of the combined study
 
-## Advice you can use
+- The analysis is retrospective. We combined runs after seeing their results.
+- Attempt counts differ. Equal problem weights address weighting, not all measurement noise.
+- 2B and 4B LoRA-1 cover 424/464 problems. Some other methods cover still fewer.
+- Only one model family and code tasks were tested. No hard contest problems or math.
+- LiveCodeBench grading used up to 20 tests per problem.
+- Exact training/test ID overlap is zero, but text similarity and pretraining exposure remain possible.
+- Intervals are unadjusted for multiple comparisons and method selection.
+- Token counts do not directly measure time, money, or energy.
+- A hitting-the-cap flag is not the same as a detected loop.
 
-```text
-1. Try thinking OFF and a thinking limit before any training.
-2. Match the limit to the size.
-      tiny model  →  OFF
-      about 2B    →  about 1,024 thinking tokens
-      about 4B    →  about 2,048 thinking tokens
-3. Count answers that never finish. Those loops are the waste.
-4. Train only if the free ways are not enough,
-   and only if new problems look like the training problems.
-```
+## What to test next
 
-## The later 40 contest problems
-
-The size rule above is for the first exam.
-That exam is mostly easy functions.
-
-On 40 newer contest problems, start with thinking OFF on every size we tested.
-On 4B, also try a 2,048 limit.
-It tied OFF at **46.2%**.
-On the medium ones it was a bit higher: **30.4%** against OFF at **26.1%**.
-
-Training was not retested on 2B or 4B for these 40.
-On 0.8B it scored **0 out of 40**.
-
-## The later 190 contest problems
-
-The 40 were a small pile. OFF looked like the winner.
-On 190 newer contest problems, the first-exam rule comes back.
-
-| Size | Do this first | Score | Trained add-on |
-|---|---|---|---|
-| 0.8B | Thinking OFF | 9.5% | 7.9% |
-| 2B | Limit about 1,024 | 31.1% | 27.4% |
-| 4B | Limit about 2,048 | 69.5% | 46.3% |
-
-On 4B medium only, OFF was higher: 44.4% against the limit at 38.9%.
-The limit still wins the full 190, because it wins the easy ones by more.
-
-## Who should not expect a miracle
-
-- **Medium and hard contest problems.** On the first exam's medium slice, every 2B way was near zero. OFF reached 9.0%. The limit reached 0%. On the 190, 2B medium is still low: the 1,024 limit is 9.7%, ON is 4.2%, OFF is 2.8%. 4B medium is not a floor: OFF reaches 44.4%.
-- **A giant model.** We stopped at 4B. A 9B model might loop less and might finally have long finished thinking that training can shorten. That is still open.
-- **A privacy proof.** Running locally can keep code on your machine. We did not test attacks or leaks.
-- **Another "be brief" sentence.** We tested one wording. It clashed with "one code block only".
-
-## What could still be wrong
-
-| Limit of this study | Why it matters |
-|---|---|
-| One model family | Qwen3.5 may share quirks. Another family might differ. |
-| 0.8B and the 2B limit-2048 cell use 1 try | The direction is clear. The exact percent is less firm than the 2-try cells. |
-| Error bars are wide on the small LiveCodeBench groups | 31 and 39 problems cannot support a tiny gap. |
-| The token room cut some honest thinking | With 16,384 tokens, normal thinking gained 5.5 points on HumanEval+. The limit still led. |
-| LoRA is not full retraining | A full retrain might differ. We did not run one. |
-| No hard problems and no math | Careful long thinking may matter there. |
-
-## What to measure next
-
-Before spending money on a bigger model, run a small check on about 40 problems with thinking ON.
-Go ahead with shortest-correct training only if loops are rare (about 10% or less of answers) and there are short correct answers to learn from.
-On our 2B model, **28%** of thinking-ON answers looped (132 of 468).
-That failed the "loops are rare" bar.
-
-Other ideas that target the loop itself:
-
-- Stop when the text starts repeating.
-- Change the sampling penalty that discourages repeats. We used the official coding settings, with no penalty.
-- Train on examples where a loop was cut and the model then answered correctly.
-- Put the thinking limit on top of a trained add-on.
+A useful next question is whether LoRA plus the same thinking limit improves accuracy.
+Another is whether training on correct answers generated under a limit helps.
+Those experiments are not part of this update. No Colab units were spent.
+Keep future training, development, and test problems separate.
 
 ## One recommendation
 
-If you run a small Qwen3.5 code model on one GPU, start with **thinking OFF** on the tiniest size and a **short thinking limit** on 2B or 4B.
-Do not pay for shortest-correct training until those free ways fail on your own problems.
+Start with the observed free control for your model size, then test it on your own tasks.
+
 
 ---
 
-# All the answers
+# Questions a teacher may ask
 
-Short answers you can say out loud.
-Cover the answer, try it, then check.
-Hard words are in [WORDS.md](WORDS.md).
+## How many test problems?
 
-## A. The research chain
+**464 unique problems:** 164 HumanEval+ and 300 LiveCodeBench.
+Training and the early pilot are excluded.
 
-**Q: What problem did you study?**
-A: Small code models think for too long. That costs tokens and time.
+## What are the main scores?
 
-**Q: What is the gap?**
-A: Nobody had checked, on one small model with a real thinking switch, whether training to think shorter beats the free options.
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-**Q: What is the question?**
-A: Is that training better than thinking OFF, a length limit, or the words "think briefly"?
+Each headline uses all 464 problems. These are full-coverage free controls.
 
-**Q: What did you expect?**
-A: The trained add-on would think at most 0.75 times as long, lose at most 3 accuracy points, and beat each free way.
+## Why not add all correct answers and divide by all attempts?
 
-**Q: What did you change?**
-A: Only the way of answering. Same model, same 234 problems, same token room, same seeds.
+Some problems have two attempts and others have one.
+That would give the former twice the weight.
+We average within each problem first, then across problems.
 
-**Q: What did you measure?**
-A: How often the code passes every test, and how many tokens the answer uses.
+## Why does LoRA sometimes show 424/464?
 
-**Q: What supports the idea that training is worth it?**
-A: Shorter thinking, accuracy held, and a win over the free ways.
+2B and 4B LoRA-1 have no saved results on 40 test problems.
+Missing results are not failures. We compare LoRA with controls on shared IDs only.
+The 0.8B LoRA-1 covers all 464. LoRA-2 covers 234.
 
-**Q: What result rejects it?**
-A: On 2B, thinking length was x1.00, and the 1,024 limit scored 49.8% against the trained model's 45.1%.
+## Does the limit beat training?
 
-## B. Teacher questions
+The selected free controls have higher observed scores on shared problems.
+The 0.8B gap is uncertain. The 2B interval is narrowly positive; the 4B interval is positive.
+See [the paired results](05-results.md) for numbers and limits.
 
-**Q: What should I say in one sentence?**
-A: On small Qwen3.5 code models, a free control beats shortest-correct LoRA. OFF wins on 0.8B, a 1,024 limit on 2B, and a 2,048 limit on 4B, because the waste is looping.
+## Were all problems selected before the experiment?
 
-**Q: Did training fail completely?**
-A: It did not make thinking shorter (H1 no). Accuracy did not drop (H2 yes). It lost to the limit (H3 no). On easy homework-like problems it had worked: 65% vs 50%, with 41% fewer tokens.
+No. This is a retrospective combined view of saved runs.
+The original study was selected earlier; later collections extended it.
+We retain this history in the methods, without making separate headline stories.
 
-**Q: Why call it loops, not overthinking?**
-A: Finished answers were already short. Median finished thinking on HumanEval+ was 672 tokens. 69.5% of normal thinking's unfinished answers repeated themselves.
+## Do the old loop percentages apply to 464 problems?
 
-**Q: Is +7.7 points proven?**
-A: On this test, yes. The error bar is [+4.3, +11.3]. It does not include 0. The bar comes from resampling the same 234 problems, 2,000 times, seed 3407.
+No. They apply to the original 234-problem 2B analysis.
+We did not rerun loop detection for the combined set.
 
-**Q: Why are some gains not proven?**
-A: LoRA-2 versus normal thinking is +3.0 points with bar [−1.1, +7.3]. Zero is inside the bar.
+## Did this update use any GPU budget?
 
-**Q: Why did "think briefly" score 6.6%?**
-A: That one sentence fought the rule "one Python code block only". The model argued and usually never finished. Only 36 of 468 answers finished. This is about that wording.
+No. It reads graded CSV files and calculates statistics locally.
 
-**Q: Why was the limit 1,024?**
-A: The early trained model thought for about 1,000 tokens. The limit asks whether a hard cut matches training.
+## Where can someone check the calculations?
 
-**Q: Why is LoRA-2 the main trained result, not LoRA-1?**
-A: We named LoRA-2 before the run. Picking the prettier one afterwards would be cheating.
+[Per-problem values](../results/combined/per-problem.csv),
+[source files and original counts](../results/combined/sources.csv), and
+[the full audit](../results/combined/results.json).
 
-**Q: Why only two tries?**
-A: GPU budget. Four tries would have cost much more Colab time. Two tries still give a paired comparison.
 
-**Q: Why is 0.8B one try?**
-A: To stay inside the hour cap. We label it. The bars are wider. OFF at 20.5% still leads LoRA-1 at 17.9% and normal thinking at 7.3%.
+---
 
-**Q: Why is 2B limit 2,048 one try?**
-A: It was a lean fill-in. It scored 46.6%, below 49.8% at 1,024. The curve peaks at 1,024. Do not pretend that cell has two tries.
+# Collection history and coverage
 
-**Q: Did a bigger token room save normal thinking?**
-A: A little. On HumanEval+, 16,384 tokens moved a cut-off retry from 53.7% to 59.1%. The limit was 60.4% with much less room.
+The main easy-thesis view is now **464 unique problems**.
+This page records where they came from; it is not a separate results story.
 
-**Q: Are the tests in the training data?**
-A: The training pools are different: MBPP+ and LiveCodeBench from before February 2025. The overlap script removed matches. The main run removed `Mbpp/309` from the kept set. We cannot prove the model never saw HumanEval on the internet. Qwen publishes no cutoff that would prove that.
+The original collection had 234 problems. Later collections added 40 and 190.
+Their IDs are disjoint. The combined total contains 164 HumanEval+ and 300 LiveCodeBench problems.
+The combined view was chosen on 13 October 2026, after results were available.
+It should not be described as a single pre-registered test set.
 
-**Q: Why not a 9B or 70B model?**
-A: Training a 9B LoRA did not fit our memory plan, and the week was short. The open question is whether bigger models loop less. Our own 4B run still lost to a free limit.
+0.8B used one attempt per problem. The main 2B and 4B runs used two attempts.
+The 190-problem collection used one attempt. Some limit fill-ins also used one.
+All available attempts contribute, but every problem has equal weight.
 
-## C. Who, why, and why not a giant model
+2B and 4B LoRA-1 each lack 40 results. Their coverage is 424/464.
+Some limit settings and LoRA-2 also have incomplete coverage.
+See [all method coverage](05-results.md) and [the source manifest](../results/combined/sources.csv).
 
-**Q: Who is this useful for?**
-A: People writing easy Python on one GPU, a school lab, or their own machine.
+Saved raw results and the formal thesis retain their historical numbers.
+Those files document the original experiments. They are not the combined headline.
 
-**Q: Why should they use your finding?**
-A: The best accuracy on these sizes was free. They can change a setting and skip training.
-
-**Q: What are the benefits?**
-A: Higher accuracy with a limit on 2B and 4B. About 4× fewer tokens with thinking OFF on 2B (860 vs 3,446). No training for the winning way. A size rule: OFF, then about 1,024, then about 2,048.
-
-**Q: Why is it efficient?**
-A: The extra tokens were mostly loops. Cutting the loop removes waste and raises the pass rate. The 2B limit uses 2,722 tokens and scores 49.8%. Normal thinking uses 3,446 and scores 42.1%.
-
-**Q: Why not just use a giant model?**
-A: Three practical reasons, with honest limits.
-
-1. **Small GPU.** 0.8B, 2B, and 4B ran on one Colab GPU. A giant model needs a much bigger machine.
-2. **Easy problems.** On these tests a 4B model with a 2,048 limit already reached 78.2%. A giant model costs more for problems this size can attempt. We did not test hard problems, where a giant model may still win.
-3. **Keep code on your machine.** A local small model does not have to send the problem to a cloud model. We did **not** run a security test. Do not call this a measured security result.
-
-**Q: Is the small model "more secure"?**
-A: It can stay on your computer, so the code need not leave. That is a setup benefit. We did not measure attacks, leaks, or jailbreaks.
-
-**Q: Should I use 0.8B for real work?**
-A: Only for very easy checks. Its best score here was 20.5%. Bigger in this family was much more accurate. Use OFF if you do use it, because open thinking fell to 7.3%.
-
-## D. Dataset questions
-
-**Q: What datasets did you test on?**
-A: Three lists, marked apart. First exam 234. Extra contest 40. More contest 190. Total count **464**. The 49.8% and 78.2% stay on the 234.
-
-**Q: What did you train on?**
-A: LoRA-1 used **100** easy functions. LoRA-2 used a pool of **280** (200 easy functions plus 80 older contest problems) and kept **157** short correct answers.
-
-**Q: Show me one test problem.**
-A: HumanEval/0 asks whether any two numbers in a list are closer than a threshold. The description is in [04-the-datasets.md](04-the-datasets.md). It was copied from our saved answer file.
-
-**Q: Show me one LiveCodeBench id.**
-A: `lcb/3705`, marked easy. No 2B way solved it. The full question text is in the LiveCodeBench download, not in this git repo.
-
-**Q: How do you know a pass is real?**
-A: The benchmark runs the code. One failed test means fail. Official solutions were graded first, and they passed.
-
-**Q: What did the overlap check remove?**
-A: On the main run, `Mbpp/309`. Later size-run files also list `Mbpp/119`, `Mbpp/626`, and `Mbpp/99`.
-
-**Q: Why leave out hard problems?**
-A: A 2B model solves almost none, so the ways cannot be compared. Medium LiveCodeBench is already near the floor.
-
-**Q: How many training examples did LoRA-2 see?**
-A: 157. That is 133 from MBPP+ and 24 from older LiveCodeBench. Many problems had no correct answer to keep.
-
-## E. If the teacher pushes
-
-**Q: Your hypothesis was wrong. Is that a failed thesis?**
-A: No. A clear no, with a measured reason, is a result. The reason is loops, not careful overthinking. The next study should measure loops first.
-
-**Q: Then what did you contribute?**
-A: A fair comparison of training against three free controls on one small code model, plus the same 234 problems on two more sizes. The practical rule is: match a free cap to the size. Training did not beat that rule.
-
-**Q: Did 40 more problems change the winner?**
-A: The first exam stays 234 problems, with 49.8% and 78.2%. On the 40 newer contest problems, thinking OFF was best or tied the limit. Thinking ON scored 0% on 2B and 18.8% on 4B. Training was only rechecked on 0.8B, where it scored 0 out of 40.
-
-**Q: Did 190 more problems change the winner?**
-A: No. They stay in their own table. OFF wins on 0.8B at 9.5%. The 1,024 limit wins on 2B at 31.1%. The 2,048 limit wins on 4B at 69.5%. Training lost on every size: 0.8B 7.9%, 2B LoRA-1 27.4% (52/190), 4B 46.3%. On 4B medium only, OFF was higher (44.4% vs 38.9%). The pictures are in [10-all-counts.md](10-all-counts.md).
-
-**Q: What is the single next step?**
-A: On your own problems, try thinking OFF and a short limit before you train anything.
 
 ---
 
@@ -1377,17 +708,19 @@ The longer list is [../GLOSSARY.md](../GLOSSARY.md).
 | LoRA | A small trained add-on. The big model stays frozen. |
 | LoRA-1 | The add-on from the small early test (easy problems only). |
 | LoRA-2 | The add-on from the main 2B run. This was the main trained way, chosen before we saw scores. |
-| Accuracy | The share of answers that pass every test. |
+| Accuracy | Average of each problem’s share of passing attempts. |
 | Pass | The code passes every test for that problem. One failed test means fail. |
-| Points | The gap between two accuracies. 49.8% minus 42.1% is +7.7 points. |
-| Error bar | A range for the true gap. If the range does not include 0, we call the gap proven on this test. |
-| Cut off | The answer hit the token room before it finished. It counts as wrong. |
+| Points | The gap between two accuracies. 40% minus 30% is +10 points. |
+| Error bar | An uncertainty interval from resampling problems; it does not prove a universal result. |
+| Cut off | The saved output reached its cap. The grader still determines whether extracted code passes. |
 | Loop | The model repeats the same lines until the room runs out. |
 | Dataset | A fixed list of problems, with tests. |
 | Overlap | A training problem that is too close to a test problem. We remove those. |
 | Median | The middle value after you sort the numbers. A few huge answers do not pull it up. |
 | GPU | The chip that runs the model. We used a Google Colab A100. |
 | 0.8B / 2B / 4B | About 0.8, 2, or 4 billion numbers inside the model. Bigger usually means stronger and heavier. |
-
----
-
+| Coverage | How many unique problems have results for one method. |
+| Retrospective | Chosen after the results were available. |
+| Equal problem weight | Each problem contributes equally, even when attempt counts differ. |
+| Paired comparison | Compare two methods on exactly the same problems. |
+| Bootstrap | Repeat the calculation on resampled problems to estimate uncertainty. |

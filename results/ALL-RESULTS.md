@@ -1,5 +1,16 @@
 # All results: 2B + 0.8B + 4B
 
+## Current combined view — 464 unique problems
+
+Use [combined/README.md](combined/README.md) for the updated easy-thesis numbers.
+Full-coverage headlines: **0.8B OFF 14.7% · 2B limit 1,024 38.6% · 4B limit 2,048 71.9%**.
+Every problem has equal weight. Missing methods show coverage, and comparisons use shared IDs.
+The [easy thesis](../easy-thesis/PAPER.md) now leads with these combined scores.
+The tables below are **historical run-specific results**, not the combined ranking.
+Original raw scores remain unchanged.
+
+---
+
 > **What this is:** one page that joins every main table from the three separate runs.
 > Each run’s raw files stay in their own folder. Rebuild with `python scripts/make_all_results.py`.
 

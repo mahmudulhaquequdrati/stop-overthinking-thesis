@@ -1,5 +1,15 @@
 # Complete thesis A→Z · where to check · what to tell the teacher
 
+## Current teacher version: 464 combined problems
+
+Use [easy-thesis/PAPER.md](easy-thesis/PAPER.md) for the current presentation.
+The full-coverage headline scores are **14.7% (0.8B OFF), 38.6% (2B limit 1,024), and 71.9% (4B limit 2,048)**.
+Each problem gets equal weight. Partial coverage is labelled; trained models are compared on shared problems.
+The combined analysis is retrospective. See [the Q&A](qa/44-combined-464.md).
+The guide below describes the original experiment and is retained as historical background.
+
+---
+
 > **Read this before a meeting.**  
 > Full thesis: [thesis/THESIS.md](thesis/THESIS.md) · PDF: [thesis/Stop-Overthinking-Thesis.pdf](thesis/Stop-Overthinking-Thesis.pdf)  
 > **All numbers for the paper:** [results/RESULTS-INDEX.md](results/RESULTS-INDEX.md)  

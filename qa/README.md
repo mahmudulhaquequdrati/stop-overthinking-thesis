@@ -87,3 +87,7 @@
 **All numbers for the paper:** [results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md) · [SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).  
 **Easy read:** [easy-thesis/FULL-THESIS.md](../easy-thesis/FULL-THESIS.md).  
 **Next:** fill your name, then rebuild the PDF. Do not rerun notebooks 14–19.
+
+## Latest step
+
+- [44 — Combined 464-problem easy thesis](44-combined-464.md): equal problem weights, coverage, and paired comparisons.

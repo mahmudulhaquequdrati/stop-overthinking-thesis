@@ -1,5 +1,18 @@
 # PLAN: "Stop Overthinking, Keep Passing the Tests"
 
+## Retrospective reporting update — Decision 101, 13 October 2026
+
+The easy thesis now reports **464 unique test problems** as one combined analysis.
+This reporting choice was made after the runs; it does not change the original hypotheses below.
+Use all saved attempts, average success within each problem, then average problems equally.
+Show coverage for every method. Compare methods only on shared IDs.
+2B and 4B LoRA-1 each use 424 shared problems; LoRA-2 remains a 234-problem analysis.
+Report problem-level paired bootstrap intervals (2,000 resamples, seed 3407), unadjusted for selection.
+The original protocol and formal thesis remain historical; no new training or evaluation is authorized here.
+Sources and rebuild commands: [combined analysis](results/combined/README.md).
+
+---
+
 > **What is this file?** The research design: what exactly we will do.
 > New here? Read [ROADMAP.md](ROADMAP.md) first.
 > Every choice has its reason in [DECISIONS.md](DECISIONS.md).

@@ -1,37 +1,37 @@
 # Stop Overthinking, Keep Passing the Tests
 
-**Shortest-Correct LoRA Fine-Tuning versus Free Thinking Controls in a Small Code Model (Qwen3.5-2B)**  
-*Size check also on Qwen3.5-0.8B and Qwen3.5-4B.*
+**Shortest-correct LoRA training versus free thinking controls in small Qwen3.5 code models.**
 
-A thesis built step by step. We ask: on a small reasoning model for **code**, is **training** it to think shorter better than **free** options (thinking OFF, a thinking length limit)?
+The easy thesis now combines **464 unique test problems**.
+Each problem has equal weight, using all available attempts.
 
-**Main answer (2B):** no — a free **limit of 1,024** tokens was best (**49.8%**). Training did not shorten thinking. The waste was mostly **loops**.
+Best observed free controls with full coverage:
 
-**Size check (same 234 problems):** best free way = **OFF 20.5%** (0.8B) · **limit 1024** (2B) · **limit 2048 78.2%** (4B). LoRA-1 never beat that free winner.
+- **0.8B: thinking OFF — 14.7%.**
+- **2B: limit 1,024 — 38.6%.**
+- **4B: limit 2,048 — 71.9%.**
 
----
+2B and 4B LoRA-1 each cover 424/464 problems.
+Their comparisons use the same 424 problems for the free controls.
+Missing results are not failures. The 0.8B free control's small lead over LoRA remains uncertain.
 
 ## Start here
 
-| File | What |
-|---|---|
-| **[ROADMAP.md](ROADMAP.md)** | Front door: where we are |
-| **[TEACHER-A-TO-Z.md](TEACHER-A-TO-Z.md)** | Before a meeting: what to say + where to check |
-| **[thesis/THESIS.md](thesis/THESIS.md)** | Full thesis A→Z (also [PDF](thesis/Stop-Overthinking-Thesis.pdf)) |
-| **[results/RESULTS-INDEX.md](results/RESULTS-INDEX.md)** | **All numbers for the paper** (0.8B · 2B · 4B) |
-| **[results/SIZE-COMPARISON.md](results/SIZE-COMPARISON.md)** | Three-size comparison page |
+- [Easy thesis for teachers](easy-thesis/PAPER.md).
+- [Full easy thesis](easy-thesis/FULL-THESIS.md).
+- [Combined results and audit](results/combined/README.md).
+- [Progress and next step](ROADMAP.md).
+- [Research design](PLAN.md) and [decision history](DECISIONS.md).
 
-## Other docs
+This is a retrospective summary of saved runs, chosen after results were available.
+The [original formal thesis](thesis/THESIS.md) and raw files preserve the historical study.
+Their original scores are not the combined 464-problem scores.
 
-| File | What is in it |
-|---|---|
-| `PLAN.md` | Research design |
-| `qa/` | Teacher Q&A, one file per step |
-| `GLOSSARY.md` | Hard words, simple meanings |
-| `proposal/` | Early proposal (history; model name was later changed) |
-| `DECISIONS.md` | Every choice and its reason |
-| `PAPERS.md` | Related papers |
-| `research/` | Search notes |
-| `lessons/` | Course lessons |
-| `notebooks/` | Colab notebooks (12–14 main; **15a** 0.8B; **15b** 4B) |
-| `results/` | All run numbers (see RESULTS-INDEX) |
+Rebuild the combined analysis locally:
+
+```sh
+python3 scripts/combine_results.py
+python3 scripts/build_combined_easy_thesis.py
+```
+
+No training, model generation, or Colab units are needed.

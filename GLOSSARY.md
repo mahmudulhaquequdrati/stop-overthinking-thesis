@@ -548,3 +548,11 @@ One setting for how the model answers. We test 5 of them:
 4. Thinking ON              → normal thinking (the usual way)
 5. Thinking ON + our LoRA   → normal thinking, after our training
 ```
+
+## Combined-results terms (2026-10-13)
+
+- **Coverage:** how many unique problems have results for a method.
+- **Equal problem weight:** each problem contributes equally, regardless of attempt count.
+- **Retrospective analysis:** an analysis chosen after the results were available.
+- **Paired bootstrap:** resample whole shared problems, keeping the compared methods together.
+- **Unadjusted interval:** an uncertainty interval that does not account for selecting among many comparisons.

@@ -14,14 +14,19 @@ The longer list is [../GLOSSARY.md](../GLOSSARY.md).
 | LoRA | A small trained add-on. The big model stays frozen. |
 | LoRA-1 | The add-on from the small early test (easy problems only). |
 | LoRA-2 | The add-on from the main 2B run. This was the main trained way, chosen before we saw scores. |
-| Accuracy | The share of answers that pass every test. |
+| Accuracy | Average of each problem’s share of passing attempts. |
 | Pass | The code passes every test for that problem. One failed test means fail. |
-| Points | The gap between two accuracies. 49.8% minus 42.1% is +7.7 points. |
-| Error bar | A range for the true gap. If the range does not include 0, we call the gap proven on this test. |
-| Cut off | The answer hit the token room before it finished. It counts as wrong. |
+| Points | The gap between two accuracies. 40% minus 30% is +10 points. |
+| Error bar | An uncertainty interval from resampling problems; it does not prove a universal result. |
+| Cut off | The saved output reached its cap. The grader still determines whether extracted code passes. |
 | Loop | The model repeats the same lines until the room runs out. |
 | Dataset | A fixed list of problems, with tests. |
 | Overlap | A training problem that is too close to a test problem. We remove those. |
 | Median | The middle value after you sort the numbers. A few huge answers do not pull it up. |
 | GPU | The chip that runs the model. We used a Google Colab A100. |
 | 0.8B / 2B / 4B | About 0.8, 2, or 4 billion numbers inside the model. Bigger usually means stronger and heavier. |
+| Coverage | How many unique problems have results for one method. |
+| Retrospective | Chosen after the results were available. |
+| Equal problem weight | Each problem contributes equally, even when attempt counts differ. |
+| Paired comparison | Compare two methods on exactly the same problems. |
+| Bootstrap | Repeat the calculation on resampled problems to estimate uncertainty. |

@@ -1,38 +1,30 @@
 # Easy thesis — start here
 
-This folder tells the whole study in short, plain sentences.
-The official science write-up stays in [../thesis/THESIS.md](../thesis/THESIS.md).
-This folder is the easy copy. The numbers are the same.
+This version presents **464 unique test problems** as one combined study view.
+Accuracy gives every problem equal weight. Every method shows its actual coverage.
 
-**Show this to a teacher, and draft the paper from it:** [PAPER.md](PAPER.md)  
-**Read the long version:** [FULL-THESIS.md](FULL-THESIS.md)
+Start with [PAPER.md](PAPER.md) for a teacher-ready summary.
+Read [FULL-THESIS.md](FULL-THESIS.md) for all chapters, or [00-one-page.md](00-one-page.md) for the short version.
 
-Or read one chapter at a time:
+- [Method](03-how-we-did-it.md): weighting, grading, and intervals.
+- [Datasets](04-the-datasets.md): test and training counts.
+- [Results](05-results.md): accuracy, tokens, coverage, and shared-problem comparisons.
+- [Explanation](06-why-it-works.md): historical loop evidence, clearly scoped.
+- [Limitations](07-advice-and-limits.md).
+- [Questions](08-all-answers.md).
+- [Collection history](09-extra-problems.md).
+- [All counts](10-all-counts.md).
+- [Words](WORDS.md).
 
-| File | What it is |
-|---|---|
-| [PAPER.md](PAPER.md) | **Teacher and paper:** every chart and every score in one file |
-| [00-one-page.md](00-one-page.md) | The whole story on one page: 464 tests, train 100 and 280 |
-| [10-all-counts.md](10-all-counts.md) | Every problem count, then the charts and the stats |
-| [01-who-should-use-it.md](01-who-should-use-it.md) | Who it helps, why, and why not a giant model |
-| [02-the-problem.md](02-the-problem.md) | The problem, the gap, the question |
-| [03-how-we-did-it.md](03-how-we-did-it.md) | The model, the six ways, the fair rules |
-| [04-the-datasets.md](04-the-datasets.md) | The test sets, the training sets, the overlap check |
-| [05-results.md](05-results.md) | Charts and the numbers |
-| [06-why-it-works.md](06-why-it-works.md) | Loops, cost, and why a limit wins |
-| [07-advice-and-limits.md](07-advice-and-limits.md) | What to do, and what we did not prove |
-| [08-all-answers.md](08-all-answers.md) | Short answers to teacher and user questions |
-| [09-extra-problems.md](09-extra-problems.md) | 40 later problems, plus the 190. Scored. A free way still wins |
-| [WORDS.md](WORDS.md) | Hard words, one line each |
+The [formal thesis](../thesis/THESIS.md) preserves the original study.
+Its historical scores differ from the retrospective combined analysis here.
+The [combined audit](../results/combined/README.md) is the source for this version.
 
-```text
-PROBLEM → GAP → QUESTION → HYPOTHESIS → EXPERIMENT → DATA → RESULTS → ANALYSIS → CONCLUSION
+Rebuild from the project root:
+
+```sh
+python3 scripts/combine_results.py
+python3 scripts/build_combined_easy_thesis.py
 ```
 
-You are in the **CONCLUSION** box.
-The experiments are done.
-This folder explains them.
-
-**Pictures and the full count:** [10-all-counts.md](10-all-counts.md).  
-**Checked numbers live in** [../results/RESULTS-INDEX.md](../results/RESULTS-INDEX.md)
-and [../results/SIZE-COMPARISON.md](../results/SIZE-COMPARISON.md).
+No model calls or Colab units are needed.

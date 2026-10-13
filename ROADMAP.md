@@ -1,5 +1,21 @@
 # ROADMAP: start here
 
+## Current status — 13 October 2026
+
+The easy thesis now leads with **464 unique test problems**, combined retrospectively.
+Full-coverage free controls: **0.8B OFF 14.7% · 2B limit 1,024 38.6% · 4B limit 2,048 71.9%**.
+2B and 4B LoRA-1 comparisons use 424 shared problems. Other incomplete methods show coverage.
+Per-problem weighting, token statistics, and paired uncertainty were recalculated from saved grades.
+No Colab units were spent. Read [the updated paper](easy-thesis/PAPER.md).
+
+**Next step:** review the combined easy thesis before deciding on any new experiment.
+The original formal thesis remains historical. Entries below record earlier project stages;
+old instructions to keep the easy-thesis scores separate are superseded by Decision 101.
+
+---
+
+## Historical roadmap
+
 > **This is the front door.** It shows the whole thesis, where you are, and the next step.
 >
 > | File | What is in it |
