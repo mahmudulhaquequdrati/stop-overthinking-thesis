@@ -1,0 +1,13 @@
+{
+  "model": "2b",
+  "method": "lora1",
+  "generated": 40,
+  "coverage": 40,
+  "expected": 40,
+  "passed": 1,
+  "accuracy": 0.025,
+  "status": "COMPLETE",
+  "generation_status": {
+    "state": "finished"
+  }
+}

@@ -20,20 +20,20 @@ These are the best observed free controls with **464/464 coverage**.
 | Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
 |---|---|---|---|---|---|---|
 | 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
-| 2B | Limit 1,024 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
-| 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
+| 2B | Limit 1,024 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
+| 4B | Limit 2,048 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
 
 
 In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
-The 2B lead has an interval only just above zero. The 4B lead is clearer.
+The 2B and4B gaps have positive intervals. Both compare the same464 problems.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
 ## How to read the result
 
 Each problem gets equal weight, whether it has one attempt or two.
 For each problem, average its pass/fail results. Then average across problems.
-2B and 4B LoRA-1 cover 424/464 problems. Do not treat missing results as wrong answers.
+2B and 4B LoRA-1 now cover 464/464 problems after the missing40 fill-in. Do not treat missing results as wrong answers.
 Earlier LoRA-2 and loop checks cover only 234 problems.
 
 The combined view was chosen after the runs. It was not a single preselected exam.
@@ -46,23 +46,29 @@ Source: [combined results](../results/combined/README.md), calculated from saved
 **41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
 This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
 
-On the same 464 first attempts, limit alone scores 38.6% (179/464).
-The combination gains 2.6 points and uses 6.4% fewer total output tokens.
-The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
-On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
-That gain is 5.9 points, with an interval of +1.4 to +10.4.
+The missing40 LoRA-alone runs are complete: 2B passed 1/40; 4B passed 12/40.
+Their all-attempt, equal-problem-weight scores now cover all 464:
+**2B LoRA-1 alone 34.4%; 4B LoRA-1 alone 56.8%.**
 
-Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
-Do not confuse that number with the 38.0% first-attempt reference.
+On the same 464 first attempts, the 2B comparison is:
+**LoRA + limit 41.2% (191/464), LoRA alone 34.9% (162/464), OFF 32.5% (151/464).**
+The combination gains 6.2 points over LoRA alone, interval +2.4 to +10.1.
+It gains 8.6 points over OFF, interval +4.5 to +12.9.
+LoRA alone's 2.4-point lead over OFF is inconclusive: interval −1.7 to +6.7.
+The combination uses 13.4% fewer output tokens than LoRA alone.
+OFF uses 66.5% fewer output tokens than the combination.
+
+Limit alone remains 38.6% (179/464). The combination gains 2.6 points,
+interval −1.5 to +6.7. A reliable gain over the free limit is not established.
+
+Earlier tables use all attempts per problem; 2B LoRA alone is 34.4% under that rule.
+The 34.9% reference above uses first attempts, matching the combination's one attempt.
+Archived 424-problem reports retain their original numbers as history.
 The extension is retrospective, with historical references and unadjusted intervals.
-It does not prove training universally beats free controls.
-
-2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
-Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
-Other partial methods retain their stated coverage.
+No result proves a universal winner. Other incomplete methods retain their coverage.
 
 Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+Updated comparison: [missing40 results](../results/lora-missing40/README.md).
 
 
 ---
@@ -136,23 +142,29 @@ Source: [combined results](../results/combined/README.md), calculated from saved
 **41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
 This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
 
-On the same 464 first attempts, limit alone scores 38.6% (179/464).
-The combination gains 2.6 points and uses 6.4% fewer total output tokens.
-The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
-On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
-That gain is 5.9 points, with an interval of +1.4 to +10.4.
+The missing40 LoRA-alone runs are complete: 2B passed 1/40; 4B passed 12/40.
+Their all-attempt, equal-problem-weight scores now cover all 464:
+**2B LoRA-1 alone 34.4%; 4B LoRA-1 alone 56.8%.**
 
-Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
-Do not confuse that number with the 38.0% first-attempt reference.
+On the same 464 first attempts, the 2B comparison is:
+**LoRA + limit 41.2% (191/464), LoRA alone 34.9% (162/464), OFF 32.5% (151/464).**
+The combination gains 6.2 points over LoRA alone, interval +2.4 to +10.1.
+It gains 8.6 points over OFF, interval +4.5 to +12.9.
+LoRA alone's 2.4-point lead over OFF is inconclusive: interval −1.7 to +6.7.
+The combination uses 13.4% fewer output tokens than LoRA alone.
+OFF uses 66.5% fewer output tokens than the combination.
+
+Limit alone remains 38.6% (179/464). The combination gains 2.6 points,
+interval −1.5 to +6.7. A reliable gain over the free limit is not established.
+
+Earlier tables use all attempts per problem; 2B LoRA alone is 34.4% under that rule.
+The 34.9% reference above uses first attempts, matching the combination's one attempt.
+Archived 424-problem reports retain their original numbers as history.
 The extension is retrospective, with historical references and unadjusted intervals.
-It does not prove training universally beats free controls.
-
-2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
-Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
-Other partial methods retain their stated coverage.
+No result proves a universal winner. Other incomplete methods retain their coverage.
 
 Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+Updated comparison: [missing40 results](../results/lora-missing40/README.md).
 
 
 ---
@@ -239,7 +251,7 @@ A problem's release date alone is not proof of unseen data.
 
 2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
 The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).
 
 
 ---
@@ -266,9 +278,11 @@ A higher score on an incomplete subset does not establish a better method.
 | 2B | Thinking OFF | 31.8% | [27.7%, 36.0%] | 464/464 | 738 |
 | 2B | Thinking ON | 26.8% | [23.2%, 30.6%] | 464/464 | 738 |
 | 2B | Limit 1,024 | 38.6% | [34.4%, 42.8%] | 464/464 | 738 |
+| 2B | LoRA-1 | 34.4% | [30.3%, 38.4%] | 464/464 | 698 |
 | 4B | Thinking OFF | 66.5% | [62.3%, 70.5%] | 464/464 | 738 |
 | 4B | Thinking ON | 50.0% | [45.9%, 54.3%] | 464/464 | 738 |
 | 4B | Limit 2,048 | 71.9% | [67.9%, 75.6%] | 464/464 | 738 |
+| 4B | LoRA-1 | 56.8% | [52.5%, 61.0%] | 464/464 | 698 |
 
 
 ## Training versus free controls on shared problems
@@ -278,8 +292,8 @@ A higher score on an incomplete subset does not establish a better method.
 | Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
 |---|---|---|---|---|---|---|
 | 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
-| 2B | Limit 1,024 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
-| 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
+| 2B | Limit 1,024 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
+| 4B | Limit 2,048 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
 
 
 The 0.8B free control's lead is uncertain: its interval includes zero.
@@ -302,7 +316,7 @@ Coverage means unique problems with results. A missing result is not counted as 
 | 2B | Limit 1,024 | 38.6% | 464/464 | 738 |
 | 2B | Limit 2,048 | 40.9% | 274/464 | 274 |
 | 2B | Limit 512 | 39.4% | 274/464 | 548 |
-| 2B | LoRA-1 | 37.4% | 424/464 | 658 |
+| 2B | LoRA-1 | 34.4% | 464/464 | 698 |
 | 2B | LoRA-2 | 45.1% | 234/464 | 468 |
 | 2B | Thinking OFF | 31.8% | 464/464 | 738 |
 | 2B | Thinking ON | 26.8% | 464/464 | 738 |
@@ -310,7 +324,7 @@ Coverage means unique problems with results. A missing result is not counted as 
 | 4B | Limit 2,048 | 71.9% | 464/464 | 738 |
 | 4B | Limit 4,096 | 76.7% | 234/464 | 468 |
 | 4B | Limit 512 | 75.4% | 234/464 | 468 |
-| 4B | LoRA-1 | 59.3% | 424/464 | 658 |
+| 4B | LoRA-1 | 56.8% | 464/464 | 698 |
 | 4B | Thinking OFF | 66.5% | 464/464 | 738 |
 | 4B | Thinking ON | 50.0% | 464/464 | 738 |
 
@@ -328,10 +342,10 @@ Positive gaps favor the first method. Every row uses identical shared problem ID
 | 0.8B | Thinking OFF vs Thinking ON | 464 | 14.7% | 4.1% | +10.6 | [+7.5, +13.8] |
 | 0.8B | Thinking OFF vs LoRA-1 | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
 | 2B | Limit 1,024 vs Thinking ON | 464 | 38.6% | 26.8% | +11.7 | [+8.5, +15.1] |
-| 2B | Limit 1,024 vs LoRA-1 | 424 | 41.4% | 37.4% | +4.0 | [+0.1, +7.8] |
+| 2B | Limit 1,024 vs LoRA-1 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
 | 2B | Limit 1,024 vs Thinking OFF | 464 | 38.6% | 31.8% | +6.8 | [+3.2, +10.5] |
 | 4B | Limit 2,048 vs Thinking ON | 464 | 71.9% | 50.0% | +21.9 | [+18.3, +25.5] |
-| 4B | Limit 2,048 vs LoRA-1 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
+| 4B | Limit 2,048 vs LoRA-1 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
 | 4B | Limit 2,048 vs Thinking OFF | 464 | 71.9% | 66.5% | +5.4 | [+1.6, +9.1] |
 
 
@@ -350,11 +364,11 @@ Token counts describe output length, not measured GPU time.
 | 0.8B | Thinking OFF | 464/464 | 0 | 1,781 | 19.0% |
 | 0.8B | Thinking ON | 464/464 | 6,147 | 6,206 | 86.4% |
 | 2B | Limit 1,024 | 464/464 | 923 | 4,337 | 45.3% |
-| 2B | LoRA-1 | 424/464 | 4,148 | 4,445 | 48.8% |
+| 2B | LoRA-1 | 464/464 | 4,414 | 4,735 | 52.6% |
 | 2B | Thinking OFF | 464/464 | 0 | 1,337 | 12.4% |
 | 2B | Thinking ON | 464/464 | 5,169 | 5,331 | 60.6% |
 | 4B | Limit 2,048 | 464/464 | 1,603 | 3,921 | 29.2% |
-| 4B | LoRA-1 | 424/464 | 4,406 | 4,547 | 35.5% |
+| 4B | LoRA-1 | 464/464 | 4,661 | 4,797 | 38.5% |
 | 4B | Thinking OFF | 464/464 | 0 | 943 | 5.3% |
 | 4B | Thinking ON | 464/464 | 5,064 | 5,188 | 45.7% |
 
@@ -391,23 +405,29 @@ Source: [combined results](../results/combined/README.md), calculated from saved
 **41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
 This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
 
-On the same 464 first attempts, limit alone scores 38.6% (179/464).
-The combination gains 2.6 points and uses 6.4% fewer total output tokens.
-The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
-On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
-That gain is 5.9 points, with an interval of +1.4 to +10.4.
+The missing40 LoRA-alone runs are complete: 2B passed 1/40; 4B passed 12/40.
+Their all-attempt, equal-problem-weight scores now cover all 464:
+**2B LoRA-1 alone 34.4%; 4B LoRA-1 alone 56.8%.**
 
-Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
-Do not confuse that number with the 38.0% first-attempt reference.
+On the same 464 first attempts, the 2B comparison is:
+**LoRA + limit 41.2% (191/464), LoRA alone 34.9% (162/464), OFF 32.5% (151/464).**
+The combination gains 6.2 points over LoRA alone, interval +2.4 to +10.1.
+It gains 8.6 points over OFF, interval +4.5 to +12.9.
+LoRA alone's 2.4-point lead over OFF is inconclusive: interval −1.7 to +6.7.
+The combination uses 13.4% fewer output tokens than LoRA alone.
+OFF uses 66.5% fewer output tokens than the combination.
+
+Limit alone remains 38.6% (179/464). The combination gains 2.6 points,
+interval −1.5 to +6.7. A reliable gain over the free limit is not established.
+
+Earlier tables use all attempts per problem; 2B LoRA alone is 34.4% under that rule.
+The 34.9% reference above uses first attempts, matching the combination's one attempt.
+Archived 424-problem reports retain their original numbers as history.
 The extension is retrospective, with historical references and unadjusted intervals.
-It does not prove training universally beats free controls.
-
-2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
-Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
-Other partial methods retain their stated coverage.
+No result proves a universal winner. Other incomplete methods retain their coverage.
 
 Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+Updated comparison: [missing40 results](../results/lora-missing40/README.md).
 
 
 ---
@@ -468,7 +488,7 @@ Neither check is a newly calculated 464-problem result.
 
 2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
 The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).
 
 
 ---
@@ -487,7 +507,7 @@ The partially tested limits cannot establish a better full-set score.
 
 In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
-The 2B gap has a narrowly positive interval; the 4B gap is clearer.
+The 2B and4B gaps have positive intervals, now using464 shared problems.
 No result proves that all LoRA training methods are ineffective.
 The original LoRA-2 experiment remains a 234-problem finding.
 
@@ -495,7 +515,7 @@ The original LoRA-2 experiment remains a 234-problem finding.
 
 - The analysis is retrospective. We combined runs after seeing their results.
 - Attempt counts differ. Equal problem weights address weighting, not all measurement noise.
-- 2B and 4B LoRA-1 cover 424/464 problems. Some other methods cover still fewer.
+- 2B and 4B LoRA-1 now cover 464/464 problems after the missing40 fill-in. Some other methods cover still fewer.
 - Only one model family and code tasks were tested. No hard contest problems or math.
 - LiveCodeBench grading used up to 20 tests per problem.
 - Exact training/test ID overlap is zero, but text similarity and pretraining exposure remain possible.
@@ -505,9 +525,9 @@ The original LoRA-2 experiment remains a 234-problem finding.
 
 ## What to test next
 
-A useful next question is whether LoRA plus the same thinking limit improves accuracy.
-Another is whether training on correct answers generated under a limit helps.
-Those experiments are not part of this update. No Colab units were spent.
+The2B LoRA + limit extension is complete; see its comparison below.
+Training on correct answers generated under a limit remains untested.
+This documentation rebuild used saved results and no Colab units.
 Keep future training, development, and test problems separate.
 
 ## One recommendation
@@ -519,20 +539,26 @@ Start with the observed free control for your model size, then test it on your o
 **41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
 This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
 
-On the same 464 first attempts, limit alone scores 38.6% (179/464).
-The combination gains 2.6 points and uses 6.4% fewer total output tokens.
-The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
-On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
-That gain is 5.9 points, with an interval of +1.4 to +10.4.
+The missing40 LoRA-alone runs are complete: 2B passed 1/40; 4B passed 12/40.
+Their all-attempt, equal-problem-weight scores now cover all 464:
+**2B LoRA-1 alone 34.4%; 4B LoRA-1 alone 56.8%.**
 
-Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
-Do not confuse that number with the 38.0% first-attempt reference.
+On the same 464 first attempts, the 2B comparison is:
+**LoRA + limit 41.2% (191/464), LoRA alone 34.9% (162/464), OFF 32.5% (151/464).**
+The combination gains 6.2 points over LoRA alone, interval +2.4 to +10.1.
+It gains 8.6 points over OFF, interval +4.5 to +12.9.
+LoRA alone's 2.4-point lead over OFF is inconclusive: interval −1.7 to +6.7.
+The combination uses 13.4% fewer output tokens than LoRA alone.
+OFF uses 66.5% fewer output tokens than the combination.
+
+Limit alone remains 38.6% (179/464). The combination gains 2.6 points,
+interval −1.5 to +6.7. A reliable gain over the free limit is not established.
+
+Earlier tables use all attempts per problem; 2B LoRA alone is 34.4% under that rule.
+The 34.9% reference above uses first attempts, matching the combination's one attempt.
+Archived 424-problem reports retain their original numbers as history.
 The extension is retrospective, with historical references and unadjusted intervals.
-It does not prove training universally beats free controls.
-
-2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
-Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
-Other partial methods retain their stated coverage.
+No result proves a universal winner. Other incomplete methods retain their coverage.
 
 Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+Updated comparison: [missing40 results](../results/lora-missing40/README.md).

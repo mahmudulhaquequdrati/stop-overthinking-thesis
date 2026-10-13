@@ -1,5 +1,24 @@
 # Notebook 22: fill only the two missing40 LoRA-alone runs
 
+## Full 464 update — 14 October 2026
+
+**2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**
+The exact missing40 runs passed 1/40 (2B) and 12/40 (4B), with one attempt each.
+No existing 424 LoRA-alone IDs were repeated.
+The scores above average attempts within problems, then weight problems equally.
+
+For 2B on the same 464 first attempts:
+**LoRA + limit1024: 41.2% (191/464); LoRA alone: 34.9% (162/464); OFF: 32.5% (151/464).**
+The combination's gain over LoRA alone is 6.2 points, interval +2.4 to +10.1.
+Its gain over OFF is 8.6 points, interval +4.5 to +12.9.
+LoRA alone's smaller lead over OFF remains inconclusive.
+Limit alone is 38.6%; the combination's gain over it remains inconclusive.
+
+Missing40 work is complete. Do not rerun Notebook 22 or the existing 424 answers.
+Other incomplete methods remain outside scope.
+[Updated results and both weighting rules](../results/lora-missing40/README.md).
+
+
 ## What will run?
 
 Qwen3.5-2B LoRA-1 alone on 40, then Qwen3.5-4B LoRA-1 alone on the same 40.

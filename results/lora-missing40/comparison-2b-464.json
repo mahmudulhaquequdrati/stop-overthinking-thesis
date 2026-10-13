@@ -1,0 +1,224 @@
+{
+  "coverage": 464,
+  "retrospective": true,
+  "bootstrap_replicates": 2000,
+  "seed": 3407,
+  "sources": [
+    {
+      "path": "results/2026-09-24-thesis-run/test-limit-he-graded.csv",
+      "sha256": "b584c624fc41c0cfefb35652252079032055121548562884b424ed721d814297"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-limit-lcb-graded.csv",
+      "sha256": "c00eb6856d92b9ec21c6fe750af2c917ad6a75da84f18dd3b774356d8f74740b"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-lora1-he-graded.csv",
+      "sha256": "d5d0851a51805aa5cc02dbd2b83b39db8b405fbcdf8ef7a36f9e55fef752e225"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-lora1-lcb-graded.csv",
+      "sha256": "a636073183d3e9c7ebf3097324f3dfde81670e936ec2f0ea357da8345dadb7ec"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-off-he-graded.csv",
+      "sha256": "fcd3ee980b360bc63d0644791ae5cc2b2380691cdbd09a5dca8d37e12b5f7cbb"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-off-lcb-graded.csv",
+      "sha256": "240a505da75258a42fa196f6bd074683bb065d695e70ad7a13f0a4912269c815"
+    },
+    {
+      "path": "results/extra/2b/test-limit1024-lcb-graded.csv",
+      "sha256": "a07f1bfd66b0ca5839ecd868f448a23716d3a17ad2ac490e2633849fbe8709fd"
+    },
+    {
+      "path": "results/extra/2b/test-lora1-lcb-graded.csv",
+      "sha256": "ea17dd292e9caaec031a13f681950e2a9f79e66aa7f6c7e2173f709449714c5f"
+    },
+    {
+      "path": "results/extra/2b/test-off-lcb-graded.csv",
+      "sha256": "1e35558aa911112b8e05f5c2d04ba8de646e1ee2b6c3a7511f780826c6db7fc2"
+    },
+    {
+      "path": "results/more/2b/test-limit1024-lcb-graded.csv",
+      "sha256": "cb0896aaa963694015e354730792d137e7a588bdb552a8d1b0e26dbc5293f8ba"
+    },
+    {
+      "path": "results/more/2b/test-lora1-lcb-graded.csv",
+      "sha256": "0ba149987331a06ba507cb31365425d47d55804c44bba543f772787bd8a6857b"
+    },
+    {
+      "path": "results/more/2b/test-off-lcb-graded.csv",
+      "sha256": "bc974016a60d8e360c883a29e908218d22b525b8ed2185b9404b12926908acf4"
+    },
+    {
+      "path": "results/lora-limit-2b/completed-464/test-lora1-limit1024-he-graded.csv",
+      "sha256": "5978dae03ec9d660155b8bc45cfc0f7255c61aaced7535d8e9192f29273dac2b"
+    },
+    {
+      "path": "results/lora-limit-2b/completed-464/test-lora1-limit1024-lcb-graded.csv",
+      "sha256": "2ac6cb7fbed46666fa86fc005ac3c277d013fa86683efc041ca168f4e1ae72b8"
+    }
+  ],
+  "first_attempts": {
+    "summaries": {
+      "lora1": {
+        "accuracy": 0.34913793103448276,
+        "accuracy_ci": [
+          0.30603448275862066,
+          0.3922413793103448
+        ],
+        "mean_total_tokens": 4700.9094827586205,
+        "passed": 162
+      },
+      "off": {
+        "accuracy": 0.3254310344827586,
+        "accuracy_ci": [
+          0.2823275862068966,
+          0.36637931034482757
+        ],
+        "mean_total_tokens": 1365.7974137931035,
+        "passed": 151
+      },
+      "limit1024": {
+        "accuracy": 0.3857758620689655,
+        "accuracy_ci": [
+          0.3426724137931034,
+          0.42887931034482757
+        ],
+        "mean_total_tokens": 4348.049568965517,
+        "passed": 179
+      },
+      "lora1-limit1024": {
+        "accuracy": 0.41163793103448276,
+        "accuracy_ci": [
+          0.36637931034482757,
+          0.45689655172413796
+        ],
+        "mean_total_tokens": 4071.9310344827586,
+        "passed": 191
+      }
+    },
+    "comparisons": [
+      {
+        "method": "lora1-limit1024",
+        "reference": "lora1",
+        "shared_problems": 464,
+        "delta": 0.0625,
+        "delta_ci": [
+          0.023706896551724137,
+          0.10129310344827586
+        ]
+      },
+      {
+        "method": "lora1-limit1024",
+        "reference": "off",
+        "shared_problems": 464,
+        "delta": 0.08620689655172414,
+        "delta_ci": [
+          0.04525862068965517,
+          0.12931034482758622
+        ]
+      },
+      {
+        "method": "lora1",
+        "reference": "off",
+        "shared_problems": 464,
+        "delta": 0.023706896551724137,
+        "delta_ci": [
+          -0.017241379310344827,
+          0.0668103448275862
+        ]
+      },
+      {
+        "method": "lora1-limit1024",
+        "reference": "limit1024",
+        "shared_problems": 464,
+        "delta": 0.02586206896551724,
+        "delta_ci": [
+          -0.015086206896551725,
+          0.0668103448275862
+        ]
+      }
+    ]
+  },
+  "all_attempts_equal_problem_weight": {
+    "summaries": {
+      "lora1": {
+        "accuracy": 0.34375,
+        "accuracy_ci": [
+          0.30280172413793105,
+          0.38362068965517243
+        ],
+        "mean_total_tokens": 4735.067887931034
+      },
+      "off": {
+        "accuracy": 0.31788793103448276,
+        "accuracy_ci": [
+          0.2769396551724138,
+          0.3599137931034483
+        ],
+        "mean_total_tokens": 1337.2273706896551
+      },
+      "limit1024": {
+        "accuracy": 0.3857758620689655,
+        "accuracy_ci": [
+          0.34375,
+          0.42780172413793105
+        ],
+        "mean_total_tokens": 4336.7489224137935
+      },
+      "lora1-limit1024": {
+        "accuracy": 0.41163793103448276,
+        "accuracy_ci": [
+          0.36637931034482757,
+          0.45689655172413796
+        ],
+        "mean_total_tokens": 4071.9310344827586
+      }
+    },
+    "comparisons": [
+      {
+        "method": "lora1-limit1024",
+        "reference": "lora1",
+        "shared_problems": 464,
+        "delta": 0.06788793103448276,
+        "delta_ci": [
+          0.029094827586206896,
+          0.10668103448275862
+        ]
+      },
+      {
+        "method": "lora1-limit1024",
+        "reference": "off",
+        "shared_problems": 464,
+        "delta": 0.09375,
+        "delta_ci": [
+          0.05387931034482758,
+          0.13469827586206898
+        ]
+      },
+      {
+        "method": "lora1",
+        "reference": "off",
+        "shared_problems": 464,
+        "delta": 0.02586206896551724,
+        "delta_ci": [
+          -0.011853448275862068,
+          0.0603448275862069
+        ]
+      },
+      {
+        "method": "lora1-limit1024",
+        "reference": "limit1024",
+        "shared_problems": 464,
+        "delta": 0.02586206896551724,
+        "delta_ci": [
+          -0.014008620689655173,
+          0.06465517241379311
+        ]
+      }
+    ]
+  }
+}

@@ -1,10 +1,29 @@
 # Plan: fill only the missing LoRA-1 results
 
-Status: Notebook22 built and checked locally; GPU run not started. Updated 14 October 2026.
+## Full 464 update — 14 October 2026
+
+**2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**
+The exact missing40 runs passed 1/40 (2B) and 12/40 (4B), with one attempt each.
+No existing 424 LoRA-alone IDs were repeated.
+The scores above average attempts within problems, then weight problems equally.
+
+For 2B on the same 464 first attempts:
+**LoRA + limit1024: 41.2% (191/464); LoRA alone: 34.9% (162/464); OFF: 32.5% (151/464).**
+The combination's gain over LoRA alone is 6.2 points, interval +2.4 to +10.1.
+Its gain over OFF is 8.6 points, interval +4.5 to +12.9.
+LoRA alone's smaller lead over OFF remains inconclusive.
+Limit alone is 38.6%; the combination's gain over it remains inconclusive.
+
+Missing40 work is complete. Do not rerun Notebook 22 or the existing 424 answers.
+Other incomplete methods remain outside scope.
+[Updated results and both weighting rules](../lora-missing40/README.md).
+
+
+Status: COMPLETE. Both 40 runs checked and combined; do not rerun Notebook 22. Updated 14 October 2026.
 The completed 2B LoRA-1 + limit 1,024 result is **41.2% (191/464)**.
 See [the saved result](../lora-limit-2b/README.md).
 
-## Exactly what is missing
+## Historical pre-run gaps (the2B/4B LoRA-1 extra40 gaps are now filled)
 
 The frozen test set is 464 IDs: original 234, extra 40, and later 190.
 These collections are disjoint. Missing results are not failures.
@@ -36,7 +55,7 @@ Report uncertainty even when the score improves.
 
 ## Run plan: 80 new answers total
 
-1. Use [Notebook22](../../notebooks/22_lora1_missing40_2b_4b.ipynb), following notebooks18–21.
+1. Use [Notebook 22](../../notebooks/22_lora1_missing40_2b_4b.ipynb), following notebooks18–21.
    Use the existing adapters. No training, alternative limits, or combination rerun.
 2. Read [plan-manifest.json](plan-manifest.json), containing the exact 40 frozen IDs.
    Confirm each model has 424 existing LoRA-1 IDs and exactly these 40 missing IDs.
@@ -57,7 +76,7 @@ Report uncertainty even when the score improves.
 8. Save the two new result sets separately and release the GPU after saving.
    Measure speed from the first saved batch, which counts toward the 40.
    Use a separate budget ledger and a predeclared ceiling; do not inherit 45 units as new spending permission.
-   Notebook22 uses a separate **20-unit total estimated ceiling**, including setup and resumes.
+   Notebook 22 uses a separate **20-unit total estimated ceiling**, including setup and resumes.
    Enter the current rate and balance. Stop when done; the ceiling is not a spending target.
 
 This repeats the same questions across different methods by design.
@@ -83,7 +102,7 @@ For each model, its missing IDs are exactly the original extra-40 collection.
 
 ## Ready notebook and local checks
 
-[Notebook22](../../notebooks/22_lora1_missing40_2b_4b.ipynb) is19.2KB with readable cells.
+[Notebook 22](../../notebooks/22_lora1_missing40_2b_4b.ipynb) is19.2KB with readable cells.
 Push the notebook, both new scripts, and this manifest before opening the latest Colab copy.
 The notebook requires the original2B Drive adapter;4B weights are already in the project.
 Both adapter hashes are checked before package installation.

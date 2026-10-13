@@ -1,0 +1,8 @@
+# 4b LoRA-1 alone: missing40
+
+Status: **COMPLETE**. Generated 40/40; graded 40/40.
+
+Subset accuracy: **30.0% (12/40)**.
+
+This is the extra40 subset, not a464-problem score. One attempt each.
+Combine with saved424 only after checking both result sets. Missing rows are not failures.

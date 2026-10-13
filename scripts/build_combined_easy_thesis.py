@@ -63,7 +63,7 @@ def chart(name,title,subtitle,rows,max_value=100,unit='Accuracy (%)'):
         val=tick*max_value/4
         out.append(f'<text x="{left+tick*span/4}" y="{y}" font-size="12">{val:,.0f}</text>')
     out += [f'<text x="{left}" y="{y+23}" font-size="13">{html.escape(unit)}</text>',
-            f'<text x="24" y="{height-12}" font-size="11">Source: saved graded runs, Sep–Oct 2026. Equal weight per problem; analysis 13 Oct 2026.</text>', '</g></svg>']
+            f'<text x="24" y="{height-12}" font-size="11">Source: saved graded runs, Sep–Oct 2026. Equal weight per problem; updated 14 Oct 2026.</text>', '</g></svg>']
     (E/'figures'/name).write_text('\n'.join(out)+'\n')
 chart('combined-accuracy.svg','Accuracy across 464 unique problems','Model and way • only methods with complete coverage',[
     (f'{r[0]} · {r[1]}',float(r[2][:-1]),r[2]) for r in full_rows])
@@ -100,14 +100,14 @@ These are the best observed free controls with **464/464 coverage**.
 
 In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
-The 2B lead has an interval only just above zero. The 4B lead is clearer.
+The 2B and4B gaps have positive intervals. Both compare the same464 problems.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
 ## How to read the result
 
 Each problem gets equal weight, whether it has one attempt or two.
 For each problem, average its pass/fail results. Then average across problems.
-2B and 4B LoRA-1 cover 424/464 problems. Do not treat missing results as wrong answers.
+2B and 4B LoRA-1 now cover 464/464 problems after the missing40 fill-in. Do not treat missing results as wrong answers.
 Earlier LoRA-2 and loop checks cover only 234 problems.
 
 The combined view was chosen after the runs. It was not a single preselected exam.
@@ -389,7 +389,7 @@ The partially tested limits cannot establish a better full-set score.
 
 In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
-The 2B gap has a narrowly positive interval; the 4B gap is clearer.
+The 2B and4B gaps have positive intervals, now using464 shared problems.
 No result proves that all LoRA training methods are ineffective.
 The original LoRA-2 experiment remains a 234-problem finding.
 
@@ -397,7 +397,7 @@ The original LoRA-2 experiment remains a 234-problem finding.
 
 - The analysis is retrospective. We combined runs after seeing their results.
 - Attempt counts differ. Equal problem weights address weighting, not all measurement noise.
-- 2B and 4B LoRA-1 cover 424/464 problems. Some other methods cover still fewer.
+- 2B and 4B LoRA-1 now cover 464/464 problems after the missing40 fill-in. Some other methods cover still fewer.
 - Only one model family and code tasks were tested. No hard contest problems or math.
 - LiveCodeBench grading used up to 20 tests per problem.
 - Exact training/test ID overlap is zero, but text similarity and pretraining exposure remain possible.
@@ -407,9 +407,9 @@ The original LoRA-2 experiment remains a 234-problem finding.
 
 ## What to test next
 
-A useful next question is whether LoRA plus the same thinking limit improves accuracy.
-Another is whether training on correct answers generated under a limit helps.
-Those experiments are not part of this update. No Colab units were spent.
+The2B LoRA + limit extension is complete; see its comparison below.
+Training on correct answers generated under a limit remains untested.
+This documentation rebuild used saved results and no Colab units.
 Keep future training, development, and test problems separate.
 
 ## One recommendation
@@ -435,16 +435,16 @@ Some problems have two attempts and others have one.
 That would give the former twice the weight.
 We average within each problem first, then across problems.
 
-## Why does LoRA sometimes show 424/464?
+## Why did older LoRA reports show 424/464?
 
-2B and 4B LoRA-1 have no saved results on 40 test problems.
+Those reports preceded the extra40 fill-in. Both2B and4B LoRA-1 now cover464/464.
 Missing results are not failures. We compare LoRA with controls on shared IDs only.
 The 0.8B LoRA-1 covers all 464. LoRA-2 covers 234.
 
 ## Does the limit beat training?
 
 The selected free controls have higher observed scores on shared problems.
-The 0.8B gap is uncertain. The 2B interval is narrowly positive; the 4B interval is positive.
+The 0.8B gap is uncertain. The 2B and4B intervals are positive.
 See [the paired results](05-results.md) for numbers and limits.
 
 ## Were all problems selected before the experiment?
@@ -482,7 +482,7 @@ It should not be described as a single pre-registered test set.
 The 190-problem collection used one attempt. Some limit fill-ins also used one.
 All available attempts contribute, but every problem has equal weight.
 
-2B and 4B LoRA-1 each lack 40 results. Their coverage is 424/464.
+2B and 4B LoRA-1 now cover all464, after adding their exact extra40 results.
 Some limit settings and LoRA-2 also have incomplete coverage.
 See [all method coverage](05-results.md) and [the source manifest](../results/combined/sources.csv).
 
@@ -563,43 +563,55 @@ assert completed['complete'] and completed['coverage'] == completed['generated']
 assert completed['attempts_per_problem'] == 1 and completed['accuracy'] == 191/464
 assert completed['comparisons'][0]['reference'] == 'limit1024'
 assert completed['comparisons'][0]['reference_accuracy'] == 179/464
+current = json.loads((ROOT/'results/lora-missing40/comparison-2b-464.json').read_text())
+assert current['first_attempts']['summaries']['lora1']['passed'] == 162
+assert S['2b','lora1']['coverage'] == S['4b','lora1']['coverage'] == 464
 extension = """## Completed extension: 2B LoRA-1 + limit 1,024
 
 **41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
 This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
 
-On the same 464 first attempts, limit alone scores 38.6% (179/464).
-The combination gains 2.6 points and uses 6.4% fewer total output tokens.
-The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
-On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
-That gain is 5.9 points, with an interval of +1.4 to +10.4.
+The missing40 LoRA-alone runs are complete:2B passed1/40;4B passed12/40.
+Their all-attempt, equal-problem-weight scores now cover all464:
+**2B LoRA-1 alone34.4%;4B LoRA-1 alone56.8%.**
 
-Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
-Do not confuse that number with the 38.0% first-attempt reference.
+On the same464 first attempts, the2B comparison is:
+**LoRA + limit41.2% (191/464), LoRA alone34.9% (162/464), OFF32.5% (151/464).**
+The combination gains6.2 points over LoRA alone, interval+2.4 to+10.1.
+It gains8.6 points over OFF, interval+4.5 to+12.9.
+LoRA alone's2.4-point lead over OFF is inconclusive: interval−1.7 to+6.7.
+The combination uses13.4% fewer output tokens than LoRA alone.
+OFF uses66.5% fewer output tokens than the combination.
+
+Limit alone remains38.6% (179/464). The combination gains2.6 points,
+interval−1.5 to+6.7. A reliable gain over the free limit is not established.
+
+Earlier tables use all attempts per problem;2B LoRA alone is34.4% under that rule.
+The34.9% reference above uses first attempts, matching the combination's one attempt.
+Archived424-problem reports retain their original numbers as history.
 The extension is retrospective, with historical references and unadjusted intervals.
-It does not prove training universally beats free controls.
+No result proves a universal winner. Other incomplete methods retain their coverage.
 
-2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
-Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
-Other partial methods retain their stated coverage.
-
-Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+Checked14 October2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Updated comparison: [missing40 results](../results/lora-missing40/README.md).
 """
+for a,b in [('complete:2B','complete: 2B'),('passed1','passed 1'),(';4B','; 4B'),('passed12','passed 12'),('all464','all 464'),('alone34','alone 34'),('alone56','alone 56'),('same464','same 464'),('the2B','the 2B'),('limit41','limit 41'),('OFF32','OFF 32'),('gains6','gains 6'),('interval+','interval +'),('to+','to +'),('gains8','gains 8'),("alone's2","alone's 2"),('interval−','interval −'),('uses13','uses 13'),('uses66','uses 66'),('remains38','remains 38'),('gains2','gains 2'),('problem;2B','problem; 2B'),('is34','is 34'),('The34','The 34'),('Archived424','Archived 424'),('Checked14','Checked 14'),('October2026','October 2026')]:
+    extension=extension.replace(a,b)
+
 for name in ('00-one-page.md', '03-how-we-did-it.md', '05-results.md',
              '07-advice-and-limits.md', '08-all-answers.md', '09-extra-problems.md',
              '10-all-counts.md', 'README.md'):
     put(name, (E/name).read_text() + '\n' + extension)
 
 for name in ('01-who-should-use-it.md', '02-the-problem.md', '04-the-datasets.md', '06-why-it-works.md'):
-    put(name, (E/name).read_text() + "\n## Latest completed extension\n\n2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.\nThe +2.6-point gain over limit alone remains inconclusive.\nSee [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).\n")
+    put(name, (E/name).read_text() + "\n## Latest completed extension\n\n2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.\nThe +2.6-point gain over limit alone remains inconclusive.\nSee [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).\n")
 
 chapters=['00-one-page.md','10-all-counts.md','01-who-should-use-it.md','02-the-problem.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md','08-all-answers.md','09-extra-problems.md','WORDS.md']
 put('FULL-THESIS.md','# Stop Overthinking, Keep Passing the Tests\n\nEasy-language thesis: retrospective combined analysis of **464 unique problems**.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in chapters))
 put('PAPER.md','# Stop Overthinking, Keep Passing the Tests\n\nTeacher and paper draft: **464 unique code problems**, with explicit method coverage.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in ['00-one-page.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md']))
 combined=f'''# Combined results: 464 unique problems
 
-Retrospective analysis, 13 October 2026. Equal weight per problem.
+Retrospective presentation chosen 13 October 2026; results updated 14 October 2026. Equal weight per problem.
 Main complete-coverage controls: {headline}
 
 {coverage_note}
@@ -617,7 +629,7 @@ No GPU calls are made. Original graded files remain unchanged.
 
 - [results.json](results.json): full metrics, 95% intervals, problem IDs, and training ID audit.
 - [per-problem.csv](per-problem.csv): success fractions and token means before averaging.
-- [sources.csv](sources.csv): the 66 exact input files and their original pass counts.
+- [sources.csv](sources.csv): the {len(D["sources"])} exact input files and their original pass counts.
 - [Easy thesis](../../easy-thesis/PAPER.md): reader-facing combined account.
 
 Checked: 464 distinct IDs, disjoint collections, no duplicate method/problem/attempt rows,

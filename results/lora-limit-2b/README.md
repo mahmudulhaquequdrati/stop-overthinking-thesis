@@ -1,5 +1,25 @@
 # Completed extension: 2B LoRA-1 + thinking limit 1,024
 
+## Full 464 update — 14 October 2026
+
+**2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**
+The exact missing40 runs passed 1/40 (2B) and 12/40 (4B), with one attempt each.
+No existing 424 LoRA-alone IDs were repeated.
+The scores above average attempts within problems, then weight problems equally.
+
+For 2B on the same 464 first attempts:
+**LoRA + limit1024: 41.2% (191/464); LoRA alone: 34.9% (162/464); OFF: 32.5% (151/464).**
+The combination's gain over LoRA alone is 6.2 points, interval +2.4 to +10.1.
+Its gain over OFF is 8.6 points, interval +4.5 to +12.9.
+LoRA alone's smaller lead over OFF remains inconclusive.
+Limit alone is 38.6%; the combination's gain over it remains inconclusive.
+
+Missing40 work is complete. Do not rerun Notebook 22 or the existing 424 answers.
+Other incomplete methods remain outside scope.
+[Updated results and both weighting rules](../lora-missing40/README.md).
+
+## Archived original comparison before the missing40 fill-in
+
 Checked on 14 October 2026 from the user's completed ZIP.
 Model: Qwen3.5-2B, with the existing LoRA-1 trained add-on.
 A token is a small piece of text. The limit applies to thinking, not the whole answer.

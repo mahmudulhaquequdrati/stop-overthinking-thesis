@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "initial_balance": 120.0,
+  "sessions": 3,
+  "estimated_units": 5.1371836360406355,
+  "unit_rate": 6.77,
+  "unit_cap": 20.0,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "active": false
+}

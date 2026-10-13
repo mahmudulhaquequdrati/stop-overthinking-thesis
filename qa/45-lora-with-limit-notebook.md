@@ -1,19 +1,22 @@
 # 2B LoRA-1 with a 1,024-token thinking limit
 
-## Completed result and next step — 14 October 2026
+## Full 464 update — 14 October 2026
 
-**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
-All 464 problems were generated and graded, one attempt each.
-Limit alone: 38.6% on the same 464 first attempts.
-Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
-On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
-Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
-The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+**2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**
+The exact missing40 runs passed 1/40 (2B) and 12/40 (4B), with one attempt each.
+No existing 424 LoRA-alone IDs were repeated.
+The scores above average attempts within problems, then weight problems equally.
 
-Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
-No training or rerun of their existing 424 answers. Other missing methods are outside scope.
-Results are not available yet; new combined scores will be added after grading.
-[Completed evidence](../results/lora-limit-2b/README.md) · [Exact missing IDs and plan](../results/lora-missing40/PLAN.md).
+For 2B on the same 464 first attempts:
+**LoRA + limit1024: 41.2% (191/464); LoRA alone: 34.9% (162/464); OFF: 32.5% (151/464).**
+The combination's gain over LoRA alone is 6.2 points, interval +2.4 to +10.1.
+Its gain over OFF is 8.6 points, interval +4.5 to +12.9.
+LoRA alone's smaller lead over OFF remains inconclusive.
+Limit alone is 38.6%; the combination's gain over it remains inconclusive.
+
+Missing40 work is complete. Do not rerun Notebook 22 or the existing 424 answers.
+Other incomplete methods remain outside scope.
+[Updated results and both weighting rules](../results/lora-missing40/README.md).
 
 The earlier zero-answer TorchAO failure is preserved in the failure notes.
 

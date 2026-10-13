@@ -54,4 +54,4 @@ Neither check is a newly calculated 464-problem result.
 
 2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
 The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).

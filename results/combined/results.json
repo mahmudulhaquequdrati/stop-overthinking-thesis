@@ -313,15 +313,15 @@
     {
       "model": "2b",
       "method": "lora1",
-      "coverage": 424,
-      "attempts": 658,
-      "accuracy": 0.3738207547169811,
-      "thinking_tokens": 4148.314858490566,
-      "total_new_tokens": 4445.378537735849,
-      "hit_limit": 0.4882075471698113,
+      "coverage": 464,
+      "attempts": 698,
+      "accuracy": 0.34375,
+      "thinking_tokens": 4414.28125,
+      "total_new_tokens": 4735.067887931034,
+      "hit_limit": 0.5258620689655172,
       "accuracy_ci": [
-        0.3313679245283019,
-        0.41627358490566035
+        0.30280172413793105,
+        0.38362068965517243
       ],
       "groups": [
         {
@@ -333,14 +333,14 @@
         {
           "source": "LiveCodeBench",
           "difficulty": "easy",
-          "coverage": 149,
-          "accuracy": 0.4228187919463087
+          "coverage": 166,
+          "accuracy": 0.3855421686746988
         },
         {
           "source": "LiveCodeBench",
           "difficulty": "medium",
-          "coverage": 111,
-          "accuracy": 0.02702702702702703
+          "coverage": 134,
+          "accuracy": 0.022388059701492536
         }
       ]
     },
@@ -585,15 +585,15 @@
     {
       "model": "4b",
       "method": "lora1",
-      "coverage": 424,
-      "attempts": 658,
-      "accuracy": 0.5931603773584906,
-      "thinking_tokens": 4405.7205188679245,
-      "total_new_tokens": 4547.211084905661,
-      "hit_limit": 0.35495283018867924,
+      "coverage": 464,
+      "attempts": 698,
+      "accuracy": 0.5678879310344828,
+      "thinking_tokens": 4660.738146551724,
+      "total_new_tokens": 4796.723060344828,
+      "hit_limit": 0.38469827586206895,
       "accuracy_ci": [
-        0.5483490566037735,
-        0.6356132075471698
+        0.5247844827586207,
+        0.6099137931034483
       ],
       "groups": [
         {
@@ -605,14 +605,14 @@
         {
           "source": "LiveCodeBench",
           "difficulty": "easy",
-          "coverage": 149,
-          "accuracy": 0.6845637583892618
+          "coverage": 166,
+          "accuracy": 0.6746987951807228
         },
         {
           "source": "LiveCodeBench",
           "difficulty": "medium",
-          "coverage": 111,
-          "accuracy": 0.09009009009009009
+          "coverage": 134,
+          "accuracy": 0.08955223880597014
         }
       ]
     },
@@ -735,16 +735,16 @@
       "model": "2b",
       "method": "limit1024",
       "reference": "lora1",
-      "coverage": 424,
-      "accuracy": 0.41391509433962265,
-      "reference_accuracy": 0.3738207547169811,
-      "delta": 0.04009433962264151,
+      "coverage": 464,
+      "accuracy": 0.3857758620689655,
+      "reference_accuracy": 0.34375,
+      "delta": 0.04202586206896552,
       "delta_ci": [
-        0.0011792452830188679,
-        0.07783018867924528
+        0.007543103448275862,
+        0.07758620689655173
       ],
-      "total_tokens": 4089.228773584906,
-      "reference_total_tokens": 4445.378537735849
+      "total_tokens": 4336.7489224137935,
+      "reference_total_tokens": 4735.067887931034
     },
     {
       "model": "2b",
@@ -780,16 +780,16 @@
       "model": "4b",
       "method": "limit2048",
       "reference": "lora1",
-      "coverage": 424,
-      "accuracy": 0.7429245283018868,
-      "reference_accuracy": 0.5931603773584906,
-      "delta": 0.14976415094339623,
+      "coverage": 464,
+      "accuracy": 0.71875,
+      "reference_accuracy": 0.5678879310344828,
+      "delta": 0.15086206896551724,
       "delta_ci": [
-        0.11202830188679246,
-        0.1875
+        0.11314655172413793,
+        0.1896551724137931
       ],
-      "total_tokens": 3669.583726415094,
-      "reference_total_tokens": 4547.211084905661
+      "total_tokens": 3921.377155172414,
+      "reference_total_tokens": 4796.723060344828
     },
     {
       "model": "4b",
@@ -1160,6 +1160,16 @@
     },
     {
       "model": "2b",
+      "method": "lora1",
+      "cohort": "extra",
+      "path": "results/extra/2b/test-lora1-lcb-graded.csv",
+      "problems": 40,
+      "attempts": 40,
+      "passed": 1,
+      "original_accuracy": 2.5
+    },
+    {
+      "model": "2b",
       "method": "off",
       "cohort": "extra",
       "path": "results/extra/2b/test-off-lcb-graded.csv",
@@ -1407,6 +1417,16 @@
       "attempts": 80,
       "passed": 37,
       "original_accuracy": 46.25
+    },
+    {
+      "model": "4b",
+      "method": "lora1",
+      "cohort": "extra",
+      "path": "results/extra/4b/test-lora1-lcb-graded.csv",
+      "problems": 40,
+      "attempts": 40,
+      "passed": 12,
+      "original_accuracy": 30.0
     },
     {
       "model": "4b",
