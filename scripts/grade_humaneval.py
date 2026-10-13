@@ -20,8 +20,6 @@ simple, always-works fallback: it is slower but it has no platform surprises.
 
 import argparse, json, csv, os, re, statistics, subprocess, sys, tempfile
 
-from evalplus.data import get_human_eval_plus
-
 FENCE = re.compile(r"```(?:python)?\s*\n(.*?)```", re.S)
 TIMEOUT_SECONDS = 15
 
@@ -59,6 +57,9 @@ def run_one(code, problem, workdir, show=False):
 
 
 def main():
+    # Notebook 21 uses only extract_code and saved test programs. Importing
+    # EvalPlus here avoids its unrelated API dependencies for that workflow.
+    from evalplus.data import get_human_eval_plus
     ap = argparse.ArgumentParser()
     ap.add_argument("--answers", required=True)
     ap.add_argument("--show", action="store_true", help="print details for every problem")

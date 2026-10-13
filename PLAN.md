@@ -10,8 +10,10 @@ Compare saved first attempts for limit1024, OFF, ON (464), and LoRA-1 without a 
 Use shared IDs only and report actual generated/graded coverage and paired uncertainty.
 The main comparison is against the same limit without LoRA, not unlimited thinking.
 Keep results separate until this new run is checked; do not overwrite the combined thesis scores.
-Budget: estimated 15 Colab units across setup, generation, grading, and reports at the entered rate.
-Frozen scripts, questions/IDs, and reference grades are embedded in the small notebook.
+Budget: estimated 15 Colab units for the revised workflow across setup, generation, grading, and reports.
+Earlier failed attempt costs are separate. Enter the current rate and balance; preserve the old ledger and use v2 for resumes.
+Readable notebook cells clone/update GitHub, following notebooks 18–20.
+Frozen questions/IDs and reference grades live in `results/lora-limit-inputs/`; there is no encoded bundle.
 Like earlier notebooks, tests load from fixed external data sources; their contents are checked and cached on Drive.
 The original lora100 weight file is required on Drive before package installation.
 Actual GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).

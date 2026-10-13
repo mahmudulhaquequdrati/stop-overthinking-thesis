@@ -40,3 +40,23 @@ The 15-unit cap is an estimate; setup, waiting, and failure idle time can affect
 The worker watchdog kills the process group, preserving completed answers and grades.
 Normal completion saves a ZIP and releases the runtime. Setup failures require manual disconnection.
 Actual Colab/A100 behavior remains untested locally.
+
+## Superseding setup revision: Decision 104
+
+The user supplied the Colab install/compile log and requested the structure of notebooks 18–20.
+The final notebook is about 24 KB, with readable cells and project input JSON files.
+No code or data is Base64-encoded. GitHub must contain the latest files before running.
+
+The log showed Python 3.13, Torch 2.11.0+cu130, and forced downgrades of installed Transformers/PEFT.
+The source build was stopped with only about four minutes remaining. Installing EvalPlus also pulled unrelated API packages.
+The saved-test path now avoids importing/installing EvalPlus; eight official solutions still pass without third-party packages.
+
+The official release API confirms a v1.7.0 causal_conv1d ready wheel for cu12/torch2.9/ABI TRUE/cp313/linux_x86_64.
+[Convolution library release](https://github.com/Dao-AILab/causal-conv1d/releases/tag/v1.7.0).
+PyTorch publishes the matching 2.9.1/0.24.1/2.9.1 stack on its cu128 index.
+[Official PyTorch installation commands](https://pytorch.org/get-started/previous-versions/).
+
+The revised setup keeps working current kernels first and otherwise selects this published stack.
+Mocked tests confirm both paths. Actual Colab installation and inference still require a real run.
+The revised-workflow budget uses a new v2 ledger and entered current balance rather than charging unobserved calendar hours.
+The previous attempt ledger is preserved; previous paid setup costs are not erased or included in the revised 15-unit allowance.

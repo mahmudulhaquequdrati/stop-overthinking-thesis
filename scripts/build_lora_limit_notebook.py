@@ -1,15 +1,11 @@
-"""Build small Notebook 21 with scripts, frozen IDs, and first-attempt scores.
+"""Build Notebook 21 in the same readable GitHub/Drive style as notebooks 18–20.
 
 The notebook needs only Colab, Drive, and the existing LoRA-1 weight file.
 Tests are loaded externally, as in the earlier notebooks, and cached on Drive.
 """
-import base64
 import csv
 import hashlib
-import io
 import json
-import zlib
-import zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -19,7 +15,7 @@ SCRIPT_NAMES=['models.py','prompts.py','build_problem_set.py','gen_colab.py',
     'run_lora_limit.py','compare_lora_limit.py','prepare_lora_limit_data.py']
 
 
-def make_payload():
+def make_inputs():
     problems=[]
     for relative in ['data/problems.json','results/extra/extra-lcb.json','results/more/more-lcb.json']:
         problems+=json.loads((ROOT/relative).read_text())['problems']
@@ -87,366 +83,350 @@ def make_payload():
     files['data/manifest.json']=json.dumps({'files':{k:hashlib.sha256(v).hexdigest() for k,v in files.items()},
         'problem_ids':sorted(ids),'training_ids':sorted(training),'created':'2026-10-14',
         'humanevalplus_revision':he_revision},indent=2).encode()
-    buf=io.BytesIO()
-    with zipfile.ZipFile(buf,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
-        for name,body in sorted(files.items()):
-            info=zipfile.ZipInfo(name,date_time=(2026,10,14,0,0,0))
-            info.compress_type=zipfile.ZIP_DEFLATED
-            archive.writestr(info,body,compresslevel=6)
-    return buf.getvalue()
-
+    return files
 
 def build():
-    payload=make_payload();encoded=base64.b64encode(payload).decode()
+    files=make_inputs()
+    inputs=ROOT/'results/lora-limit-inputs'
+    inputs.mkdir(parents=True,exist_ok=True)
+    for name,body in files.items():
+        if name.startswith('data/'):
+            (inputs/name.removeprefix('data/')).write_bytes(body)
+    previous=json.loads((ROOT/'notebooks/21_2b_lora1_limit1024.ipynb').read_text())
+    # Keep the tested worker/report/disconnect cells, without any embedded bundle.
+    old_code={}
+    for i,c in enumerate(previous['cells']):
+        if c['cell_type']=='code':
+            source=''.join(c['source'])
+            if source.startswith('GENERATION_COMPLETE'):old_code['generate']=source
+            if source.startswith('GRADING_COMPLETE'):old_code['grade']=source
+            if 'ZIP_BASE = ' in source:old_code['finish']=source
     cells=[]
-    def md(text):cells.append({'cell_type':'markdown','metadata':{},'source':text.strip()+'\n'})
-    def code(text):cells.append({'cell_type':'code','metadata':{},'execution_count':None,'outputs':[],'source':text.strip()+'\n'})
+    def md(text):cells.append(dict(cell_type='markdown',metadata={},source=text.strip()+'\n'))
+    def code(text):cells.append(dict(cell_type='code',metadata={},source=text.strip()+'\n',outputs=[],execution_count=None))
     md('''# 21 — 2B LoRA-1 + thinking limit 1,024
 
-Choose **A100 GPU**, then **Runtime → Run all**.
-This asks one new way on **464 unique problems**, once each. It does no training.
-A *LoRA* is a small trained add-on. A *token* is a small piece of text.
+Use **A100 → Runtime → Run all**, like notebooks 18, 19, and 20.
+The cells are readable. There is no Base64 bundle or large string.
+The notebook gets code and frozen input files from the project on GitHub.
+**Push the latest notebook, scripts, and `results/lora-limit-inputs/` first.**
 
-Before starting, put your existing **LoRA-1** weight file here:
+It answers **464 unique problems, one attempt each**, using existing LoRA-1.
+A LoRA is a trained add-on. A token is a small piece of text.
+No new training or other model is run.
+
+The original lora100 weight file must be here:
 
 `MyDrive/stop-overthinking/results/mini/lora/lora100/adapter_model.safetensors`
 
-Use the file from the original **lora100** training run, not LoRA-2.
-The correct adapter configuration is included. Do not rename a different adapter's weights.
-This small notebook includes its scripts, frozen questions/IDs, and saved comparison scores.
-Like the earlier notebooks, it loads the tests from Hugging Face and saved project files.
-It checks their contents and caches the full problem set on Drive for later resumes.
-No separate test ZIP or extra code upload is required.
+Allow Drive access. Enter the units-per-hour rate and your current unit balance.
+The rate in your screenshot was **6.77**, not the remaining balance.
+This revised workflow has a **15-unit estimated cap**. Earlier failed setup costs are separate.
+It keeps the old ledger for reference and uses a new ledger with actual balance checks.
+On resumes, it accounts for balance changes instead of guessing disconnected hours.
 
-Allow Drive access when asked. Enter Colab's displayed **compute units per hour** when asked.
-You do not need to edit code. The run has a **15-unit estimated cap**, including setup.
-Colab's balance cannot be read here; the cap uses the rate you enter.
-Use a fresh runtime. Saved outputs let interrupted runs continue.
+Setup uses compatible installed packages and ready GPU-library wheels.
+If the newest PyTorch has no wheel, it uses PyTorch 2.9.1 + CUDA 12.8 with a published wheel.
+It does not attempt a long source compilation. Package installation is not inference-tested locally.
 
 ```text
-Existing LoRA-1 → thinking capped at 1,024 → Python code → tests → comparison report
+GPU + Drive → GitHub → install → fast-library check → frozen problems
+            → existing LoRA + limit → tests → comparison → saved ZIP
 ```
 
-**Research question:** does LoRA + limit beat the original 2B + the same limit?
-**Hypothesis:** combining them raises accuracy or saves total tokens at similar accuracy.
-**What changes:** load the existing LoRA; keep the limit and generation rules.
-**What we measure:** test passing, total tokens, thinking tokens, and shared-problem gaps.
-**Comparison:** saved first attempts for limit, LoRA without limit, OFF, and ON.
-**Data:** 464 problems; LoRA without limit has 424 reference results.
-**Metric:** one attempt per problem; compare on shared problem IDs, with uncertainty.
-**Support:** an accuracy gain with a positive interval, or comparable accuracy with fewer tokens.
-**Contradiction:** no gain, worse accuracy, or higher cost without useful accuracy gains.
+**Question:** does LoRA + limit improve on original 2B + the same limit?
+**Hypothesis:** higher accuracy, or similar accuracy with fewer total tokens.
+**What changes:** add LoRA-1 to the existing 1,024-token limit.
+**Measures:** passing tests, thinking/total tokens, and paired uncertainty.
+**Main comparison:** saved first attempts from original 2B + limit.
+**Data:** 464 problems; uncapped LoRA-1 has 424 reference problems.
+**Support:** positive accuracy-gap interval, or useful token savings with similar accuracy.
+**Contradiction:** no useful gain, worse accuracy, or more cost without improvement.
 
-We are in **EXPERIMENT → DATA → RESULTS**. This is a retrospective extension.
-Package versions and batch layouts differ from historical runs; the same seed does not erase that limitation.
+This is a retrospective extension. Historical package versions and batches can differ.
+Matching seeds does not make those differences disappear.
 ''')
-    md('''## 1. Check GPU, Drive, weights, and budget
+    md('''## 0. Fixed experiment settings
 
-**Problem:** avoid downloading a model when the weight file or GPU is missing.
-**Why:** these failures previously wasted setup time.
-**Input:** your A100, Drive folder, and displayed unit rate.
-**Output:** checked paths and a saved budget ledger.
-**Choice:** stop early instead of silently switching to temporary storage.''')
-    code('''import os, sys, json, time, math, subprocess, hashlib, signal
+**Problem:** avoid accidentally running training or another model.
+**Why:** test only the new combination at low cost.
+**Input:** the agreed model, limit, and budget.
+**Output:** fixed settings for every later cell.
+**Choice:** one attempt, one model, and one thinking limit.''')
+    code('''MODEL_PROFILE = "qwen35_2b"
+WAY = "lora1-limit1024"
+THINK_BUDGET = 1024
+N_PROBLEMS = 464
+TRIES = 1
+UNIT_CAP = 15.0
+RESERVE_UNITS = 1.5
+GENERATION_RESERVE_UNITS = 3.0
+print("2B LoRA-1 + limit1024 only • 464 problems • one attempt • no training")
+''')
+    md('''## 1. GPU, Drive, and GitHub
+
+**Problem:** missing weights, code, or Drive caused earlier failures.
+**Why:** check them before downloading the model.
+**Input:** your A100, original LoRA-1, and current Colab resource values.
+**Output:** the project checkout and persistent result/budget paths.
+**Choice:** follow the GitHub/Drive pattern of notebook 20 and stop on missing inputs.''')
+    code('''import os, sys, json, time, math, subprocess, hashlib, signal, shutil
 from pathlib import Path
-STARTED = time.time()
-GPU_INFO = subprocess.run(["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader,nounits"], capture_output=True, text=True)
-if GPU_INFO.returncode != 0:
-    raise RuntimeError("No NVIDIA GPU. Choose Runtime → Change runtime type → A100 GPU.")
-GPU, MEMORY = [x.strip() for x in GPU_INFO.stdout.strip().splitlines()[0].split(",")]
+os.chdir("/content")
+gpu_check = subprocess.run(["nvidia-smi", "--query-gpu=name,memory.total", "--format=csv,noheader,nounits"], capture_output=True, text=True)
+if gpu_check.returncode:
+    raise RuntimeError("Choose A100 GPU in Runtime → Change runtime type.")
+GPU, MEMORY = [x.strip() for x in gpu_check.stdout.strip().splitlines()[0].split(",")]
 GPU_GB = float(MEMORY) / 1024
 if "A100" not in GPU or GPU_GB < 35:
-    raise RuntimeError(f"This notebook is checked for A100, but got {GPU} ({GPU_GB:.0f} GB). Select A100.")
-print(f"GPU: {GPU} ({GPU_GB:.0f} GB)")
+    raise RuntimeError(f"Expected A100, got {GPU} ({GPU_GB:.0f} GB).")
+BATCH = 128 if GPU_GB >= 70 else 64
+print(f"GPU: {GPU} ({GPU_GB:.0f} GB) • batch {BATCH}")
 from google.colab import drive
 drive.mount("/content/drive")
 DRIVE = Path("/content/drive/MyDrive/stop-overthinking")
 ADAPTER_SOURCE = DRIVE / "results/mini/lora/lora100/adapter_model.safetensors"
 if not ADAPTER_SOURCE.is_file() or ADAPTER_SOURCE.stat().st_size < 1024:
-    raise RuntimeError("Missing LoRA-1 weights. Copy the original lora100 adapter_model.safetensors to: " + str(ADAPTER_SOURCE))
+    raise RuntimeError("Missing original lora100 weight file: " + str(ADAPTER_SOURCE))
 OUT = DRIVE / "results/lora-limit-2b"
 OUT.mkdir(parents=True, exist_ok=True)
-PROBE = OUT / ".write-check"
-PROBE.write_text("ok"); PROBE.unlink()
-raw_rate = input("Enter compute units per hour shown by Colab for this A100: ").strip()
-try:
-    UNIT_RATE = float(raw_rate)
-except ValueError:
-    raise RuntimeError("Enter the displayed numeric rate, for example 6.77. Then rerun this cell.")
-if not math.isfinite(UNIT_RATE) or not 0 < UNIT_RATE <= 120:
-    raise RuntimeError("The rate must be a positive number from Colab's resource display.")
-UNIT_CAP = 15.0
-RESERVE_UNITS = 1.5  # Save time for reports and closing the session.
-GENERATION_RESERVE_UNITS = 3.0  # Keep grading time available.
-BATCH = 128 if GPU_GB >= 70 else 64
-LEDGER = OUT / "compute-ledger.json"
+probe = OUT / ".write-check"; probe.write_text("ok"); probe.unlink()
+
+def resource_number(prompt):
+    try:
+        value = float(input(prompt).strip())
+    except ValueError:
+        raise RuntimeError("Enter the number shown by Colab, then rerun this cell.")
+    if not math.isfinite(value) or value <= 0:
+        raise RuntimeError("Enter a positive number shown by Colab.")
+    return value
+UNIT_RATE = resource_number("Compute units per hour (your screenshot showed 6.77): ")
+AVAILABLE_NOW = resource_number("Available compute units right now (the balance, not the rate): ")
+LEDGER = OUT / "compute-ledger-v2.json"
+OLD_LEDGER = OUT / "compute-ledger.json"
+if OLD_LEDGER.exists():
+    print("Keeping the previous attempt ledger unchanged:", OLD_LEDGER)
+if LEDGER.exists():
+    budget = json.loads(LEDGER.read_text())
+    # The user's fresh resource balance includes idle/disconnected usage.
+    BASE_USED = max(float(budget.get("estimated_units", 0)), float(budget["initial_balance"]) - AVAILABLE_NOW, 0.0)
+else:
+    budget = {"version": 2, "initial_balance": AVAILABLE_NOW, "sessions": 0}
+    BASE_USED = 0.0
+SESSION_START = time.monotonic()
+budget.update(estimated_units=BASE_USED, unit_rate=UNIT_RATE, unit_cap=UNIT_CAP,
+              sessions=budget.get("sessions", 0) + 1, gpu=GPU, active=True,
+              note="Revised workflow only. Estimate includes current-session time and confirmed balance changes on resume.")
 def save_ledger(value):
     tmp = LEDGER.with_suffix(".tmp")
     with tmp.open("w") as f:
         json.dump(value, f, indent=2); f.flush(); os.fsync(f.fileno())
     os.replace(tmp, LEDGER)
-if LEDGER.exists():
-    budget = json.loads(LEDGER.read_text())
-    if budget.get("active"):
-        # If the last session vanished, conservatively count the unobserved interval.
-        budget["estimated_units"] = min(UNIT_CAP, budget["estimated_units"] + max(0, STARTED - budget["last_tick"]) / 3600 * budget["unit_rate"])
-else:
-    budget = {"estimated_units": 0.0, "sessions": 0, "active": False}
-budget.update(unit_rate=UNIT_RATE, unit_cap=UNIT_CAP, last_tick=STARTED, active=True,
-              sessions=budget.get("sessions", 0) + 1, gpu=GPU, note="Estimated wall-clock usage, not Colab's billing balance.")
-save_ledger(budget)
 def tick():
-    now = time.time()
-    budget["estimated_units"] += max(0, now - budget["last_tick"]) / 3600 * UNIT_RATE
-    budget["last_tick"] = now
+    budget["estimated_units"] = BASE_USED + (time.monotonic() - SESSION_START) / 3600 * UNIT_RATE
     save_ledger(budget)
 def remaining_seconds(reserve=RESERVE_UNITS):
     tick()
-    return max(0.0, (UNIT_CAP - reserve - budget["estimated_units"]) / UNIT_RATE * 3600)
+    return max(0.0, (min(UNIT_CAP - budget["estimated_units"], AVAILABLE_NOW - (budget["estimated_units"] - BASE_USED)) - reserve) / UNIT_RATE * 3600)
+save_ledger(budget)
 if remaining_seconds() < 60:
-    budget["active"] = False; save_ledger(budget)
-    raise RuntimeError("This experiment's budget is exhausted. Saved answers are safe; do not reset the ledger to bypass the cap.")
-print(f"LoRA-1 found. Estimated used: {budget['estimated_units']:.2f}/{UNIT_CAP:.0f} units. Batch: {BATCH}.")
-''')
-    md('''## 2. Unpack the small code and question bundle
+    raise RuntimeError("Not enough budget left for this run. Saved work is safe; review the ledger and Colab balance.")
 
-**Problem:** GitHub code or local data can be missing.
-**Why:** the notebook should work without a repository update.
-**Input:** the small compressed bundle included below.
-**Output:** scripts, frozen questions/IDs, and reference scores in `/content/lora-limit-21`.
-**Choice:** keep tests outside the notebook, check files, then copy the weight locally.''')
-    code('''import base64, io, zipfile, shutil
-WORK = Path("/content/lora-limit-21")
-WORK.mkdir(parents=True, exist_ok=True)
-BUNDLE = "'''+encoded+'''"
-PAYLOAD_SHA256 = "'''+hashlib.sha256(payload).hexdigest()+'''"
-packed = base64.b64decode(BUNDLE)
-if hashlib.sha256(packed).hexdigest() != PAYLOAD_SHA256:
-    raise RuntimeError("Notebook bundle is incomplete. Upload the original notebook again.")
-with zipfile.ZipFile(io.BytesIO(packed)) as archive:
-    for member in archive.infolist():
-        dest = (WORK / member.filename).resolve()
-        if not dest.is_relative_to(WORK.resolve()):
-            raise RuntimeError("Unsafe bundle path")
-    archive.extractall(WORK)
-manifest = json.loads((WORK / "data/manifest.json").read_text())
+REPO = "https://github.com/mahmudulhaquequdrati/stop-overthinking-thesis.git"
+WORK = Path("/content/thesis")
+if not (WORK / ".git").exists():
+    subprocess.run(["git", "clone", "--depth", "1", "--branch", "master", REPO, str(WORK)], check=True, timeout=300)
+else:
+    subprocess.run(["git", "-C", str(WORK), "pull", "--ff-only", "origin", "master"], check=True, timeout=300)
+INPUTS = WORK / "results/lora-limit-inputs"
+need = [WORK / "scripts/run_lora_limit.py", WORK / "scripts/prepare_lora_limit_data.py",
+        WORK / "scripts/compare_lora_limit.py", INPUTS / "manifest.json"]
+if any(not p.exists() for p in need):
+    raise RuntimeError("GitHub is missing this revision's input files/scripts. Push the latest project changes, then reopen this notebook.")
+manifest = json.loads((INPUTS / "manifest.json").read_text())
 for name, wanted in manifest["files"].items():
-    if hashlib.sha256((WORK / name).read_bytes()).hexdigest() != wanted:
-        raise RuntimeError("Bundled file failed its check: " + name)
-PROBLEMS = WORK / "data/problems-464.json"
-BASELINES = WORK / "data/baselines-first-attempt.json"
-problems = json.loads((WORK / "data/problem-templates.json").read_text())["problems"]
-ids = {p["task_id"] for p in problems}
-assert len(problems) == len(ids) == 464
-assert ids == set(manifest["problem_ids"])
-assert not ids.intersection(manifest["training_ids"])
-assert sum(p["source"] == "humaneval" for p in problems) == 164
-ADAPTER = WORK / "adapter-lora1"
-ADAPTER.mkdir(exist_ok=True)
+    path = WORK / name if name.startswith("scripts/") else INPUTS / Path(name).name
+    if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != wanted:
+        raise RuntimeError("GitHub code/input revision does not match its manifest: " + name)
+ADAPTER = Path("/content/lora-limit-21/adapter-lora1")
+ADAPTER.mkdir(parents=True, exist_ok=True)
 shutil.copy2(ADAPTER_SOURCE, ADAPTER / "adapter_model.safetensors")
-shutil.copy2(WORK / "data/adapter_config.json", ADAPTER / "adapter_config.json")
+shutil.copy2(INPUTS / "adapter_config.json", ADAPTER / "adapter_config.json")
+PROBLEMS = Path("/content/lora-limit-21/problems-464.json")
+BASELINES = INPUTS / "baselines-first-attempt.json"
+WHEELS = DRIVE / "wheels"; WHEELS.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(WORK / "scripts"))
 os.chdir(WORK)
-print("Checked 464 frozen questions/IDs, comparison files, and scripts. Tests load after package setup. Training ID overlap: zero.")
+print("GitHub, Drive, LoRA weights, and input manifest checked.")
+print(f"Revised-run budget used: {budget['estimated_units']:.2f}/{UNIT_CAP:.0f} units.")
 ''')
-    md('''## 3. Install and check inference packages
+    md('''## 2. Helpers with logs and a budget stop
 
-**Problem:** slow or mismatched GPU libraries can waste the budget.
-**Why:** Qwen3.5 needs fast linear-attention and convolution kernels.
-**Input:** the current Colab Python, PyTorch, and cached wheels.
-**Output:** fresh-process import checks and a saved package list.
-**Choice:** use the existing successful notebook's wheel repair approach, with time limits.
-Only inference and grading packages are installed. Training libraries are unnecessary.''')
-    code('''def run_process(command, tag, timeout=1200, reserve=RESERVE_UNITS):
-    allowed = min(timeout, remaining_seconds(reserve))
-    if allowed < 30:
-        print(f"Budget stop before {tag}; saved work is safe.")
-        return False
-    log = OUT / (tag + ".log")
-    print("Starting", tag, "• maximum", round(allowed / 60, 1), "minutes", flush=True)
-    with log.open("a", buffering=1) as stream:
-        position = log.stat().st_size
-        proc = subprocess.Popen(command, cwd=WORK, stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
-        started = time.monotonic()
-        try:
-            while proc.poll() is None:
-                tick()
-                if time.monotonic() - started >= allowed or remaining_seconds(reserve) <= 0:
-                    os.killpg(proc.pid, signal.SIGTERM)
-                    try:
-                        proc.wait(timeout=5)
-                    except subprocess.TimeoutExpired:
-                        os.killpg(proc.pid, signal.SIGKILL); proc.wait()
-                    print(f"Stopped {tag} at the time/budget limit. Log: {log}")
-                    return False
-                with log.open() as reader:
-                    reader.seek(position); tail = reader.read(); position = reader.tell()
-                if tail:
-                    print(tail[-3000:], end="", flush=True)
-                time.sleep(3)
-        except BaseException:
-            if proc.poll() is None:
-                os.killpg(proc.pid, signal.SIGTERM)
-                try:
-                    proc.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    os.killpg(proc.pid, signal.SIGKILL); proc.wait()
-            raise
-        finally:
-            tick()
-    if proc.returncode != 0:
-        tail = log.read_text(errors="replace")[-5000:]
-        raise RuntimeError(f"{tag} failed. Saved work is safe. Last log lines:\\n{tail}")
-    return True
+**Problem:** an install or GPU job can run longer than expected.
+**Why:** protect the remaining compute balance.
+**Input:** commands and their time estimates.
+**Output:** logs on Drive and saved budget updates.
+**Choice:** monitor worker processes and preserve completed work on a stop.''')
+    # Reuse the already tested supervisor, with no package-install side effects here.
+    import ast
+    supervisor_source=''
+    for c in previous['cells']:
+        text=''.join(c['source'])
+        if c['cell_type']=='code' and text.startswith('def run_process('):
+            tree=ast.parse(text)
+            node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='run_process')
+            supervisor_source=ast.get_source_segment(text,node);break
+    if not supervisor_source:
+        raise RuntimeError('Cannot locate the tested subprocess supervisor in Notebook 21.')
+    code(supervisor_source+'''
 
-def pip_install(*packages, timeout=900):
-    if not run_process([sys.executable, "-m", "pip", "install", "--disable-pip-version-check", *packages], "install-packages", timeout):
-        raise RuntimeError("Setup stopped at its budget/time limit. Inspect the saved log before resuming.")
+def pip_install(*packages, tag="install-packages", timeout=1200):
+    command = [sys.executable, "-m", "pip", "install", "-q", "--disable-pip-version-check", *packages]
+    if not run_process(command, tag, timeout):
+        raise RuntimeError("Setup stopped at the time/budget limit. Read " + str(OUT / (tag + ".log")))
+''')
+    md('''## 3. Install packages
 
-pip_install("transformers==5.15.0", "peft>=0.20.0,<0.21", "accelerate", "safetensors", "evalplus", "datasets", "flash-linear-attention", "ninja", "packaging", "wheel")
-WHEELS = DRIVE / "wheels"
-WHEELS.mkdir(parents=True, exist_ok=True)
-probe = subprocess.run([sys.executable, "-c", "import json, sys, torch; print(json.dumps(dict(torch=torch.__version__.split('+')[0], cuda=torch.version.cuda, abi=str(torch.compiled_with_cxx11_abi()).upper(), py='cp%d%d'%sys.version_info[:2])))"], capture_output=True, text=True)
-if probe.returncode != 0:
-    raise RuntimeError("PyTorch check failed: " + probe.stderr[-1000:])
-info = json.loads(probe.stdout.strip().splitlines()[-1])
-if not info["cuda"]:
-    raise RuntimeError("PyTorch has no CUDA. Reconnect with an A100 runtime.")
-tag = ".".join(info["torch"].split(".")[:2])
-needle = f"+cu{info['cuda'].split('.')[0]}torch{tag}cxx11abi{info['abi']}-{info['py']}-{info['py']}-linux_x86_64.whl"
+**Problem:** the earlier install downgraded working packages and pulled unrelated API dependencies.
+**Why:** we need inference, datasets, and the saved-test graders only.
+**Input:** Colab's installed packages.
+**Output:** compatible inference/data libraries.
+**Choice:** keep supported installed versions; EvalPlus is not needed to run our saved plus-test programs.''')
+    code('''pip_install("transformers>=5.15,<6", "peft>=0.20,<0.22", "accelerate", "safetensors",
+            "datasets", "flash-linear-attention", "ninja", "packaging", "wheel")
+print("Package installation finished. Model download has not started.")
+''')
+    md('''## 4. Fast path — cached or released wheel, like notebook 20
+
+**Problem:** the latest PyTorch/CUDA combination may have no ready convolution wheel.
+**Why:** source compilation used the remaining setup time in your log.
+**Input:** Python, PyTorch, CUDA, and saved/released wheel files.
+**Output:** working fast libraries, checked in fresh processes.
+**Choice:** try the current environment first; use a published compatible PyTorch stack if needed.
+No source build is started.''')
+    code('''import urllib.request
+
+def torch_info():
+    probe = "import json,sys,torch; print(json.dumps(dict(ver=torch.__version__.split('+')[0], cuda=(torch.version.cuda or '').split('.')[0], abi=str(torch.compiled_with_cxx11_abi()).upper(), py='cp%d%d'%sys.version_info[:2])))"
+    checked = subprocess.run([sys.executable, "-c", probe], capture_output=True, text=True, timeout=90)
+    if checked.returncode:
+        raise RuntimeError("PyTorch check failed: " + checked.stderr[-1500:])
+    info = json.loads(checked.stdout.strip().splitlines()[-1])
+    info["tag"] = ".".join(info["ver"].split(".")[:2])
+    if not info["cuda"]:
+        raise RuntimeError("PyTorch has no CUDA. Choose a fresh A100 runtime.")
+    return info
+
 def fast_check():
-    return subprocess.run([sys.executable, "-c", "import causal_conv1d, fla; from transformers.models.qwen3_5.modeling_qwen3_5 import Qwen3_5ForCausalLM"], capture_output=True, text=True)
-check = fast_check()
-if check.returncode != 0:
-    candidates = sorted(p for p in WHEELS.glob("causal_conv1d*.whl") if needle in p.name)
-    if not candidates:
-        try:
-            import urllib.request
-            request = urllib.request.Request("https://api.github.com/repos/Dao-AILab/causal-conv1d/releases/latest", headers={"User-Agent": "thesis-notebook-21"})
-            with urllib.request.urlopen(request, timeout=30) as response:
-                release = json.load(response)
-            asset = next((a for a in release.get("assets", []) if needle in a["name"]), None)
-            if asset:
-                dest = WHEELS / asset["name"]
-                download_code = "import urllib.request; urllib.request.urlretrieve(" + repr(asset["browser_download_url"]) + ", " + repr(str(dest)) + ")"
-                if run_process([sys.executable, "-c", download_code], "download-wheel", 300):
-                    candidates = [dest]
-        except Exception as error:
-            print("Ready-wheel lookup failed:", type(error).__name__, str(error)[:200])
-    if candidates:
-        pip_install("--no-deps", str(candidates[0]))
-    check = fast_check()
-    if check.returncode != 0:
-        print("Building a matching convolution wheel; maximum 10 minutes.")
-        if not run_process([sys.executable, "-m", "pip", "wheel", "causal-conv1d", "--no-build-isolation", "--no-deps", "-w", str(WHEELS)], "build-wheel", 600):
-            raise RuntimeError("Fast-kernel build exceeded its setup budget. See build-wheel.log; no model answers were requested.")
-        candidates = sorted(p for p in WHEELS.glob("causal_conv1d*.whl") if needle in p.name)
-        if not candidates:
-            raise RuntimeError("The wheel built, but its PyTorch/CUDA tag does not match this runtime.")
-        pip_install("--no-deps", str(candidates[0]))
-check = fast_check()
-if check.returncode != 0:
-    raise RuntimeError("Fast GPU libraries failed to import. Model generation stopped to avoid a slow run. " + check.stderr[-1500:])
-if not run_process([sys.executable, "-m", "pip", "freeze"], "package-versions", 60):
-    raise RuntimeError("Budget exhausted during package checks.")
-print("FAST PATH ON. Qwen3.5 imports correctly.")
-''')
-    md('''## 4. Load the problem set, like the earlier notebooks
+    probe = "import causal_conv1d, fla; from transformers.models.qwen3_5.modeling_qwen3_5 import Qwen3_5ForCausalLM"
+    return subprocess.run([sys.executable, "-c", probe], capture_output=True, text=True, timeout=120)
 
-**Problem:** the large tests should not be stored inside an ipynb.
-**Why:** keep uploads and Git changes small without changing the exam.
-**Input:** frozen questions, pinned Hugging Face releases, and the project's saved contest lists.
-**Output:** exactly 464 problems with the correct tests, cached on Drive.
-**Choice:** reuse a checked cache; otherwise load externally and verify the complete set before generation.''')
+def wheel_tail(info):
+    return f"+cu{info['cuda']}torch{info['tag']}cxx11abi{info['abi']}-{info['py']}-{info['py']}-linux_x86_64.whl"
+
+request = urllib.request.Request("https://api.github.com/repos/Dao-AILab/causal-conv1d/releases/tags/v1.7.0", headers={"User-Agent": "thesis-notebook-21"})
+assets = None
+def released_wheel(info):
+    global assets
+    if assets is None:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            assets = json.load(response).get("assets", [])
+    return next((a for a in assets if wheel_tail(info) in a["name"]), None)
+
+def install_ready(info):
+    saved = sorted(p for p in WHEELS.glob("causal_conv1d*.whl") if wheel_tail(info) in p.name)
+    if saved:
+        try:
+            pip_install("--no-deps", str(saved[0]), tag="install-convolution")
+            if fast_check().returncode == 0:
+                return True
+        except RuntimeError as error:
+            print("Saved wheel did not load:", str(error)[-500:])
+    asset = released_wheel(info)
+    if not asset:
+        return False
+    dest = WHEELS / asset["name"]
+    temporary = str(dest) + ".part"
+    download = "import urllib.request,os; urllib.request.urlretrieve(" + repr(asset["browser_download_url"]) + ", " + repr(temporary) + "); os.replace(" + repr(temporary) + ", " + repr(str(dest)) + ")"
+    if not run_process([sys.executable, "-c", download], "download-wheel", 300):
+        raise RuntimeError("Wheel download exceeded the remaining setup time.")
+    pip_install("--no-deps", str(dest), tag="install-convolution")
+    return fast_check().returncode == 0
+
+info = torch_info()
+print("Current environment:", info)
+check = fast_check()
+if check.returncode != 0 and not install_ready(info):
+    print("No compatible ready wheel for this PyTorch/CUDA. Selecting a published ready-wheel stack.")
+    target = dict(ver="2.9.1", tag="2.9", cuda="12", abi="TRUE", py=info["py"])
+    if not released_wheel(target):
+        raise RuntimeError("No published wheel for this Python version. Stop here; no source compilation is attempted.")
+    pip_install("torch==2.9.1", "torchvision==0.24.1", "torchaudio==2.9.1",
+                "--index-url", "https://download.pytorch.org/whl/cu128", tag="compatible-pytorch")
+    info = torch_info()
+    print("Compatible environment:", info)
+    if not install_ready(info):
+        raise RuntimeError("The compatible wheel did not load. See saved logs; model generation has not started.")
+check = fast_check()
+if check.returncode != 0:
+    raise RuntimeError("FAST PATH OFF: " + check.stderr[-2000:])
+print("FAST PATH ON")
+run_process([sys.executable, "-m", "pip", "freeze"], "package-versions", 60)
+os.chdir(WORK)
+''')
+    md('''## 5. Load the same 464 problems
+
+**Problem:** downloaded lists or tests must not change the exam.
+**Why:** compare the same questions with the original saved results.
+**Input:** frozen project IDs/questions, pinned datasets, and the Drive cache.
+**Output:** verified HumanEval+ and LiveCodeBench tests.
+**Choice:** load external problem files like earlier notebooks, check them, and reuse the cache.''')
     code('''DATA_CACHE = DRIVE / "results/lora-limit-2b-inputs"
 prepare_command = [sys.executable, str(WORK / "scripts/prepare_lora_limit_data.py"),
-    "--manifest", str(WORK / "data/data-manifest.json"),
-    "--templates", str(WORK / "data/problem-templates.json"),
+    "--manifest", str(INPUTS / "data-manifest.json"), "--templates", str(INPUTS / "problem-templates.json"),
     "--cache", str(DATA_CACHE), "--out", str(PROBLEMS)]
 if not run_process(prepare_command, "prepare-data", 900):
-    raise RuntimeError("Data preparation stopped. The checked cache can be reused next time.")
+    raise RuntimeError("Problem loading stopped; cached files and saved results are safe.")
 problems = json.loads(PROBLEMS.read_text())["problems"]
 assert len(problems) == len({p["task_id"] for p in problems}) == 464
+assert set(p["task_id"] for p in problems) == set(manifest["problem_ids"])
+assert not set(manifest["problem_ids"]).intersection(manifest["training_ids"])
 assert all(p.get("test_plus") for p in problems if p["source"] == "humaneval")
 assert all(0 < len(p["tests"]) <= 20 for p in problems if p["source"] == "lcb")
 if not run_process([sys.executable, str(WORK / "scripts/grade_plus.py"), "--problems", str(PROBLEMS), "--source", "humaneval", "--check-official", "8"], "check-grader", 300):
-    raise RuntimeError("No time for the official-solution grader check; generation will not start.")
-print("464 problems verified. Official-solution grader check passed.")
+    raise RuntimeError("Not enough time for the official-solution check.")
+print("464 problems checked. Official-solution grader check passed.")
 ''')
-    md('''## 5. Run the one new combination
+    md('''## 6. Answer the new combination only
 
-**Problem:** find whether the trained add-on benefits from the same thinking limit.
-**Why:** this tests the missing combination without training again.
-**Input:** frozen problems, existing LoRA-1, and a 1,024-token thinking budget.
+**Problem:** measure LoRA-1 with the same limit as the free control.
+**Why:** a win over unlimited thinking alone would not establish training's added value.
+**Input:** the existing adapter and 464 checked problems.
 **Output:** raw answers saved individually to Drive.
-**Choice:** check the first 16 across task types, then continue automatically.
-Those 16 count toward the 464; no extra pilot answers are bought.
-Resuming skips saved answers. Different resumed batch layouts can change later random draws.''')
-    code('''GENERATION_COMPLETE = False
-worker = [sys.executable, str(WORK / "scripts/run_lora_limit.py"), "--problems", str(PROBLEMS), "--out", str(OUT), "--batch", str(BATCH)]
-try:
-    GENERATION_COMPLETE = run_process(worker + ["--phase", "generate", "--adapter", str(ADAPTER)], "generate", timeout=24*3600, reserve=GENERATION_RESERVE_UNITS)
-except Exception as error:
-    print("Generation stopped:", str(error)[-5000:])
-    print("The next cells will grade saved answers and make a partial report.")
-print("Generation completed:", GENERATION_COMPLETE)
-''')
-    md('''## 6. Grade saved answers and compare
+**Choice:** first 16 check execution; they count toward the total. Saved answers are skipped on resume.''')
+    code(old_code['generate'])
+    md('''## 7. Grade and compare
 
-**Problem:** saved text alone cannot establish accuracy.
-**Why:** only benchmark tests can mark the code.
-**Input:** saved answers and the bundled benchmark tests.
-**Output:** resumable graded CSVs, `SUMMARY.md`, and `summary.json`.
-**Choice:** grade code in separate timed processes, and compare first attempts on shared IDs.
-HumanEval+ uses the plus tests; LiveCodeBench uses the original saved tests, up to 20 per problem.''')
-    code('''GRADING_COMPLETE = False
-try:
-    GRADING_COMPLETE = run_process(worker + ["--phase", "grade"], "grade", timeout=24*3600, reserve=RESERVE_UNITS)
-except Exception as error:
-    print("Grading stopped:", str(error)[-5000:])
-    print("Finished grades remain saved; the report will show partial coverage.")
-report_command = [sys.executable, str(WORK / "scripts/compare_lora_limit.py"), "--out", str(OUT), "--problems", str(PROBLEMS), "--baselines", str(BASELINES)]
-if not run_process(report_command, "compare", timeout=120, reserve=0.1):
-    print("No time for the comparison report. Saved raw answers and grades can be analyzed later without GPU generation.")
-summary_file = OUT / "SUMMARY.md"
-if summary_file.exists():
-    from IPython.display import display, Markdown
-    display(Markdown(summary_file.read_text()))
-print("Outputs saved:", OUT)
-''')
-    md('''## 7. Save a download and release the GPU
+**Problem:** text alone cannot establish correctness.
+**Why:** benchmark tests decide whether code passes.
+**Input:** saved raw answers and the actual tests.
+**Output:** resumable grades and a comparison report using shared problem IDs.
+**Choice:** use separate timed processes and saved first attempts for the references.''')
+    code(old_code['grade'])
+    md('''## 8. Save a ZIP and release the GPU
 
-**Problem:** leaving a paid runtime connected wastes units.
-**Why:** the data is already saved on Drive.
-**Input:** this experiment's outputs and its budget ledger.
-**Output:** a ZIP on Drive, a download prompt, and a disconnected GPU.
-**Choice:** release the runtime automatically after saving the report.
-If an earlier setup cell fails, choose **Runtime → Disconnect and delete runtime** yourself.
-If the last session ended unexpectedly, the ledger conservatively counts the unobserved interval.''')
-    code('''tick()
-budget["active"] = False
-save_ledger(budget)
-ZIP_BASE = DRIVE / "results/lora-limit-2b-download"
-try:
-    shutil.make_archive(str(ZIP_BASE), "zip", root_dir=OUT)
-    from google.colab import files
-    print("Results ZIP:", str(ZIP_BASE) + ".zip")
-    files.download(str(ZIP_BASE) + ".zip")
-except Exception as error:
-    print("Download was not started:", type(error).__name__, str(error)[:200])
-    print("Your results are still saved on Drive:", OUT)
-finally:
-    print(f"Estimated charged time: {budget['estimated_units']:.2f}/{UNIT_CAP:.0f} units at the rate you entered.")
-    print("Disconnecting this GPU runtime now. Reopen the same notebook to resume a partial run.")
-    from google.colab import runtime
-    runtime.unassign()
-''')
-    notebook={'cells':cells,'metadata':{'accelerator':'GPU','colab':{'name':OUT.name,'provenance':[]},
+**Problem:** leaving a paid session connected uses units.
+**Why:** Drive already holds the completed work.
+**Input:** raw outputs, grades, reports, and the revised-run ledger.
+**Output:** a results ZIP and a released GPU.
+**Choice:** disconnect automatically after successful completion. If an earlier cell fails, disconnect manually.''')
+    code(old_code['finish'])
+    for i,c in enumerate(cells):c['id']=f'lora-limit-21-{i:02d}'
+    notebook=dict(cells=cells,metadata={'accelerator':'GPU','colab':{'name':OUT.name,'provenance':[]},
         'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},
-        'language_info':{'name':'python'},'gpuClass':'premium'},'nbformat':4,'nbformat_minor':5}
-    for i,cell in enumerate(cells):cell['id']=f'lora-limit-21-{i:02d}'
+        'language_info':{'name':'python'},'gpuClass':'premium'},nbformat=4,nbformat_minor=5)
     OUT.write_text(json.dumps(notebook,indent=1)+'\n')
-    print(f'Built {OUT.name}: {len(cells)} cells, {OUT.stat().st_size/1e6:.1f} MB; frozen bundle {len(payload)/1e6:.1f} MB.')
+    print(f'Built readable Notebook 21: {len(cells)} cells, {OUT.stat().st_size/1000:.1f} KB; input files external.')
     return notebook
 
 if __name__=='__main__':build()
