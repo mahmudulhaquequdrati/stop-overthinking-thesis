@@ -1,14 +1,21 @@
 # 2B LoRA-1 with a 1,024-token thinking limit
 
-## Latest real-run status
+## Completed result and next step — 14 October 2026
 
-The first GPU attempt produced **0/464 answers**. LoRA loading failed on TorchAO 0.10.0.
-The failed attempt reported **11.31/15 estimated units**.
-The user subsequently approved a **45-unit total ceiling** to finish all 464 problems.
-Recorded usage and all old logs remain saved.
-The fixed revision removes unused TorchAO, checks PEFT injection on CPU first,
-skips empty grading, and reports FAILED. The full run has not succeeded yet.
-Read [the failure explanation](47-notebook21-torchao-failure.md) before spending more units.
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](../results/lora-limit-2b/README.md) · [Exact missing IDs and plan](../results/lora-missing40/PLAN.md).
+
+The earlier zero-answer TorchAO failure is preserved in the failure notes.
 
 ## The step in two sentences
 
@@ -155,7 +162,7 @@ An interval that crosses zero is inconclusive, not proof that the methods are eq
 Saved historical references have package and batch differences; matching seeds does not remove them.
 This is a retrospective extension, not a fresh held-out evaluation.
 
-## Checked versus not run
+## Local checks and later completed run
 
 Checked locally: notebook cell syntax; embedded file hashes; 464 distinct problem IDs;
 training ID separation; all HumanEval+ tests present after loading; source parity; interrupted-file recovery;
@@ -166,10 +173,12 @@ A verified Drive cache skipped all dataset downloads in the local check.
 The saved-test grader passed 8/8 official solutions with no third-party packages.
 Mocked setup tests cover retained working kernels and Torch 2.11/CUDA 13 fallback to a ready wheel.
 
-Not run here: actual A100 inference, LoRA tensor loading, Colab package installation,
-current wheel/data downloads, Drive permissions, or Colab runtime release.
-No new accuracy score is claimed. No Colab units were spent while building it.
+The local checks did not execute A100 inference. The user's later ZIP contains the completed GPU run.
+Its saved logs confirm LoRA weights loaded and all 464 answers were generated and graded.
+The checked accuracy is now **41.2% (191/464)**.
+Local documentation and result checks spend no Colab units.
 
 ## What to do next
 
-Run Notebook 21 on an A100 with your original LoRA-1 weights in Drive.
+Do not rerun the completed Notebook 21.
+Prepare only [the missing40 LoRA-alone runs](../results/lora-missing40/PLAN.md) for 2B and 4B.

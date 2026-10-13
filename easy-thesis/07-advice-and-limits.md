@@ -10,7 +10,7 @@ The partially tested limits cannot establish a better full-set score.
 
 ## What we can say about training
 
-On shared problems, the selected free controls score higher than LoRA-1.
+In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
 The 2B gap has a narrowly positive interval; the 4B gap is clearer.
 No result proves that all LoRA training methods are ineffective.
@@ -38,3 +38,26 @@ Keep future training, development, and test problems separate.
 ## One recommendation
 
 Start with the observed free control for your model size, then test it on your own tasks.
+
+## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).

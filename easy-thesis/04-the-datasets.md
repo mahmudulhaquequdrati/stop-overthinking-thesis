@@ -75,3 +75,9 @@ Earlier runs used function-name and 5-word text-overlap exclusions.
 Those historical exclusions are preserved, not rewritten by this update.
 We cannot prove the base model never saw these benchmarks during pretraining.
 A problem's release date alone is not proof of unseen data.
+
+## Latest completed extension
+
+2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
+The +2.6-point gain over limit alone remains inconclusive.
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).

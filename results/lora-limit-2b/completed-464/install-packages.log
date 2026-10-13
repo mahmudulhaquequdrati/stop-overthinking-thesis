@@ -1,0 +1,288 @@
+Collecting transformers==5.15.0
+  Downloading transformers-5.15.0-py3-none-any.whl.metadata (32 kB)
+Collecting peft<0.21,>=0.20.0
+  Downloading peft-0.20.0-py3-none-any.whl.metadata (14 kB)
+Requirement already satisfied: accelerate in /usr/local/lib/python3.13/dist-packages (1.15.0)
+Requirement already satisfied: safetensors in /usr/local/lib/python3.13/dist-packages (0.8.0)
+Collecting evalplus
+  Downloading evalplus-0.3.1-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: datasets in /usr/local/lib/python3.13/dist-packages (4.8.5)
+Collecting flash-linear-attention
+  Downloading flash_linear_attention-0.5.2-py3-none-any.whl.metadata (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 5.0 MB/s eta 0:00:00
+Collecting ninja
+  Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.4 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.13/dist-packages (26.3)
+Requirement already satisfied: wheel in /usr/local/lib/python3.13/dist-packages (0.48.0)
+Requirement already satisfied: huggingface-hub<2.0,>=1.5.0 in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (1.33.0)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (2.1.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (6.0.3)
+Requirement already satisfied: regex>=2025.10.22 in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (2025.11.3)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==5.15.0)
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Requirement already satisfied: typer in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (0.27.2)
+Requirement already satisfied: tqdm>=4.60 in /usr/local/lib/python3.13/dist-packages (from transformers==5.15.0) (4.67.3)
+Requirement already satisfied: psutil in /usr/local/lib/python3.13/dist-packages (from peft<0.21,>=0.20.0) (5.9.5)
+Requirement already satisfied: torch>=1.13.0 in /usr/local/lib/python3.13/dist-packages (from peft<0.21,>=0.20.0) (2.11.0+cu130)
+Collecting wget>=3.2 (from evalplus)
+  Downloading wget-3.2.zip (10 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting tempdir>=0.7.1 (from evalplus)
+  Downloading tempdir-0.7.1.tar.gz (5.9 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: multipledispatch>=0.6.0 in /usr/local/lib/python3.13/dist-packages (from evalplus) (1.0.0)
+Collecting appdirs>=1.4.4 (from evalplus)
+  Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: termcolor>=2.0.0 in /usr/local/lib/python3.13/dist-packages (from evalplus) (3.3.0)
+Collecting fire>=0.6.0 (from evalplus)
+  Downloading fire-0.7.1-py3-none-any.whl.metadata (5.8 kB)
+Requirement already satisfied: openai>=1.11.1 in /usr/local/lib/python3.13/dist-packages (from evalplus) (2.54.0)
+Collecting tree-sitter>=0.22.0 (from evalplus)
+  Downloading tree_sitter-0.26.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting tree-sitter-python>=0.21.0 (from evalplus)
+  Downloading tree_sitter_python-0.25.0-cp310-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (1.9 kB)
+Requirement already satisfied: rich>=12.3.0 in /usr/local/lib/python3.13/dist-packages (from evalplus) (13.9.4)
+Collecting stop-sequencer>=1.2.3 (from evalplus)
+  Downloading stop-sequencer-1.2.3.tar.gz (3.7 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting anthropic>=0.34.1 (from evalplus)
+  Downloading anthropic-1.13.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting google-generativeai>=0.7.2 (from evalplus)
+  Downloading google_generativeai-0.8.6-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.13/dist-packages (from datasets) (4.0.7)
+Requirement already satisfied: pyarrow>=21.0.0 in /usr/local/lib/python3.13/dist-packages (from datasets) (23.0.1)
+Requirement already satisfied: dill<0.4.2,>=0.3.0 in /usr/local/lib/python3.13/dist-packages (from datasets) (0.4.1)
+Requirement already satisfied: pandas in /usr/local/lib/python3.13/dist-packages (from datasets) (2.2.3)
+Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.13/dist-packages (from datasets) (2.32.4)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.13/dist-packages (from datasets) (0.28.1)
+Requirement already satisfied: xxhash in /usr/local/lib/python3.13/dist-packages (from datasets) (4.0.1)
+Requirement already satisfied: multiprocess<0.70.20 in /usr/local/lib/python3.13/dist-packages (from datasets) (0.70.19)
+Requirement already satisfied: fsspec<=2026.2.0,>=2023.1.0 in /usr/local/lib/python3.13/dist-packages (from fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (2025.12.0)
+Collecting fla-core==0.5.2 (from flash-linear-attention)
+  Downloading fla_core-0.5.2-py3-none-any.whl.metadata (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 kB 5.2 MB/s eta 0:00:00
+Requirement already satisfied: einops in /usr/local/lib/python3.13/dist-packages (from fla-core==0.5.2->flash-linear-attention) (0.8.2)
+Requirement already satisfied: anyio<5,>=4.1.0 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (4.15.1)
+Requirement already satisfied: docstring-parser<1,>=0.15 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (0.18.0)
+Requirement already satisfied: httpx2<3,>=2.0.0 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (2.13.1)
+Requirement already satisfied: jiter<1,>=0.4.0 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (0.17.0)
+Requirement already satisfied: pydantic<3,>=1.10.0 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (2.13.5)
+Requirement already satisfied: sniffio<2,>=1 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (1.3.1)
+Requirement already satisfied: typing-extensions<5,>=4.14 in /usr/local/lib/python3.13/dist-packages (from anthropic>=0.34.1->evalplus) (4.16.0)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.13/dist-packages (from fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (3.14.3)
+Collecting google-ai-generativelanguage==0.6.15 (from google-generativeai>=0.7.2->evalplus)
+  Downloading google_ai_generativelanguage-0.6.15-py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: google-api-core in /usr/local/lib/python3.13/dist-packages (from google-generativeai>=0.7.2->evalplus) (2.30.3)
+Requirement already satisfied: google-api-python-client in /usr/local/lib/python3.13/dist-packages (from google-generativeai>=0.7.2->evalplus) (2.201.0)
+Requirement already satisfied: google-auth>=2.15.0 in /usr/local/lib/python3.13/dist-packages (from google-generativeai>=0.7.2->evalplus) (2.49.0)
+Requirement already satisfied: protobuf in /usr/local/lib/python3.13/dist-packages (from google-generativeai>=0.7.2->evalplus) (6.33.6)
+Requirement already satisfied: proto-plus<2.0.0dev,>=1.22.3 in /usr/local/lib/python3.13/dist-packages (from google-ai-generativelanguage==0.6.15->google-generativeai>=0.7.2->evalplus) (1.29.0)
+Collecting protobuf (from google-generativeai>=0.7.2->evalplus)
+  Downloading protobuf-5.29.6-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+Requirement already satisfied: certifi in /usr/local/lib/python3.13/dist-packages (from httpx<1.0.0->datasets) (2026.7.22)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.13/dist-packages (from httpx<1.0.0->datasets) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.13/dist-packages (from httpx<1.0.0->datasets) (3.20)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.13/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets) (0.16.0)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub<2.0,>=1.5.0->transformers==5.15.0) (8.5.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.6.0 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub<2.0,>=1.5.0->transformers==5.15.0) (1.6.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /usr/local/lib/python3.13/dist-packages (from openai>=1.11.1->evalplus) (1.9.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.13/dist-packages (from requests>=2.32.2->datasets) (3.4.9)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.13/dist-packages (from requests>=2.32.2->datasets) (2.5.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.13/dist-packages (from rich>=12.3.0->evalplus) (4.2.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.13/dist-packages (from rich>=12.3.0->evalplus) (2.21.0)
+Requirement already satisfied: setuptools<82 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (80.10.2)
+Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (3.7)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (3.1.6)
+Requirement already satisfied: cuda-toolkit==13.0.2 in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.2)
+Requirement already satisfied: cuda-bindings<14,>=13.0.3 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.3)
+Requirement already satisfied: nvidia-cudnn-cu13==9.19.0.56 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (9.19.0.56)
+Requirement already satisfied: nvidia-cusparselt-cu13==0.8.0 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (0.8.0)
+Requirement already satisfied: nvidia-nccl-cu13==2.28.9 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu13==3.4.5 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in /usr/local/lib/python3.13/dist-packages (from torch>=1.13.0->peft<0.21,>=0.20.0) (3.6.0)
+Requirement already satisfied: nvidia-cublas==13.1.0.3.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.1.0.3)
+Requirement already satisfied: nvidia-cuda-runtime==13.0.96.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.96)
+Requirement already satisfied: nvidia-cufft==12.0.0.61.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (12.0.0.61)
+Requirement already satisfied: nvidia-cufile==1.15.1.6.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (1.15.1.6)
+Requirement already satisfied: nvidia-cuda-cupti==13.0.85.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.85)
+Requirement already satisfied: nvidia-curand==10.4.0.35.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (10.4.0.35)
+Requirement already satisfied: nvidia-cusolver==12.0.4.66.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (12.0.4.66)
+Requirement already satisfied: nvidia-cusparse==12.6.3.3.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (12.6.3.3)
+Requirement already satisfied: nvidia-nvjitlink==13.0.88.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.88)
+Requirement already satisfied: nvidia-cuda-nvrtc==13.0.88.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.88)
+Requirement already satisfied: nvidia-nvtx==13.0.85.* in /usr/local/lib/python3.13/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch>=1.13.0->peft<0.21,>=0.20.0) (13.0.85)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.13/dist-packages (from pandas->datasets) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.13/dist-packages (from pandas->datasets) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.13/dist-packages (from pandas->datasets) (2026.4)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.13/dist-packages (from typer->transformers==5.15.0) (1.5.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.13/dist-packages (from typer->transformers==5.15.0) (0.0.5)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (2.7.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (26.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (6.9.1)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (0.5.4)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.13/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets) (1.25.1)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /usr/local/lib/python3.13/dist-packages (from cuda-bindings<14,>=13.0.3->torch>=1.13.0->peft<0.21,>=0.20.0) (1.8.2)
+Requirement already satisfied: googleapis-common-protos<2.0.0,>=1.63.2 in /usr/local/lib/python3.13/dist-packages (from google-api-core->google-generativeai>=0.7.2->evalplus) (1.75.5)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/local/lib/python3.13/dist-packages (from google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (0.4.2)
+Requirement already satisfied: cryptography>=38.0.3 in /usr/local/lib/python3.13/dist-packages (from google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (50.0.2)
+Requirement already satisfied: rsa<5,>=3.1.4 in /usr/local/lib/python3.13/dist-packages (from google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (4.9.1)
+Requirement already satisfied: httpcore2==2.13.1 in /usr/local/lib/python3.13/dist-packages (from httpx2<3,>=2.0.0->anthropic>=0.34.1->evalplus) (2.13.1)
+Requirement already satisfied: truststore>=0.10 in /usr/local/lib/python3.13/dist-packages (from httpx2<3,>=2.0.0->anthropic>=0.34.1->evalplus) (0.10.4)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.13/dist-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->evalplus) (0.1.2)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.13/dist-packages (from pydantic<3,>=1.10.0->anthropic>=0.34.1->evalplus) (0.8.0)
+Requirement already satisfied: pydantic-core==2.46.5 in /usr/local/lib/python3.13/dist-packages (from pydantic<3,>=1.10.0->anthropic>=0.34.1->evalplus) (2.46.5)
+Requirement already satisfied: typing-inspection>=0.4.2 in /usr/local/lib/python3.13/dist-packages (from pydantic<3,>=1.10.0->anthropic>=0.34.1->evalplus) (0.4.4)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.13/dist-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.17.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.13/dist-packages (from sympy>=1.13.3->torch>=1.13.0->peft<0.21,>=0.20.0) (1.3.0)
+Requirement already satisfied: httplib2<1.0.0,>=0.19.0 in /usr/local/lib/python3.13/dist-packages (from google-api-python-client->google-generativeai>=0.7.2->evalplus) (0.32.0)
+Requirement already satisfied: google-auth-httplib2<1.0.0,>=0.2.0 in /usr/local/lib/python3.13/dist-packages (from google-api-python-client->google-generativeai>=0.7.2->evalplus) (0.4.3)
+Requirement already satisfied: uritemplate<5,>=3.0.1 in /usr/local/lib/python3.13/dist-packages (from google-api-python-client->google-generativeai>=0.7.2->evalplus) (4.2.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.13/dist-packages (from jinja2->torch>=1.13.0->peft<0.21,>=0.20.0) (3.0.3)
+Requirement already satisfied: cffi>=2.0.0 in /usr/local/lib/python3.13/dist-packages (from cryptography>=38.0.3->google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (2.1.1)
+Requirement already satisfied: grpcio<2.0.0,>=1.33.2 in /usr/local/lib/python3.13/dist-packages (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.7.2->evalplus) (1.84.0)
+Requirement already satisfied: grpcio-status<2.0.0,>=1.33.2 in /usr/local/lib/python3.13/dist-packages (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.7.2->evalplus) (1.84.0)
+INFO: pip is looking at multiple versions of googleapis-common-protos to determine which version is compatible with other requirements. This could take a while.
+Collecting googleapis-common-protos<2.0.0,>=1.63.2 (from google-api-core->google-generativeai>=0.7.2->evalplus)
+  Downloading googleapis_common_protos-1.75.4-py3-none-any.whl.metadata (8.5 kB)
+  Downloading googleapis_common_protos-1.75.3-py3-none-any.whl.metadata (8.5 kB)
+  Downloading googleapis_common_protos-1.75.2-py3-none-any.whl.metadata (8.5 kB)
+  Downloading googleapis_common_protos-1.75.1-py3-none-any.whl.metadata (8.5 kB)
+  Downloading googleapis_common_protos-1.75.0-py3-none-any.whl.metadata (8.6 kB)
+Requirement already satisfied: pyparsing<4,>=3.1 in /usr/local/lib/python3.13/dist-packages (from httplib2<1.0.0,>=0.19.0->google-api-python-client->google-generativeai>=0.7.2->evalplus) (3.3.3)
+INFO: pip is looking at multiple versions of proto-plus to determine which version is compatible with other requirements. This could take a while.
+Collecting proto-plus<2.0.0dev,>=1.22.3 (from google-ai-generativelanguage==0.6.15->google-generativeai>=0.7.2->evalplus)
+  Downloading proto_plus-1.28.4-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.3-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.2-py3-none-any.whl.metadata (2.2 kB)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in /usr/local/lib/python3.13/dist-packages (from pyasn1-modules>=0.2.1->google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (0.6.4)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.13/dist-packages (from cffi>=2.0.0->cryptography>=38.0.3->google-auth>=2.15.0->google-generativeai>=0.7.2->evalplus) (3.0)
+INFO: pip is looking at multiple versions of grpcio-status to determine which version is compatible with other requirements. This could take a while.
+Collecting grpcio-status<2.0.0,>=1.33.2 (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.7.2->evalplus)
+  Downloading grpcio_status-1.83.1-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.83.0-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.82.2-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.82.1-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.81.1-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.81.0-py3-none-any.whl.metadata (1.2 kB)
+  Downloading grpcio_status-1.80.0-py3-none-any.whl.metadata (1.3 kB)
+INFO: pip is still looking at multiple versions of grpcio-status to determine which version is compatible with other requirements. This could take a while.
+  Downloading grpcio_status-1.78.0-py3-none-any.whl.metadata (1.3 kB)
+  Downloading grpcio_status-1.76.0-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.75.1-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.75.0-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.74.0-py3-none-any.whl.metadata (1.1 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Downloading grpcio_status-1.73.1-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.73.0-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.72.2-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.72.1-py3-none-any.whl.metadata (1.1 kB)
+  Downloading grpcio_status-1.71.2-py3-none-any.whl.metadata (1.1 kB)
+Downloading transformers-5.15.0-py3-none-any.whl (11.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 153.1 MB/s eta 0:00:00
+Downloading peft-0.20.0-py3-none-any.whl (775 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 775.8/775.8 kB 54.3 MB/s eta 0:00:00
+Downloading evalplus-0.3.1-py3-none-any.whl (68 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.6/68.6 kB 8.2 MB/s eta 0:00:00
+Downloading flash_linear_attention-0.5.2-py3-none-any.whl (399 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 399.6/399.6 kB 37.2 MB/s eta 0:00:00
+Downloading fla_core-0.5.2-py3-none-any.whl (819 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 819.2/819.2 kB 64.4 MB/s eta 0:00:00
+Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 21.3 MB/s eta 0:00:00
+Downloading anthropic-1.13.0-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 99.3 MB/s eta 0:00:00
+Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Downloading fire-0.7.1-py3-none-any.whl (115 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.9/115.9 kB 13.0 MB/s eta 0:00:00
+Downloading google_generativeai-0.8.6-py3-none-any.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.1/155.1 kB 18.1 MB/s eta 0:00:00
+Downloading google_ai_generativelanguage-0.6.15-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 80.2 MB/s eta 0:00:00
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 121.1 MB/s eta 0:00:00
+Downloading tree_sitter-0.26.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (668 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 668.1/668.1 kB 53.1 MB/s eta 0:00:00
+Downloading tree_sitter_python-0.25.0-cp310-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (108 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.1/108.1 kB 13.0 MB/s eta 0:00:00
+Downloading protobuf-5.29.6-cp38-abi3-manylinux2014_x86_64.whl (320 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 320.5/320.5 kB 32.9 MB/s eta 0:00:00
+Downloading googleapis_common_protos-1.75.0-py3-none-any.whl (300 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 300.6/300.6 kB 31.2 MB/s eta 0:00:00
+Downloading proto_plus-1.28.2-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.7/50.7 kB 5.7 MB/s eta 0:00:00
+Downloading grpcio_status-1.71.2-py3-none-any.whl (14 kB)
+Building wheels for collected packages: stop-sequencer, tempdir, wget
+  Building wheel for stop-sequencer (setup.py): started
+  Building wheel for stop-sequencer (setup.py): finished with status 'done'
+  Created wheel for stop-sequencer: filename=stop_sequencer-1.2.3-py3-none-any.whl size=4922 sha256=80ef4f5216524103491123f9093722f5b93061a4a5293ef8654dc3fb58b30df8
+  Stored in directory: /root/.cache/pip/wheels/ad/af/9b/cb906f19e8b9ff6f4d3440f0c1ab074407464678c20024e106
+  Building wheel for tempdir (setup.py): started
+  Building wheel for tempdir (setup.py): finished with status 'done'
+  Created wheel for tempdir: filename=tempdir-0.7.1-py3-none-any.whl size=2244 sha256=6ce0efee93f1100d05998f04f5abde065ffed79fe60509f922bbc3a79438a4e4
+  Stored in directory: /root/.cache/pip/wheels/63/60/3c/f30488993af70d45fa51466e0e728d86e04e733ba818e30fa7
+  Building wheel for wget (setup.py): started
+  Building wheel for wget (setup.py): finished with status 'done'
+  Created wheel for wget: filename=wget-3.2-py3-none-any.whl size=9686 sha256=4fa57e3b8a2f1c048c113dcaf4eeebc122297587827b7f375c93249222c6cf58
+  Stored in directory: /root/.cache/pip/wheels/8a/b8/04/0c88fb22489b0c049bee4e977c5689c7fe597d6c4b0e7d0b6a
+Successfully built stop-sequencer tempdir wget
+Installing collected packages: wget, tempdir, appdirs, tree-sitter-python, tree-sitter, protobuf, ninja, fla-core, fire, proto-plus, googleapis-common-protos, grpcio-status, anthropic, tokenizers, transformers, stop-sequencer, peft, google-ai-generativelanguage, flash-linear-attention, google-generativeai, evalplus
+  Attempting uninstall: protobuf
+    Found existing installation: protobuf 6.33.6
+    Uninstalling protobuf-6.33.6:
+      Successfully uninstalled protobuf-6.33.6
+  Attempting uninstall: proto-plus
+    Found existing installation: proto-plus 1.29.0
+    Uninstalling proto-plus-1.29.0:
+      Successfully uninstalled proto-plus-1.29.0
+  Attempting uninstall: googleapis-common-protos
+    Found existing installation: googleapis-common-protos 1.75.5
+    Uninstalling googleapis-common-protos-1.75.5:
+      Successfully uninstalled googleapis-common-protos-1.75.5
+  Attempting uninstall: grpcio-status
+    Found existing installation: grpcio-status 1.84.0
+    Uninstalling grpcio-status-1.84.0:
+      Successfully uninstalled grpcio-status-1.84.0
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.23.2
+    Uninstalling tokenizers-0.23.2:
+      Successfully uninstalled tokenizers-0.23.2
+  Attempting uninstall: transformers
+    Found existing installation: transformers 5.18.0
+    Uninstalling transformers-5.18.0:
+      Successfully uninstalled transformers-5.18.0
+  Attempting uninstall: peft
+    Found existing installation: peft 0.21.1
+    Uninstalling peft-0.21.1:
+      Successfully uninstalled peft-0.21.1
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+google-cloud-dataproc 5.30.0 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+tensorflow 2.21.0 requires protobuf<8.0.0,>=6.31.1, but you have protobuf 5.29.6 which is incompatible.
+google-cloud-spanner 3.71.0 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+google-cloud-bigquery-storage 2.41.0 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+tensorboard 2.21.0 requires protobuf<8.0.0,>=6.31.1, but you have protobuf 5.29.6 which is incompatible.
+grpc-google-iam-v1 0.14.5 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+google-cloud-storage-control 1.15.0 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+google-cloud-firestore 2.33.0 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+google-cloud-datastore 2.26.1 requires protobuf<8.0.0,>=6.33.5, but you have protobuf 5.29.6 which is incompatible.
+Successfully installed anthropic-1.13.0 appdirs-1.4.4 evalplus-0.3.1 fire-0.7.1 fla-core-0.5.2 flash-linear-attention-0.5.2 google-ai-generativelanguage-0.6.15 google-generativeai-0.8.6 googleapis-common-protos-1.75.0 grpcio-status-1.71.2 ninja-1.13.2 peft-0.20.0 proto-plus-1.28.2 protobuf-5.29.6 stop-sequencer-1.2.3 tempdir-0.7.1 tokenizers-0.22.2 transformers-5.15.0 tree-sitter-0.26.0 tree-sitter-python-0.25.0 wget-3.2
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 4.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 kB 5.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 399.6/399.6 kB 30.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 819.2/819.2 kB 60.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 22.1 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 2.6 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 kB 3.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 399.6/399.6 kB 20.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 819.2/819.2 kB 46.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 18.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 3.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 kB 4.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 399.6/399.6 kB 23.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 819.2/819.2 kB 46.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 16.9 MB/s eta 0:00:00

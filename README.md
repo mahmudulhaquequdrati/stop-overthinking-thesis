@@ -15,12 +15,21 @@ Best observed free controls with full coverage:
 Their comparisons use the same 424 problems for the free controls.
 Missing results are not failures. The 0.8B free control's small lead over LoRA remains uncertain.
 
-## Next experiment
+## Completed result and next step — 14 October 2026
 
-[Notebook 21 — 2B LoRA-1 + limit 1,024](notebooks/21_2b_lora1_limit1024.ipynb).
-Select A100 and Run all; the original LoRA-1 weights must be on Drive.
-The user-approved total ceiling is 45 Colab units, with recorded failed-attempt usage retained. [Instructions and checks](qa/45-lora-with-limit-notebook.md).
-Built locally; no new model result has been measured yet.
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+[Notebook 22](notebooks/22_lora1_missing40_2b_4b.ipynb) is built: a separate 20-unit estimated ceiling, exact IDs, adapter checks, and resume skipping. [Run instructions](qa/48-lora1-missing40.md).
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](results/lora-limit-2b/README.md) · [Exact missing IDs and plan](results/lora-missing40/PLAN.md).
 
 ## Start here
 

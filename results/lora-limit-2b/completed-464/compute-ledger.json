@@ -1,0 +1,10 @@
+{
+  "estimated_units": 13.536356321970628,
+  "sessions": 1,
+  "active": true,
+  "unit_rate": 120.0,
+  "unit_cap": 15.0,
+  "last_tick": 1791917106.980308,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "note": "Estimated wall-clock usage, not Colab's billing balance."
+}

@@ -1,5 +1,21 @@
 # Notebook 21 implementation check — 14 October 2026
 
+## Completed result and next step — 14 October 2026
+
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](../results/lora-limit-2b/README.md) · [Exact missing IDs and plan](../results/lora-missing40/PLAN.md).
+
+
 The notebook reuses the model, prompt, adapter-name remapping, generation, and grader functions from earlier notebooks.
 The worker loads and merges LoRA-1 once, then uses the existing two-stage thinking-limit generator.
 It uses seed 3407, one attempt, 1,024 thinking tokens, and overall caps of 4,096 (HumanEval+) and 8,192 (LiveCodeBench).

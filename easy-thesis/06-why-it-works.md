@@ -49,3 +49,9 @@ That does not show that every short-thinking prompt fails.
 A longer-output retry changed both the available token room and the evaluated conditions.
 Keep its original scope in [the formal analysis](../thesis/06-analysis.md).
 Neither check is a newly calculated 464-problem result.
+
+## Latest completed extension
+
+2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
+The +2.6-point gain over limit alone remains inconclusive.
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).

@@ -26,3 +26,9 @@ See the exact counts and coverage in [the results](05-results.md).
 We did not test larger models, hard contest problems, math, or privacy attacks.
 Local deployment can keep prompts on your machine, but this is not a security evaluation.
 A result on these benchmarks does not promise the same accuracy on your code.
+
+## Latest completed extension
+
+2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
+The +2.6-point gain over limit alone remains inconclusive.
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).

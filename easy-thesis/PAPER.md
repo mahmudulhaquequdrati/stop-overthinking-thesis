@@ -24,7 +24,7 @@ These are the best observed free controls with **464/464 coverage**.
 | 4B | Limit 2,048 | 424 | 74.3% | 59.3% | +15.0 | [+11.2, +18.8] |
 
 
-All three free controls score higher than LoRA-1 on shared problems.
+In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
 The 2B lead has an interval only just above zero. The 4B lead is clearer.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
@@ -40,6 +40,29 @@ The combined view was chosen after the runs. It was not a single preselected exa
 Collection details stay in the methods note; the main story uses all 464 problems.
 
 Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
+
+## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
 
 
 ---
@@ -107,6 +130,29 @@ This history matters for interpreting claims, but it does not prevent a labelled
 Raw files and the original formal thesis remain unchanged.
 
 Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
+
+## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
 
 
 ---
@@ -188,6 +234,12 @@ Earlier runs used function-name and 5-word text-overlap exclusions.
 Those historical exclusions are preserved, not rewritten by this update.
 We cannot prove the base model never saw these benchmarks during pretraining.
 A problem's release date alone is not proof of unseen data.
+
+## Latest completed extension
+
+2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
+The +2.6-point gain over limit alone remains inconclusive.
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).
 
 
 ---
@@ -334,6 +386,29 @@ Loop and longer-output checks retain their original coverage in [the explanation
 
 Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
+## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+
 
 ---
 
@@ -389,6 +464,12 @@ A longer-output retry changed both the available token room and the evaluated co
 Keep its original scope in [the formal analysis](../thesis/06-analysis.md).
 Neither check is a newly calculated 464-problem result.
 
+## Latest completed extension
+
+2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
+The +2.6-point gain over limit alone remains inconclusive.
+See [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).
+
 
 ---
 
@@ -404,7 +485,7 @@ The partially tested limits cannot establish a better full-set score.
 
 ## What we can say about training
 
-On shared problems, the selected free controls score higher than LoRA-1.
+In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
 The 2B gap has a narrowly positive interval; the 4B gap is clearer.
 No result proves that all LoRA training methods are ineffective.
@@ -432,3 +513,26 @@ Keep future training, development, and test problems separate.
 ## One recommendation
 
 Start with the observed free control for your model size, then test it on your own tasks.
+
+## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).

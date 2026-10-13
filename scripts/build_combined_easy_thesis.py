@@ -98,7 +98,7 @@ These are the best observed free controls with **464/464 coverage**.
 
 {lora_table}
 
-All three free controls score higher than LoRA-1 on shared problems.
+In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
 The 2B lead has an interval only just above zero. The 4B lead is clearer.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
@@ -387,7 +387,7 @@ The partially tested limits cannot establish a better full-set score.
 
 ## What we can say about training
 
-On shared problems, the selected free controls score higher than LoRA-1.
+In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
 The 2B gap has a narrowly positive interval; the 4B gap is clearer.
 No result proves that all LoRA training methods are ineffective.
@@ -557,6 +557,43 @@ words=words.replace('The answer hit the token room before it finished. It counts
 for key,definition in [('Coverage','How many unique problems have results for one method.'),('Retrospective','Chosen after the results were available.'),('Equal problem weight','Each problem contributes equally, even when attempt counts differ.'),('Paired comparison','Compare two methods on exactly the same problems.'),('Bootstrap','Repeat the calculation on resampled problems to estimate uncertainty.')]:
     if f'| {key} |' not in words:words+=f'| {key} | {definition} |\n'
 put('WORDS.md',words)
+# Keep the completed extension separate from historical all-attempt tables.
+completed = json.loads((ROOT/'results/lora-limit-2b/completed-464/summary.json').read_text())
+assert completed['complete'] and completed['coverage'] == completed['generated'] == 464
+assert completed['attempts_per_problem'] == 1 and completed['accuracy'] == 191/464
+assert completed['comparisons'][0]['reference'] == 'limit1024'
+assert completed['comparisons'][0]['reference_accuracy'] == 179/464
+extension = """## Completed extension: 2B LoRA-1 + limit 1,024
+
+**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
+This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+
+On the same 464 first attempts, limit alone scores 38.6% (179/464).
+The combination gains 2.6 points and uses 6.4% fewer total output tokens.
+The 95% gap interval is −1.5 to +6.7 points. A reliable gain is not established.
+On the 424 shared first attempts, the combination scores 43.9%, versus LoRA-1 alone at 38.0%.
+That gain is 5.9 points, with an interval of +1.4 to +10.4.
+
+Earlier tables use all attempts per problem; LoRA-1 alone is 37.4% under that rule.
+Do not confuse that number with the 38.0% first-attempt reference.
+The extension is retrospective, with historical references and unadjusted intervals.
+It does not prove training universally beats free controls.
+
+2B and 4B LoRA-1 alone still each miss the same extra 40 problems.
+Only these two gaps are planned next: 80 new answers, no training or completed-run repeats.
+Other partial methods retain their stated coverage.
+
+Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
+Next: [missing-40 plan](../results/lora-missing40/PLAN.md).
+"""
+for name in ('00-one-page.md', '03-how-we-did-it.md', '05-results.md',
+             '07-advice-and-limits.md', '08-all-answers.md', '09-extra-problems.md',
+             '10-all-counts.md', 'README.md'):
+    put(name, (E/name).read_text() + '\n' + extension)
+
+for name in ('01-who-should-use-it.md', '02-the-problem.md', '04-the-datasets.md', '06-why-it-works.md'):
+    put(name, (E/name).read_text() + "\n## Latest completed extension\n\n2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.\nThe +2.6-point gain over limit alone remains inconclusive.\nSee [the completed evidence](../results/lora-limit-2b/README.md) and [the missing-40 plan](../results/lora-missing40/PLAN.md).\n")
+
 chapters=['00-one-page.md','10-all-counts.md','01-who-should-use-it.md','02-the-problem.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md','08-all-answers.md','09-extra-problems.md','WORDS.md']
 put('FULL-THESIS.md','# Stop Overthinking, Keep Passing the Tests\n\nEasy-language thesis: retrospective combined analysis of **464 unique problems**.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in chapters))
 put('PAPER.md','# Stop Overthinking, Keep Passing the Tests\n\nTeacher and paper draft: **464 unique code problems**, with explicit method coverage.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in ['00-one-page.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md']))
@@ -590,5 +627,5 @@ Text similarity and pretraining exposure are not ruled out by this ID check.
 Intervals resample problems 2,000 times with seed 3407; they are unadjusted percentile intervals.
 Partial coverage is not imputed. Never rank a subset score against a full-set score.
 '''
-(ROOT/'results/combined/README.md').write_text(combined)
+(ROOT/'results/combined/README.md').write_text(combined + '\n' + extension.replace('../results/lora-limit-2b/', '../lora-limit-2b/').replace('../results/lora-missing40/', '../lora-missing40/'))
 print('Built easy-thesis chapters, PAPER.md, FULL-THESIS.md, five SVG charts, and combined README.')

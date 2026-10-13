@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "initial_balance": 120.0,
+  "sessions": 4,
+  "estimated_units": 20.51238093871494,
+  "unit_rate": 6.77,
+  "unit_cap": 45.0,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "active": false,
+  "note": "Revised workflow only. Estimate includes current-session time and confirmed balance changes on resume."
+}

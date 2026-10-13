@@ -1,5 +1,21 @@
 # Results index — everything for the paper (0.8B · 2B · 4B)
 
+## Completed result and next step — 14 October 2026
+
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](../results/lora-limit-2b/README.md) · [Exact missing IDs and plan](../results/lora-missing40/PLAN.md).
+
+
 ## Current combined view — 464 unique problems
 
 Use [combined/README.md](combined/README.md) for the updated easy-thesis numbers.

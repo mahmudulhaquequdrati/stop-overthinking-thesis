@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,HumanEval/42,0,easy,True,,330,464,False
+limit,HumanEval/73,0,easy,True,,1024,1236,False
+limit,HumanEval/30,0,easy,True,,330,471,False
+limit,HumanEval/17,0,easy,False,AssertionError,706,1006,False
+limit,HumanEval/144,0,easy,False,AssertionError,1024,1355,False
+limit,HumanEval/108,0,easy,False,TypeError: 'int' object is not iterable,1024,1283,False
+limit,HumanEval/98,0,easy,True,,1024,1153,False
+limit,HumanEval/102,0,easy,True,,1024,4097,True
+limit,HumanEval/140,0,easy,False,AssertionError,620,868,False
+limit,HumanEval/51,0,easy,True,,452,619,False
+limit,HumanEval/79,0,easy,True,,449,655,False
+limit,HumanEval/56,0,easy,True,,445,602,False
+limit,HumanEval/5,0,easy,True,,1024,1954,False
+limit,HumanEval/92,0,easy,True,,634,857,False
+limit,HumanEval/70,0,easy,False,AssertionError,1024,1260,False
+limit,HumanEval/136,0,easy,True,,582,818,False
+limit,HumanEval/29,0,easy,True,,270,379,False
+limit,HumanEval/130,0,easy,False,IndexError: list index out of range,1024,4097,True
+limit,HumanEval/72,0,easy,True,,1024,1326,False
+limit,HumanEval/121,0,easy,True,,1024,1162,False
+limit,HumanEval/65,0,easy,True,,1024,1227,False
+limit,HumanEval/25,0,easy,True,,433,711,False
+limit,HumanEval/68,0,easy,True,,787,1248,False
+limit,HumanEval/94,0,easy,True,,537,1049,False
+limit,HumanEval/16,0,easy,True,,243,326,False
+limit,HumanEval/13,0,easy,True,,409,499,False
+limit,HumanEval/75,0,easy,False,AssertionError,813,1143,False
+limit,HumanEval/84,0,easy,False,AssertionError,1024,4097,True
+limit,HumanEval/10,0,easy,True,,785,1049,False
+limit,HumanEval/32,0,easy,False,ValueError: No root found within bounds,626,1080,False
+limit,HumanEval/9,0,easy,True,,1024,1391,False
+limit,HumanEval/35,0,easy,True,,447,563,False
+limit,HumanEval/113,0,easy,False,AssertionError,1024,1290,False
+limit,HumanEval/133,0,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,564,748,False
+limit,HumanEval/49,0,easy,True,,491,627,False
+limit,HumanEval/61,0,easy,True,,438,594,False
+limit,HumanEval/97,0,easy,False,AssertionError,490,631,False
+limit,HumanEval/153,0,easy,True,,813,1194,False
+limit,HumanEval/159,0,easy,False,AssertionError,1024,1377,False
+limit,HumanEval/112,0,easy,False,AssertionError,640,890,False
+limit,HumanEval/95,0,easy,False,AssertionError,1024,1342,False
+limit,HumanEval/83,0,easy,False,AssertionError,1024,1126,False
+limit,HumanEval/115,0,easy,False,AssertionError,1024,1389,False
+limit,HumanEval/86,0,easy,False,AssertionError,1024,1209,False
+limit,HumanEval/150,0,easy,True,,388,607,False
+limit,HumanEval/156,0,easy,False,AssertionError,839,1141,False
+limit,HumanEval/85,0,easy,True,,426,505,False
+limit,HumanEval/12,0,easy,True,,472,634,False
+limit,HumanEval/54,0,easy,False,AssertionError,1024,1203,False
+limit,HumanEval/138,0,easy,True,,669,764,False
+limit,HumanEval/57,0,easy,False,AssertionError,451,611,False
+limit,HumanEval/77,0,easy,False,TypeError: type complex doesn't define __round__ method,757,959,False
+limit,HumanEval/161,0,easy,True,,1024,1267,False
+limit,HumanEval/40,0,easy,True,,558,797,False
+limit,HumanEval/34,0,easy,True,,180,269,False
+limit,HumanEval/81,0,easy,True,,1023,1543,False
+limit,HumanEval/155,0,easy,True,,408,573,False
+limit,HumanEval/91,0,easy,False,AssertionError,1024,1223,False
+limit,HumanEval/43,0,easy,True,,569,772,False
+limit,HumanEval/41,0,easy,False,AssertionError,1024,1240,False
+limit,HumanEval/14,0,easy,False,AssertionError,394,484,False
+limit,HumanEval/31,0,easy,True,,490,687,False
+limit,HumanEval/63,0,easy,False,AssertionError,1024,1267,False
+limit,HumanEval/119,0,easy,False,AssertionError,1024,1347,False
+limit,HumanEval/18,0,easy,True,,421,577,False
+limit,HumanEval/46,0,easy,True,,959,1254,False
+limit,HumanEval/134,0,easy,False,AssertionError,1024,1273,False
+limit,HumanEval/124,0,easy,False,NameError: name 're' is not defined. Did you forget to import 're'?,1024,1568,False
+limit,HumanEval/141,0,easy,False,SyntaxError: invalid syntax,1024,1433,False
+limit,HumanEval/151,0,easy,True,,1024,1249,False
+limit,HumanEval/88,0,easy,True,,1024,1378,False
+limit,HumanEval/131,0,easy,True,,530,713,False
+limit,HumanEval/3,0,easy,True,,438,597,False
+limit,HumanEval/76,0,easy,False,AssertionError,1024,4097,True
+limit,HumanEval/22,0,easy,False,AssertionError,463,577,False
+limit,HumanEval/23,0,easy,True,,161,216,False
+limit,HumanEval/11,0,easy,True,,393,535,False
+limit,HumanEval/37,0,easy,True,,1024,1498,False
+limit,HumanEval/105,0,easy,True,,760,1233,False
+limit,HumanEval/90,0,easy,False,AssertionError,615,786,False
+limit,HumanEval/143,0,easy,True,,670,934,False
+limit,HumanEval/55,0,easy,True,,441,569,False
+limit,HumanEval/99,0,easy,False,AssertionError,1024,1303,False
+limit,HumanEval/6,0,easy,True,,1024,1235,False
+limit,HumanEval/139,0,easy,True,,663,824,False
+limit,HumanEval/53,0,easy,True,,88,153,False
+limit,HumanEval/89,0,easy,True,,1024,1275,False
+limit,HumanEval/2,0,easy,True,,282,381,False
+limit,HumanEval/114,0,easy,True,,757,959,False
+limit,HumanEval/145,0,easy,False,timeout,1024,1267,False
+limit,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: '6 oranges',642,996,False
+limit,HumanEval/120,0,easy,True,,874,1181,False
+limit,HumanEval/117,0,easy,True,,1024,1343,False
+limit,HumanEval/62,0,easy,False,AssertionError,1024,1185,False
+limit,HumanEval/106,0,easy,True,,832,1031,False
+limit,HumanEval/38,0,easy,True,,527,668,False
+limit,HumanEval/52,0,easy,True,,268,380,False
+limit,HumanEval/39,0,easy,False,AssertionError,1024,1306,False
+limit,HumanEval/163,0,easy,False,AssertionError,818,1013,False
+limit,HumanEval/109,0,easy,True,,1024,1412,False
+limit,HumanEval/100,0,easy,True,,1024,3042,False
+limit,HumanEval/157,0,easy,True,,658,883,False
+limit,HumanEval/69,0,easy,True,,746,1014,False
+limit,HumanEval/4,0,easy,True,,454,625,False
+limit,HumanEval/8,0,easy,True,,261,442,False
+limit,HumanEval/93,0,easy,False,AssertionError,1024,1292,False
+limit,HumanEval/118,0,easy,False,IndentationError: expected an indented block after 'else' statement on line 57,1024,4097,True
+limit,HumanEval/116,0,easy,True,,1024,2923,False
+limit,HumanEval/132,0,easy,False,SyntaxError: unterminated string literal (detected at line 5),1023,4096,True
+limit,HumanEval/101,0,easy,False,NameError: name 're' is not defined. Did you forget to import 're'?,1024,1160,False
+limit,HumanEval/96,0,easy,True,,922,1198,False
+limit,HumanEval/58,0,easy,True,,526,671,False
+limit,HumanEval/0,0,easy,True,,544,719,False
+limit,HumanEval/47,0,easy,True,,1024,1197,False
+limit,HumanEval/50,0,easy,True,,604,739,False
+limit,HumanEval/111,0,easy,False,"ValueError: not enough values to unpack (expected 2, got 1)",983,1290,False
+limit,HumanEval/146,0,easy,False,AssertionError,755,897,False
+limit,HumanEval/126,0,easy,False,AssertionError,1024,1370,False
+limit,HumanEval/74,0,easy,True,,1024,1302,False
+limit,HumanEval/137,0,easy,False,TypeError: '>' not supported between instances of 'int' and 'str',1024,4097,True
+limit,HumanEval/36,0,easy,False,AssertionError,1024,1173,False
+limit,HumanEval/26,0,easy,False,AssertionError,1024,1157,False
+limit,HumanEval/127,0,easy,True,,1024,1508,False
+limit,HumanEval/71,0,easy,True,,968,1208,False
+limit,HumanEval/82,0,easy,True,,639,843,False
+limit,HumanEval/1,0,easy,False,AssertionError,934,1217,False
+limit,HumanEval/78,0,easy,True,,1024,1409,False
+limit,HumanEval/59,0,easy,True,,909,1131,False
+limit,HumanEval/66,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),1024,1268,False
+limit,HumanEval/147,0,easy,False,AssertionError,1024,4097,True
+limit,HumanEval/129,0,easy,False,NameError: name 'neighbors' is not defined,1024,4097,True
+limit,HumanEval/19,0,easy,False,AssertionError,721,927,False
+limit,HumanEval/64,0,easy,False,AssertionError,1024,1231,False
+limit,HumanEval/152,0,easy,True,,745,1036,False
+limit,HumanEval/135,0,easy,False,AssertionError,1024,1185,False
+limit,HumanEval/103,0,easy,False,AssertionError,669,908,False
+limit,HumanEval/107,0,easy,True,,547,859,False
+limit,HumanEval/162,0,easy,True,,546,673,False
+limit,HumanEval/80,0,easy,True,,555,751,False
+limit,HumanEval/104,0,easy,True,,624,804,False
+limit,HumanEval/28,0,easy,True,,295,367,False
+limit,HumanEval/149,0,easy,True,,1024,1288,False
+limit,HumanEval/125,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),1024,1535,False
+limit,HumanEval/123,0,easy,False,AssertionError,647,1011,False
+limit,HumanEval/24,0,easy,True,,666,759,False
+limit,HumanEval/142,0,easy,True,,1024,1275,False
+limit,HumanEval/20,0,easy,True,,714,1014,False
+limit,HumanEval/122,0,easy,False,AssertionError,552,772,False
+limit,HumanEval/15,0,easy,True,,234,328,False
+limit,HumanEval/160,0,easy,False,TypeError: unsupported operand type(s) for +=: 'int' and 'str',881,1160,False
+limit,HumanEval/158,0,easy,True,,591,805,False
+limit,HumanEval/45,0,easy,True,,207,269,False
+limit,HumanEval/7,0,easy,True,,317,431,False
+limit,HumanEval/60,0,easy,True,,279,406,False
+limit,HumanEval/154,0,easy,False,AssertionError,734,904,False
+limit,HumanEval/33,0,easy,True,,1024,4097,True
+limit,HumanEval/87,0,easy,True,,1024,1381,False
+limit,HumanEval/21,0,easy,True,,824,1030,False
+limit,HumanEval/44,0,easy,False,TypeError: '<' not supported between instances of 'str' and 'int',1024,4097,True
+limit,HumanEval/148,0,easy,False,AssertionError,1024,1439,False
+limit,HumanEval/27,0,easy,True,,250,310,False
+limit,HumanEval/128,0,easy,True,,743,987,False
+limit,HumanEval/48,0,easy,True,,403,492,False
+limit,HumanEval/110,0,easy,False,AssertionError,1024,1311,False

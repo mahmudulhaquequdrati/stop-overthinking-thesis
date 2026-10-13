@@ -1,5 +1,22 @@
 # PLAN: "Stop Overthinking, Keep Passing the Tests"
 
+## Completed result and next step — 14 October 2026
+
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
+
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+[Notebook 22](notebooks/22_lora1_missing40_2b_4b.ipynb) is built: a separate 20-unit estimated ceiling, exact IDs, adapter checks, and resume skipping. [Run instructions](qa/48-lora1-missing40.md).
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](results/lora-limit-2b/README.md) · [Exact missing IDs and plan](results/lora-missing40/PLAN.md).
+
+
 ## Existing LoRA + limit extension — Decision 102, 14 October 2026
 
 Notebook 21 tests Qwen3.5-2B with the existing LoRA-1 and a 1,024 thinking-token cap.
@@ -22,7 +39,7 @@ The corrected notebook removes unused TorchAO and checks adapter injection on a 
 Zero-answer failures skip grading and show FAILED, not a model accuracy score.
 The failed run reported 11.31/15 estimated units. The user then approved a 45-unit total ceiling
 to finish all 464 problems, retaining recorded usage and all old logs.
-Actual corrected GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
+The corrected GPU run is complete: 41.2% (191/464), one attempt each. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
 
 ## Retrospective reporting update — Decision 101, 13 October 2026
 

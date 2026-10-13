@@ -1,23 +1,23 @@
 # ROADMAP: start here
 
-## Current status — 13 October 2026
+## Completed result and next step — 14 October 2026
 
-The easy thesis now leads with **464 unique test problems**, combined retrospectively.
-Full-coverage free controls: **0.8B OFF 14.7% · 2B limit 1,024 38.6% · 4B limit 2,048 71.9%**.
-2B and 4B LoRA-1 comparisons use 424 shared problems. Other incomplete methods show coverage.
-Per-problem weighting, token statistics, and paired uncertainty were recalculated from saved grades.
-No Colab units were spent. Read [the updated paper](easy-thesis/PAPER.md).
+**Qwen3.5-2B + LoRA-1 + thinking limit 1,024: 41.2% (191/464).**
+All 464 problems were generated and graded, one attempt each.
+Limit alone: 38.6% on the same 464 first attempts.
+Gap: +2.6 points; 95% interval −1.5 to +6.7. The gain remains inconclusive.
+On 424 shared first attempts: combination 43.9%, LoRA-1 alone 38.0%.
+Earlier all-attempt LoRA-1 accuracy is 37.4%; keep the weighting labels.
+The v2 ledger records 20.51 estimated units under the 45-unit ceiling.
 
-**Next step:** push the fixed files and run the updated Notebook 21 on a fresh A100 to finish all 464 problems.
-The real run failed during LoRA attachment: TorchAO 0.10.0 conflicted with PEFT.
-It generated **0/464** answers and reported **11.31/15 estimated units** used; there is no accuracy result.
-The local fix removes unused TorchAO, adds a CPU adapter-injection check before 2B loading,
-skips empty grading, and reports FAILED with its cause. Thirteen regression tests pass.
-The user reports 120 units available and approved a **45-unit total ceiling** for completion.
-Usage already recorded is retained; the notebook ends when the work finishes, without aiming to spend the ceiling.
-Details: [failure Q&A](qa/47-notebook21-torchao-failure.md).
-The original formal thesis remains historical. Entries below record earlier project stages;
-old instructions to keep the easy-thesis scores separate are superseded by Decision 101.
+Next planned work: **2B LoRA-1 alone on the missing 40, then 4B LoRA-1 alone on the same 40**.
+[Notebook 22](notebooks/22_lora1_missing40_2b_4b.ipynb) is built: a separate 20-unit estimated ceiling, exact IDs, adapter checks, and resume skipping. [Run instructions](qa/48-lora1-missing40.md).
+No training or rerun of their existing 424 answers. Other missing methods are outside scope.
+Results are not available yet; new combined scores will be added after grading.
+[Completed evidence](results/lora-limit-2b/README.md) · [Exact missing IDs and plan](results/lora-missing40/PLAN.md).
+
+The easy thesis retains the original all-attempt combined tables, plus the labelled extension.
+The formal thesis and old project stages remain historical.
 
 ---
 

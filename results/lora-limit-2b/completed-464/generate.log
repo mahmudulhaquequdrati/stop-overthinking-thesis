@@ -1,0 +1,122 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:12,  4.41it/s]Loading weights:  14%|█▍        | 45/320 [00:00<00:01, 169.71it/s]Loading weights:  29%|██▉       | 93/320 [00:00<00:00, 272.90it/s]Loading weights:  42%|████▏     | 134/320 [00:00<00:00, 312.11it/s]Loading weights:  57%|█████▋    | 181/320 [00:00<00:00, 358.66it/s]Loading weights:  70%|███████   | 224/320 [00:00<00:00, 378.54it/s]Loading weights:  83%|████████▎ | 265/320 [00:00<00:00, 381.05it/s]Loading weights:  97%|█████████▋| 310/320 [00:00<00:00, 396.75it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 326.56it/s]
+loaded unsloth/Qwen3.5-2B as torch.bfloat16 | GPU memory used: 3.76 GB
+Traceback (most recent call last):
+  File "/content/thesis/scripts/run_lora_limit.py", line 233, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/content/thesis/scripts/run_lora_limit.py", line 230, in main
+    generate(args,problems)
+    ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/content/thesis/scripts/run_lora_limit.py", line 146, in generate
+    model=add_adapter(model,args.adapter)
+  File "/content/thesis/scripts/gen_colab.py", line 61, in add_adapter
+    model = get_peft_model(model, PeftConfig.from_pretrained(adapter_dir))
+  File "/usr/local/lib/python3.13/dist-packages/peft/mapping_func.py", line 198, in get_peft_model
+    return MODEL_TYPE_TO_PEFT_MODEL_MAPPING[peft_config.task_type](
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model,
+        ^^^^^^
+    ...<3 lines>...
+        low_cpu_mem_usage=low_cpu_mem_usage,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/peft/peft_model.py", line 2082, in __init__
+    super().__init__(model, peft_config, adapter_name, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/peft_model.py", line 177, in __init__
+    self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
+                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py", line 344, in __init__
+    self.inject_adapter(self.model, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage, state_dict=state_dict)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py", line 978, in inject_adapter
+    self._create_and_replace(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        peft_config, adapter_name, target, target_name, parent, current_key=key
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py", line 389, in _create_and_replace
+    new_module = self._create_new_module(lora_config, adapter_name, target, device_map=device_map, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py", line 552, in _create_new_module
+    new_module = dispatcher(target, adapter_name, config=lora_config, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/torchao.py", line 160, in dispatch_torchao
+    if not is_torchao_available():
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/import_utils.py", line 162, in is_torchao_available
+    raise ImportError(
+    ...<2 lines>...
+    )
+ImportError: Found an incompatible version of torchao. Found version 0.10.0, but only versions above 0.16.0 are supported
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:07,  4.74it/s]Loading weights:  14%|█▍        | 45/320 [00:00<00:01, 177.79it/s]Loading weights:  28%|██▊       | 90/320 [00:00<00:00, 275.58it/s]Loading weights:  41%|████▏     | 132/320 [00:00<00:00, 323.27it/s]Loading weights:  54%|█████▍    | 172/320 [00:00<00:00, 338.71it/s]Loading weights:  68%|██████▊   | 217/320 [00:00<00:00, 372.27it/s]Loading weights:  81%|████████  | 258/320 [00:00<00:00, 382.59it/s]Loading weights:  96%|█████████▌| 306/320 [00:00<00:00, 396.67it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 330.47it/s]
+loaded unsloth/Qwen3.5-2B as torch.bfloat16 | GPU memory used: 3.76 GB
+Traceback (most recent call last):
+  File "/content/thesis/scripts/run_lora_limit.py", line 233, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/content/thesis/scripts/run_lora_limit.py", line 230, in main
+    generate(args,problems)
+    ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/content/thesis/scripts/run_lora_limit.py", line 146, in generate
+    model=add_adapter(model,args.adapter)
+  File "/content/thesis/scripts/gen_colab.py", line 61, in add_adapter
+    model = get_peft_model(model, PeftConfig.from_pretrained(adapter_dir))
+  File "/usr/local/lib/python3.13/dist-packages/peft/mapping_func.py", line 198, in get_peft_model
+    return MODEL_TYPE_TO_PEFT_MODEL_MAPPING[peft_config.task_type](
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model,
+        ^^^^^^
+    ...<3 lines>...
+        low_cpu_mem_usage=low_cpu_mem_usage,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/peft/peft_model.py", line 2082, in __init__
+    super().__init__(model, peft_config, adapter_name, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/peft_model.py", line 177, in __init__
+    self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
+                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py", line 344, in __init__
+    self.inject_adapter(self.model, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage, state_dict=state_dict)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py", line 978, in inject_adapter
+    self._create_and_replace(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        peft_config, adapter_name, target, target_name, parent, current_key=key
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py", line 389, in _create_and_replace
+    new_module = self._create_new_module(lora_config, adapter_name, target, device_map=device_map, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py", line 552, in _create_new_module
+    new_module = dispatcher(target, adapter_name, config=lora_config, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/torchao.py", line 160, in dispatch_torchao
+    if not is_torchao_available():
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/peft/import_utils.py", line 162, in is_torchao_available
+    raise ImportError(
+    ...<2 lines>...
+    )
+ImportError: Found an incompatible version of torchao. Found version 0.10.0, but only versions above 0.16.0 are supported
+Previous attempt saved no answers. Archived its configuration before applying the fix.
+/usr/local/lib/python3.13/dist-packages/peft/mapping_func.py:154: UserWarning: The PEFT config's `base_model_name_or_path` was renamed from 'unsloth/Qwen3.5-2B' to 'None'. Please ensure that the correct base model is loaded when loading this checkpoint.
+  warnings.warn(
+CPU LoRA compatibility check passed; 192 saved tensors. No 2B model download.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:12,  4.38it/s]Loading weights:  14%|█▍        | 45/320 [00:00<00:01, 168.53it/s]Loading weights:  29%|██▉       | 93/320 [00:00<00:00, 271.81it/s]Loading weights:  42%|████▏     | 133/320 [00:00<00:00, 312.58it/s]Loading weights:  54%|█████▍    | 173/320 [00:00<00:00, 340.08it/s]Loading weights:  68%|██████▊   | 219/320 [00:00<00:00, 372.12it/s]Loading weights:  81%|████████  | 259/320 [00:00<00:00, 371.02it/s]Loading weights:  96%|█████████▌| 306/320 [00:00<00:00, 391.80it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 323.25it/s]
+loaded unsloth/Qwen3.5-2B as torch.bfloat16 | GPU memory used: 3.76 GB
+LoRA loaded: 96 layers, weight sum 4177.3
+Saved 8/464 • 251.8s this batch
+Saved 12/464 • 398.4s this batch
+Saved 16/464 • 389.1s this batch
+First 16 technical checks passed. Continuing; no accuracy gate.
+Saved 144/464 • 348.8s this batch
+Saved 172/464 • 213.1s this batch
+Saved 300/464 • 1098.4s this batch
+Saved 428/464 • 1126.7s this batch
+Saved 464/464 • 465.2s this batch
+Generation complete: 464/464.

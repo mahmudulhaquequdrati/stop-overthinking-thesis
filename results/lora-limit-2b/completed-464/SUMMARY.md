@@ -1,0 +1,26 @@
+# 2B LoRA-1 + thinking limit 1,024
+
+Generated: **464/464**. Graded coverage: **464/464**. One attempt per problem.
+
+Status: **COMPLETE**.
+
+Only this combination is scheduled for generation. Reference results are saved first attempts.
+They are not the previous combined scores that used all available attempts.
+
+| Reference | Shared problems | Combination | Reference | Gap (points) | 95% gap interval | Total tokens: combination / reference |
+|---|---|---|---|---|---|---|
+| limit1024 | 464 | 41.2% | 38.6% | +2.6 | [-1.5, +6.7] | 4072 / 4348 |
+| lora1 | 424 | 43.9% | 38.0% | +5.9 | [+1.4, +10.4] | 3764 / 4408 |
+| off | 464 | 41.2% | 32.5% | +8.6 | [+4.5, +12.9] | 4072 / 1366 |
+| on | 464 | 41.2% | 26.1% | +15.1 | [+10.8, +19.2] | 4072 / 5369 |
+
+## How to read this
+
+The primary comparison is against **limit1024**, not normal thinking alone.
+A positive gap favors the combination. An interval crossing zero is inconclusive.
+Intervals resample shared problems 2,000 times with seed 3407. They are unadjusted.
+LoRA-1 without the limit covers at most 424 shared problems; missing results are not failures.
+Saved references are historical. Package versions and batch layouts can affect sampling.
+Matching the seed does not guarantee identical random draws across batches or environments.
+This is a retrospective extension, not a fresh held-out evaluation.
+Raw answers, adapter hash, run settings, and environment records stay beside this report.
