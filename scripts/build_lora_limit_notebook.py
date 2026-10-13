@@ -121,11 +121,13 @@ The original lora100 weight file must be here:
 
 Allow Drive access. Enter the units-per-hour rate and your current unit balance.
 The rate in your screenshot was **6.77**, not the remaining balance.
-This revised workflow has a **15-unit estimated cap**. Earlier failed setup costs are separate.
+This revised workflow has a **45-unit total estimated ceiling**, approved for completing all 464 problems.
+Recorded usage from the failed LoRA-loading attempt is retained. Older setup costs remain documented separately.
+The run ends when work finishes; it does not aim to spend the full allowance.
 It keeps the old ledger for reference and uses a new ledger with actual balance checks.
 On resumes, it accounts for balance changes instead of guessing disconnected hours.
 
-Setup uses compatible installed packages and ready GPU-library wheels.
+Setup removes unused TorchAO, checks LoRA injection on CPU, and uses compatible installed packages and ready GPU-library wheels.
 If the newest PyTorch has no wheel, it uses PyTorch 2.9.1 + CUDA 12.8 with a published wheel.
 It does not attempt a long source compilation. Package installation is not inference-tested locally.
 
@@ -158,9 +160,11 @@ WAY = "lora1-limit1024"
 THINK_BUDGET = 1024
 N_PROBLEMS = 464
 TRIES = 1
-UNIT_CAP = 15.0
+UNIT_CAP = 45.0
 RESERVE_UNITS = 1.5
 GENERATION_RESERVE_UNITS = 3.0
+PREFLIGHT_PASSED = False
+PROBLEMS_READY = False
 print("2B LoRA-1 + limit1024 only • 464 problems • one attempt • no training")
 ''')
     md('''## 1. GPU, Drive, and GitHub
@@ -294,6 +298,10 @@ def pip_install(*packages, tag="install-packages", timeout=1200):
 **Choice:** keep supported installed versions; EvalPlus is not needed to run our saved plus-test programs.''')
     code('''pip_install("transformers>=5.15,<6", "peft>=0.20,<0.22", "accelerate", "safetensors",
             "datasets", "flash-linear-attention", "ninja", "packaging", "wheel")
+# TorchAO is optional and unused by this 16-bit, unquantized inference run.
+# Colab's old copy causes PEFT adapter injection to fail before generation.
+if not run_process([sys.executable, "-m", "pip", "uninstall", "-y", "torchao"], "remove-unused-torchao", 120):
+    raise RuntimeError("Not enough time to remove the incompatible optional TorchAO backend.")
 print("Package installation finished. Model download has not started.")
 ''')
     md('''## 4. Fast path — cached or released wheel, like notebook 20
@@ -374,6 +382,20 @@ print("FAST PATH ON")
 run_process([sys.executable, "-m", "pip", "freeze"], "package-versions", 60)
 os.chdir(WORK)
 ''')
+    md('''## 4a. Check LoRA compatibility before downloading the model
+
+**Problem:** an optional library can break PEFT even after the model loads.
+**Why:** catch the exact adapter-injection error without paying for the 2B download.
+**Input:** the adapter configuration and weight-file headers.
+**Output:** a CPU-only compatibility check using a tiny model.
+**Choice:** exercise PEFT injection, not just import its package. The real 2B weight loading is still checked later.''')
+    code('''preflight_command = [sys.executable, str(WORK / "scripts/run_lora_limit.py"), "--phase", "preflight",
+    "--adapter", str(ADAPTER), "--problems", str(PROBLEMS), "--out", str(OUT)]
+if not run_process(preflight_command, "check-lora-compatibility", 180):
+    raise RuntimeError("The compatibility check did not finish. Do not start model generation.")
+PREFLIGHT_PASSED = True
+print("CPU LoRA compatibility check passed.")
+''')
     md('''## 5. Load the same 464 problems
 
 **Problem:** downloaded lists or tests must not change the exam.
@@ -395,6 +417,7 @@ assert all(p.get("test_plus") for p in problems if p["source"] == "humaneval")
 assert all(0 < len(p["tests"]) <= 20 for p in problems if p["source"] == "lcb")
 if not run_process([sys.executable, str(WORK / "scripts/grade_plus.py"), "--problems", str(PROBLEMS), "--source", "humaneval", "--check-official", "8"], "check-grader", 300):
     raise RuntimeError("Not enough time for the official-solution check.")
+PROBLEMS_READY = True
 print("464 problems checked. Official-solution grader check passed.")
 ''')
     md('''## 6. Answer the new combination only
@@ -404,7 +427,22 @@ print("464 problems checked. Official-solution grader check passed.")
 **Input:** the existing adapter and 464 checked problems.
 **Output:** raw answers saved individually to Drive.
 **Choice:** first 16 check execution; they count toward the total. Saved answers are skipped on resume.''')
-    code(old_code['generate'])
+    code('''GENERATION_COMPLETE = False
+GENERATION_ERROR = None
+worker = [sys.executable, str(WORK / "scripts/run_lora_limit.py"), "--problems", str(PROBLEMS), "--out", str(OUT), "--batch", str(BATCH)]
+try:
+    if not globals().get("PREFLIGHT_PASSED", False) or not globals().get("PROBLEMS_READY", False):
+        raise RuntimeError("LoRA compatibility and problem/grader checks must pass before generation.")
+    GENERATION_COMPLETE = run_process(worker + ["--phase", "generate", "--adapter", str(ADAPTER)], "generate", timeout=24*3600, reserve=GENERATION_RESERVE_UNITS)
+    if not GENERATION_COMPLETE:
+        (OUT / "generation-status.json").write_text(json.dumps({"state": "budget_stopped"}))
+except Exception as error:
+    GENERATION_ERROR = str(error)
+    (OUT / "generation-status.json").write_text(json.dumps({"state": "failed", "error": GENERATION_ERROR[-5000:]}))
+    print("GENERATION FAILED. There is no new accuracy result unless saved answers were graded.")
+    print(GENERATION_ERROR[-5000:])
+print("Generation completed:", GENERATION_COMPLETE)
+''')
     md('''## 7. Grade and compare
 
 **Problem:** text alone cannot establish correctness.
@@ -412,7 +450,26 @@ print("464 problems checked. Official-solution grader check passed.")
 **Input:** saved raw answers and the actual tests.
 **Output:** resumable grades and a comparison report using shared problem IDs.
 **Choice:** use separate timed processes and saved first attempts for the references.''')
-    code(old_code['grade'])
+    code('''GRADING_COMPLETE = False
+from run_lora_limit import read_answers
+generated_count = sum(len(read_answers(OUT / f"test-{WAY}-{tag}.jsonl", True)) for tag in ("he", "lcb"))
+if generated_count == 0:
+    print("SKIP GRADING: zero answers were generated. This is not an accuracy result.")
+else:
+    try:
+        GRADING_COMPLETE = run_process(worker + ["--phase", "grade"], "grade", timeout=24*3600, reserve=RESERVE_UNITS)
+    except Exception as error:
+        print("GRADING FAILED:", str(error)[-5000:])
+        print("Completed grades are preserved; the report shows actual coverage.")
+report_command = [sys.executable, str(WORK / "scripts/compare_lora_limit.py"), "--out", str(OUT), "--problems", str(PROBLEMS), "--baselines", str(BASELINES)]
+if not run_process(report_command, "compare", timeout=120, reserve=0.1):
+    print("No time to produce a report. Saved raw answers/grades can be analyzed later without GPU generation.")
+summary_file = OUT / "SUMMARY.md"
+if summary_file.exists():
+    from IPython.display import display, Markdown
+    display(Markdown(summary_file.read_text()))
+print("Outputs saved:", OUT)
+''')
     md('''## 8. Save a ZIP and release the GPU
 
 **Problem:** leaving a paid session connected uses units.

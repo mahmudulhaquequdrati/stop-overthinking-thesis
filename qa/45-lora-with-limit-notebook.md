@@ -1,5 +1,15 @@
 # 2B LoRA-1 with a 1,024-token thinking limit
 
+## Latest real-run status
+
+The first GPU attempt produced **0/464 answers**. LoRA loading failed on TorchAO 0.10.0.
+The failed attempt reported **11.31/15 estimated units**.
+The user subsequently approved a **45-unit total ceiling** to finish all 464 problems.
+Recorded usage and all old logs remain saved.
+The fixed revision removes unused TorchAO, checks PEFT injection on CPU first,
+skips empty grading, and reports FAILED. The full run has not succeeded yet.
+Read [the failure explanation](47-notebook21-torchao-failure.md) before spending more units.
+
 ## The step in two sentences
 
 We made a separate Colab notebook for the existing 2B LoRA-1 with a thinking limit.
@@ -66,6 +76,7 @@ It also showed forced downgrades of Transformers and PEFT, and unrelated API dep
 The revised setup keeps compatible installed Transformers and PEFT versions.
 Our saved-test grader does not need the full EvalPlus package installed.
 Notebook 21 tries cached or published convolution-library wheels like notebook 20.
+The setup removes unused TorchAO and checks PEFT injection on a tiny CPU model before downloading 2B.
 For Python 3.13, a published v1.7.0 wheel exists for Torch 2.9, CUDA 12, and ABI TRUE.
 If current Torch 2.11/CUDA 13 has no matching wheel, it uses Torch 2.9.1 + CUDA 12.8,
 with matching torchvision and torchaudio packages, then installs the ready wheel.
@@ -74,7 +85,10 @@ It does not attempt a source compilation.
 
 ## What is the budget?
 
-A 15-unit estimated cap applies to this revised workflow; previous failed setup costs are separate.
+The user-approved 45-unit total ceiling applies to the revised workflow.
+Recorded usage from the failed LoRA-loading attempt counts toward it; the ledger is not reset.
+Older initial setup costs remain separately documented.
+Finish when the work is done; the ceiling is not a target to spend.
 Enter the current resource-panel unit rate and available balance at startup.
 The new compute-ledger-v2.json keeps usage across revised-workflow resumes.
 It checks both recorded elapsed usage and the balance change since the revised workflow started.
@@ -96,6 +110,7 @@ An incomplete final line is archived before repair; corruption elsewhere stops t
 The revised ledger persists across sessions. Enter the fresh balance when resuming; it accounts for unobserved usage.
 Do not delete the ledger to bypass the cap.
 Changing weights or generation code is rejected when resuming existing answers.
+A failed attempt with zero answers/grades can archive its old configuration and adopt the corrected worker.
 Different A100 memory sizes can change batch size; that fact is recorded.
 
 ## Why one attempt?

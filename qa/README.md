@@ -95,3 +95,5 @@
 - [45 — Existing 2B LoRA with a thinking limit](45-lora-with-limit-notebook.md): Notebook 21, Drive setup, estimated budget, and checks.
 
 - [46 — Notebook 21 setup revised like notebooks 18–20](46-notebook21-readable-setup.md): readable GitHub cells and a ready-wheel setup after the Colab compile timeout.
+
+- [47 — Notebook 21 TorchAO failure](47-notebook21-torchao-failure.md): zero answers, dependency fix, failure reporting, and remaining budget.

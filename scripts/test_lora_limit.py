@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from run_lora_limit import FIELDS,WAY,read_answers,read_grades,schedule,validate_answers
+from run_lora_limit import FIELDS,WAY,read_answers,read_grades,schedule,validate_answers,ensure_run_config
 from compare_lora_limit import summarize
 from prepare_lora_limit_data import prepare,download
 
@@ -21,6 +21,67 @@ def answer(tid,source='humaneval'):
 
 
 class ResumeTests(unittest.TestCase):
+    def test_notebook_does_not_grade_after_zero_answer_failure(self):
+        import sys,types
+        notebook=Path(__file__).resolve().parents[1]/'notebooks/21_2b_lora1_limit1024.ipynb'
+        cells=json.loads(notebook.read_text())['cells']
+        gen=next(c['source'] for c in cells if c['cell_type']=='code' and c['source'].startswith('GENERATION_COMPLETE'))
+        grading=next(c['source'] for c in cells if c['cell_type']=='code' and c['source'].startswith('GRADING_COMPLETE'))
+        with tempfile.TemporaryDirectory() as wd:
+            out=Path(wd);ps=out/'problems.json';base=out/'base.json'
+            ps.write_text('{"problems":[]}');base.write_text('{"methods":{},"sources":[]}')
+            calls=[]
+            def command(cmd,tag,**kwargs):
+                calls.append(tag)
+                if tag=='generate':raise RuntimeError('TorchAO conflict')
+                if tag=='compare':summarize(out,ps,base)
+                return True
+            fake_display=types.ModuleType('IPython.display')
+            fake_display.display=lambda _:None;fake_display.Markdown=lambda value:value
+            scope=dict(sys=sys,json=json,OUT=out,WORK=out,PROBLEMS=ps,BASELINES=base,ADAPTER=out,
+                BATCH=64,WAY=WAY,GENERATION_RESERVE_UNITS=3,RESERVE_UNITS=1.5,run_process=command,
+                PREFLIGHT_PASSED=True,PROBLEMS_READY=True)
+            with patch.dict('sys.modules',{'IPython.display':fake_display}),patch('builtins.print'):
+                exec(compile(gen,'generation-cell','exec'),scope)
+                exec(compile(grading,'grading-cell','exec'),scope)
+            self.assertEqual(calls,['generate','compare'])
+            self.assertFalse(scope['GENERATION_COMPLETE'])
+            self.assertFalse(scope['GRADING_COMPLETE'])
+            self.assertEqual(json.loads((out/'summary.json').read_text())['status'],'FAILED')
+
+    def test_zero_answer_failure_can_adopt_fixed_worker(self):
+        with tempfile.TemporaryDirectory() as wd:
+            out=Path(wd);path=out/'run-config.json'
+            path.write_text(json.dumps({'worker_sha256':'failed-revision'}))
+            with patch('builtins.print'):
+                ensure_run_config(out,{'worker_sha256':'fixed-revision'})
+            self.assertEqual(json.loads(path.read_text())['worker_sha256'],'fixed-revision')
+            backup=list(out.glob('run-config.previous-*.json'))
+            self.assertEqual(len(backup),1)
+            self.assertEqual(json.loads(backup[0].read_text())['worker_sha256'],'failed-revision')
+
+    def test_fixed_worker_cannot_mix_with_existing_answers(self):
+        with tempfile.TemporaryDirectory() as wd:
+            out=Path(wd);path=out/'run-config.json'
+            path.write_text(json.dumps({'worker_sha256':'old'}))
+            (out/f'test-{WAY}-he.jsonl').write_text(json.dumps(answer('a'))+'\n')
+            with self.assertRaises(RuntimeError):ensure_run_config(out,{'worker_sha256':'new'})
+            self.assertEqual(json.loads(path.read_text())['worker_sha256'],'old')
+
+    def test_zero_answer_generation_failure_has_no_accuracy(self):
+        with tempfile.TemporaryDirectory() as wd:
+            out=Path(wd)
+            (out/'problems.json').write_text('{"problems":[]}')
+            (out/'base.json').write_text('{"methods":{},"sources":[]}')
+            (out/'generation-status.json').write_text(json.dumps({'state':'failed','error':'TorchAO version conflict'}))
+            with patch('builtins.print'):
+                report=summarize(out,out/'problems.json',out/'base.json')
+            self.assertEqual(report['status'],'FAILED')
+            self.assertIsNone(report['accuracy'])
+            self.assertEqual(report['generated'],0)
+            self.assertIn('TorchAO version conflict',(out/'SUMMARY.md').read_text())
+            self.assertNotIn('Only this new combination was generated',(out/'SUMMARY.md').read_text())
+
     def test_verified_problem_cache_needs_no_dataset_package(self):
         import hashlib
         with tempfile.TemporaryDirectory() as wd:

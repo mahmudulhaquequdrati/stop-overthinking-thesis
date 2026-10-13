@@ -45,22 +45,30 @@ def summarize(out, problems_path, baseline_path):
             delta=st.mean(delta),delta_ci=paired_interval(delta),
             total_tokens=st.mean(current[t]['total_new_tokens'] for t in ids),
             reference_total_tokens=st.mean(by_id[t]['total_new_tokens'] for t in ids)))
+    status_path=out/'generation-status.json'
+    generation_status=json.loads(status_path.read_text()) if status_path.exists() else {}
+    status=('COMPLETE' if len(current)==464 else
+            'FAILED' if generation_status.get('state')=='failed' else
+            'NO ANSWERS' if not raw else 'PARTIAL')
     result=dict(way=WAY,coverage=len(current),generated=len(raw),total_problems=464,
+        status=status,generation_status=generation_status,
         complete=len(current)==464,attempts_per_problem=1,comparisons=comparisons,
         accuracy=st.mean(float(r['passed']) for r in current.values()) if current else None,
         baseline_manifest=old['sources'])
     atomic_json(out/'summary.json',result)
     lines=['# 2B LoRA-1 + thinking limit 1,024','',
         f'Generated: **{len(raw)}/464**. Graded coverage: **{len(current)}/464**. One attempt per problem.','',
-        'Status: **'+('COMPLETE' if result['complete'] else 'PARTIAL — do not report as a 464-problem score')+'**.','',
-        'Only this new combination was generated. Reference results are saved first attempts.',
+        'Status: **'+status+('' if result['complete'] else ' — no complete 464-problem score')+'**.','',
+        'Only this combination is scheduled for generation. Reference results are saved first attempts.',
         'They are not the previous combined scores that used all available attempts.','',
         '| Reference | Shared problems | Combination | Reference | Gap (points) | 95% gap interval | Total tokens: combination / reference |',
         '|---|---|---|---|---|---|---|']
     for c in comparisons:
         lo,hi=c['delta_ci']
         lines.append(f'| {c["reference"]} | {c["shared_problems"]} | {100*c["accuracy"]:.1f}% | {100*c["reference_accuracy"]:.1f}% | {100*c["delta"]:+.1f} | [{100*lo:+.1f}, {100*hi:+.1f}] | {c["total_tokens"]:.0f} / {c["reference_total_tokens"]:.0f} |')
-    if not comparisons:lines+=['','No graded answers yet; run or resume the notebook before interpreting accuracy.']
+    if generation_status.get('error'):
+        lines+=['','Generation failure: '+generation_status['error']]
+    if not comparisons:lines+=['','No accuracy result exists yet. Zero generated answers is an execution failure/stop, not 0% accuracy.']
     lines+=['','## How to read this','',
         'The primary comparison is against **limit1024**, not normal thinking alone.',
         'A positive gap favors the combination. An interval crossing zero is inconclusive.',

@@ -19,7 +19,7 @@ Missing results are not failures. The 0.8B free control's small lead over LoRA r
 
 [Notebook 21 — 2B LoRA-1 + limit 1,024](notebooks/21_2b_lora1_limit1024.ipynb).
 Select A100 and Run all; the original LoRA-1 weights must be on Drive.
-The estimated cap is 15 Colab units. [Instructions and checks](qa/45-lora-with-limit-notebook.md).
+The user-approved total ceiling is 45 Colab units, with recorded failed-attempt usage retained. [Instructions and checks](qa/45-lora-with-limit-notebook.md).
 Built locally; no new model result has been measured yet.
 
 ## Start here

@@ -119,6 +119,46 @@ def schedule(problems, batch):
     return [c for c in chunks if c]
 
 
+def ensure_run_config(out, config):
+    """A failed zero-answer attempt can adopt a fix; existing samples cannot."""
+    out=Path(out)
+    path=out/'run-config.json'
+    if path.exists() and json.loads(path.read_text())!=config:
+        for tag in ('he','lcb'):
+            ans=out/f'test-{WAY}-{tag}.jsonl'
+            if read_answers(ans) or read_grades(ans.with_name(ans.stem+'-graded.csv')):
+                raise RuntimeError('Saved run settings differ and answers/grades already exist. Do not mix revisions.')
+        backup=out/f'run-config.previous-{time.time_ns()}.json'
+        os.replace(path,backup)
+        print('Previous attempt saved no answers. Archived its configuration before applying the fix.',flush=True)
+    atomic_json(path,config)
+
+
+def preflight(adapter):
+    """Exercise PEFT adapter injection on a tiny CPU model, before 2B loading."""
+    import torch
+    from peft import PeftConfig,get_peft_model
+    from peft.import_utils import is_torchao_available
+    from transformers import LlamaConfig,LlamaForCausalLM
+    from safetensors import safe_open
+    # PEFT checks this optional backend even for ordinary Linear layers.
+    is_torchao_available()
+    cfg=PeftConfig.from_pretrained(adapter)
+    if cfg.base_model_name_or_path!='unsloth/Qwen3.5-2B':
+        raise RuntimeError('Adapter configuration is not for the expected 2B model.')
+    with safe_open(str(Path(adapter)/'adapter_model.safetensors'),framework='pt',device='cpu') as weights:
+        keys=weights.keys()
+        if not keys or not any('lora_A' in k for k in keys) or not any('lora_B' in k for k in keys):
+            raise RuntimeError('Adapter weight file has no LoRA A/B tensors.')
+    tiny=LlamaForCausalLM(LlamaConfig(vocab_size=32,hidden_size=32,intermediate_size=64,
+        num_hidden_layers=1,num_attention_heads=4,num_key_value_heads=2))
+    checked=get_peft_model(tiny,cfg)
+    if not any('lora_B' in name for name,_ in checked.named_parameters()):
+        raise RuntimeError('PEFT did not inject the adapter in its CPU compatibility check.')
+    del checked,tiny
+    print(f'CPU LoRA compatibility check passed; {len(keys)} saved tensors. No 2B model download.',flush=True)
+
+
 def generate(args, problems):
     import models,prompts
     from gen_colab import load_model,add_adapter,generate_safe,generate_with_budget
@@ -131,15 +171,13 @@ def generate(args, problems):
         problem_sha256=digest(args.problems),adapter_sha256=weight_hash,
         generator_sha256=digest(Path(__file__).with_name('gen_colab.py')),
         worker_sha256=digest(__file__),stop_on_repeat=False)
-    config_path=out/'run-config.json'
-    if config_path.exists() and json.loads(config_path.read_text())!=config:
-        raise RuntimeError('Saved run settings differ. Keep the original notebook and adapter when resuming.')
-    atomic_json(config_path,config)
+    ensure_run_config(out,config)
     done=set()
     for source in ('he','lcb'):
         done|=validate_answers(read_answers(out/f'test-{WAY}-{source}.jsonl',True),problems,weight_hash)
     if len(done)==len(problems):
         print('All answers already saved; no GPU model load needed.',flush=True);return
+    preflight(args.adapter)
     profile=models.get(MODEL)
     model,tok=load_model(profile)
     prompts.check_prompt_has_switch(tok,profile)
@@ -218,16 +256,28 @@ def grade(args, problems):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument('--phase',choices=['generate','grade'],required=True)
+    ap.add_argument('--phase',choices=['preflight','generate','grade'],required=True)
     ap.add_argument('--problems',required=True);ap.add_argument('--adapter')
     ap.add_argument('--out',required=True);ap.add_argument('--batch',type=int,default=32)
     args=ap.parse_args()
+    if args.phase=='preflight':
+        if not args.adapter:ap.error('--adapter is required for preflight')
+        preflight(args.adapter)
+        return
     problems_list=json.loads(Path(args.problems).read_text())['problems']
     problems={p['task_id']:p for p in problems_list}
     if len(problems_list)!=464 or len(problems)!=464:raise RuntimeError('Expected 464 unique problems')
+    status=Path(args.out)/'generation-status.json'
     if args.phase=='generate':
         if not args.adapter:ap.error('--adapter is required for generation')
-        generate(args,problems)
+        status.parent.mkdir(parents=True,exist_ok=True)
+        atomic_json(status,dict(state='running'))
+        try:
+            generate(args,problems)
+        except BaseException as error:
+            atomic_json(status,dict(state='failed',error=f'{type(error).__name__}: {error}'))
+            raise
+        atomic_json(status,dict(state='finished'))
     else:grade(args,problems)
 
 if __name__=='__main__':main()

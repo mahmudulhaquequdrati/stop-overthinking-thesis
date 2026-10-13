@@ -10,13 +10,19 @@ Compare saved first attempts for limit1024, OFF, ON (464), and LoRA-1 without a 
 Use shared IDs only and report actual generated/graded coverage and paired uncertainty.
 The main comparison is against the same limit without LoRA, not unlimited thinking.
 Keep results separate until this new run is checked; do not overwrite the combined thesis scores.
-Budget: estimated 15 Colab units for the revised workflow across setup, generation, grading, and reports.
+Budget: user-approved 45-unit total estimated ceiling for the revised workflow across setup, generation, grading, and reports.
+Retain recorded usage; finish immediately when the 464-problem run and its reports are done.
 Earlier failed attempt costs are separate. Enter the current rate and balance; preserve the old ledger and use v2 for resumes.
 Readable notebook cells clone/update GitHub, following notebooks 18–20.
 Frozen questions/IDs and reference grades live in `results/lora-limit-inputs/`; there is no encoded bundle.
 Like earlier notebooks, tests load from fixed external data sources; their contents are checked and cached on Drive.
 The original lora100 weight file is required on Drive before package installation.
-Actual GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
+The first real GPU attempt failed during PEFT adapter injection, before any answers.
+The corrected notebook removes unused TorchAO and checks adapter injection on a tiny CPU model first.
+Zero-answer failures skip grading and show FAILED, not a model accuracy score.
+The failed run reported 11.31/15 estimated units. The user then approved a 45-unit total ceiling
+to finish all 464 problems, retaining recorded usage and all old logs.
+Actual corrected GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
 
 ## Retrospective reporting update — Decision 101, 13 October 2026
 

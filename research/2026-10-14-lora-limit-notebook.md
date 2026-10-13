@@ -60,3 +60,24 @@ The revised setup keeps working current kernels first and otherwise selects this
 Mocked tests confirm both paths. Actual Colab installation and inference still require a real run.
 The revised-workflow budget uses a new v2 ledger and entered current balance rather than charging unobserved calendar hours.
 The previous attempt ledger is preserved; previous paid setup costs are not erased or included in the revised 15-unit allowance.
+
+## First actual generation failure: Decision 105
+
+The user's log confirms bfloat16 model loading succeeded, then PEFT adapter injection failed
+because TorchAO 0.10.0 was installed. PEFT's optional-backend check requires >=0.16.0 when present.
+[Official PEFT check](https://raw.githubusercontent.com/huggingface/peft/main/src/peft/import_utils.py).
+This unquantized 16-bit inference run does not use that backend, so the setup uninstalls it.
+A tiny CPU adapter-injection check now runs before the 2B download and again before generation.
+
+The notebook previously caught the exception and proceeded through empty grading/reporting/ZIP saving.
+Now it skips grading with zero answers and reports FAILED with the cause. There is no 0% accuracy claim.
+The reported estimated cost was 11.31/15 units; generation had only 6.9 minutes allowed after setup.
+The cap is not raised or reset. Corrected full generation may need a separate budget decision.
+Thirteen offline tests check the new zero-answer recovery and failure-reporting behavior.
+Actual corrected PEFT injection and A100 inference remain to be tested in Colab.
+
+## Budget approved after the failure
+
+The user reports 120 units available and explicitly approves a 45-unit total ceiling to finish all 464 problems.
+The revised-workflow ledger retains prior recorded usage; the original failed attempt is not erased.
+The 45-unit figure is a ceiling, not a target. No other models, new training, or extra samples are added.

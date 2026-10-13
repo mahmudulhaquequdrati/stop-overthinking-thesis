@@ -8,14 +8,14 @@ Full-coverage free controls: **0.8B OFF 14.7% · 2B limit 1,024 38.6% · 4B limi
 Per-problem weighting, token statistics, and paired uncertainty were recalculated from saved grades.
 No Colab units were spent. Read [the updated paper](easy-thesis/PAPER.md).
 
-**Next step:** run [Notebook 21](notebooks/21_2b_lora1_limit1024.ipynb) on an A100.
-It tests only existing 2B LoRA-1 + the 1,024 thinking limit, once on 464 problems.
-The 24 KB notebook uses readable GitHub/Drive cells like notebooks 18–20, loads/checks tests externally,
-checks the Drive weight file first,
-and uses an estimated 15-unit cap. Built and checked locally; A100 inference is not run yet.
-Push the latest scripts and `results/lora-limit-inputs/` before reopening it.
-The failed Colab compile was replaced with a ready-wheel setup.
-Instructions and limits: [qa/45-lora-with-limit-notebook.md](qa/45-lora-with-limit-notebook.md).
+**Next step:** push the fixed files and run the updated Notebook 21 on a fresh A100 to finish all 464 problems.
+The real run failed during LoRA attachment: TorchAO 0.10.0 conflicted with PEFT.
+It generated **0/464** answers and reported **11.31/15 estimated units** used; there is no accuracy result.
+The local fix removes unused TorchAO, adds a CPU adapter-injection check before 2B loading,
+skips empty grading, and reports FAILED with its cause. Thirteen regression tests pass.
+The user reports 120 units available and approved a **45-unit total ceiling** for completion.
+Usage already recorded is retained; the notebook ends when the work finishes, without aiming to spend the ceiling.
+Details: [failure Q&A](qa/47-notebook21-torchao-failure.md).
 The original formal thesis remains historical. Entries below record earlier project stages;
 old instructions to keep the easy-thesis scores separate are superseded by Decision 101.
 
