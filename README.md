@@ -15,6 +15,13 @@ Best observed free controls with full coverage:
 Their comparisons use the same 424 problems for the free controls.
 Missing results are not failures. The 0.8B free control's small lead over LoRA remains uncertain.
 
+## Next experiment
+
+[Notebook 21 — 2B LoRA-1 + limit 1,024](notebooks/21_2b_lora1_limit1024.ipynb).
+Select A100 and Run all; the original LoRA-1 weights must be on Drive.
+The estimated cap is 15 Colab units. [Instructions and checks](qa/45-lora-with-limit-notebook.md).
+Built locally; no new model result has been measured yet.
+
 ## Start here
 
 - [Easy thesis for teachers](easy-thesis/PAPER.md).

@@ -1,5 +1,20 @@
 # PLAN: "Stop Overthinking, Keep Passing the Tests"
 
+## Existing LoRA + limit extension — Decision 102, 14 October 2026
+
+Notebook 21 tests Qwen3.5-2B with the existing LoRA-1 and a 1,024 thinking-token cap.
+Generate one attempt for each of the 464 frozen problems. No training or other model is run.
+Keep seed 3407, original prompts and sampling, overall caps 4,096/8,192, and no repeat stopping.
+The first 16 are technical checks and count toward the total; do not gate on their accuracy.
+Compare saved first attempts for limit1024, OFF, ON (464), and LoRA-1 without a limit (424).
+Use shared IDs only and report actual generated/graded coverage and paired uncertainty.
+The main comparison is against the same limit without LoRA, not unlimited thinking.
+Keep results separate until this new run is checked; do not overwrite the combined thesis scores.
+Budget: estimated 15 Colab units across setup, generation, grading, and reports at the entered rate.
+Frozen scripts, questions, tests, and reference grades are embedded in the notebook.
+The original lora100 weight file is required on Drive before package installation.
+Actual GPU execution is pending. Details: [Notebook 21 Q&A](qa/45-lora-with-limit-notebook.md).
+
 ## Retrospective reporting update — Decision 101, 13 October 2026
 
 The easy thesis now reports **464 unique test problems** as one combined analysis.

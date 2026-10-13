@@ -556,3 +556,9 @@ One setting for how the model answers. We test 5 of them:
 - **Retrospective analysis:** an analysis chosen after the results were available.
 - **Paired bootstrap:** resample whole shared problems, keeping the compared methods together.
 - **Unadjusted interval:** an uncertainty interval that does not account for selecting among many comparisons.
+
+## Notebook 21 terms (2026-10-14)
+
+- **File hash:** a value identifying file contents, used to check bundled files and adapter weights.
+- **Watchdog:** a monitor that stops a worker when its time limit is reached.
+- **First attempt:** saved sample index 0; one answer per problem for this comparison.

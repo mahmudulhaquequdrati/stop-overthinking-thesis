@@ -8,7 +8,11 @@ Full-coverage free controls: **0.8B OFF 14.7% · 2B limit 1,024 38.6% · 4B limi
 Per-problem weighting, token statistics, and paired uncertainty were recalculated from saved grades.
 No Colab units were spent. Read [the updated paper](easy-thesis/PAPER.md).
 
-**Next step:** review the combined easy thesis before deciding on any new experiment.
+**Next step:** run [Notebook 21](notebooks/21_2b_lora1_limit1024.ipynb) on an A100.
+It tests only existing 2B LoRA-1 + the 1,024 thinking limit, once on 464 problems.
+The notebook carries its own code and tests, checks the Drive weight file first,
+and uses an estimated 15-unit cap. Built and checked locally; A100 inference is not run yet.
+Instructions and limits: [qa/45-lora-with-limit-notebook.md](qa/45-lora-with-limit-notebook.md).
 The original formal thesis remains historical. Entries below record earlier project stages;
 old instructions to keep the easy-thesis scores separate are superseded by Decision 101.
 

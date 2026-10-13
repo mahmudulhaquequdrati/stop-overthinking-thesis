@@ -91,3 +91,5 @@
 ## Latest step
 
 - [44 — Combined 464-problem easy thesis](44-combined-464.md): equal problem weights, coverage, and paired comparisons.
+
+- [45 — Existing 2B LoRA with a thinking limit](45-lora-with-limit-notebook.md): Notebook 21, Drive setup, estimated budget, and checks.
