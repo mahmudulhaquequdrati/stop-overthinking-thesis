@@ -1,5 +1,13 @@
 # ROADMAP: start here
 
+## Next: five LoRA controls, one session
+
+[Notebook24](notebooks/24_lora1_off_and_limits.ipynb) runs0.8B OFF/limit512,2B OFF,and4B limit2048/OFF.
+Each uses the same464 problems once. No training or completed2B-limit rerun.
+Enter the current resource balance, rate, and total unit ceiling at startup.
+[Instructions](qa/49-five-lora-controls.md). Scores remain unmeasured until the ZIP is checked.
+
+
 ## Full 464 update — 14 October 2026
 
 **2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**

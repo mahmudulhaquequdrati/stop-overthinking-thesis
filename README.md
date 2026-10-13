@@ -1,5 +1,13 @@
 # Stop Overthinking, Keep Passing the Tests
 
+## Next: five LoRA controls, one session
+
+[Notebook24](notebooks/24_lora1_off_and_limits.ipynb) runs0.8B OFF/limit512,2B OFF,and4B limit2048/OFF.
+Each uses the same464 problems once. No training or completed2B-limit rerun.
+Enter the current resource balance, rate, and total unit ceiling at startup.
+[Instructions](qa/49-five-lora-controls.md). Scores remain unmeasured until the ZIP is checked.
+
+
 **Shortest-correct LoRA training versus free thinking controls in small Qwen3.5 code models.**
 
 The easy thesis now combines **464 unique test problems**.

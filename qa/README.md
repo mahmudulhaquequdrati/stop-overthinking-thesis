@@ -104,3 +104,5 @@
 - [Notebook22: only the missing40](48-lora1-missing40.md): 2B and4B LoRA-1 alone, 20-unit estimated ceiling.
 
 - [Completed missing40 and full464 comparison](../results/lora-missing40/README.md):2B LoRA alone34.4%,4B56.8%;2B combination leads in observed accuracy.
+
+- [Five LoRA controls in one session](49-five-lora-controls.md).
