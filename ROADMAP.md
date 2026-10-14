@@ -325,3 +325,13 @@ The one hole on the 190 is 2B training. The weight file was not on the new Drive
 Leave it skipped unless a teacher asks for that one cell.
 
 Also still open: you explain Parts 1–2 back in your own words.
+
+## RPMR — Colab-only next step, 14 October 2026
+
+The completed thesis remains finished. RPMR is an untested novelty candidate.
+New work lives in [experiments/rpmr](experiments/rpmr/README.md): one Colab notebook,
+a short README and the research proposal. Local-only tools were archived and removed.
+About 50 compute units remain; preserve 20. Proposed smoke ceiling: five estimated units.
+Next: upload the notebook to a fresh Colab GPU runtime and choose Run all.
+The notebook is syntax-checked; no Colab smoke run has completed yet.
+The verified baseline and cleanup archives remain in backups/ for undo.

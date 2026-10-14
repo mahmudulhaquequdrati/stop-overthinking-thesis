@@ -181,3 +181,31 @@ The papers:
 - Reasoning or Memorization? — [2507.10532](https://arxiv.org/abs/2507.10532): contamination in math benchmarks. ⚠️
 - Hochlehnert et al. — [2504.07086](https://arxiv.org/abs/2504.07086): on AIME, the noise from the seed (the random starting number) and the setup is bigger than many claimed gains. ⚠️
 - Miller, "Adding Error Bars to Evals" — [2411.00640](https://arxiv.org/abs/2411.00640): clustered and paired confidence intervals. That means error bars that group results by problem and compare the same problems before and after. ⚠️
+
+## Internal Qwen3.5 follow-up — checked 14 October 2026
+
+- [Gated Delta Networks](https://arxiv.org/abs/2412.06464): architecture paper; memory retention and correction. Paper text checked.
+- [ReBalance: Efficient Reasoning with Balanced Thinking](https://arxiv.org/abs/2603.12372): confidence-based internal steering. Paper text checked.
+- [Gated DeltaNet-2](https://arxiv.org/abs/2605.22791): separate erase/write gates. Abstract checked.
+- [ASAG](https://arxiv.org/abs/2606.15070): attention-state adaptive generation. Abstract checked.
+- [When Chain-of-Thought Fails, the Solution Hides in the Hidden States](https://arxiv.org/abs/2604.23351): causal activation patching. Abstract checked.
+- Official [0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B), [2B](https://huggingface.co/Qwen/Qwen3.5-2B), [4B](https://huggingface.co/Qwen/Qwen3.5-4B) cards and [Transformers code](https://github.com/huggingface/transformers/blob/main/src/transformers/models/qwen3_5/modeling_qwen3_5.py) checked. A dedicated dense-family technical report was not located in this search.
+
+These establish prior work, not novelty or an internal cause of our loops.
+[Full notes](experiments/rpmr/proposal.md).
+
+## Narrow novelty screening — 14 October 2026
+
+Primary literature inspected for a provisional recurrent-memory repair proposal:
+
+- [SOPHIA](https://arxiv.org/html/2607.18100v1): online self-loop detection and transition-conditioned residual steering.
+- [AlphaEdit](https://arxiv.org/html/2410.02355v3): null-space protection for parameter editing. Borrowed mathematical principle.
+- [SSM subspace bottlenecks](https://arxiv.org/html/2602.22719v1): test-time Mamba activation scaling.
+- [ACE](https://arxiv.org/html/2607.00588v1): repetition-direction subtraction in continuous diffusion feedback.
+- [Wait, Wait, Wait](https://arxiv.org/html/2512.12895v1): learning errors and reasoning loops.
+- [MARCH / Safin-1](https://arxiv.org/html/2609.00092v1): recurrent memory-history reading, including GDN.
+- [Liquid Antidoom](https://www.liquid.ai/blog/antidoom): targeted final-token preference training against loops.
+- [Dynamic Closed-Loop Steering](https://www.mdpi.com/2076-3417/16/13/6423): publisher search text inspected; full-page access failed. Closely related geometry-based steering; full review still needed.
+- [MaLoRA](https://arxiv.org/abs/2607.19326) and [Efficient Reasoning on the Edge](https://arxiv.org/abs/2603.16867): abstracts checked; adaptive adapter scaling/switching already exists.
+
+[Full method differences and bounded novelty statement](experiments/rpmr/proposal.md). No method was reproduced; no exact match found is not proof of novelty.

@@ -580,3 +580,30 @@ One setting for how the model answers. We test 5 of them:
 - **File hash:** a value identifying file contents, used to check bundled files and adapter weights.
 - **Watchdog:** a monitor that stops a worker when its time limit is reached.
 - **First attempt:** saved sample index 0; one answer per problem for this comparison.
+
+## Internal-memory research terms — 14 October 2026
+
+- **Gated DeltaNet:** a model component that keeps a compact memory and makes targeted corrections.
+- **Recurrent state:** a numerical memory updated as each text piece arrives.
+- **Update gate:** a calculated number controlling the size of a memory correction.
+- **State recurrence:** a memory representation returning close to an earlier representation.
+- **Activation steering:** changing intermediate model numbers to influence later output.
+- **Causal intervention:** deliberately changing one component and comparing controlled outcomes.
+- **Cosine similarity:** how closely two numerical vectors point in the same direction.
+- **Sigmoid:** a mathematical function mapping a number into the interval from zero to one.
+
+## Memory-repair proposal terms — 14 October 2026
+
+- **Readout:** the vector returned when a query reads a numerical memory.
+- **Subspace:** a set of numerical directions that can be combined together.
+- **Orthogonal projection:** keeping only the component along a chosen set of directions.
+- **Null space:** directions that have zero effect on a selected linear measurement.
+- **Invariant:** a quantity a specified operation leaves unchanged.
+- **RPMR:** working name for Readout-Preserving Memory Repair; a proposed method, not a validated result.
+
+## Resource and recovery terms — 14 October 2026
+
+- **Compute unit:** Colab billing credit; one unit is not one GPU hour.
+- **Snapshot:** a saved copy of the current files, including uncommitted work.
+- **Hash:** a numerical fingerprint used to check that a saved file matches its original.
+- **Instrumented throughput:** generation speed while memory logging and repair are enabled.

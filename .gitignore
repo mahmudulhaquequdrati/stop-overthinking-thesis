@@ -1,4 +1,5 @@
 # secrets
+/backups/
 .env
 *.token
 # tools installed on this Mac (rebuildable: see scripts/README.md)

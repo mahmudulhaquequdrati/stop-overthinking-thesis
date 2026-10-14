@@ -128,3 +128,5 @@ LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free 
 - [50 — Completed LoRA combinations and full easy thesis](50-completed-lora-controls.md).
 
 - [51 — Every thesis-related Markdown file reviewed and synchronized](51-all-markdown-current.md).
+
+- [52 — RPMR research, budget, recovery and Colab smoke check](52-rpmr-colab.md).
