@@ -1,0 +1,15 @@
+{
+  "way": "lora1-limit2048",
+  "model_profile": "qwen35_4b",
+  "seed": 3407,
+  "samples": 1,
+  "think_budget": 2048,
+  "policy": "limit",
+  "problem_sha256": "b7a8a88e867a670f7022932a76d39eafc996225581bd61eb10bc1f5d90be1953",
+  "adapter_sha256": "c89d2284927469ebea33b8d1bcc42010d12bfe859980962e3728bb4b7f9c3877",
+  "adapter_config_sha256": "0b03d901d7e938c8a1a1dbe666da4c7f67240f5d4baed6a04a6f96f2874b983d",
+  "prompts_sha256": "192324142096217d54a1fdf9a1b3e60d0d7119ffe4d3b7556bb7cd419bb78102",
+  "generator_sha256": "c21bebb985f376356df8bd6ead00f2eb3ed7ae7a21760394196e9c00baf6a04a",
+  "worker_sha256": "93ee9b502ecff34c677a96399cbae27be3de7edcc0b1a609de86a42b6fe4b8a6",
+  "stop_on_repeat": true
+}

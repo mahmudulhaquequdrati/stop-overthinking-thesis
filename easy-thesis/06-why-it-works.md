@@ -34,7 +34,7 @@ The original training and loop evidence remains in the formal thesis.
 ## What the combined analysis adds
 
 The full-coverage 2B and 4B limits score higher than normal thinking and use fewer total tokens.
-Thinking OFF is the cheapest of the main full-coverage controls on each size.
+Among the main free controls, thinking OFF uses the fewest output tokens on each size.
 For exact numbers and paired intervals, see [the combined results](05-results.md).
 
 LoRA-1 and LoRA-2 differ in training data and coverage.
@@ -50,8 +50,12 @@ A longer-output retry changed both the available token room and the evaluated co
 Keep its original scope in [the formal analysis](../thesis/06-analysis.md).
 Neither check is a newly calculated 464-problem result.
 
-## Latest completed extension
+## Completed LoRA controls
 
-2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
-The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](11-completed-lora-controls.md) and [benchmark tables](05-results.md).

@@ -1,0 +1,18 @@
+# 4B LoRA-1 + thinking OFF
+
+Generated: **464/464**. Graded coverage: **464/464**. One attempt per problem.
+
+Status: **COMPLETE**.
+
+Only this combination is scheduled for generation. Reference results are saved first attempts.
+They are not the previous combined scores that used all available attempts.
+
+| Reference | Shared problems | Combination | Reference | Gap (points) | 95% gap interval | Total tokens: combination / reference |
+|---|---|---|---|---|---|---|
+| lora1 | 464 | 64.7% | 56.9% | +7.8 | [+3.2, +12.1] | 882 / 4779 |
+| off | 464 | 64.7% | 66.4% | -1.7 | [-5.6, +1.9] | 882 / 941 |
+| on | 464 | 64.7% | 49.8% | +14.9 | [+10.6, +19.2] | 882 / 5186 |
+| limit2048 | 464 | 64.7% | 71.1% | -6.5 | [-10.6, -2.4] | 882 / 3965 |
+
+## How to read this
+

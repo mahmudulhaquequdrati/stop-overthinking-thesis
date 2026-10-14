@@ -67,3 +67,15 @@ model,method,cohort,path,problems,attempts,passed,original_accuracy
 4b,lora1,more,results/more/4b/test-lora1-lcb-graded.csv,190,190,88,46.31578947368421
 4b,off,more,results/more/4b/test-off-lcb-graded.csv,190,190,127,66.84210526315789
 4b,on,more,results/more/4b/test-on-lcb-graded.csv,190,190,74,38.94736842105263
+0.8b,lora1-limit512,extension,results/lora-controls/completed-464/0.8b/lora1-limit512/test-lora1-limit512-he-graded.csv,164,164,44,26.82926829268293
+0.8b,lora1-limit512,extension,results/lora-controls/completed-464/0.8b/lora1-limit512/test-lora1-limit512-lcb-graded.csv,300,300,23,7.666666666666666
+0.8b,lora1-off,extension,results/lora-controls/completed-464/0.8b/lora1-off/test-lora1-off-he-graded.csv,164,164,41,25.0
+0.8b,lora1-off,extension,results/lora-controls/completed-464/0.8b/lora1-off/test-lora1-off-lcb-graded.csv,300,300,24,8.0
+2b,lora1-off,extension,results/lora-controls/completed-464/2b/lora1-off/test-lora1-off-he-graded.csv,164,164,84,51.21951219512195
+2b,lora1-off,extension,results/lora-controls/completed-464/2b/lora1-off/test-lora1-off-lcb-graded.csv,300,300,81,27.0
+4b,lora1-limit2048,extension,results/lora-controls/completed-464/4b/lora1-limit2048/test-lora1-limit2048-he-graded.csv,164,164,138,84.14634146341463
+4b,lora1-limit2048,extension,results/lora-controls/completed-464/4b/lora1-limit2048/test-lora1-limit2048-lcb-graded.csv,300,300,194,64.66666666666666
+4b,lora1-off,extension,results/lora-controls/completed-464/4b/lora1-off/test-lora1-off-he-graded.csv,164,164,130,79.26829268292683
+4b,lora1-off,extension,results/lora-controls/completed-464/4b/lora1-off/test-lora1-off-lcb-graded.csv,300,300,170,56.666666666666664
+2b,lora1-limit1024,extension,results/lora-limit-2b/completed-464/test-lora1-limit1024-he-graded.csv,164,164,99,60.36585365853659
+2b,lora1-limit1024,extension,results/lora-limit-2b/completed-464/test-lora1-limit1024-lcb-graded.csv,300,300,92,30.666666666666664

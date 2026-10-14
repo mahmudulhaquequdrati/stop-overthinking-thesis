@@ -1,0 +1,17 @@
+/usr/local/lib/python3.13/dist-packages/peft/mapping_func.py:154: UserWarning: The PEFT config's `base_model_name_or_path` was renamed from 'unsloth/Qwen3.5-0.8B' to 'None'. Please ensure that the correct base model is loaded when loading this checkpoint.
+  warnings.warn(
+CPU LoRA compatibility check passed; 192 saved tensors. No base-model download.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   4%|▍         | 14/320 [00:00<00:02, 137.27it/s]Loading weights:  39%|███▉      | 126/320 [00:00<00:00, 700.19it/s]Loading weights:  73%|███████▎  | 233/320 [00:00<00:00, 863.68it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 832.67it/s]
+loaded unsloth/Qwen3.5-0.8B as torch.bfloat16 | GPU memory used: 1.50 GB
+LoRA loaded: 96 layers, weight sum 2646.0
+Saved 8/464 • 243.7s this batch
+Saved 12/464 • 26.6s this batch
+Saved 16/464 • 389.4s this batch
+First 16 technical checks passed. Continuing; no accuracy gate.
+Saved 144/464 • 406.3s this batch
+Saved 172/464 • 224.4s this batch
+Saved 300/464 • 1341.3s this batch
+Saved 428/464 • 1356.4s this batch
+Saved 464/464 • 522.3s this batch
+Generation complete: 464/464.

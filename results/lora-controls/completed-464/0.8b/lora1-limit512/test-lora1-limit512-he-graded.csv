@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+limit,HumanEval/42,0,easy,True,,289,317,False
+limit,HumanEval/73,0,easy,False,AssertionError,512,773,False
+limit,HumanEval/30,0,easy,True,,512,572,False
+limit,HumanEval/17,0,easy,False,AssertionError,511,1356,False
+limit,HumanEval/144,0,easy,False,AssertionError,512,1380,False
+limit,HumanEval/108,0,easy,False,TypeError: 'int' object is not iterable,508,703,False
+limit,HumanEval/98,0,easy,True,,512,4097,True
+limit,HumanEval/102,0,easy,False,AssertionError,512,2766,False
+limit,HumanEval/140,0,easy,False,AssertionError,512,677,False
+limit,HumanEval/51,0,easy,False,AssertionError,512,676,False
+limit,HumanEval/79,0,easy,True,,512,612,False
+limit,HumanEval/56,0,easy,False,AssertionError,513,4098,True
+limit,HumanEval/5,0,easy,False,AssertionError,512,1804,False
+limit,HumanEval/92,0,easy,True,,505,600,False
+limit,HumanEval/70,0,easy,False,AssertionError,512,1460,False
+limit,HumanEval/136,0,easy,False,TypeError: '<' not supported between instances of 'int' and 'NoneType',512,616,False
+limit,HumanEval/29,0,easy,True,,376,485,False
+limit,HumanEval/130,0,easy,False,IndexError: list index out of range,512,4097,True
+limit,HumanEval/72,0,easy,False,AssertionError,512,750,False
+limit,HumanEval/121,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/65,0,easy,False,AssertionError,443,574,False
+limit,HumanEval/25,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,1147,False
+limit,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",512,625,False
+limit,HumanEval/94,0,easy,False,NameError: name 'is_prime' is not defined. Did you mean: 'max_prime'?,512,4097,True
+limit,HumanEval/16,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/13,0,easy,True,,512,706,False
+limit,HumanEval/75,0,easy,False,AssertionError,512,1714,False
+limit,HumanEval/84,0,easy,False,AssertionError,512,729,False
+limit,HumanEval/10,0,easy,False,AssertionError,512,2177,False
+limit,HumanEval/32,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/9,0,easy,True,,512,1333,False
+limit,HumanEval/35,0,easy,True,,187,208,False
+limit,HumanEval/113,0,easy,False,TypeError: not all arguments converted during string formatting,512,1468,False
+limit,HumanEval/133,0,easy,False,AssertionError,512,1644,False
+limit,HumanEval/49,0,easy,True,,512,647,False
+limit,HumanEval/61,0,easy,False,AssertionError,485,636,False
+limit,HumanEval/97,0,easy,False,AssertionError,512,544,False
+limit,HumanEval/153,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/159,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/112,0,easy,False,AssertionError,512,742,False
+limit,HumanEval/95,0,easy,False,AssertionError,512,732,False
+limit,HumanEval/83,0,easy,False,AssertionError,512,623,False
+limit,HumanEval/115,0,easy,False,AssertionError,512,1372,False
+limit,HumanEval/86,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/150,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/156,0,easy,False,IndentationError: unexpected indent,512,4097,True
+limit,HumanEval/85,0,easy,False,AssertionError,512,618,False
+limit,HumanEval/12,0,easy,True,,512,852,False
+limit,HumanEval/54,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/138,0,easy,True,,512,1196,False
+limit,HumanEval/57,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/77,0,easy,False,"TypeError: int() argument must be a string, a bytes-like object or a real number, not 'complex'",512,4097,True
+limit,HumanEval/161,0,easy,False,AssertionError,512,693,False
+limit,HumanEval/40,0,easy,True,,512,4097,True
+limit,HumanEval/34,0,easy,True,,344,366,False
+limit,HumanEval/81,0,easy,True,,512,2258,False
+limit,HumanEval/155,0,easy,False,TypeError: not all arguments converted during string formatting,512,908,False
+limit,HumanEval/91,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/43,0,easy,True,,512,1486,False
+limit,HumanEval/41,0,easy,False,AssertionError,512,1531,False
+limit,HumanEval/14,0,easy,False,timeout,512,4097,True
+limit,HumanEval/31,0,easy,True,,512,709,False
+limit,HumanEval/63,0,easy,True,,512,1964,False
+limit,HumanEval/119,0,easy,False,AssertionError,512,1306,False
+limit,HumanEval/18,0,easy,True,,496,639,False
+limit,HumanEval/46,0,easy,False,NameError: name 'matrix_power' is not defined,512,4097,True
+limit,HumanEval/134,0,easy,False,AssertionError,512,1068,False
+limit,HumanEval/124,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/141,0,easy,False,NameError: name 'char' is not defined. Did you mean: 'chr'?,436,824,False
+limit,HumanEval/151,0,easy,False,AssertionError,512,901,False
+limit,HumanEval/88,0,easy,True,,512,823,False
+limit,HumanEval/131,0,easy,False,AssertionError,512,1368,False
+limit,HumanEval/3,0,easy,False,AssertionError,512,685,False
+limit,HumanEval/76,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/22,0,easy,False,AssertionError,437,551,False
+limit,HumanEval/23,0,easy,True,,178,233,False
+limit,HumanEval/11,0,easy,False,TypeError: 'str' object cannot be interpreted as an integer,512,955,False
+limit,HumanEval/37,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/105,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,4097,True
+limit,HumanEval/90,0,easy,False,AssertionError,512,665,False
+limit,HumanEval/143,0,easy,False,AssertionError,512,1026,False
+limit,HumanEval/55,0,easy,False,AssertionError,512,1356,False
+limit,HumanEval/99,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/6,0,easy,False,AssertionError,512,746,False
+limit,HumanEval/139,0,easy,False,NameError: name 'math' is not defined. Did you forget to import 'math'?,512,665,False
+limit,HumanEval/53,0,easy,True,,166,231,False
+limit,HumanEval/89,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/2,0,easy,True,,512,710,False
+limit,HumanEval/114,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/145,0,easy,False,ValueError: invalid literal for int() with base 10: '-',512,4097,True
+limit,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: 'apples',512,784,False
+limit,HumanEval/120,0,easy,False,AssertionError,512,846,False
+limit,HumanEval/117,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/62,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/106,0,easy,False,NameError: name 'factorial' is not defined,512,3257,False
+limit,HumanEval/38,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/52,0,easy,True,,307,409,False
+limit,HumanEval/39,0,easy,False,SyntaxError: '[' was never closed,512,4097,True
+limit,HumanEval/163,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/109,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/100,0,easy,False,AssertionError,512,1153,False
+limit,HumanEval/157,0,easy,False,AssertionError,430,569,False
+limit,HumanEval/69,0,easy,False,AssertionError,512,2212,False
+limit,HumanEval/4,0,easy,True,,512,858,False
+limit,HumanEval/8,0,easy,False,NameError: name 'product' is not defined,356,503,False
+limit,HumanEval/93,0,easy,False,AssertionError,512,784,False
+limit,HumanEval/118,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/116,0,easy,False,SyntaxError: invalid syntax,512,4097,True
+limit,HumanEval/132,0,easy,False,AssertionError,512,1907,False
+limit,HumanEval/101,0,easy,False,AssertionError,500,630,False
+limit,HumanEval/96,0,easy,False,NameError: name 'is_prime' is not defined,512,1032,False
+limit,HumanEval/58,0,easy,True,,512,676,False
+limit,HumanEval/0,0,easy,True,,512,1135,False
+limit,HumanEval/47,0,easy,True,,512,4097,True
+limit,HumanEval/50,0,easy,False,AssertionError,423,558,False
+limit,HumanEval/111,0,easy,False,"ValueError: not enough values to unpack (expected 2, got 1)",512,749,False
+limit,HumanEval/146,0,easy,False,SyntaxError: unterminated string literal (detected at line 3),512,4097,True
+limit,HumanEval/126,0,easy,False,SyntaxError: unterminated triple-quoted string literal (detected at line 67),512,2564,False
+limit,HumanEval/74,0,easy,True,,512,794,False
+limit,HumanEval/137,0,easy,False,"ValueError: could not convert string to float: '2,3'",512,652,False
+limit,HumanEval/36,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/26,0,easy,False,SyntaxError: invalid syntax,512,1153,False
+limit,HumanEval/127,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/71,0,easy,False,NameError: name 'sqrt' is not defined,512,932,False
+limit,HumanEval/82,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,1220,False
+limit,HumanEval/1,0,easy,False,AssertionError,512,803,False
+limit,HumanEval/78,0,easy,True,,512,4097,True
+limit,HumanEval/59,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/66,0,easy,True,,512,669,False
+limit,HumanEval/147,0,easy,True,,512,1183,False
+limit,HumanEval/129,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/19,0,easy,False,ValueError: invalid literal for int() with base 10: 'three',513,4100,True
+limit,HumanEval/64,0,easy,False,AssertionError,512,688,False
+limit,HumanEval/152,0,easy,True,,512,771,False
+limit,HumanEval/135,0,easy,True,,512,4097,True
+limit,HumanEval/103,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/107,0,easy,False,AssertionError,512,832,False
+limit,HumanEval/162,0,easy,True,,512,633,False
+limit,HumanEval/80,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/104,0,easy,False,SyntaxError: unterminated string literal (detected at line 1),512,949,False
+limit,HumanEval/28,0,easy,True,,498,572,False
+limit,HumanEval/149,0,easy,True,,512,3059,False
+limit,HumanEval/125,0,easy,False,AssertionError,512,1016,False
+limit,HumanEval/123,0,easy,False,timeout,512,4097,True
+limit,HumanEval/24,0,easy,False,NameError: name 'gcd' is not defined,512,4097,True
+limit,HumanEval/142,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/20,0,easy,False,AssertionError,512,1735,False
+limit,HumanEval/122,0,easy,False,TypeError: object of type 'int' has no len(),512,2507,False
+limit,HumanEval/15,0,easy,True,,406,500,False
+limit,HumanEval/160,0,easy,False,"TypeError: can only concatenate str (not ""int"") to str",512,4035,False
+limit,HumanEval/158,0,easy,True,,512,740,False
+limit,HumanEval/45,0,easy,True,,147,209,False
+limit,HumanEval/7,0,easy,True,,271,385,False
+limit,HumanEval/60,0,easy,True,,506,633,False
+limit,HumanEval/154,0,easy,True,,512,4097,True
+limit,HumanEval/33,0,easy,False,"TypeError: list indices must be integers or slices, not list",512,4097,True
+limit,HumanEval/87,0,easy,False,SyntaxError: unterminated string literal (detected at line 5),512,4097,True
+limit,HumanEval/21,0,easy,False,TypeError: unsupported operand type(s) for -: 'NoneType' and 'float',512,4097,True
+limit,HumanEval/44,0,easy,False,AssertionError,512,4097,True
+limit,HumanEval/148,0,easy,False,AssertionError,512,998,False
+limit,HumanEval/27,0,easy,False,AssertionError,512,588,False
+limit,HumanEval/128,0,easy,False,AssertionError,512,718,False
+limit,HumanEval/48,0,easy,True,,512,855,False
+limit,HumanEval/110,0,easy,False,AssertionError,512,4097,True

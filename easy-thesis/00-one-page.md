@@ -22,7 +22,7 @@ These are the best observed free controls with **464/464 coverage**.
 
 In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
-The 2B and4B gaps have positive intervals. Both compare the same464 problems.
+The 2B and 4B gaps have positive intervals. Both compare the same 464 problems.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
 ## How to read the result
@@ -37,31 +37,33 @@ Collection details stay in the methods note; the main story uses all 464 problem
 
 Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-## Completed extension: 2B LoRA-1 + limit 1,024
+## Completed LoRA combinations — all three sizes
 
-**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
-This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+LoRA alone means **thinking ON, with no thinking-token limit**.
+LoRA + OFF and LoRA + limit use the same saved trained add-on.
+No new training was done for these six combinations.
 
-The missing40 LoRA-alone runs are complete: 2B passed 1/40; 4B passed 12/40.
-Their all-attempt, equal-problem-weight scores now cover all 464:
-**2B LoRA-1 alone 34.4%; 4B LoRA-1 alone 56.8%.**
+| Model | Combination | Passed | Coverage | Accuracy | 95% interval | Mean total tokens |
+|---|---|---|---|---|---|---|
+| 0.8B | LoRA-1 + OFF | 65 | 464/464 | 14.0% | [11.0%, 17.0%] | 1,278 |
+| 0.8B | LoRA-1 + limit 512 | 67 | 464/464 | 14.4% | [11.2%, 17.5%] | 4,979 |
+| 2B | LoRA-1 + OFF | 165 | 464/464 | 35.6% | [31.2%, 39.7%] | 1,445 |
+| 2B | LoRA-1 + limit 1,024 | 191 | 464/464 | 41.2% | [36.6%, 45.7%] | 4,072 |
+| 4B | LoRA-1 + OFF | 300 | 464/464 | 64.7% | [59.9%, 69.0%] | 882 |
+| 4B | LoRA-1 + limit 2,048 | 332 | 464/464 | 71.6% | [67.5%, 75.6%] | 3,511 |
 
-On the same 464 first attempts, the 2B comparison is:
-**LoRA + limit 41.2% (191/464), LoRA alone 34.9% (162/464), OFF 32.5% (151/464).**
-The combination gains 6.2 points over LoRA alone, interval +2.4 to +10.1.
-It gains 8.6 points over OFF, interval +4.5 to +12.9.
-LoRA alone's 2.4-point lead over OFF is inconclusive: interval −1.7 to +6.7.
-The combination uses 13.4% fewer output tokens than LoRA alone.
-OFF uses 66.5% fewer output tokens than the combination.
+### What the completed tests show
 
-Limit alone remains 38.6% (179/464). The combination gains 2.6 points,
-interval −1.5 to +6.7. A reliable gain over the free limit is not established.
+- **0.8B:** LoRA + OFF passes 65/464 (14.0%); LoRA + limit 512 passes 67/464 (14.4%).
+  OFF without LoRA passes 68/464 (14.7%). There is no clear gain over OFF.
+  LoRA + limit improves on the matching free limit by 3.9 points, interval +0.6 to +7.1.
+- **2B:** LoRA + OFF passes 165/464 (35.6%); LoRA + limit 1,024 passes 191/464 (41.2%).
+  The limit combination beats LoRA + OFF by 5.6 points, interval +1.1 to +9.9.
+  Its 2.6-point gain over limit alone remains uncertain, interval −1.5 to +6.7.
+- **4B:** LoRA + OFF passes 300/464 (64.7%); LoRA + limit 2,048 passes 332/464 (71.6%).
+  Limit alone passes 330/464 (71.1%). The two-pass gain is inconclusive,
+  interval −3.0 to +3.7 points. The combination uses about 11.4% fewer output tokens.
 
-Earlier tables use all attempts per problem; 2B LoRA alone is 34.4% under that rule.
-The 34.9% reference above uses first attempts, matching the combination's one attempt.
-Archived 424-problem reports retain their original numbers as history.
-The extension is retrospective, with historical references and unadjusted intervals.
-No result proves a universal winner. Other incomplete methods retain their coverage.
-
-Checked 14 October 2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Updated comparison: [missing40 results](../results/lora-missing40/README.md).
+These are same-problem, first-attempt comparisons with historical references.
+Intervals are unadjusted for multiple comparisons. They are not proof of universal wins.
+Shorter output does not directly establish lower GPU time, energy, or money.

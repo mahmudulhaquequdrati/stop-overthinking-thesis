@@ -1,5 +1,23 @@
 # Complete thesis A→Z · where to check · what to tell the teacher
 
+## Completed LoRA combinations — 14 October 2026
+
+All six planned combinations now have results for the same **464 problems**, one attempt each.
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA + OFF does not consistently improve on OFF without LoRA.
+The 2B and 4B limit combinations have not established a reliable accuracy gain over the free limit.
+Compare first attempts with first attempts; keep all-attempt problem averages labelled separately.
+No further run is needed to complete these six configurations.
+The document rebuild uses saved results and spends no Colab units.
+
+Read [the full easy thesis](easy-thesis/FULL-THESIS.md), including benchmark, difficulty, token and uncertainty tables.
+The formal thesis retains its historical results.
+[Checked result archive and calculations](results/lora-controls/README.md).
+
 ## Full 464 update — 14 October 2026
 
 **2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**

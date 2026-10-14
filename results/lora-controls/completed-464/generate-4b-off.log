@@ -1,0 +1,20 @@
+/usr/local/lib/python3.13/dist-packages/peft/mapping_func.py:154: UserWarning: The PEFT config's `base_model_name_or_path` was renamed from 'unsloth/Qwen3.5-4B' to 'None'. Please ensure that the correct base model is loaded when loading this checkpoint.
+  warnings.warn(
+CPU LoRA compatibility check passed; 256 saved tensors. No base-model download.
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<01:54,  3.71it/s]Loading weights:   6%|▋         | 27/426 [00:00<00:04, 89.39it/s]Loading weights:  11%|█         | 47/426 [00:00<00:03, 120.61it/s]Loading weights:  18%|█▊        | 78/426 [00:00<00:01, 177.16it/s]Loading weights:  23%|██▎       | 100/426 [00:00<00:01, 171.81it/s]Loading weights:  31%|███       | 131/426 [00:00<00:01, 208.83it/s]Loading weights:  36%|███▋      | 155/426 [00:00<00:01, 198.09it/s]Loading weights:  43%|████▎     | 182/426 [00:01<00:01, 215.99it/s]Loading weights:  48%|████▊     | 205/426 [00:01<00:01, 206.60it/s]Loading weights:  54%|█████▍    | 232/426 [00:01<00:00, 221.12it/s]Loading weights:  60%|█████▉    | 255/426 [00:01<00:00, 217.76it/s]Loading weights:  65%|██████▌   | 278/426 [00:01<00:00, 218.53it/s]Loading weights:  72%|███████▏  | 305/426 [00:01<00:00, 227.73it/s]Loading weights:  77%|███████▋  | 329/426 [00:01<00:00, 220.47it/s]Loading weights:  83%|████████▎ | 355/426 [00:01<00:00, 228.25it/s]Loading weights:  89%|████████▉ | 379/426 [00:01<00:00, 218.61it/s]Loading weights:  94%|█████████▍| 402/426 [00:02<00:00, 219.29it/s]Loading weights: 100%|█████████▉| 425/426 [00:02<00:00, 212.01it/s]Loading weights: 100%|██████████| 426/426 [00:02<00:00, 194.92it/s]
+loaded unsloth/Qwen3.5-4B as torch.bfloat16 | GPU memory used: 8.41 GB
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LoRA loaded: 128 layers, weight sum 11227.8
+Saved 8/464 • 19.3s this batch
+Saved 12/464 • 63.5s this batch
+Saved 16/464 • 522.4s this batch
+First 16 technical checks passed. Continuing; no accuracy gate.
+Saved 80/464 • 431.0s this batch
+Saved 144/464 • 54.8s this batch
+Saved 172/464 • 284.0s this batch
+Saved 236/464 • 1510.0s this batch
+Saved 300/464 • 597.8s this batch
+Saved 364/464 • 1378.5s this batch
+Saved 428/464 • 1518.6s this batch
+Saved 464/464 • 900.2s this batch
+Generation complete: 464/464.

@@ -106,3 +106,5 @@
 - [Completed missing40 and full464 comparison](../results/lora-missing40/README.md):2B LoRA alone34.4%,4B56.8%;2B combination leads in observed accuracy.
 
 - [Five LoRA controls in one session](49-five-lora-controls.md).
+
+- [50 — Completed LoRA combinations and full easy thesis](50-completed-lora-controls.md).

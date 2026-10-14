@@ -12,7 +12,8 @@ E=ROOT/'easy-thesis'
 D=json.loads((ROOT/'results/combined/results.json').read_text())
 S={(s['model'],s['method']):s for s in D['summaries']}
 LABEL={'off':'Thinking OFF','on':'Thinking ON','lora1':'LoRA-1','lora2':'LoRA-2','brief':'Think briefly',
-       **{f'limit{n}':f'Limit {n:,}' for n in (512,1024,2048,4096)}}
+       **{f'limit{n}':f'Limit {n:,}' for n in (512,1024,2048,4096)},
+       'lora1-off':'LoRA-1 + OFF', **{f'lora1-limit{n}':f'LoRA-1 + limit {n:,}' for n in (512,1024,2048)}}
 MODELS=('0.8b','2b','4b')
 BEST={'0.8b':'off','2b':'limit1024','4b':'limit2048'}
 def pct(v):return f'{100*v:.1f}%'
@@ -25,21 +26,19 @@ headline=' · '.join(f'**{m.upper()}: {LABEL[BEST[m]]} {pct(S[m,BEST[m]]["accura
 source='Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.'
 coverage_note='Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.'
 full_rows=[]
-for m in MODELS:
-    for method in ('off','on',BEST[m],'lora1'):
-        if any(r[0]==m.upper() and r[1]==LABEL[method] for r in full_rows):continue
-        s=S[m,method]
-        if s['coverage']==464:
-            full_rows.append([m.upper(),LABEL[method],pct(s['accuracy']),ci(s['accuracy_ci']),f'{s["coverage"]}/464',s['attempts']])
+for summary in D['summaries']:
+    if summary['coverage']==464:
+        full_rows.append([summary['model'].upper(),LABEL[summary['method']],pct(summary['accuracy']),
+            ci(summary['accuracy_ci']),'464/464',summary['attempts']])
 full_table=table(['Model','Way','Accuracy','95% interval','Coverage','Attempts'],full_rows)
 all_table=table(['Model','Way','Accuracy','Coverage','Attempts'],[[s['model'].upper(),LABEL[s['method']],pct(s['accuracy']),f'{s["coverage"]}/464',s['attempts']] for s in D['summaries']])
 paired_table=table(['Model','Way vs reference','Shared problems','Way accuracy','Reference accuracy','Gap (points)','95% gap interval'],[
     [c['model'].upper(),f'{LABEL[c["method"]]} vs {LABEL[c["reference"]]}',c['coverage'],pct(c['accuracy']),pct(c['reference_accuracy']),points(c['delta']),ci(c['delta_ci'],False)] for c in D['comparisons']])
 lora_table=table(['Model','Free control','Shared problems','Free accuracy','LoRA-1 accuracy','Gap (points)','95% gap interval'],[
-    [c['model'].upper(),LABEL[c['method']],c['coverage'],pct(c['accuracy']),pct(c['reference_accuracy']),points(c['delta']),ci(c['delta_ci'],False)] for c in D['comparisons'] if c['reference']=='lora1'])
+    [c['model'].upper(),LABEL[c['method']],c['coverage'],pct(c['accuracy']),pct(c['reference_accuracy']),points(c['delta']),ci(c['delta_ci'],False)] for c in D['comparisons'] if c['reference']=='lora1' and not c['method'].startswith('lora1-')])
 token_table=table(['Model','Way','Coverage','Thinking tokens','All tokens','Hit output cap'],[
     [s['model'].upper(),LABEL[s['method']],f'{s["coverage"]}/464',f'{s["thinking_tokens"]:,.0f}',f'{s["total_new_tokens"]:,.0f}',pct(s['hit_limit'])]
-    for s in D['summaries'] if s['method'] in ('off','on','lora1',BEST[s['model']])])
+    for s in D['summaries']])
 group_table=table(['Model','Way','Problem group','Coverage','Accuracy'],[
     [m.upper(),LABEL[BEST[m]],g['source']+' '+g['difficulty'],g['coverage'],pct(g['accuracy'])]
     for m in MODELS for g in S[m,BEST[m]]['groups']])
@@ -68,7 +67,7 @@ def chart(name,title,subtitle,rows,max_value=100,unit='Accuracy (%)'):
 chart('combined-accuracy.svg','Accuracy across 464 unique problems','Model and way • only methods with complete coverage',[
     (f'{r[0]} · {r[1]}',float(r[2][:-1]),r[2]) for r in full_rows])
 chart('combined-lora.svg','Free control versus LoRA-1','Each pair uses the same problems; pair coverage is shown',[
-    row for c in D['comparisons'] if c['reference']=='lora1' for row in (
+    row for c in D['comparisons'] if c['reference']=='lora1' and not c['method'].startswith('lora1-') for row in (
         (f'{c["model"].upper()} · {LABEL[c["method"]]}',100*c['accuracy'],f'{pct(c["accuracy"])} · n={c["coverage"]}'),
         (f'{c["model"].upper()} · LoRA-1',100*c['reference_accuracy'],f'{pct(c["reference_accuracy"])} · n={c["coverage"]}'))])
 chart('combined-tokens.svg','Average total tokens per answer','Model and way • per-problem means • complete coverage',[
@@ -100,7 +99,7 @@ These are the best observed free controls with **464/464 coverage**.
 
 In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
 The 0.8B interval crosses zero, so its small lead is uncertain.
-The 2B and4B gaps have positive intervals. Both compare the same464 problems.
+The 2B and 4B gaps have positive intervals. Both compare the same 464 problems.
 These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
 ## How to read the result
@@ -160,8 +159,10 @@ The combined scores are in [05-results.md](05-results.md).
 put('03-how-we-did-it.md',f'''# How we did it
 
 We combined saved graded results for **464 unique problems**.
-No new answers were generated. No training was run.
-This update spends no Colab units.
+The completed extensions generated new answers using existing LoRA-1 add-ons.
+No new training was run. This document rebuild uses saved results only.
+The Notebook 24 ledger records about 57.0 estimated Colab units for its five runs.
+Recalculating the tables locally spends no Colab units.
 
 ## What changes between methods
 
@@ -169,7 +170,9 @@ This update spends no Colab units.
 - Thinking ON: allow notes until the overall output cap.
 - Thinking limit: end the notes at a fixed token budget, then generate the answer.
 - Think briefly: ask for shorter notes in the prompt.
-- LoRA-1: use a small add-on trained on shortest correct answers.
+- LoRA-1 alone: use the trained add-on with thinking ON and no thinking limit.
+- LoRA-1 + OFF: use that add-on with thinking notes switched off.
+- LoRA-1 + limit: use that add-on and end thinking at the stated limit.
 - LoRA-2: use the original 2B study's larger training set; coverage is 234/464.
 
 A token is a small piece of text. LoRA trains an add-on while keeping the base model fixed.
@@ -260,7 +263,8 @@ Accuracy gives each problem equal weight, using all its available attempts.
 
 {headline}
 
-These are the best observed controls among methods covering the full set.
+These are the best observed free controls among methods covering the full set.
+The completed trained combinations are also included below.
 A higher score on an incomplete subset does not establish a better method.
 
 ## Methods with complete coverage
@@ -307,7 +311,7 @@ Token counts describe output length, not measured GPU time.
 
 {token_table}
 
-## Full-coverage recommended controls by problem group
+## Selected free controls by problem group
 
 {group_table}
 
@@ -359,7 +363,7 @@ The original training and loop evidence remains in the formal thesis.
 ## What the combined analysis adds
 
 The full-coverage 2B and 4B limits score higher than normal thinking and use fewer total tokens.
-Thinking OFF is the cheapest of the main full-coverage controls on each size.
+Among the main free controls, thinking OFF uses the fewest output tokens on each size.
 For exact numbers and paired intervals, see [the combined results](05-results.md).
 
 LoRA-1 and LoRA-2 differ in training data and coverage.
@@ -389,7 +393,7 @@ The partially tested limits cannot establish a better full-set score.
 
 In the earlier all-attempt analysis, the selected free controls score higher than LoRA-1 alone on shared problems.
 The small 0.8B difference remains uncertain.
-The 2B and4B gaps have positive intervals, now using464 shared problems.
+The 2B and 4B gaps have positive intervals, now using 464 shared problems.
 No result proves that all LoRA training methods are ineffective.
 The original LoRA-2 experiment remains a 234-problem finding.
 
@@ -407,7 +411,11 @@ The original LoRA-2 experiment remains a 234-problem finding.
 
 ## What to test next
 
-The2B LoRA + limit extension is complete; see its comparison below.
+All six planned LoRA combinations are now complete on 464 problems each.
+The five Notebook 24 runs and earlier 2B limit run need no rerun.
+LoRA + OFF did not consistently improve on OFF without training.
+LoRA + limits improved on LoRA alone, but gains over the matching free limit
+remain uncertain for 2B and 4B. See the completed comparison below.
 Training on correct answers generated under a limit remains untested.
 This documentation rebuild used saved results and no Colab units.
 Keep future training, development, and test problems separate.
@@ -437,14 +445,14 @@ We average within each problem first, then across problems.
 
 ## Why did older LoRA reports show 424/464?
 
-Those reports preceded the extra40 fill-in. Both2B and4B LoRA-1 now cover464/464.
+Those reports preceded the extra 40 fill-in. Both 2B and 4B LoRA-1 now cover 464/464.
 Missing results are not failures. We compare LoRA with controls on shared IDs only.
 The 0.8B LoRA-1 covers all 464. LoRA-2 covers 234.
 
-## Does the limit beat training?
+## Does the free limit beat LoRA alone?
 
 The selected free controls have higher observed scores on shared problems.
-The 0.8B gap is uncertain. The 2B and4B intervals are positive.
+The 0.8B gap is uncertain. The 2B and 4B intervals are positive.
 See [the paired results](05-results.md) for numbers and limits.
 
 ## Were all problems selected before the experiment?
@@ -458,9 +466,10 @@ We retain this history in the methods, without making separate headline stories.
 No. They apply to the original 234-problem 2B analysis.
 We did not rerun loop detection for the combined set.
 
-## Did this update use any GPU budget?
+## Did the completed experiments use GPU budget?
 
-No. It reads graded CSV files and calculates statistics locally.
+Yes. Notebook 24 records about 57.0 estimated compute units, not hours.
+This document rebuild only reads saved scores and uses no GPU budget.
 
 ## Where can someone check the calculations?
 
@@ -482,7 +491,7 @@ It should not be described as a single pre-registered test set.
 The 190-problem collection used one attempt. Some limit fill-ins also used one.
 All available attempts contribute, but every problem has equal weight.
 
-2B and 4B LoRA-1 now cover all464, after adding their exact extra40 results.
+2B and 4B LoRA-1 now cover all 464, after adding their exact extra 40 results.
 Some limit settings and LoRA-2 also have incomplete coverage.
 See [all method coverage](05-results.md) and [the source manifest](../results/combined/sources.csv).
 
@@ -521,9 +530,10 @@ put('README.md','''# Easy thesis — start here
 
 This version presents **464 unique test problems** as one combined study view.
 Accuracy gives every problem equal weight. Every method shows its actual coverage.
+The completed LoRA + OFF and LoRA + limit results are included for all three sizes.
 
 Start with [PAPER.md](PAPER.md) for a teacher-ready summary.
-Read [FULL-THESIS.md](FULL-THESIS.md) for all chapters, or [00-one-page.md](00-one-page.md) for the short version.
+Read [FULL-THESIS.md](FULL-THESIS.md) for all chapters, including every benchmark table, or [00-one-page.md](00-one-page.md) for the short version.
 
 - [Method](03-how-we-did-it.md): weighting, grading, and intervals.
 - [Datasets](04-the-datasets.md): test and training counts.
@@ -542,6 +552,7 @@ The [combined audit](../results/combined/README.md) is the source for this versi
 Rebuild from the project root:
 
 ```sh
+.venv/bin/python scripts/audit_lora_controls.py
 python3 scripts/combine_results.py
 python3 scripts/build_combined_easy_thesis.py
 ```
@@ -557,58 +568,218 @@ words=words.replace('The answer hit the token room before it finished. It counts
 for key,definition in [('Coverage','How many unique problems have results for one method.'),('Retrospective','Chosen after the results were available.'),('Equal problem weight','Each problem contributes equally, even when attempt counts differ.'),('Paired comparison','Compare two methods on exactly the same problems.'),('Bootstrap','Repeat the calculation on resampled problems to estimate uncertainty.')]:
     if f'| {key} |' not in words:words+=f'| {key} | {definition} |\n'
 put('WORDS.md',words)
-# Keep the completed extension separate from historical all-attempt tables.
-completed = json.loads((ROOT/'results/lora-limit-2b/completed-464/summary.json').read_text())
-assert completed['complete'] and completed['coverage'] == completed['generated'] == 464
-assert completed['attempts_per_problem'] == 1 and completed['accuracy'] == 191/464
-assert completed['comparisons'][0]['reference'] == 'limit1024'
-assert completed['comparisons'][0]['reference_accuracy'] == 179/464
-current = json.loads((ROOT/'results/lora-missing40/comparison-2b-464.json').read_text())
-assert current['first_attempts']['summaries']['lora1']['passed'] == 162
-assert S['2b','lora1']['coverage'] == S['4b','lora1']['coverage'] == 464
-extension = """## Completed extension: 2B LoRA-1 + limit 1,024
+# Completed combinations: keep the all-attempt and first-attempt views explicit.
+C=json.loads((ROOT/'results/lora-controls/checked-results.json').read_text())
+assert C['new_answers']==2320 and len(C['results'])==5
+combinations=[(m,method) for m in MODELS for method in ('lora1-off',f'lora1-limit{512 if m=="0.8b" else 1024 if m=="2b" else 2048}')]
+combo_rows=[]
+first_rows=[]
+first_groups=[]
+first_methods={}
+for m in MODELS:
+    base=json.loads((ROOT/f'results/lora-controls-inputs/baselines-{m}.json').read_text())['methods']
+    for method,by_id in base.items():
+        assert len(by_id)==464
+        first_methods[m,method]=by_id
+    for size,method in combinations:
+        if size!=m:continue
+        folder=(ROOT/'results/lora-limit-2b/completed-464' if m=='2b' and method=='lora1-limit1024'
+                else ROOT/f'results/lora-controls/completed-464/{m}/{method}')
+        rows=[r for path in sorted(folder.glob('*-graded.csv')) for r in __import__('csv').DictReader(path.open())]
+        assert len(rows)==464 and len({r['task_id'] for r in rows})==464
+        first_methods[m,method]={r['task_id']:dict(passed=r['passed']=='True',
+            thinking_tokens=float(r['thinking_tokens']),total_new_tokens=float(r['total_new_tokens'])) for r in rows}
+        summary=S[m,method]
+        passed=sum(r['passed']=='True' for r in rows)
+        assert summary['accuracy']==passed/464
+        combo_rows.append([m.upper(),LABEL[method],passed,'464/464',pct(summary['accuracy']),ci(summary['accuracy_ci']),f'{summary["total_new_tokens"]:,.0f}'])
+    for (model,method),by_id in first_methods.items():
+        if model!=m:continue
+        passed=sum(r['passed'] for r in by_id.values())
+        first_rows.append([m.upper(),LABEL[method],f'{passed}/464',pct(passed/464),f'{sum(r["total_new_tokens"] for r in by_id.values())/464:,.0f}'])
+combo_table=table(['Model','Combination','Passed','Coverage','Accuracy','95% interval','Mean total tokens'],combo_rows)
+first_table=table(['Model','Way','Passed / tested','First-attempt accuracy','Mean total tokens'],first_rows)
+from combine_results import interval
+first_pairs=[]
+for m,method in combinations:
+    a=first_methods[m,method]
+    control='off' if method.endswith('-off') else method.split('-')[1]
+    for ref in dict.fromkeys((control,'lora1','off')):
+        b=first_methods[m,ref];ids=sorted(a)
+        diffs=[float(a[t]['passed'])-float(b[t]['passed']) for t in ids]
+        first_pairs.append([m.upper(),LABEL[method]+' vs '+LABEL[ref],464,
+            points(sum(diffs)/464),ci(interval(diffs),False)])
+# Directly answer whether switching LoRA thinking off beats its limited mode.
+for m in MODELS:
+    limit=f'lora1-limit{512 if m=="0.8b" else 1024 if m=="2b" else 2048}'
+    a,b=first_methods[m,limit],first_methods[m,'lora1-off'];ids=sorted(a)
+    diffs=[float(a[t]['passed'])-float(b[t]['passed']) for t in ids]
+    first_pairs.append([m.upper(),LABEL[limit]+' vs LoRA-1 + OFF',464,points(sum(diffs)/464),ci(interval(diffs),False)])
+first_pair_table=table(['Model','First-attempt comparison','Shared problems','Gap (points)','95% gap interval'],first_pairs)
+# Every saved method is broken down by benchmark and difficulty, with its own denominator.
+group_rows=[]
+for summary in D['summaries']:
+    groups=list(summary['groups'])
+    lcb=[g for g in groups if g['source']=='LiveCodeBench']
+    n=sum(g['coverage'] for g in lcb)
+    if n:
+        groups.insert(1,dict(source='LiveCodeBench',difficulty='all',coverage=n,
+            accuracy=sum(g['coverage']*g['accuracy'] for g in lcb)/n))
+    for g in groups:
+        group_rows.append([summary['model'].upper(),LABEL[summary['method']],g['source'],g['difficulty'],g['coverage'],pct(g['accuracy'])])
+all_group_table=table(['Model','Way','Benchmark','Difficulty','Problems tested','Accuracy (all attempts, equal problem weight)'],group_rows)
+# The same benchmark split for the first-attempt view, including historical controls.
+problem_info={p['task_id']:p for p in json.loads((ROOT/'results/lora-controls-inputs/problem-templates.json').read_text())['problems']}
+for (m,method),by_id in first_methods.items():
+    for source,difficulty in [('humaneval','easy'),('lcb','all'),('lcb','easy'),('lcb','medium')]:
+        rows=[r for tid,r in by_id.items() if problem_info[tid]['source']==source and (difficulty=='all' or problem_info[tid]['difficulty']==difficulty)]
+        n=len(rows);passed=sum(r['passed'] for r in rows)
+        first_groups.append([m.upper(),LABEL[method],'HumanEval+' if source=='humaneval' else 'LiveCodeBench',difficulty,f'{passed}/{n}',pct(passed/n)])
+first_group_table=table(['Model','Way','Benchmark','Difficulty','Passed / tested','First-attempt accuracy'],first_groups)
+chart('lora-combinations.svg','Completed LoRA combinations: 464 problems each',
+      'One attempt per problem; existing trained adapters; no new training',
+      [(f'{m.upper()} · {LABEL[method]}',100*S[m,method]['accuracy'],pct(S[m,method]['accuracy'])) for m,method in combinations])
+chart('first-attempt-controls.svg','Free controls and trained combinations',
+      'First attempts only; 464 identical problems for every bar',
+      [(f'{m.upper()} · {LABEL[method]}',100*sum(r['passed'] for r in by_id.values())/464,
+        pct(sum(r['passed'] for r in by_id.values())/464)) for (m,method),by_id in first_methods.items()])
+interpretation='''### What the completed tests show
 
-**41.2% accuracy — 191/464 passed. Coverage: 464/464, one attempt per problem.**
-This uses Qwen3.5-2B and the existing LoRA-1 trained add-on.
+- **0.8B:** LoRA + OFF passes 65/464 (14.0%); LoRA + limit 512 passes 67/464 (14.4%).
+  OFF without LoRA passes 68/464 (14.7%). There is no clear gain over OFF.
+  LoRA + limit improves on the matching free limit by 3.9 points, interval +0.6 to +7.1.
+- **2B:** LoRA + OFF passes 165/464 (35.6%); LoRA + limit 1,024 passes 191/464 (41.2%).
+  The limit combination beats LoRA + OFF by 5.6 points, interval +1.1 to +9.9.
+  Its 2.6-point gain over limit alone remains uncertain, interval −1.5 to +6.7.
+- **4B:** LoRA + OFF passes 300/464 (64.7%); LoRA + limit 2,048 passes 332/464 (71.6%).
+  Limit alone passes 330/464 (71.1%). The two-pass gain is inconclusive,
+  interval −3.0 to +3.7 points. The combination uses about 11.4% fewer output tokens.
 
-The missing40 LoRA-alone runs are complete:2B passed1/40;4B passed12/40.
-Their all-attempt, equal-problem-weight scores now cover all464:
-**2B LoRA-1 alone34.4%;4B LoRA-1 alone56.8%.**
+These are same-problem, first-attempt comparisons with historical references.
+Intervals are unadjusted for multiple comparisons. They are not proof of universal wins.
+Shorter output does not directly establish lower GPU time, energy, or money.
+'''
+brief='''## Completed LoRA combinations — all three sizes
 
-On the same464 first attempts, the2B comparison is:
-**LoRA + limit41.2% (191/464), LoRA alone34.9% (162/464), OFF32.5% (151/464).**
-The combination gains6.2 points over LoRA alone, interval+2.4 to+10.1.
-It gains8.6 points over OFF, interval+4.5 to+12.9.
-LoRA alone's2.4-point lead over OFF is inconclusive: interval−1.7 to+6.7.
-The combination uses13.4% fewer output tokens than LoRA alone.
-OFF uses66.5% fewer output tokens than the combination.
+LoRA alone means **thinking ON, with no thinking-token limit**.
+LoRA + OFF and LoRA + limit use the same saved trained add-on.
+No new training was done for these six combinations.
 
-Limit alone remains38.6% (179/464). The combination gains2.6 points,
-interval−1.5 to+6.7. A reliable gain over the free limit is not established.
+'''+combo_table+'\n'+interpretation
+put('00-one-page.md',(E/'00-one-page.md').read_text()+'\n'+brief)
+put('05-results.md',(E/'05-results.md').read_text()+'''\n## Completed LoRA combinations
 
-Earlier tables use all attempts per problem;2B LoRA alone is34.4% under that rule.
-The34.9% reference above uses first attempts, matching the combination's one attempt.
-Archived424-problem reports retain their original numbers as history.
-The extension is retrospective, with historical references and unadjusted intervals.
-No result proves a universal winner. Other incomplete methods retain their coverage.
+![Completed combinations](figures/lora-combinations.svg)
 
-Checked14 October2026. Source: [completed result](../results/lora-limit-2b/README.md).
-Updated comparison: [missing40 results](../results/lora-missing40/README.md).
-"""
-for a,b in [('complete:2B','complete: 2B'),('passed1','passed 1'),(';4B','; 4B'),('passed12','passed 12'),('all464','all 464'),('alone34','alone 34'),('alone56','alone 56'),('same464','same 464'),('the2B','the 2B'),('limit41','limit 41'),('OFF32','OFF 32'),('gains6','gains 6'),('interval+','interval +'),('to+','to +'),('gains8','gains 8'),("alone's2","alone's 2"),('interval−','interval −'),('uses13','uses 13'),('uses66','uses 66'),('remains38','remains 38'),('gains2','gains 2'),('problem;2B','problem; 2B'),('is34','is 34'),('The34','The 34'),('Archived424','Archived 424'),('Checked14','Checked 14'),('October2026','October 2026')]:
-    extension=extension.replace(a,b)
+'''+combo_table+'''\n## Same 464 problems, first attempts only
 
-for name in ('00-one-page.md', '03-how-we-did-it.md', '05-results.md',
-             '07-advice-and-limits.md', '08-all-answers.md', '09-extra-problems.md',
-             '10-all-counts.md', 'README.md'):
-    put(name, (E/name).read_text() + '\n' + extension)
+![First-attempt controls and combinations](figures/first-attempt-controls.svg)
 
-for name in ('01-who-should-use-it.md', '02-the-problem.md', '04-the-datasets.md', '06-why-it-works.md'):
-    put(name, (E/name).read_text() + "\n## Latest completed extension\n\n2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.\nThe +2.6-point gain over limit alone remains inconclusive.\nSee [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).\n")
+Older methods can have two attempts per problem. For this comparison we use
+only their first saved attempts, matching the new runs' single attempt.
+This explains 2B LoRA alone: **34.9% first attempts versus 34.4% all attempts**.
+Likewise, 4B limit alone is **71.1% first attempts versus 71.9% all attempts**.
+These are two calculations from the same saved results, not contradictory scores.
 
-chapters=['00-one-page.md','10-all-counts.md','01-who-should-use-it.md','02-the-problem.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md','08-all-answers.md','09-extra-problems.md','WORDS.md']
-put('FULL-THESIS.md','# Stop Overthinking, Keep Passing the Tests\n\nEasy-language thesis: retrospective combined analysis of **464 unique problems**.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in chapters))
-put('PAPER.md','# Stop Overthinking, Keep Passing the Tests\n\nTeacher and paper draft: **464 unique code problems**, with explicit method coverage.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in ['00-one-page.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md']))
+'''+first_table+'\n'+first_pair_table+'\n'+interpretation+'''\n## Every benchmark and difficulty: all available methods
+
+Each row averages attempts within a problem, then gives every problem equal weight.
+Denominators are shown. Incomplete methods must not be ranked against full coverage.
+
+'''+all_group_table+'''\n## Every benchmark and difficulty: first attempts
+
+Every method below has all 464 test IDs: 164 HumanEval+, 166 LiveCodeBench easy,
+and 134 LiveCodeBench medium. Counts show successes, not coverage alone.
+
+'''+first_group_table)
+put('11-completed-lora-controls.md','''# Completed LoRA controls: evidence and conclusion
+
+We are at RESULTS → ANALYSIS → CONCLUSION.
+The question is whether an existing trained add-on helps when thinking is off or limited.
+For example, a student can use the same learned skill with or without written planning.
+We change the thinking setting, then measure passing tests and answer length.
+The main reference is the same setting without the trained add-on.
+A gain over normal thinking alone is not enough to establish a benefit from training.
+
+## All six planned combinations are finished
+
+Notebook 21 supplied 2B LoRA + limit 1,024.
+Notebook 24 supplied the other five configurations, with 2,320 new answers.
+Each configuration has one answer and one grade for each of the same 464 IDs.
+Notebook 23 is superseded by Notebook 24; do not run both.
+
+'''+combo_table+'\n'+interpretation+'''
+## Settings and checks
+
+The models are Qwen3.5-0.8B, Qwen3.5-2B, and Qwen3.5-4B.
+Existing adapter weight hashes match the settings recorded alongside the raw outputs.
+Sampling used seed 3407, temperature 0.6, top-p 0.95, and top-k 20.
+The total output caps were 4,096 tokens for HumanEval+ and 8,192 for LiveCodeBench.
+The limit is for thinking only. It does not cap the complete answer at 512/1,024/2,048.
+Thinking OFF records zero thinking tokens.
+Repeat stopping was enabled for 0.8B and 4B; 2B retained its original handling.
+The saved environment records Python 3.13.15, PyTorch 2.9.1+cu128,
+Transformers 5.18.0, PEFT 0.21.1, Flash Linear Attention 0.5.2,
+and causal-conv1d 1.7.0. Model calculations used bfloat16 precision.
+Notebook 24 requested batch size 128; generation could reduce batches if needed.
+The full environment files and package list remain with each saved run.
+The Notebook 24 ledger records an A100 80GB GPU and about 57.0 estimated units.
+The earlier Notebook 21 ledger is separate; 57.0 is not the whole project's spend.
+Actual billed units must be checked in Colab, not inferred as hours.
+
+Checked: 464 unique IDs per configuration; no duplicate attempts; every answer graded;
+no unexpected IDs; zero exact overlap with saved training IDs; grade/raw token agreement;
+reference source hashes; generation settings; and recalculated problem-based intervals.
+No new model generation, training, or generated-code execution was needed for this audit.
+Grades were read from the saved benchmark runs, rather than re-executed in this update.
+
+The new runs use historical references from earlier packages and batch layouts.
+A matching seed does not guarantee identical random draws in different environments.
+The combined analysis remains retrospective. It is not a new pre-registered evaluation.
+We did not claim that the model never saw benchmark text during pretraining.
+
+## Practical conclusion
+
+OFF without training remains the simplest observed choice for 0.8B.
+The 2B LoRA + limit combination has the highest observed full-set accuracy for 2B.
+It has not established a reliable gain over the free 1,024-token limit.
+The 4B combination nearly matches the free limit while generating fewer output tokens.
+LoRA + OFF does not show a consistent accuracy benefit over OFF without training.
+No new run is required to complete these six planned configurations.
+
+## Reproduce without GPU spending
+
+```sh
+.venv/bin/python scripts/audit_lora_controls.py
+python3 scripts/combine_results.py
+python3 scripts/build_combined_easy_thesis.py
+```
+
+Read [checked results](../results/lora-controls/checked-results.json),
+[raw archive and result note](../results/lora-controls/README.md), and
+[all accuracy, benchmark and token tables](05-results.md).
+''')
+for name in ('03-how-we-did-it.md','04-the-datasets.md','06-why-it-works.md',
+             '07-advice-and-limits.md','08-all-answers.md','09-extra-problems.md','10-all-counts.md','README.md','01-who-should-use-it.md'):
+    put(name,(E/name).read_text()+'''\n## Completed LoRA controls
+
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](11-completed-lora-controls.md) and [benchmark tables](05-results.md).
+''')
+# The motivation chapter preserves its original text across rebuilds.
+t=(E/'02-the-problem.md').read_text()
+if '## Latest completed extension' in t:
+    t=t.split('## Latest completed extension')[0]
+put('02-the-problem.md',t)
+
+chapters=['00-one-page.md','10-all-counts.md','01-who-should-use-it.md','02-the-problem.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md','08-all-answers.md','09-extra-problems.md','11-completed-lora-controls.md','WORDS.md']
+put('FULL-THESIS.md','# Stop Overthinking, Keep Passing the Tests\n\nEasy-language thesis: retrospective combined analysis of **464 unique problems**.\nUpdated 14 October 2026 with all six completed LoRA combinations.\n\nRead in order: summary → counts → motivation → methods → datasets → results → analysis → limits → teacher questions → collection history → completed LoRA controls → glossary.\nAll benchmark, difficulty, token and comparison tables are included below.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in chapters))
+put('PAPER.md','# Stop Overthinking, Keep Passing the Tests\n\nTeacher and paper draft: **464 unique code problems**, with explicit method coverage.\n\n'+'\n\n---\n\n'.join((E/p).read_text() for p in ['00-one-page.md','03-how-we-did-it.md','04-the-datasets.md','05-results.md','06-why-it-works.md','07-advice-and-limits.md','11-completed-lora-controls.md']))
 combined=f'''# Combined results: 464 unique problems
 
 Retrospective presentation chosen 13 October 2026; results updated 14 October 2026. Equal weight per problem.
@@ -639,5 +810,5 @@ Text similarity and pretraining exposure are not ruled out by this ID check.
 Intervals resample problems 2,000 times with seed 3407; they are unadjusted percentile intervals.
 Partial coverage is not imputed. Never rank a subset score against a full-set score.
 '''
-(ROOT/'results/combined/README.md').write_text(combined + '\n' + extension.replace('../results/lora-limit-2b/', '../lora-limit-2b/').replace('../results/lora-missing40/', '../lora-missing40/'))
-print('Built easy-thesis chapters, PAPER.md, FULL-THESIS.md, five SVG charts, and combined README.')
+(ROOT/'results/combined/README.md').write_text(combined + '\n## Completed combinations\n\n' + combo_table + '\n' + interpretation + '\nFull first-attempt and benchmark tables: [easy thesis](../../easy-thesis/05-results.md).\n')
+print('Built easy-thesis chapters, PAPER.md, FULL-THESIS.md, seven SVG charts, and combined README.')

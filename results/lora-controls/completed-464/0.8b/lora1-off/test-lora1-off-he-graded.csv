@@ -1,0 +1,165 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,HumanEval/42,0,easy,True,,0,132,False
+thinking_off,HumanEval/73,0,easy,False,AssertionError,0,4096,True
+thinking_off,HumanEval/30,0,easy,True,,0,139,False
+thinking_off,HumanEval/17,0,easy,False,ValueError: Unknown character:,0,297,False
+thinking_off,HumanEval/144,0,easy,False,TypeError: cannot unpack non-iterable float object,0,301,False
+thinking_off,HumanEval/108,0,easy,False,AssertionError,0,190,False
+thinking_off,HumanEval/98,0,easy,True,,0,128,False
+thinking_off,HumanEval/102,0,easy,False,AssertionError,0,153,False
+thinking_off,HumanEval/140,0,easy,False,AssertionError,0,240,False
+thinking_off,HumanEval/51,0,easy,False,AssertionError,0,163,False
+thinking_off,HumanEval/79,0,easy,False,AssertionError,0,233,False
+thinking_off,HumanEval/56,0,easy,True,,0,155,False
+thinking_off,HumanEval/5,0,easy,False,AssertionError,0,144,False
+thinking_off,HumanEval/92,0,easy,False,AssertionError,0,194,False
+thinking_off,HumanEval/70,0,easy,False,AssertionError,0,259,False
+thinking_off,HumanEval/136,0,easy,False,AssertionError,0,175,False
+thinking_off,HumanEval/29,0,easy,True,,0,107,False
+thinking_off,HumanEval/130,0,easy,False,NameError: name 'c' is not defined,0,310,False
+thinking_off,HumanEval/72,0,easy,True,,0,317,False
+thinking_off,HumanEval/121,0,easy,True,,0,149,False
+thinking_off,HumanEval/65,0,easy,False,"TypeError: sequence item 0: expected str instance, int found",0,169,False
+thinking_off,HumanEval/25,0,easy,False,AssertionError,0,224,False
+thinking_off,HumanEval/68,0,easy,False,"ValueError: operands could not be broadcast together with shapes (2,) (0,)",0,439,False
+thinking_off,HumanEval/94,0,easy,False,TypeError: 'int' object is not iterable,0,494,False
+thinking_off,HumanEval/16,0,easy,False,AssertionError,0,80,False
+thinking_off,HumanEval/13,0,easy,True,,0,95,False
+thinking_off,HumanEval/75,0,easy,False,AssertionError,0,471,False
+thinking_off,HumanEval/84,0,easy,False,AssertionError,0,195,False
+thinking_off,HumanEval/10,0,easy,False,IndexError: string index out of range,0,353,False
+thinking_off,HumanEval/32,0,easy,False,"TypeError: Value after * must be an iterable, not NoneType",0,380,False
+thinking_off,HumanEval/9,0,easy,False,IndexError: list index out of range,0,153,False
+thinking_off,HumanEval/35,0,easy,True,,0,97,False
+thinking_off,HumanEval/113,0,easy,False,AssertionError,0,226,False
+thinking_off,HumanEval/133,0,easy,False,AssertionError,0,179,False
+thinking_off,HumanEval/49,0,easy,True,,0,133,False
+thinking_off,HumanEval/61,0,easy,True,,0,101,False
+thinking_off,HumanEval/97,0,easy,False,AssertionError,0,135,False
+thinking_off,HumanEval/153,0,easy,False,AssertionError,0,371,False
+thinking_off,HumanEval/159,0,easy,False,AssertionError,0,346,False
+thinking_off,HumanEval/112,0,easy,False,AssertionError,0,229,False
+thinking_off,HumanEval/95,0,easy,False,AssertionError,0,265,False
+thinking_off,HumanEval/83,0,easy,False,SyntaxError: invalid syntax,0,4096,True
+thinking_off,HumanEval/115,0,easy,False,AssertionError,0,469,False
+thinking_off,HumanEval/86,0,easy,False,AssertionError,0,163,False
+thinking_off,HumanEval/150,0,easy,False,"TypeError: int() argument must be a string, a bytes-like object or a real number, not 'complex'",0,173,False
+thinking_off,HumanEval/156,0,easy,False,KeyError: 9,0,252,False
+thinking_off,HumanEval/85,0,easy,False,AssertionError,0,104,False
+thinking_off,HumanEval/12,0,easy,True,,0,175,False
+thinking_off,HumanEval/54,0,easy,True,,0,127,False
+thinking_off,HumanEval/138,0,easy,False,AssertionError,0,219,False
+thinking_off,HumanEval/57,0,easy,False,AssertionError,0,143,False
+thinking_off,HumanEval/77,0,easy,False,SyntaxError: expected ':',0,4096,True
+thinking_off,HumanEval/161,0,easy,False,AssertionError,0,184,False
+thinking_off,HumanEval/40,0,easy,True,,0,231,False
+thinking_off,HumanEval/34,0,easy,True,,0,88,False
+thinking_off,HumanEval/81,0,easy,False,AssertionError,0,438,False
+thinking_off,HumanEval/155,0,easy,False,TypeError: 'tuple' object does not support item assignment,0,139,False
+thinking_off,HumanEval/91,0,easy,False,AssertionError,0,167,False
+thinking_off,HumanEval/43,0,easy,True,,0,211,False
+thinking_off,HumanEval/41,0,easy,False,AssertionError,0,313,False
+thinking_off,HumanEval/14,0,easy,False,AssertionError,0,76,False
+thinking_off,HumanEval/31,0,easy,True,,0,195,False
+thinking_off,HumanEval/63,0,easy,False,AssertionError,0,236,False
+thinking_off,HumanEval/119,0,easy,False,SyntaxError: '(' was never closed,0,4096,True
+thinking_off,HumanEval/18,0,easy,True,,0,141,False
+thinking_off,HumanEval/46,0,easy,False,AssertionError,0,376,False
+thinking_off,HumanEval/134,0,easy,False,AssertionError,0,169,False
+thinking_off,HumanEval/124,0,easy,False,TypeError: '<' not supported between instances of 'str' and 'int',0,496,False
+thinking_off,HumanEval/141,0,easy,False,NameError: name 'z' is not defined,0,427,False
+thinking_off,HumanEval/151,0,easy,False,AssertionError,0,195,False
+thinking_off,HumanEval/88,0,easy,True,,0,287,False
+thinking_off,HumanEval/131,0,easy,False,AssertionError,0,141,False
+thinking_off,HumanEval/3,0,easy,False,AssertionError,0,177,False
+thinking_off,HumanEval/76,0,easy,False,AssertionError,0,105,False
+thinking_off,HumanEval/22,0,easy,False,AssertionError,0,112,False
+thinking_off,HumanEval/23,0,easy,True,,0,53,False
+thinking_off,HumanEval/11,0,easy,False,AssertionError,0,123,False
+thinking_off,HumanEval/37,0,easy,False,AssertionError,0,144,False
+thinking_off,HumanEval/105,0,easy,True,,0,476,False
+thinking_off,HumanEval/90,0,easy,False,AssertionError,0,38,False
+thinking_off,HumanEval/143,0,easy,False,NameError: name 'is_prime' is not defined,0,211,False
+thinking_off,HumanEval/55,0,easy,False,ValueError: n must be a positive integer,0,133,False
+thinking_off,HumanEval/99,0,easy,False,AssertionError,0,266,False
+thinking_off,HumanEval/6,0,easy,False,AssertionError,0,299,False
+thinking_off,HumanEval/139,0,easy,False,AssertionError,0,132,False
+thinking_off,HumanEval/53,0,easy,True,,0,63,False
+thinking_off,HumanEval/89,0,easy,False,AssertionError,0,231,False
+thinking_off,HumanEval/2,0,easy,False,AssertionError,0,93,False
+thinking_off,HumanEval/114,0,easy,False,AssertionError,0,155,False
+thinking_off,HumanEval/145,0,easy,False,TypeError: order_by_points.<locals>.compare_items() missing 1 required positional argument: 'item2',0,229,False
+thinking_off,HumanEval/67,0,easy,False,ValueError: invalid literal for int() with base 10: 'apples',0,288,False
+thinking_off,HumanEval/120,0,easy,False,AssertionError,0,303,False
+thinking_off,HumanEval/117,0,easy,False,AssertionError,0,283,False
+thinking_off,HumanEval/62,0,easy,False,NameError: name 'x' is not defined. Did you mean: 'xs'?,0,129,False
+thinking_off,HumanEval/106,0,easy,False,NameError: name 'factorial' is not defined,0,193,False
+thinking_off,HumanEval/38,0,easy,False,IndexError: string index out of range,0,246,False
+thinking_off,HumanEval/52,0,easy,True,,0,100,False
+thinking_off,HumanEval/39,0,easy,False,SyntaxError: '[' was never closed,0,4096,True
+thinking_off,HumanEval/163,0,easy,False,AssertionError,0,155,False
+thinking_off,HumanEval/109,0,easy,False,SyntaxError: expected ':',0,4096,True
+thinking_off,HumanEval/100,0,easy,False,AssertionError,0,217,False
+thinking_off,HumanEval/157,0,easy,False,AssertionError,0,184,False
+thinking_off,HumanEval/69,0,easy,False,AssertionError,0,229,False
+thinking_off,HumanEval/4,0,easy,True,,0,151,False
+thinking_off,HumanEval/8,0,easy,False,NameError: name 'product' is not defined,0,145,False
+thinking_off,HumanEval/93,0,easy,False,AssertionError,0,177,False
+thinking_off,HumanEval/118,0,easy,False,NameError: name 'consonants' is not defined,0,403,False
+thinking_off,HumanEval/116,0,easy,True,,0,227,False
+thinking_off,HumanEval/132,0,easy,False,AssertionError,0,203,False
+thinking_off,HumanEval/101,0,easy,False,AssertionError,0,128,False
+thinking_off,HumanEval/96,0,easy,False,AssertionError,0,274,False
+thinking_off,HumanEval/58,0,easy,True,,0,163,False
+thinking_off,HumanEval/0,0,easy,True,,0,193,False
+thinking_off,HumanEval/47,0,easy,True,,0,91,False
+thinking_off,HumanEval/50,0,easy,False,AssertionError,0,66,False
+thinking_off,HumanEval/111,0,easy,False,AssertionError,0,182,False
+thinking_off,HumanEval/146,0,easy,False,AssertionError,0,104,False
+thinking_off,HumanEval/126,0,easy,False,AssertionError,0,300,False
+thinking_off,HumanEval/74,0,easy,True,,0,308,False
+thinking_off,HumanEval/137,0,easy,False,AssertionError,0,298,False
+thinking_off,HumanEval/36,0,easy,False,AssertionError,0,151,False
+thinking_off,HumanEval/26,0,easy,False,AssertionError,0,131,False
+thinking_off,HumanEval/127,0,easy,False,AssertionError,0,497,False
+thinking_off,HumanEval/71,0,easy,False,AssertionError,0,186,False
+thinking_off,HumanEval/82,0,easy,False,SyntaxError: invalid syntax,0,4096,True
+thinking_off,HumanEval/1,0,easy,False,AssertionError,0,200,False
+thinking_off,HumanEval/78,0,easy,False,NameError: name 'is_prime' is not defined,0,398,False
+thinking_off,HumanEval/59,0,easy,False,AssertionError,0,1555,False
+thinking_off,HumanEval/66,0,easy,True,,0,140,False
+thinking_off,HumanEval/147,0,easy,True,,0,273,False
+thinking_off,HumanEval/129,0,easy,False,TypeError: unhashable type: 'list',0,927,False
+thinking_off,HumanEval/19,0,easy,False,ValueError: invalid literal for int() with base 10: 'three',0,143,False
+thinking_off,HumanEval/64,0,easy,False,AssertionError,0,158,False
+thinking_off,HumanEval/152,0,easy,True,,0,257,False
+thinking_off,HumanEval/135,0,easy,False,AssertionError,0,170,False
+thinking_off,HumanEval/103,0,easy,False,AssertionError,0,120,False
+thinking_off,HumanEval/107,0,easy,True,,0,323,False
+thinking_off,HumanEval/162,0,easy,True,,0,118,False
+thinking_off,HumanEval/80,0,easy,False,AssertionError,0,184,False
+thinking_off,HumanEval/104,0,easy,False,AssertionError,0,166,False
+thinking_off,HumanEval/28,0,easy,True,,0,70,False
+thinking_off,HumanEval/149,0,easy,False,AssertionError,0,248,False
+thinking_off,HumanEval/125,0,easy,False,"TypeError: ord() expected a character, but string of length 6 found",0,255,False
+thinking_off,HumanEval/123,0,easy,False,AssertionError,0,351,False
+thinking_off,HumanEval/24,0,easy,False,AssertionError,0,74,False
+thinking_off,HumanEval/142,0,easy,False,AssertionError,0,231,False
+thinking_off,HumanEval/20,0,easy,False,AssertionError,0,268,False
+thinking_off,HumanEval/122,0,easy,False,AssertionError,0,185,False
+thinking_off,HumanEval/15,0,easy,False,AssertionError,0,89,False
+thinking_off,HumanEval/160,0,easy,False,SyntaxError: expected ':',0,4096,True
+thinking_off,HumanEval/158,0,easy,True,,0,205,False
+thinking_off,HumanEval/45,0,easy,True,,0,58,False
+thinking_off,HumanEval/7,0,easy,True,,0,112,False
+thinking_off,HumanEval/60,0,easy,True,,0,124,False
+thinking_off,HumanEval/154,0,easy,False,SyntaxError: expected ':',0,4096,True
+thinking_off,HumanEval/33,0,easy,False,NameError: name 'x' is not defined,0,198,False
+thinking_off,HumanEval/87,0,easy,False,AssertionError,0,363,False
+thinking_off,HumanEval/21,0,easy,False,AssertionError,0,220,False
+thinking_off,HumanEval/44,0,easy,True,,0,203,False
+thinking_off,HumanEval/148,0,easy,False,AssertionError,0,371,False
+thinking_off,HumanEval/27,0,easy,False,AssertionError,0,61,False
+thinking_off,HumanEval/128,0,easy,False,AssertionError,0,179,False
+thinking_off,HumanEval/48,0,easy,True,,0,87,False
+thinking_off,HumanEval/110,0,easy,False,AssertionError,0,507,False

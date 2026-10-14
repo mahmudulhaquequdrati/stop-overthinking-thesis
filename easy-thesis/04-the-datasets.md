@@ -76,8 +76,12 @@ Those historical exclusions are preserved, not rewritten by this update.
 We cannot prove the base model never saw these benchmarks during pretraining.
 A problem's release date alone is not proof of unseen data.
 
-## Latest completed extension
+## Completed LoRA controls
 
-2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
-The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](11-completed-lora-controls.md) and [benchmark tables](05-results.md).

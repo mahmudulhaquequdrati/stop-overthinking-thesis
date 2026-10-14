@@ -77,6 +77,33 @@ def load_results():
                     original_accuracy=100*mean([r['passed'] == 'True' for r in rows])))
                 cohorts[cohort].update(ids)
                 union.update(ids)
+    # Completed adapter combinations use the same frozen IDs, one attempt each.
+    # Keep each combination distinct from the older thinking-ON LoRA method.
+    task_cohort = {task: cohort for cohort, ids in cohorts.items() for task in ids}
+    extensions = [(m, f'results/lora-controls/completed-464/{m}') for m in BASES]
+    extensions += [('2b', 'results/lora-limit-2b/completed-464')]
+    for model, folder in extensions:
+        for path in sorted((ROOT/folder).rglob('test-*-graded.csv')):
+            method = path.name.removeprefix('test-').rsplit('-', 2)[0]
+            assert method in ('lora1-off','lora1-limit512','lora1-limit1024','lora1-limit2048'), path
+            rows = list(csv.DictReader(path.open()))
+            ids = set()
+            for row in rows:
+                task = row['task_id']
+                assert task in union and int(row['sample_index']) == 0
+                assert row['policy'] == ('thinking_off' if method.endswith('-off') else 'limit')
+                assert row['passed'] in ('True','False') and row['hit_limit'] in ('True','False')
+                key = (model, method, task, 0)
+                assert key not in records, f'Duplicate attempt: {key}'
+                records[key] = dict(accuracy=float(row['passed']=='True'),
+                    thinking_tokens=float(row['thinking_tokens']),total_new_tokens=float(row['total_new_tokens']),
+                    hit_limit=float(row['hit_limit']=='True'),difficulty=row['difficulty'],
+                    cohort=task_cohort[task],source='HumanEval+' if task.startswith('HumanEval/') else 'LiveCodeBench')
+                assert records[key]['total_new_tokens'] >= records[key]['thinking_tokens'] >= 0
+                ids.add(task)
+            sources.append(dict(model=model,method=method,cohort='extension',path=str(path.relative_to(ROOT)),
+                problems=len(ids),attempts=len(rows),passed=sum(r['passed']=='True' for r in rows),
+                original_accuracy=100*mean([r['passed']=='True' for r in rows])))
     assert len(union) == 464, len(union)
     assert {c: len(ids) for c, ids in cohorts.items()} == {'original':234,'extra':40,'more':190}
     assert sum(map(len, cohorts.values())) == len(union), 'Overlapping collection lists'
@@ -123,6 +150,19 @@ def comparisons(methods):
                 accuracy=mean([a[t]['accuracy'] for t in ids]),
                 reference_accuracy=mean([b[t]['accuracy'] for t in ids]),
                 delta=mean(delta), delta_ci=interval(delta),
+                total_tokens=mean([a[t]['total_new_tokens'] for t in ids]),
+                reference_total_tokens=mean([b[t]['total_new_tokens'] for t in ids])))
+    for (model, method), a in sorted(methods.items()):
+        if not method.startswith('lora1-'):
+            continue
+        control = 'off' if method.endswith('-off') else method.split('-')[1]
+        for other in dict.fromkeys((control,'lora1','off')):
+            b = methods[model,other]
+            ids = sorted(a.keys() & b.keys())
+            results.append(dict(model=model,method=method,reference=other,coverage=len(ids),
+                accuracy=mean([a[t]['accuracy'] for t in ids]),reference_accuracy=mean([b[t]['accuracy'] for t in ids]),
+                delta=mean([a[t]['accuracy']-b[t]['accuracy'] for t in ids]),
+                delta_ci=interval([a[t]['accuracy']-b[t]['accuracy'] for t in ids]),
                 total_tokens=mean([a[t]['total_new_tokens'] for t in ids]),
                 reference_total_tokens=mean([b[t]['total_new_tokens'] for t in ids])))
     return results

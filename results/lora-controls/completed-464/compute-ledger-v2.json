@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "initial_balance": 115.0,
+  "sessions": 2,
+  "estimated_units": 56.99600436562232,
+  "unit_rate": 6.77,
+  "unit_cap": 80.0,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "active": false,
+  "note": "Notebook24 only. Estimate includes current-session time and confirmed balance changes on resume."
+}

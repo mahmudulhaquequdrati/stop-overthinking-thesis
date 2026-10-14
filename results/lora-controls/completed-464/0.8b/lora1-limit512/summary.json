@@ -1,0 +1,133 @@
+{
+  "way": "lora1-limit512",
+  "coverage": 464,
+  "generated": 464,
+  "total_problems": 464,
+  "status": "COMPLETE",
+  "generation_status": {
+    "state": "finished"
+  },
+  "complete": true,
+  "attempts_per_problem": 1,
+  "comparisons": [
+    {
+      "reference": "lora1",
+      "shared_problems": 464,
+      "accuracy": 0.14439655172413793,
+      "reference_accuracy": 0.12284482758620689,
+      "delta": 0.021551724137931036,
+      "delta_ci": [
+        -0.004310344827586207,
+        0.04956896551724138
+      ],
+      "total_tokens": 4978.540948275862,
+      "reference_total_tokens": 5256.288793103448
+    },
+    {
+      "reference": "off",
+      "shared_problems": 464,
+      "accuracy": 0.14439655172413793,
+      "reference_accuracy": 0.14655172413793102,
+      "delta": -0.0021551724137931034,
+      "delta_ci": [
+        -0.03017241379310345,
+        0.03017241379310345
+      ],
+      "total_tokens": 4978.540948275862,
+      "reference_total_tokens": 1780.5172413793102
+    },
+    {
+      "reference": "on",
+      "shared_problems": 464,
+      "accuracy": 0.14439655172413793,
+      "reference_accuracy": 0.040948275862068964,
+      "delta": 0.10344827586206896,
+      "delta_ci": [
+        0.07327586206896551,
+        0.13577586206896552
+      ],
+      "total_tokens": 4978.540948275862,
+      "reference_total_tokens": 6205.536637931034
+    },
+    {
+      "reference": "limit512",
+      "shared_problems": 464,
+      "accuracy": 0.14439655172413793,
+      "reference_accuracy": 0.10560344827586207,
+      "delta": 0.03879310344827586,
+      "delta_ci": [
+        0.00646551724137931,
+        0.07112068965517242
+      ],
+      "total_tokens": 4978.540948275862,
+      "reference_total_tokens": 5919.769396551724
+    }
+  ],
+  "accuracy": 0.14439655172413793,
+  "baseline_manifest": [
+    {
+      "path": "results/0.8b/raw/test-limit512-he-graded.csv",
+      "sha256": "38b38a76264c843b9ed5b0d608841fee7a7766723972f6107cdf289e13553e3e"
+    },
+    {
+      "path": "results/0.8b/raw/test-limit512-lcb-graded.csv",
+      "sha256": "3bcafe66d64ead835cdc5d773746401d70fe4f037eedfc91999b217d2a4941f1"
+    },
+    {
+      "path": "results/0.8b/raw/test-lora1-he-graded.csv",
+      "sha256": "63203843c02f2d1fa8bc628d60ab07a94031a66aa964d9f7d8dfe6a02a796c65"
+    },
+    {
+      "path": "results/0.8b/raw/test-lora1-lcb-graded.csv",
+      "sha256": "c8eee8263215fb0c3e2590dc6700c8e05546290ba37802ddd04b7511cbbf1e50"
+    },
+    {
+      "path": "results/0.8b/raw/test-off-he-graded.csv",
+      "sha256": "0acf74ecce7b45eee9b860b083f106b59025de3ffa56d3a6577ed3264c63e0b5"
+    },
+    {
+      "path": "results/0.8b/raw/test-off-lcb-graded.csv",
+      "sha256": "27ef11629dc55bf4f5b2016060e002d33aa7ef05b281b2899a34e41156c01082"
+    },
+    {
+      "path": "results/0.8b/raw/test-on-he-graded.csv",
+      "sha256": "e081984794c87540103210df85e8c54c6273f06974b775b9bc8357508c41bbc0"
+    },
+    {
+      "path": "results/0.8b/raw/test-on-lcb-graded.csv",
+      "sha256": "af8df228cc5488387150d12a6630d491e8ad3f4008e4c5896066e8542402f8e0"
+    },
+    {
+      "path": "results/extra/0.8b/test-limit512-lcb-graded.csv",
+      "sha256": "5af0edb3daa8f5f18bc8b0966c8eb2e88eeae58a9f2c187c1d41cdd39737617e"
+    },
+    {
+      "path": "results/extra/0.8b/test-lora1-lcb-graded.csv",
+      "sha256": "6b79e5c1c9f8363a439854c46bfd852be07bcf6297dd1bbeff0fd714dea438bd"
+    },
+    {
+      "path": "results/extra/0.8b/test-off-lcb-graded.csv",
+      "sha256": "da7577060e0c38d6a4c2b4024124981fd9749d7a8986b5c34f59f9b5a15b6f33"
+    },
+    {
+      "path": "results/extra/0.8b/test-on-lcb-graded.csv",
+      "sha256": "56d9c88c4df701e0edd37c52ef9eab2b75208306454d8f9b0faab56b9b7634b6"
+    },
+    {
+      "path": "results/more/0.8b/test-limit512-lcb-graded.csv",
+      "sha256": "25811ea3574a70b811bccf728c08b3d7f094553bccd549153c5aac103cced0b0"
+    },
+    {
+      "path": "results/more/0.8b/test-lora1-lcb-graded.csv",
+      "sha256": "e68d334eef202d227491da50b4b88ee529302166ee4d17cbc07105723d8fe038"
+    },
+    {
+      "path": "results/more/0.8b/test-off-lcb-graded.csv",
+      "sha256": "787d6d968eadd9cd4dcd2659f80c3d17c9618551cfbc2704ee7464e611271782"
+    },
+    {
+      "path": "results/more/0.8b/test-on-lcb-graded.csv",
+      "sha256": "ae77392b7c03b018ffb963a4dd15da7da27d501568b8543abb227697756af707"
+    }
+  ]
+}

@@ -1,46 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="595" viewBox="0 0 960 595" role="img" aria-label="Accuracy across 464 unique problems">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="875" viewBox="0 0 960 875" role="img" aria-label="Accuracy across 464 unique problems">
 <rect width="100%" height="100%" fill="#fafaf7"/>
 <g font-family="Arial, sans-serif" fill="#202d32">
 <text x="24" y="32" font-size="22" font-weight="bold">Accuracy across 464 unique problems</text>
 <text x="24" y="56" font-size="13">Model and way • only methods with complete coverage</text>
-<text x="24" y="101" font-size="14">0.8B · Thinking OFF</text>
-<rect x="260" y="83" width="77.91" height="25" fill="#286b70"/>
-<text x="345.91" y="101" font-size="13">14.7%</text>
-<text x="24" y="141" font-size="14">0.8B · Thinking ON</text>
-<rect x="260" y="123" width="21.73" height="25" fill="#286b70"/>
-<text x="289.73" y="141" font-size="13">4.1%</text>
-<text x="24" y="181" font-size="14">0.8B · LoRA-1</text>
-<rect x="260" y="163" width="65.19" height="25" fill="#286b70"/>
-<text x="333.19" y="181" font-size="13">12.3%</text>
-<text x="24" y="221" font-size="14">2B · Thinking OFF</text>
-<rect x="260" y="203" width="168.54" height="25" fill="#286b70"/>
-<text x="436.54" y="221" font-size="13">31.8%</text>
-<text x="24" y="261" font-size="14">2B · Thinking ON</text>
-<rect x="260" y="243" width="142.04" height="25" fill="#286b70"/>
-<text x="410.04" y="261" font-size="13">26.8%</text>
-<text x="24" y="301" font-size="14">2B · Limit 1,024</text>
-<rect x="260" y="283" width="204.58" height="25" fill="#286b70"/>
-<text x="472.58" y="301" font-size="13">38.6%</text>
-<text x="24" y="341" font-size="14">2B · LoRA-1</text>
-<rect x="260" y="323" width="182.32" height="25" fill="#286b70"/>
-<text x="450.32" y="341" font-size="13">34.4%</text>
-<text x="24" y="381" font-size="14">4B · Thinking OFF</text>
-<rect x="260" y="363" width="352.45" height="25" fill="#286b70"/>
-<text x="620.45" y="381" font-size="13">66.5%</text>
-<text x="24" y="421" font-size="14">4B · Thinking ON</text>
-<rect x="260" y="403" width="265.00" height="25" fill="#286b70"/>
-<text x="533.00" y="421" font-size="13">50.0%</text>
-<text x="24" y="461" font-size="14">4B · Limit 2,048</text>
-<rect x="260" y="443" width="381.07" height="25" fill="#286b70"/>
-<text x="649.07" y="461" font-size="13">71.9%</text>
-<text x="24" y="501" font-size="14">4B · LoRA-1</text>
-<rect x="260" y="483" width="301.04" height="25" fill="#286b70"/>
-<text x="569.04" y="501" font-size="13">56.8%</text>
-<text x="260.0" y="530" font-size="12">0</text>
-<text x="392.5" y="530" font-size="12">25</text>
-<text x="525.0" y="530" font-size="12">50</text>
-<text x="657.5" y="530" font-size="12">75</text>
-<text x="790.0" y="530" font-size="12">100</text>
-<text x="260" y="553" font-size="13">Accuracy (%)</text>
-<text x="24" y="583" font-size="11">Source: saved graded runs, Sep–Oct 2026. Equal weight per problem; updated 14 Oct 2026.</text>
+<text x="24" y="101" font-size="14">0.8B · Limit 512</text>
+<rect x="260" y="83" width="56.18" height="25" fill="#286b70"/>
+<text x="324.18" y="101" font-size="13">10.6%</text>
+<text x="24" y="141" font-size="14">0.8B · LoRA-1</text>
+<rect x="260" y="123" width="65.19" height="25" fill="#286b70"/>
+<text x="333.19" y="141" font-size="13">12.3%</text>
+<text x="24" y="181" font-size="14">0.8B · LoRA-1 + limit 512</text>
+<rect x="260" y="163" width="76.32" height="25" fill="#286b70"/>
+<text x="344.32" y="181" font-size="13">14.4%</text>
+<text x="24" y="221" font-size="14">0.8B · LoRA-1 + OFF</text>
+<rect x="260" y="203" width="74.20" height="25" fill="#286b70"/>
+<text x="342.20" y="221" font-size="13">14.0%</text>
+<text x="24" y="261" font-size="14">0.8B · Thinking OFF</text>
+<rect x="260" y="243" width="77.91" height="25" fill="#286b70"/>
+<text x="345.91" y="261" font-size="13">14.7%</text>
+<text x="24" y="301" font-size="14">0.8B · Thinking ON</text>
+<rect x="260" y="283" width="21.73" height="25" fill="#286b70"/>
+<text x="289.73" y="301" font-size="13">4.1%</text>
+<text x="24" y="341" font-size="14">2B · Limit 1,024</text>
+<rect x="260" y="323" width="204.58" height="25" fill="#286b70"/>
+<text x="472.58" y="341" font-size="13">38.6%</text>
+<text x="24" y="381" font-size="14">2B · LoRA-1</text>
+<rect x="260" y="363" width="182.32" height="25" fill="#286b70"/>
+<text x="450.32" y="381" font-size="13">34.4%</text>
+<text x="24" y="421" font-size="14">2B · LoRA-1 + limit 1,024</text>
+<rect x="260" y="403" width="218.36" height="25" fill="#286b70"/>
+<text x="486.36" y="421" font-size="13">41.2%</text>
+<text x="24" y="461" font-size="14">2B · LoRA-1 + OFF</text>
+<rect x="260" y="443" width="188.68" height="25" fill="#286b70"/>
+<text x="456.68" y="461" font-size="13">35.6%</text>
+<text x="24" y="501" font-size="14">2B · Thinking OFF</text>
+<rect x="260" y="483" width="168.54" height="25" fill="#286b70"/>
+<text x="436.54" y="501" font-size="13">31.8%</text>
+<text x="24" y="541" font-size="14">2B · Thinking ON</text>
+<rect x="260" y="523" width="142.04" height="25" fill="#286b70"/>
+<text x="410.04" y="541" font-size="13">26.8%</text>
+<text x="24" y="581" font-size="14">4B · Limit 2,048</text>
+<rect x="260" y="563" width="381.07" height="25" fill="#286b70"/>
+<text x="649.07" y="581" font-size="13">71.9%</text>
+<text x="24" y="621" font-size="14">4B · LoRA-1</text>
+<rect x="260" y="603" width="301.04" height="25" fill="#286b70"/>
+<text x="569.04" y="621" font-size="13">56.8%</text>
+<text x="24" y="661" font-size="14">4B · LoRA-1 + limit 2,048</text>
+<rect x="260" y="643" width="379.48" height="25" fill="#286b70"/>
+<text x="647.48" y="661" font-size="13">71.6%</text>
+<text x="24" y="701" font-size="14">4B · LoRA-1 + OFF</text>
+<rect x="260" y="683" width="342.91" height="25" fill="#286b70"/>
+<text x="610.91" y="701" font-size="13">64.7%</text>
+<text x="24" y="741" font-size="14">4B · Thinking OFF</text>
+<rect x="260" y="723" width="352.45" height="25" fill="#286b70"/>
+<text x="620.45" y="741" font-size="13">66.5%</text>
+<text x="24" y="781" font-size="14">4B · Thinking ON</text>
+<rect x="260" y="763" width="265.00" height="25" fill="#286b70"/>
+<text x="533.00" y="781" font-size="13">50.0%</text>
+<text x="260.0" y="810" font-size="12">0</text>
+<text x="392.5" y="810" font-size="12">25</text>
+<text x="525.0" y="810" font-size="12">50</text>
+<text x="657.5" y="810" font-size="12">75</text>
+<text x="790.0" y="810" font-size="12">100</text>
+<text x="260" y="833" font-size="13">Accuracy (%)</text>
+<text x="24" y="863" font-size="11">Source: saved graded runs, Sep–Oct 2026. Equal weight per problem; updated 14 Oct 2026.</text>
 </g></svg>

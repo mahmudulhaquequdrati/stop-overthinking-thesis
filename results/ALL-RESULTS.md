@@ -1,5 +1,14 @@
 # All results: 2B + 0.8B + 4B
 
+## Latest completed LoRA combinations
+
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+Each covers 464/464, one attempt each.
+Read [the updated full easy thesis](../easy-thesis/FULL-THESIS.md) and
+[checked results](lora-controls/README.md). Older tables below retain their original scope.
+
 ## Full 464 update — 14 October 2026
 
 **2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**

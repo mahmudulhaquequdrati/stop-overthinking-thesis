@@ -75,9 +75,3 @@ The combined analysis is retrospective; the original hypotheses applied to LoRA-
 
 The method is in [03-how-we-did-it.md](03-how-we-did-it.md).
 The combined scores are in [05-results.md](05-results.md).
-
-## Latest completed extension
-
-2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
-The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).

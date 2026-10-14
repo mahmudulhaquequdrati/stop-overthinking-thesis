@@ -1,0 +1,26 @@
+# 0.8B LoRA-1 + thinking OFF
+
+Generated: **464/464**. Graded coverage: **464/464**. One attempt per problem.
+
+Status: **COMPLETE**.
+
+Only this combination is scheduled for generation. Reference results are saved first attempts.
+They are not the previous combined scores that used all available attempts.
+
+| Reference | Shared problems | Combination | Reference | Gap (points) | 95% gap interval | Total tokens: combination / reference |
+|---|---|---|---|---|---|---|
+| lora1 | 464 | 14.0% | 12.3% | +1.7 | [-0.9, +4.5] | 1278 / 5256 |
+| off | 464 | 14.0% | 14.7% | -0.6 | [-3.2, +2.2] | 1278 / 1781 |
+| on | 464 | 14.0% | 4.1% | +9.9 | [+6.9, +13.1] | 1278 / 6206 |
+| limit512 | 464 | 14.0% | 10.6% | +3.4 | [+0.2, +6.7] | 1278 / 5920 |
+
+## How to read this
+
+The primary comparison is against **off** without LoRA.
+A positive gap favors the combination. An interval crossing zero is inconclusive.
+Intervals resample shared problems 2,000 times with seed 3407. They are unadjusted.
+LoRA-1 without the limit now covers464 problems; compare identical IDs only.
+Saved references are historical. Package versions and batch layouts can affect sampling.
+Matching the seed does not guarantee identical random draws across batches or environments.
+This is a retrospective extension, not a fresh held-out evaluation.
+Raw answers, adapter hash, run settings, and environment records stay beside this report.

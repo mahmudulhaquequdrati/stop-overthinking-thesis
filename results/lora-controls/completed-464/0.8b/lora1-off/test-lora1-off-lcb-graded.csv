@@ -1,0 +1,301 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3625,0,easy,False,wrong answer on test 4,0,547,False
+thinking_off,lcb/3398,0,easy,False,wrong answer on test 1,0,113,False
+thinking_off,lcb/abc397_a,0,easy,False,ValueError: invalid literal for int() with base 10: '40.0',0,77,False
+thinking_off,lcb/3644,0,easy,False,wrong answer on test 2,0,152,False
+thinking_off,lcb/3455,0,medium,False,wrong answer on test 1,0,238,False
+thinking_off,lcb/3394,0,medium,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3464,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3354,0,medium,False,wrong answer on test 1,0,965,False
+thinking_off,lcb/abc365_b,0,easy,False,wrong answer on test 1,0,200,False
+thinking_off,lcb/3379,0,easy,True,,0,62,False
+thinking_off,lcb/3702,0,easy,False,NameError: name 'gcd' is not defined,0,305,False
+thinking_off,lcb/3450,0,easy,False,wrong answer on test 1,0,216,False
+thinking_off,lcb/abc379_b,0,easy,False,wrong answer on test 1,0,289,False
+thinking_off,lcb/3543,0,easy,True,,0,161,False
+thinking_off,lcb/abc368_a,0,easy,False,IndexError: list index out of range,0,238,False
+thinking_off,lcb/3469,0,easy,False,wrong answer on test 1,0,150,False
+thinking_off,lcb/abc352_a,0,easy,False,NameError: name 'sys' is not defined. Did you forget to import 'sys'?,0,532,False
+thinking_off,lcb/abc371_a,0,easy,False,ValueError: invalid literal for int() with base 10: '<',0,315,False
+thinking_off,lcb/abc393_b,0,easy,False,wrong answer on test 1,0,113,False
+thinking_off,lcb/abc350_b,0,easy,False,ValueError: invalid literal for int() with base 10: '2 9 18 27 18 9',0,157,False
+thinking_off,lcb/abc349_b,0,easy,False,wrong answer on test 1,0,115,False
+thinking_off,lcb/abc385_b,0,easy,False,ValueError: 'L' is not in list,0,756,False
+thinking_off,lcb/abc370_a,0,easy,False,wrong answer on test 4,0,193,False
+thinking_off,lcb/3463,0,easy,False,NameError: name 'right_counts' is not defined. Did you mean: 'left_counts'?,0,214,False
+thinking_off,lcb/abc351_a,0,easy,False,wrong answer on test 1,0,370,False
+thinking_off,lcb/abc394_b,0,easy,True,,0,147,False
+thinking_off,lcb/abc348_b,0,easy,False,wrong answer on test 1,0,311,False
+thinking_off,lcb/abc382_a,0,easy,False,wrong answer on test 1,0,71,False
+thinking_off,lcb/3817,0,easy,False,wrong answer on test 2,0,333,False
+thinking_off,lcb/abc362_a,0,easy,False,wrong answer on test 1,0,170,False
+thinking_off,lcb/abc400_b,0,easy,False,NameError: name 'sys' is not defined. Did you forget to import 'sys'?,0,148,False
+thinking_off,lcb/abc366_a,0,easy,False,wrong answer on test 4,0,116,False
+thinking_off,lcb/abc378_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3636,0,easy,True,,0,90,False
+thinking_off,lcb/abc355_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc372_a,0,easy,True,,0,17,False
+thinking_off,lcb/abc355_b,0,easy,False,IndexError: list index out of range,0,269,False
+thinking_off,lcb/abc367_b,0,easy,False,wrong answer on test 1,0,207,False
+thinking_off,lcb/3832,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3508,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3468,0,easy,False,wrong answer on test 3,0,93,False
+thinking_off,lcb/3621,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3606,0,easy,True,,0,86,False
+thinking_off,lcb/abc359_a,0,easy,True,,0,224,False
+thinking_off,lcb/abc373_a,0,easy,False,wrong answer on test 2,0,132,False
+thinking_off,lcb/3353,0,easy,False,wrong answer on test 2,0,86,False
+thinking_off,lcb/abc383_a,0,easy,False,wrong answer on test 1,0,487,False
+thinking_off,lcb/abc366_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc357_a,0,easy,False,ValueError: invalid literal for int() with base 10: '2 3 2 5 3',0,143,False
+thinking_off,lcb/abc358_b,0,easy,False,wrong answer on test 1,0,212,False
+thinking_off,lcb/abc354_a,0,easy,False,wrong answer on test 1,0,178,False
+thinking_off,lcb/abc356_b,0,easy,True,,0,218,False
+thinking_off,lcb/abc384_a,0,easy,True,,0,182,False
+thinking_off,lcb/abc345_b,0,easy,True,,0,38,False
+thinking_off,lcb/3372,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,208,False
+thinking_off,lcb/abc381_b,0,easy,False,wrong answer on test 1,0,272,False
+thinking_off,lcb/abc386_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_a,0,easy,False,wrong answer on test 1,0,65,False
+thinking_off,lcb/abc378_a,0,easy,False,wrong answer on test 1,0,167,False
+thinking_off,lcb/abc370_b,0,easy,False,wrong answer on test 1,0,244,False
+thinking_off,lcb/abc395_a,0,easy,True,,0,139,False
+thinking_off,lcb/3533,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,220,False
+thinking_off,lcb/abc369_b,0,easy,False,UnboundLocalError: cannot access local variable 'fatigue' where it is not associated with a value,0,320,False
+thinking_off,lcb/3426,0,easy,False,wrong answer on test 2,0,69,False
+thinking_off,lcb/abc394_a,0,easy,True,,0,52,False
+thinking_off,lcb/abc353_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3361,0,easy,False,wrong answer on test 1,0,440,False
+thinking_off,lcb/3612,0,easy,False,wrong answer on test 1,0,532,False
+thinking_off,lcb/3685,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,107,False
+thinking_off,lcb/3616,0,easy,False,wrong answer on test 2,0,284,False
+thinking_off,lcb/abc373_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc371_b,0,easy,False,NameError: name 'baby_id' is not defined,0,377,False
+thinking_off,lcb/abc377_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc381_a,0,easy,False,wrong answer on test 1,0,298,False
+thinking_off,lcb/3626,0,easy,False,AttributeError: 'Solution' object has no attribute 'check_product',0,129,False
+thinking_off,lcb/3476,0,easy,True,,0,129,False
+thinking_off,lcb/3811,0,easy,False,ValueError: 'a' is not in list,0,120,False
+thinking_off,lcb/abc360_a,0,easy,False,wrong answer on test 5,0,44,False
+thinking_off,lcb/3412,0,easy,False,wrong answer on test 1,0,125,False
+thinking_off,lcb/3396,0,easy,False,wrong answer on test 1,0,160,False
+thinking_off,lcb/3788,0,easy,False,wrong answer on test 2,0,88,False
+thinking_off,lcb/abc392_b,0,easy,True,,0,205,False
+thinking_off,lcb/abc393_a,0,easy,False,EOFError: EOF when reading a line,0,134,False
+thinking_off,lcb/3753,0,easy,False,wrong answer on test 1,0,140,False
+thinking_off,lcb/3778,0,easy,True,,0,95,False
+thinking_off,lcb/abc392_a,0,easy,False,NameError: name 'permutations' is not defined,0,99,False
+thinking_off,lcb/abc396_a,0,easy,True,,0,175,False
+thinking_off,lcb/3367,0,easy,False,wrong answer on test 2,0,88,False
+thinking_off,lcb/3651,0,easy,False,wrong answer on test 1,0,122,False
+thinking_off,lcb/abc376_a,0,easy,False,ValueError: invalid literal for int() with base 10: '1 3 7 8 10 12',0,148,False
+thinking_off,lcb/abc362_b,0,easy,False,wrong answer on test 1,0,497,False
+thinking_off,lcb/3773,0,easy,False,wrong answer on test 1,0,261,False
+thinking_off,lcb/abc361_a,0,easy,False,ValueError: invalid literal for int() with base 10: '2 3 5 11',0,135,False
+thinking_off,lcb/3334,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,144,False
+thinking_off,lcb/abc384_b,0,easy,False,wrong answer on test 1,0,187,False
+thinking_off,lcb/3705,0,easy,False,wrong answer on test 1,0,198,False
+thinking_off,lcb/abc357_b,0,easy,False,wrong answer on test 2,0,57,False
+thinking_off,lcb/3656,0,easy,False,wrong answer on test 6,0,196,False
+thinking_off,lcb/3736,0,easy,False,wrong answer on test 1,0,129,False
+thinking_off,lcb/3568,0,easy,True,,0,189,False
+thinking_off,lcb/abc365_a,0,easy,True,,0,90,False
+thinking_off,lcb/3421,0,easy,False,wrong answer on test 8,0,140,False
+thinking_off,lcb/3397,0,easy,False,wrong answer on test 1,0,175,False
+thinking_off,lcb/abc359_b,0,easy,False,wrong answer on test 1,0,319,False
+thinking_off,lcb/3723,0,easy,False,wrong answer on test 1,0,100,False
+thinking_off,lcb/abc400_a,0,easy,False,wrong answer on test 1,0,391,False
+thinking_off,lcb/abc377_a,0,easy,False,wrong answer on test 1,0,44,False
+thinking_off,lcb/abc348_a,0,easy,True,,0,75,False
+thinking_off,lcb/3515,0,easy,False,wrong answer on test 2,0,292,False
+thinking_off,lcb/abc346_a,0,easy,True,,0,186,False
+thinking_off,lcb/3684,0,easy,False,SyntaxError: invalid syntax,0,1341,False
+thinking_off,lcb/abc398_a,0,easy,False,wrong answer on test 1,0,1977,False
+thinking_off,lcb/3676,0,easy,False,wrong answer on test 1,0,84,False
+thinking_off,lcb/abc347_a,0,easy,False,ValueError: invalid literal for int() with base 10: '2 5 6 7 10',0,176,False
+thinking_off,lcb/3617,0,easy,False,wrong answer on test 1,0,118,False
+thinking_off,lcb/abc364_a,0,easy,False,wrong answer on test 3,0,210,False
+thinking_off,lcb/3429,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,78,False
+thinking_off,lcb/3471,0,easy,False,timeout on test 6,0,164,False
+thinking_off,lcb/3408,0,easy,False,wrong answer on test 1,0,62,False
+thinking_off,lcb/abc353_a,0,easy,False,wrong answer on test 1,0,176,False
+thinking_off,lcb/abc350_a,0,easy,False,wrong answer on test 4,0,35,False
+thinking_off,lcb/3349,0,easy,False,wrong answer on test 1,0,147,False
+thinking_off,lcb/3610,0,easy,False,IndexError: list index out of range,0,193,False
+thinking_off,lcb/abc380_a,0,easy,False,KeyError: '1',0,108,False
+thinking_off,lcb/abc379_a,0,easy,True,,0,75,False
+thinking_off,lcb/abc391_b,0,easy,False,wrong answer on test 1,0,382,False
+thinking_off,lcb/abc364_b,0,easy,False,NameError: name 'S' is not defined,0,466,False
+thinking_off,lcb/3709,0,easy,False,IndexError: string index out of range,0,111,False
+thinking_off,lcb/3446,0,easy,False,wrong answer on test 1,0,147,False
+thinking_off,lcb/3632,0,easy,False,wrong answer on test 2,0,144,False
+thinking_off,lcb/abc354_b,0,easy,False,ValueError: invalid literal for int() with base 10: 'aoki',0,264,False
+thinking_off,lcb/3381,0,easy,False,wrong answer on test 1,0,170,False
+thinking_off,lcb/3600,0,easy,False,wrong answer on test 1,0,108,False
+thinking_off,lcb/3511,0,easy,False,IndentationError: expected an indented block after function definition on line 3,0,8192,True
+thinking_off,lcb/3555,0,easy,False,wrong answer on test 1,0,172,False
+thinking_off,lcb/abc363_b,0,easy,False,wrong answer on test 1,0,169,False
+thinking_off,lcb/abc386_a,0,easy,False,wrong answer on test 1,0,565,False
+thinking_off,lcb/abc363_a,0,easy,False,wrong answer on test 1,0,90,False
+thinking_off,lcb/3605,0,easy,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/abc344_b,0,easy,False,"TypeError: print() argument after * must be an iterable, not int",0,361,False
+thinking_off,lcb/abc347_b,0,easy,False,wrong answer on test 1,0,88,False
+thinking_off,lcb/3484,0,easy,False,wrong answer on test 1,0,272,False
+thinking_off,lcb/abc346_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc358_a,0,easy,False,EOFError: EOF when reading a line,0,44,False
+thinking_off,lcb/3371,0,easy,False,TypeError: 'int' object is not iterable,0,60,False
+thinking_off,lcb/abc367_a,0,easy,False,wrong answer on test 1,0,243,False
+thinking_off,lcb/abc351_b,0,easy,False,wrong answer on test 1,0,196,False
+thinking_off,lcb/abc399_b,0,easy,False,wrong answer on test 1,0,334,False
+thinking_off,lcb/abc396_b,0,easy,False,wrong answer on test 1,0,182,False
+thinking_off,lcb/abc399_a,0,easy,True,,0,120,False
+thinking_off,lcb/abc375_a,0,easy,False,IndexError: string index out of range,0,140,False
+thinking_off,lcb/abc374_a,0,easy,True,,0,42,False
+thinking_off,lcb/3799,0,easy,False,TypeError: 'int' object is not iterable,0,227,False
+thinking_off,lcb/abc380_b,0,easy,False,IndexError: list index out of range,0,90,False
+thinking_off,lcb/abc344_a,0,easy,False,wrong answer on test 1,0,109,False
+thinking_off,lcb/3567,0,easy,False,wrong answer on test 1,0,63,False
+thinking_off,lcb/abc349_a,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3428,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,72,False
+thinking_off,lcb/3768,0,easy,False,IndexError: list index out of range,0,215,False
+thinking_off,lcb/abc391_a,0,easy,False,wrong answer on test 13,0,163,False
+thinking_off,lcb/abc356_a,0,easy,False,wrong answer on test 1,0,58,False
+thinking_off,lcb/3553,0,easy,False,ValueError: invalid literal for int() with base 10: 'a',0,141,False
+thinking_off,lcb/3519,0,easy,False,TypeError: unhashable type: 'list',0,136,False
+thinking_off,lcb/3447,0,easy,False,wrong answer on test 2,0,110,False
+thinking_off,lcb/abc369_a,0,easy,False,wrong answer on test 1,0,1720,False
+thinking_off,lcb/abc382_b,0,easy,False,IndexError: string index out of range,0,770,False
+thinking_off,lcb/abc360_b,0,easy,False,wrong answer on test 1,0,190,False
+thinking_off,lcb/abc368_b,0,easy,False,timeout on test 1,0,172,False
+thinking_off,lcb/abc395_b,0,easy,False,IndexError: list assignment index out of range,0,181,False
+thinking_off,lcb/abc374_b,0,easy,False,wrong answer on test 1,0,79,False
+thinking_off,lcb/3654,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc374_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3771,0,medium,False,wrong answer on test 1,0,488,False
+thinking_off,lcb/3384,0,medium,False,NameError: name 'm' is not defined,0,427,False
+thinking_off,lcb/3462,0,medium,False,wrong answer on test 1,0,1103,False
+thinking_off,lcb/3487,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3794,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3328,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc398_b,0,medium,False,wrong answer on test 1,0,243,False
+thinking_off,lcb/abc394_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3591,0,medium,False,UnboundLocalError: cannot access local variable 'previous_cost' where it is not associated with a value,0,422,False
+thinking_off,lcb/3722,0,medium,False,wrong answer on test 1,0,648,False
+thinking_off,lcb/abc392_c,0,medium,False,NameError: name 'P_i' is not defined,0,267,False
+thinking_off,lcb/abc359_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3649,0,medium,False,wrong answer on test 1,0,642,False
+thinking_off,lcb/3607,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3337,0,medium,False,timeout on test 1,0,130,False
+thinking_off,lcb/abc382_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc384_c,0,medium,False,TypeError: unsupported operand type(s) for +=: 'int' and 'str',0,373,False
+thinking_off,lcb/abc399_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc385_c,0,medium,False,wrong answer on test 3,0,211,False
+thinking_off,lcb/3786,0,medium,False,wrong answer on test 1,0,698,False
+thinking_off,lcb/3559,0,medium,False,KeyError: 'a',0,279,False
+thinking_off,lcb/3498,0,medium,False,wrong answer on test 1,0,242,False
+thinking_off,lcb/3795,0,medium,False,TypeError: 'NoneType' object is not subscriptable,0,834,False
+thinking_off,lcb/abc363_d,0,medium,False,wrong answer on test 1,0,8191,True
+thinking_off,lcb/3634,0,medium,False,wrong answer on test 1,0,177,False
+thinking_off,lcb/3764,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3540,0,medium,True,,0,120,False
+thinking_off,lcb/3579,0,medium,False,ValueError: invalid literal for int() with base 2: '321',0,120,False
+thinking_off,lcb/abc370_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3715,0,medium,False,wrong answer on test 1,0,250,False
+thinking_off,lcb/abc379_d,0,medium,False,IndentationError: expected an indented block after 'elif' statement on line 43,0,8192,True
+thinking_off,lcb/3683,0,medium,False,TypeError: '>' not supported between instances of 'str' and 'int',0,708,False
+thinking_off,lcb/abc383_b,0,medium,False,IndexError: list index out of range,0,1074,False
+thinking_off,lcb/3785,0,medium,False,IndexError: list index out of range,0,933,False
+thinking_off,lcb/3655,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3355,0,medium,False,wrong answer on test 1,0,649,False
+thinking_off,lcb/3526,0,medium,False,IndentationError: expected an indented block after 'else' statement on line 30,0,8192,True
+thinking_off,lcb/abc396_d,0,medium,False,"TypeError: can only concatenate list (not ""generator"") to list",0,469,False
+thinking_off,lcb/abc396_c,0,medium,False,wrong answer on test 1,0,338,False
+thinking_off,lcb/3453,0,medium,False,wrong answer on test 1,0,1217,False
+thinking_off,lcb/arc192_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc391_d,0,medium,False,ValueError: invalid literal for int() with base 10: '1 1',0,336,False
+thinking_off,lcb/3026,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3776,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc384_d,0,medium,False,wrong answer on test 1,0,371,False
+thinking_off,lcb/3699,0,medium,False,wrong answer on test 2,0,383,False
+thinking_off,lcb/3558,0,medium,False,wrong answer on test 1,0,397,False
+thinking_off,lcb/3517,0,medium,False,wrong answer on test 1,0,306,False
+thinking_off,lcb/3573,0,medium,False,wrong answer on test 2,0,348,False
+thinking_off,lcb/arc195_a,0,medium,False,NameError: name 'count' is not defined. Did you mean: 'round'?,0,664,False
+thinking_off,lcb/3518,0,medium,False,wrong answer on test 1,0,216,False
+thinking_off,lcb/3627,0,medium,False,wrong answer on test 1,0,305,False
+thinking_off,lcb/abc375_d,0,medium,False,wrong answer on test 1,0,564,False
+thinking_off,lcb/abc383_d,0,medium,False,timeout on test 2,0,216,False
+thinking_off,lcb/3759,0,medium,False,wrong answer on test 1,0,392,False
+thinking_off,lcb/abc371_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3422,0,medium,False,IndentationError: expected an indented block after function definition on line 5,0,3295,False
+thinking_off,lcb/abc392_d,0,medium,False,TypeError: 'int' object is not subscriptable,0,372,False
+thinking_off,lcb/3629,0,medium,False,KeyError: 1,0,202,False
+thinking_off,lcb/3502,0,medium,False,TypeError: 'int' object is not subscriptable,0,310,False
+thinking_off,lcb/3360,0,medium,False,wrong answer on test 1,0,318,False
+thinking_off,lcb/3653,0,medium,False,wrong answer on test 3,0,123,False
+thinking_off,lcb/3620,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3659,0,medium,False,TypeError: 'int' object is not iterable,0,1099,False
+thinking_off,lcb/3750,0,medium,False,SyntaxError: invalid syntax,0,244,False
+thinking_off,lcb/arc194_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3681,0,medium,False,wrong answer on test 2,0,568,False
+thinking_off,lcb/abc356_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3763,0,medium,False,wrong answer on test 1,0,134,False
+thinking_off,lcb/3522,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,218,False
+thinking_off,lcb/3528,0,medium,False,wrong answer on test 1,0,189,False
+thinking_off,lcb/abc400_c,0,medium,False,wrong answer on test 1,0,1299,False
+thinking_off,lcb/3613,0,medium,False,NameError: name 'i' is not defined. Did you mean: 'id'?,0,906,False
+thinking_off,lcb/3657,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc399_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3507,0,medium,False,timeout on test 1,0,1402,False
+thinking_off,lcb/abc361_b,0,medium,False,SyntaxError: expected '(',0,8192,True
+thinking_off,lcb/3374,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,342,False
+thinking_off,lcb/abc357_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3793,0,medium,False,wrong answer on test 1,0,150,False
+thinking_off,lcb/3493,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3395,0,medium,False,wrong answer on test 2,0,92,False
+thinking_off,lcb/3760,0,medium,False,wrong answer on test 1,0,166,False
+thinking_off,lcb/3593,0,medium,False,wrong answer on test 1,0,276,False
+thinking_off,lcb/3639,0,medium,False,SyntaxError: unterminated string literal (detected at line 51),0,8192,True
+thinking_off,lcb/3570,0,medium,False,wrong answer on test 1,0,130,False
+thinking_off,lcb/abc374_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3406,0,medium,False,SyntaxError: invalid syntax,0,590,False
+thinking_off,lcb/abc383_c,0,medium,False,wrong answer on test 1,0,905,False
+thinking_off,lcb/3587,0,medium,False,NameError: name 'max_travel_score' is not defined,0,794,False
+thinking_off,lcb/abc349_c,0,medium,False,wrong answer on test 3,0,376,False
+thinking_off,lcb/3791,0,medium,False,wrong answer on test 1,0,171,False
+thinking_off,lcb/abc400_d,0,medium,False,IndexError: list index out of range,0,740,False
+thinking_off,lcb/3494,0,medium,False,IndexError: list index out of range,0,620,False
+thinking_off,lcb/3442,0,medium,False,wrong answer on test 1,0,196,False
+thinking_off,lcb/abc397_c,0,medium,False,TypeError: argument of type 'int' is not iterable,0,189,False
+thinking_off,lcb/3456,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc363_c,0,medium,False,wrong answer on test 1,0,311,False
+thinking_off,lcb/3779,0,medium,False,wrong answer on test 1,0,399,False
+thinking_off,lcb/3686,0,medium,False,IndentationError: expected an indented block after 'for' statement on line 24,0,8192,True
+thinking_off,lcb/abc397_b,0,medium,False,wrong answer on test 2,0,119,False
+thinking_off,lcb/abc386_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3451,0,medium,False,wrong answer on test 1,0,109,False
+thinking_off,lcb/abc358_c,0,medium,False,wrong answer on test 1,0,604,False
+thinking_off,lcb/3496,0,medium,False,TypeError: 'int' object is not iterable,0,201,False
+thinking_off,lcb/abc398_c,0,medium,False,wrong answer on test 1,0,355,False
+thinking_off,lcb/abc380_d,0,medium,False,ValueError: invalid literal for int() with base 10: '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16',0,301,False
+thinking_off,lcb/3356,0,medium,False,TypeError: unsupported operand type(s) for -: 'str' and 'int',0,329,False
+thinking_off,lcb/3716,0,medium,False,wrong answer on test 1,0,254,False
+thinking_off,lcb/abc356_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3534,0,medium,False,TypeError: 'int' object is not iterable,0,182,False
+thinking_off,lcb/3475,0,medium,False,wrong answer on test 1,0,574,False
+thinking_off,lcb/3743,0,medium,False,NameError: name 'starttimes' is not defined. Did you mean: 'startTime'?,0,450,False
+thinking_off,lcb/3479,0,medium,False,wrong answer on test 1,0,126,False
+thinking_off,lcb/3403,0,medium,False,wrong answer on test 1,0,157,False
+thinking_off,lcb/abc357_c,0,medium,False,IndentationError: unexpected indent,0,8175,True
+thinking_off,lcb/abc395_c,0,medium,False,wrong answer on test 1,0,294,False
+thinking_off,lcb/abc381_c,0,medium,False,IndexError: string index out of range,0,327,False
+thinking_off,lcb/3805,0,medium,False,wrong answer on test 1,0,153,False
+thinking_off,lcb/3622,0,medium,False,SyntaxError: unterminated triple-quoted string literal (detected at line 69),0,8192,True
+thinking_off,lcb/abc380_c,0,medium,False,IndexError: list index out of range,0,2604,False
+thinking_off,lcb/3346,0,medium,False,IndexError: string index out of range,0,1894,False
+thinking_off,lcb/abc394_c,0,medium,False,wrong answer on test 1,0,114,False
+thinking_off,lcb/3809,0,medium,False,wrong answer on test 1,0,231,False
+thinking_off,lcb/arc189_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3748,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,267,False
+thinking_off,lcb/abc376_b,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3754,0,medium,False,wrong answer on test 1,0,516,False

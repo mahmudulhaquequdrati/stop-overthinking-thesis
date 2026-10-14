@@ -1,0 +1,15 @@
+{
+  "way": "lora1-off",
+  "model_profile": "qwen35_2b",
+  "seed": 3407,
+  "samples": 1,
+  "think_budget": null,
+  "policy": "thinking_off",
+  "problem_sha256": "b7a8a88e867a670f7022932a76d39eafc996225581bd61eb10bc1f5d90be1953",
+  "adapter_sha256": "4cd065d7dcfabb67b031c971ba4f9e0502b1a48dab7f7d8c3d7cf85531183434",
+  "adapter_config_sha256": "63426d5d0daf0d61631599bac987e9561d6d48ad27bdf3017171173bc721b9fa",
+  "prompts_sha256": "192324142096217d54a1fdf9a1b3e60d0d7119ffe4d3b7556bb7cd419bb78102",
+  "generator_sha256": "c21bebb985f376356df8bd6ead00f2eb3ed7ae7a21760394196e9c00baf6a04a",
+  "worker_sha256": "93ee9b502ecff34c677a96399cbae27be3de7edcc0b1a609de86a42b6fe4b8a6",
+  "stop_on_repeat": false
+}

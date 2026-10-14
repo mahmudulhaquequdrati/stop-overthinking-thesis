@@ -1,0 +1,301 @@
+policy,task_id,sample_index,difficulty,passed,why_not,thinking_tokens,total_new_tokens,hit_limit
+thinking_off,lcb/3625,0,easy,False,wrong answer on test 6,0,998,False
+thinking_off,lcb/3398,0,easy,True,,0,249,False
+thinking_off,lcb/abc397_a,0,easy,True,,0,52,False
+thinking_off,lcb/3644,0,easy,True,,0,202,False
+thinking_off,lcb/3455,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3394,0,medium,False,IndentationError: expected an indented block after function definition on line 3,0,8192,True
+thinking_off,lcb/3464,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,2143,False
+thinking_off,lcb/3354,0,medium,True,,0,1196,False
+thinking_off,lcb/abc365_b,0,easy,True,,0,278,False
+thinking_off,lcb/3379,0,easy,True,,0,63,False
+thinking_off,lcb/3702,0,easy,False,wrong answer on test 2,0,239,False
+thinking_off,lcb/3450,0,easy,True,,0,145,False
+thinking_off,lcb/abc379_b,0,easy,True,,0,1127,False
+thinking_off,lcb/3543,0,easy,True,,0,183,False
+thinking_off,lcb/abc368_a,0,easy,True,,0,235,False
+thinking_off,lcb/3469,0,easy,False,wrong answer on test 1,0,444,False
+thinking_off,lcb/abc352_a,0,easy,True,,0,225,False
+thinking_off,lcb/abc371_a,0,easy,False,wrong answer on test 2,0,709,False
+thinking_off,lcb/abc393_b,0,easy,False,wrong answer on test 1,0,217,False
+thinking_off,lcb/abc350_b,0,easy,True,,0,268,False
+thinking_off,lcb/abc349_b,0,easy,True,,0,181,False
+thinking_off,lcb/abc385_b,0,easy,True,,0,509,False
+thinking_off,lcb/abc370_a,0,easy,True,,0,78,False
+thinking_off,lcb/3463,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,107,False
+thinking_off,lcb/abc351_a,0,easy,True,,0,283,False
+thinking_off,lcb/abc394_b,0,easy,True,,0,144,False
+thinking_off,lcb/abc348_b,0,easy,True,,0,319,False
+thinking_off,lcb/abc382_a,0,easy,True,,0,405,False
+thinking_off,lcb/3817,0,easy,True,,0,83,False
+thinking_off,lcb/abc362_a,0,easy,True,,0,152,False
+thinking_off,lcb/abc400_b,0,easy,False,wrong answer on test 3,0,241,False
+thinking_off,lcb/abc366_a,0,easy,True,,0,326,False
+thinking_off,lcb/abc378_b,0,easy,True,,0,421,False
+thinking_off,lcb/3636,0,easy,True,,0,90,False
+thinking_off,lcb/abc355_a,0,easy,True,,0,222,False
+thinking_off,lcb/abc372_a,0,easy,True,,0,17,False
+thinking_off,lcb/abc355_b,0,easy,True,,0,284,False
+thinking_off,lcb/abc367_b,0,easy,True,,0,160,False
+thinking_off,lcb/3832,0,easy,False,wrong answer on test 1,0,522,False
+thinking_off,lcb/3508,0,easy,True,,0,136,False
+thinking_off,lcb/3468,0,easy,False,wrong answer on test 3,0,116,False
+thinking_off,lcb/3621,0,easy,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/3606,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,97,False
+thinking_off,lcb/abc359_a,0,easy,True,,0,162,False
+thinking_off,lcb/abc373_a,0,easy,True,,0,112,False
+thinking_off,lcb/3353,0,easy,True,,0,77,False
+thinking_off,lcb/abc383_a,0,easy,True,,0,819,False
+thinking_off,lcb/abc366_b,0,easy,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc357_a,0,easy,True,,0,183,False
+thinking_off,lcb/abc358_b,0,easy,True,,0,271,False
+thinking_off,lcb/abc354_a,0,easy,True,,0,295,False
+thinking_off,lcb/abc356_b,0,easy,True,,0,222,False
+thinking_off,lcb/abc384_a,0,easy,True,,0,152,False
+thinking_off,lcb/abc345_b,0,easy,True,,0,637,False
+thinking_off,lcb/3372,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,193,False
+thinking_off,lcb/abc381_b,0,easy,True,,0,171,False
+thinking_off,lcb/abc386_b,0,easy,False,wrong answer on test 1,0,3608,False
+thinking_off,lcb/abc385_a,0,easy,True,,0,375,False
+thinking_off,lcb/abc378_a,0,easy,True,,0,133,False
+thinking_off,lcb/abc370_b,0,easy,False,StopIteration,0,659,False
+thinking_off,lcb/abc395_a,0,easy,True,,0,117,False
+thinking_off,lcb/3533,0,easy,True,,0,198,False
+thinking_off,lcb/abc369_b,0,easy,True,,0,1392,False
+thinking_off,lcb/3426,0,easy,True,,0,103,False
+thinking_off,lcb/abc394_a,0,easy,True,,0,30,False
+thinking_off,lcb/abc353_b,0,easy,False,wrong answer on test 1,0,189,False
+thinking_off,lcb/3361,0,easy,False,wrong answer on test 2,0,379,False
+thinking_off,lcb/3612,0,easy,True,,0,243,False
+thinking_off,lcb/3685,0,easy,True,,0,108,False
+thinking_off,lcb/3616,0,easy,False,wrong answer on test 1,0,266,False
+thinking_off,lcb/abc373_b,0,easy,True,,0,317,False
+thinking_off,lcb/abc371_b,0,easy,True,,0,317,False
+thinking_off,lcb/abc377_b,0,easy,True,,0,219,False
+thinking_off,lcb/abc381_a,0,easy,False,wrong answer on test 2,0,270,False
+thinking_off,lcb/3626,0,easy,True,,0,97,False
+thinking_off,lcb/3476,0,easy,True,,0,124,False
+thinking_off,lcb/3811,0,easy,True,,0,129,False
+thinking_off,lcb/abc360_a,0,easy,True,,0,78,False
+thinking_off,lcb/3412,0,easy,True,,0,135,False
+thinking_off,lcb/3396,0,easy,True,,0,198,False
+thinking_off,lcb/3788,0,easy,False,wrong answer on test 4,0,338,False
+thinking_off,lcb/abc392_b,0,easy,True,,0,245,False
+thinking_off,lcb/abc393_a,0,easy,True,,0,433,False
+thinking_off,lcb/3753,0,easy,True,,0,158,False
+thinking_off,lcb/3778,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,83,False
+thinking_off,lcb/abc392_a,0,easy,True,,0,216,False
+thinking_off,lcb/abc396_a,0,easy,True,,0,166,False
+thinking_off,lcb/3367,0,easy,False,wrong answer on test 2,0,121,False
+thinking_off,lcb/3651,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,160,False
+thinking_off,lcb/abc376_a,0,easy,True,,0,258,False
+thinking_off,lcb/abc362_b,0,easy,True,,0,408,False
+thinking_off,lcb/3773,0,easy,False,IndexError: list index out of range,0,226,False
+thinking_off,lcb/abc361_a,0,easy,False,wrong answer on test 1,0,173,False
+thinking_off,lcb/3334,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,886,False
+thinking_off,lcb/abc384_b,0,easy,True,,0,238,False
+thinking_off,lcb/3705,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,138,False
+thinking_off,lcb/abc357_b,0,easy,True,,0,73,False
+thinking_off,lcb/3656,0,easy,True,,0,186,False
+thinking_off,lcb/3736,0,easy,True,,0,174,False
+thinking_off,lcb/3568,0,easy,True,,0,157,False
+thinking_off,lcb/abc365_a,0,easy,True,,0,80,False
+thinking_off,lcb/3421,0,easy,True,,0,94,False
+thinking_off,lcb/3397,0,easy,False,wrong answer on test 1,0,97,False
+thinking_off,lcb/abc359_b,0,easy,True,,0,157,False
+thinking_off,lcb/3723,0,easy,True,,0,154,False
+thinking_off,lcb/abc400_a,0,easy,True,,0,92,False
+thinking_off,lcb/abc377_a,0,easy,True,,0,37,False
+thinking_off,lcb/abc348_a,0,easy,True,,0,64,False
+thinking_off,lcb/3515,0,easy,True,,0,170,False
+thinking_off,lcb/abc346_a,0,easy,True,,0,176,False
+thinking_off,lcb/3684,0,easy,False,wrong answer on test 1,0,193,False
+thinking_off,lcb/abc398_a,0,easy,True,,0,1022,False
+thinking_off,lcb/3676,0,easy,True,,0,262,False
+thinking_off,lcb/abc347_a,0,easy,True,,0,196,False
+thinking_off,lcb/3617,0,easy,False,IndentationError: expected an indented block after 'for' statement on line 8,0,4781,False
+thinking_off,lcb/abc364_a,0,easy,False,wrong answer on test 2,0,205,False
+thinking_off,lcb/3429,0,easy,True,,0,73,False
+thinking_off,lcb/3471,0,easy,True,,0,117,False
+thinking_off,lcb/3408,0,easy,False,wrong answer on test 1,0,121,False
+thinking_off,lcb/abc353_a,0,easy,True,,0,201,False
+thinking_off,lcb/abc350_a,0,easy,False,AttributeError: 'set' object has no attribute 'append',0,158,False
+thinking_off,lcb/3349,0,easy,True,,0,153,False
+thinking_off,lcb/3610,0,easy,True,,0,241,False
+thinking_off,lcb/abc380_a,0,easy,True,,0,123,False
+thinking_off,lcb/abc379_a,0,easy,True,,0,100,False
+thinking_off,lcb/abc391_b,0,easy,True,,0,389,False
+thinking_off,lcb/abc364_b,0,easy,True,,0,391,False
+thinking_off,lcb/3709,0,easy,True,,0,169,False
+thinking_off,lcb/3446,0,easy,True,,0,108,False
+thinking_off,lcb/3632,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,255,False
+thinking_off,lcb/abc354_b,0,easy,True,,0,210,False
+thinking_off,lcb/3381,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,146,False
+thinking_off,lcb/3600,0,easy,True,,0,161,False
+thinking_off,lcb/3511,0,easy,True,,0,418,False
+thinking_off,lcb/3555,0,easy,False,wrong answer on test 12,0,226,False
+thinking_off,lcb/abc363_b,0,easy,False,wrong answer on test 1,0,466,False
+thinking_off,lcb/abc386_a,0,easy,True,,0,1168,False
+thinking_off,lcb/abc363_a,0,easy,True,,0,368,False
+thinking_off,lcb/3605,0,easy,False,IndentationError: expected an indented block after function definition on line 3,0,4539,False
+thinking_off,lcb/abc344_b,0,easy,True,,0,132,False
+thinking_off,lcb/abc347_b,0,easy,True,,0,139,False
+thinking_off,lcb/3484,0,easy,True,,0,188,False
+thinking_off,lcb/abc346_b,0,easy,True,,0,531,False
+thinking_off,lcb/abc358_a,0,easy,True,,0,43,False
+thinking_off,lcb/3371,0,easy,True,,0,88,False
+thinking_off,lcb/abc367_a,0,easy,True,,0,293,False
+thinking_off,lcb/abc351_b,0,easy,True,,0,216,False
+thinking_off,lcb/abc399_b,0,easy,True,,0,421,False
+thinking_off,lcb/abc396_b,0,easy,True,,0,225,False
+thinking_off,lcb/abc399_a,0,easy,True,,0,107,False
+thinking_off,lcb/abc375_a,0,easy,True,,0,292,False
+thinking_off,lcb/abc374_a,0,easy,True,,0,32,False
+thinking_off,lcb/3799,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,144,False
+thinking_off,lcb/abc380_b,0,easy,True,,0,200,False
+thinking_off,lcb/abc344_a,0,easy,True,,0,123,False
+thinking_off,lcb/3567,0,easy,True,,0,92,False
+thinking_off,lcb/abc349_a,0,easy,True,,0,169,False
+thinking_off,lcb/3428,0,easy,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,72,False
+thinking_off,lcb/3768,0,easy,True,,0,138,False
+thinking_off,lcb/abc391_a,0,easy,True,,0,110,False
+thinking_off,lcb/abc356_a,0,easy,True,,0,196,False
+thinking_off,lcb/3553,0,easy,True,,0,188,False
+thinking_off,lcb/3519,0,easy,False,TypeError: unhashable type: 'list',0,225,False
+thinking_off,lcb/3447,0,easy,True,,0,115,False
+thinking_off,lcb/abc369_a,0,easy,True,,0,329,False
+thinking_off,lcb/abc382_b,0,easy,True,,0,219,False
+thinking_off,lcb/abc360_b,0,easy,True,,0,461,False
+thinking_off,lcb/abc368_b,0,easy,False,wrong answer on test 1,0,243,False
+thinking_off,lcb/abc395_b,0,easy,True,,0,354,False
+thinking_off,lcb/abc374_b,0,easy,True,,0,124,False
+thinking_off,lcb/3654,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,401,False
+thinking_off,lcb/abc374_c,0,medium,True,,0,464,False
+thinking_off,lcb/3771,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3384,0,medium,True,,0,507,False
+thinking_off,lcb/3462,0,medium,False,wrong answer on test 1,0,7342,False
+thinking_off,lcb/3487,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/3794,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3328,0,medium,True,,0,1151,False
+thinking_off,lcb/abc398_b,0,medium,False,wrong answer on test 5,0,246,False
+thinking_off,lcb/abc394_d,0,medium,True,,0,493,False
+thinking_off,lcb/3591,0,medium,False,wrong answer on test 1,0,250,False
+thinking_off,lcb/3722,0,medium,False,wrong answer on test 1,0,626,False
+thinking_off,lcb/abc392_c,0,medium,False,wrong answer on test 1,0,507,False
+thinking_off,lcb/abc359_c,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3649,0,medium,True,,0,2081,False
+thinking_off,lcb/3607,0,medium,False,SyntaxError: unterminated triple-quoted string literal (detected at line 278),0,4417,False
+thinking_off,lcb/3337,0,medium,True,,0,69,False
+thinking_off,lcb/abc382_c,0,medium,False,wrong answer on test 2,0,2106,False
+thinking_off,lcb/abc384_c,0,medium,True,,0,311,False
+thinking_off,lcb/abc399_c,0,medium,True,,0,486,False
+thinking_off,lcb/abc385_c,0,medium,True,,0,3908,False
+thinking_off,lcb/3786,0,medium,False,wrong answer on test 1,0,491,False
+thinking_off,lcb/3559,0,medium,False,timeout on test 5,0,402,False
+thinking_off,lcb/3498,0,medium,False,wrong answer on test 2,0,636,False
+thinking_off,lcb/3795,0,medium,False,wrong answer on test 1,0,263,False
+thinking_off,lcb/abc363_d,0,medium,True,,0,907,False
+thinking_off,lcb/3634,0,medium,False,timeout on test 5,0,272,False
+thinking_off,lcb/3764,0,medium,False,wrong answer on test 1,0,607,False
+thinking_off,lcb/3540,0,medium,True,,0,108,False
+thinking_off,lcb/3579,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,122,False
+thinking_off,lcb/abc370_c,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/3715,0,medium,False,IndentationError: expected an indented block after function definition on line 5,0,8192,True
+thinking_off,lcb/abc379_d,0,medium,False,wrong answer on test 3,0,2329,False
+thinking_off,lcb/3683,0,medium,False,wrong answer on test 2,0,416,False
+thinking_off,lcb/abc383_b,0,medium,True,,0,394,False
+thinking_off,lcb/3785,0,medium,False,wrong answer on test 1,0,567,False
+thinking_off,lcb/3655,0,medium,False,NameError: name 'is_prime' is not defined,0,1884,False
+thinking_off,lcb/3355,0,medium,True,,0,240,False
+thinking_off,lcb/3526,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,222,False
+thinking_off,lcb/abc396_d,0,medium,True,,0,519,False
+thinking_off,lcb/abc396_c,0,medium,True,,0,1759,False
+thinking_off,lcb/3453,0,medium,False,wrong answer on test 1,0,165,False
+thinking_off,lcb/arc192_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/abc391_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3026,0,medium,False,wrong answer on test 5,0,459,False
+thinking_off,lcb/3776,0,medium,False,wrong answer on test 6,0,3026,False
+thinking_off,lcb/abc384_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3699,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3558,0,medium,False,wrong answer on test 1,0,1753,False
+thinking_off,lcb/3517,0,medium,True,,0,343,False
+thinking_off,lcb/3573,0,medium,True,,0,442,False
+thinking_off,lcb/arc195_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3518,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,863,False
+thinking_off,lcb/3627,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,1038,False
+thinking_off,lcb/abc375_d,0,medium,False,wrong answer on test 1,0,916,False
+thinking_off,lcb/abc383_d,0,medium,True,,0,651,False
+thinking_off,lcb/3759,0,medium,False,wrong answer on test 1,0,1340,False
+thinking_off,lcb/abc371_c,0,medium,False,IndexError: list index out of range,0,2402,False
+thinking_off,lcb/3422,0,medium,False,wrong answer on test 1,0,195,False
+thinking_off,lcb/abc392_d,0,medium,False,wrong answer on test 3,0,398,False
+thinking_off,lcb/3629,0,medium,False,wrong answer on test 1,0,452,False
+thinking_off,lcb/3502,0,medium,True,,0,662,False
+thinking_off,lcb/3360,0,medium,True,,0,932,False
+thinking_off,lcb/3653,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,581,False
+thinking_off,lcb/3620,0,medium,False,IndentationError: expected an indented block after 'else' statement on line 19,0,212,False
+thinking_off,lcb/3659,0,medium,True,,0,478,False
+thinking_off,lcb/3750,0,medium,False,wrong answer on test 1,0,308,False
+thinking_off,lcb/arc194_a,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3681,0,medium,False,TypeError: unhashable type: 'list',0,951,False
+thinking_off,lcb/abc356_c,0,medium,True,,0,411,False
+thinking_off,lcb/3763,0,medium,False,wrong answer on test 2,0,932,False
+thinking_off,lcb/3522,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,211,False
+thinking_off,lcb/3528,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/abc400_c,0,medium,True,,0,4396,False
+thinking_off,lcb/3613,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,793,False
+thinking_off,lcb/3657,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/abc399_d,0,medium,False,timeout on test 2,0,1476,False
+thinking_off,lcb/3507,0,medium,True,,0,519,False
+thinking_off,lcb/abc361_b,0,medium,True,,0,271,False
+thinking_off,lcb/3374,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,116,False
+thinking_off,lcb/abc357_d,0,medium,True,,0,840,False
+thinking_off,lcb/3793,0,medium,False,wrong answer on test 2,0,699,False
+thinking_off,lcb/3493,0,medium,False,wrong answer on test 1,0,510,False
+thinking_off,lcb/3395,0,medium,True,,0,219,False
+thinking_off,lcb/3760,0,medium,True,,0,178,False
+thinking_off,lcb/3593,0,medium,True,,0,806,False
+thinking_off,lcb/3639,0,medium,True,,0,5433,False
+thinking_off,lcb/3570,0,medium,True,,0,574,False
+thinking_off,lcb/abc374_d,0,medium,False,wrong answer on test 1,0,1509,False
+thinking_off,lcb/3406,0,medium,True,,0,1020,False
+thinking_off,lcb/abc383_c,0,medium,False,wrong answer on test 1,0,508,False
+thinking_off,lcb/3587,0,medium,False,wrong answer on test 2,0,259,False
+thinking_off,lcb/abc349_c,0,medium,True,,0,372,False
+thinking_off,lcb/3791,0,medium,False,timeout on test 4,0,361,False
+thinking_off,lcb/abc400_d,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3494,0,medium,False,wrong answer on test 3,0,318,False
+thinking_off,lcb/3442,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,264,False
+thinking_off,lcb/abc397_c,0,medium,True,,0,443,False
+thinking_off,lcb/3456,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,410,False
+thinking_off,lcb/abc363_c,0,medium,True,,0,280,False
+thinking_off,lcb/3779,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3686,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,2056,False
+thinking_off,lcb/abc397_b,0,medium,True,,0,7078,False
+thinking_off,lcb/abc386_c,0,medium,True,,0,711,False
+thinking_off,lcb/3451,0,medium,True,,0,143,False
+thinking_off,lcb/abc358_c,0,medium,True,,0,391,False
+thinking_off,lcb/3496,0,medium,True,,0,461,False
+thinking_off,lcb/abc398_c,0,medium,True,,0,396,False
+thinking_off,lcb/abc380_d,0,medium,True,,0,4820,False
+thinking_off,lcb/3356,0,medium,False,wrong answer on test 6,0,365,False
+thinking_off,lcb/3716,0,medium,False,wrong answer on test 1,0,418,False
+thinking_off,lcb/abc356_d,0,medium,False,SyntaxError: unterminated string literal (detected at line 27),0,739,False
+thinking_off,lcb/3534,0,medium,False,wrong answer on test 1,0,365,False
+thinking_off,lcb/3475,0,medium,False,wrong answer on test 1,0,217,False
+thinking_off,lcb/3743,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/3479,0,medium,False,wrong answer on test 2,0,1887,False
+thinking_off,lcb/3403,0,medium,False,wrong answer on test 1,0,164,False
+thinking_off,lcb/abc357_c,0,medium,False,wrong answer on test 1,0,412,False
+thinking_off,lcb/abc395_c,0,medium,True,,0,394,False
+thinking_off,lcb/abc381_c,0,medium,False,wrong answer on test 1,0,1033,False
+thinking_off,lcb/3805,0,medium,False,wrong answer on test 1,0,8192,True
+thinking_off,lcb/3622,0,medium,False,NameError: name 'List' is not defined. Did you mean: 'list'?,0,8192,True
+thinking_off,lcb/abc380_c,0,medium,False,wrong answer on test 1,0,924,False
+thinking_off,lcb/3346,0,medium,False,wrong answer on test 1,0,164,False
+thinking_off,lcb/abc394_c,0,medium,True,,0,304,False
+thinking_off,lcb/3809,0,medium,True,,0,269,False
+thinking_off,lcb/arc189_a,0,medium,False,SyntaxError: invalid syntax,0,8192,True
+thinking_off,lcb/3748,0,medium,False,wrong answer on test 1,0,2690,False
+thinking_off,lcb/abc376_b,0,medium,False,timeout on test 1,0,1009,False
+thinking_off,lcb/3754,0,medium,False,UnboundLocalError: cannot access local variable 'dx' where it is not associated with a value,0,4397,False

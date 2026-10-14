@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="875" viewBox="0 0 960 875" role="img" aria-label="Free controls and trained combinations">
+<rect width="100%" height="100%" fill="#fafaf7"/>
+<g font-family="Arial, sans-serif" fill="#202d32">
+<text x="24" y="32" font-size="22" font-weight="bold">Free controls and trained combinations</text>
+<text x="24" y="56" font-size="13">First attempts only; 464 identical problems for every bar</text>
+<text x="24" y="101" font-size="14">0.8B · LoRA-1</text>
+<rect x="260" y="83" width="65.11" height="25" fill="#286b70"/>
+<text x="333.11" y="101" font-size="13">12.3%</text>
+<text x="24" y="141" font-size="14">0.8B · Thinking OFF</text>
+<rect x="260" y="123" width="77.67" height="25" fill="#286b70"/>
+<text x="345.67" y="141" font-size="13">14.7%</text>
+<text x="24" y="181" font-size="14">0.8B · Thinking ON</text>
+<rect x="260" y="163" width="21.70" height="25" fill="#286b70"/>
+<text x="289.70" y="181" font-size="13">4.1%</text>
+<text x="24" y="221" font-size="14">0.8B · Limit 512</text>
+<rect x="260" y="203" width="55.97" height="25" fill="#286b70"/>
+<text x="323.97" y="221" font-size="13">10.6%</text>
+<text x="24" y="261" font-size="14">0.8B · LoRA-1 + OFF</text>
+<rect x="260" y="243" width="74.25" height="25" fill="#286b70"/>
+<text x="342.25" y="261" font-size="13">14.0%</text>
+<text x="24" y="301" font-size="14">0.8B · LoRA-1 + limit 512</text>
+<rect x="260" y="283" width="76.53" height="25" fill="#286b70"/>
+<text x="344.53" y="301" font-size="13">14.4%</text>
+<text x="24" y="341" font-size="14">2B · LoRA-1</text>
+<rect x="260" y="323" width="185.04" height="25" fill="#286b70"/>
+<text x="453.04" y="341" font-size="13">34.9%</text>
+<text x="24" y="381" font-size="14">2B · Thinking OFF</text>
+<rect x="260" y="363" width="172.48" height="25" fill="#286b70"/>
+<text x="440.48" y="381" font-size="13">32.5%</text>
+<text x="24" y="421" font-size="14">2B · Thinking ON</text>
+<rect x="260" y="403" width="138.21" height="25" fill="#286b70"/>
+<text x="406.21" y="421" font-size="13">26.1%</text>
+<text x="24" y="461" font-size="14">2B · Limit 1,024</text>
+<rect x="260" y="443" width="204.46" height="25" fill="#286b70"/>
+<text x="472.46" y="461" font-size="13">38.6%</text>
+<text x="24" y="501" font-size="14">2B · LoRA-1 + OFF</text>
+<rect x="260" y="483" width="188.47" height="25" fill="#286b70"/>
+<text x="456.47" y="501" font-size="13">35.6%</text>
+<text x="24" y="541" font-size="14">2B · LoRA-1 + limit 1,024</text>
+<rect x="260" y="523" width="218.17" height="25" fill="#286b70"/>
+<text x="486.17" y="541" font-size="13">41.2%</text>
+<text x="24" y="581" font-size="14">4B · LoRA-1</text>
+<rect x="260" y="563" width="301.55" height="25" fill="#286b70"/>
+<text x="569.55" y="581" font-size="13">56.9%</text>
+<text x="24" y="621" font-size="14">4B · Thinking OFF</text>
+<rect x="260" y="603" width="351.81" height="25" fill="#286b70"/>
+<text x="619.81" y="621" font-size="13">66.4%</text>
+<text x="24" y="661" font-size="14">4B · Thinking ON</text>
+<rect x="260" y="643" width="263.86" height="25" fill="#286b70"/>
+<text x="531.86" y="661" font-size="13">49.8%</text>
+<text x="24" y="701" font-size="14">4B · Limit 2,048</text>
+<rect x="260" y="683" width="376.94" height="25" fill="#286b70"/>
+<text x="644.94" y="701" font-size="13">71.1%</text>
+<text x="24" y="741" font-size="14">4B · LoRA-1 + OFF</text>
+<rect x="260" y="723" width="342.67" height="25" fill="#286b70"/>
+<text x="610.67" y="741" font-size="13">64.7%</text>
+<text x="24" y="781" font-size="14">4B · LoRA-1 + limit 2,048</text>
+<rect x="260" y="763" width="379.22" height="25" fill="#286b70"/>
+<text x="647.22" y="781" font-size="13">71.6%</text>
+<text x="260.0" y="810" font-size="12">0</text>
+<text x="392.5" y="810" font-size="12">25</text>
+<text x="525.0" y="810" font-size="12">50</text>
+<text x="657.5" y="810" font-size="12">75</text>
+<text x="790.0" y="810" font-size="12">100</text>
+<text x="260" y="833" font-size="13">Accuracy (%)</text>
+<text x="24" y="863" font-size="11">Source: saved graded runs, Sep–Oct 2026. Equal weight per problem; updated 14 Oct 2026.</text>
+</g></svg>

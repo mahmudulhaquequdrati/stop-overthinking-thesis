@@ -27,8 +27,12 @@ We did not test larger models, hard contest problems, math, or privacy attacks.
 Local deployment can keep prompts on your machine, but this is not a security evaluation.
 A result on these benchmarks does not promise the same accuracy on your code.
 
-## Latest completed extension
+## Completed LoRA controls
 
-2B LoRA-1 + limit 1,024: **41.2% (191/464)**, one attempt per problem.
-The +2.6-point gain over limit alone remains inconclusive.
-See [the completed evidence](../results/lora-limit-2b/README.md) and [the completed missing40 results](../results/lora-missing40/README.md).
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](11-completed-lora-controls.md) and [benchmark tables](05-results.md).

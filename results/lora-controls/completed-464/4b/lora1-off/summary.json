@@ -1,0 +1,133 @@
+{
+  "way": "lora1-off",
+  "coverage": 464,
+  "generated": 464,
+  "total_problems": 464,
+  "status": "COMPLETE",
+  "generation_status": {
+    "state": "finished"
+  },
+  "complete": true,
+  "attempts_per_problem": 1,
+  "comparisons": [
+    {
+      "reference": "lora1",
+      "shared_problems": 464,
+      "accuracy": 0.646551724137931,
+      "reference_accuracy": 0.5689655172413793,
+      "delta": 0.07758620689655173,
+      "delta_ci": [
+        0.032327586206896554,
+        0.1206896551724138
+      ],
+      "total_tokens": 882.1896551724138,
+      "reference_total_tokens": 4779.459051724138
+    },
+    {
+      "reference": "off",
+      "shared_problems": 464,
+      "accuracy": 0.646551724137931,
+      "reference_accuracy": 0.6637931034482759,
+      "delta": -0.017241379310344827,
+      "delta_ci": [
+        -0.05603448275862069,
+        0.01939655172413793
+      ],
+      "total_tokens": 882.1896551724138,
+      "reference_total_tokens": 940.8103448275862
+    },
+    {
+      "reference": "on",
+      "shared_problems": 464,
+      "accuracy": 0.646551724137931,
+      "reference_accuracy": 0.4978448275862069,
+      "delta": 0.14870689655172414,
+      "delta_ci": [
+        0.10560344827586207,
+        0.19181034482758622
+      ],
+      "total_tokens": 882.1896551724138,
+      "reference_total_tokens": 5186.116379310345
+    },
+    {
+      "reference": "limit2048",
+      "shared_problems": 464,
+      "accuracy": 0.646551724137931,
+      "reference_accuracy": 0.7112068965517241,
+      "delta": -0.06465517241379311,
+      "delta_ci": [
+        -0.10560344827586207,
+        -0.023706896551724137
+      ],
+      "total_tokens": 882.1896551724138,
+      "reference_total_tokens": 3964.8060344827586
+    }
+  ],
+  "accuracy": 0.646551724137931,
+  "baseline_manifest": [
+    {
+      "path": "results/4b/raw/test-limit2048-he-graded.csv",
+      "sha256": "31483a155a7c2585b53ecf42cd0d26adde96bd815ccf6120461db86b846515c3"
+    },
+    {
+      "path": "results/4b/raw/test-limit2048-lcb-graded.csv",
+      "sha256": "61d0d60cba2d81517ec9fa5ed29a1518385301ec9a53b2d697ccfb9480daa923"
+    },
+    {
+      "path": "results/4b/raw/test-lora1-he-graded.csv",
+      "sha256": "07e5a0877c2c161744b08cdf3041d4205c40a548c3771210886b2986aac44ed1"
+    },
+    {
+      "path": "results/4b/raw/test-lora1-lcb-graded.csv",
+      "sha256": "156a6629ca78850b03a955e3f1be107525643a0b1d2c89860576b10e3d192f22"
+    },
+    {
+      "path": "results/4b/raw/test-off-he-graded.csv",
+      "sha256": "2e393abaa57012f52ab43be9c4c9167f008d6bb960a881bf38ef2106ad98097f"
+    },
+    {
+      "path": "results/4b/raw/test-off-lcb-graded.csv",
+      "sha256": "ab0279568692372b6625f2b494152812d5702e54895e82c674b53a276562d067"
+    },
+    {
+      "path": "results/4b/raw/test-on-he-graded.csv",
+      "sha256": "25779665773b9a971f1bbf26b0f3bd1e3ca58f5b4cabba259afd296e638dc021"
+    },
+    {
+      "path": "results/4b/raw/test-on-lcb-graded.csv",
+      "sha256": "6613bf82ed8e88416dde70633933a2c590427c5cad52a44d7ec3ba4bf7e58128"
+    },
+    {
+      "path": "results/extra/4b/test-limit2048-lcb-graded.csv",
+      "sha256": "e568f650230d7f5a6588a3a592316bebeadf02f904697b13695bf2146670c439"
+    },
+    {
+      "path": "results/extra/4b/test-lora1-lcb-graded.csv",
+      "sha256": "581dbbf4fab557aab9c615c1c483f4954f903fb25854fa3b19802a3d41752e78"
+    },
+    {
+      "path": "results/extra/4b/test-off-lcb-graded.csv",
+      "sha256": "3b6658f6a4f8e52da013032029870d7a43a511ee4b6432499cf7603fb938a1a2"
+    },
+    {
+      "path": "results/extra/4b/test-on-lcb-graded.csv",
+      "sha256": "b8a5f996ff882b7e7ab452c2268e80163d0c1b97e9124499d7e3c6cfc248abdf"
+    },
+    {
+      "path": "results/more/4b/test-limit2048-lcb-graded.csv",
+      "sha256": "e60362eb54f40bfc70c94efdb7a05c7f501542a74a8cbfec07ea3f3fd3b23bc1"
+    },
+    {
+      "path": "results/more/4b/test-lora1-lcb-graded.csv",
+      "sha256": "cc9fa6c3b1edf895cb8a8417e9347bb95a373cd22b4c2da681c7d48a04812a7b"
+    },
+    {
+      "path": "results/more/4b/test-off-lcb-graded.csv",
+      "sha256": "e80b8ef6ea4d13917e8591a71af1cb82ab32cba62444c3cd84d34f199dfdf53a"
+    },
+    {
+      "path": "results/more/4b/test-on-lcb-graded.csv",
+      "sha256": "3cb37800984767dec885de7ab402b953c2fd0d8094336c73cddaff63d98b839e"
+    }
+  ]
+}

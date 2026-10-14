@@ -1,5 +1,8 @@
 # Five new LoRA controls in one session
 
+**Completed:** all five runs now checked. See [results](../results/lora-controls/README.md).
+No rerun is needed. The instructions below describe the original run.
+
 Use [Notebook24](../notebooks/24_lora1_off_and_limits.ipynb), following Notebook21.
 It replaces the unfinished two-limit Notebook23 plan; do not run both.
 
@@ -49,8 +52,9 @@ Missing grades are not failures, and a partial run is never labelled a464-proble
 After the ZIP arrives, check IDs, attempts, hashes, grades, and coverage.
 Then add all five measured scores to the full464 tables and recalculate uncertainty and tokens.
 Keep first-attempt and all-attempt results labelled separately.
-For now all five new scores are **not measured**.
+All five scores are now measured: 0.8B OFF 14.0%, limit 512 14.4%;
+2B OFF 35.6%; 4B limit 2,048 71.6%, OFF 64.7%. Each covers 464/464.
 
 Nine new offline checks pass: all five configurations, generator dispatch, thinking counts,
 method isolation, frozen464 IDs/training separation, complete references, scheduling, failure reports,
-and notebook syntax. RealGPU execution of this notebook has not been performed locally.
+and notebook syntax. The user completed the real GPU run in Colab; the saved ZIP was audited locally.
