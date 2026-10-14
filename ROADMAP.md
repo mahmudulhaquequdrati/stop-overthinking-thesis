@@ -350,3 +350,17 @@ User confirms the previous GPU runtime disconnected. Notebook 25 remains passed.
 loop detection, conditional repair and overhead measurement; not run yet.
 Two prompts × three methods, 384 generated tokens each. Three-unit estimated cap; 20-unit reserve.
 No eligible natural repair means recovery remains untested. Review its saved ZIP before expanding.
+
+## Notebook 26 instrumentation result — 14 October 2026
+
+Uploaded report confirms six capped responses, no loops detected and no online repairs.
+Instrumentation passed; loop recovery and accuracy remain untested.
+Next: inspect the downloaded answers.jsonl/ZIP before scheduling a longer diagnostic.
+[Saved report](experiments/rpmr/results/20261014T131227Z-2ff3a723/report.json).
+
+## Raw answers checked — next Notebook 27, 14 October 2026
+
+All methods match per question. Even-sum final answer is cut off; substring thinking is cut off.
+No harmful exact cycle is established. Notebook 27 is prepared for one longer substring
+question, detection-only, 2,048 total-token cap and two-unit estimated ceiling.
+[Next Colab notebook](experiments/rpmr/27_rpmr_colab_loop_search.ipynb). No new run started.

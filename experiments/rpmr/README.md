@@ -1,6 +1,6 @@
 # RPMR — Colab only
 
-Notebook 25 passed; do not rerun it. Open **26_rpmr_colab_online_smoke.ipynb**
+Notebooks 25 and 26 are complete; do not rerun them. Open **27_rpmr_colab_loop_search.ipynb**
 in Google Colab using **File → Upload notebook**.
 Choose a fresh **GPU runtime → Run all**. Allow Drive and enter the current
 compute-unit balance and the live units/hour shown in Colab Resources.
@@ -9,7 +9,8 @@ No Git push, repository clone, local setup, or training is needed.
 ## The active files
 
 - `25_rpmr_colab_smoke.ipynb`: completed calculation/cache smoke; kept unchanged.
-- `26_rpmr_colab_online_smoke.ipynb`: next online detector and overhead check.
+- `26_rpmr_colab_online_smoke.ipynb`: completed short detector/overhead check.
+- `27_rpmr_colab_loop_search.ipynb`: next single-question longer detection-only search.
 - `proposal.md`: invention candidate, derivation, and closest papers.
 - `README.md`: these instructions and resource limits.
 
@@ -89,3 +90,39 @@ Short token caps can miss later loops. This stage measures instrumentation, not 
 Notebook 26 is prepared and syntax-checked, not executed in Colab.
 Next action: upload Notebook 26, choose a fresh GPU runtime and Run all.
 Afterward, review its report and saved outputs before enlarging the study. Decision #120.
+
+## Notebook 26 report — 14 October 2026
+
+[Uploaded report](results/20261014T131227Z-2ff3a723/report.json) saved byte-for-byte.
+Six responses completed; all six hit the 384-token cap.
+Detection-only greedy output matched ordinary output on both prompts, as reported by the worker.
+No detected episodes and no online repairs. Instrumentation passed; recovery remains untested.
+Wall time 203.295 seconds; estimated 0.3823 units at the entered 6.77/hour rate.
+Short decoding measured about 20.4–20.9 tokens/second without triggered repairs.
+Detection-only wall ratios were 0.991 and 1.009; this tiny sample establishes no speed gain.
+Actual charges and raw-output equivalence were not independently checked.
+Only report.json was supplied; answers.jsonl and the downloaded ZIP are missing.
+Next: inspect the saved raw answers before selecting a longer natural-loop diagnostic.
+The two supplied reports both use initial_balance=50; check live balance before another run.
+
+## Notebook 26 raw-output audit — 14 October 2026
+
+[Uploaded raw answers](results/20261014T131227Z-2ff3a723/answers.jsonl) saved byte-for-byte.
+Six unique prompt/method pairs and every summary timing/token/event value match report.json.
+All three methods have identical token IDs and text for each question.
+The even-sum prompt closes thinking and begins its final answer; the cap cuts off that answer.
+The substring prompt writes code inside thinking, then begins reconsidering it and hits the cap
+without closing thinking. That reconsideration is not proof of a harmful cycle.
+No generated code was executed or graded.
+
+## Next: Notebook 27 — one longer natural-loop search
+
+Only the substring question, detection only, at most 2,048 total new tokens.
+Same pinned model revision and greedy decoding; no memory repair, training or easy-question rerun.
+Stops at the first exact thinking-repeat event or normal end; otherwise stops at the cap.
+Planning estimate: 3–8 minutes, about 0.34–0.90 units at the recorded 6.77/hour A100 rate.
+Assumes similar setup and roughly 20 tokens/second; long-prefix performance is unmeasured.
+Two-unit estimated ceiling (about 17.7 minutes at that rate); retain the 20-unit reserve.
+The current live balance and rate are requested.
+Prepared and syntax-checked, not run in Colab. This search is not a recovery/accuracy test.
+Upload Notebook 27, Run all, and return its report.json. Inspect that result before expanding.

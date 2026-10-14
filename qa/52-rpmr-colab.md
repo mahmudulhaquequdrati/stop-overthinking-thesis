@@ -48,3 +48,20 @@ Two prompts and short caps make this an instrumentation check, not an accuracy s
 Three estimated units maximum; keep 20. No repair is forced if no natural trigger occurs.
 User confirms the earlier runtime is disconnected. Notebook 26 is prepared but not run.
 [Next notebook](../experiments/rpmr/26_rpmr_colab_online_smoke.ipynb). Decision #120.
+
+## Did Notebook 26 prove loop recovery?
+
+No. All six responses reached 384 tokens, with no detected episode or online edit.
+Detection-only matched ordinary output according to the worker. This validates basic instrumentation.
+A short cap can miss later loops. The uploaded report contains no raw answer text.
+Next: inspect answers.jsonl from the ZIP before choosing longer generation.
+[Saved report](../experiments/rpmr/results/20261014T131227Z-2ff3a723/report.json). Decision #121.
+
+## What do the uploaded answers show?
+
+Ordinary, detection-only and RPMR outputs are identical for each question.
+Even-sum thinking ends; the token cap truncates its final answer. Substring thinking
+contains code and begins reconsideration, but no exact cycle appears in the saved prefix.
+A reconsideration sentence alone does not establish harmful overthinking. Code was not graded.
+Next: only that substring question with a longer detection-only cap in Notebook 27,
+within two estimated units. No repair is forced or automatically evaluated. Decision #122.

@@ -1,0 +1,123 @@
+{
+  "status": "instrumentation_passed_no_online_repairs",
+  "run_id": "20261014T131227Z-2ff3a723",
+  "model": "Qwen/Qwen3.5-2B",
+  "initial_balance": 50.0,
+  "entered_units_per_hour": 6.77,
+  "estimated_unit_cap": 3.0,
+  "reserve_units": 20.0,
+  "checks": [
+    "Synthetic detector cases passed in this Colab kernel",
+    "Prompt 1: detection-only output exactly matches ordinary output",
+    "Prompt 2: detection-only output exactly matches ordinary output"
+  ],
+  "scope": "online instrumentation and timing; no benchmark accuracy",
+  "wall_seconds": 203.295,
+  "estimated_units_used": 0.3823,
+  "model_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "environment": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "model_dtype": "torch.bfloat16",
+    "memory_math_dtype": "torch.float32",
+    "seed": 3407
+  },
+  "settings": {
+    "max_total_new_tokens": 384,
+    "max_edits": 2,
+    "cooldown_tokens": 64,
+    "periods": [
+      8,
+      16,
+      32
+    ],
+    "repetitions": 3,
+    "decoding": "greedy",
+    "optional_acceleration_packages_installed": false
+  },
+  "selected_layer": 0,
+  "selected_head": 0,
+  "implementation_sha256": "d0c8561d91e31e50d9a57b74196c5a7ad023e42ebe9f84004d0a535310879939",
+  "completed_answers": 6,
+  "summary": [
+    {
+      "prompt_index": 0,
+      "method": "ordinary",
+      "generated_tokens": 384,
+      "decode_seconds": 18.791893834999996,
+      "tokens_per_second": 20.434342774159255,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    },
+    {
+      "prompt_index": 0,
+      "method": "detect_only",
+      "generated_tokens": 384,
+      "decode_seconds": 18.62063182999998,
+      "tokens_per_second": 20.622286263204657,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    },
+    {
+      "prompt_index": 0,
+      "method": "rpmr",
+      "generated_tokens": 384,
+      "decode_seconds": 18.553424055999983,
+      "tokens_per_second": 20.696988267015783,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    },
+    {
+      "prompt_index": 1,
+      "method": "rpmr",
+      "generated_tokens": 384,
+      "decode_seconds": 18.558611127000006,
+      "tokens_per_second": 20.691203526611826,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    },
+    {
+      "prompt_index": 1,
+      "method": "detect_only",
+      "generated_tokens": 384,
+      "decode_seconds": 18.553765930999987,
+      "tokens_per_second": 20.696606900618782,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    },
+    {
+      "prompt_index": 1,
+      "method": "ordinary",
+      "generated_tokens": 384,
+      "decode_seconds": 18.382090000999995,
+      "tokens_per_second": 20.889898807976145,
+      "detected_episodes": 0,
+      "repairs": 0,
+      "hit_total_token_cap": true
+    }
+  ],
+  "rough_instrumentation_overhead": [
+    {
+      "prompt_index": 0,
+      "detect_only_vs_ordinary_wall_ratio": 0.9908863892855205,
+      "note": "Same greedy output; very small timing sample, not a throughput guarantee."
+    },
+    {
+      "prompt_index": 1,
+      "detect_only_vs_ordinary_wall_ratio": 1.0093393041808985,
+      "note": "Same greedy output; very small timing sample, not a throughput guarantee."
+    }
+  ],
+  "natural_detected_episodes": 0,
+  "actual_online_repairs": 0,
+  "interpretation": "No eligible natural repair occurred. Timing/instrumentation checked; loop recovery remains untested.",
+  "accuracy_measured": false,
+  "next_step": "Review saved events, text and complete timing before expanding the workload."
+}
