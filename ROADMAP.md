@@ -364,3 +364,24 @@ All methods match per question. Even-sum final answer is cut off; substring thin
 No harmful exact cycle is established. Notebook 27 is prepared for one longer substring
 question, detection-only, 2,048 total-token cap and two-unit estimated ceiling.
 [Next Colab notebook](experiments/rpmr/27_rpmr_colab_loop_search.ipynb). No new run started.
+
+## Notebook 27 finished naturally — 14 October 2026
+
+The longer substring response reaches EOS at 1,300 tokens with thinking closed.
+Two identical thinking-code blocks appear, but no sustained exact cycle is detected.
+No more reruns of this question. Next: identify candidate loops in saved training outputs.
+[Saved report](experiments/rpmr/results/20261014T133535Z-da04a204/report.json).
+
+## Stronger loop candidates found — 14 October 2026
+
+Read-only screening finds 15 candidate 2B training attempts. Three inspected examples
+show repeated reconsideration without thinking closure before their caps.
+Next: one development candidate for provenance/separation checks and detector calibration,
+then a budgeted Colab replay. No extra GPU run started. Decision #124.
+
+## Next: Notebook 28 candidate reproduction — 14 October 2026
+
+[Notebook 28](experiments/rpmr/28_rpmr_colab_known_loop.ipynb) is prepared for archived
+loop calibration and at most two live tries on training candidate Mbpp/568.
+Three-unit estimated cap; 20-unit reserve. No repair enabled.
+Inspect its downloaded ZIP before a paired recovery experiment; not executed yet.

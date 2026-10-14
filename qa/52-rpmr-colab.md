@@ -65,3 +65,31 @@ contains code and begins reconsideration, but no exact cycle appears in the save
 A reconsideration sentence alone does not establish harmful overthinking. Code was not graded.
 Next: only that substring question with a longer detection-only cap in Notebook 27,
 within two estimated units. No repair is forced or automatically evaluated. Decision #122.
+
+## What did the longer run establish?
+
+Notebook 27 finishes naturally at 1,300 tokens. It repeats the same thinking code
+block twice, separated by prose, then gives its answer. The detector requires three
+adjacent repeated short token blocks, so this is outside its rule. It is redundant
+reasoning, not evidence of endless looping. Code was not executed or graded.
+Next: inspect saved training traces rather than keep rerunning the same question.
+[Report](../experiments/rpmr/results/20261014T133535Z-da04a204/report.json). Decision #123.
+
+## Where can we find stronger loop examples?
+
+Saved 2B training generations contain candidates. Word-cycle screening finds 15 attempts.
+Three inspected cases repeat reconsideration until a cap without thinking closure.
+This is stronger than the substring example, which finishes naturally.
+The token detector must be calibrated; historical sampled loops may not reproduce under
+current greedy decoding. Keep development candidates separate from final evaluation.
+No extra GPU run was needed for this inspection. Decision #124.
+
+## Why Notebook 28?
+
+Mbpp/568 previously looped in saved training generation. Its exact question is available
+and its ID is absent from the 464 evaluation tasks. The new detector checks a range of
+period lengths, not just three selected lengths, while retaining persistent-repeat requirements.
+It must recognize the archived positive trace and reject the completed substring trace.
+Then two bounded live tries test reproduction; no artificial prefix or repair is used.
+Historical sampling, batch layout and model provenance differ, so reproduction is not guaranteed.
+Three estimated units maximum. Return the ZIP before evaluating recovery. Decision #125.

@@ -1,6 +1,6 @@
 # RPMR — Colab only
 
-Notebooks 25 and 26 are complete; do not rerun them. Open **27_rpmr_colab_loop_search.ipynb**
+Notebooks 25–27 are complete; do not rerun them. Open **28_rpmr_colab_known_loop.ipynb**
 in Google Colab using **File → Upload notebook**.
 Choose a fresh **GPU runtime → Run all**. Allow Drive and enter the current
 compute-unit balance and the live units/hour shown in Colab Resources.
@@ -10,7 +10,8 @@ No Git push, repository clone, local setup, or training is needed.
 
 - `25_rpmr_colab_smoke.ipynb`: completed calculation/cache smoke; kept unchanged.
 - `26_rpmr_colab_online_smoke.ipynb`: completed short detector/overhead check.
-- `27_rpmr_colab_loop_search.ipynb`: next single-question longer detection-only search.
+- `27_rpmr_colab_loop_search.ipynb`: completed substring search; no exact loop.
+- `28_rpmr_colab_known_loop.ipynb`: next archived-loop calibration and bounded reproduction.
 - `proposal.md`: invention candidate, derivation, and closest papers.
 - `README.md`: these instructions and resource limits.
 
@@ -126,3 +127,56 @@ Two-unit estimated ceiling (about 17.7 minutes at that rate); retain the 20-unit
 The current live balance and rate are requested.
 Prepared and syntax-checked, not run in Colab. This search is not a recovery/accuracy test.
 Upload Notebook 27, Run all, and return its report.json. Inspect that result before expanding.
+
+## Notebook 27 completed — 14 October 2026
+
+[Uploaded report](results/20261014T133535Z-da04a204/report.json) saved byte-for-byte.
+The response finishes naturally at 1,300 tokens (EOS), closes thinking and gives a final answer.
+It does not hit the 2,048-token cap. No exact repeat event; no repairs enabled.
+The first 384 token IDs match Notebook 26's substring prefix exactly.
+Within thinking, two Python code blocks are byte-identical, separated by reconsideration prose.
+That is redundancy, not the three adjacent short repeated blocks targeted by our detector.
+It does not establish a sustained loop, correctness, or a benefit from RPMR. No code was executed.
+Wall time 148.978 seconds; estimated 0.2802 units at the entered 6.77/hour rate.
+Generation 64.21 seconds, about 20.25 tokens/second; peak allocated GPU memory 4.48 GB.
+Do not rerun this completed question or lower detection thresholds just to obtain triggers.
+Next: use saved training-generation outputs to identify candidate loops before another Colab run.
+Actual billing remains unverified; all three supplied reports entered a balance of 50.
+
+## Candidate search in saved training outputs — 14 October 2026
+
+Read-only word-cycle screening found 15 candidate attempts in existing 2B training
+generations: 5/800 MBPP attempts and 10/320 LCB attempts. These are attempt counts,
+not unique problems, and use word blocks rather than the notebook's token detector.
+Sources: results/2026-09-24-thesis-run/train-mbpp.jsonl and train-lcb.jsonl.
+Directly inspected Mbpp/568 sample0, Mbpp/623 sample0 and lcb/2866 sample0.
+Each repeatedly reproduces the same reconsideration text inside thinking and reaches
+its thinking cap without a closing marker (4,096 MBPP tokens or 8,192 LCB tokens).
+These are stronger development candidates than the completed substring example.
+Older sampling, model provenance and runtime differ; current greedy reproduction is not guaranteed.
+Candidate traces are not final evaluation data or evidence that RPMR helps.
+Next: select one candidate, verify training/evaluation separation and reproduce/calibrate
+its token-cycle detection in Colab before comparing protected versus unprotected recovery.
+No extra GPU run or notebook was created for this read-only screening.
+
+## Next: Notebook 28 — one known training-loop candidate
+
+Candidate Mbpp/568 and its exact original question are embedded from saved training files.
+The task ID is verified absent from the 464 current evaluation IDs.
+First tokenize the archived loop in Colab and calibrate detection against it and the completed
+Notebook 27 thinking trace. Historical IDs are reconstructed from saved text.
+Detector periods expand to 8–128, with at least three adjacent blocks and 64 repeated tokens.
+This calibration is development work, not a new detector novelty claim. If it fails, stop.
+
+Then try one greedy response and, only if no loop appears, one sampled response
+(temperature 0.6, top-p 0.95, top-k 20, seed 3407). At most 4,096 total tokens per try.
+Stop at the first natural exact thinking-repeat event. No artificial prefix, memory repair,
+training, generated-code execution or accuracy claim. Historical batch64 Unsloth generation
+is not exactly reproduced by the pinned official-model single-response runtime.
+
+Planning estimate: 4–12 A100 minutes, about 0.45–1.35 units at the recorded 6.77/hour rate.
+Three-unit estimated ceiling, preserving 20 units; enter the actual live balance and rate.
+Saved report, raw answers and events go to a unique Drive run folder and downloadable ZIP.
+Notebook 28 is prepared and syntax-checked, not run in Colab. Return its ZIP before
+we design paired protected/unprotected recovery. If no live repeat occurs, report that plainly.
+Decision #125.
