@@ -93,3 +93,12 @@ It must recognize the archived positive trace and reject the completed substring
 Then two bounded live tries test reproduction; no artificial prefix or repair is used.
 Historical sampling, batch layout and model provenance differ, so reproduction is not guaranteed.
 Three estimated units maximum. Return the ZIP before evaluating recovery. Decision #125.
+
+## What does Notebook 28 establish?
+
+The detector finds an81-token repeating period in the archived example and does not flag
+the completed substring thinking trace. Both current Mbpp/568 tries finish naturally
+in198/200 tokens. No repair is tested. Historical and current runtimes differ; cause unknown.
+A controlled replay of the actual old prefix could help study continuation and memory repair,
+but must be labelled as replayed context. If the unchanged baseline escapes on its own,
+that case cannot establish a repair benefit. Decision #126.

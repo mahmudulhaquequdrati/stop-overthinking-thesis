@@ -209,3 +209,12 @@ Primary literature inspected for a provisional recurrent-memory repair proposal:
 - [MaLoRA](https://arxiv.org/abs/2607.19326) and [Efficient Reasoning on the Edge](https://arxiv.org/abs/2603.16867): abstracts checked; adaptive adapter scaling/switching already exists.
 
 [Full method differences and bounded novelty statement](experiments/rpmr/proposal.md). No method was reproduced; no exact match found is not proof of novelty.
+
+## Alternative to RPMR — 14 October 2026
+
+Checked primary sources: [SCALe](https://arxiv.org/abs/2603.18656), [reasoning versus boilerplate weighting](https://arxiv.org/abs/2412.14780), [ASAP](https://arxiv.org/abs/2508.05988), [RPG](https://arxiv.org/html/2505.10402v1), [OpenCodeReasoning §2.3](https://arxiv.org/html/2504.01943v1), and [unlikelihood training](https://arxiv.org/abs/1908.04319).
+
+Loss balancing, selective supervision, structural repetition detection, and thinking-code filtering already exist.
+Possible narrower gap: shared supervision across duplicate draft-code groups within reasoning.
+No exact match found is not proof of novelty.
+[Audit, specific differences, and experiment conditions](research/2026-10-14-shared-draft-supervision.md).

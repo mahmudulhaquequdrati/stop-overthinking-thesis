@@ -607,3 +607,14 @@ One setting for how the model answers. We test 5 of them:
 - **Snapshot:** a saved copy of the current files, including uncommitted work.
 - **Hash:** a numerical fingerprint used to check that a saved file matches its original.
 - **Instrumented throughput:** generation speed while memory logging and repair are enabled.
+
+## New candidate terms — 14 October 2026
+
+- **AST (abstract syntax tree):** a tree showing code structure, ignoring surface formatting.
+- **Loss weight:** how much a training mistake contributes to the learning score.
+- **Shared draft supervision:** a provisional idea giving repeated draft-code copies one shared learning budget.
+- **Cross-entropy (CE):** a score for how poorly the model predicts the next token.
+
+- **Redundant-token-equivalent share:** the fraction of tokens whose supervision would be discounted by the proposed repetition weights; not predicted runtime savings.
+- **Offset mapping:** each token's start and end positions in the original text.
+- **Shifted labels:** next-token training targets moved one position to match the preceding prediction.

@@ -1,0 +1,23 @@
+{
+  "run_id": "20261014T171743Z-871aa0fe",
+  "status": "blocked_missing_source",
+  "scope": "CPU data and loss-weight audit; no efficacy evidence",
+  "gpu_used": false,
+  "train_file": "/content/drive/MyDrive/stop-overthinking/results/mini/train-set.jsonl",
+  "loss_file": "/content/drive/MyDrive/stop-overthinking/results/mini/lora/lora100/loss.json",
+  "wall_seconds": 219.397,
+  "source_search": {
+    "candidate_paths": [
+      "/content/drive/MyDrive/stop-overthinking/results/0.8b/raw/train-set-lora1.jsonl",
+      "/content/drive/MyDrive/stop-overthinking/results/4b/raw/train-set-lora1.jsonl"
+    ],
+    "directories_visited": 69,
+    "incomplete": false,
+    "seconds": 10.212,
+    "note": "Candidate names are not proof of the original 35-example source."
+  },
+  "missing_files": [
+    "/content/drive/MyDrive/stop-overthinking/results/mini/train-set.jsonl"
+  ],
+  "next_step": "Inspect source_search candidate paths. Locate the original Notebook 13 training file or its saved training answers/grades; no replacement set or training."
+}

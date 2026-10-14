@@ -130,3 +130,9 @@ LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free 
 - [51 — Every thesis-related Markdown file reviewed and synchronized](51-all-markdown-current.md).
 
 - [52 — RPMR research, budget, recovery and Colab smoke check](52-rpmr-colab.md).
+
+- [53 — Why we parked RPMR and screened another research direction](53-research-pivot.md).
+
+- [54 — Colab CPU audit of the actual 35-example 2B training set](54-actual-training-audit.md).
+
+- [55 — Why the first 4B token audit needs a parser correction](55-draft-parser-correction.md).

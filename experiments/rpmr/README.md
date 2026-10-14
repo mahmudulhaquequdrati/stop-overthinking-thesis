@@ -1,17 +1,20 @@
 # RPMR — Colab only
 
-Notebooks 25–27 are complete; do not rerun them. Open **28_rpmr_colab_known_loop.ipynb**
-in Google Colab using **File → Upload notebook**.
-Choose a fresh **GPU runtime → Run all**. Allow Drive and enter the current
-compute-unit balance and the live units/hour shown in Colab Resources.
-No Git push, repository clone, local setup, or training is needed.
+**Parked — 14 October 2026, at the user's request.**
+Do not rerun Notebooks 25–28 or start a historical-prefix replay.
+Keep the code and reports for recovery and research history.
+Compatibility passed; useful recovery remains untested.
+
+Next research candidate: [shared supervision for repeated draft code](../../research/2026-10-14-shared-draft-supervision.md).
+No new GPU run is proposed before a Colab CPU data check.
+The runtime instructions below are historical, not the current next step.
 
 ## The active files
 
 - `25_rpmr_colab_smoke.ipynb`: completed calculation/cache smoke; kept unchanged.
 - `26_rpmr_colab_online_smoke.ipynb`: completed short detector/overhead check.
 - `27_rpmr_colab_loop_search.ipynb`: completed substring search; no exact loop.
-- `28_rpmr_colab_known_loop.ipynb`: next archived-loop calibration and bounded reproduction.
+- `28_rpmr_colab_known_loop.ipynb`: completed calibration; both live tries finished without loops.
 - `proposal.md`: invention candidate, derivation, and closest papers.
 - `README.md`: these instructions and resource limits.
 
@@ -180,3 +183,22 @@ Saved report, raw answers and events go to a unique Drive run folder and downloa
 Notebook 28 is prepared and syntax-checked, not run in Colab. Return its ZIP before
 we design paired protected/unprotected recovery. If no live repeat occurs, report that plainly.
 Decision #125.
+
+## Notebook 28 completed — 14 October 2026
+
+[Report](results/20261014T164802Z-05b6d7ea/report.json) and
+[answers](results/20261014T164802Z-05b6d7ea/answers.jsonl) extracted byte-for-byte from the user's ZIP.
+Archived positive calibration passed at reconstructed token 2,855 with period 81 and three blocks.
+The completed substring thinking trace was not flagged. This validates these two calibration
+examples only; period81 lies outside the earlier 8/16/32-only detector choices.
+Live candidate Mbpp/568 finishes naturally: greedy198 tokens, sampled200 tokens, both EOS
+and thinking closed. No live repeat, artificial prefix or memory edit. Code was not executed.
+Runtime97.708 seconds; estimated0.1837 units. Actual account charges remain unverified.
+Old batch64 Unsloth generation and current official-model serial generation differ.
+The mismatch could involve sampling, model/tokenizer revisions, batching or kernels; cause unknown.
+No RPMR recovery or accuracy result is established. Stop rerunning this candidate as-is.
+Recommended next diagnostic: a clearly labelled controlled continuation from the saved loop prefix.
+First check whether an unchanged model continues or escapes that prefix naturally.
+Only if the baseline persists should protected/unprotected memory repairs be compared.
+This would study a replayed historical context, not prove current natural loop incidence.
+No new notebook or GPU run is started by this result audit.

@@ -18,6 +18,17 @@ LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free 
 
 <!-- CURRENT-STUDY:END -->
 
+## Current next step — research pivot, 14 October 2026
+
+RPMR is parked. Do not run a historical-prefix replay or more loop searches.
+We are at QUESTION → HYPOTHESIS, before another experiment.
+Candidate: share training weight across repeated draft-code structures inside thinking.
+Keep final-answer supervision. Novelty and usefulness remain unproved.
+Next: a tokenizer-only Colab CPU audit of the available 73-example 4B training file.
+No new GPU training or generation yet. Keep the 20-unit reserve.
+[Evidence, closest papers, and stop conditions](research/2026-10-14-shared-draft-supervision.md).
+
+
 ## Completed LoRA combinations — 14 October 2026
 
 All six planned combinations now have results for the same **464 problems**, one attempt each.
@@ -385,3 +396,52 @@ then a budgeted Colab replay. No extra GPU run started. Decision #124.
 loop calibration and at most two live tries on training candidate Mbpp/568.
 Three-unit estimated cap; 20-unit reserve. No repair enabled.
 Inspect its downloaded ZIP before a paired recovery experiment; not executed yet.
+
+## Notebook 28 result — 14 October 2026
+
+Detector calibration passes on archived period81. Both live tries finish without loops.
+No further reruns of this candidate under the same conditions. Recovery remains untested.
+Next recommendation: controlled archived-prefix continuation; check the unchanged baseline
+before any repairs, and label the historical-context replay explicitly. Not prepared/run yet.
+[Saved report](experiments/rpmr/results/20261014T164802Z-05b6d7ea/report.json).
+
+## Notebook 29 ready — actual source correction, 14 October 2026
+
+The current 2B LoRA-1 training log records 35 examples from Notebook 13.
+The earlier 133/24-example audit covers different saved sets.
+Run [Notebook 29](experiments/shared-draft-supervision/29_shared_draft_cpu_audit.ipynb) in Colab **CPU / None**, then send its ZIP.
+It reads original Drive sources and computes token shares and candidate weights.
+Expected 5–15 minutes; Colab execution not yet measured. No training or GPU generation.
+[Exact paths and checks](experiments/shared-draft-supervision/README.md).
+
+## Notebook 29 blocked by missing source — 14 October 2026
+
+The uploaded report contains no audit counts: original 35-example training file missing.
+The training log exists. No GPU was used; runtime 2.074 seconds.
+Revised Notebook 29 lists possible Drive source paths, without automatic substitution.
+Next: locate the original Notebook 13 training file in Colab CPU. No GPU training.
+[Instructions and saved report](experiments/shared-draft-supervision/README.md).
+
+## Source discovery exhausted — 14 October 2026
+
+Notebook 29 found only the 0.8B/4B sets, not the original 2B file.
+Do not rerun the search or substitute those datasets. No actual data audit yet.
+Next: check Drive results/mini/train-answers.jsonl and train-answers-graded.csv.
+If available, inspect them for separately labelled CPU reconstruction. No generation or training.
+
+## Current action — available 4B CPU audit, 14 October 2026
+
+The user confirms 2B recovery inputs are unavailable. Stop that recovery attempt.
+The revised Notebook 29 reads the available 73-example 4B set directly.
+Upload the revised file, select Colab CPU/None, Run all, and send the ZIP.
+No path-selection prompt, generation, or training. Estimated 5–15 minutes, unmeasured.
+The audit tests the new candidate's data basis, not the old 2B adapter's behavior.
+The previous notebook version is backed up. [Instructions](experiments/shared-draft-supervision/README.md).
+
+## Correct first 4B audit before its screen — 14 October 2026
+
+Uploaded audit passed source checks but skipped code fences indented beyond three spaces.
+The reported 1.59% share is incomplete; do not reject the candidate using it.
+Notebook 29's indentation-aware v2 parser passes fixtures and matches all 73 source traces.
+Next: upload the revised Notebook 29 and rerun Colab CPU token counting only.
+Corrected token share remains unmeasured. No GPU training. Decision #132.

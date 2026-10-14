@@ -433,3 +433,48 @@ Full detail: [research/gpu-time-budget.md](research/gpu-time-budget.md) §8.
 
 Same 234 problems. Numbers and paper map: [results/RESULTS-INDEX.md](results/RESULTS-INDEX.md).  
 Written into the thesis: §5.13 · §6.7 · §7.5.4.
+
+## Research pivot — 14 October 2026 (Decision #127)
+
+RPMR is parked, including the proposed historical-prefix replay.
+The completed thesis design and results stay unchanged.
+A possible follow-up shares loss weight across duplicate thinking-code groups.
+Loss is the training score used to update model weights.
+It preserves final-answer supervision and distinct revisions.
+This is a screened hypothesis, not an approved training experiment.
+Before GPU work: confirm training provenance and audit token weights in Colab CPU.
+Then measure step time and forecast costs using the live GPU rate.
+Keep the 20-unit reserve. Compare against ordinary LoRA and simpler loss balancing.
+[Full candidate and research questions](research/2026-10-14-shared-draft-supervision.md).
+
+### Follow-up source correction and CPU gate (Decision #128)
+
+2B LoRA-1 uses the Notebook 13 workflow and a saved 35-example training log.
+Use its original Drive training file; do not substitute the earlier 133/24-example sets.
+Notebook 29 checks source linkage, exact ID overlap, token shares, and shifted weight formulas.
+Preset data screen: redundant-token-equivalent share of thinking at least 5%.
+Below it, park this candidate. Above it, inspect useful repetitions and provenance first.
+The screen cannot establish efficacy or trigger training. Historical byte identity is unproved.
+GPU pilot timing and spending approval remain separate from this CPU audit.
+
+Notebook 29's first run is blocked by a missing training file (Decision #129).
+Data screening and efficacy remain untested. Source discovery precedes all further gates.
+
+Decision #130 pauses repeated source searches. The discovery report finds only other model sets.
+Check original saved mini training answers and grades before attempting labelled reconstruction.
+No reconstructed file or actual-data audit exists yet.
+
+### Available-source pivot (Decision #131)
+
+The user confirms 2B recovery inputs are unavailable. End that recovery attempt.
+Use the exported 73-example 4B training set for a separate CPU prevalence/weight audit.
+This supersedes the proposed original-2B audit and any requirement to recover that set.
+No result from these 4B examples may be described as evidence about the old 2B adapter.
+Use the frozen exported-file hash and saved 4B log summary.
+Official tokenizer revision is pinned; historical Unsloth tokenizer identity is unverified.
+Retain the 5% data screen, source limits, and 20-unit reserve.
+This does not choose the eventual training model or authorize a GPU experiment.
+
+Decision #132: first 4B token screen is invalid because parser coverage was incomplete.
+Keep the preset 5% threshold unchanged. Rerun only CPU counting with indentation-aware v2.
+Do not interpret the initial 1.59% result as evidence to reject the candidate.
