@@ -1,5 +1,23 @@
 # PLAN: "Stop Overthinking, Keep Passing the Tests"
 
+<!-- CURRENT-STUDY:START -->
+
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](results/CURRENT-RESULTS.md) · [Full easy thesis](easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](thesis/THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
 ## Completed LoRA combinations — 14 October 2026
 
 All six planned combinations now have results for the same **464 problems**, one attempt each.
@@ -15,7 +33,7 @@ No further run is needed to complete these six configurations.
 The document rebuild uses saved results and spends no Colab units.
 
 Read [the full easy thesis](easy-thesis/FULL-THESIS.md), including benchmark, difficulty, token and uncertainty tables.
-The formal thesis retains its historical results.
+The formal Markdown thesis is also updated; its original version is preserved in the dated archive.
 [Checked result archive and calculations](results/lora-controls/README.md).
 
 ## Full 464 update — 14 October 2026
@@ -69,7 +87,7 @@ Use all saved attempts, average success within each problem, then average proble
 Show coverage for every method. Compare methods only on shared IDs.
 2B and 4B LoRA-1 each use 424 shared problems; LoRA-2 remains a 234-problem analysis.
 Report problem-level paired bootstrap intervals (2,000 resamples, seed 3407), unadjusted for selection.
-The original protocol and formal thesis remain historical; no new training or evaluation is authorized here.
+The original protocol remains historical; both Markdown theses are now updated; no new training or evaluation is authorized here.
 Sources and rebuild commands: [combined analysis](results/combined/README.md).
 
 ---
@@ -415,4 +433,3 @@ Full detail: [research/gpu-time-budget.md](research/gpu-time-budget.md) §8.
 
 Same 234 problems. Numbers and paper map: [results/RESULTS-INDEX.md](results/RESULTS-INDEX.md).  
 Written into the thesis: §5.13 · §6.7 · §7.5.4.
-

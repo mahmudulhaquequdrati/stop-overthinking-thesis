@@ -10,7 +10,12 @@
 const fs = require("fs"), path = require("path");
 const DIR = "thesis";
 const files = fs.readdirSync(DIR).filter(f => /^\d\d-.*\.md$/.test(f)).sort();
-const parts = files.map(f => fs.readFileSync(path.join(DIR, f), "utf8").trim());
+// The current-study notice belongs once in the joined thesis, in its front matter.
+const notice = /<!-- CURRENT-STUDY:START -->[\s\S]*?<!-- CURRENT-STUDY:END -->\s*/g;
+const parts = files.map((f, index) => {
+  const text = fs.readFileSync(path.join(DIR, f), "utf8");
+  return (index === 0 ? text : text.replace(notice, "")).trim();
+});
 const slug = s => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
 const toc = [];
 for (const p of parts.slice(1)) for (const line of p.split("\n")) {   // the front matter comes before the contents

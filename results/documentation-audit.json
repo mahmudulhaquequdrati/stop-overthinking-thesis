@@ -1,0 +1,646 @@
+{
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "status": "Instruction file; preserved, not a results document"
+    },
+    {
+      "path": "DECISIONS.md",
+      "status": "Append-only decision log; current update in decision 113"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "PAPERS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "PLAN.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "ROADMAP.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "TEACHER-A-TO-Z.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/00-one-page.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/01-who-should-use-it.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/02-the-problem.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/03-how-we-did-it.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/04-the-datasets.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/05-results.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/06-why-it-works.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/07-advice-and-limits.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/08-all-answers.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/09-extra-problems.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/10-all-counts.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/11-completed-lora-controls.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/FULL-THESIS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/PAPER.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "easy-thesis/WORDS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "lessons/00-what-is-a-thesis.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/01-what-is-an-llm.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/02-tokens.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/03-how-a-model-learns.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/04-reasoning-models-and-thinking.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/05-overthinking.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/06-cutoff-dates.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/07-gpu-memory.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/08-python-basics.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/09-colab-and-kaggle.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/10-hugging-face.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "lessons/11-first-model-call.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "proposal/proposal.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/01-choosing-the-topic.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/02-finding-the-gap.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/03-code-only-easy-and-medium.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/04-choosing-the-model.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/05-data-and-test-size.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/06-method-hypothesis-baselines.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/07-one-question-only.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/08-safety-checks-before-training.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/09-gpu-time-and-free-sessions.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/10-proposal-and-title.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/11-measuring-thinking-in-tokens.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/12-how-our-training-works.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/13-thinking-and-the-switch.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/14-overthinking.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/15-cutoff-dates-and-seen-tests.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/16-gpu-memory.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/17-free-gpus-and-notebooks.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/18-hugging-face-and-our-data.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/19-first-model-call.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/20-first-model-load-out-of-memory.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/21-first-real-numbers.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/22-pilot-on-the-mac.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/23-moving-to-colab-and-qwen.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/24-free-go-no-go-test.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/25-mini-thesis-and-learning-curve.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/26-mini-thesis-results.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/27-the-real-thesis-run.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/28-thesis-run-results.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/29-results-and-analysis-chapter.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/30-the-complete-thesis.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/31-size-limit-extension.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/32-4b-run.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/33-all-models-compared.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/34-lean-0.8b-plan.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/35-0.8b-run.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/36-size-extension-in-thesis.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/37-thesis-a-to-z-teacher.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/38-2b-limit512-fill.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/39-2b-limit2048-lean.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/40-easy-thesis.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/41-extra-problems.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/42-more-problems.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/43-more-scores.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/44-combined-464.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/45-lora-with-limit-notebook.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/46-notebook21-readable-setup.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/47-notebook21-torchao-failure.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/48-lora1-missing40.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/49-five-lora-controls.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "qa/50-completed-lora-controls.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "qa/51-all-markdown-current.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "qa/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "research/2026-09-17-part2-tool-checks.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-09-20-e2b-mlx-option.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-09-20-qwen-small-models.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-09-20-which-gemma-model.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-09-25-bigger-model-plan.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-09-25-bigger-models-and-loops-evidence.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/2026-10-14-lora-limit-notebook.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/data-size-and-test-size.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/datasets.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/gaps.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/gpu-time-budget.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "research/models-and-gpu.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/0.8b/RUN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/0.8b/SUMMARY.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/0.8b/raw/lora/lora1/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-19-notebook11-first-call.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-19-notebook11-out-of-memory.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-20-e2b-mlx-on-mac.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-20-pilot-e2b-humaneval.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-22-mini-thesis-first-results.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-22-t4-speed-first-run.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/lora/lora2/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2b-limit2048/RUN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2b-limit2048/SUMMARY.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2b-limit512/RUN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/2b-limit512/SUMMARY.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/4b/RUN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/4b/SUMMARY.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/4b/raw/lora/lora1/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/ALL-RESULTS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/CURRENT-RESULTS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/DOCUMENTATION-AUDIT.md",
+      "status": "Complete Markdown inventory and validation report"
+    },
+    {
+      "path": "results/HOW-TO-RUN-SIZE-EXTENSION.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/RESULTS-INDEX.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/SIZE-COMPARISON.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/combined/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/extra/LISTS.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/extra/SUMMARY.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/full-results/FULL-RESULTS.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/lora-controls/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/lora-controls/completed-464/0.8b/lora1-limit512/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-controls/completed-464/0.8b/lora1-off/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-controls/completed-464/2b/lora1-off/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-controls/completed-464/4b/lora1-limit2048/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-controls/completed-464/4b/lora1-off/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-limit-2b/2026-10-14-failure.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/lora-limit-2b/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/lora-limit-2b/completed-464/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-missing40/PLAN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/lora-missing40/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "results/lora-missing40/completed40/2b/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/lora-missing40/completed40/4b/SUMMARY.md",
+      "status": "Immutable downloaded report; original scope, current parent-page links"
+    },
+    {
+      "path": "results/mini/lora/lora100/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/mini/lora/lora25/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/mini/lora/lora50/README.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/more/LISTS.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/more/RUN.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "results/more/SUMMARY.md",
+      "status": "Historical/teaching/research context retained; current results and scope added"
+    },
+    {
+      "path": "thesis/00-front-matter.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/01-introduction.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/02-background.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/03-method.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/04-how-we-measure.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/05-results.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/06-analysis.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/07-conclusion-and-future-work.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/08-references.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/09-appendices.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/README.md",
+      "status": "Current results/chapter/index; synchronized and linked"
+    },
+    {
+      "path": "thesis/THESIS.md",
+      "status": "Current full formal thesis; rebuilt from all updated chapters"
+    }
+  ],
+  "markdown_count": 160,
+  "original_snapshot": "archive/2026-10-14-before-complete-md-sync/markdown-originals.tar.gz"
+}

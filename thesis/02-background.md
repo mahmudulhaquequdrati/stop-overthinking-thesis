@@ -1,5 +1,23 @@
 # 2. Background
 
+<!-- CURRENT-STUDY:START -->
+
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](../easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
 This chapter explains the ideas the thesis builds on, from the ground up. If you already know how language
 models work, you can skip to Section 2.7.
 
@@ -12,7 +30,7 @@ of text again and again.
 > but much bigger and much better. It can continue a question with a whole correct answer.
 
 The model learned to guess by reading a huge amount of text. What it learned is stored in billions of numbers
-called **parameters**. Our model, Qwen3.5-2B, has about **2 billion** parameters. That is small for 2026. It
+called **parameters**. The original core model, Qwen3.5-2B, has about **2 billion** parameters. That is small for 2026. It
 fits on one graphics card.
 
 ## 2.2 What is a token?
@@ -155,3 +173,9 @@ Reasoning models think before answering → thinking costs tokens → small mode
 Fixes: FREE (off / limit / "brief")  vs  TRAINED (shortest-correct LoRA)
 Nobody had compared them on one small model with a switch, on code  → this thesis
 ```
+
+## Scope of the completed extension
+
+The current study also includes Qwen3.5-0.8B and Qwen3.5-4B.
+The background and cited literature explain the original motivation.
+Current empirical claims use the checked 464-problem result tables.

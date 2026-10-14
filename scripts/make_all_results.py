@@ -186,4 +186,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Current summaries use new columns and combined cohorts. Do not parse them
+    # with the original 234-problem table reader or publish its stale headlines.
+    if os.path.exists(os.path.join(ROOT, 'results', 'CURRENT-RESULTS.md')):
+        import subprocess
+        import sys
+        subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', 'sync_thesis_markdown.py')], cwd=ROOT, check=True)
+    else:
+        main()

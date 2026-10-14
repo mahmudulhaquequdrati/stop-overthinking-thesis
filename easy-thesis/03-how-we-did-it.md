@@ -1,5 +1,23 @@
 # How we did it
 
+<!-- CURRENT-STUDY:START -->
+
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](FULL-THESIS.md) · [Full formal Markdown thesis](../thesis/THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
 We combined saved graded results for **464 unique problems**.
 The completed extensions generated new answers using existing LoRA-1 add-ons.
 No new training was run. This document rebuild uses saved results only.
@@ -62,7 +80,9 @@ The 464 problems came from several runs with different attempt counts.
 The original 234 were selected before their results; later collections added 40 and 190.
 We chose to combine them on 13 October 2026, after seeing results.
 This history matters for interpreting claims, but it does not prevent a labelled combined summary.
-Raw files and the original formal thesis remain unchanged.
+Raw results remain unchanged. The pre-update Markdown files are preserved in
+[the dated archive](../archive/2026-10-14-before-complete-md-sync/markdown-originals.tar.gz).
+The formal Markdown thesis now uses the same checked 464-problem results.
 
 Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 

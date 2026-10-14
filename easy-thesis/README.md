@@ -1,5 +1,23 @@
 # Easy thesis — start here
 
+<!-- CURRENT-STUDY:START -->
+
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](FULL-THESIS.md) · [Full formal Markdown thesis](../thesis/THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
 This version presents **464 unique test problems** as one combined study view.
 Accuracy gives every problem equal weight. Every method shows its actual coverage.
 The completed LoRA + OFF and LoRA + limit results are included for all three sizes.
@@ -17,8 +35,8 @@ Read [FULL-THESIS.md](FULL-THESIS.md) for all chapters, including every benchmar
 - [All counts](10-all-counts.md).
 - [Words](WORDS.md).
 
-The [formal thesis](../thesis/THESIS.md) preserves the original study.
-Its historical scores differ from the retrospective combined analysis here.
+The [formal Markdown thesis](../thesis/THESIS.md) uses the same updated results.
+The original study text is preserved in the dated Markdown archive.
 The [combined audit](../results/combined/README.md) is the source for this version.
 
 Rebuild from the project root:

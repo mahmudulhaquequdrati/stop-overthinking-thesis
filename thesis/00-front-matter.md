@@ -1,171 +1,110 @@
 # Stop Overthinking, Keep Passing the Tests
 
-## Shortest-Correct LoRA Fine-Tuning versus Free Thinking Controls in a Small Code Model (Qwen3.5-2B)
+<!-- CURRENT-STUDY:START -->
 
-**Author:** [your name] · **Supervisor:** [supervisor's name] · **[University], [Department]** · September 2026
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
 
----
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](../easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
+## Shortest-Correct LoRA Training and Free Thinking Controls in Qwen3.5-0.8B, 2B and 4B
+
+**Author:** [your name] · **Supervisor:** [supervisor's name] · **[University], [Department]**
+
+Updated 14 October 2026. Retrospective combined analysis of **464 unique code problems**.
+The original protocol and the current combined study are distinguished throughout.
 
 ## Abstract
 
-Some AI models "think" before they answer. They write notes to themselves first, then give the answer.
-Thinking often makes answers better, but it costs time and computer power. Small models are said to
-**overthink**: they think far longer than they need to.
+We compared saved code-generation results for three Qwen3.5 model sizes.
+The test set contains 164 HumanEval+ and 300 LiveCodeBench problems.
+Each problem has equal weight; each method reports its actual coverage.
+We compared thinking ON, OFF, thinking limits, prompting, and trained LoRA add-ons.
+All six LoRA + OFF/limit combinations now cover the same 464 problems.
+The 2B LoRA + limit 1,024 combination passed 191/464 problems (41.2%).
+The 4B LoRA + limit 2,048 combination passed 332/464 (71.6%).
+For 0.8B, OFF without training remains the highest observed full-set score (14.7%).
+The 2B and 4B combinations do not establish a reliable accuracy gain over free limits.
+The earlier LoRA-2 and loop findings retain their actual 234-problem scope.
+This does not establish that all training methods fail or that one setting is universally best.
 
-This thesis asks one question: **on a small model with a thinking switch, is it better to *train* the model
-to think shorter, or to use a free option?** The free options are: switch thinking off, stop thinking at a
-fixed length, or ask the model in words to "think briefly".
+# The thesis in one page
 
-We used the model **Qwen3.5-2B** and **234 code problems** from two well-known test sets (HumanEval+ and
-LiveCodeBench). We trained a small add-on (a **LoRA**) on the model's own shortest correct answers. Then we
-compared six ways of answering on the same problems, two tries each. Every answer was checked by running the
-test sets' own tests.
+We studied **464 unique code problems** using three small Qwen3.5 models.
+The question: does training the model to think shorter beat free thinking controls?
+A *LoRA* is a small trained add-on. A *token* is a small piece of text.
 
-**Main results.**
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-- **The free thinking limit was the most accurate way.** Stopping thinking at 1,024 tokens solved **49.8%**
-  of answers, against **42.1%** for normal thinking. That is +7.7 percentage points, and the 95% error bar
-  [+4.3, +11.3] is fully above zero.
-- **Training did not shorten thinking.** The trained model thought exactly as long as the normal model
-  (x1.00). Its accuracy was 45.1%, a gain of +3.0 points that we cannot prove.
-- **Thinking off was the cheapest.** It used 4× fewer tokens (860 against 3,446 per answer) at about the
-  same accuracy as normal thinking.
-- **Why:** the long answers were mostly **loops**. The model repeated the same lines until it ran out of room.
-  Answers that finished were already short. Training on short correct answers cannot teach a model to get out
-  of a loop. A thinking limit simply stops it.
+These are the best observed free controls with **464/464 coverage**.
+“Free” means no additional training; generating answers still uses compute.
 
-**Conclusion.** For a small reasoning model on code, the waste is not long, careful thinking but **getting
-stuck**. A free thinking limit handles this better than training on the 2B model. We also ran the same 234
-problems on **Qwen3.5-0.8B** and **Qwen3.5-4B**: the best free way was **OFF** (20.5%) on 0.8B, **limit 1,024**
-on 2B, and **limit 2,048** (78.2%) on 4B. LoRA-1 never beat that free winner. Still-larger models remain
-open future work.
+![Best full-coverage controls](../easy-thesis/figures/best-free.svg)
 
-**Keywords:** reasoning models, overthinking, thinking budget, LoRA, code generation, efficient inference.
+## What training added
 
----
+| Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
+| 4B | Limit 2,048 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
 
-## The thesis in one page (for everyone)
 
-### The problem, with an everyday example
+In the earlier all-attempt analysis, all three free controls score higher than LoRA-1 alone on shared problems.
+The 0.8B interval crosses zero, so its small lead is uncertain.
+The 2B and 4B gaps have positive intervals. Both compare the same 464 problems.
+These are retrospective, unadjusted comparisons, not proof of a universal winner.
 
-Imagine a student who writes five pages for every exam question, even "what is 2 + 2?". That is slow, and
-it doesn't make the answers better. New AI models do something similar. Before they answer, they "think" by
-writing notes to themselves. On easy code problems, these notes are often much longer than needed.
+## How to read the result
 
-### What we tried
+Each problem gets equal weight, whether it has one attempt or two.
+For each problem, average its pass/fail results. Then average across problems.
+2B and 4B LoRA-1 now cover 464/464 problems after the missing40 fill-in. Do not treat missing results as wrong answers.
+Earlier LoRA-2 and loop checks cover only 234 problems.
 
-```text
-                           ┌─ 1. Thinking OFF        (switch it off)
-                           ├─ 2. Thinking ON         (normal: what we compare against)
-Same model, same 234  ─────┼─ 3. "Think briefly"     (ask in words)
-code problems              ├─ 4. Thinking limit      (stop thinking at 1,024 tokens)
-                           ├─ 5. LoRA-1              (trained on short correct answers, small)
-                           └─ 6. LoRA-2              (trained on short correct answers, bigger)
-```
+The combined view was chosen after the runs. It was not a single preselected exam.
+Collection details stay in the methods note; the main story uses all 464 problems.
 
-Ways 1–4 are **free**: no training is needed. Ways 5–6 need training. We wanted to know: is training worth it?
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-### What we found
+## Completed LoRA combinations — all three sizes
 
-```text
-Accuracy on 234 code problems (higher is better)
+LoRA alone means **thinking ON, with no thinking-token limit**.
+LoRA + OFF and LoRA + limit use the same saved trained add-on.
+No new training was done for these six combinations.
 
-Thinking limit   ██████████████████████████  49.8%   ← best, and proven
-LoRA-1           ███████████████████████     45.5%
-LoRA-2 (main)    ███████████████████████     45.1%   (not shorter)
-Thinking ON      ██████████████████████      42.1%   (what we compare against)
-Thinking OFF     █████████████████████       40.8%   (4× cheaper)
-"Think briefly"  ███                          6.6%   (confused the model)
-```
+| Model | Combination | Passed | Coverage | Accuracy | 95% interval | Mean total tokens |
+|---|---|---|---|---|---|---|
+| 0.8B | LoRA-1 + OFF | 65 | 464/464 | 14.0% | [11.0%, 17.0%] | 1,278 |
+| 0.8B | LoRA-1 + limit 512 | 67 | 464/464 | 14.4% | [11.2%, 17.5%] | 4,979 |
+| 2B | LoRA-1 + OFF | 165 | 464/464 | 35.6% | [31.2%, 39.7%] | 1,445 |
+| 2B | LoRA-1 + limit 1,024 | 191 | 464/464 | 41.2% | [36.6%, 45.7%] | 4,072 |
+| 4B | LoRA-1 + OFF | 300 | 464/464 | 64.7% | [59.9%, 69.0%] | 882 |
+| 4B | LoRA-1 + limit 2,048 | 332 | 464/464 | 71.6% | [67.5%, 75.6%] | 3,511 |
 
-### Why it happened
+### What the completed tests show
 
-We read the answers that were too long. Most of them were **loops**: the model wrote the same few lines again
-and again until it ran out of space. So the model was not "thinking too carefully". It was **stuck**.
+- **0.8B:** LoRA + OFF passes 65/464 (14.0%); LoRA + limit 512 passes 67/464 (14.4%).
+  OFF without LoRA passes 68/464 (14.7%). There is no clear gain over OFF.
+  LoRA + limit improves on the matching free limit by 3.9 points, interval +0.6 to +7.1.
+- **2B:** LoRA + OFF passes 165/464 (35.6%); LoRA + limit 1,024 passes 191/464 (41.2%).
+  The limit combination beats LoRA + OFF by 5.6 points, interval +1.1 to +9.9.
+  Its 2.6-point gain over limit alone remains uncertain, interval −1.5 to +6.7.
+- **4B:** LoRA + OFF passes 300/464 (64.7%); LoRA + limit 2,048 passes 332/464 (71.6%).
+  Limit alone passes 330/464 (71.1%). The two-pass gain is inconclusive,
+  interval −3.0 to +3.7 points. The combination uses about 11.4% fewer output tokens.
 
-- Our training showed the model short, correct answers. That teaches it nothing about how to get unstuck.
-- A thinking limit simply stops the loop and makes the model answer. That works.
-
-### What it means
-
-For small AI models that write code, **try free options first** (thinking OFF and a thinking limit).  
-On Qwen3.5-2B, a **limit of 1,024** was best. On 0.8B, **OFF** was best. On 4B, a **limit of 2,048** was best.
-Training with LoRA-1 did not beat those free winners on any of the three sizes.
-
-### Every problem, in one count
-
-The picture above is the first exam only.
-Two later exams stay in their own tables.
-The training piles are homework, not exam questions.
-
-```text
-TEST
-  234  first exam
-+  40  extra contest problems
-+ 190  more contest problems
-─────
-  464  problems we can name (a count, not one score)
-
-TRAIN
-  100  easy functions          → LoRA-1
-  280  (200 easy + 80 contest) → LoRA-2
-       157 of those 280 were kept as short correct answers
-```
-
-![How many problems](../easy-thesis/figures/counts.svg)
-
-| Pile | How many | What it is |
-|---|---|---|
-| First exam | **234** | Easy functions plus contest problems |
-| Extra contest | **40** | Later check |
-| More contest | **190** | 118 easy, 72 medium |
-| **Tests in total** | **464** | 234 + 40 + 190. A count, not a blended score |
-| LoRA-1 pool | **100** | Easy functions for the small add-on |
-| LoRA-2 pool | **280** | 200 easy functions + 80 older contest problems |
-| LoRA-2 kept | **157** | Short correct answers actually used. 133 + 24 |
-
-![Best free score on each list](../easy-thesis/figures/best-free.svg)
-
-| List | 0.8B | 2B | 4B |
-|---|---|---|---|
-| Exam 234 | OFF **20.5%** | Limit 1,024 **49.8%** | Limit 2,048 **78.2%** |
-| Extra 40 | OFF **5.0%** (2/40) | OFF **12.5%** (10/80) | OFF **46.2%**, tied with limit 2,048 |
-| More 190 | OFF **9.5%** (18/190) | Limit 1,024 **31.1%** (59/190) | Limit 2,048 **69.5%** (132/190) |
-
-A free way wins on every list.
-On the first exam the trained add-on is LoRA-1 at 17.9% / 45.5% / 69.9%.
-LoRA-2 on 2B is 45.1%. Neither beats the free winner.
-
-![The 190 contest problems, by way](../easy-thesis/figures/more-190-ways.svg)
-
-| Way | 0.8B | 2B | 4B |
-|---|---|---|---|
-| Thinking OFF | 9.5% (18/190) | 24.7% (47/190) | 66.8% (127/190) |
-| Thinking ON | 1.1% (2/190) | 13.7% (26/190) | 38.9% (74/190) |
-| Best limit | 4.2% at 512 | **31.1%** at 1,024 | **69.5%** at 2,048 |
-| LoRA-1 | 7.9% (15/190) | **27.4%** (52/190) | 46.3% (88/190) |
-
-2B LoRA-1 is 27.4%. It loses to the 1,024 limit (59 vs 52) and beats thinking OFF (47).
-
-49.8% and 78.2% stay on the 234.
-Do not average the three lists into one score.
-The chart page is [easy-thesis/10-all-counts.md](../easy-thesis/10-all-counts.md).
-
----
-
-## Key facts at a glance
-
-| | |
-|---|---|
-| Research question | Is training a small model to think shorter better than the free options? |
-| Answer (2B) | **No.** A free thinking limit (1,024) was better. |
-| Size check | Same 234 problems on **0.8B / 2B / 4B**: best free = OFF / limit1024 / limit2048; LoRA-1 never won |
-| Model (main) | Qwen3.5-2B (2 billion parameters, has a thinking on/off switch) |
-| Test problems | **464** in three lists: first exam **234**, extra **40**, more **190**. 49.8% and 78.2% stay on the 234. |
-| Training problems | LoRA-1 pool **100** easy functions. LoRA-2 pool **280** (200 + 80). LoRA-2 kept **157**. |
-| Answers checked | 2,808 test answers on 2B (6 ways × 234 × 2 tries), plus size-extension runs on 0.8B and 4B |
-| How answers were checked | By running each test set's own tests on the code (no checking by eye) |
-| Best way (2B) | Thinking limit at 1,024 tokens: **49.8%**, +7.7 points over normal thinking [+4.3, +11.3] |
-| Cheapest way (2B) | Thinking off: 860 tokens per answer (normal thinking: 3,446) |
-| Main reason | Long answers were mostly **loops** (69.5% of normal thinking's unfinished answers) |
-| Computer used | Google Colab A100 GPU (main run ~38 units; size extension used further paid hours) |
+These are same-problem, first-attempt comparisons with historical references.
+Intervals are unadjusted for multiple comparisons. They are not proof of universal wins.
+Shorter output does not directly establish lower GPU time, energy, or money.

@@ -1,326 +1,478 @@
-# 5. Results
+# The combined results
 
-This chapter gives the numbers, without opinions. Chapter 6 explains them. Chapter 4 explains how each number was
-computed. The full tables, every problem, and all charts are in
-[results/full-results/FULL-RESULTS.md](../results/full-results/FULL-RESULTS.md).
+<!-- CURRENT-STUDY:START -->
 
-**What was run:** 6 ways × 234 problems × 2 tries = **2,808 test answers**, all checked with the benchmarks' own tests,
-on one Colab A100 GPU (2026-09-21 to 2026-09-24).
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
 
-## 5.1 The headline: the free thinking limit was the most accurate way
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
 
-> **Stopping the model's thinking at 1,024 tokens gave the highest accuracy of all six ways: 49.8%, against 42.1% for
-> normal thinking. This is +7.7 points, and the error bar [+4.3, +11.3] is fully above zero.**
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
 
-The evidence, all on the same 234 problems:
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](../easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](THESIS.md).
 
-| # | Evidence | Number | Proven? |
-|---|---|---|---|
-| 1 | More accurate than normal thinking | **+7.7 points** [+4.3, +11.3] | ✅ yes |
-| 2 | More accurate than our trained model (LoRA-2) | **+4.7 points** [+0.2, +9.0] | ✅ yes |
-| 3 | More accurate than thinking OFF | **+9.0 points** [+3.8, +14.3] | ✅ yes |
-| 4 | Rarely makes a problem worse | better than ON on **38** problems, worse on only **12** | — |
-| 5 | Far fewer unfinished answers | **25.9%** cut off, against 40.6% for normal thinking | — |
-| 6 | Cheaper than normal thinking | **2,722** tokens per answer, against 3,446 (**21% fewer**) | — |
-| 7 | Works on easy problems of both test sets | HumanEval+ **+5.2** [+1.2, +9.1]; LiveCodeBench easy **+32.3** [+17.7, +46.8] | ✅ yes, both |
+<!-- CURRENT-STUDY:END -->
 
-**Where it does not help:** on LiveCodeBench **medium** problems it solved nothing (0 of 78 answers). Stage D (Section 5.7)
-also shows that part of its advantage on HumanEval+ comes from our 4,096-token limit.
+**464 unique problems** form the main results view.
+Accuracy gives each problem equal weight, using all its available attempts.
 
-## 5.2 Accuracy of every way
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
 
-**Table 5.1.** Accuracy (answers passed ÷ answers). "vs ON" is the difference from thinking ON in points, with the 95% error bar.
+These are the best observed free controls among methods covering the full set.
+The completed trained combinations are also included below.
+A higher score on an incomplete subset does not establish a better method.
 
-| Way | All 234 | vs ON | HumanEval+ (164) | LCB easy (31) | LCB medium (39) |
+## Methods with complete coverage
+
+![Combined accuracy](../easy-thesis/figures/combined-accuracy.svg)
+
+| Model | Way | Accuracy | 95% interval | Coverage | Attempts |
 |---|---|---|---|---|---|
-| **Thinking limit** | **49.8%** (233/468) | **+7.7 [+4.3, +11.3]** | **60.4%** | **56.5%** | 0.0% |
-| LoRA-1 | 45.5% (213/468) | +3.4 [−0.4, +7.7] | 56.4% | 41.9% | 2.6% |
-| LoRA-2 (main) | 45.1% (211/468) | +3.0 [−1.1, +7.3] | 56.4% | 38.7% | 2.6% |
-| Thinking ON | 42.1% (197/468) | — | 55.2% | 24.2% | 1.3% |
-| Thinking OFF | 40.8% (191/468) | −1.3 [−6.6, +4.3] | 47.3% | 46.8% | **9.0%** |
-| Think briefly | 6.6% (31/468) | −35.5 [−41.2, −29.3] | 3.7% | 30.6% | 0.0% |
+| 0.8B | Limit 512 | 10.6% | [7.8%, 13.6%] | 464/464 | 464 |
+| 0.8B | LoRA-1 | 12.3% | [9.3%, 15.3%] | 464/464 | 464 |
+| 0.8B | LoRA-1 + limit 512 | 14.4% | [11.2%, 17.5%] | 464/464 | 464 |
+| 0.8B | LoRA-1 + OFF | 14.0% | [11.0%, 17.0%] | 464/464 | 464 |
+| 0.8B | Thinking OFF | 14.7% | [11.6%, 17.9%] | 464/464 | 464 |
+| 0.8B | Thinking ON | 4.1% | [2.4%, 6.0%] | 464/464 | 464 |
+| 2B | Limit 1,024 | 38.6% | [34.4%, 42.8%] | 464/464 | 738 |
+| 2B | LoRA-1 | 34.4% | [30.3%, 38.4%] | 464/464 | 698 |
+| 2B | LoRA-1 + limit 1,024 | 41.2% | [36.6%, 45.7%] | 464/464 | 464 |
+| 2B | LoRA-1 + OFF | 35.6% | [31.2%, 39.7%] | 464/464 | 464 |
+| 2B | Thinking OFF | 31.8% | [27.7%, 36.0%] | 464/464 | 738 |
+| 2B | Thinking ON | 26.8% | [23.2%, 30.6%] | 464/464 | 738 |
+| 4B | Limit 2,048 | 71.9% | [67.9%, 75.6%] | 464/464 | 738 |
+| 4B | LoRA-1 | 56.8% | [52.5%, 61.0%] | 464/464 | 698 |
+| 4B | LoRA-1 + limit 2,048 | 71.6% | [67.5%, 75.6%] | 464/464 | 464 |
+| 4B | LoRA-1 + OFF | 64.7% | [59.9%, 69.0%] | 464/464 | 464 |
+| 4B | Thinking OFF | 66.5% | [62.3%, 70.5%] | 464/464 | 738 |
+| 4B | Thinking ON | 50.0% | [45.9%, 54.3%] | 464/464 | 738 |
 
-![Figure 5.1: Accuracy by problem group](../results/full-results/figures/fig1-accuracy-by-group.svg)
 
-**Figure 5.1.** Accuracy of each way, by problem group.
+## Training versus free controls on shared problems
 
-**Differences by group (vs thinking ON):**
+![Matched LoRA comparison](../easy-thesis/figures/combined-lora.svg)
 
-| Way | HumanEval+ | LCB easy | LCB medium |
-|---|---|---|---|
-| Thinking limit | **+5.2** [+1.2, +9.1] | **+32.3** [+17.7, +46.8] | −1.3 [−3.8, 0.0] |
-| LoRA-1 | +1.2 [−3.7, +6.4] | **+17.7** [+3.2, +32.3] | +1.3 [−2.6, +5.1] |
-| LoRA-2 | +1.2 [−4.3, +6.7] | **+14.5** [+3.2, +29.0] | +1.3 [−2.6, +5.1] |
-| Thinking OFF | **−7.9** [−14.6, −1.2] | **+22.6** [+8.1, +37.1] | **+7.7** [+1.3, +15.4] |
-| Think briefly | **−51.5** [−57.9, −44.8] | +6.5 [−6.5, +19.4] | −1.3 [−3.8, 0.0] |
+| Model | Free control | Shared problems | Free accuracy | LoRA-1 accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
+| 4B | Limit 2,048 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
 
-Bold = proven (the error bar doesn't include 0).
 
-- On **HumanEval+**, thinking helps: turning it off costs 7.9 points.
-- On **LiveCodeBench easy**, normal thinking is weak (24.2%). Every way except "brief" is clearly better.
-- On **LiveCodeBench medium**, every way is near zero. Only thinking OFF solves a few (9.0%).
+The 0.8B free control's lead is uncertain: its interval includes zero.
+The 2B interval is narrowly positive, and the 4B interval is positive.
+These intervals are descriptive and unadjusted for selecting comparisons after results.
+Do not describe these as universal or definitive wins.
 
-**Extra comparisons** (computed with the same method after the run; not part of the planned hypotheses):
+## All available methods, with coverage
 
-| Comparison | All | HumanEval+ | LCB easy | LCB medium |
+Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.
+
+| Model | Way | Accuracy | Coverage | Attempts |
 |---|---|---|---|---|
-| Limit − OFF | **+9.0 [+3.8, +14.3]** | **+13.1 [+6.4, +19.2]** | +9.7 [−4.8, +24.2] | **−9.0 [−16.7, −2.6]** |
-| Limit − LoRA-2 | **+4.7 [+0.2, +9.0]** | +4.0 [−1.5, +9.5] | **+17.7 [+1.6, +33.9]** | −2.6 [−6.4, 0.0] |
-| LoRA-2 − LoRA-1 | −0.4 [−4.5, +3.8] | 0.0 [−5.5, +5.2] | −3.2 [−16.1, +9.7] | 0.0 [−3.8, +3.8] |
+| 0.8B | Limit 1,024 | 11.3% | 274/464 | 274 |
+| 0.8B | Limit 512 | 10.6% | 464/464 | 464 |
+| 0.8B | LoRA-1 | 12.3% | 464/464 | 464 |
+| 0.8B | LoRA-1 + limit 512 | 14.4% | 464/464 | 464 |
+| 0.8B | LoRA-1 + OFF | 14.0% | 464/464 | 464 |
+| 0.8B | Thinking OFF | 14.7% | 464/464 | 464 |
+| 0.8B | Thinking ON | 4.1% | 464/464 | 464 |
+| 2B | Think briefly | 6.4% | 274/464 | 548 |
+| 2B | Limit 1,024 | 38.6% | 464/464 | 738 |
+| 2B | Limit 2,048 | 40.9% | 274/464 | 274 |
+| 2B | Limit 512 | 39.4% | 274/464 | 548 |
+| 2B | LoRA-1 | 34.4% | 464/464 | 698 |
+| 2B | LoRA-1 + limit 1,024 | 41.2% | 464/464 | 464 |
+| 2B | LoRA-1 + OFF | 35.6% | 464/464 | 464 |
+| 2B | LoRA-2 | 45.1% | 234/464 | 468 |
+| 2B | Thinking OFF | 31.8% | 464/464 | 738 |
+| 2B | Thinking ON | 26.8% | 464/464 | 738 |
+| 4B | Limit 1,024 | 76.5% | 234/464 | 468 |
+| 4B | Limit 2,048 | 71.9% | 464/464 | 738 |
+| 4B | Limit 4,096 | 76.7% | 234/464 | 468 |
+| 4B | Limit 512 | 75.4% | 234/464 | 468 |
+| 4B | LoRA-1 | 56.8% | 464/464 | 698 |
+| 4B | LoRA-1 + limit 2,048 | 71.6% | 464/464 | 464 |
+| 4B | LoRA-1 + OFF | 64.7% | 464/464 | 464 |
+| 4B | Thinking OFF | 66.5% | 464/464 | 738 |
+| 4B | Thinking ON | 50.0% | 464/464 | 738 |
 
-LoRA-2 and LoRA-1 were the same: the extra training data did not help.
 
-## 5.3 Cost: how many tokens each way used
+For example, 2B Limit 2,048 covers only 274 problems.
+Its score cannot be ranked directly against Limit 1,024 on 464 problems.
+LoRA-2 covers only its original 234 problems; it is not a full-study result.
 
-**Table 5.2.** Tokens per answer, all 234 problems.
+## Paired comparisons
 
-| Way | All tokens (average) | Thinking (average) | Answer part (average) | Thinking of finished answers (median) | Thinking vs ON |
+Positive gaps favor the first method. Every row uses identical shared problem IDs.
+
+| Model | Way vs reference | Shared problems | Way accuracy | Reference accuracy | Gap (points) | 95% gap interval |
+|---|---|---|---|---|---|---|
+| 0.8B | Thinking OFF vs Thinking ON | 464 | 14.7% | 4.1% | +10.6 | [+7.5, +13.8] |
+| 0.8B | Thinking OFF vs LoRA-1 | 464 | 14.7% | 12.3% | +2.4 | [-0.4, +5.2] |
+| 2B | Limit 1,024 vs Thinking ON | 464 | 38.6% | 26.8% | +11.7 | [+8.5, +15.1] |
+| 2B | Limit 1,024 vs LoRA-1 | 464 | 38.6% | 34.4% | +4.2 | [+0.8, +7.8] |
+| 2B | Limit 1,024 vs Thinking OFF | 464 | 38.6% | 31.8% | +6.8 | [+3.2, +10.5] |
+| 4B | Limit 2,048 vs Thinking ON | 464 | 71.9% | 50.0% | +21.9 | [+18.3, +25.5] |
+| 4B | Limit 2,048 vs LoRA-1 | 464 | 71.9% | 56.8% | +15.1 | [+11.3, +19.0] |
+| 4B | Limit 2,048 vs Thinking OFF | 464 | 71.9% | 66.5% | +5.4 | [+1.6, +9.1] |
+| 0.8B | LoRA-1 + limit 512 vs Limit 512 | 464 | 14.4% | 10.6% | +3.9 | [+0.6, +7.1] |
+| 0.8B | LoRA-1 + limit 512 vs LoRA-1 | 464 | 14.4% | 12.3% | +2.2 | [-0.4, +5.0] |
+| 0.8B | LoRA-1 + limit 512 vs Thinking OFF | 464 | 14.4% | 14.7% | -0.2 | [-3.0, +3.0] |
+| 0.8B | LoRA-1 + OFF vs Thinking OFF | 464 | 14.0% | 14.7% | -0.6 | [-3.2, +2.2] |
+| 0.8B | LoRA-1 + OFF vs LoRA-1 | 464 | 14.0% | 12.3% | +1.7 | [-0.9, +4.5] |
+| 2B | LoRA-1 + limit 1,024 vs Limit 1,024 | 464 | 41.2% | 38.6% | +2.6 | [-1.4, +6.5] |
+| 2B | LoRA-1 + limit 1,024 vs LoRA-1 | 464 | 41.2% | 34.4% | +6.8 | [+2.9, +10.7] |
+| 2B | LoRA-1 + limit 1,024 vs Thinking OFF | 464 | 41.2% | 31.8% | +9.4 | [+5.4, +13.5] |
+| 2B | LoRA-1 + OFF vs Thinking OFF | 464 | 35.6% | 31.8% | +3.8 | [+0.2, +7.3] |
+| 2B | LoRA-1 + OFF vs LoRA-1 | 464 | 35.6% | 34.4% | +1.2 | [-2.6, +5.1] |
+| 4B | LoRA-1 + limit 2,048 vs Limit 2,048 | 464 | 71.6% | 71.9% | -0.3 | [-3.7, +2.8] |
+| 4B | LoRA-1 + limit 2,048 vs LoRA-1 | 464 | 71.6% | 56.8% | +14.8 | [+10.8, +19.0] |
+| 4B | LoRA-1 + limit 2,048 vs Thinking OFF | 464 | 71.6% | 66.5% | +5.1 | [+0.9, +9.2] |
+| 4B | LoRA-1 + OFF vs Thinking OFF | 464 | 64.7% | 66.5% | -1.8 | [-5.4, +1.6] |
+| 4B | LoRA-1 + OFF vs LoRA-1 | 464 | 64.7% | 56.8% | +7.9 | [+3.6, +12.2] |
+
+
+## Tokens and output caps
+
+A token is a small piece of text. These are averages of per-problem means.
+All tokens include both thinking and the final answer.
+“Hit output cap” comes from the saved flag; it is not a loop detector or the pass/fail rule.
+Token counts describe output length, not measured GPU time.
+
+![Combined token use](../easy-thesis/figures/combined-tokens.svg)
+
+| Model | Way | Coverage | Thinking tokens | All tokens | Hit output cap |
 |---|---|---|---|---|---|
-| Thinking OFF | **860** | 0 | 860 | 0 | x0.00 |
-| **Thinking limit** | **2,722** | 843 | 1,879 | 880 | x0.26 [0.23, 0.29] |
-| LoRA-1 | 3,158 | 2,838 | 320 | 740 | x0.87 [0.81, 0.93] |
-| LoRA-2 (main) | 3,392 | 3,252 | 140 | 719 | **x1.00 [0.94, 1.06]** |
-| Thinking ON | 3,446 | 3,262 | 185 | 751 | — |
-| Think briefly | 5,080 | 5,064 | 16 | 3,547 | x1.55 [1.43, 1.70] |
+| 0.8B | Limit 1,024 | 274/464 | 975 | 4,794 | 72.3% |
+| 0.8B | Limit 512 | 464/464 | 510 | 5,920 | 80.2% |
+| 0.8B | LoRA-1 | 464/464 | 5,150 | 5,256 | 68.1% |
+| 0.8B | LoRA-1 + limit 512 | 464/464 | 503 | 4,979 | 61.6% |
+| 0.8B | LoRA-1 + OFF | 464/464 | 0 | 1,278 | 13.6% |
+| 0.8B | Thinking OFF | 464/464 | 0 | 1,781 | 19.0% |
+| 0.8B | Thinking ON | 464/464 | 6,147 | 6,206 | 86.4% |
+| 2B | Think briefly | 274/464 | 5,484 | 5,507 | 92.3% |
+| 2B | Limit 1,024 | 464/464 | 923 | 4,337 | 45.3% |
+| 2B | Limit 2,048 | 274/464 | 1,453 | 1,978 | 37.6% |
+| 2B | Limit 512 | 274/464 | 495 | 3,388 | 37.2% |
+| 2B | LoRA-1 | 464/464 | 4,414 | 4,735 | 52.6% |
+| 2B | LoRA-1 + limit 1,024 | 464/464 | 892 | 4,072 | 40.5% |
+| 2B | LoRA-1 + OFF | 464/464 | 0 | 1,445 | 14.4% |
+| 2B | LoRA-2 | 234/464 | 3,252 | 3,392 | 41.0% |
+| 2B | Thinking OFF | 464/464 | 0 | 1,337 | 12.4% |
+| 2B | Thinking ON | 464/464 | 5,169 | 5,331 | 60.6% |
+| 4B | Limit 1,024 | 234/464 | 763 | 2,185 | 16.7% |
+| 4B | Limit 2,048 | 464/464 | 1,603 | 3,921 | 29.2% |
+| 4B | Limit 4,096 | 234/464 | 1,915 | 2,821 | 16.7% |
+| 4B | Limit 512 | 234/464 | 481 | 2,168 | 17.1% |
+| 4B | LoRA-1 | 464/464 | 4,661 | 4,797 | 38.5% |
+| 4B | LoRA-1 + limit 2,048 | 464/464 | 1,512 | 3,511 | 23.1% |
+| 4B | LoRA-1 + OFF | 464/464 | 0 | 882 | 5.6% |
+| 4B | Thinking OFF | 464/464 | 0 | 943 | 5.3% |
+| 4B | Thinking ON | 464/464 | 5,064 | 5,188 | 45.7% |
 
-![Figure 5.2: Accuracy against cost](../results/full-results/figures/fig2-accuracy-vs-tokens.svg)
 
-**Figure 5.2.** Accuracy against tokens per answer. The best place is top-left: accurate and cheap.
+## Selected free controls by problem group
 
-1. **LoRA-2 did not shorten thinking at all** (x1.00). LoRA-1 shortened it a little (x0.87), mostly on LiveCodeBench easy (x0.67).
-2. **The limit keeps writing after the cut.** Its thinking is 74% shorter than ON's, but its answer part is ten times longer
-   (1,879 against 185 tokens). Counted honestly, over all tokens, it saves **21%**.
-3. **Thinking OFF is by far the cheapest:** 4× fewer tokens than ON.
-4. **"Think briefly" made thinking longer**, not shorter (x1.55).
-
-## 5.4 The hypotheses
-
-The hypotheses were fixed before the run, for the main trained model, LoRA-2.
-
-**Table 5.3.** The hypotheses.
-
-| | Hypothesis | Needed | Result | Verdict |
+| Model | Way | Problem group | Coverage | Accuracy |
 |---|---|---|---|---|
-| H1 | Thinking at least 25% shorter than ON | ≤ x0.75 | x1.00 [0.94, 1.06] | ❌ **Rejected** |
-| H2 | Accuracy at most 3 points below ON | ≥ −3 | +3.0 [−1.1, +7.3] | ✅ Supported |
-| H3a | More accurate than thinking OFF | > 0 | +4.3 [−0.6, +9.2] | ⚠️ Not shown (bar includes 0) |
-| H3b | More accurate than the thinking limit | > 0 | −4.7 [−9.0, −0.2] | ❌ **Rejected**: the limit is better |
-| H3c | More accurate than "think briefly" | > 0 | +38.5 [+32.9, +44.2] | ✅ Supported (but see 5.8) |
+| 0.8B | Thinking OFF | HumanEval+ easy | 164 | 25.6% |
+| 0.8B | Thinking OFF | LiveCodeBench easy | 166 | 15.7% |
+| 0.8B | Thinking OFF | LiveCodeBench medium | 134 | 0.0% |
+| 2B | Limit 1,024 | HumanEval+ easy | 164 | 60.4% |
+| 2B | Limit 1,024 | LiveCodeBench easy | 166 | 43.4% |
+| 2B | Limit 1,024 | LiveCodeBench medium | 134 | 6.0% |
+| 4B | Limit 2,048 | HumanEval+ easy | 164 | 86.9% |
+| 4B | Limit 2,048 | LiveCodeBench easy | 166 | 85.2% |
+| 4B | Limit 2,048 | LiveCodeBench medium | 134 | 36.9% |
 
-**The overall hypothesis is rejected:** H1 and H3b fail.
 
-## 5.5 Unfinished answers and loops
+Different difficulty mixes change the overall score. Report these groups alongside the headline.
 
-Many thinking answers never finished. We checked each unfinished answer for a **loop** (Section 4.12).
+## Earlier focused checks
 
-**Table 5.4.** Cut-offs and loops (468 answers per way).
+LoRA-2's original 234-problem experiment reported a thinking-length ratio of x1.00
+and 45.1% accuracy. These were not rerun on all 464 problems.
+The earlier MBPP+ pilot used 100 separate test problems. It is excluded here.
+Its 65% LoRA accuracy versus 50% thinking ON is an earlier transfer check, not a combined score.
+Loop and longer-output checks retain their original coverage in [the explanation](../easy-thesis/06-why-it-works.md).
 
-| Way | Cut off | Of those, loops |
-|---|---|---|
-| Thinking OFF | 33 (7.1%) | 27 (81.8%) |
-| **Thinking limit** | **121 (25.9%)** | 93 (76.9%) |
-| LoRA-1 | 168 (35.9%) | 141 (83.9%) |
-| Thinking ON | 190 (40.6%) | **132 (69.5%)** |
-| LoRA-2 (main) | 192 (41.0%) | **170 (88.5%)** |
-| Think briefly | 432 (92.3%) | 174 (40.3%) |
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
 
-![Figure 5.3: What happened to every answer](../results/full-results/figures/fig3-cutoffs-and-loops.svg)
+## Completed LoRA combinations
 
-**Figure 5.3.** Finished, cut off in a loop, or cut off without a loop.
+![Completed combinations](../easy-thesis/figures/lora-combinations.svg)
 
-**Finished answers were short.** On HumanEval+, the median thinking of answers that finished was **672** tokens for ON,
-**711** for LoRA-1 and **695** for LoRA-2. Up to about 1,000 tokens, the three curves in Figure 5.4 almost lie on top of
-each other. They differ mainly in how many answers **never** finish.
+| Model | Combination | Passed | Coverage | Accuracy | 95% interval | Mean total tokens |
+|---|---|---|---|---|---|---|
+| 0.8B | LoRA-1 + OFF | 65 | 464/464 | 14.0% | [11.0%, 17.0%] | 1,278 |
+| 0.8B | LoRA-1 + limit 512 | 67 | 464/464 | 14.4% | [11.2%, 17.5%] | 4,979 |
+| 2B | LoRA-1 + OFF | 165 | 464/464 | 35.6% | [31.2%, 39.7%] | 1,445 |
+| 2B | LoRA-1 + limit 1,024 | 191 | 464/464 | 41.2% | [36.6%, 45.7%] | 4,072 |
+| 4B | LoRA-1 + OFF | 300 | 464/464 | 64.7% | [59.9%, 69.0%] | 882 |
+| 4B | LoRA-1 + limit 2,048 | 332 | 464/464 | 71.6% | [67.5%, 75.6%] | 3,511 |
 
-![Figure 5.4: How long the model thinks](../results/full-results/figures/fig4-thinking-length-humaneval.svg)
+## Same 464 problems, first attempts only
 
-**Figure 5.4.** Share of HumanEval+ answers that finished thinking within N tokens.
+![First-attempt controls and combinations](../easy-thesis/figures/first-attempt-controls.svg)
 
-**A real loop** (thinking ON, HumanEval/1, the end of an answer cut off at 4,096 tokens):
+Older methods can have two attempts per problem. For this comparison we use
+only their first saved attempts, matching the new runs' single attempt.
+This explains 2B LoRA alone: **34.9% first attempts versus 34.4% all attempts**.
+Likewise, 4B limit alone is **71.1% first attempts versus 71.9% all attempts**.
+These are two calculations from the same saved results, not contradictory scores.
 
-```text
-I'll track opening and closing parentheses, ensuring each group is properly balanced and separated. The
-algorithm needs to handle potential edge cases like empty strings and ensure correct grouping.
+| Model | Way | Passed / tested | First-attempt accuracy | Mean total tokens |
+|---|---|---|---|---|
+| 0.8B | LoRA-1 | 57/464 | 12.3% | 5,256 |
+| 0.8B | Thinking OFF | 68/464 | 14.7% | 1,781 |
+| 0.8B | Thinking ON | 19/464 | 4.1% | 6,206 |
+| 0.8B | Limit 512 | 49/464 | 10.6% | 5,920 |
+| 0.8B | LoRA-1 + OFF | 65/464 | 14.0% | 1,278 |
+| 0.8B | LoRA-1 + limit 512 | 67/464 | 14.4% | 4,979 |
+| 2B | LoRA-1 | 162/464 | 34.9% | 4,701 |
+| 2B | Thinking OFF | 151/464 | 32.5% | 1,366 |
+| 2B | Thinking ON | 121/464 | 26.1% | 5,369 |
+| 2B | Limit 1,024 | 179/464 | 38.6% | 4,348 |
+| 2B | LoRA-1 + OFF | 165/464 | 35.6% | 1,445 |
+| 2B | LoRA-1 + limit 1,024 | 191/464 | 41.2% | 4,072 |
+| 4B | LoRA-1 | 264/464 | 56.9% | 4,779 |
+| 4B | Thinking OFF | 308/464 | 66.4% | 941 |
+| 4B | Thinking ON | 231/464 | 49.8% | 5,186 |
+| 4B | Limit 2,048 | 330/464 | 71.1% | 3,965 |
+| 4B | LoRA-1 + OFF | 300/464 | 64.7% | 882 |
+| 4B | LoRA-1 + limit 2,048 | 332/464 | 71.6% | 3,511 |
 
-The implementation requires careful tracking of parentheses groups, checking for balance, and collecting
-valid groups into a list.
+| Model | First-attempt comparison | Shared problems | Gap (points) | 95% gap interval |
+|---|---|---|---|---|
+| 0.8B | LoRA-1 + OFF vs Thinking OFF | 464 | -0.6 | [-3.2, +2.2] |
+| 0.8B | LoRA-1 + OFF vs LoRA-1 | 464 | +1.7 | [-0.9, +4.5] |
+| 0.8B | LoRA-1 + limit 512 vs Limit 512 | 464 | +3.9 | [+0.6, +7.1] |
+| 0.8B | LoRA-1 + limit 512 vs LoRA-1 | 464 | +2.2 | [-0.4, +5.0] |
+| 0.8B | LoRA-1 + limit 512 vs Thinking OFF | 464 | -0.2 | [-3.0, +3.0] |
+| 2B | LoRA-1 + OFF vs Thinking OFF | 464 | +3.0 | [-0.6, +6.9] |
+| 2B | LoRA-1 + OFF vs LoRA-1 | 464 | +0.6 | [-3.4, +4.7] |
+| 2B | LoRA-1 + limit 1,024 vs Limit 1,024 | 464 | +2.6 | [-1.5, +6.7] |
+| 2B | LoRA-1 + limit 1,024 vs LoRA-1 | 464 | +6.2 | [+2.4, +10.1] |
+| 2B | LoRA-1 + limit 1,024 vs Thinking OFF | 464 | +8.6 | [+4.5, +12.9] |
+| 4B | LoRA-1 + OFF vs Thinking OFF | 464 | -1.7 | [-5.6, +1.9] |
+| 4B | LoRA-1 + OFF vs LoRA-1 | 464 | +7.8 | [+3.2, +12.1] |
+| 4B | LoRA-1 + limit 2,048 vs Limit 2,048 | 464 | +0.4 | [-3.0, +3.7] |
+| 4B | LoRA-1 + limit 2,048 vs LoRA-1 | 464 | +14.7 | [+10.3, +19.0] |
+| 4B | LoRA-1 + limit 2,048 vs Thinking OFF | 464 | +5.2 | [+0.6, +9.5] |
+| 0.8B | LoRA-1 + limit 512 vs LoRA-1 + OFF | 464 | +0.4 | [-2.4, +3.2] |
+| 2B | LoRA-1 + limit 1,024 vs LoRA-1 + OFF | 464 | +5.6 | [+1.1, +9.9] |
+| 4B | LoRA-1 + limit 2,048 vs LoRA-1 + OFF | 464 | +6.9 | [+2.8, +11.2] |
 
-By iterating through the string, I can identify balanced groups without nested structures, ...
-[the same three paragraphs repeat until the limit]
-```
+### What the completed tests show
 
-## 5.6 Problem by problem
+- **0.8B:** LoRA + OFF passes 65/464 (14.0%); LoRA + limit 512 passes 67/464 (14.4%).
+  OFF without LoRA passes 68/464 (14.7%). There is no clear gain over OFF.
+  LoRA + limit improves on the matching free limit by 3.9 points, interval +0.6 to +7.1.
+- **2B:** LoRA + OFF passes 165/464 (35.6%); LoRA + limit 1,024 passes 191/464 (41.2%).
+  The limit combination beats LoRA + OFF by 5.6 points, interval +1.1 to +9.9.
+  Its 2.6-point gain over limit alone remains uncertain, interval −1.5 to +6.7.
+- **4B:** LoRA + OFF passes 300/464 (64.7%); LoRA + limit 2,048 passes 332/464 (71.6%).
+  Limit alone passes 330/464 (71.1%). The two-pass gain is inconclusive,
+  interval −3.0 to +3.7 points. The combination uses about 11.4% fewer output tokens.
 
-**Table 5.5.** Problems (of 234) where each way solved more of its 2 tries than thinking ON ("better"), fewer ("worse"), or the same.
+These are same-problem, first-attempt comparisons with historical references.
+Intervals are unadjusted for multiple comparisons. They are not proof of universal wins.
+Shorter output does not directly establish lower GPU time, energy, or money.
 
-| Way | Better | Worse | Same |
-|---|---|---|---|
-| **Thinking limit** | **38** | **12** | 184 |
-| LoRA-2 (main) | 45 | 29 | 160 |
-| LoRA-1 | 44 | 31 | 159 |
-| Thinking OFF | 45 | 40 | 149 |
-| Think briefly | 8 | 114 | 112 |
+## Every benchmark and difficulty: all available methods
 
-![Figure 5.5: Better or worse than ON](../results/full-results/figures/fig5-better-worse-than-on.svg)
+Each row averages attempts within a problem, then gives every problem equal weight.
+Denominators are shown. Incomplete methods must not be ranked against full coverage.
 
-**Figure 5.5.** Problem by problem, against thinking ON.
+| Model | Way | Benchmark | Difficulty | Problems tested | Accuracy (all attempts, equal problem weight) |
+|---|---|---|---|---|---|
+| 0.8B | Limit 1,024 | HumanEval+ | easy | 164 | 17.1% |
+| 0.8B | Limit 1,024 | LiveCodeBench | all | 110 | 2.7% |
+| 0.8B | Limit 1,024 | LiveCodeBench | easy | 48 | 6.2% |
+| 0.8B | Limit 1,024 | LiveCodeBench | medium | 62 | 0.0% |
+| 0.8B | Limit 512 | HumanEval+ | easy | 164 | 22.6% |
+| 0.8B | Limit 512 | LiveCodeBench | all | 300 | 4.0% |
+| 0.8B | Limit 512 | LiveCodeBench | easy | 166 | 6.6% |
+| 0.8B | Limit 512 | LiveCodeBench | medium | 134 | 0.7% |
+| 0.8B | LoRA-1 | HumanEval+ | easy | 164 | 22.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | all | 300 | 7.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | easy | 166 | 12.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | medium | 134 | 0.7% |
+| 0.8B | LoRA-1 + limit 512 | HumanEval+ | easy | 164 | 26.8% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | all | 300 | 7.7% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | easy | 166 | 12.7% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | medium | 134 | 1.5% |
+| 0.8B | LoRA-1 + OFF | HumanEval+ | easy | 164 | 25.0% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | all | 300 | 8.0% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | easy | 166 | 13.9% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | medium | 134 | 0.7% |
+| 0.8B | Thinking OFF | HumanEval+ | easy | 164 | 25.6% |
+| 0.8B | Thinking OFF | LiveCodeBench | all | 300 | 8.7% |
+| 0.8B | Thinking OFF | LiveCodeBench | easy | 166 | 15.7% |
+| 0.8B | Thinking OFF | LiveCodeBench | medium | 134 | 0.0% |
+| 0.8B | Thinking ON | HumanEval+ | easy | 164 | 10.4% |
+| 0.8B | Thinking ON | LiveCodeBench | all | 300 | 0.7% |
+| 0.8B | Thinking ON | LiveCodeBench | easy | 166 | 0.6% |
+| 0.8B | Thinking ON | LiveCodeBench | medium | 134 | 0.7% |
+| 2B | Think briefly | HumanEval+ | easy | 164 | 3.7% |
+| 2B | Think briefly | LiveCodeBench | all | 110 | 10.5% |
+| 2B | Think briefly | LiveCodeBench | easy | 48 | 24.0% |
+| 2B | Think briefly | LiveCodeBench | medium | 62 | 0.0% |
+| 2B | Limit 1,024 | HumanEval+ | easy | 164 | 60.4% |
+| 2B | Limit 1,024 | LiveCodeBench | all | 300 | 26.7% |
+| 2B | Limit 1,024 | LiveCodeBench | easy | 166 | 43.4% |
+| 2B | Limit 1,024 | LiveCodeBench | medium | 134 | 6.0% |
+| 2B | Limit 2,048 | HumanEval+ | easy | 164 | 57.3% |
+| 2B | Limit 2,048 | LiveCodeBench | all | 110 | 16.4% |
+| 2B | Limit 2,048 | LiveCodeBench | easy | 48 | 37.5% |
+| 2B | Limit 2,048 | LiveCodeBench | medium | 62 | 0.0% |
+| 2B | Limit 512 | HumanEval+ | easy | 164 | 54.9% |
+| 2B | Limit 512 | LiveCodeBench | all | 110 | 16.4% |
+| 2B | Limit 512 | LiveCodeBench | easy | 48 | 33.3% |
+| 2B | Limit 512 | LiveCodeBench | medium | 62 | 3.2% |
+| 2B | LoRA-1 | HumanEval+ | easy | 164 | 56.4% |
+| 2B | LoRA-1 | LiveCodeBench | all | 300 | 22.3% |
+| 2B | LoRA-1 | LiveCodeBench | easy | 166 | 38.6% |
+| 2B | LoRA-1 | LiveCodeBench | medium | 134 | 2.2% |
+| 2B | LoRA-1 + limit 1,024 | HumanEval+ | easy | 164 | 60.4% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | all | 300 | 30.7% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | easy | 166 | 49.4% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | medium | 134 | 7.5% |
+| 2B | LoRA-1 + OFF | HumanEval+ | easy | 164 | 51.2% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | all | 300 | 27.0% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | easy | 166 | 45.2% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | medium | 134 | 4.5% |
+| 2B | LoRA-2 | HumanEval+ | easy | 164 | 56.4% |
+| 2B | LoRA-2 | LiveCodeBench | all | 70 | 18.6% |
+| 2B | LoRA-2 | LiveCodeBench | easy | 31 | 38.7% |
+| 2B | LoRA-2 | LiveCodeBench | medium | 39 | 2.6% |
+| 2B | Thinking OFF | HumanEval+ | easy | 164 | 47.3% |
+| 2B | Thinking OFF | LiveCodeBench | all | 300 | 23.3% |
+| 2B | Thinking OFF | LiveCodeBench | easy | 166 | 38.0% |
+| 2B | Thinking OFF | LiveCodeBench | medium | 134 | 5.2% |
+| 2B | Thinking ON | HumanEval+ | easy | 164 | 55.2% |
+| 2B | Thinking ON | LiveCodeBench | all | 300 | 11.3% |
+| 2B | Thinking ON | LiveCodeBench | easy | 166 | 18.4% |
+| 2B | Thinking ON | LiveCodeBench | medium | 134 | 2.6% |
+| 4B | Limit 1,024 | HumanEval+ | easy | 164 | 85.1% |
+| 4B | Limit 1,024 | LiveCodeBench | all | 70 | 56.4% |
+| 4B | Limit 1,024 | LiveCodeBench | easy | 31 | 82.3% |
+| 4B | Limit 1,024 | LiveCodeBench | medium | 39 | 35.9% |
+| 4B | Limit 2,048 | HumanEval+ | easy | 164 | 86.9% |
+| 4B | Limit 2,048 | LiveCodeBench | all | 300 | 63.7% |
+| 4B | Limit 2,048 | LiveCodeBench | easy | 166 | 85.2% |
+| 4B | Limit 2,048 | LiveCodeBench | medium | 134 | 36.9% |
+| 4B | Limit 4,096 | HumanEval+ | easy | 164 | 86.9% |
+| 4B | Limit 4,096 | LiveCodeBench | all | 70 | 52.9% |
+| 4B | Limit 4,096 | LiveCodeBench | easy | 31 | 79.0% |
+| 4B | Limit 4,096 | LiveCodeBench | medium | 39 | 32.1% |
+| 4B | Limit 512 | HumanEval+ | easy | 164 | 84.1% |
+| 4B | Limit 512 | LiveCodeBench | all | 70 | 55.0% |
+| 4B | Limit 512 | LiveCodeBench | easy | 31 | 83.9% |
+| 4B | Limit 512 | LiveCodeBench | medium | 39 | 32.1% |
+| 4B | LoRA-1 | HumanEval+ | easy | 164 | 85.1% |
+| 4B | LoRA-1 | LiveCodeBench | all | 300 | 41.3% |
+| 4B | LoRA-1 | LiveCodeBench | easy | 166 | 67.5% |
+| 4B | LoRA-1 | LiveCodeBench | medium | 134 | 9.0% |
+| 4B | LoRA-1 + limit 2,048 | HumanEval+ | easy | 164 | 84.1% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | all | 300 | 64.7% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | easy | 166 | 86.1% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | medium | 134 | 38.1% |
+| 4B | LoRA-1 + OFF | HumanEval+ | easy | 164 | 79.3% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | all | 300 | 56.7% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | easy | 166 | 74.7% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | medium | 134 | 34.3% |
+| 4B | Thinking OFF | HumanEval+ | easy | 164 | 78.7% |
+| 4B | Thinking OFF | LiveCodeBench | all | 300 | 59.8% |
+| 4B | Thinking OFF | LiveCodeBench | easy | 166 | 79.5% |
+| 4B | Thinking OFF | LiveCodeBench | medium | 134 | 35.4% |
+| 4B | Thinking ON | HumanEval+ | easy | 164 | 80.5% |
+| 4B | Thinking ON | LiveCodeBench | all | 300 | 33.3% |
+| 4B | Thinking ON | LiveCodeBench | easy | 166 | 56.6% |
+| 4B | Thinking ON | LiveCodeBench | medium | 134 | 4.5% |
 
-The limit had the best balance: it made only 12 problems worse. Across all ways, **168** of the 234 problems were solved at
-least once; **66** were solved by no way at all.
+## Every benchmark and difficulty: first attempts
 
-## 5.7 Was the token limit unfair to thinking ON? (stage D)
+Every method below has all 464 test IDs: 164 HumanEval+, 166 LiveCodeBench easy,
+and 134 LiveCodeBench medium. Counts show successes, not coverage alone.
 
-We gave every cut-off thinking-ON answer from try 1 four times more room (16,384 tokens).
-
-**Table 5.6.** Thinking ON with 16,384 tokens for its cut-off answers (try 1 only).
-
-| | HumanEval+ | LiveCodeBench |
-|---|---|---|
-| Cut-off answers re-run | 36 | 60 |
-| Now finished | 23 | 10 |
-| Now correct | 9 | 5 |
-| Still cut off, in a loop | 12 | 48 |
-| Thinking ON, normal limit | 53.7% | 10.0% |
-| **Thinking ON, with 16,384 tokens** | **59.1%** | **17.1%** |
-| Thinking limit (try 1) | 60.4% | 25.7% |
-| Thinking OFF (try 1) | 48.2% | 28.6% |
-
-![Figure 5.6: Stage D](../results/full-results/figures/fig6-stage-d-16k.svg)
-
-**Figure 5.6.** Thinking ON with four times more room, against the limit and OFF.
-
-- **HumanEval+:** with more room, thinking ON rose by 5.5 points (9 more of 164 problems), close to the limit's 60.4%.
-  So the 4,096 limit did cost thinking ON something here, and part of the limit's advantage on HumanEval+ comes from it.
-  But thinking ON needed up to 16,384 tokens to get there; the limit needs far fewer.
-- **LiveCodeBench:** more room helped little. 48 of the 50 answers still cut off were loops. Thinking ON stayed below both
-  the limit and OFF.
-
-## 5.8 Why "think briefly" failed
-
-Only 36 of 468 "think briefly" answers finished. Our question already said *"Answer with one Python code block only."* The
-extra sentence said *"Think briefly … then give the answer."* The model treated these as two rules that clash, and argued
-about them until it ran out of space (HumanEval/0):
-
-```text
-*   "Answer with one Python code block only" suggests I should not include conversational filler.
-*   "Think briefly... then give the answer." suggests I should include the thinking.
-...
-*   Wait, if I output thinking text, is it "one Python code block only"?
-```
-
-This result is about **this wording** combined with our answer rule. It does not show that asking to be brief never works.
-
-## 5.9 Why LoRA-2 had little to learn from
-
-**Table 5.7.** From training problems to training examples (4 thinking-ON tries per problem).
-
-| | MBPP+ | LiveCodeBench (older) |
-|---|---|---|
-| Problems | 200 | 80 (40 easy, 40 medium) |
-| Correct answers | 357 of 800 (44.6%) | 44 of 320 (13.8%); **medium: 1 of 160** |
-| Problems with ≥ 1 correct | 134 | 24 |
-| Problems with ≥ 2 correct (a real choice of "shortest") | 111 | 12 |
-| Kept as training examples | 133 | 24 |
-| Median thinking of kept examples | 515 | **4,709** |
-| Kept length ÷ average correct length (lower = more to learn) | 0.829 | **0.987** |
-
-![Figure 5.7: Training data funnel](../results/full-results/figures/fig7-training-data-funnel.svg)
-
-**Figure 5.7.** From problems to kept training examples.
-
-- The medium problems gave **almost nothing** to learn from: 1 correct answer in 160 tries.
-- The LiveCodeBench examples it did get were **long** (median 4,709 tokens), and barely shorter than an average correct
-  answer (0.987). On LiveCodeBench answers that finished, LoRA-2 then thought for a median of **3,974** tokens, against
-  **1,066** for LoRA-1.
-- LoRA-2 did learn its examples: its training loss fell from about 0.25 to 0.16
-  ([Figure 8 in FULL-RESULTS](../results/full-results/figures/fig8-lora2-training-loss.svg)).
-
-## 5.10 From the pilot study to the real test
-
-**Table 5.8.** LoRA-1 against thinking ON, on different test sets.
-
-| Test set | Thinking vs ON | Accuracy vs ON (points) |
-|---|---|---|
-| MBPP+ (pilot: the same kind of problems as its training) | **x0.59** [0.46, 0.75] | **+15.0** [+6.0, +25.0] |
-| HumanEval+ | x0.94 [0.84, 1.05] | +1.2 [−3.7, +6.4] |
-| LiveCodeBench easy | x0.67 [0.55, 0.79] | +17.7 [+3.2, +32.3] |
-| LiveCodeBench medium | x0.96 [0.87, 1.05] | +1.3 [−2.6, +5.1] |
-| All 234 (real test) | x0.87 [0.81, 0.93] | +3.4 [−0.4, +7.7] |
-
-![Figure 5.8: LoRA-1 transfer](../results/full-results/figures/fig9-lora1-transfer.svg)
-
-**Figure 5.8.** LoRA-1's thinking length compared with thinking ON.
-
-On problems like its training data, training worked well (41% less thinking, +15 points). On new kinds of problems, most of
-the effect disappeared.
-
-## 5.11 Computer time
-
-- Answering all 234 problems twice took about **38 A100 minutes** for each thinking way and **29 minutes** for thinking OFF.
-- The whole run, including making training data, training, and stage D, used about **38 Colab units**.
-- OFF writes 4× fewer tokens but was only about 1.3× faster here, because each batch waits for its slowest answer. That is why
-  we measure cost in tokens (Section 4.15).
-
-## 5.12 Summary of results
-
-| Finding | Number |
-|---|---|
-| Most accurate way | **Thinking limit, 49.8%** (+7.7 [+4.3, +11.3] vs ON) |
-| The limit beat the trained model | +4.7 [+0.2, +9.0] |
-| The limit beat thinking OFF | +9.0 [+3.8, +14.3] |
-| Trained model's thinking length | x1.00 of ON (not shorter) |
-| Cheapest way | Thinking OFF: 860 tokens per answer, 40.8% accuracy |
-| Long answers were mostly loops | 69.5% of ON's cut-offs, 88.5% of LoRA-2's |
-| More room for ON (16k) | HumanEval+ 53.7% → 59.1%; LiveCodeBench 10.0% → 17.1% |
-| Training helped only on similar problems | x0.59 on MBPP+, x0.94 on HumanEval+ |
-
-## 5.13 Size extension: 0.8B and 4B (same family)
-
-The main thesis uses **Qwen3.5-2B**. A teacher may ask: *why only one size?* and *why only limit 1,024?*  
-So we ran the **same 234 problems** on two more models in the same family (DECISIONS #72–#77), and later filled
-**2B × limit 512** in a small extra run (notebook 16, DECISIONS #81–#82):
-
-| Size | Tries | Limits tested | Training |
-|---|---|---|---|
-| **0.8B** (lean) | **1** | 512, 1,024 | LoRA-1 only |
-| **2B** (main + fill-ins) | 2 (main); limit2048 fill-in = **1** | **512**, 1,024, **2,048** | LoRA-1 and LoRA-2 (main run) |
-| **4B** | 2 | 512, 1,024, 2,048, 4,096 | LoRA-1 only |
-
-0.8B was lean on purpose: Colab hours were tight after 4B. We dropped Stage C (second try) and limits 2,048 / 4,096.  
-Captions must say **0.8B = 1 try**; **2B / 4B = 2 tries**.
-
-### Accuracy on all 234 problems
-
-| Way | 0.8B (1 try) | 2B (2 tries) | 4B (2 tries) |
-|---|---|---|---|
-| Thinking OFF | **20.5%** | 40.8% | 69.7% |
-| Thinking ON | 7.3% | 42.1% | 64.3% |
-| Limit 512 | 17.5% | **45.1%** | 75.4% |
-| Limit 1,024 | 13.2% | **49.8%** | 76.5% |
-| Limit 2,048 | — | **46.6%** (1 try)* | **78.2%** |
-| Limit 4,096 | — | — | 76.7% |
-| LoRA-1 | 17.9% | 45.5% | 69.9% |
-
-\* 2B limit 2,048 is a lean fill-in (**1 try**); other 2B main numbers use 2 tries.
-
-```text
-Best free way per size
-
-0.8B  →  OFF           20.5%
-2B    →  limit 1,024   49.8%   (512=45.1% · 2048=46.6% → peaks at 1024)
-4B    →  limit 2,048   78.2%
-```
-
-**Figure idea (for the paper):** three bars per size — OFF, best limit (or “n/a”), LoRA-1 — so the eye sees that LoRA never wins.
-
-### Cut-off under thinking ON (how often answers hit the wall)
-
-| Size | ON accuracy | ON cut-off share |
-|---|---|---|
-| 0.8B | 7.3% | **78%** |
-| 2B | 42.1% | 41% (main run) |
-| 4B | 64.3% | **28%** |
-
-Bigger models finish more often. The tiny 0.8B model almost always hits the wall when thinking is ON.
-
-Raw folders: `results/0.8b/`, `results/4b/`, `results/2b-limit512/`, `results/2b-limit2048/`. Join page: `results/SIZE-COMPARISON.md`.
+| Model | Way | Benchmark | Difficulty | Passed / tested | First-attempt accuracy |
+|---|---|---|---|---|---|
+| 0.8B | LoRA-1 | HumanEval+ | easy | 36/164 | 22.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | all | 21/300 | 7.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | easy | 20/166 | 12.0% |
+| 0.8B | LoRA-1 | LiveCodeBench | medium | 1/134 | 0.7% |
+| 0.8B | Thinking OFF | HumanEval+ | easy | 42/164 | 25.6% |
+| 0.8B | Thinking OFF | LiveCodeBench | all | 26/300 | 8.7% |
+| 0.8B | Thinking OFF | LiveCodeBench | easy | 26/166 | 15.7% |
+| 0.8B | Thinking OFF | LiveCodeBench | medium | 0/134 | 0.0% |
+| 0.8B | Thinking ON | HumanEval+ | easy | 17/164 | 10.4% |
+| 0.8B | Thinking ON | LiveCodeBench | all | 2/300 | 0.7% |
+| 0.8B | Thinking ON | LiveCodeBench | easy | 1/166 | 0.6% |
+| 0.8B | Thinking ON | LiveCodeBench | medium | 1/134 | 0.7% |
+| 0.8B | Limit 512 | HumanEval+ | easy | 37/164 | 22.6% |
+| 0.8B | Limit 512 | LiveCodeBench | all | 12/300 | 4.0% |
+| 0.8B | Limit 512 | LiveCodeBench | easy | 11/166 | 6.6% |
+| 0.8B | Limit 512 | LiveCodeBench | medium | 1/134 | 0.7% |
+| 0.8B | LoRA-1 + OFF | HumanEval+ | easy | 41/164 | 25.0% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | all | 24/300 | 8.0% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | easy | 23/166 | 13.9% |
+| 0.8B | LoRA-1 + OFF | LiveCodeBench | medium | 1/134 | 0.7% |
+| 0.8B | LoRA-1 + limit 512 | HumanEval+ | easy | 44/164 | 26.8% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | all | 23/300 | 7.7% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | easy | 21/166 | 12.7% |
+| 0.8B | LoRA-1 + limit 512 | LiveCodeBench | medium | 2/134 | 1.5% |
+| 2B | LoRA-1 | HumanEval+ | easy | 95/164 | 57.9% |
+| 2B | LoRA-1 | LiveCodeBench | all | 67/300 | 22.3% |
+| 2B | LoRA-1 | LiveCodeBench | easy | 63/166 | 38.0% |
+| 2B | LoRA-1 | LiveCodeBench | medium | 4/134 | 3.0% |
+| 2B | Thinking OFF | HumanEval+ | easy | 79/164 | 48.2% |
+| 2B | Thinking OFF | LiveCodeBench | all | 72/300 | 24.0% |
+| 2B | Thinking OFF | LiveCodeBench | easy | 63/166 | 38.0% |
+| 2B | Thinking OFF | LiveCodeBench | medium | 9/134 | 6.7% |
+| 2B | Thinking ON | HumanEval+ | easy | 88/164 | 53.7% |
+| 2B | Thinking ON | LiveCodeBench | all | 33/300 | 11.0% |
+| 2B | Thinking ON | LiveCodeBench | easy | 30/166 | 18.1% |
+| 2B | Thinking ON | LiveCodeBench | medium | 3/134 | 2.2% |
+| 2B | Limit 1,024 | HumanEval+ | easy | 99/164 | 60.4% |
+| 2B | Limit 1,024 | LiveCodeBench | all | 80/300 | 26.7% |
+| 2B | Limit 1,024 | LiveCodeBench | easy | 73/166 | 44.0% |
+| 2B | Limit 1,024 | LiveCodeBench | medium | 7/134 | 5.2% |
+| 2B | LoRA-1 + OFF | HumanEval+ | easy | 84/164 | 51.2% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | all | 81/300 | 27.0% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | easy | 75/166 | 45.2% |
+| 2B | LoRA-1 + OFF | LiveCodeBench | medium | 6/134 | 4.5% |
+| 2B | LoRA-1 + limit 1,024 | HumanEval+ | easy | 99/164 | 60.4% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | all | 92/300 | 30.7% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | easy | 82/166 | 49.4% |
+| 2B | LoRA-1 + limit 1,024 | LiveCodeBench | medium | 10/134 | 7.5% |
+| 4B | LoRA-1 | HumanEval+ | easy | 140/164 | 85.4% |
+| 4B | LoRA-1 | LiveCodeBench | all | 124/300 | 41.3% |
+| 4B | LoRA-1 | LiveCodeBench | easy | 112/166 | 67.5% |
+| 4B | LoRA-1 | LiveCodeBench | medium | 12/134 | 9.0% |
+| 4B | Thinking OFF | HumanEval+ | easy | 127/164 | 77.4% |
+| 4B | Thinking OFF | LiveCodeBench | all | 181/300 | 60.3% |
+| 4B | Thinking OFF | LiveCodeBench | easy | 134/166 | 80.7% |
+| 4B | Thinking OFF | LiveCodeBench | medium | 47/134 | 35.1% |
+| 4B | Thinking ON | HumanEval+ | easy | 132/164 | 80.5% |
+| 4B | Thinking ON | LiveCodeBench | all | 99/300 | 33.0% |
+| 4B | Thinking ON | LiveCodeBench | easy | 94/166 | 56.6% |
+| 4B | Thinking ON | LiveCodeBench | medium | 5/134 | 3.7% |
+| 4B | Limit 2,048 | HumanEval+ | easy | 141/164 | 86.0% |
+| 4B | Limit 2,048 | LiveCodeBench | all | 189/300 | 63.0% |
+| 4B | Limit 2,048 | LiveCodeBench | easy | 139/166 | 83.7% |
+| 4B | Limit 2,048 | LiveCodeBench | medium | 50/134 | 37.3% |
+| 4B | LoRA-1 + OFF | HumanEval+ | easy | 130/164 | 79.3% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | all | 170/300 | 56.7% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | easy | 124/166 | 74.7% |
+| 4B | LoRA-1 + OFF | LiveCodeBench | medium | 46/134 | 34.3% |
+| 4B | LoRA-1 + limit 2,048 | HumanEval+ | easy | 138/164 | 84.1% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | all | 194/300 | 64.7% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | easy | 143/166 | 86.1% |
+| 4B | LoRA-1 + limit 2,048 | LiveCodeBench | medium | 51/134 | 38.1% |

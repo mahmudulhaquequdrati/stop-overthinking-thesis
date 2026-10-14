@@ -220,7 +220,9 @@ The 464 problems came from several runs with different attempt counts.
 The original 234 were selected before their results; later collections added 40 and 190.
 We chose to combine them on 13 October 2026, after seeing results.
 This history matters for interpreting claims, but it does not prevent a labelled combined summary.
-Raw files and the original formal thesis remain unchanged.
+Raw results remain unchanged. The pre-update Markdown files are preserved in
+[the dated archive](../archive/2026-10-14-before-complete-md-sync/markdown-originals.tar.gz).
+The formal Markdown thesis now uses the same checked 464-problem results.
 
 {source}
 ''')
@@ -495,8 +497,8 @@ All available attempts contribute, but every problem has equal weight.
 Some limit settings and LoRA-2 also have incomplete coverage.
 See [all method coverage](05-results.md) and [the source manifest](../results/combined/sources.csv).
 
-Saved raw results and the formal thesis retain their historical numbers.
-Those files document the original experiments. They are not the combined headline.
+Saved raw results retain their historical numbers. The dated Markdown archive
+preserves the original thesis. Both current thesis versions use the combined results.
 ''')
 put('10-all-counts.md',f'''# All problems and all available scores
 
@@ -545,8 +547,8 @@ Read [FULL-THESIS.md](FULL-THESIS.md) for all chapters, including every benchmar
 - [All counts](10-all-counts.md).
 - [Words](WORDS.md).
 
-The [formal thesis](../thesis/THESIS.md) preserves the original study.
-Its historical scores differ from the retrospective combined analysis here.
+The [formal Markdown thesis](../thesis/THESIS.md) uses the same updated results.
+The original study text is preserved in the dated Markdown archive.
 The [combined audit](../results/combined/README.md) is the source for this version.
 
 Rebuild from the project root:
@@ -812,3 +814,8 @@ Partial coverage is not imputed. Never rank a subset score against a full-set sc
 '''
 (ROOT/'results/combined/README.md').write_text(combined + '\n## Completed combinations\n\n' + combo_table + '\n' + interpretation + '\nFull first-attempt and benchmark tables: [easy thesis](../../easy-thesis/05-results.md).\n')
 print('Built easy-thesis chapters, PAPER.md, FULL-THESIS.md, seven SVG charts, and combined README.')
+# Refresh the formal thesis and notices too, so a normal rebuild cannot leave them stale.
+if (ROOT/'scripts/sync_thesis_markdown.py').exists() and (ROOT/'archive/2026-10-14-before-complete-md-sync/markdown-originals.tar.gz').exists():
+    import subprocess
+    import sys
+    subprocess.run([sys.executable,str(ROOT/'scripts/sync_thesis_markdown.py')],cwd=ROOT,check=True)

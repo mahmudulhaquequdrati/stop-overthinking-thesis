@@ -1,176 +1,186 @@
-# 3. Method
+# How we did it
 
-This chapter says **what** we did and **why**. Chapter 4 explains **how we measured** it.
+<!-- CURRENT-STUDY:START -->
 
-## 3.1 The design in one picture
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
+
+- **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
+- **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
+- **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
+
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
+
+[Every method, benchmark, difficulty, token count and interval](../results/CURRENT-RESULTS.md) · [Full easy thesis](../easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](THESIS.md).
+
+<!-- CURRENT-STUDY:END -->
+
+We combined saved graded results for **464 unique problems**.
+The completed extensions generated new answers using existing LoRA-1 add-ons.
+No new training was run. This document rebuild uses saved results only.
+The Notebook 24 ledger records about 57.0 estimated Colab units for its five runs.
+Recalculating the tables locally spends no Colab units.
+
+## What changes between methods
+
+- Thinking OFF: answer without thinking notes.
+- Thinking ON: allow notes until the overall output cap.
+- Thinking limit: end the notes at a fixed token budget, then generate the answer.
+- Think briefly: ask for shorter notes in the prompt.
+- LoRA-1 alone: use the trained add-on with thinking ON and no thinking limit.
+- LoRA-1 + OFF: use that add-on with thinking notes switched off.
+- LoRA-1 + limit: use that add-on and end thinking at the stated limit.
+- LoRA-2: use the original 2B study's larger training set; coverage is 234/464.
+
+A token is a small piece of text. LoRA trains an add-on while keeping the base model fixed.
+The reported limits refer to thinking tokens, not the whole answer.
+The original output caps were 4,096 for HumanEval+ and 8,192 for LiveCodeBench.
+The saved runs used temperature 0.6, top-p 0.95, and top-k 20.
+Repeat stopping was used in the size extensions; 2B retained its original handling.
+This is a summary of existing runs, not a newly standardized experiment.
+
+## How accuracy is calculated
+
+For each problem, count the share of its attempts that passed.
+Then average those shares across covered problems.
 
 ```text
-                        TRAINING (only for the LoRAs)
- MBPP+ 200 + old LiveCodeBench 80 ──► model answers 4× ──► check with tests ──► keep shortest correct ──► train LoRA-2
- (pilot: MBPP+ 100) ────────────────────────────────────────────────────────────────────────────────────► LoRA-1
-
-                        TESTING (the same for all six ways)
- 234 test problems ──► 6 ways × 2 tries = 2,808 answers ──► run the tests ──► accuracy, tokens, loops
+Problem A: 1 pass from 2 attempts → 0.5
+Problem B: 1 pass from 1 attempt  → 1.0
+Combined accuracy: (0.5 + 1.0) / 2 = 75%
 ```
 
-The design is a **comparison on the same problems**: every way answers exactly the same 234 problems, with the same
-settings, so the only thing that changes is the way of answering.
+Pooling the three attempts would give 66.7%. That would give A twice the weight.
+Our combined score gives each problem equal weight.
+We do not average rounded percentages from the old summaries.
 
-## 3.2 The model
+Coverage means unique problems with results. A missing result is not counted as a failure. Only compare scores directly when they use the same problems.
 
-| | |
+## Tests and uncertainty
+
+An answer passes when it passes every test actually used by the saved grader.
+HumanEval+ used its extended tests. LiveCodeBench used up to 20 tests per problem.
+Thus these results do not establish success on every available LiveCodeBench hidden test.
+Generated code was checked in a separate process with time limits.
+This update reads scores only; it does not execute generated code.
+
+For a comparison, use the intersection of both methods' problem IDs.
+Resample whole problems 2,000 times with seed 3407.
+The reported 95% intervals are percentile bootstrap intervals.
+Both methods remain paired on each sampled problem; attempts are not independent problems.
+Intervals reflect variation across problems, not all training or generation randomness.
+They are unadjusted for multiple comparisons and post-result method selection.
+
+## A retrospective combined view
+
+The 464 problems came from several runs with different attempt counts.
+The original 234 were selected before their results; later collections added 40 and 190.
+We chose to combine them on 13 October 2026, after seeing results.
+This history matters for interpreting claims, but it does not prevent a labelled combined summary.
+Raw results remain unchanged. The pre-update Markdown files are preserved in
+[the dated archive](../archive/2026-10-14-before-complete-md-sync/markdown-originals.tar.gz).
+The formal Markdown thesis now uses the same checked 464-problem results.
+
+Source: [combined results](../results/combined/README.md), calculated from saved graded answers. No model was run again.
+
+## Completed LoRA controls
+
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](../easy-thesis/11-completed-lora-controls.md) and [benchmark tables](../easy-thesis/05-results.md).
+
+
+# The datasets, and how we checked them
+
+The combined study has **464 distinct test problems**.
+Training problems are not part of this total.
+
+![Problem counts](../easy-thesis/figures/counts.svg)
+
+| Dataset and difficulty | Problems |
 |---|---|
-| Model | **Qwen3.5-2B** (`unsloth/Qwen3.5-2B`), released February 2026, Apache-2.0 licence |
-| Size | about 2 billion parameters; 4.6 GB in 16-bit |
-| Why this model | Small, has a real thinking switch, free licence, and fast enough to finish in our time (Section 3.10) |
-| Settings when answering | temperature 0.6, top-p 0.95, top-k 20 — the model makers' own settings for coding in thinking mode |
+| HumanEval+ easy functions | 164 |
+| LiveCodeBench easy | 166 |
+| LiveCodeBench medium | 134 |
+| Total | 464 |
 
-*Temperature, top-p and top-k* control how random the model's word choices are. We used the official settings, so
-the model is not disadvantaged by our choices.
 
-## 3.3 The six ways of answering
+HumanEval+ asks for Python functions. LiveCodeBench includes contest programs and class methods.
+There are no hard problems in this study.
+We checked IDs across all collection lists and found no duplicate test problems.
+The combined total is 164 function problems and 300 contest problems.
 
-| # | Way | Exactly what we did |
+## The training set
+
+Training problems are **not** the test problems.
+LoRA-1 used a pool of **100** easy functions.
+LoRA-2 used the bigger pool below.
+
+| Pool | Problems | Why this pool |
 |---|---|---|
-| 1 | **Thinking ON** | Switch on. The model thinks as long as it wants (up to the overall token limit). **What we compare against.** |
-| 2 | **Thinking OFF** | Switch off. The model answers directly. |
-| 3 | **Think briefly** | Switch on, and one sentence added to the question: *"Think briefly: keep your thinking to a few short sentences, then give the answer."* |
-| 4 | **Thinking limit** | Switch on. After **1,024** thinking tokens we stop the thinking, add the end-of-thinking marker ourselves, and let the model write its answer. |
-| 5 | **LoRA-1** | Switch on, plus the LoRA trained in the pilot study (100 MBPP+ training problems). |
-| 6 | **LoRA-2 (main)** | Switch on, plus the LoRA trained for this run (200 MBPP+ + 80 older LiveCodeBench problems). |
-
-**Why 1,024 for the limit?** In the pilot study, the trained model thought for about 1,000 tokens. So the limit
-asks a fair question: *is a simple hard cut as good as training?*
-
-**Why LoRA-2 is the main one.** We decided **before** the run that LoRA-2 would be the main result if it was trained.
-This stops us from picking whichever LoRA looks best afterwards.
-
-## 3.4 The test problems (234)
-
-| Set | Problems | Level | What the model must do |
-|---|---|---|---|
-| HumanEval+ | 164 | easy | Complete one Python function |
-| LiveCodeBench | 31 | easy | Write a full program: read input, print output (a few are class methods) |
-| LiveCodeBench | 39 | medium | The same, harder |
-| **Total** | **234** | | |
-
-- The LiveCodeBench problems were released from **February 2025 on**.
-- **Hard problems were left out.** A 2-billion-parameter model solves almost none, so they could not show differences.
-- The test set was **fixed on 2026-09-20, before any result**.
-
-**The question the model saw** (identical for every way, except "think briefly"):
+| MBPP+ | 200 | Easy Python functions with strong tests. The early test showed they work. |
+| Older LiveCodeBench | 80 (40 easy + 40 medium) | Older contest training problems from release v1. Distinct IDs were checked against the combined test set; dates alone do not establish separation. |
 
 ```text
-HumanEval+:     "Complete this Python function. Answer with one Python code block only,
-                 containing the complete function."  + the function to complete
-
-LiveCodeBench:  the problem text  + "Write a complete Python program. It reads from standard input and
-                 prints the answer to standard output. Answer with one Python code block only."
+200 MBPP+  +  80 older LiveCodeBench  =  280 problems
+        │
+        ▼
+4 thinking-ON tries each
+        │
+        ▼
+keep the shortest correct answer
+(never shorter than half the middle correct length)
+        │
+        ▼
+157 training examples  →  LoRA-2
+133 from MBPP+   +   24 from older LiveCodeBench
 ```
 
-## 3.5 The training data
+![Training data funnel](../results/full-results/figures/fig7-training-data-funnel.svg)
 
-| Pool | Problems | Why |
+| | MBPP+ | Older LiveCodeBench |
 |---|---|---|
-| MBPP+ | 200 | Easy Python problems with good tests; the pilot showed they work |
-| LiveCodeBench, older (release v1, before February 2025) | 80 (40 easy + 40 medium) | The same *type* as the LiveCodeBench test problems, but older, so they can never be test problems |
+| Problems | 200 | 80 |
+| Answers (4 tries) | 800 | 320 |
+| Correct answers | 357 (44.6%) | 44 (13.8%) |
+| Kept examples | 133 | 24 |
+| Middle thinking length of kept examples | 515 tokens | **4,709 tokens** |
 
-**Overlap check.** No test problem may appear in the training data. A script compared every training problem with
-every test problem and removed any that had the same function name, or shared many 5-word pieces of text (30% or
-more). It removed one training problem (`Mbpp/309`).
+The LiveCodeBench training examples were already long.
+There was almost nothing short to learn there.
+The kept length divided by the average correct length was **0.83** on MBPP+ and **0.99** on older LiveCodeBench.
 
-## 3.6 Making the training examples: "shortest correct"
+LoRA-2 trained on those 157 examples for 3 passes.
+That took about 6 minutes.
+The loss fell from about 0.25 to about 0.16, so the add-on did learn the examples.
+The later chapter explains why that still did not shorten test thinking.
 
-```text
-For each training problem:
-  1. Thinking ON answers it 4 times (token limit: 4,096 for MBPP+, 8,192 for LiveCodeBench).
-  2. Each answer is checked with the problem's tests.
-  3. From the correct answers, keep the SHORTEST one ...
-  4. ... but never one shorter than HALF of the middle (median) correct length for that problem.
-```
+## Overlap and limitations
 
-**Why step 4?** The S3-CoT paper warns that training on the very shortest answers can hurt accuracy. A lucky, too-short
-answer would teach "always stop early". So we keep the shortest *reasonable* answer.
+The combined audit compares all 464 test IDs with **280 saved training-pool IDs**.
+Exact ID overlap is **zero**. It also checks IDs in saved training-answer and retained-example files.
+The source list is in [the audit](../results/combined/results.json).
+This update does not repeat a full text-similarity audit.
+Different IDs can still hide related wording or equivalent tasks.
 
-The kept answer is stored **word for word**, with its thinking and its code, and becomes one training example.
+Earlier runs used function-name and 5-word text-overlap exclusions.
+Those historical exclusions are preserved, not rewritten by this update.
+We cannot prove the base model never saw these benchmarks during pretraining.
+A problem's release date alone is not proof of unseen data.
 
-## 3.7 Training the LoRA
+## Completed LoRA controls
 
-| Setting | Value |
-|---|---|
-| Method | LoRA on the attention and feed-forward layers |
-| LoRA size | rank 16, alpha 16 |
-| Learning rate | 0.0002, with a short warm-up |
-| Epochs (passes over the data) | 3 |
-| Batch | 1 example × 4 steps gathered together |
-| Seed | 3407 |
-| Tool | Unsloth, following its Qwen3.5 guide |
-
-LoRA-2 trained on **157 examples** (133 from MBPP+, 24 from LiveCodeBench) in about **6 minutes**.
-
-**A safety check on the add-on.** In the pilot we found that the saved LoRA could load "empty", with its parts matched to
-nothing, so the "trained" model silently behaved like the untrained one. The answering script now **stops** if any LoRA part
-is not matched to the model. This check passed for both LoRAs.
-
-## 3.8 The pilot study (the "mini-thesis")
-
-Before the main run, we ran the whole method once, small:
-
-- 100 MBPP+ training problems → shortest-correct examples → LoRA-1.
-- Tested on **100 other MBPP+ problems**, 1 try each.
-
-**Pilot result:** LoRA-1 used 41% fewer tokens than thinking ON (x0.59) **and** was more accurate (65% against 50%).
-This was a strong sign that the method works, so we went ahead with the main run. The main run then tested whether
-this holds on **different** problems (Chapter 5.10).
-
-## 3.9 The fairness rules (fixed before the run)
-
-| Rule | Value | Why |
-|---|---|---|
-| Same problems for every way | all 234 | a fair, paired comparison |
-| Same overall token limit for every way | **4,096** (HumanEval+), **8,192** (LiveCodeBench) | nobody gets more room |
-| Same settings and seeds | temperature 0.6, top-p 0.95, top-k 20; a fixed seed per try | only the way of answering changes |
-| Same prompt | except the one extra sentence for "think briefly" | |
-| Tries per problem | **2** | budget (Section 3.10) |
-| Main LoRA | LoRA-2 | fixed in advance |
-| Hypotheses and their thresholds | H1–H3 (Section 1.4) | fixed in advance |
-| Grading | the benchmarks' own tests, never by eye | Chapter 4 |
-| Raw answers | every answer saved word for word | anyone can re-check |
-
-**Why 4,096 and 8,192?** HumanEval+ problems are easy; in the pilot almost every answer that reached 4,096 was a loop.
-LiveCodeBench has medium problems, where honest reasoning can be longer. To check that these limits did not unfairly hurt
-normal thinking, we re-ran thinking ON's cut-off answers with **16,384** tokens (Section 4.9).
-
-## 3.10 How the run was done
-
-| Stage | What | Colab units (estimated) |
-|---|---|---|
-| Smoke test | every way on 2 problems per set, to check that everything works | 0.6 |
-| A | 5 ways × 234 problems, try 1 | 2.9 on 24 Sept, plus part of the 21 Sept session (that session used about 8.7 units in total, including idle time) |
-| B | make LoRA-2's training data, train LoRA-2, test it (try 1) | 9.0 |
-| C | try 2 for all 6 ways | 10.3 |
-| D | re-run thinking ON's cut-off answers with 16,384 tokens | 4.2 |
-
-- **Computer:** one Google Colab **A100** GPU, bfloat16 numbers, batches of up to 128 answers at a time.
-- **Budget rule:** a stage started only if at least 20 units would be left afterwards.
-- **Total:** about 38 units, from 2026-09-21 to 2026-09-24 (including set-up time).
-- Results were saved to Google Drive after every step, so a disconnect lost nothing.
-
-## 3.11 What changed from the proposal, and why
-
-We report every change honestly. All were made **before** the main results were seen.
-
-| Proposal | What we did | Why |
-|---|---|---|
-| Model Gemma-4-E4B | **Qwen3.5-2B** | Gemma ran at only about 4.4 tokens per second on a free GPU; far too slow to finish. Qwen3.5-2B is smaller and has the same kind of switch. |
-| Free GPUs only ($0) | A small paid Colab package (A100) | A one-week deadline; free GPUs were too slow. |
-| About 1,000 test problems incl. MBPP+ | **234** (HumanEval+ + LiveCodeBench) | 1,000 problems × 5 ways × 4 tries would need 13+ GPU hours. |
-| 4 tries per problem | **2** | Budget. Cost: wider error bars. |
-| Training on DeepCoder and APPS | MBPP+ + older LiveCodeBench | Already loaded and graded by tested code; less risk in one week. |
-| Five ways of answering | **Six** (two LoRAs) | LoRA-2 added medium-style training problems; LoRA-1 kept for comparison. |
-
-## 3.12 Ethics and safety
-
-- The model's code was **never run inside our notebook**. It ran in a separate process, in a temporary folder, with a time
-  limit, so broken or harmful code could not damage anything.
-- No personal data was used. All data sets are public.
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](../easy-thesis/11-completed-lora-controls.md) and [benchmark tables](../easy-thesis/05-results.md).

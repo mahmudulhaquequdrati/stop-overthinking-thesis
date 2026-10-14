@@ -1,245 +1,174 @@
-# Complete thesis A→Z · where to check · what to tell the teacher
+# Teacher guide: the completed 464-problem thesis
 
-## Completed LoRA combinations — 14 October 2026
+<!-- CURRENT-STUDY:START -->
 
-All six planned combinations now have results for the same **464 problems**, one attempt each.
+**Current study — 14 October 2026:** **464 unique test problems**.
+Benchmarks: **164 HumanEval+**, **166 LiveCodeBench easy**, **134 LiveCodeBench medium**.
+All six planned LoRA combinations are complete, one attempt per problem:
 
 - **0.8B:** LoRA + OFF **14.0% (65/464)**; LoRA + limit 512 **14.4% (67/464)**.
 - **2B:** LoRA + OFF **35.6% (165/464)**; LoRA + limit 1,024 **41.2% (191/464)**.
 - **4B:** LoRA + OFF **64.7% (300/464)**; LoRA + limit 2,048 **71.6% (332/464)**.
 
-LoRA + OFF does not consistently improve on OFF without LoRA.
-The 2B and 4B limit combinations have not established a reliable accuracy gain over the free limit.
-Compare first attempts with first attempts; keep all-attempt problem averages labelled separately.
-No further run is needed to complete these six configurations.
-The document rebuild uses saved results and spends no Colab units.
+LoRA alone means thinking ON without a thinking-token limit.
+Older methods' all-attempt averages and first-attempt comparisons are labelled separately.
+LoRA + OFF does not consistently improve on free OFF; the 2B/4B gains over free limits remain uncertain.
 
-Read [the full easy thesis](easy-thesis/FULL-THESIS.md), including benchmark, difficulty, token and uncertainty tables.
-The formal thesis retains its historical results.
-[Checked result archive and calculations](results/lora-controls/README.md).
+[Every method, benchmark, difficulty, token count and interval](results/CURRENT-RESULTS.md) · [Full easy thesis](easy-thesis/FULL-THESIS.md) · [Full formal Markdown thesis](thesis/THESIS.md).
 
-## Full 464 update — 14 October 2026
+<!-- CURRENT-STUDY:END -->
 
-**2B LoRA-1 alone: 34.4%;4B LoRA-1 alone: 56.8%. Both now cover 464/464.**
-The exact missing40 runs passed 1/40 (2B) and 12/40 (4B), with one attempt each.
-No existing 424 LoRA-alone IDs were repeated.
-The scores above average attempts within problems, then weight problems equally.
+# Questions a teacher may ask
 
-For 2B on the same 464 first attempts:
-**LoRA + limit1024: 41.2% (191/464); LoRA alone: 34.9% (162/464); OFF: 32.5% (151/464).**
-The combination's gain over LoRA alone is 6.2 points, interval +2.4 to +10.1.
-Its gain over OFF is 8.6 points, interval +4.5 to +12.9.
-LoRA alone's smaller lead over OFF remains inconclusive.
-Limit alone is 38.6%; the combination's gain over it remains inconclusive.
+## How many test problems?
 
-Missing40 work is complete. Do not rerun Notebook 22 or the existing 424 answers.
-Other incomplete methods remain outside scope.
-[Updated results and both weighting rules](results/lora-missing40/README.md).
+**464 unique problems:** 164 HumanEval+ and 300 LiveCodeBench.
+Training and the early pilot are excluded.
+
+## What are the main scores?
+
+**0.8B: Thinking OFF 14.7%** · **2B: Limit 1,024 38.6%** · **4B: Limit 2,048 71.9%**
+
+Each headline uses all 464 problems. These are full-coverage free controls.
+
+## Why not add all correct answers and divide by all attempts?
+
+Some problems have two attempts and others have one.
+That would give the former twice the weight.
+We average within each problem first, then across problems.
+
+## Why did older LoRA reports show 424/464?
+
+Those reports preceded the extra 40 fill-in. Both 2B and 4B LoRA-1 now cover 464/464.
+Missing results are not failures. We compare LoRA with controls on shared IDs only.
+The 0.8B LoRA-1 covers all 464. LoRA-2 covers 234.
+
+## Does the free limit beat LoRA alone?
+
+The selected free controls have higher observed scores on shared problems.
+The 0.8B gap is uncertain. The 2B and 4B intervals are positive.
+See [the paired results](easy-thesis/05-results.md) for numbers and limits.
+
+## Were all problems selected before the experiment?
+
+No. This is a retrospective combined view of saved runs.
+The original study was selected earlier; later collections extended it.
+We retain this history in the methods, without making separate headline stories.
+
+## Do the old loop percentages apply to 464 problems?
+
+No. They apply to the original 234-problem 2B analysis.
+We did not rerun loop detection for the combined set.
+
+## Did the completed experiments use GPU budget?
+
+Yes. Notebook 24 records about 57.0 estimated compute units, not hours.
+This document rebuild only reads saved scores and uses no GPU budget.
+
+## Where can someone check the calculations?
+
+[Per-problem values](results/combined/per-problem.csv),
+[source files and original counts](results/combined/sources.csv), and
+[the full audit](results/combined/results.json).
+
+## Completed LoRA controls
+
+All six combinations are complete, with 464/464 results each.
+0.8B: LoRA + OFF **14.0%**, LoRA + limit 512 **14.4%**.
+2B: LoRA + OFF **35.6%**, LoRA + limit 1,024 **41.2%**.
+4B: LoRA + OFF **64.7%**, LoRA + limit 2,048 **71.6%**.
+These use one attempt per problem. Historical controls also have a labelled
+first-attempt comparison; their all-attempt scores remain separate.
+See [the completed analysis](easy-thesis/11-completed-lora-controls.md) and [benchmark tables](easy-thesis/05-results.md).
 
 
-## Current teacher version: 464 combined problems
+# Completed LoRA controls: evidence and conclusion
 
-Use [easy-thesis/PAPER.md](easy-thesis/PAPER.md) for the current presentation.
-The full-coverage headline scores are **14.7% (0.8B OFF), 38.6% (2B limit 1,024), and 71.9% (4B limit 2,048)**.
-Each problem gets equal weight. Partial coverage is labelled; trained models are compared on shared problems.
-The combined analysis is retrospective. See [the Q&A](qa/44-combined-464.md).
-The guide below describes the original experiment and is retained as historical background.
+We are at RESULTS → ANALYSIS → CONCLUSION.
+The question is whether an existing trained add-on helps when thinking is off or limited.
+For example, a student can use the same learned skill with or without written planning.
+We change the thinking setting, then measure passing tests and answer length.
+The main reference is the same setting without the trained add-on.
+A gain over normal thinking alone is not enough to establish a benefit from training.
 
----
+## All six planned combinations are finished
 
-> **Read this before a meeting.**  
-> Full thesis: [thesis/THESIS.md](thesis/THESIS.md) · PDF: [thesis/Stop-Overthinking-Thesis.pdf](thesis/Stop-Overthinking-Thesis.pdf)  
-> **All numbers for the paper:** [results/RESULTS-INDEX.md](results/RESULTS-INDEX.md)  
-> Three-size page: [results/SIZE-COMPARISON.md](results/SIZE-COMPARISON.md)
+Notebook 21 supplied 2B LoRA + limit 1,024.
+Notebook 24 supplied the other five configurations, with 2,320 new answers.
+Each configuration has one answer and one grade for each of the same 464 IDs.
+Notebook 23 is superseded by Notebook 24; do not run both.
 
----
+| Model | Combination | Passed | Coverage | Accuracy | 95% interval | Mean total tokens |
+|---|---|---|---|---|---|---|
+| 0.8B | LoRA-1 + OFF | 65 | 464/464 | 14.0% | [11.0%, 17.0%] | 1,278 |
+| 0.8B | LoRA-1 + limit 512 | 67 | 464/464 | 14.4% | [11.2%, 17.5%] | 4,979 |
+| 2B | LoRA-1 + OFF | 165 | 464/464 | 35.6% | [31.2%, 39.7%] | 1,445 |
+| 2B | LoRA-1 + limit 1,024 | 191 | 464/464 | 41.2% | [36.6%, 45.7%] | 4,072 |
+| 4B | LoRA-1 + OFF | 300 | 464/464 | 64.7% | [59.9%, 69.0%] | 882 |
+| 4B | LoRA-1 + limit 2,048 | 332 | 464/464 | 71.6% | [67.5%, 75.6%] | 3,511 |
 
-## 1. The whole story in 30 seconds (say this out loud)
+### What the completed tests show
 
-```text
-PROBLEM   Small AI models "think" too long on code and burn time.
-GAP       Nobody checked on one small model with an ON/OFF switch:
-          is TRAINING to think shorter better than free options?
-QUESTION  Train shorter — or just use OFF / a thinking limit?
-HYPOTHESIS Training should shorten thinking and keep accuracy.
-EXPERIMENT Same 234 code problems · free ways + LoRA · real tests.
-RESULT    On 2B: free LIMIT 1024 wins (49.8%). Training does NOT shorten.
-WHY       The waste is LOOPS (stuck), not careful long thinking.
-SIZE CHECK Same problems on 0.8B / 2B / 4B:
-          best free = OFF / limit1024 / limit2048.
-          LoRA never beats that free winner.
+- **0.8B:** LoRA + OFF passes 65/464 (14.0%); LoRA + limit 512 passes 67/464 (14.4%).
+  OFF without LoRA passes 68/464 (14.7%). There is no clear gain over OFF.
+  LoRA + limit improves on the matching free limit by 3.9 points, interval +0.6 to +7.1.
+- **2B:** LoRA + OFF passes 165/464 (35.6%); LoRA + limit 1,024 passes 191/464 (41.2%).
+  The limit combination beats LoRA + OFF by 5.6 points, interval +1.1 to +9.9.
+  Its 2.6-point gain over limit alone remains uncertain, interval −1.5 to +6.7.
+- **4B:** LoRA + OFF passes 300/464 (64.7%); LoRA + limit 2,048 passes 332/464 (71.6%).
+  Limit alone passes 330/464 (71.1%). The two-pass gain is inconclusive,
+  interval −3.0 to +3.7 points. The combination uses about 11.4% fewer output tokens.
+
+These are same-problem, first-attempt comparisons with historical references.
+Intervals are unadjusted for multiple comparisons. They are not proof of universal wins.
+Shorter output does not directly establish lower GPU time, energy, or money.
+
+## Settings and checks
+
+The models are Qwen3.5-0.8B, Qwen3.5-2B, and Qwen3.5-4B.
+Existing adapter weight hashes match the settings recorded alongside the raw outputs.
+Sampling used seed 3407, temperature 0.6, top-p 0.95, and top-k 20.
+The total output caps were 4,096 tokens for HumanEval+ and 8,192 for LiveCodeBench.
+The limit is for thinking only. It does not cap the complete answer at 512/1,024/2,048.
+Thinking OFF records zero thinking tokens.
+Repeat stopping was enabled for 0.8B and 4B; 2B retained its original handling.
+The saved environment records Python 3.13.15, PyTorch 2.9.1+cu128,
+Transformers 5.18.0, PEFT 0.21.1, Flash Linear Attention 0.5.2,
+and causal-conv1d 1.7.0. Model calculations used bfloat16 precision.
+Notebook 24 requested batch size 128; generation could reduce batches if needed.
+The full environment files and package list remain with each saved run.
+The Notebook 24 ledger records an A100 80GB GPU and about 57.0 estimated units.
+The earlier Notebook 21 ledger is separate; 57.0 is not the whole project's spend.
+Actual billed units must be checked in Colab, not inferred as hours.
+
+Checked: 464 unique IDs per configuration; no duplicate attempts; every answer graded;
+no unexpected IDs; zero exact overlap with saved training IDs; grade/raw token agreement;
+reference source hashes; generation settings; and recalculated problem-based intervals.
+No new model generation, training, or generated-code execution was needed for this audit.
+Grades were read from the saved benchmark runs, rather than re-executed in this update.
+
+The new runs use historical references from earlier packages and batch layouts.
+A matching seed does not guarantee identical random draws in different environments.
+The combined analysis remains retrospective. It is not a new pre-registered evaluation.
+We did not claim that the model never saw benchmark text during pretraining.
+
+## Practical conclusion
+
+OFF without training remains the simplest observed choice for 0.8B.
+The 2B LoRA + limit combination has the highest observed full-set accuracy for 2B.
+It has not established a reliable gain over the free 1,024-token limit.
+The 4B combination nearly matches the free limit while generating fewer output tokens.
+LoRA + OFF does not show a consistent accuracy benefit over OFF without training.
+No new run is required to complete these six planned configurations.
+
+## Reproduce without GPU spending
+
+```sh
+.venv/bin/python scripts/audit_lora_controls.py
+python3 scripts/combine_results.py
+python3 scripts/build_combined_easy_thesis.py
 ```
 
-**One sentence for the teacher:**  
-*"On small Qwen3.5 code models, a free control beats shortest-correct LoRA; which free control wins depends on size — OFF on 0.8B, limit 1024 on 2B, limit 2048 on 4B — because the main waste is looping, not careful overthinking."*
-
----
-
-## 2. Thesis A→Z (what to open, in order)
-
-| Step | Open this | What it is | ~time |
-|---|---|---|---|
-| A | [THESIS.md](thesis/THESIS.md) → **Abstract** | One-page science summary | 3 min |
-| B | Same file → **“The thesis in one page”** | Everyday story + bar chart of numbers | 5 min |
-| C | Ch **1** Introduction | Problem, gap, question, hypotheses | 10 min |
-| D | Ch **2** Background | LLM, tokens, thinking, LoRA (simple) | 15 min |
-| E | Ch **3** Method | Six ways, 234 problems, fairness rules | 15 min |
-| F | Ch **4** How we measure | Pass rule, points, error bars, loops | 15 min |
-| G | Ch **5** Results | **2B tables first**, then **§5.13** size table | 20 min |
-| H | Ch **6** Analysis | Why loops; §6.7 size meaning | 15 min |
-| I | Ch **7** Conclusion | Advice + §7.5.4 size wrap-up | 10 min |
-| J | [SIZE-COMPARISON.md](results/SIZE-COMPARISON.md) | Three-size cheat sheet | 5 min |
-
-**Print / hand-in:** [Stop-Overthinking-Thesis.pdf](thesis/Stop-Overthinking-Thesis.pdf)
-
-**Fill before hand-in:** your name, supervisor, university in [thesis/00-front-matter.md](thesis/00-front-matter.md), then rebuild PDF.
-
----
-
-## 3. Where to *test* / *check* (so you are not guessing)
-
-Everyday example: before you tell a teacher “49.8%”, open the file and point at the number.
-
-### Main 2B thesis (the big claim)
-
-| What to check | Where |
-|---|---|
-| Main accuracy table | [results/2026-09-24-thesis-run.md](results/2026-09-24-thesis-run.md) |
-| Full charts + every problem | [results/full-results/FULL-RESULTS.md](results/full-results/FULL-RESULTS.md) |
-| Limit 49.8% vs ON 42.1% | Thesis Ch 5 · or summary above |
-| “Passed” = real tests | Thesis Ch 4 · scripts `grade_*.py` |
-| Error bars | Thesis Ch 4 · `scripts/compare_thesis.py` |
-| Overlap (no test in train) | Decision #66 · notebook 14 / overlap file |
-
-### Size extension (0.8B + 4B)
-
-| What to check | Where |
-|---|---|
-| 0.8B table | [results/0.8b/SUMMARY.md](results/0.8b/SUMMARY.md) · story: [0.8b/RUN.md](results/0.8b/RUN.md) |
-| 4B table | [results/4b/SUMMARY.md](results/4b/SUMMARY.md) |
-| Join 0.8B+2B+4B | [results/ALL-RESULTS.md](results/ALL-RESULTS.md) · [SIZE-COMPARISON.md](results/SIZE-COMPARISON.md) |
-| Raw graded CSVs | `results/0.8b/raw/test-*-graded.csv` · `results/4b/raw/` |
-| Notebooks used | [15a 0.8B](notebooks/15a_qwen35_0_8b.ipynb) · [15b 4B](notebooks/15b_qwen35_4b.ipynb) |
-
-### Later lists (do not mix into 49.8% or 78.2%)
-
-| What to check | Where |
-|---|---|
-| Extra 40 | [results/extra/SUMMARY.md](results/extra/SUMMARY.md) · 2B OFF 12.5% · 4B OFF tied limit 2048 at 46.2% |
-| The 190 | [results/more/SUMMARY.md](results/more/SUMMARY.md) · 0.8B OFF **9.5%** · 2B limit 1024 **31.1%** · 4B limit 2048 **69.5%** |
-| Story of the 190 | [results/more/RUN.md](results/more/RUN.md) · qa/43 |
-| **Counts and charts** | [easy-thesis/10-all-counts.md](easy-thesis/10-all-counts.md) · 464 tests · train 100 and 280 |
-
-Say this if asked: a free way still wins. The 190 winner matches the exam. 2B training was skipped. On 4B medium only, OFF was higher (44.4% vs 38.9%).
-
-### Quick “is the number real?” test (do once)
-
-```text
-1. Open results/0.8b/SUMMARY.md → OFF 20.5%
-2. Open results/4b/SUMMARY.md   → limit2048 78.2%
-3. Open SIZE-COMPARISON.md       → same numbers side by side
-4. Open thesis §5.13             → same numbers again
-```
-
-If all four match, you can trust what you say.
-
-### What we did *not* re-run (say this honestly)
-
-| Honest limit | Why |
-|---|---|
-| 0.8B = **1 try**; 2B/4B = **2 tries** | Hour budget (DECISIONS #75–76) |
-| 0.8B no limit 2048/4096 | Max 1024 (won on 2B); save hours |
-| Code only, easy+medium | Scope of the thesis |
-| One model family (Qwen3.5) | Fair size compare |
-
----
-
-## 4. What to tell the teacher (practice answers)
-
-Cover the answers. Say yours out loud. Then check.
-
-### Opening (30 seconds)
-
-**Q: What did you do?**  
-*I compared free ways to control thinking (OFF, ON, a length limit) against training a small LoRA on shortest correct answers, on the same 234 code problems, with the benchmarks’ own tests.*
-
-**Q: What is your main finding?**  
-*On Qwen3.5-2B, a free thinking limit of 1,024 tokens was best: 49.8% vs 42.1% for normal thinking. Training did not make thinking shorter. The long answers were mostly loops.*
-
-**Q: Why only one model?**  
-*The main thesis is 2B. I also ran 0.8B and 4B in the same family on the same problems. Free controls still beat LoRA; the best free way moved with size.*
-
-### Method
-
-**Q: How do you know an answer is correct?**  
-*I extract the Python code and run the benchmark’s tests in a sandbox. Every test must pass. I do not grade by eye.*
-
-**Q: What is fair about your comparison?**  
-*Same problems, same limits for generation, same seeds, same checker. Only the “way of answering” changes.*
-
-**Q: What is a LoRA?**  
-*A small add-on trained on top of the model — cheaper than full training. LoRA-1 = full MBPP+ shortest-correct examples.*
-
-### Results & hard questions
-
-**Q: Why did training fail to shorten thinking?**  
-*Finished correct answers were already short. The waste was loops. Training never showed “how to get unstuck,” so the model kept looping.*
-
-**Q: Isn’t a limit just cheating / cutting useful thought?**  
-*We checked with more room (16k) for ON. It got better but still lost to the limit. On 4B, longer limits (4096) were not better than 2048.*
-
-**Q: Why is OFF best on 0.8B but not on 2B/4B?**  
-*0.8B is too weak: ON hits the wall 78% of the time and only gets 7.3%. Better not to start a long think. Stronger models benefit from a short think with a cut.*
-
-**Q: Did you cherry-pick the 0.8B plan?**  
-*No — locked before the run: max limit 1024 (won on 2B), 1 try, no Stage C, to stay under 50 compute hours after 4B used ~100.*
-
-**Q: Can I trust 0.8B with only 1 try?**  
-*Ranking ways inside 0.8B is fair (every way has 1 try). Cross-size error bars are a bit wider; I label that in the tables.*
-
-**Q: Who should care?**  
-*Students and developers who run small reasoning models for code on one GPU — try OFF and a short limit before paying for training.*
-
-### Closing
-
-**Q: What would you do next?**  
-*Try still larger models (e.g. 9B) with a cheap “check first” for loops; try methods that stop repeats while generating; harder tasks / other families.*
-
----
-
-## 5. Teacher Q&A files (practice by topic)
-
-| Topic | File |
-|---|---|
-| Whole thesis (2B core) | [qa/30](qa/30-the-complete-thesis.md) |
-| Real 2B run | [qa/28](qa/28-thesis-run-results.md) |
-| Size plan | [qa/31](qa/31-size-limit-extension.md) |
-| 4B run | [qa/32](qa/32-4b-run.md) |
-| All three sizes | [qa/33](qa/33-all-models-compared.md) |
-| Lean 0.8B plan | [qa/34](qa/34-lean-0.8b-plan.md) |
-| 0.8B run | [qa/35](qa/35-0.8b-run.md) |
-| Written into thesis | [qa/36](qa/36-size-extension-in-thesis.md) |
-| **This A→Z guide** | [qa/37](qa/37-thesis-a-to-z-teacher.md) (copy of the practice core) |
-
-Hard words: [GLOSSARY.md](GLOSSARY.md) · Every choice: [DECISIONS.md](DECISIONS.md)
-
----
-
-## 6. Research chain (point at the wall)
-
-```text
-PROBLEM ✅ → GAP ✅ → QUESTION ✅ → HYPOTHESIS ✅
-    → EXPERIMENT ✅ → DATA/CODE ✅ → RESULTS ✅
-    → ANALYSIS ✅ → CONCLUSION ✅
-```
-
-You are here: **CONCLUSION written**; still fill **name/supervisor**, then defend.
-
----
-
-## 7. What to do next (one path)
-
-1. Read **Abstract + one-page summary** in THESIS.md (today).  
-2. Practice the **Opening** answers out loud (10 minutes).  
-3. Open **SIZE-COMPARISON.md** and point at the three best free ways.  
-4. Fill your **name** in `thesis/00-front-matter.md` before hand-in.
+Read [checked results](results/lora-controls/checked-results.json),
+[raw archive and result note](results/lora-controls/README.md), and
+[all accuracy, benchmark and token tables](easy-thesis/05-results.md).
