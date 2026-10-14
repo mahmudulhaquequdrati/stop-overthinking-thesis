@@ -31,3 +31,20 @@ If the report says failed, keep the report and stop before the larger pilot.
 
 [Colab notebook and instructions](../experiments/rpmr/README.md).
 [Research proposal](../experiments/rpmr/proposal.md). Decisions #114–118; previous Q&A files archived.
+
+## First Colab smoke result
+
+The user supplied a passing report: 107.826 seconds and estimated 0.2028 units.
+The real cache edit changed next-token scores; selected immediate readout error was about 1.50e-9.
+This establishes compatibility on that runtime, not better answers or loop escape.
+Original Drive file, actual billing and disconnection were not independently checked.
+[Saved pasted report](../experiments/rpmr/results/20261014T125828Z-bf30149f/report.json). Decision #119.
+
+## What comes after the passed smoke?
+
+Notebook 26 adds online exact-repeat detection and conditional RPMR, plus a detection-only control.
+Ordinary and detection-only outputs must match. It measures the full detector/logging overhead.
+Two prompts and short caps make this an instrumentation check, not an accuracy study.
+Three estimated units maximum; keep 20. No repair is forced if no natural trigger occurs.
+User confirms the earlier runtime is disconnected. Notebook 26 is prepared but not run.
+[Next notebook](../experiments/rpmr/26_rpmr_colab_online_smoke.ipynb). Decision #120.

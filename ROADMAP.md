@@ -335,3 +335,18 @@ About 50 compute units remain; preserve 20. Proposed smoke ceiling: five estimat
 Next: upload the notebook to a fresh Colab GPU runtime and choose Run all.
 The notebook is syntax-checked; no Colab smoke run has completed yet.
 The verified baseline and cleanup archives remain in backups/ for undo.
+
+## RPMR Colab smoke passed — 14 October 2026
+
+User-provided report confirms calculation and cache compatibility on A100 80GB.
+Elapsed 107.826 seconds; estimated 0.2028 units. No accuracy or loop-recovery result yet.
+Next: online detector and complete repair-overhead measurement in Colab.
+[Saved report](experiments/rpmr/results/20261014T125828Z-bf30149f/report.json).
+
+## Next Colab step — Notebook 26, 14 October 2026
+
+User confirms the previous GPU runtime disconnected. Notebook 25 remains passed.
+[Notebook 26](experiments/rpmr/26_rpmr_colab_online_smoke.ipynb) is ready for online
+loop detection, conditional repair and overhead measurement; not run yet.
+Two prompts × three methods, 384 generated tokens each. Three-unit estimated cap; 20-unit reserve.
+No eligible natural repair means recovery remains untested. Review its saved ZIP before expanding.
