@@ -1,0 +1,12 @@
+\contentsline {table}{\numberline {1}{\ignorespaces Recorded software and experimental resources\relax }}{12}{table.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces Experimental policies and their interpretation\relax }}{15}{table.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces Qwen3.5-0.8B full coverage with equal problem weighting\relax }}{22}{table.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces 0.8B accuracy by benchmark group using all available attempts\relax }}{23}{table.4}%
+\contentsline {table}{\numberline {5}{\ignorespaces Qwen3.5-2B full coverage with equal problem weighting\relax }}{24}{table.5}%
+\contentsline {table}{\numberline {6}{\ignorespaces 2B accuracy by benchmark group using all available attempts\relax }}{25}{table.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces Qwen3.5-4B full coverage with equal problem weighting\relax }}{26}{table.7}%
+\contentsline {table}{\numberline {8}{\ignorespaces 4B accuracy by benchmark group using all available attempts\relax }}{27}{table.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces All six completed combinations with one answer per problem\relax }}{28}{table.9}%
+\contentsline {table}{\numberline {10}{\ignorespaces Training addition versus the matching free policy on first attempts\relax }}{29}{table.10}%
+\contentsline {table}{\numberline {11}{\ignorespaces Partial methods retained with actual coverage and all-attempt scoring\relax }}{34}{table.11}%
+\contentsline {table}{\numberline {12}{\ignorespaces Recorded evidence checks and their limits\relax }}{35}{table.12}%

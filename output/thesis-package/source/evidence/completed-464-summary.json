@@ -1,0 +1,129 @@
+{
+  "way": "lora1-limit1024",
+  "coverage": 464,
+  "generated": 464,
+  "total_problems": 464,
+  "status": "COMPLETE",
+  "generation_status": {
+    "state": "finished"
+  },
+  "complete": true,
+  "attempts_per_problem": 1,
+  "comparisons": [
+    {
+      "reference": "limit1024",
+      "shared_problems": 464,
+      "accuracy": 0.41163793103448276,
+      "reference_accuracy": 0.3857758620689655,
+      "delta": 0.02586206896551724,
+      "delta_ci": [
+        -0.015086206896551725,
+        0.0668103448275862
+      ],
+      "total_tokens": 4071.9310344827586,
+      "reference_total_tokens": 4348.049568965517
+    },
+    {
+      "reference": "lora1",
+      "shared_problems": 424,
+      "accuracy": 0.4386792452830189,
+      "reference_accuracy": 0.37971698113207547,
+      "delta": 0.0589622641509434,
+      "delta_ci": [
+        0.014150943396226415,
+        0.10377358490566038
+      ],
+      "total_tokens": 3764.014150943396,
+      "reference_total_tokens": 4407.997641509434
+    },
+    {
+      "reference": "off",
+      "shared_problems": 464,
+      "accuracy": 0.41163793103448276,
+      "reference_accuracy": 0.3254310344827586,
+      "delta": 0.08620689655172414,
+      "delta_ci": [
+        0.04525862068965517,
+        0.12931034482758622
+      ],
+      "total_tokens": 4071.9310344827586,
+      "reference_total_tokens": 1365.7974137931035
+    },
+    {
+      "reference": "on",
+      "shared_problems": 464,
+      "accuracy": 0.41163793103448276,
+      "reference_accuracy": 0.2607758620689655,
+      "delta": 0.15086206896551724,
+      "delta_ci": [
+        0.10775862068965517,
+        0.19181034482758622
+      ],
+      "total_tokens": 4071.9310344827586,
+      "reference_total_tokens": 5368.543103448276
+    }
+  ],
+  "accuracy": 0.41163793103448276,
+  "baseline_manifest": [
+    {
+      "path": "results/2026-09-24-thesis-run/test-limit-he-graded.csv",
+      "sha256": "b584c624fc41c0cfefb35652252079032055121548562884b424ed721d814297"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-limit-lcb-graded.csv",
+      "sha256": "c00eb6856d92b9ec21c6fe750af2c917ad6a75da84f18dd3b774356d8f74740b"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-lora1-he-graded.csv",
+      "sha256": "d5d0851a51805aa5cc02dbd2b83b39db8b405fbcdf8ef7a36f9e55fef752e225"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-lora1-lcb-graded.csv",
+      "sha256": "a636073183d3e9c7ebf3097324f3dfde81670e936ec2f0ea357da8345dadb7ec"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-off-he-graded.csv",
+      "sha256": "fcd3ee980b360bc63d0644791ae5cc2b2380691cdbd09a5dca8d37e12b5f7cbb"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-off-lcb-graded.csv",
+      "sha256": "240a505da75258a42fa196f6bd074683bb065d695e70ad7a13f0a4912269c815"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-on-he-graded.csv",
+      "sha256": "b8eef7762bcd64f7d807a10afa0041fac277b6f1e9a750aa1302395ff7377740"
+    },
+    {
+      "path": "results/2026-09-24-thesis-run/test-on-lcb-graded.csv",
+      "sha256": "82868ca235d192435f1a2294321af8417fa444c19f2a122a658c3a529e0266b2"
+    },
+    {
+      "path": "results/extra/2b/test-limit1024-lcb-graded.csv",
+      "sha256": "a07f1bfd66b0ca5839ecd868f448a23716d3a17ad2ac490e2633849fbe8709fd"
+    },
+    {
+      "path": "results/extra/2b/test-off-lcb-graded.csv",
+      "sha256": "1e35558aa911112b8e05f5c2d04ba8de646e1ee2b6c3a7511f780826c6db7fc2"
+    },
+    {
+      "path": "results/extra/2b/test-on-lcb-graded.csv",
+      "sha256": "c8617508bd72d981740ec2f62f3b1c506eb914564dd77088c39a207e823d9529"
+    },
+    {
+      "path": "results/more/2b/test-limit1024-lcb-graded.csv",
+      "sha256": "cb0896aaa963694015e354730792d137e7a588bdb552a8d1b0e26dbc5293f8ba"
+    },
+    {
+      "path": "results/more/2b/test-lora1-lcb-graded.csv",
+      "sha256": "0ba149987331a06ba507cb31365425d47d55804c44bba543f772787bd8a6857b"
+    },
+    {
+      "path": "results/more/2b/test-off-lcb-graded.csv",
+      "sha256": "bc974016a60d8e360c883a29e908218d22b525b8ed2185b9404b12926908acf4"
+    },
+    {
+      "path": "results/more/2b/test-on-lcb-graded.csv",
+      "sha256": "aaa32f61c995d08895a0a2932e741985044d9da4011ba7e961602b24a5f4e325"
+    }
+  ]
+}

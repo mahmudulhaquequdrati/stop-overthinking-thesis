@@ -1,0 +1,92 @@
+[
+  {
+    "model": "0.8b",
+    "method": "lora1-off",
+    "reference": "off",
+    "shared_problems": 464,
+    "accuracy": 0.1400862068965517,
+    "reference_accuracy": 0.14655172413793102,
+    "delta": -0.00646551724137931,
+    "delta_ci": [
+      -0.032327586206896554,
+      0.021551724137931036
+    ],
+    "total_tokens": 1278.0150862068965,
+    "reference_total_tokens": 1780.5172413793102
+  },
+  {
+    "model": "0.8b",
+    "method": "lora1-limit512",
+    "reference": "limit512",
+    "shared_problems": 464,
+    "accuracy": 0.14439655172413793,
+    "reference_accuracy": 0.10560344827586207,
+    "delta": 0.03879310344827586,
+    "delta_ci": [
+      0.00646551724137931,
+      0.07112068965517242
+    ],
+    "total_tokens": 4978.540948275862,
+    "reference_total_tokens": 5919.769396551724
+  },
+  {
+    "model": "2b",
+    "method": "lora1-off",
+    "reference": "off",
+    "shared_problems": 464,
+    "accuracy": 0.35560344827586204,
+    "reference_accuracy": 0.3254310344827586,
+    "delta": 0.03017241379310345,
+    "delta_ci": [
+      -0.00646551724137931,
+      0.06896551724137931
+    ],
+    "total_tokens": 1445.0538793103449,
+    "reference_total_tokens": 1365.7974137931035
+  },
+  {
+    "model": "2b",
+    "method": "lora1-limit1024",
+    "reference": "limit1024",
+    "shared_problems": 464,
+    "accuracy": 0.41163793103448276,
+    "reference_accuracy": 0.3857758620689655,
+    "delta": 0.02586206896551724,
+    "delta_ci": [
+      -0.015086206896551725,
+      0.0668103448275862
+    ],
+    "total_tokens": 4071.9310344827586,
+    "reference_total_tokens": 4348.049568965517
+  },
+  {
+    "model": "4b",
+    "method": "lora1-off",
+    "reference": "off",
+    "shared_problems": 464,
+    "accuracy": 0.646551724137931,
+    "reference_accuracy": 0.6637931034482759,
+    "delta": -0.017241379310344827,
+    "delta_ci": [
+      -0.05603448275862069,
+      0.01939655172413793
+    ],
+    "total_tokens": 882.1896551724138,
+    "reference_total_tokens": 940.8103448275862
+  },
+  {
+    "model": "4b",
+    "method": "lora1-limit2048",
+    "reference": "limit2048",
+    "shared_problems": 464,
+    "accuracy": 0.7155172413793104,
+    "reference_accuracy": 0.7112068965517241,
+    "delta": 0.004310344827586207,
+    "delta_ci": [
+      -0.03017241379310345,
+      0.036637931034482756
+    ],
+    "total_tokens": 3510.907327586207,
+    "reference_total_tokens": 3964.8060344827586
+  }
+]

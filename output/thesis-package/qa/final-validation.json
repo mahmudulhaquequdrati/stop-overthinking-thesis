@@ -1,0 +1,31 @@
+{
+  "thesis.pdf": {
+    "total_pages": 60,
+    "preliminary_pages": 9,
+    "main_text_pages": 49,
+    "first_main_physical_page": 10
+  },
+  "thesis-latex.pdf": {
+    "total_pages": 58,
+    "preliminary_pages": 11,
+    "main_text_pages": 45,
+    "first_main_physical_page": 12
+  },
+  "conference-paper.pdf": {
+    "total_pages": 6,
+    "layout": "two columns with full-width tables"
+  },
+  "conference-paper-latex.pdf": {
+    "total_pages": 6,
+    "layout": "two columns with full-width tables"
+  },
+  "evidence_checks": {
+    "unique_test_ids": 464,
+    "complete_combinations": 6,
+    "figures_in_thesis": 19,
+    "tables_in_thesis": 12,
+    "references": 13,
+    "shared_body_prose_matches": true,
+    "latex_compilation": "successful; no overfull boxes or unresolved citations/references"
+  }
+}

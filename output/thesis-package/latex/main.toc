@@ -1,0 +1,62 @@
+\contentsline {section}{Chapter 1: Introduction}{1}{section*.8}%
+\contentsline {subsection}{1.1 Background and Motivation}{1}{section*.9}%
+\contentsline {subsection}{1.2 Problem Statement}{2}{section*.10}%
+\contentsline {subsection}{1.3 Research Questions and Objectives}{3}{section*.11}%
+\contentsline {subsection}{1.4 Scope and Limitations}{3}{section*.12}%
+\contentsline {subsection}{1.5 Contributions}{4}{section*.13}%
+\contentsline {subsection}{1.6 Thesis Organization}{4}{section*.14}%
+\contentsline {section}{Chapter 2: Literature Review}{5}{section*.15}%
+\contentsline {subsection}{2.1 Language Models and Program Generation}{5}{section*.16}%
+\contentsline {subsection}{2.2 Written Reasoning and Its Limits}{5}{section*.17}%
+\contentsline {subsection}{2.3 Self Training with Concise Solutions}{6}{section*.18}%
+\contentsline {subsection}{2.4 Compression and Software Engineering Research}{7}{section*.19}%
+\contentsline {subsection}{2.5 Low Rank Adaptation}{7}{section*.20}%
+\contentsline {subsection}{2.6 Thinking OFF and Budget Controls}{8}{section*.21}%
+\contentsline {subsection}{2.7 Benchmarks and Functional Correctness}{9}{section*.22}%
+\contentsline {subsection}{2.8 Repetition and Output Caps}{9}{section*.23}%
+\contentsline {subsection}{2.9 Research Gap and Positioning}{10}{section*.24}%
+\contentsline {subsection}{2.10 Chapter Summary}{10}{section*.25}%
+\contentsline {section}{Chapter 3: Methodology}{11}{section*.26}%
+\contentsline {subsection}{3.1 Overall Research Design}{11}{section*.27}%
+\contentsline {subsection}{3.2 Models and Software}{12}{section*.28}%
+\contentsline {subsection}{3.3 Test Datasets and Collection}{12}{section*.29}%
+\contentsline {subsection}{3.4 Training Pools and Shortest Correct Selection}{13}{section*.30}%
+\contentsline {subsection}{3.5 Inference Configurations}{15}{section*.31}%
+\contentsline {subsection}{3.6 Answer Extraction and Grading}{16}{section*.32}%
+\contentsline {subsection}{3.7 Accuracy and Equal Problem Weight}{16}{section*.33}%
+\contentsline {subsection}{3.8 First Attempt Comparisons}{17}{section*.34}%
+\contentsline {subsection}{3.9 Paired Uncertainty Analysis}{18}{section*.35}%
+\contentsline {subsection}{3.10 Tokens, Cap Hits, and Resource Reporting}{19}{section*.36}%
+\contentsline {subsection}{3.11 Validation and Reproducibility}{19}{section*.37}%
+\contentsline {subsection}{3.12 Chapter Summary}{20}{section*.38}%
+\contentsline {section}{Chapter 4: Results}{21}{section*.39}%
+\contentsline {subsection}{4.1 Reading the Results}{21}{section*.40}%
+\contentsline {subsection}{4.2 Full Coverage Results for 0.8B}{22}{section*.41}%
+\contentsline {subsection}{4.3 Full Coverage Results for 2B}{24}{section*.42}%
+\contentsline {subsection}{4.4 Full Coverage Results for 4B}{26}{section*.43}%
+\contentsline {subsection}{4.5 Completed LoRA Combinations with One Attempt}{28}{section*.44}%
+\contentsline {subsection}{4.6 Matched First Attempt Comparisons}{28}{section*.45}%
+\contentsline {subsection}{4.7 Output Length and Accuracy Tradeoffs}{30}{section*.46}%
+\contentsline {subsection}{4.8 Cap Rates and Historical Loop Evidence}{32}{section*.47}%
+\contentsline {subsection}{4.9 Partial Sweeps and the Historical LoRA 2 Experiment}{34}{section*.48}%
+\contentsline {subsection}{4.10 Validation Results}{35}{section*.49}%
+\contentsline {subsection}{4.11 Summary of Key Findings}{35}{section*.50}%
+\contentsline {section}{Chapter 5: Discussion}{37}{section*.51}%
+\contentsline {subsection}{5.1 Interpretation of the Main Results}{37}{section*.52}%
+\contentsline {subsection}{5.2 Why a Matching Baseline Changes the Conclusion}{37}{section*.53}%
+\contentsline {subsection}{5.3 A Possible Role for Repetition}{38}{section*.54}%
+\contentsline {subsection}{5.4 What the Training Data Can Explain}{38}{section*.55}%
+\contentsline {subsection}{5.5 Benchmark and Difficulty Differences}{39}{section*.56}%
+\contentsline {subsection}{5.6 Accuracy, Tokens, and Practical Choice}{40}{section*.57}%
+\contentsline {subsection}{5.7 Comparison with Prior Work}{40}{section*.58}%
+\contentsline {subsection}{5.8 Threats to Validity}{41}{section*.59}%
+\contentsline {subsection}{5.9 Reporting Lessons and Implications}{42}{section*.60}%
+\contentsline {subsection}{5.10 Chapter Summary}{42}{section*.61}%
+\contentsline {section}{Chapter 6: Conclusion and Future Work}{43}{section*.62}%
+\contentsline {subsection}{6.1 Summary of the Study}{43}{section*.63}%
+\contentsline {subsection}{6.2 Answers to the Research Questions}{43}{section*.64}%
+\contentsline {subsection}{6.3 Main Conclusions}{44}{section*.65}%
+\contentsline {subsection}{6.4 Recommendations for Future Work}{44}{section*.66}%
+\contentsline {subsection}{6.5 Closing Statement}{45}{section*.67}%
+\contentsline {section}{References}{46}{section*.68}%
+\contentsline {section}{Appendix A: Evidence and Supplementary Data}{47}{section*.69}%
